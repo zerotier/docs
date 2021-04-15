@@ -1,4 +1,4 @@
-![Try our extra BIG-ASS Manual. Now with more... MARKDOWN](./artwork/documentashun_s.png)
+![Try our extra BIG-ASS Manual. Now with more... MARKDOWN](./artwork/hero.png)
 
 > It doesn’t matter how good your product is, because if its documentation is not good enough, people will not use it
 
