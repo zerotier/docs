@@ -1,0 +1,21 @@
+name: Generate New Documentashun
+on: push
+
+jobs:
+  run:
+    name: Generate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Checkout submodules
+        run: make
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v7
+        with:
+          author_name: github-actions
+          author_email: 41898282+github-actions[bot]@users.noreply.github.com
+          message: 'Auto-Generated Documentation Update'
+          add: '.'
