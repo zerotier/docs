@@ -6,7 +6,8 @@
 
 apply-slate-style-to()
 {
-	cp -rf style/slate/* src/guides/libzt/
+	mkdir -p $1
+	cp -rf style/slate/* $1
 }
 
 remove-slate-style-from()
@@ -18,6 +19,7 @@ remove-slate-style-from()
 
 apply-doxygen-style-to()
 {
+	mkdir -p $1
 	cp -f style/doxygen/*.png $1
 }
 
