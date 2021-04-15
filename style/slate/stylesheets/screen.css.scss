@@ -540,7 +540,7 @@ a:link {
     &>p { margin: 0; }
 
     a {
-      color: #orange;
+      color: #fff;
       text-decoration: none;
       border-bottom: dashed 1px #ccc;
     }
@@ -557,7 +557,8 @@ a:link {
     &>p {
       background-color: $code-annotation-bg;
       padding: $code-annotation-padding 2em;
-      color: green;
+      font-size: 16px;
+      color: orange;
     }
   }
 }
