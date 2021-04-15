@@ -282,9 +282,9 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-205aa0b5.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/screen-2074a6b4.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
-      <script src="javascripts/all-a9fde460.js"></script>
+      <script src="javascripts/all-74a3daea.js"></script>
 
     <script>
       $(function() { setupCodeCopy(); });
@@ -306,6 +306,52 @@
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
+            <a href="#general" class="toc-h1 toc-link" data-title="General">General</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#bonding-link-aggregation" class="toc-h2 toc-link" data-title="Bonding (link aggregation)">Bonding (link aggregation)</a>
+                      <ul class="toc-list-h3">
+                          <li>
+                            <a href="#standard-policies" class="toc-h3 toc-link" data-title="Standard policies">Standard policies</a>
+                          </li>
+                          <li>
+                            <a href="#custom-policies" class="toc-h3 toc-link" data-title="Custom policies">Custom policies</a>
+                          </li>
+                          <li>
+                            <a href="#specifying-links" class="toc-h3 toc-link" data-title="Specifying links">Specifying links</a>
+                          </li>
+                          <li>
+                            <a href="#peer-specific-bonds" class="toc-h3 toc-link" data-title="Peer-specific bonds">Peer-specific bonds</a>
+                          </li>
+                          <li>
+                            <a href="#active-backup-active-backup" class="toc-h3 toc-link" data-title="Active backup (<code>active-backup</code>)">Active backup (<code>active-backup</code>)</a>
+                          </li>
+                          <li>
+                            <a href="#broadcast-broadcast" class="toc-h3 toc-link" data-title="Broadcast (<code>broadcast</code>)">Broadcast (<code>broadcast</code>)</a>
+                          </li>
+                          <li>
+                            <a href="#balance-round-robin-balance-rr" class="toc-h3 toc-link" data-title="Balance round robin (<code>balance-rr</code>)">Balance round robin (<code>balance-rr</code>)</a>
+                          </li>
+                          <li>
+                            <a href="#balance-xor-balance-xor-similar-to-the-linux-kernel-39-s-balance-xor-with-xmit_hash_policy-layer3-4" class="toc-h3 toc-link" data-title="Balance XOR (<code>balance-xor</code>, similar to the Linux kernel's <a href="https://www.kernel.org/doc/Documentation/networking/bonding.txt">balance-xor</a> with <code>xmit_hash_policy=layer3+4</code>)">Balance XOR (<code>balance-xor</code>, similar to the Linux kernel's <a href="https://www.kernel.org/doc/Documentation/networking/bonding.txt">balance-xor</a> with <code>xmit_hash_policy=layer3+4</code>)</a>
+                          </li>
+                          <li>
+                            <a href="#balance-aware-balance-aware-similar-to-linux-kernel-39-s-balance-lb-modes" class="toc-h3 toc-link" data-title="Balance aware (<code>balance-aware</code>, similar to Linux kernel's <a href="https://www.kernel.org/doc/Documentation/networking/bonding.txt"><code>balance-*lb</code></a> modes)">Balance aware (<code>balance-aware</code>, similar to Linux kernel's <a href="https://www.kernel.org/doc/Documentation/networking/bonding.txt"><code>balance-*lb</code></a> modes)</a>
+                          </li>
+                          <li>
+                            <a href="#link-quality" class="toc-h3 toc-link" data-title="Link quality">Link quality</a>
+                          </li>
+                          <li>
+                            <a href="#asymmetric-links" class="toc-h3 toc-link" data-title="Asymmetric links">Asymmetric links</a>
+                          </li>
+                          <li>
+                            <a href="#performance-and-overhead-considerations" class="toc-h3 toc-link" data-title="Performance and overhead considerations">Performance and overhead considerations</a>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </ul>
@@ -318,9 +364,9 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h3 id='bonding-link-aggregation'>Bonding (link aggregation)</h3>
+        <h1 id='general'>General</h1><h2 id='bonding-link-aggregation'>Bonding (link aggregation)</h2>
 <p>Link aggregation allows the simultaneous (or conditional) use of multiple physical links to enable increased throughput, load balancing, redundancy, and fault tolerance. There are a variety of standard policies available that can be used right out of the box with little to no configuration. These policies are directly inspired by <a href="https://www.kernel.org/doc/Documentation/networking/bonding.txt">the policies offered by the Linux kernel</a> but are now offered in user-space and hence available on all platforms that ZeroTier supports.</p>
-<h4 id='standard-policies'>Standard policies</h4>
+<h3 id='standard-policies'>Standard policies</h3>
 <table><thead>
 <tr>
 <th>Policy name</th>
@@ -405,7 +451,7 @@
         </span><span class="nl">"defaultBondingPolicy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active-backup"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h4 id='custom-policies'>Custom policies</h4>
+</span></code></pre></div><h3 id='custom-policies'>Custom policies</h3>
 <p>To customize a bonding policy for your use-case simply specify a <code>basePolicy</code> and override chosen parameters. For example, to create a more aggressive <code>active-backup</code> policy with low monitoring overhead that will failover <code>0.250</code> seconds after it detects a link failure, one could do the following:</p>
 
 <blockquote>
@@ -426,7 +472,7 @@
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h4 id='specifying-links'>Specifying links</h4>
+</span></code></pre></div><h3 id='specifying-links'>Specifying links</h3>
 <p>Bonds are composed of multiple <code>links</code>. Different sets of links can be constructed for different bonding policies and used simultaneously. One can specify the links that ZeroTier should use in any given bonding policy simply by providing an array of links with names corresponding to interface names. If a user doesn&#39;t specify a set of interfaces to use, ZeroTier will assume every system interface is available for use. However, if the user <strong>does</strong> specify a set of interfaces, ZeroTier will only use what is specified. The same applies to failover rules, if none are specified, ZeroTier will failover to any operational link. On the other hand, if the user does specify failover rules and there is ever a situation where a link is available for usage but does not fit within the rules specified by the user, it will go unused.</p>
 
 <p>To specify that ZeroTier should only use <code>eth0</code> and <code>eth1</code> as primary links, and <code>eth2</code> as a backup spare and that it should prefer IPv4 over IPv6 except on <code>eth2</code> where only IPv6 is allowed:</p>
@@ -478,7 +524,7 @@
     <span class="dl">"</span><span class="s2">mode</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">primary</span><span class="dl">"</span><span class="o">|</span><span class="dl">"</span><span class="s2">spare</span><span class="dl">"</span> <span class="cm">/* (optional) Whether this link is used by default or only after failover events. */</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div><h4 id='peer-specific-bonds'>Peer-specific bonds</h4>
+</code></pre></div><h3 id='peer-specific-bonds'>Peer-specific bonds</h3>
 <p>It is possible to direct ZeroTier to form a certain type of bond with specific peers of your choice. For instance, if one were to want <code>active-backup</code> by default but for certain peers to be bonded with a custom load-balanced bond such as <code>my-custom-balance-aware</code> one could do the following:</p>
 
 <blockquote>
@@ -505,7 +551,7 @@
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h4 id='active-backup-active-backup'>Active backup (<code>active-backup</code>)</h4>
+</span></code></pre></div><h3 id='active-backup-active-backup'>Active backup (<code>active-backup</code>)</h3>
 <p>Traffic is sent only on (one) path at any given time. A different path becomes active if the current path fails. This mode provides fault tolerance with a nearly immediate fail-over. This mode <strong>does not</strong> increase total throughput.</p>
 
 <ul>
@@ -540,13 +586,13 @@
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h4 id='broadcast-broadcast'>Broadcast (<code>broadcast</code>)</h4>
+</span></code></pre></div><h3 id='broadcast-broadcast'>Broadcast (<code>broadcast</code>)</h3>
 <p>Traffic is sent on (all) available paths simultaneously. This mode provides fault tolerance and effectively immediate failover due to transmission redundancy. This mode is a poor utilization of throughput resources and will <strong>not</strong> increase throughput but can prevent packet loss during a link failure. The only option available is <code>dedup</code> which will de-duplicate all packets on the receiving end if set to <code>true</code>.</p>
-<h4 id='balance-round-robin-balance-rr'>Balance round robin (<code>balance-rr</code>)</h4>
+<h3 id='balance-round-robin-balance-rr'>Balance round robin (<code>balance-rr</code>)</h3>
 <p>Traffic is striped across multiple paths. Offers partial fault tolerance immediately, full fault tolerance eventually. This policy is unaware of protocols and is primarily intended for use with protocols that are not sensitive to reordering delays. The only option available for this policy is <code>packetsPerLink</code> which specifies the number of packets to transmit via a path before moving to the next in the RR sequence. When set to <code>0</code> a path is chosen at random for each outgoing packet. The default value is <code>8</code>, low values can begin to add overhead to packet processing.</p>
-<h4 id='balance-xor-balance-xor-similar-to-the-linux-kernel-39-s-balance-xor-with-xmit_hash_policy-layer3-4'>Balance XOR (<code>balance-xor</code>, similar to the Linux kernel&#39;s <a href="https://www.kernel.org/doc/Documentation/networking/bonding.txt">balance-xor</a> with <code>xmit_hash_policy=layer3+4</code>)</h4>
+<h3 id='balance-xor-balance-xor-similar-to-the-linux-kernel-39-s-balance-xor-with-xmit_hash_policy-layer3-4'>Balance XOR (<code>balance-xor</code>, similar to the Linux kernel&#39;s <a href="https://www.kernel.org/doc/Documentation/networking/bonding.txt">balance-xor</a> with <code>xmit_hash_policy=layer3+4</code>)</h3>
 <p>Traffic is categorized into <em>flows</em> based on <em>source port</em>, <em>destination port</em>, and <em>protocol type</em> these flows are then hashed onto available links. Each flow will persist on its assigned link interface for its entire life-cycle. Traffic that does not have an assigned port (such as ICMP pings) will be randomly distributed across links. The hash function is simply: <code>src_port ^ dst_port ^ proto</code>.</p>
-<h4 id='balance-aware-balance-aware-similar-to-linux-kernel-39-s-balance-lb-modes'>Balance aware (<code>balance-aware</code>, similar to Linux kernel&#39;s <a href="https://www.kernel.org/doc/Documentation/networking/bonding.txt"><code>balance-*lb</code></a> modes)</h4>
+<h3 id='balance-aware-balance-aware-similar-to-linux-kernel-39-s-balance-lb-modes'>Balance aware (<code>balance-aware</code>, similar to Linux kernel&#39;s <a href="https://www.kernel.org/doc/Documentation/networking/bonding.txt"><code>balance-*lb</code></a> modes)</h3>
 <p>Traffic is dynamically allocated and balanced across multiple links simultaneously according to the target allocation. Options allow for <em>packet</em> or <em>flow-based</em> processing, and active-flow reassignment. Flows mediated over a recently failed links will be reassigned in a manner that respects the target allocation of the bond. An optional <code>balancePolicy</code> can be specified with the following effects: <code>flow-dynamic</code> (default) will hash flows onto links according to target allocation and may perform periodic re-assignments in order to preserve balance. <code>flow-static</code>, will hash flows onto links according to target allocation but will not re-assign flows unless a failure occurs or the link is no longer operating within acceptable parameters. And lastly <code>packet</code> which simply load balances packets across links according to target allocation but with no concern for sequence reordering.</p>
 
 <blockquote>
@@ -561,7 +607,7 @@
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h4 id='link-quality'>Link quality</h4>
+</span></code></pre></div><h3 id='link-quality'>Link quality</h3>
 <p>ZeroTier measures various properties of a link (such as latency, throughput, jitter, packet loss ratio, etc) in order to arrive at a quality estimate. This estimate is used by bonding policies to make allocation and failover decisions:</p>
 
 <table><thead>
@@ -593,7 +639,7 @@
 </tbody></table>
 
 <p>A link&#39;s eligibility for being included in a bond is dependent on more than perceived quality. If a path on a link begins to exhibit disruptive behavior such as extremely high packet loss, corruption, or periodic inability to process traffic it will be removed from the bond, its traffic will be appropriately reallocated and it will be punished. Punishments gradually fade and a link can be readmitted to the bond over time. However, punishments increase exponentially if applied more than once within a given window of time.</p>
-<h4 id='asymmetric-links'>Asymmetric links</h4>
+<h3 id='asymmetric-links'>Asymmetric links</h3>
 <p>In cases where it is necessary to bond physical links that vary radically in terms of cost, throughput, latency, and or reliability, there are a couple of ways to automatically (or manually) allocate traffic among them. Traffic distribution and balancing can be either <code>packet</code> or <code>flow</code> based. Where packet-based is suitable for protocols not susceptible to reordering penalties and flow-based is suitable for protocols such as TCP where it is desirable to keep a conversation on a single link unless we can&#39;t avoid having to re-assign it. Additionally, a <em>target allocation</em> of traffic used by the bonding policy can be derived/specified in the following ways:</p>
 
 <ul>
@@ -635,7 +681,7 @@
   </span><span class="nl">"eth1"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"alloc"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.25</span><span class="w"> </span><span class="p">},</span><span class="w">
   </span><span class="nl">"eth2"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"alloc"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.25</span><span class="w"> </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h4 id='performance-and-overhead-considerations'>Performance and overhead considerations</h4>
+</span></code></pre></div><h3 id='performance-and-overhead-considerations'>Performance and overhead considerations</h3>
 <ul>
 <li>Only packets with internal IDs divisible by <code>16</code> are included in measurements, this amounts to about <code>6.25%</code> of all traffic.</li>
 <li><code>failoverInterval</code> specifies how quickly failover should occur during a link failure. In order to accomplish this a combination of active and passive measurement techniques are employed which may result in <code>VERB_HELLO</code> probes being sent every <code>failoverInterval / 4</code> time units. As a mitigation <code>monitorStrategy</code> may be set to <code>dynamic</code> so that probe frequency directly correlates with native application traffic.</li>
