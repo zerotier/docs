@@ -87,7 +87,7 @@ clean()
 
 all()
 {
-	are-there-changes-we-care-about
+	#are-there-changes-we-care-about
 
 	manual
 	libztcore
