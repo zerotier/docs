@@ -27,9 +27,3 @@ Styling assets for the various tools are stored in `style/` and copied during an
 
  - Add build steps in [build.sh](./build.sh)
  - The `Makefile` just calls `build.sh`. I just like typing make, it rolls off the keyboard faster but I hate using make for anything complex.
-
-## Misc Resources
- - Guides are built using Slate
-	- https://github.com/slatedocs/slate
-	- https://hub.docker.com/r/slatedocs/slate
-	- Supported language lexers: https://github.com/rouge-ruby/rouge/wiki/List-of-supported-languages-and-lexers
