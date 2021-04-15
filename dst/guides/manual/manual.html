@@ -282,7 +282,7 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-9f58f2c7.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/screen-0ec97fb8.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print-d51e38b2.css" rel="stylesheet" media="print" />
       <script src="javascripts/all-a9fde460.js"></script>
 
@@ -330,10 +330,10 @@
                     <a href="#balance-round-robin-balance-rr" class="toc-h2 toc-link" data-title="Balance round robin (balance-rr)">Balance round robin (<code>balance-rr</code>)</a>
                   </li>
                   <li>
-                    <a href="#balance-xor-balance-xor-similar-to-the-linux-kernel-39-s-balance-xor-with-xmit_hash_policy-layer3-4" class="toc-h2 toc-link" data-title="Balance XOR (balance-xor, similar to the Linux kernel's balance-xor with xmit_hash_policy=layer3+4)">Balance XOR (<code>balance-xor</code>, similar to the Linux kernel's <a href="https://www.kernel.org/doc/Documentation/networking/bonding.txt">balance-xor</a> with <code>xmit_hash_policy=layer3+4</code>)</a>
+                    <a href="#balance-xor" class="toc-h2 toc-link" data-title="Balance XOR">Balance XOR</a>
                   </li>
                   <li>
-                    <a href="#balance-aware-balance-aware-similar-to-linux-kernel-39-s-balance-lb-modes" class="toc-h2 toc-link" data-title="Balance aware (balance-aware, similar to Linux kernel's balance-*lb modes)">Balance aware (<code>balance-aware</code>, similar to Linux kernel's <a href="https://www.kernel.org/doc/Documentation/networking/bonding.txt"><code>balance-*lb</code></a> modes)</a>
+                    <a href="#balance-aware" class="toc-h2 toc-link" data-title="Balance aware">Balance aware</a>
                   </li>
                   <li>
                     <a href="#link-quality" class="toc-h2 toc-link" data-title="Link quality">Link quality</a>
@@ -585,9 +585,17 @@
 <p>Traffic is sent on (all) available paths simultaneously. This mode provides fault tolerance and effectively immediate failover due to transmission redundancy. This mode is a poor utilization of throughput resources and will <strong>not</strong> increase throughput but can prevent packet loss during a link failure. The only option available is <code>dedup</code> which will de-duplicate all packets on the receiving end if set to <code>true</code>.</p>
 <h2 id='balance-round-robin-balance-rr'>Balance round robin (<code>balance-rr</code>)</h2>
 <p>Traffic is striped across multiple paths. Offers partial fault tolerance immediately, full fault tolerance eventually. This policy is unaware of protocols and is primarily intended for use with protocols that are not sensitive to reordering delays. The only option available for this policy is <code>packetsPerLink</code> which specifies the number of packets to transmit via a path before moving to the next in the RR sequence. When set to <code>0</code> a path is chosen at random for each outgoing packet. The default value is <code>8</code>, low values can begin to add overhead to packet processing.</p>
-<h2 id='balance-xor-balance-xor-similar-to-the-linux-kernel-39-s-balance-xor-with-xmit_hash_policy-layer3-4'>Balance XOR (<code>balance-xor</code>, similar to the Linux kernel&#39;s <a href="https://www.kernel.org/doc/Documentation/networking/bonding.txt">balance-xor</a> with <code>xmit_hash_policy=layer3+4</code>)</h2>
+<h2 id='balance-xor'>Balance XOR</h2>
+<aside class="notice">
+Similar to the Linux kernel's <a href="https://www.kernel.org/doc/Documentation/networking/bonding.txt">balance-xor</a> modes with <code>xmit_hash_policy=layer3+4</code>.
+</aside>
+
 <p>Traffic is categorized into <em>flows</em> based on <em>source port</em>, <em>destination port</em>, and <em>protocol type</em> these flows are then hashed onto available links. Each flow will persist on its assigned link interface for its entire life-cycle. Traffic that does not have an assigned port (such as ICMP pings) will be randomly distributed across links. The hash function is simply: <code>src_port ^ dst_port ^ proto</code>.</p>
-<h2 id='balance-aware-balance-aware-similar-to-linux-kernel-39-s-balance-lb-modes'>Balance aware (<code>balance-aware</code>, similar to Linux kernel&#39;s <a href="https://www.kernel.org/doc/Documentation/networking/bonding.txt"><code>balance-*lb</code></a> modes)</h2>
+<h2 id='balance-aware'>Balance aware</h2>
+<aside class="notice">
+Similar to the Linux kernel's <a href="https://www.kernel.org/doc/Documentation/networking/bonding.txt">balance-*lb</a> modes.
+</aside>
+
 <p>Traffic is dynamically allocated and balanced across multiple links simultaneously according to the target allocation. Options allow for <em>packet</em> or <em>flow-based</em> processing, and active-flow reassignment. Flows mediated over a recently failed links will be reassigned in a manner that respects the target allocation of the bond. An optional <code>balancePolicy</code> can be specified with the following effects: <code>flow-dynamic</code> (default) will hash flows onto links according to target allocation and may perform periodic re-assignments in order to preserve balance. <code>flow-static</code>, will hash flows onto links according to target allocation but will not re-assign flows unless a failure occurs or the link is no longer operating within acceptable parameters. And lastly <code>packet</code> which simply load balances packets across links according to target allocation but with no concern for sequence reordering.</p>
 
 <blockquote>
