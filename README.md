@@ -33,3 +33,19 @@ Styling assets for the various tools are stored in `style/` and copied during an
 
  - Add build steps in [build.sh](./build.sh)
  - The `Makefile` just calls `build.sh`. I just like typing make, it rolls off the keyboard faster but I hate using make for anything complex.
+
+## Pro-tip
+
+Add this to your shell profile:
+
+```
+docs()
+{
+	MSG=${1:-"Documentation edit"}
+	echo $MSG
+	git pull
+	git add .
+	git commit -m $MSG -S
+	git push
+}
+```
