@@ -9,8 +9,11 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
 
-      - name: Checkout submodules
-        run: make
+      - name: Install Doxygen
+         run: sudo apt-get install doxygen
+
+      - name: Rebuild documentation
+         run: make
 
       - name: Commit changes
         uses: EndBug/add-and-commit@v7
