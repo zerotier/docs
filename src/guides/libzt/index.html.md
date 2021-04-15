@@ -1,5 +1,5 @@
 ---
-title: ZeroTier SDK?
+title: ZeroTier SDK
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - c
