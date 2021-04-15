@@ -193,11 +193,19 @@ Traffic is sent on (all) available paths simultaneously. This mode provides faul
 
 Traffic is striped across multiple paths. Offers partial fault tolerance immediately, full fault tolerance eventually. This policy is unaware of protocols and is primarily intended for use with protocols that are not sensitive to reordering delays. The only option available for this policy is `packetsPerLink` which specifies the number of packets to transmit via a path before moving to the next in the RR sequence. When set to `0` a path is chosen at random for each outgoing packet. The default value is `8`, low values can begin to add overhead to packet processing.
 
-## Balance XOR (`balance-xor`, similar to the Linux kernel's [balance-xor](https://www.kernel.org/doc/Documentation/networking/bonding.txt) with `xmit_hash_policy=layer3+4`)
+## Balance XOR
+
+<aside class="notice">
+Similar to the Linux kernel's <a href="https://www.kernel.org/doc/Documentation/networking/bonding.txt">balance-xor</a> modes with <code>xmit_hash_policy=layer3+4</code>.
+</aside>
 
 Traffic is categorized into *flows* based on *source port*, *destination port*, and *protocol type* these flows are then hashed onto available links. Each flow will persist on its assigned link interface for its entire life-cycle. Traffic that does not have an assigned port (such as ICMP pings) will be randomly distributed across links. The hash function is simply: `src_port ^ dst_port ^ proto`.
 
-## Balance aware (`balance-aware`, similar to Linux kernel's [`balance-*lb`](https://www.kernel.org/doc/Documentation/networking/bonding.txt) modes)
+## Balance aware
+
+<aside class="notice">
+Similar to the Linux kernel's <a href="https://www.kernel.org/doc/Documentation/networking/bonding.txt">balance-*lb</a> modes.
+</aside>
 
 Traffic is dynamically allocated and balanced across multiple links simultaneously according to the target allocation. Options allow for *packet* or *flow-based* processing, and active-flow reassignment. Flows mediated over a recently failed links will be reassigned in a manner that respects the target allocation of the bond. An optional `balancePolicy` can be specified with the following effects: `flow-dynamic` (default) will hash flows onto links according to target allocation and may perform periodic re-assignments in order to preserve balance. `flow-static`, will hash flows onto links according to target allocation but will not re-assign flows unless a failure occurs or the link is no longer operating within acceptable parameters. And lastly `packet` which simply load balances packets across links according to target allocation but with no concern for sequence reordering.
 

@@ -525,7 +525,7 @@ a:link {
 
   pre, blockquote {
     background-color: $code-bg;
-    color: orange;
+    color: #fff;
 
     margin: 0;
     width: $examples-width;
@@ -540,7 +540,7 @@ a:link {
     &>p { margin: 0; }
 
     a {
-      color: #fff;
+      color: #orange;
       text-decoration: none;
       border-bottom: dashed 1px #ccc;
     }
@@ -557,7 +557,7 @@ a:link {
     &>p {
       background-color: $code-annotation-bg;
       padding: $code-annotation-padding 2em;
-      color: #eee;
+      color: green;
     }
   }
 }
