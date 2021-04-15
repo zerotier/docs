@@ -1,0 +1,23 @@
+digraph "ZTS_CallbackMessage"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="ZTS_CallbackMessage",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" network" ,fontname="Helvetica"];
+  Node2 [label="ZTS_VirtualNetworkConfig",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structZTS__VirtualNetworkConfig.html",tooltip=" "];
+  Node3 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" routes" ,fontname="Helvetica"];
+  Node3 [label="ZTS_VirtualNetworkRoute",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structZTS__VirtualNetworkRoute.html",tooltip=" "];
+  Node4 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" netif" ,fontname="Helvetica"];
+  Node4 [label="ZTS_Netif",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structZTS__Netif.html",tooltip=" "];
+  Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" route" ,fontname="Helvetica"];
+  Node5 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" addr" ,fontname="Helvetica"];
+  Node5 [label="ZTS_Address",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structZTS__Address.html",tooltip=" "];
+  Node6 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" peer" ,fontname="Helvetica"];
+  Node6 [label="ZTS_Peer",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structZTS__Peer.html",tooltip=" "];
+  Node7 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" paths" ,fontname="Helvetica"];
+  Node7 [label="ZTS_PeerPhysicalPath",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structZTS__PeerPhysicalPath.html",tooltip=" "];
+  Node8 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" node" ,fontname="Helvetica"];
+  Node8 [label="ZTS_Node",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structZTS__Node.html",tooltip=" "];
+}
