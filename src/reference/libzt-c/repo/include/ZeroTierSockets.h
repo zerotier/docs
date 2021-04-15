@@ -30,7 +30,6 @@ extern "C" {
 
 /** Common error return values */
 enum ZTS_Error {
-	ZTS_SOME_OTHER_ERROR = 99,
 	/** No error */
 	ZTS_ERR_OK = 0,
 	/** Socket error, see `zts_errno` */
