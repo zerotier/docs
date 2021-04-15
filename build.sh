@@ -60,6 +60,16 @@ libzt()
 #                                                                              #
 ################################################################################
 
+# Prevent running the full workflow for no reason
+are-there-changes-we-care-about()
+{
+	if [[ `git status --porcelain src style build.sh .github` ]]; then
+	  :
+	else
+	  exit 0
+	fi
+}
+
 clean()
 {
 	rm -rf dst
@@ -67,6 +77,8 @@ clean()
 
 all()
 {
+	are-there-changes-we-care-about
+
 	libztcore
 	libzt
 	#terraport
