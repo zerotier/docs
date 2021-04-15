@@ -71,10 +71,12 @@ libzt()
 # Prevent running the full workflow for no reason
 are-there-changes-we-care-about()
 {
-	if [[ `git status --porcelain src style build.sh .github` ]]; then
-	  :
+	if [[ `git status --porcelain src style ./build.sh .github` ]];
+	then
+		echo "Documentation changes detected. Continuing with full workflow."
 	else
-	  exit 0
+		echo "No documentation changes detected. Stopping workflow."
+		exit 0
 	fi
 }
 
