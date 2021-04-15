@@ -69,9 +69,12 @@ libzt()
 ################################################################################
 
 # Prevent running the full workflow for no reason
+# This is run by github actions so it will inspect your *last* commit
 are-there-changes-we-care-about()
 {
-	if [[ `git status --porcelain src style ./build.sh .github` ]];
+	git diff --name-only --diff-filter=AMDR @~..@ | grep -q "src\|style\|build.sh\|.github"
+  	retval=$?
+	if [[ $retval -eq 0 ]];
 	then
 		echo "Documentation changes detected. Continuing with full workflow."
 	else
@@ -87,7 +90,7 @@ clean()
 
 all()
 {
-	#are-there-changes-we-care-about
+	are-there-changes-we-care-about
 
 	manual
 	libztcore
