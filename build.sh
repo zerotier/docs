@@ -27,6 +27,14 @@ apply-doxygen-style-to()
 # PROJECTS                                                                     #
 ################################################################################
 
+manual()
+{
+	# GUIDE
+	apply-slate-style-to src/guides/manual/
+	docker run --rm --name slate -v $(pwd)/dst/guides/manual:/srv/slate/build -v $(pwd)/src/guides/manual:/srv/slate/source slatedocs/slate
+	remove-slate-style-from src/guides/manual/
+}
+
 libztcore()
 {
 	# API REFERENCE
@@ -50,7 +58,7 @@ libzt()
 	cd -
 	apply-doxygen-style-to dst/reference/libzt-c/html
 
-	# GUIDES
+	# GUIDE
 	apply-slate-style-to src/guides/libzt/
 	docker run --rm --name slate -v $(pwd)/dst/guides/libzt:/srv/slate/build -v $(pwd)/src/guides/libzt:/srv/slate/source slatedocs/slate
 	remove-slate-style-from src/guides/libzt/
@@ -79,6 +87,7 @@ all()
 {
 	are-there-changes-we-care-about
 
+	manual
 	libztcore
 	libzt
 	#terraport
