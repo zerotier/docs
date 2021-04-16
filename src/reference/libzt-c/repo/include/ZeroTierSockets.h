@@ -192,25 +192,31 @@ enum ZTS_Event {
 	/** A managed IPv6 address assignment was removed from this peer  */
 	ZTS_EVENT_ADDR_REMOVED_IP6 = 263,
 
+	/** The node's secret key (identity) */
 	ZTS_CACHE_UPDATE_IDENTITY_SECRET = 270,
+	/** The node's public key (identity) */
 	ZTS_CACHE_UPDATE_IDENTITY_PUBLIC = 271,
+	/** The node has received an updated planet config */
 	ZTS_CACHE_UPDATE_PLANET = 272,
+	/** New reachability hints and peer configuration */
 	ZTS_CACHE_UPDATE_PEER = 273,
+	/** New network config */
 	ZTS_CACHE_UPDATE_NETWORK = 274
 };
 
 //--------------------------------------------------------------------------//
-// zts_errno Error codes?
+// zts_errno Error codes
 //--------------------------------------------------------------------------//
 
-/** Error variable set after each `zts_*` call. Provides additional information.
+/**
+ * Error variable set after each `zts_*` socket call. Provides additional error context.
  */
 extern int zts_errno;
 
-#define ZTS_EPERM           1          /* Operation not permitted */
-#define ZTS_ENOENT          2          /* No such file or directory */
-#define ZTS_ESRCH           3          /* No such process */
-#define ZTS_EINTR           4          /* Interrupted system call */
+#define ZTS_EPERM           1          ///< Operation not permitted
+#define ZTS_ENOENT          2          ///< No such file or directory
+#define ZTS_ESRCH           3          ///< No such process
+#define ZTS_EINTR           4          ///< Interrupted system call
 #define ZTS_EIO             5          /* I/O error */
 #define ZTS_ENXIO           6          /* No such device or address */
 #define ZTS_E2BIG           7          /* Arg list too long */
@@ -867,8 +873,8 @@ ZTS_API int ZTCALL zts_id_is_valid(const char* key, int len);
 
 // events
 
-ZTS_API int ZTCALL zts_events_lock();
-ZTS_API int ZTCALL zts_events_unlock();
+// ZTS_API int ZTCALL zts_events_lock();
+// ZTS_API int ZTCALL zts_events_unlock();
 ZTS_API int ZTCALL zts_events_start();
 ZTS_API int ZTCALL zts_events_stop();
 
@@ -897,11 +903,36 @@ ZTS_API int ZTCALL zts_controller_();
 
 */
 
-// init
-
+/**
+ * @brief Tell ZeroTier to look for node identity files at the given location. This is an
+ * initialization function that can only be called before `zts_node_start()`.
+ *
+ * @param port Path Null-terminated file-system path string
+ * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_SERVICE` if the node
+ *     experiences a problem, `ZTS_ERR_ARG` if invalid arg.
+ */
 ZTS_API int ZTCALL zts_init_from_storage(char* path);
+
+/**
+ * @brief Tell ZeroTier to use the identity provided in `key`. This is an initialization function
+ * that can only be called before `zts_node_start()`.
+ *
+ * @param key Path Null-terminated file-system path string
+ * @param len Length of `key` buffer
+ * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_SERVICE` if the node
+ *     experiences a problem, `ZTS_ERR_ARG` if invalid arg.
+ */
 ZTS_API int ZTCALL zts_init_from_memory(const char* key, uint16_t len);
 
+/**
+ * @brief Set the event handler function. This is an initialization function that can only be called
+ * before `zts_node_start()`.
+ *
+ * @param callback A function pointer to the event handler function
+ * @param family `ZTS_AF_INET`, or `ZTS_AF_INET6`
+ * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_SERVICE` if the node
+ *     experiences a problem, `ZTS_ERR_ARG` if invalid arg.
+ */
 #ifdef ZTS_ENABLE_PYTHON
 int zts_init_set_event_handler(PythonDirectorCallbackClass* callback);
 #endif
@@ -917,6 +948,15 @@ ZTS_API int ZTCALL zts_init_blacklist_ip6(char* cidr, int len);
 ZTS_API int ZTCALL zts_init_blacklist_ip4(char* cidr, int len);
 
 ZTS_API int ZTCALL zts_init_set_planet(char* src, int len);
+
+/**
+ * @brief Set ZeroTier service port. This is an initialization function that can only be called
+ * before `zts_node_start()`.
+ *
+ * @param port Port number
+ * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_SERVICE` if the node
+ *     experiences a problem, `ZTS_ERR_ARG` if invalid arg.
+ */
 ZTS_API int ZTCALL zts_init_set_port(unsigned short port);
 
 /**
@@ -972,7 +1012,13 @@ ZTS_API int ZTCALL zts_node_get_id_pair(char* key, uint16_t* key_buf_len);
 ZTS_API uint64_t ZTCALL zts_node_get_id();
 ZTS_API unsigned short ZTCALL zts_node_get_port();
 
-// address
+/**
+ * @brief Return whether an address of the given family has been assigned by the network
+ *
+ * @param nwid A `16-digit hexadecimal` virtual network ID
+ * @param family `ZTS_AF_INET`, or `ZTS_AF_INET6`
+ * @return `true` or `false`
+ */
 ZTS_API int ZTCALL zts_addr_is_assigned(uint64_t nwid, int family);
 ZTS_API int ZTCALL zts_addr_get(uint64_t nwid, int family, struct zts_sockaddr_storage* addr);
 ZTS_API int ZTCALL zts_addr_get_str(uint64_t nwid, int family, char* dst, int len);
@@ -997,6 +1043,12 @@ ZTS_API int ZTCALL zts_net_join(const uint64_t nwid);
  *     experiences a problem, `ZTS_ERR_ARG` if invalid arg.
  */
 ZTS_API int ZTCALL zts_net_leave(const uint64_t nwid);
+
+/**
+ * @brief Return number of joined networks
+ *
+ * @return Number of joined networks
+ */
 ZTS_API int ZTCALL zts_net_count();
 ZTS_API int ZTCALL zts_net_get_mac(uint64_t nwid);
 ZTS_API int ZTCALL zts_net_get_broadcast(uint64_t nwid);
@@ -1284,9 +1336,9 @@ ZTS_API int ZTCALL zts_get_protocol_stats(int protocolType, void* protoStatsDest
 /**
  * @brief Create a socket
  *
- * @param socket_family Address family (ZTS_AF_INET, ZTS_AF_INET6)
- * @param socket_type Type of socket (ZTS_SOCK_STREAM, ZTS_SOCK_DGRAM,
- * ZTS_SOCK_RAW)
+ * @param socket_family `ZTS_AF_INET`, or `ZTS_AF_INET6`
+ * @param socket_type `ZTS_SOCK_STREAM, `ZTS_SOCK_DGRAM`,
+ * `ZTS_SOCK_RAW`
  * @param protocol Protocols supported on this socket
  * @return Numbered file descriptor on success, `ZTS_ERR_SERVICE` if the node
  *     experiences a problem, `ZTS_ERR_ARG` if invalid arg. Sets `zts_errno`

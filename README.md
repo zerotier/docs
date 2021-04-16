@@ -5,7 +5,7 @@
 ## Examples
 
   - [Manual](http://10.6.6.250:8000/guides/manual/manual.html)
-  - [SDK C/C++ Reference](http://10.6.6.250:8000/reference/libzt-c/html/)
+  - [SDK C/C++ Reference](http://10.6.6.250:8000/reference/libzt-c/html/ZeroTierSockets_8h.html)
   - [SDK Guide](http://10.6.6.250:8000/guides/libzt/#getting-started)
 
 ## What are we doing?
