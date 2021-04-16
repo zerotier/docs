@@ -1,73 +1,124 @@
 /* This doxygen theme is free to use. If you like this, please Star https://github.com/kcwongjoe/doxygen_theme_flat_design */
 
+.doxyhidden
+{
+    display: none;
+}
+
 /* Color Pattern. You can change this pattern to design your theme. */
 :root {
 
     /* Content */
-    --bgcolor: #ffffff;
-    --bgfont: #303030;
-    --bgfont2: orange;
-    --bgfont-hover: orange;
+    --bgcolor-content: #F3F7F9;
+    --fgcolor: #F3F7F9;
+    --bgcolor: #3E4346;
+    --bgfont: #F3F7F9;
+    --bgfont2: #ffb354;
+    --bgfont-hover: #ffb354;
     --bgborder: #7d7d7d;
-    --bgborder2: #f6f6f6;
+    --bgborder2: #F3F7F9;
 
     /* Main Header */
-    --bg1color: #303030;
-    --bg1font:#ffffff;
-    --bg1font2:orange;
+    --bg1color: #2E3336;
+    --bg1font:#F3F7F9;
+    --bg1font2:#5c3200;
 
     /* Second header */
-    --bg2color: #E2E2E2;
+    --bg2color: cyan;
     --bg2font:#7D7D7D;
 
-    --bg2-hover-bg: #ffffff;
-    --bg2-hover-font: #303030;
-    --bg2-hover-topborder: orange;
+    --bg2-hover-bg: #2E3336;
+    --bg2-hover-font: #F3F7F9;
+    --bg2-hover-topborder: #ffb354;
 
     /* Third header */
-    --bg3color: #f6f6f6;
-    --bg3font: #303030;
+    --bg3color: #ffb354;
+    --bg3font: black;
     --bg3font2:#7D7D7D;
 
     /* Code */
-    --code-bg: #f6f6f6;
+    --code-bg: #DADADA;
     --code-comment: #7D7D7D;
     --code-keyword: #d73a49;
     --code-preprocessor: #d73a49;
     --code-keywordtype: #d73a49;
-    --code-text: #303030;
+    --code-text: #F3F7F9;
     --code-code: #6f42c1;
     --code-line: #7D7D7D;
     --code-line-bg: #D8D8D8;
+    --code-highlight: #DADADA;
+    --code-font-family: Menlo, Monaco, "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif;;
 
     /* Namespace List, Class List icon */
-    --icon-bg: #303030;
-    --icon-font: orange;
+    --icon-bg: #F3F7F9;
+    --icon-font: #ffb354;
 
     /* Class Index */
-    --qindex-menu-bg: #303030;
-    --qindex-menu-font: #ffffff;
-    --qindex-menu-font-hover: orange;
+    --qindex-menu-bg: purple;
+    --qindex-menu-font: #F3F7F9;
+    --qindex-menu-font-hover: #ffb354;
 
-    --qindex-icon-bg: orange;
-    --qindex-icon-font: #303030;
+    --qindex-icon-bg: #ffb354;
+    --qindex-icon-font: #F3F7F9;
 
     /* Member table */
-    --mem-title-bg: #303030;
-    --mem-title-font: #ffffff;
-    --mem-subtitle-bg: orange;
-    --mem-subtitle-font: #303030;
-    --mem-subtitle-font-hover: #303030;
-    --mem-content-bg: #ffffff;
-    --mem-content-font: #ffffff;
-    --mem-content-border: #f6f6f6;
+    --mem-title-bg: #ffb354;
+    --mem-title-font: black;
+    --mem-subtitle-bg: #C0D0E0;
+    --mem-subtitle-font: black;
+    --mem-subtitle-font-hover: #F3F7F9;
+    --mem-content-bg: #F3F7F9;
+    --mem-content-font: black;
+    --mem-content-border: #F3F7F9;
+    --mem-content-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   }
 
-body, table, div, p, dl {
+body, table, div, p {
 	color: var(--bgfont);
     background-color: var(--bgcolor);
-    line-height: 150%;
-    font: 14px/22px, Iosevka;
+    font: 14px/22px;
+}
+
+table {
+    border-radius: 3px;
+    background-color: var(--mem-content-bg);
+    border: 0px solid black;
+}
+
+code {
+    font-family: var(--code-font-family);
+    background-color: var(--code-highlight);
+    border-radius: 3px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.fieldname {
+    font-family: var(--code-font-family);
+    padding: 3px;
+}
+
+.paramname {
+    font-family: var(--code-font-family);
+    padding: 3px;
+}
+
+.paramtype {
+    font-family: var(--code-font-family);
+    padding: 3px;
+}
+
+.navpath {
+    display: none;
+}
+
+.textblock {
+    display: none;
+}
+
+dl {
+    color: var(--bgfont);
+    background-color: var(--bgcolor-content);
 }
 
 div.contents{
@@ -76,6 +127,10 @@ div.contents{
 
 div.contents ul{
     line-height: 200%;
+}
+
+a {
+    color: var(--mem-content-font);
 }
 
 
@@ -96,7 +151,7 @@ div.contents ul{
 
 #projectname {
 
-    padding: 0px 40px !important;
+    padding: 0px 0px !important;
 }
 
 #projectlogo
@@ -119,6 +174,7 @@ div.contents ul{
 
 #main-menu{
     padding: 0px 30px;
+    display: none;
 }
 
 #main-menu a, #main-menu a:hover{
@@ -135,6 +191,14 @@ div.contents ul{
     text-shadow: none;
     font-size: 14px;
     font-weight: 700;
+}
+
+.memtitle {
+    min-width: 50%;
+}
+
+.memitem {
+    max-width: 100%;
 }
 
 #main-menu, #main-menu > li > a{
@@ -229,10 +293,13 @@ div.header, div.header * {
     color: var(--bg3font);
     background-color: var(--bg3color);
     border-bottom: none;
+    font-family: var(--mem-content-font-family);
 }
 
 div.summary {
-    padding-right: 40px;
+    padding: 15px;
+    font-family: var(--mem-content-font-family);
+    font-size: 16px;
 }
 
 /***********************************/
@@ -269,7 +336,6 @@ a:hover, .contents a:hover, body.SRPage a:hover {
 }
 
 li.navelem {
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHhtbG5zOnN2Z2pzPSJodHRwOi8vc3ZnanMuY29tL3N2Z2pzIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDI5Mi4zNTkgMjkyLjM1OSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgY2xhc3M9IiI+PGc+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+Cgk8cGF0aCBkPSJNMjIyLjk3OSwxMzMuMzMxTDk1LjA3Myw1LjQyNEM5MS40NTYsMS44MDcsODcuMTc4LDAsODIuMjI2LDBjLTQuOTUyLDAtOS4yMzMsMS44MDctMTIuODUsNS40MjQgICBjLTMuNjE3LDMuNjE3LTUuNDI0LDcuODk4LTUuNDI0LDEyLjg0N3YyNTUuODEzYzAsNC45NDgsMS44MDcsOS4yMzIsNS40MjQsMTIuODQ3YzMuNjIxLDMuNjE3LDcuOTAyLDUuNDI4LDEyLjg1LDUuNDI4ICAgYzQuOTQ5LDAsOS4yMy0xLjgxMSwxMi44NDctNS40MjhsMTI3LjkwNi0xMjcuOTA3YzMuNjE0LTMuNjEzLDUuNDI4LTcuODk3LDUuNDI4LTEyLjg0NyAgIEMyMjguNDA3LDE0MS4yMjksMjI2LjU5NCwxMzYuOTQ4LDIyMi45NzksMTMzLjMzMXoiIGZpbGw9IiM3ZDdkN2QiIGRhdGEtb3JpZ2luYWw9IiMwMDAwMDAiIHN0eWxlPSIiIGNsYXNzPSIiPjwvcGF0aD4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8L2c+CjxnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjwvZz4KPGcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPC9nPgo8L2c+PC9zdmc+);
     background-size: 9px;
 }
 
@@ -284,6 +350,7 @@ li.navelem a{
 .memtitle {
     padding: 15px;
     margin-top: 30px;
+    margin-bottom: 0px;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
 }
@@ -293,6 +360,7 @@ li.navelem a{
     background-image: none;
     color: var(--mem-title-font);
     background-color: var(--mem-title-bg);
+    font-family: var(--code-font-family);
 }
 
 .memproto {
@@ -302,6 +370,7 @@ li.navelem a{
     border-top-right-radius: 0px;
     -moz-border-radius-topright: 0px;
     -webkit-border-top-right-radius: 0px;
+    font-family: var(--code-font-family);
 }
 
 .memproto, .memproto *, .memproto a:visited{
@@ -310,18 +379,20 @@ li.navelem a{
     background-color: var(--mem-subtitle-bg);
     color: var(--mem-subtitle-font);
     font-size: inherit;
-    line-height: 100%
+    line-height: 100%;
+    font-family: var(--code-font-family);
 }
 
 .memproto a:hover {
     color: var(--mem-subtitle-font-hover);
+    font-family: var(--code-font-family);
 }
 
 .memdoc {
     border-bottom: 1px solid var(--mem-content-border);
     border-left: 1px solid var(--mem-content-border);
     border-right: 1px solid var(--mem-content-border);
-    background-color: var(--mem-content-bg);
+    background-color: var(--bgcolor-content);
     color: var(--mem-content-font);
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
@@ -331,8 +402,15 @@ li.navelem a{
     -webkit-border-bottom-right-radius: 0px;
 }
 
-.memdoc p, .memdoc dt{
+.memberdecls * {
+    color: var(--mem-content-font);
+}
+
+.memdoc p, .memdoc dt, .memdoc tr, .memdoc dd{
     padding: 0px 20px;
+    color: var(--mem-content-font);
+    background-color: var(--bgcolor-content);
+    font-family: var(--mem-content-font-family);
 }
 
 
@@ -341,7 +419,7 @@ li.navelem a{
 /***********************************/
 
 h2.groupheader {
-    color: #303030;
+    color: var(--fgcolor);
     font-size: 200%;
     font-weight: bold;
     border-bottom: none;
@@ -350,14 +428,17 @@ h2.groupheader {
 }
 
 div.fragment, pre.fragment {
+    border-radius: 4px;
     border: none;
     padding: 20px;
     margin: none;
     background-color: var(--code-bg);
+    color: var(--mem-content-font);
 }
 
 div.line {
     background-color: var(--code-bg);
+    color: var(--mem-content-font);
 }
 
 span.comment {
@@ -414,17 +495,14 @@ span.lineno a:hover{
 }
 
 .iconfclosed {
-    background-image: url(closed-folder.png);
     margin-right: 10px;
 }
 
 .iconfopen {
-    background-image: url(opened-folder.png);
     margin-right: 10px;
 }
 
 .icondoc {
-    background-image: url(document.png);
     margin-right: 10px;
 }
 
@@ -513,57 +591,36 @@ hr.footer {
     border-top: 0px;
 }
 
+.doc-content {
+    background-color: black;
+}
 /***********************************/
 /*********** memberdecls ***********/
 /***********************************/
 
 .memItemLeft, .memItemRight{
-    padding: 15px 30px;
+    padding: 0px 30px;
     background-color: inherit;
+    color: var(--mem-content-font);
 }
 
 .mdescRight{
     padding: 0px 30px 10px 30px;
+    color: var(--mem-content-font);
 
 }
 
 .memberdecls *{
-    background-color: inherit;
+    background-color: var(--bgcolor-content);
+    color: var(--mem-content-font);
 }
 
 .memSeparator{
     border-bottom: 1px solid var(--bgborder2);
+    color: var(--mem-content-font);
 }
 
 .memTemplParams{
     color: var(--bgfont);
+    color: var(--mem-content-font);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-h1.glow, h2.glow, h3.glow, h4.glow, h5.glow, h6.glow {
-    text-shadow: 0 0 15px orange;
-}
-
-
-

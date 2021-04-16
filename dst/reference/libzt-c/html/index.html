@@ -9,15 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="zt.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -53,22 +48,6 @@ $(function() {
 /* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('index.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -83,105 +62,17 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </iframe>
 </div>
 
-<div class="PageDoc"><div class="header">
+<div class="header">
   <div class="headertitle">
 <div class="title">libzt Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><div align="center"></div><div align="center"><h1>ZeroTier SDK</h1>
-</div><div align="center"> <img src="https://i.imgur.com/BwSHwE3.png" alt="zts_socket()" class="inline"/> </div><div align="center">Peer-to-peer and cross-platform encrypted connections built right into your app or service. No drivers, no root, and no host configuration.</div><div align="center"><br  />
-</div><div align="center"><a href="./examples">Examples</a> | <a href="./include/README.md">API Documentation</a> | <a href="https://discuss.zerotier.com/">Community</a> | <a href="https://github.com/zerotier/libzt/issues">Report a Bug</a></div><div align="center"><a href="https://www.twitter.com/zerotier"><img src="https://img.shields.io/twitter/follow/zerotier?style=social" alt="@zerotier" class="inline"/></a> <a href="https://old.reddit.com/r/zerotier"><img src="https://img.shields.io/reddit/subreddit-subscribers/zerotier?style=social" alt="r/zerotier" class="inline"/></a></div><div align="center"><img src="https://img.shields.io/github/v/tag/zerotier/libzt?label=latest" alt="latest libzt version" class="inline"/> <a href="https://github.com/zerotier/libzt/commits/master"><img src="https://img.shields.io/github/last-commit/zerotier/libzt" alt="Last Commit" class="inline"/></a> <a href="https://github.com/zerotier/libzt/actions"><img src="https://img.shields.io/github/workflow/status/zerotier/libzt/CMake/master" alt="Build Status (master branch)" class="inline"/></a> </div><table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadLeft">Language/Platform </th><th class="markdownTableHeadLeft">Installation </th><th class="markdownTableHeadLeft">Version </th><th class="markdownTableHeadLeft">Example  </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">C/C++ </td><td class="markdownTableBodyLeft"><a href="#build-from-source">Build from source</a> </td><td class="markdownTableBodyLeft"><img src="https://img.shields.io/github/v/tag/zerotier/libzt?label=" alt="version" class="inline"/> </td><td class="markdownTableBodyLeft"><a href="./examples/cpp">C/C++</a>  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">Objective-C </td><td class="markdownTableBodyLeft">See <a href="./examples/objective-c">examples/objective-c</a> </td><td class="markdownTableBodyLeft"><img src="https://img.shields.io/github/v/tag/zerotier/libzt?label=" alt="version" class="inline"/> </td><td class="markdownTableBodyLeft"><a href="./examples/objective-c">Objective-C</a>  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">C# </td><td class="markdownTableBodyLeft"><code>Install-Package ZeroTier.Sockets</code> </td><td class="markdownTableBodyLeft"><a href="https://www.nuget.org/packages/ZeroTier.Sockets/"><img src="https://img.shields.io/github/v/tag/zerotier/libzt?label=NuGet" alt="" class="inline"/></a> </td><td class="markdownTableBodyLeft"><a href="./examples/csharp">C#</a>  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">Python </td><td class="markdownTableBodyLeft"><code>pip install libzt</code> </td><td class="markdownTableBodyLeft"><a href="https://pypi.org/project/libzt/"><img src="https://img.shields.io/pypi/v/libzt?label=PyPI" alt="" class="inline"/></a> </td><td class="markdownTableBodyLeft"><a href="./examples/python">Python</a>  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Rust </td><td class="markdownTableBodyLeft">Coming <em>very</em> soon </td><td class="markdownTableBodyLeft"><img src="https://img.shields.io/github/v/tag/zerotier/libzt?label=" alt="version" class="inline"/> </td><td class="markdownTableBodyLeft"><a href="./examples/rust">Rust</a>  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">Swift </td><td class="markdownTableBodyLeft">See <a href="./examples/swift">examples/swift</a> </td><td class="markdownTableBodyLeft"><img src="https://img.shields.io/github/v/tag/zerotier/libzt?label=" alt="version" class="inline"/> </td><td class="markdownTableBodyLeft"><a href="./examples/swift">Swift</a>  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Java </td><td class="markdownTableBodyLeft"><code>./build.sh host-jar</code> </td><td class="markdownTableBodyLeft"><img src="https://img.shields.io/github/v/tag/zerotier/libzt?label=" alt="" class="inline"/> </td><td class="markdownTableBodyLeft"><a href="./examples/java">Java</a>  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">Node.js </td><td class="markdownTableBodyLeft">See <a href="./examples/nodejs">examples/nodejs</a> </td><td class="markdownTableBodyLeft"><img src="https://img.shields.io/badge/-help--wanted-green" alt="" class="inline"/> </td><td class="markdownTableBodyLeft"><a href="./examples/nodejs">Node.js</a>  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Linux </td><td class="markdownTableBodyLeft"><a href="#build-from-source">Build from source</a> </td><td class="markdownTableBodyLeft"><img src="https://img.shields.io/github/v/tag/zerotier/libzt?label=" alt="version" class="inline"/> </td><td class="markdownTableBodyLeft"><a href="./examples/cpp">C/C++</a>  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">macOS </td><td class="markdownTableBodyLeft"><code>brew install libzt</code> </td><td class="markdownTableBodyLeft"><a href="https://formulae.brew.sh/formula/libzt#default"><img src="https://img.shields.io/homebrew/v/libzt?label=Homebrew" alt="" class="inline"/></a> </td><td class="markdownTableBodyLeft"><a href="./examples/cpp">C/C++</a>, <a href="./examples/objective-c">Objective-C</a>  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">iOS / iPadOS </td><td class="markdownTableBodyLeft"><code>./build.sh ios-framework</code> </td><td class="markdownTableBodyLeft"><img src="https://img.shields.io/github/v/tag/zerotier/libzt?label=" alt="" class="inline"/> </td><td class="markdownTableBodyLeft"><a href="./examples/objective-c">Objective-C</a>, <a href="./examples/swift">Swift</a>  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">Android </td><td class="markdownTableBodyLeft"><code>./build.sh android-aar</code> </td><td class="markdownTableBodyLeft"><img src="https://img.shields.io/github/v/tag/zerotier/libzt?label=" alt="" class="inline"/> </td><td class="markdownTableBodyLeft"><a href="./examples/java">Java</a>  </td></tr>
-</table>
-<p><br  />
-</p>
-<div align="left"></div><div align="left"><div class="fragment"><div class="line">#include &quot;ZeroTierSockets.h&quot;</div>
-<div class="line"> </div>
-<div class="line">int main()</div>
-<div class="line">{</div>
-<div class="line">    zts_start(...)</div>
-<div class="line">    zts_join(networkId);</div>
-<div class="line">    int fd = zts_socket(ZTS_AF_INET, ZTS_SOCK_STREAM, 0);</div>
-<div class="line">    zts_connect(fd, ...);</div>
-<div class="line">    ...</div>
-<div class="line">}</div>
-</div><!-- fragment --></div><div align="left"></div><h1><a class="anchor" id="autotoc_md0"></a>
-Build from source</h1>
-<div align="left"> <div class="fragment"><div class="line">git submodule update --init</div>
-</div><!-- fragment --></div><div align="left">This project uses <a href="https://cmake.org/download/">CMake</a> as a build system generator. The scripts <code>build.*</code> simplify building and packaging for various targets. There are many targets and configurations not mentioned here.</div><div align="left"><table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadLeft">Platform </th><th class="markdownTableHeadLeft">Build instructions </th><th class="markdownTableHeadLeft">Notes  </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Linux </td><td class="markdownTableBodyLeft"><code>./build.sh host "release"</code> </td><td class="markdownTableBodyLeft"><a href="./build.sh">build.sh</a>  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft">macOS </td><td class="markdownTableBodyLeft"><code>./build.sh host "release"</code> </td><td class="markdownTableBodyLeft"><a href="./build.sh">build.sh</a>  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft">Windows </td><td class="markdownTableBodyLeft"><code>. .\build.ps1; Build-Host -BuildType "Release"</code> </td><td class="markdownTableBodyLeft"><a href="./build.ps1">build.ps1</a>, <em>Requires <a href="https://github.com/powershell/powershell">PowerShell</a></em>  </td></tr>
-</table>
-</div><div align="left"> Using the <code>host</code> keyword will automatically detect the current machine type and build standard libzt for use in C/C++ (no additional language bindings.) See <code>./build.sh list</code> for additional target options. <code>libzt</code> depends on <a href="https://github.com/curl/curl">cURL</a> for the optional portion of the API that interfaces with our hosted web offering (<a href="my.zerotier.com">my.zerotier.com</a>). If you do not need this functionality you can omit it by passing <code>-DZTS_ENABLE_CENTRAL_API=0</code> to CMake.</div><div align="left">Example output:</div><div align="left"><div class="fragment"><div class="line">~/libzt/dist/macos-x64-host-release</div>
-<div class="line">├── bin</div>
-<div class="line">│   ├── client</div>
-<div class="line">│   ├── server</div>
-<div class="line">│   └── ...</div>
-<div class="line">└── lib</div>
-<div class="line">    ├── libzt.a</div>
-<div class="line">    └── libzt.dylib</div>
-</div><!-- fragment --></div><div align="left">Important directories:</div><div align="left"><table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadLeft">Directory </th><th class="markdownTableHeadLeft">Purpose  </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><code>dist</code> </td><td class="markdownTableBodyLeft">Contains finished targets (libraries, binaries, packages, etc.)  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyLeft"><code>cache</code> </td><td class="markdownTableBodyLeft">Contains build system caches that can safely be deleted after use.  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyLeft"><code>pkg</code> </td><td class="markdownTableBodyLeft">Contains project, script and spec files to generate packages.  </td></tr>
-</table>
-</div><div align="left"></div><h1><a class="anchor" id="autotoc_md1"></a>
-Self-hosting (Optional)</h1>
-<div align="left"> We provide ways for your app or enterprise to function independently from any of our services if desired.</div><div align="left">While we do operate a global network of redundant root servers, network controllers and an admin API/UI called <a href="https://my.zerotier.com">Central</a>, some use-cases require full control over the infrastructure and we try to make it as easy as possible to set up your own controllers and root servers: See <a href="https://github.com/zerotier/ZeroTierOne/tree/master/controller">here</a> to learn more about how to set up your own network controller, and <a href="https://www.zerotier.com/manual/#4_4">here</a> to learn more about setting up your own roots.</div><div align="left"></div><h1><a class="anchor" id="autotoc_md2"></a>
-Help</h1>
-<div align="left"><ul>
-<li>Reference: C API</li>
-<li>Examples: <a href="./examples">examples/</a></li>
-<li>Bug reports: <a href="https://github.com/zerotier/libzt/issues">Open a github issue</a>.</li>
-<li>General ZeroTier troubleshooting: <a href="https://zerotier.atlassian.net/wiki/spaces/SD/overview">Knowledgebase</a>.</li>
-<li>Chat with us: <a href="https://discuss.zerotier.com">discuss.zerotier.com</a></li>
-</ul>
-</div><div align="left"></div><h1><a class="anchor" id="autotoc_md3"></a>
-Licensing</h1>
-<div align="left"> ZeroTier and the ZeroTier SDK (libzt and libztcore) are licensed under the <a href="./LICENSE.txt">BSL version 1.1</a>. ZeroTier is free to use internally in businesses and academic institutions and for non-commercial purposes. Certain types of commercial use such as building closed-source apps and devices based on ZeroTier or offering ZeroTier network controllers and network management as a SaaS service require a commercial license. A small amount of third party code is also included in ZeroTier and is not subject to our BSL license. See AUTHORS.md for a list of third party code, where it is included, and the licenses that apply to it. All of the third party code in ZeroTier is liberally licensed (MIT, BSD, Apache, public domain, etc.). If you want a commercial license to use the ZeroTier SDK in your product contact us directly via <a href="#" onclick="location.href='mai'+'lto:'+'con'+'ta'+'ct@'+'ze'+'rot'+'ie'+'r.c'+'om'; return false;">contact@zerotier.com</a> </div></div></div><!-- PageDoc -->
 </div><!-- contents -->
-</div><!-- doc-content -->
-<!-- HTML footer for doxygen 1.9.1-->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
 </body>
 </html>

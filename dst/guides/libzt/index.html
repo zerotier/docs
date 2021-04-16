@@ -445,6 +445,17 @@
   <span class="c1">// ...</span>
   <span class="k">return</span> <span class="n">zts_node_stop</span><span class="p">();</span>
 <span class="p">}</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code>  <span class="k">print</span><span class="p">(</span><span class="s">"Starting ZeroTier..."</span><span class="p">)</span>
+  <span class="n">event_callback</span> <span class="o">=</span> <span class="n">MyEventCallbackClass</span><span class="p">()</span>
+  <span class="n">libzt</span><span class="p">.</span><span class="n">start</span><span class="p">(</span><span class="n">key_file_path</span><span class="p">,</span> <span class="n">event_callback</span><span class="p">,</span> <span class="n">zt_service_port</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"Waiting for node to come online..."</span><span class="p">)</span>
+  <span class="k">while</span> <span class="ow">not</span> <span class="n">is_online</span><span class="p">:</span>
+      <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"Joining network:"</span><span class="p">,</span> <span class="nb">hex</span><span class="p">(</span><span class="n">network_id</span><span class="p">))</span>
+  <span class="n">libzt</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">network_id</span><span class="p">)</span>
+  <span class="k">while</span> <span class="ow">not</span> <span class="n">is_joined</span><span class="p">:</span>
+      <span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+  <span class="k">print</span><span class="p">(</span><span class="s">"Joined network"</span><span class="p">)</span>
 </code></pre></div>
 <aside class="success">
 Full example source code: <a href="https://github.com/zerotier/libzt/tree/master/examples">libzt/examples</a>

@@ -9,15 +9,10 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtreedata.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="zt.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -52,23 +47,6 @@ $(function() {
 });
 /* @license-end */</script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-$(document).ready(function(){initNavTree('ZeroTier_8h_source.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -83,6 +61,11 @@ $(document).ready(function(){initNavTree('ZeroTier_8h_source.html',''); initResi
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_752f9258976072ab3e06b31dacb87d2d.html">repo</a></li><li class="navelem"><a class="el" href="dir_fe343c2a5897961f711deb37663d7822.html">include</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">ZeroTier.h</div>  </div>
@@ -296,7 +279,6 @@ $(document).ready(function(){initNavTree('ZeroTier_8h_source.html',''); initResi
 <div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160; </div>
 <div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-</div><!-- doc-content -->
 <div class="ttc" id="astructZTS__PeerPhysicalPath_html_a74ea6cc78d05698a4d5099b2d2bf7a04"><div class="ttname"><a href="structZTS__PeerPhysicalPath.html#a74ea6cc78d05698a4d5099b2d2bf7a04">ZTS_PeerPhysicalPath::lastReceive</a></div><div class="ttdeci">uint64_t lastReceive</div><div class="ttdef"><b>Definition:</b> ZeroTier.h:363</div></div>
 <div class="ttc" id="astructZTS__PeerPhysicalPath_html_aa09a7fb157122395f381a4bd59f01a41"><div class="ttname"><a href="structZTS__PeerPhysicalPath.html#aa09a7fb157122395f381a4bd59f01a41">ZTS_PeerPhysicalPath::preferred</a></div><div class="ttdeci">int preferred</div><div class="ttdef"><b>Definition:</b> ZeroTier.h:428</div></div>
 <div class="ttc" id="astructZTS__MulticastGroup_html_addbff18ea8dc2c8392bcaf07692c18f1"><div class="ttname"><a href="structZTS__MulticastGroup.html#addbff18ea8dc2c8392bcaf07692c18f1">ZTS_MulticastGroup::mac</a></div><div class="ttdeci">uint64_t mac</div><div class="ttdef"><b>Definition:</b> ZeroTier.h:218</div></div>
@@ -360,12 +342,11 @@ $(document).ready(function(){initNavTree('ZeroTier_8h_source.html',''); initResi
 <div class="ttc" id="astructZTS__VirtualNetworkConfig_html_acfcb534f6e20a700e07fa294c85cd4a0"><div class="ttname"><a href="structZTS__VirtualNetworkConfig.html#acfcb534f6e20a700e07fa294c85cd4a0">ZTS_VirtualNetworkConfig::bridge</a></div><div class="ttdeci">int bridge</div><div class="ttdef"><b>Definition:</b> ZeroTier.h:284</div></div>
 <div class="ttc" id="astructZTS__PeerPhysicalPath_html_a8baf0b027331499e1bd7e8388b29b694"><div class="ttname"><a href="structZTS__PeerPhysicalPath.html#a8baf0b027331499e1bd7e8388b29b694">ZTS_PeerPhysicalPath::expired</a></div><div class="ttdeci">int expired</div><div class="ttdef"><b>Definition:</b> ZeroTier.h:423</div></div>
 <div class="ttc" id="astructZTS__PeerPhysicalPath_html_ab6fdfb0d57dcc80b1eab44bba637d0c8"><div class="ttname"><a href="structZTS__PeerPhysicalPath.html#ab6fdfb0d57dcc80b1eab44bba637d0c8">ZTS_PeerPhysicalPath::allocation</a></div><div class="ttdeci">float allocation</div><div class="ttdef"><b>Definition:</b> ZeroTier.h:413</div></div>
-<!-- HTML footer for doxygen 1.9.1-->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a class="el" href="dir_752f9258976072ab3e06b31dacb87d2d.html">repo</a></li><li class="navelem"><a class="el" href="dir_fe343c2a5897961f711deb37663d7822.html">include</a></li><li class="navelem"><a class="el" href="ZeroTier_8h.html">ZeroTier.h</a></li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
 </body>
 </html>
