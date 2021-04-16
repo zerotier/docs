@@ -23,10 +23,6 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "libzt", "index.html", [
-    [ "Build from source", "index.html#autotoc_md0", null ],
-    [ "Self-hosting (Optional)", "index.html#autotoc_md1", null ],
-    [ "Help", "index.html#autotoc_md2", null ],
-    [ "Licensing", "index.html#autotoc_md3", null ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Structure Index", "classes.html", null ],
