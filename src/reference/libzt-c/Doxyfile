@@ -10,6 +10,6 @@ PROJECT_LOGO = repo/artwork/AppIcon_60x60.png
 FULL_PATH_NAMES = NO
 OPTIMIZE_OUTPUT_FOR_C = YES
 GENERATE_TREEVIEW = NO
-HTML_EXTRA_STYLESHEET = zt.css
+HTML_EXTRA_STYLESHEET = ../../../style/doxygen/zt.css
 GENERATE_LATEX = NO
 OUTPUT_DIRECTORY= ../../../dst/reference/libzt-c
