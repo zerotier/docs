@@ -43,6 +43,20 @@ int main() {
 }
 ```
 
+```python
+  print("Starting ZeroTier...")
+  event_callback = MyEventCallbackClass()
+  libzt.start(key_file_path, event_callback, zt_service_port)
+  print("Waiting for node to come online...")
+  while not is_online:
+      time.sleep(1)
+  print("Joining network:", hex(network_id))
+  libzt.join(network_id)
+  while not is_joined:
+      time.sleep(1)
+  print("Joined network")
+```
+
 <aside class="success">
 Full example source code: <a href="https://github.com/zerotier/libzt/tree/master/examples">libzt/examples</a>
 </aside>
