@@ -112,6 +112,26 @@ code {
     display: none;
 }
 
+.ui-resizable-handle {
+    background-image: none;
+}
+
+#nav-tree {
+    background-image: none;
+    background-color: var(--bgcolor);
+}
+
+#nav-sync {
+    display: none;
+    background-image: none;
+}
+
+#nav-tree .selected {
+    background-image: none;
+    background-color: #0f75d4;
+    color: #0f75d4;
+}
+
 .textblock {
     display: none;
 }
