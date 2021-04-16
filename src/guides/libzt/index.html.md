@@ -21,7 +21,7 @@ search: true
 code_clipboard: true
 ---
 
-# Getting Started
+# Getting Started?
 
 *Programmatically join, create, and administer secure, globally-available virtual private networks of unlimited size.*
 
