@@ -21,7 +21,7 @@ search: true
 code_clipboard: true
 ---
 
-# Getting Started?
+# Getting Started
 
 *Programmatically join, create, and administer secure, globally-available virtual private networks of unlimited size.*
 
@@ -44,6 +44,9 @@ int main() {
 ```
 
 ```python
+
+  import libzt
+
   print("Starting ZeroTier...")
   event_callback = MyEventCallbackClass()
   libzt.start(key_file_path, event_callback, zt_service_port)
