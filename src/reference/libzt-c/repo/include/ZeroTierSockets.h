@@ -882,8 +882,12 @@ ZTS_API int ZTCALL zts_id_generate(char* key, uint16_t* key_buf_len);
 ZTS_API int ZTCALL zts_id_is_valid(const char* key, int len);
 
 /**
- * @brief Tell ZeroTier to look for node identity files at the given location. This is an
+ * @brief Instruct ZeroTier to look for node identity files at the given location. This is an
  * initialization function that can only be called before `zts_node_start()`.
+ *
+ * Note that calling this function is not mandatory and if it is not called the node's keys will be kept in memory and retrievable via `zts_node_get_id_pair()`.
+ *
+ * See also: `zts_init_from_memory()`
  *
  * @param port Path Null-terminated file-system path string
  * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_SERVICE` if the node
@@ -892,8 +896,12 @@ ZTS_API int ZTCALL zts_id_is_valid(const char* key, int len);
 ZTS_API int ZTCALL zts_init_from_storage(char* path);
 
 /**
- * @brief Tell ZeroTier to use the identity provided in `key`. This is an initialization function
+ * @brief Instruct ZeroTier to use the identity provided in `key`. This is an initialization function
  * that can only be called before `zts_node_start()`.
+ *
+ * Note that calling this function is not mandatory and if it is not called the node's keys will be kept in memory and retrievable via `zts_node_get_id_pair()`.
+ *
+ * See also: `zts_init_from_storage()`
  *
  * @param key Path Null-terminated file-system path string
  * @param len Length of `key` buffer
@@ -928,7 +936,7 @@ ZTS_API int ZTCALL zts_init_blacklist_ip4(char* cidr, int len);
 ZTS_API int ZTCALL zts_init_set_planet(char* src, int len);
 
 /**
- * @brief Set ZeroTier service port. This is an initialization function that can only be called
+ * @brief Set the port to which the node should bind. This is an initialization function that can only be called
  * before `zts_node_start()`.
  *
  * @param port Port number
@@ -954,7 +962,7 @@ ZTS_API int ZTCALL zts_init_set_port(unsigned short port);
  * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_SERVICE` if the node
  *     experiences a problem, `ZTS_ERR_ARG` if invalid arg.
  */
-ZTS_API int ZTCALL zts_init_network_cache(int allowed);
+ZTS_API int ZTCALL zts_init_allow_net_cache(int allowed);
 
 /**
  * @brief Enable or disable whether the service will cache peer details (enabled
@@ -973,7 +981,7 @@ ZTS_API int ZTCALL zts_init_network_cache(int allowed);
  * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_SERVICE` if the node
  *     experiences a problem, `ZTS_ERR_ARG` if invalid arg.
  */
-ZTS_API int ZTCALL zts_init_peer_cache(int allowed);
+ZTS_API int ZTCALL zts_init_allow_peer_cache(int allowed);
 
 /**
  * @brief Return whether an address of the given family has been assigned by the network
@@ -1002,7 +1010,7 @@ ZTS_API int ZTCALL zts_addr_get(uint64_t net_id, int family, struct zts_sockaddr
  * @param net_id Network ID
  * @param family `ZTS_AF_INET`, or `ZTS_AF_INET6`
  * @param dst Destination buffer
- ^ @param len Length of destination buffer. Must be exactly ZTS_INET6_ADDRSTRLEN
+ ^ @param len Length of destination buffer (must be exactly `ZTS_IP_MAX_STR_LEN`)
  * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_SERVICE` if the node
  *     experiences a problem, `ZTS_ERR_ARG` if invalid arg.
  */
@@ -1071,7 +1079,7 @@ ZTS_API int ZTCALL
 zts_addr_compute_6plane_str(uint64_t net_id, uint64_t node_id, char* dst, int len);
 
 /**
- * @brief Compute a `RFC4193` IPv6 address for the given Network ID and Node ID
+ * @brief Compute `RFC4193` IPv6 address for the given Network ID and Node ID
  *
  * Ad-hoc Network:
  * ```
@@ -1098,12 +1106,12 @@ zts_addr_compute_6plane_str(uint64_t net_id, uint64_t node_id, char* dst, int le
  * sharing unwanted files or other resources.
  *
  *
- * @param startPortOfRange Start of port allowed port range
- * @param endPortOfRange End of allowed port range
+ * @param start_port Start of port allowed port range
+ * @param end_port End of allowed port range
  * @return An Ad-hoc network ID
  */
 ZTS_API uint64_t ZTCALL
-zts_net_compute_adhoc_id(uint16_t startPortOfRange, uint16_t endPortOfRange);
+zts_net_compute_adhoc_id(uint16_t start_port, uint16_t end_port);
 
 /**
  * @brief Join a network
@@ -1152,7 +1160,9 @@ ZTS_API int ZTCALL zts_net_get_info_str(uint64_t net_id, char* dst, int len);
 ZTS_API int ZTCALL zts_route_is_assigned(uint64_t net_id, int family);
 
 /**
- * @brief Return the number of managed routes assigned by this network
+ * @brief Return the number of managed routes assigned by this network.
+ *
+ * Callable only after the node has been started.
  *
  * @param net_id Network ID
  * @return Number of routes
@@ -1161,7 +1171,9 @@ ZTS_API int ZTCALL zts_route_count(uint64_t net_id);
 
 /**
  * @brief Start the ZeroTier node. Should be called after calling the relevant
- *    `zts_init_*` functions.
+ *    `zts_init_*` functions for your application. To enable storage call
+ *    `zts_init_from_storage()` before this function. To enable event callbacks
+ *     call `zts_init_set_event_handler()` before this function.
  *
  * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_SERVICE` if the node
  *     experiences a problem.
@@ -1176,14 +1188,16 @@ ZTS_API int ZTCALL zts_node_start();
 ZTS_API int ZTCALL zts_node_is_online();
 
 /**
- * @brief Get the public node identity (aka node ID)
+ * @brief Get the public node identity (aka `node_id`). Callable only after the node has been started.
  *
  * @return Identity in numerical form
  */
 ZTS_API uint64_t ZTCALL zts_node_get_id();
 
 /**
- * @brief Copies the current node's identity into a buffer
+ * @brief Copy the current node's public (and secret!) identity into a buffer.
+ *
+ * `WARNING`: This function exports your secret key and should be used carefully.
  *
  * @param key User-provided destination buffer
  * @param key_buf_len Length of user-provided destination buffer. Will be set to
@@ -1194,17 +1208,17 @@ ZTS_API uint64_t ZTCALL zts_node_get_id();
 ZTS_API int ZTCALL zts_node_get_id_pair(char* key, uint16_t* key_buf_len);
 
 /**
- * @brief Get the primary port that node is bound to
+ * @brief Get the primary port to which the node is bound. Callable only after the node has been started.
  *
  * @return Port number
  */
 ZTS_API unsigned short ZTCALL zts_node_get_port();
 
 /**
- * @brief Stop the ZeroTier node and brings down all virtual network
- *     interfaces
+ * @brief Stop the ZeroTier node and bring down all virtual network
+ *     transport services. Callable only after the node has been started.
  *
- * While the ZeroTier service will stop, the stack driver (with associated
+ * While the ZeroTier will stop, the stack driver (with associated
  * timers) will remain active in case future traffic processing is required.
  * To stop all activity and free all resources use `zts_free()` instead.
  *
@@ -1214,7 +1228,7 @@ ZTS_API unsigned short ZTCALL zts_node_get_port();
 ZTS_API int ZTCALL zts_node_stop();
 
 /**
- * @brief Restart the ZeroTier service.
+ * @brief Restart the ZeroTier node. Callable only after the node has been started.
  *
  * This call will block until the service has been brought offline. Then
  * it will return and the user application can then watch for the appropriate
@@ -1225,12 +1239,13 @@ ZTS_API int ZTCALL zts_node_stop();
 ZTS_API int ZTCALL zts_node_restart();
 
 /**
- * @brief Stop all background services, bring down all interfaces, free all
+ * @brief Stop all background threads, bring down all transport services, free all
  *     resources. After calling this function an application restart will be
- *     required before the library can be used again.
+ *     required before the library can be used again. Callable only after the node
+ *     has been started.
  *
  * This should be called at the end of your program or when you do not
- * anticipate communicating over ZeroTier
+ * anticipate communicating over ZeroTier again.
  *
  * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_SERVICE` if the node
  *     experiences a problem.
@@ -1240,21 +1255,21 @@ ZTS_API int ZTCALL zts_node_free();
 /**
  * @brief Orbit a given moon (user-defined root server)
  *
- * @param moonWorldId A `16-digit hexadecimal` world ID
- * @param moonSeed A `16-digit hexadecimal` seed ID
+ * @param moon_world_id World ID
+ * @param moon_seed Seed ID
  * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_SERVICE` if the node
  *     experiences a problem, `ZTS_ERR_ARG` if invalid arg.
  */
-ZTS_API int ZTCALL zts_moon_orbit(uint64_t moonWorldId, uint64_t moonSeed);
+ZTS_API int ZTCALL zts_moon_orbit(uint64_t moon_world_id, uint64_t moon_seed);
 
 /**
  * @brief De-orbit a given moon (user-defined root server)
  *
- * @param moonWorldId A `16-digit` world ID
+ * @param moon_world_id World ID
  * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_SERVICE` if the node
  *     experiences a problem, `ZTS_ERR_ARG` if invalid arg.
  */
-ZTS_API int ZTCALL zts_moon_deorbit(uint64_t moonWorldId);
+ZTS_API int ZTCALL zts_moon_deorbit(uint64_t moon_world_id);
 
 /**
  * @brief Platform-agnostic delay (provided for convenience)
@@ -1386,8 +1401,8 @@ ZTS_API int ZTCALL zts_get_protocol_stats(int protocolType, void* protoStatsDest
 /**
  * @brief Create a socket
  *
- * @param socket_family `ZTS_AF_INET`, or `ZTS_AF_INET6`
- * @param socket_type `ZTS_SOCK_STREAM`, `ZTS_SOCK_DGRAM`
+ * @param socket_family `ZTS_AF_INET` or `ZTS_AF_INET6`
+ * @param socket_type `ZTS_SOCK_STREAM` or `ZTS_SOCK_DGRAM`
  * @param protocol Protocols supported on this socket
  * @return Numbered file descriptor on success, `ZTS_ERR_SERVICE` if the node
  *     experiences a problem, `ZTS_ERR_ARG` if invalid arg. Sets `zts_errno`
@@ -1479,14 +1494,14 @@ ZTS_API int ZTCALL zts_accept(int fd, struct zts_sockaddr* addr, zts_socklen_t* 
  * @brief Accept an incoming connection
  *
  * @param fd Socket file descriptor
- * @param remoteIpStr Buffer that will receive remote host IP string
+ * @param remote_addr Buffer that will receive remote host IP string
  * @param len Size of buffer that will receive remote host IP string
- *     Must be set to `ZTS_INET6_ADDRSTRLEN`
+ *     (must be exactly `ZTS_IP_MAX_STR_LEN`)
  * @param port Port number of the newly connected remote host (value-result)
  * @return New file descriptor if successful, `ZTS_ERR_SERVICE` if the node
  *     experiences a problem, `ZTS_ERR_ARG` if invalid arg. Sets `zts_errno`
  */
-ZTS_API int ZTCALL zts_prim_accept(int fd, char* remoteIpStr, int len, int* port);
+ZTS_API int ZTCALL zts_prim_accept(int fd, char* remote_addr, int len, int* port);
 
 // Socket level option number
 #define ZTS_SOL_SOCKET 0x0fff
@@ -2255,11 +2270,11 @@ ZTS_API const zts_ip_addr* ZTCALL zts_dns_get_server(uint8_t index);
 // Convenience functions pulled from lwIP                                     //
 //----------------------------------------------------------------------------//
 /**
- * Convert numeric IP address (both versions) into ASCII representation.
- * returns ptr to static buffer; not reentrant!
+ * Convert numeric IP address (both versions) into `ASCII` representation.
+ * returns ptr to static buffer. Not reentrant.
  *
  * @param addr IP address in network order to convert
- * @return pointer to a global static (!) buffer that holds the ASCII
+ * @return Pointer to a global static (!) buffer that holds the `ASCII`
  *         representation of addr
  */
 char* zts_ipaddr_ntoa(const zts_ip_addr* addr);
