@@ -236,12 +236,12 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a24dfcd83d2edae4a0e6418cc620b5b62"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a24dfcd83d2edae4a0e6418cc620b5b62">zts_id_generate</a> (char *key, uint16_t *key_buf_len)</td></tr>
-<tr class="memdesc:a24dfcd83d2edae4a0e6418cc620b5b62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a node identity (public/secret key-pair) and stores it in a user-provided buffer.  <a href="ZeroTierSockets_8h.html#a24dfcd83d2edae4a0e6418cc620b5b62">More...</a><br /></td></tr>
-<tr class="separator:a24dfcd83d2edae4a0e6418cc620b5b62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac48cbec3e4a2786630d18f40591f7ff5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ac48cbec3e4a2786630d18f40591f7ff5">zts_id_is_valid</a> (const char *key, int len)</td></tr>
-<tr class="memdesc:ac48cbec3e4a2786630d18f40591f7ff5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifies that a key-pair is valid. Checks formatting and pairing of key to address.  <a href="ZeroTierSockets_8h.html#ac48cbec3e4a2786630d18f40591f7ff5">More...</a><br /></td></tr>
-<tr class="separator:ac48cbec3e4a2786630d18f40591f7ff5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84b5b4becda648ad0c137c6968ca5f86"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a84b5b4becda648ad0c137c6968ca5f86">zts_id_new</a> (char *key, uint16_t *key_buf_len)</td></tr>
+<tr class="memdesc:a84b5b4becda648ad0c137c6968ca5f86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a node identity (public/secret key-pair) and stores it in a user-provided buffer.  <a href="ZeroTierSockets_8h.html#a84b5b4becda648ad0c137c6968ca5f86">More...</a><br /></td></tr>
+<tr class="separator:a84b5b4becda648ad0c137c6968ca5f86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c3f7003ae344a0e3c681bc923aa55aa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a3c3f7003ae344a0e3c681bc923aa55aa">zts_id_pair_is_valid</a> (const char *key, int len)</td></tr>
+<tr class="memdesc:a3c3f7003ae344a0e3c681bc923aa55aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifies that a key-pair is valid. Checks formatting and pairing of key to address.  <a href="ZeroTierSockets_8h.html#a3c3f7003ae344a0e3c681bc923aa55aa">More...</a><br /></td></tr>
+<tr class="separator:a3c3f7003ae344a0e3c681bc923aa55aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acd067aa0542e9780bf4a1aef181f0e79"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#acd067aa0542e9780bf4a1aef181f0e79">zts_init_from_storage</a> (char *path)</td></tr>
 <tr class="memdesc:acd067aa0542e9780bf4a1aef181f0e79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Instruct ZeroTier to look for node identity files at the given location. This is an initialization function that can only be called before <code><a class="el" href="ZeroTierSockets_8h.html#a13d90c9c244b4b177e0b06c2f6bdebae" title="Start the ZeroTier node. Should be called after calling the relevant zts_init_* functions for your ap...">zts_node_start()</a></code>.  <a href="ZeroTierSockets_8h.html#acd067aa0542e9780bf4a1aef181f0e79">More...</a><br /></td></tr>
 <tr class="separator:acd067aa0542e9780bf4a1aef181f0e79"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -255,16 +255,16 @@ Functions</h2></td></tr>
 <tr class="memdesc:ae8a4ac0017615d89f58e31ad6856075f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the port to which the node should bind. This is an initialization function that can only be called before <code><a class="el" href="ZeroTierSockets_8h.html#a13d90c9c244b4b177e0b06c2f6bdebae" title="Start the ZeroTier node. Should be called after calling the relevant zts_init_* functions for your ap...">zts_node_start()</a></code>.  <a href="ZeroTierSockets_8h.html#ae8a4ac0017615d89f58e31ad6856075f">More...</a><br /></td></tr>
 <tr class="separator:ae8a4ac0017615d89f58e31ad6856075f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa53796cc7830035dbbb2142ee312e47"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#afa53796cc7830035dbbb2142ee312e47">zts_init_allow_net_cache</a> (int allowed)</td></tr>
-<tr class="memdesc:afa53796cc7830035dbbb2142ee312e47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable or disable whether the service will cache network details (enabled by default)  <a href="ZeroTierSockets_8h.html#afa53796cc7830035dbbb2142ee312e47">More...</a><br /></td></tr>
+<tr class="memdesc:afa53796cc7830035dbbb2142ee312e47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable or disable whether the node will cache network details (enabled by default when <code><a class="el" href="ZeroTierSockets_8h.html#acd067aa0542e9780bf4a1aef181f0e79" title="Instruct ZeroTier to look for node identity files at the given location. This is an initialization fu...">zts_init_from_storage()</a></code> is used.) Must be called before <code><a class="el" href="ZeroTierSockets_8h.html#a13d90c9c244b4b177e0b06c2f6bdebae" title="Start the ZeroTier node. Should be called after calling the relevant zts_init_* functions for your ap...">zts_node_start()</a></code>.  <a href="ZeroTierSockets_8h.html#afa53796cc7830035dbbb2142ee312e47">More...</a><br /></td></tr>
 <tr class="separator:afa53796cc7830035dbbb2142ee312e47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7ddb3d2d0bf9b617424d470a028d26a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ab7ddb3d2d0bf9b617424d470a028d26a">zts_init_allow_peer_cache</a> (int allowed)</td></tr>
-<tr class="memdesc:ab7ddb3d2d0bf9b617424d470a028d26a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable or disable whether the service will cache peer details (enabled by default)  <a href="ZeroTierSockets_8h.html#ab7ddb3d2d0bf9b617424d470a028d26a">More...</a><br /></td></tr>
+<tr class="memdesc:ab7ddb3d2d0bf9b617424d470a028d26a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable or disable whether the node will cache peer details (enabled by default when <code><a class="el" href="ZeroTierSockets_8h.html#acd067aa0542e9780bf4a1aef181f0e79" title="Instruct ZeroTier to look for node identity files at the given location. This is an initialization fu...">zts_init_from_storage()</a></code> is used.) Must be called before <code><a class="el" href="ZeroTierSockets_8h.html#a13d90c9c244b4b177e0b06c2f6bdebae" title="Start the ZeroTier node. Should be called after calling the relevant zts_init_* functions for your ap...">zts_node_start()</a></code>.  <a href="ZeroTierSockets_8h.html#ab7ddb3d2d0bf9b617424d470a028d26a">More...</a><br /></td></tr>
 <tr class="separator:ab7ddb3d2d0bf9b617424d470a028d26a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f41eab535ed11797dfe1dda56739b54"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a4f41eab535ed11797dfe1dda56739b54">zts_addr_is_assigned</a> (uint64_t net_id, int family)</td></tr>
 <tr class="memdesc:a4f41eab535ed11797dfe1dda56739b54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return whether an address of the given family has been assigned by the network.  <a href="ZeroTierSockets_8h.html#a4f41eab535ed11797dfe1dda56739b54">More...</a><br /></td></tr>
 <tr class="separator:a4f41eab535ed11797dfe1dda56739b54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aacda97f8304d1c0a029979e8b642ab82"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#aacda97f8304d1c0a029979e8b642ab82">zts_addr_get</a> (uint64_t net_id, int family, struct zts_sockaddr_storage *addr)</td></tr>
-<tr class="memdesc:aacda97f8304d1c0a029979e8b642ab82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first-assigned IP on the given network. Use <code>zts_addr_get_all</code> to get all assigned IP addresses.  <a href="ZeroTierSockets_8h.html#aacda97f8304d1c0a029979e8b642ab82">More...</a><br /></td></tr>
+<tr class="memdesc:aacda97f8304d1c0a029979e8b642ab82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first-assigned IP on the given network.  <a href="ZeroTierSockets_8h.html#aacda97f8304d1c0a029979e8b642ab82">More...</a><br /></td></tr>
 <tr class="separator:aacda97f8304d1c0a029979e8b642ab82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1629b5d5b570cd5e23c17f729268dd34"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a1629b5d5b570cd5e23c17f729268dd34">zts_addr_get_str</a> (uint64_t net_id, int family, char *dst, int len)</td></tr>
 <tr class="memdesc:a1629b5d5b570cd5e23c17f729268dd34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first-assigned IP on the given network as a null-terminated human-readable string.  <a href="ZeroTierSockets_8h.html#a1629b5d5b570cd5e23c17f729268dd34">More...</a><br /></td></tr>
@@ -276,13 +276,13 @@ Functions</h2></td></tr>
 <tr class="memdesc:ae3a3b5e96b71cf0c97bc8d2f4d9746c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute a <code>6PLANE</code> IPv6 address for the given Network ID and Node ID.  <a href="ZeroTierSockets_8h.html#ae3a3b5e96b71cf0c97bc8d2f4d9746c4">More...</a><br /></td></tr>
 <tr class="separator:ae3a3b5e96b71cf0c97bc8d2f4d9746c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32ce88604b804b883e8e74623d216523"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a32ce88604b804b883e8e74623d216523">zts_addr_compute_rfc4193</a> (const uint64_t net_id, const uint64_t node_id, struct zts_sockaddr_storage *addr)</td></tr>
-<tr class="memdesc:a32ce88604b804b883e8e74623d216523"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute a <code>RFC4193</code> IPv6 address for the given Network ID and Node ID.  <a href="ZeroTierSockets_8h.html#a32ce88604b804b883e8e74623d216523">More...</a><br /></td></tr>
+<tr class="memdesc:a32ce88604b804b883e8e74623d216523"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute <code>RFC4193</code> IPv6 address for the given Network ID and Node ID.  <a href="ZeroTierSockets_8h.html#a32ce88604b804b883e8e74623d216523">More...</a><br /></td></tr>
 <tr class="separator:a32ce88604b804b883e8e74623d216523"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad140ecb434b823807d6590eaae75ffcf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ad140ecb434b823807d6590eaae75ffcf">zts_addr_compute_rfc4193_str</a> (uint64_t net_id, uint64_t node_id, char *dst, int len)</td></tr>
-<tr class="memdesc:ad140ecb434b823807d6590eaae75ffcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute <code>RFC4193</code> IPv6 address for the given Network ID and Node ID and copy its null-terminated human-readable representation into destination buffer.  <a href="ZeroTierSockets_8h.html#ad140ecb434b823807d6590eaae75ffcf">More...</a><br /></td></tr>
+<tr class="memdesc:ad140ecb434b823807d6590eaae75ffcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute <code>RFC4193</code> IPv6 address for the given Network ID and Node ID and copy its null-terminated human-readable string representation into destination buffer.  <a href="ZeroTierSockets_8h.html#ad140ecb434b823807d6590eaae75ffcf">More...</a><br /></td></tr>
 <tr class="separator:ad140ecb434b823807d6590eaae75ffcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63b1ae8232b53a13127f1d4a626134be"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a63b1ae8232b53a13127f1d4a626134be">zts_addr_compute_6plane_str</a> (uint64_t net_id, uint64_t node_id, char *dst, int len)</td></tr>
-<tr class="memdesc:a63b1ae8232b53a13127f1d4a626134be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute <code>6PLANE</code> IPv6 address for the given Network ID and Node ID and copy its null-terminated human-readable representation into destination buffer.  <a href="ZeroTierSockets_8h.html#a63b1ae8232b53a13127f1d4a626134be">More...</a><br /></td></tr>
+<tr class="memdesc:a63b1ae8232b53a13127f1d4a626134be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute <code>6PLANE</code> IPv6 address for the given Network ID and Node ID and copy its null-terminated human-readable string representation into destination buffer.  <a href="ZeroTierSockets_8h.html#a63b1ae8232b53a13127f1d4a626134be">More...</a><br /></td></tr>
 <tr class="separator:a63b1ae8232b53a13127f1d4a626134be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e46075b8257aa85a6737a77cdcdb7f8"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a5e46075b8257aa85a6737a77cdcdb7f8">zts_net_compute_adhoc_id</a> (uint16_t start_port, uint16_t end_port)</td></tr>
 <tr class="memdesc:a5e46075b8257aa85a6737a77cdcdb7f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute <code>RFC4193</code> IPv6 address for the given Network ID and Node ID.  <a href="ZeroTierSockets_8h.html#a5e46075b8257aa85a6737a77cdcdb7f8">More...</a><br /></td></tr>
@@ -372,7 +372,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:ab576edea552a2d27610581211c3d80eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the peer name for the remote end of a connected socket.  <a href="ZeroTierSockets_8h.html#ab576edea552a2d27610581211c3d80eb">More...</a><br /></td></tr>
 <tr class="separator:ab576edea552a2d27610581211c3d80eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8185fa2fc76de69eb4c45c25c4918856"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a8185fa2fc76de69eb4c45c25c4918856">zts_close</a> (int fd)</td></tr>
-<tr class="memdesc:a8185fa2fc76de69eb4c45c25c4918856"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close a socket.  <a href="ZeroTierSockets_8h.html#a8185fa2fc76de69eb4c45c25c4918856">More...</a><br /></td></tr>
+<tr class="memdesc:a8185fa2fc76de69eb4c45c25c4918856"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close socket.  <a href="ZeroTierSockets_8h.html#a8185fa2fc76de69eb4c45c25c4918856">More...</a><br /></td></tr>
 <tr class="separator:a8185fa2fc76de69eb4c45c25c4918856"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa97cae3a1e8f11b1edfbac4d7cc350e7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#aa97cae3a1e8f11b1edfbac4d7cc350e7">zts_select</a> (int nfds, zts_fd_set *readfds, zts_fd_set *writefds, zts_fd_set *exceptfds, struct zts_timeval *timeout)</td></tr>
 <tr class="memdesc:aa97cae3a1e8f11b1edfbac4d7cc350e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Monitor multiple file descriptors for "readiness".  <a href="ZeroTierSockets_8h.html#aa97cae3a1e8f11b1edfbac4d7cc350e7">More...</a><br /></td></tr>
@@ -958,7 +958,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Compute <code>6PLANE</code> IPv6 address for the given Network ID and Node ID and copy its null-terminated human-readable representation into destination buffer. </p>
+<p>Compute <code>6PLANE</code> IPv6 address for the given Network ID and Node ID and copy its null-terminated human-readable string representation into destination buffer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">net_id</td><td>Network ID </td></tr>
@@ -1004,7 +1004,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Compute a <code>RFC4193</code> IPv6 address for the given Network ID and Node ID. </p>
+<p>Compute <code>RFC4193</code> IPv6 address for the given Network ID and Node ID. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">net_id</td><td>Network ID </td></tr>
@@ -1055,7 +1055,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Compute <code>RFC4193</code> IPv6 address for the given Network ID and Node ID and copy its null-terminated human-readable representation into destination buffer. </p>
+<p>Compute <code>RFC4193</code> IPv6 address for the given Network ID and Node ID and copy its null-terminated human-readable string representation into destination buffer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">net_id</td><td>Network ID </td></tr>
@@ -1101,7 +1101,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Get the first-assigned IP on the given network. Use <code>zts_addr_get_all</code> to get all assigned IP addresses. </p>
+<p>Get the first-assigned IP on the given network. </p>
+<p>To get <em>all</em> assigned addresses on a given network, use <code><a class="el" href="ZeroTierSockets_8h.html#a739a5acc86e9465c198f9d10cfda6734" title="Get all IP addresses assigned to this node by the given network.">zts_addr_get_all()</a></code>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">net_id</td><td>Network ID </td></tr>
@@ -1198,11 +1199,12 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Get the first-assigned IP on the given network as a null-terminated human-readable string. </p>
+<p>To get <em>all</em> assigned addresses on a given network, use <code><a class="el" href="ZeroTierSockets_8h.html#a739a5acc86e9465c198f9d10cfda6734" title="Get all IP addresses assigned to this node by the given network.">zts_addr_get_all()</a></code>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">net_id</td><td>Network ID </td></tr>
     <tr><td class="paramname">family</td><td><code>ZTS_AF_INET</code>, or <code>ZTS_AF_INET6</code> </td></tr>
-    <tr><td class="paramname">dst</td><td>Destination buffer ^</td></tr>
+    <tr><td class="paramname">dst</td><td>Destination buffer </td></tr>
     <tr><td class="paramname">len</td><td>Length of destination buffer (must be exactly <code>ZTS_IP_MAX_STR_LEN</code>) </td></tr>
   </table>
   </dd>
@@ -1310,7 +1312,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Close a socket. </p>
+<p>Close socket. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">fd</td><td>Socket file descriptor </td></tr>
@@ -1414,7 +1416,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>IP address of the indexed DNS server or "ip_addr_any" if the DNS server has not been configured. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>IP address of the indexed DNS server or <code>ip_addr_any</code> if the DNS server has not been configured. </dd></dl>
 
 </div>
 </div>
@@ -1446,7 +1448,7 @@ Variables</h2></td></tr>
 <p>Initialize one of the DNS servers.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td>the index of the DNS server to set must be &lt; DNS_MAX_SERVERS </td></tr>
+    <tr><td class="paramname">index</td><td>the index of the DNS server to set must be <code>&lt; DNS_MAX_SERVERS</code> </td></tr>
     <tr><td class="paramname">addr</td><td>IP address of the DNS server to set </td></tr>
   </table>
   </dd>
@@ -1489,9 +1491,9 @@ Variables</h2></td></tr>
 <p>Issue file control commands on a socket. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fd</td><td>File descriptor </td></tr>
-    <tr><td class="paramname">cmd</td><td></td></tr>
-    <tr><td class="paramname">flags</td><td></td></tr>
+    <tr><td class="paramname">fd</td><td>Socket file descriptor </td></tr>
+    <tr><td class="paramname">cmd</td><td>Operation to be performed </td></tr>
+    <tr><td class="paramname">flags</td><td>Flags </td></tr>
   </table>
   </dd>
 </dl>
@@ -1675,14 +1677,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a24dfcd83d2edae4a0e6418cc620b5b62"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24dfcd83d2edae4a0e6418cc620b5b62">&#9670;&nbsp;</a></span>zts_id_generate()</h2>
+<a id="a84b5b4becda648ad0c137c6968ca5f86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84b5b4becda648ad0c137c6968ca5f86">&#9670;&nbsp;</a></span>zts_id_new()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int zts_id_generate </td>
+          <td class="memname">int zts_id_new </td>
           <td>(</td>
           <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>key</em>, </td>
@@ -1713,14 +1715,14 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ac48cbec3e4a2786630d18f40591f7ff5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac48cbec3e4a2786630d18f40591f7ff5">&#9670;&nbsp;</a></span>zts_id_is_valid()</h2>
+<a id="a3c3f7003ae344a0e3c681bc923aa55aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c3f7003ae344a0e3c681bc923aa55aa">&#9670;&nbsp;</a></span>zts_id_pair_is_valid()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int zts_id_is_valid </td>
+          <td class="memname">int zts_id_pair_is_valid </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>key</em>, </td>
@@ -1842,7 +1844,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>return <code>1</code> on success. <code>0</code> or <code>-1</code> on failure. (Does not follow <code>zts_*</code> conventions) </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>return <code>1</code> on success. <code>0</code> or <code>-1</code> on failure. (Does not follow regular <code>zts_*</code> conventions) </dd></dl>
 
 </div>
 </div>
@@ -1862,9 +1864,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Enable or disable whether the service will cache network details (enabled by default) </p>
-<p>This can potentially shorten (startup) times. This allows the service to nearly instantly inform the network stack of an address to use for this peer so that it can create an interface. This can be disabled for cases where one may not want network config details to be written to storage. This is especially useful for situations where address assignments do not change often.</p>
-<p>Should be called before <code>zts_start()</code> if you intend on changing its state.</p>
+<p>Enable or disable whether the node will cache network details (enabled by default when <code><a class="el" href="ZeroTierSockets_8h.html#acd067aa0542e9780bf4a1aef181f0e79" title="Instruct ZeroTier to look for node identity files at the given location. This is an initialization fu...">zts_init_from_storage()</a></code> is used.) Must be called before <code><a class="el" href="ZeroTierSockets_8h.html#a13d90c9c244b4b177e0b06c2f6bdebae" title="Start the ZeroTier node. Should be called after calling the relevant zts_init_* functions for your ap...">zts_node_start()</a></code>. </p>
+<p>This can potentially shorten (startup) times between node restarts. This allows the service to nearly instantly inform the network stack of an address to use for this peer so that it can create a transport service. This can be disabled for cases where one may not want network config details to be written to storage. This is especially useful for situations where address assignments do not change often.</p>
+<p>See also: <code><a class="el" href="ZeroTierSockets_8h.html#ab7ddb3d2d0bf9b617424d470a028d26a" title="Enable or disable whether the node will cache peer details (enabled by default when zts_init_from_sto...">zts_init_allow_peer_cache()</a></code></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">enabled</td><td>Whether or not this feature is enabled </td></tr>
@@ -1891,9 +1893,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Enable or disable whether the service will cache peer details (enabled by default) </p>
-<p>This can potentially shorten (connection) times. This allows the service to re-use previously discovered paths to a peer, this prevents the service from having to go through the entire transport-triggered link provisioning process. This is especially useful for situations where paths to peers do not change often. This is enabled by default and can be disabled for cases where one may not want peer details to be written to storage.</p>
-<p>Should be called before <code>zts_start()</code> if you intend on changing its state.</p>
+<p>Enable or disable whether the node will cache peer details (enabled by default when <code><a class="el" href="ZeroTierSockets_8h.html#acd067aa0542e9780bf4a1aef181f0e79" title="Instruct ZeroTier to look for node identity files at the given location. This is an initialization fu...">zts_init_from_storage()</a></code> is used.) Must be called before <code><a class="el" href="ZeroTierSockets_8h.html#a13d90c9c244b4b177e0b06c2f6bdebae" title="Start the ZeroTier node. Should be called after calling the relevant zts_init_* functions for your ap...">zts_node_start()</a></code>. </p>
+<p>This can potentially shorten (connection) times between node restarts. This allows the service to re-use previously discovered paths to a peer, this prevents the service from having to go through the entire transport-triggered link provisioning process. This is especially useful for situations where paths to peers do not change often. This is enabled by default and can be disabled for cases where one may not want peer details to be written to storage.</p>
+<p>See also: <code><a class="el" href="ZeroTierSockets_8h.html#afa53796cc7830035dbbb2142ee312e47" title="Enable or disable whether the node will cache network details (enabled by default when zts_init_from_...">zts_init_allow_net_cache()</a></code></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">enabled</td><td>Whether or not this feature is enabled </td></tr>
@@ -2574,6 +2576,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Start the ZeroTier node. Should be called after calling the relevant <code>zts_init_*</code> functions for your application. To enable storage call <code><a class="el" href="ZeroTierSockets_8h.html#acd067aa0542e9780bf4a1aef181f0e79" title="Instruct ZeroTier to look for node identity files at the given location. This is an initialization fu...">zts_init_from_storage()</a></code> before this function. To enable event callbacks call <code><a class="el" href="ZeroTierSockets_8h.html#a8f0fa1c9d0042a077616013f2fe3c491" title="Set the event handler function. This is an initialization function that can only be called before zts...">zts_init_set_event_handler()</a></code> before this function. </p>
+<p>Note: If neither <code><a class="el" href="ZeroTierSockets_8h.html#acd067aa0542e9780bf4a1aef181f0e79" title="Instruct ZeroTier to look for node identity files at the given location. This is an initialization fu...">zts_init_from_storage()</a></code> or <code><a class="el" href="ZeroTierSockets_8h.html#a9e63a9ef2986029c92e9068a6aa22e66" title="Instruct ZeroTier to use the identity provided in key. This is an initialization function that can on...">zts_init_from_memory()</a></code> are called a new identity will be generated and will be retrievable via <code><a class="el" href="ZeroTierSockets_8h.html#ae578d7d6309465097449e6fcd46e575e" title="Copy the current node&#39;s public (and secret!) identity into a buffer.">zts_node_get_id_pair()</a></code> <em>after</em> the node has started.</p>
 <dl class="section return"><dt>Returns</dt><dd><code>ZTS_ERR_OK</code> if successful, <code>ZTS_ERR_SERVICE</code> if the node experiences a problem. </dd></dl>
 
 </div>
