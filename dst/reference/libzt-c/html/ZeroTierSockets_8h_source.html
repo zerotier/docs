@@ -869,435 +869,435 @@ $(document).ready(function(){initNavTree('ZeroTierSockets_8h_source.html',''); i
 <div class="line"><a name="l01383"></a><span class="lineno"> 1383</span>&#160;<span class="comment">// Socket API                                                                 //</span></div>
 <div class="line"><a name="l01384"></a><span class="lineno"> 1384</span>&#160;<span class="comment">//----------------------------------------------------------------------------//</span></div>
 <div class="line"><a name="l01385"></a><span class="lineno"> 1385</span>&#160; </div>
-<div class="line"><a name="l01396"></a><span class="lineno"> 1396</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#ade4842a34db57b12bfdefd1a3c6c7dc7">zts_socket</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> socket_family, <span class="keyword">const</span> <span class="keywordtype">int</span> socket_type, <span class="keyword">const</span> <span class="keywordtype">int</span> protocol);</div>
-<div class="line"><a name="l01397"></a><span class="lineno"> 1397</span>&#160; </div>
-<div class="line"><a name="l01407"></a><span class="lineno"> 1407</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a78748e1ad27e68ce06f960395da73435">zts_connect</a>(<span class="keywordtype">int</span> fd, <span class="keyword">const</span> <span class="keyword">struct</span> zts_sockaddr* addr, zts_socklen_t addrlen);</div>
-<div class="line"><a name="l01408"></a><span class="lineno"> 1408</span>&#160; </div>
-<div class="line"><a name="l01433"></a><span class="lineno"> 1433</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a33f77408d84469dca96dc71a390d4d6f">zts_prim_connect</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> family, <span class="keywordtype">char</span>* ipstr, <span class="keywordtype">int</span> port, <span class="keywordtype">int</span> timeout_ms);</div>
-<div class="line"><a name="l01434"></a><span class="lineno"> 1434</span>&#160; </div>
-<div class="line"><a name="l01444"></a><span class="lineno"> 1444</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a59c292d2e9cab9a032cac650292bcad3">zts_bind</a>(<span class="keywordtype">int</span> fd, <span class="keyword">const</span> <span class="keyword">struct</span> zts_sockaddr* addr, zts_socklen_t addrlen);</div>
-<div class="line"><a name="l01445"></a><span class="lineno"> 1445</span>&#160; </div>
-<div class="line"><a name="l01456"></a><span class="lineno"> 1456</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a564392efdce9f91bda4b1b9e2937a827">zts_prim_bind</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> family, <span class="keywordtype">char</span>* ipstr, <span class="keywordtype">int</span> port);</div>
-<div class="line"><a name="l01457"></a><span class="lineno"> 1457</span>&#160; </div>
-<div class="line"><a name="l01466"></a><span class="lineno"> 1466</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a9671b0cd2cdcc097cba4dceb66512d86">zts_listen</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> backlog);</div>
-<div class="line"><a name="l01467"></a><span class="lineno"> 1467</span>&#160; </div>
-<div class="line"><a name="l01477"></a><span class="lineno"> 1477</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#ada54150e3756742502da4d3ec73a891c">zts_accept</a>(<span class="keywordtype">int</span> fd, <span class="keyword">struct</span> zts_sockaddr* addr, zts_socklen_t* addrlen);</div>
-<div class="line"><a name="l01478"></a><span class="lineno"> 1478</span>&#160; </div>
-<div class="line"><a name="l01490"></a><span class="lineno"> 1490</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a0efc21997b5e845bd7b9901201d9565e">zts_prim_accept</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">char</span>* remoteIpStr, <span class="keywordtype">int</span> len, <span class="keywordtype">int</span>* port);</div>
-<div class="line"><a name="l01491"></a><span class="lineno"> 1491</span>&#160; </div>
-<div class="line"><a name="l01492"></a><span class="lineno"> 1492</span>&#160;<span class="comment">// Socket level option number</span></div>
-<div class="line"><a name="l01493"></a><span class="lineno"> 1493</span>&#160;<span class="preprocessor">#define ZTS_SOL_SOCKET 0x0fff</span></div>
-<div class="line"><a name="l01494"></a><span class="lineno"> 1494</span>&#160;<span class="comment">// Socket options</span></div>
-<div class="line"><a name="l01495"></a><span class="lineno"> 1495</span>&#160;<span class="preprocessor">#define ZTS_SO_DEBUG       0x0001   // NOT YET SUPPORTED</span></div>
-<div class="line"><a name="l01496"></a><span class="lineno"> 1496</span>&#160;<span class="preprocessor">#define ZTS_SO_ACCEPTCONN  0x0002</span></div>
-<div class="line"><a name="l01497"></a><span class="lineno"> 1497</span>&#160;<span class="preprocessor">#define ZTS_SO_REUSEADDR   0x0004</span></div>
-<div class="line"><a name="l01498"></a><span class="lineno"> 1498</span>&#160;<span class="preprocessor">#define ZTS_SO_KEEPALIVE   0x0008</span></div>
-<div class="line"><a name="l01499"></a><span class="lineno"> 1499</span>&#160;<span class="preprocessor">#define ZTS_SO_DONTROUTE   0x0010   // NOT YET SUPPORTED</span></div>
-<div class="line"><a name="l01500"></a><span class="lineno"> 1500</span>&#160;<span class="preprocessor">#define ZTS_SO_BROADCAST   0x0020</span></div>
-<div class="line"><a name="l01501"></a><span class="lineno"> 1501</span>&#160;<span class="preprocessor">#define ZTS_SO_USELOOPBACK 0x0040   // NOT YET SUPPORTED</span></div>
-<div class="line"><a name="l01502"></a><span class="lineno"> 1502</span>&#160;<span class="preprocessor">#define ZTS_SO_LINGER      0x0080</span></div>
-<div class="line"><a name="l01503"></a><span class="lineno"> 1503</span>&#160; </div>
-<div class="line"><a name="l01504"></a><span class="lineno"> 1504</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l01505"></a><span class="lineno"> 1505</span>&#160;<span class="comment"> * Structure used for manipulating linger option.</span></div>
-<div class="line"><a name="l01506"></a><span class="lineno"> 1506</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l01507"></a><span class="lineno"> 1507</span>&#160;<span class="keyword">struct </span>zts_linger {</div>
-<div class="line"><a name="l01508"></a><span class="lineno"> 1508</span>&#160;    <span class="keywordtype">int</span> l_onoff;    <span class="comment">// option on/off</span></div>
-<div class="line"><a name="l01509"></a><span class="lineno"> 1509</span>&#160;    <span class="keywordtype">int</span> l_linger;   <span class="comment">// linger time in seconds</span></div>
-<div class="line"><a name="l01510"></a><span class="lineno"> 1510</span>&#160;};</div>
-<div class="line"><a name="l01511"></a><span class="lineno"> 1511</span>&#160; </div>
-<div class="line"><a name="l01512"></a><span class="lineno"> 1512</span>&#160;<span class="preprocessor">#define ZTS_SO_DONTLINGER   ((int)(~ZTS_SO_LINGER))</span></div>
-<div class="line"><a name="l01513"></a><span class="lineno"> 1513</span>&#160;<span class="preprocessor">#define ZTS_SO_OOBINLINE    0x0100   // NOT YET SUPPORTED</span></div>
-<div class="line"><a name="l01514"></a><span class="lineno"> 1514</span>&#160;<span class="preprocessor">#define ZTS_SO_REUSEPORT    0x0200   // NOT YET SUPPORTED</span></div>
-<div class="line"><a name="l01515"></a><span class="lineno"> 1515</span>&#160;<span class="preprocessor">#define ZTS_SO_SNDBUF       0x1001   // NOT YET SUPPORTED</span></div>
-<div class="line"><a name="l01516"></a><span class="lineno"> 1516</span>&#160;<span class="preprocessor">#define ZTS_SO_RCVBUF       0x1002</span></div>
-<div class="line"><a name="l01517"></a><span class="lineno"> 1517</span>&#160;<span class="preprocessor">#define ZTS_SO_SNDLOWAT     0x1003   // NOT YET SUPPORTED</span></div>
-<div class="line"><a name="l01518"></a><span class="lineno"> 1518</span>&#160;<span class="preprocessor">#define ZTS_SO_RCVLOWAT     0x1004   // NOT YET SUPPORTED</span></div>
-<div class="line"><a name="l01519"></a><span class="lineno"> 1519</span>&#160;<span class="preprocessor">#define ZTS_SO_SNDTIMEO     0x1005</span></div>
-<div class="line"><a name="l01520"></a><span class="lineno"> 1520</span>&#160;<span class="preprocessor">#define ZTS_SO_RCVTIMEO     0x1006</span></div>
-<div class="line"><a name="l01521"></a><span class="lineno"> 1521</span>&#160;<span class="preprocessor">#define ZTS_SO_ERROR        0x1007</span></div>
-<div class="line"><a name="l01522"></a><span class="lineno"> 1522</span>&#160;<span class="preprocessor">#define ZTS_SO_TYPE         0x1008</span></div>
-<div class="line"><a name="l01523"></a><span class="lineno"> 1523</span>&#160;<span class="preprocessor">#define ZTS_SO_CONTIMEO     0x1009</span></div>
-<div class="line"><a name="l01524"></a><span class="lineno"> 1524</span>&#160;<span class="preprocessor">#define ZTS_SO_NO_CHECK     0x100a</span></div>
-<div class="line"><a name="l01525"></a><span class="lineno"> 1525</span>&#160;<span class="preprocessor">#define ZTS_SO_BINDTODEVICE 0x100b</span></div>
-<div class="line"><a name="l01526"></a><span class="lineno"> 1526</span>&#160;<span class="comment">// IPPROTO_IP options</span></div>
-<div class="line"><a name="l01527"></a><span class="lineno"> 1527</span>&#160;<span class="preprocessor">#define ZTS_IP_TOS     0x0001</span></div>
-<div class="line"><a name="l01528"></a><span class="lineno"> 1528</span>&#160;<span class="preprocessor">#define ZTS_IP_TTL     0x0002</span></div>
-<div class="line"><a name="l01529"></a><span class="lineno"> 1529</span>&#160;<span class="preprocessor">#define ZTS_IP_PKTINFO 0x0008</span></div>
-<div class="line"><a name="l01530"></a><span class="lineno"> 1530</span>&#160;<span class="comment">// IPPROTO_TCP options</span></div>
-<div class="line"><a name="l01531"></a><span class="lineno"> 1531</span>&#160;<span class="preprocessor">#define ZTS_TCP_NODELAY   0x0001</span></div>
-<div class="line"><a name="l01532"></a><span class="lineno"> 1532</span>&#160;<span class="preprocessor">#define ZTS_TCP_KEEPALIVE 0x0002</span></div>
-<div class="line"><a name="l01533"></a><span class="lineno"> 1533</span>&#160;<span class="preprocessor">#define ZTS_TCP_KEEPIDLE  0x0003</span></div>
-<div class="line"><a name="l01534"></a><span class="lineno"> 1534</span>&#160;<span class="preprocessor">#define ZTS_TCP_KEEPINTVL 0x0004</span></div>
-<div class="line"><a name="l01535"></a><span class="lineno"> 1535</span>&#160;<span class="preprocessor">#define ZTS_TCP_KEEPCNT   0x0005</span></div>
-<div class="line"><a name="l01536"></a><span class="lineno"> 1536</span>&#160;<span class="comment">// IPPROTO_IPV6 options</span></div>
-<div class="line"><a name="l01537"></a><span class="lineno"> 1537</span>&#160;<span class="preprocessor">#define ZTS_IPV6_CHECKSUM                                                                          \</span></div>
-<div class="line"><a name="l01538"></a><span class="lineno"> 1538</span>&#160;<span class="preprocessor">    0x0007 </span><span class="comment">/* RFC3542: calculate and insert the ICMPv6 checksum for raw                            \</span></div>
-<div class="line"><a name="l01539"></a><span class="lineno"> 1539</span>&#160;<span class="comment">              sockets. */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l01540"></a><span class="lineno"> 1540</span>&#160;<span class="preprocessor">#define ZTS_IPV6_V6ONLY                                                                            \</span></div>
-<div class="line"><a name="l01541"></a><span class="lineno"> 1541</span>&#160;<span class="preprocessor">    0x001b </span><span class="comment">/* RFC3493: boolean control to restrict ZTS_AF_INET6 sockets to                         \</span></div>
-<div class="line"><a name="l01542"></a><span class="lineno"> 1542</span>&#160;<span class="comment">              IPv6 communications only. */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l01543"></a><span class="lineno"> 1543</span>&#160;<span class="comment">// UDPLITE options</span></div>
-<div class="line"><a name="l01544"></a><span class="lineno"> 1544</span>&#160;<span class="preprocessor">#define ZTS_UDPLITE_SEND_CSCOV 0x01 </span><span class="comment">/* sender checksum coverage */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l01545"></a><span class="lineno"> 1545</span>&#160;<span class="preprocessor">#define ZTS_UDPLITE_RECV_CSCOV 0x02 </span><span class="comment">/* minimal receiver checksum coverage */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l01546"></a><span class="lineno"> 1546</span>&#160;<span class="comment">// UDPLITE options</span></div>
-<div class="line"><a name="l01547"></a><span class="lineno"> 1547</span>&#160;<span class="preprocessor">#define ZTS_IP_MULTICAST_TTL  5</span></div>
-<div class="line"><a name="l01548"></a><span class="lineno"> 1548</span>&#160;<span class="preprocessor">#define ZTS_IP_MULTICAST_IF   6</span></div>
-<div class="line"><a name="l01549"></a><span class="lineno"> 1549</span>&#160;<span class="preprocessor">#define ZTS_IP_MULTICAST_LOOP 7</span></div>
-<div class="line"><a name="l01550"></a><span class="lineno"> 1550</span>&#160; </div>
-<div class="line"><a name="l01551"></a><span class="lineno"> 1551</span>&#160;<span class="comment">// Multicast options</span></div>
-<div class="line"><a name="l01552"></a><span class="lineno"> 1552</span>&#160;<span class="preprocessor">#define ZTS_IP_ADD_MEMBERSHIP  3</span></div>
-<div class="line"><a name="l01553"></a><span class="lineno"> 1553</span>&#160;<span class="preprocessor">#define ZTS_IP_DROP_MEMBERSHIP 4</span></div>
-<div class="line"><a name="l01554"></a><span class="lineno"> 1554</span>&#160; </div>
-<div class="line"><a name="l01555"></a><span class="lineno"> 1555</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>zts_ip_mreq {</div>
-<div class="line"><a name="l01556"></a><span class="lineno"> 1556</span>&#160;    <span class="keyword">struct </span>zts_in_addr imr_multiaddr; <span class="comment">/* IP multicast address of group */</span></div>
-<div class="line"><a name="l01557"></a><span class="lineno"> 1557</span>&#160;    <span class="keyword">struct </span>zts_in_addr imr_interface; <span class="comment">/* local IP address of interface */</span></div>
-<div class="line"><a name="l01558"></a><span class="lineno"> 1558</span>&#160;} zts_ip_mreq;</div>
-<div class="line"><a name="l01559"></a><span class="lineno"> 1559</span>&#160; </div>
-<div class="line"><a name="l01560"></a><span class="lineno"> 1560</span>&#160;<span class="keyword">struct </span>zts_in_pktinfo {</div>
-<div class="line"><a name="l01561"></a><span class="lineno"> 1561</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> ipi_ifindex;    <span class="comment">/* Interface index */</span></div>
-<div class="line"><a name="l01562"></a><span class="lineno"> 1562</span>&#160;    <span class="keyword">struct </span>zts_in_addr ipi_addr; <span class="comment">/* Destination (from header) address */</span></div>
-<div class="line"><a name="l01563"></a><span class="lineno"> 1563</span>&#160;};</div>
-<div class="line"><a name="l01564"></a><span class="lineno"> 1564</span>&#160; </div>
-<div class="line"><a name="l01565"></a><span class="lineno"> 1565</span>&#160;<span class="preprocessor">#define ZTS_IPV6_JOIN_GROUP      12</span></div>
-<div class="line"><a name="l01566"></a><span class="lineno"> 1566</span>&#160;<span class="preprocessor">#define ZTS_IPV6_ADD_MEMBERSHIP  ZTS_IPV6_JOIN_GROUP</span></div>
-<div class="line"><a name="l01567"></a><span class="lineno"> 1567</span>&#160;<span class="preprocessor">#define ZTS_IPV6_LEAVE_GROUP     13</span></div>
-<div class="line"><a name="l01568"></a><span class="lineno"> 1568</span>&#160;<span class="preprocessor">#define ZTS_IPV6_DROP_MEMBERSHIP ZTS_IPV6_LEAVE_GROUP</span></div>
-<div class="line"><a name="l01569"></a><span class="lineno"> 1569</span>&#160; </div>
-<div class="line"><a name="l01570"></a><span class="lineno"> 1570</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>zts_ipv6_mreq {</div>
-<div class="line"><a name="l01571"></a><span class="lineno"> 1571</span>&#160;    <span class="keyword">struct </span>zts_in6_addr ipv6mr_multiaddr; <span class="comment">/*  IPv6 multicast addr */</span></div>
-<div class="line"><a name="l01572"></a><span class="lineno"> 1572</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> ipv6mr_interface;        <span class="comment">/*  interface index, or 0 */</span></div>
-<div class="line"><a name="l01573"></a><span class="lineno"> 1573</span>&#160;} zts_ipv6_mreq;</div>
-<div class="line"><a name="l01574"></a><span class="lineno"> 1574</span>&#160; </div>
-<div class="line"><a name="l01575"></a><span class="lineno"> 1575</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l01576"></a><span class="lineno"> 1576</span>&#160;<span class="comment"> * The Type of Service provides an indication of the abstract</span></div>
-<div class="line"><a name="l01577"></a><span class="lineno"> 1577</span>&#160;<span class="comment"> * parameters of the quality of service desired.  These parameters are</span></div>
-<div class="line"><a name="l01578"></a><span class="lineno"> 1578</span>&#160;<span class="comment"> * to be used to guide the selection of the actual service parameters</span></div>
-<div class="line"><a name="l01579"></a><span class="lineno"> 1579</span>&#160;<span class="comment"> * when transmitting a datagram through a particular network.  Several</span></div>
-<div class="line"><a name="l01580"></a><span class="lineno"> 1580</span>&#160;<span class="comment"> * networks offer service precedence, which somehow treats high</span></div>
-<div class="line"><a name="l01581"></a><span class="lineno"> 1581</span>&#160;<span class="comment"> * precedence traffic as more important than other traffic (generally</span></div>
-<div class="line"><a name="l01582"></a><span class="lineno"> 1582</span>&#160;<span class="comment"> * by accepting only traffic above a certain precedence at time of high</span></div>
-<div class="line"><a name="l01583"></a><span class="lineno"> 1583</span>&#160;<span class="comment"> * load).  The major choice is a three way tradeoff between low-delay,</span></div>
-<div class="line"><a name="l01584"></a><span class="lineno"> 1584</span>&#160;<span class="comment"> * high-reliability, and high-throughput.</span></div>
-<div class="line"><a name="l01585"></a><span class="lineno"> 1585</span>&#160;<span class="comment"> * The use of the Delay, Throughput, and Reliability indications may</span></div>
-<div class="line"><a name="l01586"></a><span class="lineno"> 1586</span>&#160;<span class="comment"> * increase the cost (in some sense) of the service.  In many networks</span></div>
-<div class="line"><a name="l01587"></a><span class="lineno"> 1587</span>&#160;<span class="comment"> * better performance for one of these parameters is coupled with worse</span></div>
-<div class="line"><a name="l01588"></a><span class="lineno"> 1588</span>&#160;<span class="comment"> * performance on another.  Except for very unusual cases at most two</span></div>
-<div class="line"><a name="l01589"></a><span class="lineno"> 1589</span>&#160;<span class="comment"> * of these three indications should be set.</span></div>
-<div class="line"><a name="l01590"></a><span class="lineno"> 1590</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l01591"></a><span class="lineno"> 1591</span>&#160;<span class="preprocessor">#define ZTS_IPTOS_TOS_MASK    0x1E</span></div>
-<div class="line"><a name="l01592"></a><span class="lineno"> 1592</span>&#160;<span class="preprocessor">#define ZTS_IPTOS_TOS(tos)    ((tos)&amp;ZTS_IPTOS_TOS_MASK)</span></div>
-<div class="line"><a name="l01593"></a><span class="lineno"> 1593</span>&#160;<span class="preprocessor">#define ZTS_IPTOS_LOWDELAY    0x10</span></div>
-<div class="line"><a name="l01594"></a><span class="lineno"> 1594</span>&#160;<span class="preprocessor">#define ZTS_IPTOS_THROUGHPUT  0x08</span></div>
-<div class="line"><a name="l01595"></a><span class="lineno"> 1595</span>&#160;<span class="preprocessor">#define ZTS_IPTOS_RELIABILITY 0x04</span></div>
-<div class="line"><a name="l01596"></a><span class="lineno"> 1596</span>&#160;<span class="preprocessor">#define ZTS_IPTOS_LOWCOST     0x02</span></div>
-<div class="line"><a name="l01597"></a><span class="lineno"> 1597</span>&#160;<span class="preprocessor">#define ZTS_IPTOS_MINCOST     ZTS_IPTOS_LOWCOST</span></div>
-<div class="line"><a name="l01598"></a><span class="lineno"> 1598</span>&#160; </div>
-<div class="line"><a name="l01599"></a><span class="lineno"> 1599</span>&#160;<span class="comment">/*</span></div>
-<div class="line"><a name="l01600"></a><span class="lineno"> 1600</span>&#160;<span class="comment"> * The Network Control precedence designation is intended to be used</span></div>
-<div class="line"><a name="l01601"></a><span class="lineno"> 1601</span>&#160;<span class="comment"> * within a network only.  The actual use and control of that</span></div>
-<div class="line"><a name="l01602"></a><span class="lineno"> 1602</span>&#160;<span class="comment"> * designation is up to each network. The Internetwork Control</span></div>
-<div class="line"><a name="l01603"></a><span class="lineno"> 1603</span>&#160;<span class="comment"> * designation is intended for use by gateway control originators only.</span></div>
-<div class="line"><a name="l01604"></a><span class="lineno"> 1604</span>&#160;<span class="comment"> * If the actual use of these precedence designations is of concern to</span></div>
-<div class="line"><a name="l01605"></a><span class="lineno"> 1605</span>&#160;<span class="comment"> * a particular network, it is the responsibility of that network to</span></div>
-<div class="line"><a name="l01606"></a><span class="lineno"> 1606</span>&#160;<span class="comment"> * control the access to, and use of, those precedence designations.</span></div>
-<div class="line"><a name="l01607"></a><span class="lineno"> 1607</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l01608"></a><span class="lineno"> 1608</span>&#160;<span class="preprocessor">#define ZTS_IPTOS_PREC_MASK            0xe0</span></div>
-<div class="line"><a name="l01609"></a><span class="lineno"> 1609</span>&#160;<span class="preprocessor">#define ZTS_IPTOS_PREC(tos)            ((tos)&amp;ZTS_IPTOS_PREC_MASK)</span></div>
-<div class="line"><a name="l01610"></a><span class="lineno"> 1610</span>&#160;<span class="preprocessor">#define ZTS_IPTOS_PREC_NETCONTROL      0xe0</span></div>
-<div class="line"><a name="l01611"></a><span class="lineno"> 1611</span>&#160;<span class="preprocessor">#define ZTS_IPTOS_PREC_INTERNETCONTROL 0xc0</span></div>
-<div class="line"><a name="l01612"></a><span class="lineno"> 1612</span>&#160;<span class="preprocessor">#define ZTS_IPTOS_PREC_CRITIC_ECP      0xa0</span></div>
-<div class="line"><a name="l01613"></a><span class="lineno"> 1613</span>&#160;<span class="preprocessor">#define ZTS_IPTOS_PREC_FLASHOVERRIDE   0x80</span></div>
-<div class="line"><a name="l01614"></a><span class="lineno"> 1614</span>&#160;<span class="preprocessor">#define ZTS_IPTOS_PREC_FLASH           0x60</span></div>
-<div class="line"><a name="l01615"></a><span class="lineno"> 1615</span>&#160;<span class="preprocessor">#define ZTS_IPTOS_PREC_IMMEDIATE       0x40</span></div>
-<div class="line"><a name="l01616"></a><span class="lineno"> 1616</span>&#160;<span class="preprocessor">#define ZTS_IPTOS_PREC_PRIORITY        0x20</span></div>
-<div class="line"><a name="l01617"></a><span class="lineno"> 1617</span>&#160;<span class="preprocessor">#define ZTS_IPTOS_PREC_ROUTINE         0x00</span></div>
-<div class="line"><a name="l01618"></a><span class="lineno"> 1618</span>&#160; </div>
-<div class="line"><a name="l01630"></a><span class="lineno"> 1630</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL</div>
-<div class="line"><a name="l01631"></a><span class="lineno"> 1631</span>&#160;<a class="code" href="ZeroTierSockets_8h.html#aaebaadfd1354eb0ce5445452751972e6">zts_setsockopt</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> level, <span class="keywordtype">int</span> optname, <span class="keyword">const</span> <span class="keywordtype">void</span>* optval, zts_socklen_t optlen);</div>
-<div class="line"><a name="l01632"></a><span class="lineno"> 1632</span>&#160; </div>
-<div class="line"><a name="l01644"></a><span class="lineno"> 1644</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL</div>
-<div class="line"><a name="l01645"></a><span class="lineno"> 1645</span>&#160;<a class="code" href="ZeroTierSockets_8h.html#ab1df6ce59fc7fc91da6d73b59034b94c">zts_getsockopt</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> level, <span class="keywordtype">int</span> optname, <span class="keywordtype">void</span>* optval, zts_socklen_t* optlen);</div>
-<div class="line"><a name="l01646"></a><span class="lineno"> 1646</span>&#160; </div>
-<div class="line"><a name="l01656"></a><span class="lineno"> 1656</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a3dc3013d07920e87b7bb1eeb21829cd5">zts_getsockname</a>(<span class="keywordtype">int</span> fd, <span class="keyword">struct</span> zts_sockaddr* addr, zts_socklen_t* addrlen);</div>
-<div class="line"><a name="l01657"></a><span class="lineno"> 1657</span>&#160; </div>
-<div class="line"><a name="l01667"></a><span class="lineno"> 1667</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#ab576edea552a2d27610581211c3d80eb">zts_getpeername</a>(<span class="keywordtype">int</span> fd, <span class="keyword">struct</span> zts_sockaddr* addr, zts_socklen_t* addrlen);</div>
-<div class="line"><a name="l01668"></a><span class="lineno"> 1668</span>&#160; </div>
-<div class="line"><a name="l01676"></a><span class="lineno"> 1676</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a8185fa2fc76de69eb4c45c25c4918856">zts_close</a>(<span class="keywordtype">int</span> fd);</div>
-<div class="line"><a name="l01677"></a><span class="lineno"> 1677</span>&#160; </div>
-<div class="line"><a name="l01678"></a><span class="lineno"> 1678</span>&#160;<span class="comment">/* FD_SET used for lwip_select */</span></div>
-<div class="line"><a name="l01679"></a><span class="lineno"> 1679</span>&#160; </div>
-<div class="line"><a name="l01680"></a><span class="lineno"> 1680</span>&#160;<span class="preprocessor">#define LWIP_SOCKET_OFFSET 0</span></div>
-<div class="line"><a name="l01681"></a><span class="lineno"> 1681</span>&#160;<span class="preprocessor">#define MEMP_NUM_NETCONN   1024</span></div>
-<div class="line"><a name="l01682"></a><span class="lineno"> 1682</span>&#160; </div>
-<div class="line"><a name="l01683"></a><span class="lineno"> 1683</span>&#160;<span class="preprocessor">#ifndef ZTS_FD_SET</span></div>
-<div class="line"><a name="l01684"></a><span class="lineno"> 1684</span>&#160;<span class="preprocessor">    #undef ZTS_FD_SETSIZE</span></div>
-<div class="line"><a name="l01685"></a><span class="lineno"> 1685</span>&#160;    <span class="comment">// Make FD_SETSIZE match NUM_SOCKETS in socket.c</span></div>
-<div class="line"><a name="l01686"></a><span class="lineno"> 1686</span>&#160;<span class="preprocessor">    #define ZTS_FD_SETSIZE MEMP_NUM_NETCONN</span></div>
-<div class="line"><a name="l01687"></a><span class="lineno"> 1687</span>&#160;<span class="preprocessor">    #define ZTS_FDSETSAFESET(n, code)                                                              \</span></div>
-<div class="line"><a name="l01688"></a><span class="lineno"> 1688</span>&#160;<span class="preprocessor">        do {                                                                                       \</span></div>
-<div class="line"><a name="l01689"></a><span class="lineno"> 1689</span>&#160;<span class="preprocessor">            if (((n)-LWIP_SOCKET_OFFSET &lt; MEMP_NUM_NETCONN)                                        \</span></div>
-<div class="line"><a name="l01690"></a><span class="lineno"> 1690</span>&#160;<span class="preprocessor">                &amp;&amp; (((int)(n)-LWIP_SOCKET_OFFSET) &gt;= 0)) {                                         \</span></div>
-<div class="line"><a name="l01691"></a><span class="lineno"> 1691</span>&#160;<span class="preprocessor">                code;                                                                              \</span></div>
-<div class="line"><a name="l01692"></a><span class="lineno"> 1692</span>&#160;<span class="preprocessor">            }                                                                                      \</span></div>
-<div class="line"><a name="l01693"></a><span class="lineno"> 1693</span>&#160;<span class="preprocessor">        } while (0)</span></div>
-<div class="line"><a name="l01694"></a><span class="lineno"> 1694</span>&#160;<span class="preprocessor">    #define ZTS_FDSETSAFEGET(n, code)                                                              \</span></div>
-<div class="line"><a name="l01695"></a><span class="lineno"> 1695</span>&#160;<span class="preprocessor">        (((n)-LWIP_SOCKET_OFFSET &lt; MEMP_NUM_NETCONN) &amp;&amp; (((int)(n)-LWIP_SOCKET_OFFSET) &gt;= 0)       \</span></div>
-<div class="line"><a name="l01696"></a><span class="lineno"> 1696</span>&#160;<span class="preprocessor">             ? (code)                                                                              \</span></div>
-<div class="line"><a name="l01697"></a><span class="lineno"> 1697</span>&#160;<span class="preprocessor">             : 0)</span></div>
-<div class="line"><a name="l01698"></a><span class="lineno"> 1698</span>&#160;<span class="preprocessor">    #define ZTS_FD_SET(n, p)                                                                       \</span></div>
-<div class="line"><a name="l01699"></a><span class="lineno"> 1699</span>&#160;<span class="preprocessor">        ZTS_FDSETSAFESET(                                                                          \</span></div>
-<div class="line"><a name="l01700"></a><span class="lineno"> 1700</span>&#160;<span class="preprocessor">            n,                                                                                     \</span></div>
-<div class="line"><a name="l01701"></a><span class="lineno"> 1701</span>&#160;<span class="preprocessor">            (p)-&gt;fd_bits[((n)-LWIP_SOCKET_OFFSET) / 8] |= (1 &lt;&lt; (((n)-LWIP_SOCKET_OFFSET) &amp; 7)))</span></div>
-<div class="line"><a name="l01702"></a><span class="lineno"> 1702</span>&#160;<span class="preprocessor">    #define ZTS_FD_CLR(n, p)                                                                       \</span></div>
-<div class="line"><a name="l01703"></a><span class="lineno"> 1703</span>&#160;<span class="preprocessor">        ZTS_FDSETSAFESET(                                                                          \</span></div>
-<div class="line"><a name="l01704"></a><span class="lineno"> 1704</span>&#160;<span class="preprocessor">            n,                                                                                     \</span></div>
-<div class="line"><a name="l01705"></a><span class="lineno"> 1705</span>&#160;<span class="preprocessor">            (p)-&gt;fd_bits[((n)-LWIP_SOCKET_OFFSET) / 8] &amp;= ~(1 &lt;&lt; (((n)-LWIP_SOCKET_OFFSET) &amp; 7)))</span></div>
-<div class="line"><a name="l01706"></a><span class="lineno"> 1706</span>&#160;<span class="preprocessor">    #define ZTS_FD_ISSET(n, p)                                                                     \</span></div>
-<div class="line"><a name="l01707"></a><span class="lineno"> 1707</span>&#160;<span class="preprocessor">        ZTS_FDSETSAFEGET(                                                                          \</span></div>
-<div class="line"><a name="l01708"></a><span class="lineno"> 1708</span>&#160;<span class="preprocessor">            n,                                                                                     \</span></div>
-<div class="line"><a name="l01709"></a><span class="lineno"> 1709</span>&#160;<span class="preprocessor">            (p)-&gt;fd_bits[((n)-LWIP_SOCKET_OFFSET) / 8] &amp; (1 &lt;&lt; (((n)-LWIP_SOCKET_OFFSET) &amp; 7)))</span></div>
-<div class="line"><a name="l01710"></a><span class="lineno"> 1710</span>&#160;<span class="preprocessor">    #define ZTS_FD_ZERO(p) memset((void*)(p), 0, sizeof(*(p)))</span></div>
-<div class="line"><a name="l01711"></a><span class="lineno"> 1711</span>&#160; </div>
-<div class="line"><a name="l01712"></a><span class="lineno"> 1712</span>&#160;<span class="preprocessor">#elif LWIP_SOCKET_OFFSET</span></div>
-<div class="line"><a name="l01713"></a><span class="lineno"> 1713</span>&#160;<span class="preprocessor">    #error LWIP_SOCKET_OFFSET does not work with external FD_SET!</span></div>
-<div class="line"><a name="l01714"></a><span class="lineno"> 1714</span>&#160;<span class="preprocessor">#elif ZTS_FD_SETSIZE &lt; MEMP_NUM_NETCONN</span></div>
-<div class="line"><a name="l01715"></a><span class="lineno"> 1715</span>&#160;<span class="preprocessor">    #error &quot;external ZTS_FD_SETSIZE too small for number of sockets&quot;</span></div>
-<div class="line"><a name="l01716"></a><span class="lineno"> 1716</span>&#160;<span class="preprocessor">#endif   // FD_SET</span></div>
-<div class="line"><a name="l01717"></a><span class="lineno"> 1717</span>&#160; </div>
-<div class="line"><a name="l01718"></a><span class="lineno"> 1718</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>zts_fd_set {</div>
-<div class="line"><a name="l01719"></a><span class="lineno"> 1719</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> fd_bits[(ZTS_FD_SETSIZE + 7) / 8];</div>
-<div class="line"><a name="l01720"></a><span class="lineno"> 1720</span>&#160;} zts_fd_set;</div>
-<div class="line"><a name="l01721"></a><span class="lineno"> 1721</span>&#160; </div>
-<div class="line"><a name="l01722"></a><span class="lineno"> 1722</span>&#160;<span class="keyword">struct </span>zts_timeval {</div>
-<div class="line"><a name="l01723"></a><span class="lineno"> 1723</span>&#160;    <span class="keywordtype">long</span> tv_sec;  <span class="comment">/* seconds */</span></div>
-<div class="line"><a name="l01724"></a><span class="lineno"> 1724</span>&#160;    <span class="keywordtype">long</span> tv_usec; <span class="comment">/* and microseconds */</span></div>
-<div class="line"><a name="l01725"></a><span class="lineno"> 1725</span>&#160;};</div>
-<div class="line"><a name="l01726"></a><span class="lineno"> 1726</span>&#160; </div>
-<div class="line"><a name="l01740"></a><span class="lineno"> 1740</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#aa97cae3a1e8f11b1edfbac4d7cc350e7">zts_select</a>(</div>
-<div class="line"><a name="l01741"></a><span class="lineno"> 1741</span>&#160;    <span class="keywordtype">int</span> nfds,</div>
-<div class="line"><a name="l01742"></a><span class="lineno"> 1742</span>&#160;    zts_fd_set* readfds,</div>
-<div class="line"><a name="l01743"></a><span class="lineno"> 1743</span>&#160;    zts_fd_set* writefds,</div>
-<div class="line"><a name="l01744"></a><span class="lineno"> 1744</span>&#160;    zts_fd_set* exceptfds,</div>
-<div class="line"><a name="l01745"></a><span class="lineno"> 1745</span>&#160;    <span class="keyword">struct</span> zts_timeval* timeout);</div>
-<div class="line"><a name="l01746"></a><span class="lineno"> 1746</span>&#160; </div>
-<div class="line"><a name="l01747"></a><span class="lineno"> 1747</span>&#160;<span class="comment">// fnctl() commands</span></div>
-<div class="line"><a name="l01748"></a><span class="lineno"> 1748</span>&#160;<span class="preprocessor">#define ZTS_F_GETFL 0x0003</span></div>
-<div class="line"><a name="l01749"></a><span class="lineno"> 1749</span>&#160;<span class="preprocessor">#define ZTS_F_SETFL 0x0004</span></div>
-<div class="line"><a name="l01750"></a><span class="lineno"> 1750</span>&#160;<span class="comment">/* File status flags and file access modes for fnctl,</span></div>
-<div class="line"><a name="l01751"></a><span class="lineno"> 1751</span>&#160;<span class="comment">   these are bits in an int. */</span></div>
-<div class="line"><a name="l01752"></a><span class="lineno"> 1752</span>&#160;<span class="preprocessor">#define ZTS_O_NONBLOCK 1</span></div>
-<div class="line"><a name="l01753"></a><span class="lineno"> 1753</span>&#160;<span class="preprocessor">#define ZTS_O_NDELAY   ZTS_O_NONBLOCK</span></div>
-<div class="line"><a name="l01754"></a><span class="lineno"> 1754</span>&#160;<span class="preprocessor">#define ZTS_O_RDONLY   2</span></div>
-<div class="line"><a name="l01755"></a><span class="lineno"> 1755</span>&#160;<span class="preprocessor">#define ZTS_O_WRONLY   4</span></div>
-<div class="line"><a name="l01756"></a><span class="lineno"> 1756</span>&#160;<span class="preprocessor">#define ZTS_O_RDWR     (ZTS_O_RDONLY | ZTS_O_WRONLY)</span></div>
-<div class="line"><a name="l01757"></a><span class="lineno"> 1757</span>&#160; </div>
-<div class="line"><a name="l01766"></a><span class="lineno"> 1766</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#aeedf78b8ec177e4a9e7db1d6cd265010">zts_fcntl</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> cmd, <span class="keywordtype">int</span> flags);</div>
-<div class="line"><a name="l01767"></a><span class="lineno"> 1767</span>&#160; </div>
-<div class="line"><a name="l01768"></a><span class="lineno"> 1768</span>&#160;<span class="preprocessor">#define ZTS_POLLIN   0x001</span></div>
-<div class="line"><a name="l01769"></a><span class="lineno"> 1769</span>&#160;<span class="preprocessor">#define ZTS_POLLOUT  0x002</span></div>
-<div class="line"><a name="l01770"></a><span class="lineno"> 1770</span>&#160;<span class="preprocessor">#define ZTS_POLLERR  0x004</span></div>
-<div class="line"><a name="l01771"></a><span class="lineno"> 1771</span>&#160;<span class="preprocessor">#define ZTS_POLLNVAL 0x008</span></div>
-<div class="line"><a name="l01772"></a><span class="lineno"> 1772</span>&#160;<span class="comment">/* Below values are unimplemented */</span></div>
-<div class="line"><a name="l01773"></a><span class="lineno"> 1773</span>&#160;<span class="preprocessor">#define ZTS_POLLRDNORM 0x010</span></div>
-<div class="line"><a name="l01774"></a><span class="lineno"> 1774</span>&#160;<span class="preprocessor">#define ZTS_POLLRDBAND 0x020</span></div>
-<div class="line"><a name="l01775"></a><span class="lineno"> 1775</span>&#160;<span class="preprocessor">#define ZTS_POLLPRI    0x040</span></div>
-<div class="line"><a name="l01776"></a><span class="lineno"> 1776</span>&#160;<span class="preprocessor">#define ZTS_POLLWRNORM 0x080</span></div>
-<div class="line"><a name="l01777"></a><span class="lineno"> 1777</span>&#160;<span class="preprocessor">#define ZTS_POLLWRBAND 0x100</span></div>
-<div class="line"><a name="l01778"></a><span class="lineno"> 1778</span>&#160;<span class="preprocessor">#define ZTS_POLLHUP    0x200</span></div>
-<div class="line"><a name="l01779"></a><span class="lineno"> 1779</span>&#160; </div>
-<div class="line"><a name="l01780"></a><span class="lineno"> 1780</span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> zts_nfds_t;</div>
-<div class="line"><a name="l01781"></a><span class="lineno"> 1781</span>&#160; </div>
-<div class="line"><a name="l01782"></a><span class="lineno"> 1782</span>&#160;<span class="keyword">struct </span>zts_pollfd {</div>
-<div class="line"><a name="l01783"></a><span class="lineno"> 1783</span>&#160;    <span class="keywordtype">int</span> fd;</div>
-<div class="line"><a name="l01784"></a><span class="lineno"> 1784</span>&#160;    <span class="keywordtype">short</span> events;</div>
-<div class="line"><a name="l01785"></a><span class="lineno"> 1785</span>&#160;    <span class="keywordtype">short</span> revents;</div>
-<div class="line"><a name="l01786"></a><span class="lineno"> 1786</span>&#160;};</div>
-<div class="line"><a name="l01787"></a><span class="lineno"> 1787</span>&#160; </div>
-<div class="line"><a name="l01798"></a><span class="lineno"> 1798</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a2160a66eaf4f404ac114c462117d6f8d">zts_poll</a>(<span class="keyword">struct</span> zts_pollfd* fds, zts_nfds_t nfds, <span class="keywordtype">int</span> timeout);</div>
-<div class="line"><a name="l01799"></a><span class="lineno"> 1799</span>&#160; </div>
-<div class="line"><a name="l01809"></a><span class="lineno"> 1809</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#aedb71e0ec87a7a62257f9b1737fa8f2e">zts_ioctl</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> request, <span class="keywordtype">void</span>* argp);</div>
-<div class="line"><a name="l01810"></a><span class="lineno"> 1810</span>&#160; </div>
-<div class="line"><a name="l01821"></a><span class="lineno"> 1821</span>&#160;ZTS_API ssize_t ZTCALL <a class="code" href="ZeroTierSockets_8h.html#af179ffb8206f7f3de870fbc38c64f1b1">zts_send</a>(<span class="keywordtype">int</span> fd, <span class="keyword">const</span> <span class="keywordtype">void</span>* buf, <span class="keywordtype">size_t</span> len, <span class="keywordtype">int</span> flags);</div>
-<div class="line"><a name="l01822"></a><span class="lineno"> 1822</span>&#160; </div>
-<div class="line"><a name="l01835"></a><span class="lineno"> 1835</span>&#160;ZTS_API ssize_t ZTCALL <a class="code" href="ZeroTierSockets_8h.html#ac4a9cb959f0483b51d4c470e18874957">zts_sendto</a>(</div>
-<div class="line"><a name="l01836"></a><span class="lineno"> 1836</span>&#160;    <span class="keywordtype">int</span> fd,</div>
-<div class="line"><a name="l01837"></a><span class="lineno"> 1837</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">void</span>* buf,</div>
-<div class="line"><a name="l01838"></a><span class="lineno"> 1838</span>&#160;    <span class="keywordtype">size_t</span> len,</div>
-<div class="line"><a name="l01839"></a><span class="lineno"> 1839</span>&#160;    <span class="keywordtype">int</span> flags,</div>
-<div class="line"><a name="l01840"></a><span class="lineno"> 1840</span>&#160;    <span class="keyword">const</span> <span class="keyword">struct</span> zts_sockaddr* addr,</div>
-<div class="line"><a name="l01841"></a><span class="lineno"> 1841</span>&#160;    zts_socklen_t addrlen);</div>
-<div class="line"><a name="l01842"></a><span class="lineno"> 1842</span>&#160; </div>
-<div class="line"><a name="l01843"></a><span class="lineno"> 1843</span>&#160;<span class="keyword">struct </span>zts_iovec {</div>
-<div class="line"><a name="l01844"></a><span class="lineno"> 1844</span>&#160;    <span class="keywordtype">void</span>* iov_base;</div>
-<div class="line"><a name="l01845"></a><span class="lineno"> 1845</span>&#160;    <span class="keywordtype">size_t</span> iov_len;</div>
-<div class="line"><a name="l01846"></a><span class="lineno"> 1846</span>&#160;};</div>
-<div class="line"><a name="l01847"></a><span class="lineno"> 1847</span>&#160; </div>
-<div class="line"><a name="l01848"></a><span class="lineno"> 1848</span>&#160;<span class="comment">/* */</span></div>
-<div class="line"><a name="l01849"></a><span class="lineno"> 1849</span>&#160;<span class="keyword">struct </span>zts_msghdr {</div>
-<div class="line"><a name="l01850"></a><span class="lineno"> 1850</span>&#160;    <span class="keywordtype">void</span>* msg_name;</div>
-<div class="line"><a name="l01851"></a><span class="lineno"> 1851</span>&#160;    zts_socklen_t msg_namelen;</div>
-<div class="line"><a name="l01852"></a><span class="lineno"> 1852</span>&#160;    <span class="keyword">struct </span>zts_iovec* msg_iov;</div>
-<div class="line"><a name="l01853"></a><span class="lineno"> 1853</span>&#160;    <span class="keywordtype">int</span> msg_iovlen;</div>
-<div class="line"><a name="l01854"></a><span class="lineno"> 1854</span>&#160;    <span class="keywordtype">void</span>* msg_control;</div>
-<div class="line"><a name="l01855"></a><span class="lineno"> 1855</span>&#160;    zts_socklen_t msg_controllen;</div>
-<div class="line"><a name="l01856"></a><span class="lineno"> 1856</span>&#160;    <span class="keywordtype">int</span> msg_flags;</div>
-<div class="line"><a name="l01857"></a><span class="lineno"> 1857</span>&#160;};</div>
-<div class="line"><a name="l01858"></a><span class="lineno"> 1858</span>&#160; </div>
-<div class="line"><a name="l01859"></a><span class="lineno"> 1859</span>&#160;<span class="comment">/* struct msghdr-&gt;msg_flags bit field values */</span></div>
-<div class="line"><a name="l01860"></a><span class="lineno"> 1860</span>&#160;<span class="preprocessor">#define ZTS_MSG_TRUNC  0x04</span></div>
-<div class="line"><a name="l01861"></a><span class="lineno"> 1861</span>&#160;<span class="preprocessor">#define ZTS_MSG_CTRUNC 0x08</span></div>
-<div class="line"><a name="l01862"></a><span class="lineno"> 1862</span>&#160; </div>
-<div class="line"><a name="l01872"></a><span class="lineno"> 1872</span>&#160;ZTS_API ssize_t ZTCALL <a class="code" href="ZeroTierSockets_8h.html#abed38fe59f0f742597894610797b4902">zts_sendmsg</a>(<span class="keywordtype">int</span> fd, <span class="keyword">const</span> <span class="keyword">struct</span> zts_msghdr* msg, <span class="keywordtype">int</span> flags);</div>
-<div class="line"><a name="l01873"></a><span class="lineno"> 1873</span>&#160; </div>
-<div class="line"><a name="l01884"></a><span class="lineno"> 1884</span>&#160;ZTS_API ssize_t ZTCALL <a class="code" href="ZeroTierSockets_8h.html#ae519750e0423c3327b5eaac46248c841">zts_recv</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">void</span>* buf, <span class="keywordtype">size_t</span> len, <span class="keywordtype">int</span> flags);</div>
-<div class="line"><a name="l01885"></a><span class="lineno"> 1885</span>&#160; </div>
-<div class="line"><a name="l01898"></a><span class="lineno"> 1898</span>&#160;ZTS_API ssize_t ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a38bfaf72d66ec76f47c9410df2a78a2a">zts_recvfrom</a>(</div>
-<div class="line"><a name="l01899"></a><span class="lineno"> 1899</span>&#160;    <span class="keywordtype">int</span> fd,</div>
-<div class="line"><a name="l01900"></a><span class="lineno"> 1900</span>&#160;    <span class="keywordtype">void</span>* buf,</div>
-<div class="line"><a name="l01901"></a><span class="lineno"> 1901</span>&#160;    <span class="keywordtype">size_t</span> len,</div>
-<div class="line"><a name="l01902"></a><span class="lineno"> 1902</span>&#160;    <span class="keywordtype">int</span> flags,</div>
-<div class="line"><a name="l01903"></a><span class="lineno"> 1903</span>&#160;    <span class="keyword">struct</span> zts_sockaddr* addr,</div>
-<div class="line"><a name="l01904"></a><span class="lineno"> 1904</span>&#160;    zts_socklen_t* addrlen);</div>
-<div class="line"><a name="l01905"></a><span class="lineno"> 1905</span>&#160; </div>
-<div class="line"><a name="l01915"></a><span class="lineno"> 1915</span>&#160;ZTS_API ssize_t ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a3bb5ca55de3a0dfc97fc42ded64612ca">zts_recvmsg</a>(<span class="keywordtype">int</span> fd, <span class="keyword">struct</span> zts_msghdr* msg, <span class="keywordtype">int</span> flags);</div>
-<div class="line"><a name="l01916"></a><span class="lineno"> 1916</span>&#160; </div>
-<div class="line"><a name="l01926"></a><span class="lineno"> 1926</span>&#160;ZTS_API ssize_t ZTCALL <a class="code" href="ZeroTierSockets_8h.html#ad60a93ff6ac6316203f824f677defd8e">zts_read</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">void</span>* buf, <span class="keywordtype">size_t</span> len);</div>
-<div class="line"><a name="l01927"></a><span class="lineno"> 1927</span>&#160; </div>
-<div class="line"><a name="l01937"></a><span class="lineno"> 1937</span>&#160;ZTS_API ssize_t ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a2f13449d19bbf4600e4d7b635fd82f6a">zts_readv</a>(<span class="keywordtype">int</span> fd, <span class="keyword">const</span> <span class="keyword">struct</span> zts_iovec* iov, <span class="keywordtype">int</span> iovcnt);</div>
-<div class="line"><a name="l01938"></a><span class="lineno"> 1938</span>&#160; </div>
-<div class="line"><a name="l01948"></a><span class="lineno"> 1948</span>&#160;ZTS_API ssize_t ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a927f54288d9d12a356f0bf46f0dd682a">zts_write</a>(<span class="keywordtype">int</span> fd, <span class="keyword">const</span> <span class="keywordtype">void</span>* buf, <span class="keywordtype">size_t</span> len);</div>
-<div class="line"><a name="l01949"></a><span class="lineno"> 1949</span>&#160; </div>
-<div class="line"><a name="l01959"></a><span class="lineno"> 1959</span>&#160;ZTS_API ssize_t ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a9441245a889070a029d704ef4422dbf3">zts_writev</a>(<span class="keywordtype">int</span> fd, <span class="keyword">const</span> <span class="keyword">struct</span> zts_iovec* iov, <span class="keywordtype">int</span> iovcnt);</div>
-<div class="line"><a name="l01960"></a><span class="lineno"> 1960</span>&#160; </div>
-<div class="line"><a name="l01961"></a><span class="lineno"> 1961</span>&#160;<span class="preprocessor">#define ZTS_SHUT_RD   0x0</span></div>
-<div class="line"><a name="l01962"></a><span class="lineno"> 1962</span>&#160;<span class="preprocessor">#define ZTS_SHUT_WR   0x1</span></div>
-<div class="line"><a name="l01963"></a><span class="lineno"> 1963</span>&#160;<span class="preprocessor">#define ZTS_SHUT_RDWR 0x2</span></div>
-<div class="line"><a name="l01964"></a><span class="lineno"> 1964</span>&#160; </div>
-<div class="line"><a name="l01973"></a><span class="lineno"> 1973</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#acf578e4ecb3190be0238394a7f10cb15">zts_shutdown</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> how);</div>
-<div class="line"><a name="l01974"></a><span class="lineno"> 1974</span>&#160; </div>
-<div class="line"><a name="l01975"></a><span class="lineno"> 1975</span>&#160;<span class="comment">//----------------------------------------------------------------------------//</span></div>
-<div class="line"><a name="l01976"></a><span class="lineno"> 1976</span>&#160;<span class="comment">// Convenience functions                                                      //</span></div>
-<div class="line"><a name="l01977"></a><span class="lineno"> 1977</span>&#160;<span class="comment">//----------------------------------------------------------------------------//</span></div>
-<div class="line"><a name="l01978"></a><span class="lineno"> 1978</span>&#160; </div>
-<div class="line"><a name="l01995"></a><span class="lineno"> 1995</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#ab090878878777ae99bee7897c271d604">zts_prim_set_no_delay</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> enabled);</div>
-<div class="line"><a name="l01996"></a><span class="lineno"> 1996</span>&#160; </div>
-<div class="line"><a name="l02004"></a><span class="lineno"> 2004</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a539f50ec97a74d16cc4550e53c72dc9b">zts_prim_get_no_delay</a>(<span class="keywordtype">int</span> fd);</div>
-<div class="line"><a name="l02005"></a><span class="lineno"> 2005</span>&#160; </div>
-<div class="line"><a name="l02015"></a><span class="lineno"> 2015</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a6e9063260efdca03557c5bb1f5f7d19b">zts_prim_set_linger</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> enabled, <span class="keywordtype">int</span> value);</div>
-<div class="line"><a name="l02016"></a><span class="lineno"> 2016</span>&#160; </div>
-<div class="line"><a name="l02024"></a><span class="lineno"> 2024</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#af6ef706a2e550e0b852c5293711af5ea">zts_prim_get_linger_enabled</a>(<span class="keywordtype">int</span> fd);</div>
-<div class="line"><a name="l02025"></a><span class="lineno"> 2025</span>&#160; </div>
-<div class="line"><a name="l02033"></a><span class="lineno"> 2033</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a3e4945dd1bc8ece9d764a7b4581b1778">zts_prim_get_linger_value</a>(<span class="keywordtype">int</span> fd);</div>
-<div class="line"><a name="l02034"></a><span class="lineno"> 2034</span>&#160; </div>
-<div class="line"><a name="l02043"></a><span class="lineno"> 2043</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#afc1ecc06732803335214418d751b04d6">zts_prim_set_reuse_addr</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> enabled);</div>
-<div class="line"><a name="l02044"></a><span class="lineno"> 2044</span>&#160; </div>
-<div class="line"><a name="l02052"></a><span class="lineno"> 2052</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#aa43ad66bb865cf3f7d82d32e3f730e6e">zts_prim_get_reuse_addr</a>(<span class="keywordtype">int</span> fd);</div>
-<div class="line"><a name="l02053"></a><span class="lineno"> 2053</span>&#160; </div>
-<div class="line"><a name="l02062"></a><span class="lineno"> 2062</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a81ea7ff5c36f26de5bf220b625e93ac5">zts_prim_set_recv_timeout</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> seconds, <span class="keywordtype">int</span> microseconds);</div>
-<div class="line"><a name="l02063"></a><span class="lineno"> 2063</span>&#160; </div>
-<div class="line"><a name="l02071"></a><span class="lineno"> 2071</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a0495057c080d2dd1dd030466aa0cd949">zts_prim_get_recv_timeout</a>(<span class="keywordtype">int</span> fd);</div>
-<div class="line"><a name="l02072"></a><span class="lineno"> 2072</span>&#160; </div>
-<div class="line"><a name="l02081"></a><span class="lineno"> 2081</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#ad4204f3b4ae325f54a2e1a055b27931f">zts_prim_set_send_timeout</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> seconds, <span class="keywordtype">int</span> microseconds);</div>
-<div class="line"><a name="l02082"></a><span class="lineno"> 2082</span>&#160; </div>
-<div class="line"><a name="l02090"></a><span class="lineno"> 2090</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a1158678ed9bd64e5b846c0719ba7f3a1">zts_prim_get_send_timeout</a>(<span class="keywordtype">int</span> fd);</div>
-<div class="line"><a name="l02091"></a><span class="lineno"> 2091</span>&#160; </div>
-<div class="line"><a name="l02100"></a><span class="lineno"> 2100</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#aa39916e5802dd712a7d878322bd35593">zts_prim_set_send_buf_size</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> size);</div>
-<div class="line"><a name="l02101"></a><span class="lineno"> 2101</span>&#160; </div>
-<div class="line"><a name="l02109"></a><span class="lineno"> 2109</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#ab1384b0f1da7dc737a5d5aed454a47e8">zts_prim_get_send_buf_size</a>(<span class="keywordtype">int</span> fd);</div>
-<div class="line"><a name="l02110"></a><span class="lineno"> 2110</span>&#160; </div>
-<div class="line"><a name="l02119"></a><span class="lineno"> 2119</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#ad22b16d641d94c8a161fb014bccd17ea">zts_prim_set_recv_buf_size</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> size);</div>
-<div class="line"><a name="l02120"></a><span class="lineno"> 2120</span>&#160; </div>
-<div class="line"><a name="l02128"></a><span class="lineno"> 2128</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a7234d511f1330f711b5c9ff340a09b4a">zts_prim_get_recv_buf_size</a>(<span class="keywordtype">int</span> fd);</div>
-<div class="line"><a name="l02129"></a><span class="lineno"> 2129</span>&#160; </div>
-<div class="line"><a name="l02138"></a><span class="lineno"> 2138</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#aaa82aeb7bf620b859d97409cbd2c07b3">zts_prim_set_ttl</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> ttl);</div>
-<div class="line"><a name="l02139"></a><span class="lineno"> 2139</span>&#160; </div>
-<div class="line"><a name="l02147"></a><span class="lineno"> 2147</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#aa0a2ceb56a5bae23a3ff3a2018b67ffc">zts_prim_get_ttl</a>(<span class="keywordtype">int</span> fd);</div>
-<div class="line"><a name="l02148"></a><span class="lineno"> 2148</span>&#160; </div>
-<div class="line"><a name="l02158"></a><span class="lineno"> 2158</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a2f6e3c11a2bd5f24caf14d5058fd470c">zts_prim_set_blocking</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> enabled);</div>
-<div class="line"><a name="l02159"></a><span class="lineno"> 2159</span>&#160; </div>
-<div class="line"><a name="l02167"></a><span class="lineno"> 2167</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a4727026b5ae51e6a490a04fed4b4197d">zts_prim_get_blocking</a>(<span class="keywordtype">int</span> fd);</div>
-<div class="line"><a name="l02168"></a><span class="lineno"> 2168</span>&#160; </div>
-<div class="line"><a name="l02177"></a><span class="lineno"> 2177</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#adca1b14086c1a816a36bb12326551399">zts_prim_set_keepalive</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> enabled);</div>
-<div class="line"><a name="l02178"></a><span class="lineno"> 2178</span>&#160; </div>
-<div class="line"><a name="l02186"></a><span class="lineno"> 2186</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a139890bd38fc8d0faadb0226f39279f7">zts_prim_get_keepalive</a>(<span class="keywordtype">int</span> fd);</div>
-<div class="line"><a name="l02187"></a><span class="lineno"> 2187</span>&#160; </div>
-<div class="line"><a name="l02188"></a><span class="lineno"> 2188</span>&#160;<span class="comment">//----------------------------------------------------------------------------//</span></div>
-<div class="line"><a name="l02189"></a><span class="lineno"> 2189</span>&#160;<span class="comment">// DNS                                                                        //</span></div>
-<div class="line"><a name="l02190"></a><span class="lineno"> 2190</span>&#160;<span class="comment">//----------------------------------------------------------------------------//</span></div>
-<div class="line"><a name="l02191"></a><span class="lineno"> 2191</span>&#160; </div>
-<div class="line"><a name="l02192"></a><span class="lineno"> 2192</span>&#160;<span class="keyword">struct </span>zts_hostent {</div>
-<div class="line"><a name="l02193"></a><span class="lineno"> 2193</span>&#160;    <span class="keywordtype">char</span>* h_name;             <span class="comment">/* Official name of the host. */</span></div>
-<div class="line"><a name="l02194"></a><span class="lineno"> 2194</span>&#160;    <span class="keywordtype">char</span>** h_aliases;         <span class="comment">/* A pointer to an array of pointers to alternative host</span></div>
-<div class="line"><a name="l02195"></a><span class="lineno"> 2195</span>&#160;<span class="comment">                                 names,   terminated by a null pointer. */</span></div>
-<div class="line"><a name="l02196"></a><span class="lineno"> 2196</span>&#160;    <span class="keywordtype">int</span> h_addrtype;           <span class="comment">/* Address type. */</span></div>
-<div class="line"><a name="l02197"></a><span class="lineno"> 2197</span>&#160;    <span class="keywordtype">int</span> h_length;             <span class="comment">/* The length, in bytes, of the address. */</span></div>
-<div class="line"><a name="l02198"></a><span class="lineno"> 2198</span>&#160;    <span class="keywordtype">char</span>** h_addr_list;       <span class="comment">/* A pointer to an array of pointers to network</span></div>
-<div class="line"><a name="l02199"></a><span class="lineno"> 2199</span>&#160;<span class="comment">                                 addresses (in network byte order) for the host,</span></div>
-<div class="line"><a name="l02200"></a><span class="lineno"> 2200</span>&#160;<span class="comment">                                 terminated by a null pointer. */</span></div>
-<div class="line"><a name="l02201"></a><span class="lineno"> 2201</span>&#160;<span class="preprocessor">#define h_addr h_addr_list[0] </span><span class="comment">/* for backward compatibility */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l02202"></a><span class="lineno"> 2202</span>&#160;};</div>
-<div class="line"><a name="l02203"></a><span class="lineno"> 2203</span>&#160; </div>
-<div class="line"><a name="l02210"></a><span class="lineno"> 2210</span>&#160;<span class="keyword">struct </span>zts_hostent* <a class="code" href="ZeroTierSockets_8h.html#a8094779eec9df34a58be6531d25967b6">zts_gethostbyname</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* name);</div>
+<div class="line"><a name="l01395"></a><span class="lineno"> 1395</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#ade4842a34db57b12bfdefd1a3c6c7dc7">zts_socket</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> socket_family, <span class="keyword">const</span> <span class="keywordtype">int</span> socket_type, <span class="keyword">const</span> <span class="keywordtype">int</span> protocol);</div>
+<div class="line"><a name="l01396"></a><span class="lineno"> 1396</span>&#160; </div>
+<div class="line"><a name="l01406"></a><span class="lineno"> 1406</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a78748e1ad27e68ce06f960395da73435">zts_connect</a>(<span class="keywordtype">int</span> fd, <span class="keyword">const</span> <span class="keyword">struct</span> zts_sockaddr* addr, zts_socklen_t addrlen);</div>
+<div class="line"><a name="l01407"></a><span class="lineno"> 1407</span>&#160; </div>
+<div class="line"><a name="l01432"></a><span class="lineno"> 1432</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a33f77408d84469dca96dc71a390d4d6f">zts_prim_connect</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> family, <span class="keywordtype">char</span>* ipstr, <span class="keywordtype">int</span> port, <span class="keywordtype">int</span> timeout_ms);</div>
+<div class="line"><a name="l01433"></a><span class="lineno"> 1433</span>&#160; </div>
+<div class="line"><a name="l01443"></a><span class="lineno"> 1443</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a59c292d2e9cab9a032cac650292bcad3">zts_bind</a>(<span class="keywordtype">int</span> fd, <span class="keyword">const</span> <span class="keyword">struct</span> zts_sockaddr* addr, zts_socklen_t addrlen);</div>
+<div class="line"><a name="l01444"></a><span class="lineno"> 1444</span>&#160; </div>
+<div class="line"><a name="l01455"></a><span class="lineno"> 1455</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a564392efdce9f91bda4b1b9e2937a827">zts_prim_bind</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> family, <span class="keywordtype">char</span>* ipstr, <span class="keywordtype">int</span> port);</div>
+<div class="line"><a name="l01456"></a><span class="lineno"> 1456</span>&#160; </div>
+<div class="line"><a name="l01465"></a><span class="lineno"> 1465</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a9671b0cd2cdcc097cba4dceb66512d86">zts_listen</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> backlog);</div>
+<div class="line"><a name="l01466"></a><span class="lineno"> 1466</span>&#160; </div>
+<div class="line"><a name="l01476"></a><span class="lineno"> 1476</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#ada54150e3756742502da4d3ec73a891c">zts_accept</a>(<span class="keywordtype">int</span> fd, <span class="keyword">struct</span> zts_sockaddr* addr, zts_socklen_t* addrlen);</div>
+<div class="line"><a name="l01477"></a><span class="lineno"> 1477</span>&#160; </div>
+<div class="line"><a name="l01489"></a><span class="lineno"> 1489</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a0efc21997b5e845bd7b9901201d9565e">zts_prim_accept</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">char</span>* remoteIpStr, <span class="keywordtype">int</span> len, <span class="keywordtype">int</span>* port);</div>
+<div class="line"><a name="l01490"></a><span class="lineno"> 1490</span>&#160; </div>
+<div class="line"><a name="l01491"></a><span class="lineno"> 1491</span>&#160;<span class="comment">// Socket level option number</span></div>
+<div class="line"><a name="l01492"></a><span class="lineno"> 1492</span>&#160;<span class="preprocessor">#define ZTS_SOL_SOCKET 0x0fff</span></div>
+<div class="line"><a name="l01493"></a><span class="lineno"> 1493</span>&#160;<span class="comment">// Socket options</span></div>
+<div class="line"><a name="l01494"></a><span class="lineno"> 1494</span>&#160;<span class="preprocessor">#define ZTS_SO_DEBUG       0x0001   // NOT YET SUPPORTED</span></div>
+<div class="line"><a name="l01495"></a><span class="lineno"> 1495</span>&#160;<span class="preprocessor">#define ZTS_SO_ACCEPTCONN  0x0002</span></div>
+<div class="line"><a name="l01496"></a><span class="lineno"> 1496</span>&#160;<span class="preprocessor">#define ZTS_SO_REUSEADDR   0x0004</span></div>
+<div class="line"><a name="l01497"></a><span class="lineno"> 1497</span>&#160;<span class="preprocessor">#define ZTS_SO_KEEPALIVE   0x0008</span></div>
+<div class="line"><a name="l01498"></a><span class="lineno"> 1498</span>&#160;<span class="preprocessor">#define ZTS_SO_DONTROUTE   0x0010   // NOT YET SUPPORTED</span></div>
+<div class="line"><a name="l01499"></a><span class="lineno"> 1499</span>&#160;<span class="preprocessor">#define ZTS_SO_BROADCAST   0x0020</span></div>
+<div class="line"><a name="l01500"></a><span class="lineno"> 1500</span>&#160;<span class="preprocessor">#define ZTS_SO_USELOOPBACK 0x0040   // NOT YET SUPPORTED</span></div>
+<div class="line"><a name="l01501"></a><span class="lineno"> 1501</span>&#160;<span class="preprocessor">#define ZTS_SO_LINGER      0x0080</span></div>
+<div class="line"><a name="l01502"></a><span class="lineno"> 1502</span>&#160; </div>
+<div class="line"><a name="l01503"></a><span class="lineno"> 1503</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l01504"></a><span class="lineno"> 1504</span>&#160;<span class="comment"> * Structure used for manipulating linger option.</span></div>
+<div class="line"><a name="l01505"></a><span class="lineno"> 1505</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l01506"></a><span class="lineno"> 1506</span>&#160;<span class="keyword">struct </span>zts_linger {</div>
+<div class="line"><a name="l01507"></a><span class="lineno"> 1507</span>&#160;    <span class="keywordtype">int</span> l_onoff;    <span class="comment">// option on/off</span></div>
+<div class="line"><a name="l01508"></a><span class="lineno"> 1508</span>&#160;    <span class="keywordtype">int</span> l_linger;   <span class="comment">// linger time in seconds</span></div>
+<div class="line"><a name="l01509"></a><span class="lineno"> 1509</span>&#160;};</div>
+<div class="line"><a name="l01510"></a><span class="lineno"> 1510</span>&#160; </div>
+<div class="line"><a name="l01511"></a><span class="lineno"> 1511</span>&#160;<span class="preprocessor">#define ZTS_SO_DONTLINGER   ((int)(~ZTS_SO_LINGER))</span></div>
+<div class="line"><a name="l01512"></a><span class="lineno"> 1512</span>&#160;<span class="preprocessor">#define ZTS_SO_OOBINLINE    0x0100   // NOT YET SUPPORTED</span></div>
+<div class="line"><a name="l01513"></a><span class="lineno"> 1513</span>&#160;<span class="preprocessor">#define ZTS_SO_REUSEPORT    0x0200   // NOT YET SUPPORTED</span></div>
+<div class="line"><a name="l01514"></a><span class="lineno"> 1514</span>&#160;<span class="preprocessor">#define ZTS_SO_SNDBUF       0x1001   // NOT YET SUPPORTED</span></div>
+<div class="line"><a name="l01515"></a><span class="lineno"> 1515</span>&#160;<span class="preprocessor">#define ZTS_SO_RCVBUF       0x1002</span></div>
+<div class="line"><a name="l01516"></a><span class="lineno"> 1516</span>&#160;<span class="preprocessor">#define ZTS_SO_SNDLOWAT     0x1003   // NOT YET SUPPORTED</span></div>
+<div class="line"><a name="l01517"></a><span class="lineno"> 1517</span>&#160;<span class="preprocessor">#define ZTS_SO_RCVLOWAT     0x1004   // NOT YET SUPPORTED</span></div>
+<div class="line"><a name="l01518"></a><span class="lineno"> 1518</span>&#160;<span class="preprocessor">#define ZTS_SO_SNDTIMEO     0x1005</span></div>
+<div class="line"><a name="l01519"></a><span class="lineno"> 1519</span>&#160;<span class="preprocessor">#define ZTS_SO_RCVTIMEO     0x1006</span></div>
+<div class="line"><a name="l01520"></a><span class="lineno"> 1520</span>&#160;<span class="preprocessor">#define ZTS_SO_ERROR        0x1007</span></div>
+<div class="line"><a name="l01521"></a><span class="lineno"> 1521</span>&#160;<span class="preprocessor">#define ZTS_SO_TYPE         0x1008</span></div>
+<div class="line"><a name="l01522"></a><span class="lineno"> 1522</span>&#160;<span class="preprocessor">#define ZTS_SO_CONTIMEO     0x1009</span></div>
+<div class="line"><a name="l01523"></a><span class="lineno"> 1523</span>&#160;<span class="preprocessor">#define ZTS_SO_NO_CHECK     0x100a</span></div>
+<div class="line"><a name="l01524"></a><span class="lineno"> 1524</span>&#160;<span class="preprocessor">#define ZTS_SO_BINDTODEVICE 0x100b</span></div>
+<div class="line"><a name="l01525"></a><span class="lineno"> 1525</span>&#160;<span class="comment">// IPPROTO_IP options</span></div>
+<div class="line"><a name="l01526"></a><span class="lineno"> 1526</span>&#160;<span class="preprocessor">#define ZTS_IP_TOS     0x0001</span></div>
+<div class="line"><a name="l01527"></a><span class="lineno"> 1527</span>&#160;<span class="preprocessor">#define ZTS_IP_TTL     0x0002</span></div>
+<div class="line"><a name="l01528"></a><span class="lineno"> 1528</span>&#160;<span class="preprocessor">#define ZTS_IP_PKTINFO 0x0008</span></div>
+<div class="line"><a name="l01529"></a><span class="lineno"> 1529</span>&#160;<span class="comment">// IPPROTO_TCP options</span></div>
+<div class="line"><a name="l01530"></a><span class="lineno"> 1530</span>&#160;<span class="preprocessor">#define ZTS_TCP_NODELAY   0x0001</span></div>
+<div class="line"><a name="l01531"></a><span class="lineno"> 1531</span>&#160;<span class="preprocessor">#define ZTS_TCP_KEEPALIVE 0x0002</span></div>
+<div class="line"><a name="l01532"></a><span class="lineno"> 1532</span>&#160;<span class="preprocessor">#define ZTS_TCP_KEEPIDLE  0x0003</span></div>
+<div class="line"><a name="l01533"></a><span class="lineno"> 1533</span>&#160;<span class="preprocessor">#define ZTS_TCP_KEEPINTVL 0x0004</span></div>
+<div class="line"><a name="l01534"></a><span class="lineno"> 1534</span>&#160;<span class="preprocessor">#define ZTS_TCP_KEEPCNT   0x0005</span></div>
+<div class="line"><a name="l01535"></a><span class="lineno"> 1535</span>&#160;<span class="comment">// IPPROTO_IPV6 options</span></div>
+<div class="line"><a name="l01536"></a><span class="lineno"> 1536</span>&#160;<span class="preprocessor">#define ZTS_IPV6_CHECKSUM                                                                          \</span></div>
+<div class="line"><a name="l01537"></a><span class="lineno"> 1537</span>&#160;<span class="preprocessor">    0x0007 </span><span class="comment">/* RFC3542: calculate and insert the ICMPv6 checksum for raw                            \</span></div>
+<div class="line"><a name="l01538"></a><span class="lineno"> 1538</span>&#160;<span class="comment">              sockets. */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l01539"></a><span class="lineno"> 1539</span>&#160;<span class="preprocessor">#define ZTS_IPV6_V6ONLY                                                                            \</span></div>
+<div class="line"><a name="l01540"></a><span class="lineno"> 1540</span>&#160;<span class="preprocessor">    0x001b </span><span class="comment">/* RFC3493: boolean control to restrict ZTS_AF_INET6 sockets to                         \</span></div>
+<div class="line"><a name="l01541"></a><span class="lineno"> 1541</span>&#160;<span class="comment">              IPv6 communications only. */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l01542"></a><span class="lineno"> 1542</span>&#160;<span class="comment">// UDPLITE options</span></div>
+<div class="line"><a name="l01543"></a><span class="lineno"> 1543</span>&#160;<span class="preprocessor">#define ZTS_UDPLITE_SEND_CSCOV 0x01 </span><span class="comment">/* sender checksum coverage */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l01544"></a><span class="lineno"> 1544</span>&#160;<span class="preprocessor">#define ZTS_UDPLITE_RECV_CSCOV 0x02 </span><span class="comment">/* minimal receiver checksum coverage */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l01545"></a><span class="lineno"> 1545</span>&#160;<span class="comment">// UDPLITE options</span></div>
+<div class="line"><a name="l01546"></a><span class="lineno"> 1546</span>&#160;<span class="preprocessor">#define ZTS_IP_MULTICAST_TTL  5</span></div>
+<div class="line"><a name="l01547"></a><span class="lineno"> 1547</span>&#160;<span class="preprocessor">#define ZTS_IP_MULTICAST_IF   6</span></div>
+<div class="line"><a name="l01548"></a><span class="lineno"> 1548</span>&#160;<span class="preprocessor">#define ZTS_IP_MULTICAST_LOOP 7</span></div>
+<div class="line"><a name="l01549"></a><span class="lineno"> 1549</span>&#160; </div>
+<div class="line"><a name="l01550"></a><span class="lineno"> 1550</span>&#160;<span class="comment">// Multicast options</span></div>
+<div class="line"><a name="l01551"></a><span class="lineno"> 1551</span>&#160;<span class="preprocessor">#define ZTS_IP_ADD_MEMBERSHIP  3</span></div>
+<div class="line"><a name="l01552"></a><span class="lineno"> 1552</span>&#160;<span class="preprocessor">#define ZTS_IP_DROP_MEMBERSHIP 4</span></div>
+<div class="line"><a name="l01553"></a><span class="lineno"> 1553</span>&#160; </div>
+<div class="line"><a name="l01554"></a><span class="lineno"> 1554</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>zts_ip_mreq {</div>
+<div class="line"><a name="l01555"></a><span class="lineno"> 1555</span>&#160;    <span class="keyword">struct </span>zts_in_addr imr_multiaddr; <span class="comment">/* IP multicast address of group */</span></div>
+<div class="line"><a name="l01556"></a><span class="lineno"> 1556</span>&#160;    <span class="keyword">struct </span>zts_in_addr imr_interface; <span class="comment">/* local IP address of interface */</span></div>
+<div class="line"><a name="l01557"></a><span class="lineno"> 1557</span>&#160;} zts_ip_mreq;</div>
+<div class="line"><a name="l01558"></a><span class="lineno"> 1558</span>&#160; </div>
+<div class="line"><a name="l01559"></a><span class="lineno"> 1559</span>&#160;<span class="keyword">struct </span>zts_in_pktinfo {</div>
+<div class="line"><a name="l01560"></a><span class="lineno"> 1560</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> ipi_ifindex;    <span class="comment">/* Interface index */</span></div>
+<div class="line"><a name="l01561"></a><span class="lineno"> 1561</span>&#160;    <span class="keyword">struct </span>zts_in_addr ipi_addr; <span class="comment">/* Destination (from header) address */</span></div>
+<div class="line"><a name="l01562"></a><span class="lineno"> 1562</span>&#160;};</div>
+<div class="line"><a name="l01563"></a><span class="lineno"> 1563</span>&#160; </div>
+<div class="line"><a name="l01564"></a><span class="lineno"> 1564</span>&#160;<span class="preprocessor">#define ZTS_IPV6_JOIN_GROUP      12</span></div>
+<div class="line"><a name="l01565"></a><span class="lineno"> 1565</span>&#160;<span class="preprocessor">#define ZTS_IPV6_ADD_MEMBERSHIP  ZTS_IPV6_JOIN_GROUP</span></div>
+<div class="line"><a name="l01566"></a><span class="lineno"> 1566</span>&#160;<span class="preprocessor">#define ZTS_IPV6_LEAVE_GROUP     13</span></div>
+<div class="line"><a name="l01567"></a><span class="lineno"> 1567</span>&#160;<span class="preprocessor">#define ZTS_IPV6_DROP_MEMBERSHIP ZTS_IPV6_LEAVE_GROUP</span></div>
+<div class="line"><a name="l01568"></a><span class="lineno"> 1568</span>&#160; </div>
+<div class="line"><a name="l01569"></a><span class="lineno"> 1569</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>zts_ipv6_mreq {</div>
+<div class="line"><a name="l01570"></a><span class="lineno"> 1570</span>&#160;    <span class="keyword">struct </span>zts_in6_addr ipv6mr_multiaddr; <span class="comment">/*  IPv6 multicast addr */</span></div>
+<div class="line"><a name="l01571"></a><span class="lineno"> 1571</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> ipv6mr_interface;        <span class="comment">/*  interface index, or 0 */</span></div>
+<div class="line"><a name="l01572"></a><span class="lineno"> 1572</span>&#160;} zts_ipv6_mreq;</div>
+<div class="line"><a name="l01573"></a><span class="lineno"> 1573</span>&#160; </div>
+<div class="line"><a name="l01574"></a><span class="lineno"> 1574</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l01575"></a><span class="lineno"> 1575</span>&#160;<span class="comment"> * The Type of Service provides an indication of the abstract</span></div>
+<div class="line"><a name="l01576"></a><span class="lineno"> 1576</span>&#160;<span class="comment"> * parameters of the quality of service desired.  These parameters are</span></div>
+<div class="line"><a name="l01577"></a><span class="lineno"> 1577</span>&#160;<span class="comment"> * to be used to guide the selection of the actual service parameters</span></div>
+<div class="line"><a name="l01578"></a><span class="lineno"> 1578</span>&#160;<span class="comment"> * when transmitting a datagram through a particular network.  Several</span></div>
+<div class="line"><a name="l01579"></a><span class="lineno"> 1579</span>&#160;<span class="comment"> * networks offer service precedence, which somehow treats high</span></div>
+<div class="line"><a name="l01580"></a><span class="lineno"> 1580</span>&#160;<span class="comment"> * precedence traffic as more important than other traffic (generally</span></div>
+<div class="line"><a name="l01581"></a><span class="lineno"> 1581</span>&#160;<span class="comment"> * by accepting only traffic above a certain precedence at time of high</span></div>
+<div class="line"><a name="l01582"></a><span class="lineno"> 1582</span>&#160;<span class="comment"> * load).  The major choice is a three way tradeoff between low-delay,</span></div>
+<div class="line"><a name="l01583"></a><span class="lineno"> 1583</span>&#160;<span class="comment"> * high-reliability, and high-throughput.</span></div>
+<div class="line"><a name="l01584"></a><span class="lineno"> 1584</span>&#160;<span class="comment"> * The use of the Delay, Throughput, and Reliability indications may</span></div>
+<div class="line"><a name="l01585"></a><span class="lineno"> 1585</span>&#160;<span class="comment"> * increase the cost (in some sense) of the service.  In many networks</span></div>
+<div class="line"><a name="l01586"></a><span class="lineno"> 1586</span>&#160;<span class="comment"> * better performance for one of these parameters is coupled with worse</span></div>
+<div class="line"><a name="l01587"></a><span class="lineno"> 1587</span>&#160;<span class="comment"> * performance on another.  Except for very unusual cases at most two</span></div>
+<div class="line"><a name="l01588"></a><span class="lineno"> 1588</span>&#160;<span class="comment"> * of these three indications should be set.</span></div>
+<div class="line"><a name="l01589"></a><span class="lineno"> 1589</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l01590"></a><span class="lineno"> 1590</span>&#160;<span class="preprocessor">#define ZTS_IPTOS_TOS_MASK    0x1E</span></div>
+<div class="line"><a name="l01591"></a><span class="lineno"> 1591</span>&#160;<span class="preprocessor">#define ZTS_IPTOS_TOS(tos)    ((tos)&amp;ZTS_IPTOS_TOS_MASK)</span></div>
+<div class="line"><a name="l01592"></a><span class="lineno"> 1592</span>&#160;<span class="preprocessor">#define ZTS_IPTOS_LOWDELAY    0x10</span></div>
+<div class="line"><a name="l01593"></a><span class="lineno"> 1593</span>&#160;<span class="preprocessor">#define ZTS_IPTOS_THROUGHPUT  0x08</span></div>
+<div class="line"><a name="l01594"></a><span class="lineno"> 1594</span>&#160;<span class="preprocessor">#define ZTS_IPTOS_RELIABILITY 0x04</span></div>
+<div class="line"><a name="l01595"></a><span class="lineno"> 1595</span>&#160;<span class="preprocessor">#define ZTS_IPTOS_LOWCOST     0x02</span></div>
+<div class="line"><a name="l01596"></a><span class="lineno"> 1596</span>&#160;<span class="preprocessor">#define ZTS_IPTOS_MINCOST     ZTS_IPTOS_LOWCOST</span></div>
+<div class="line"><a name="l01597"></a><span class="lineno"> 1597</span>&#160; </div>
+<div class="line"><a name="l01598"></a><span class="lineno"> 1598</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l01599"></a><span class="lineno"> 1599</span>&#160;<span class="comment"> * The Network Control precedence designation is intended to be used</span></div>
+<div class="line"><a name="l01600"></a><span class="lineno"> 1600</span>&#160;<span class="comment"> * within a network only.  The actual use and control of that</span></div>
+<div class="line"><a name="l01601"></a><span class="lineno"> 1601</span>&#160;<span class="comment"> * designation is up to each network. The Internetwork Control</span></div>
+<div class="line"><a name="l01602"></a><span class="lineno"> 1602</span>&#160;<span class="comment"> * designation is intended for use by gateway control originators only.</span></div>
+<div class="line"><a name="l01603"></a><span class="lineno"> 1603</span>&#160;<span class="comment"> * If the actual use of these precedence designations is of concern to</span></div>
+<div class="line"><a name="l01604"></a><span class="lineno"> 1604</span>&#160;<span class="comment"> * a particular network, it is the responsibility of that network to</span></div>
+<div class="line"><a name="l01605"></a><span class="lineno"> 1605</span>&#160;<span class="comment"> * control the access to, and use of, those precedence designations.</span></div>
+<div class="line"><a name="l01606"></a><span class="lineno"> 1606</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l01607"></a><span class="lineno"> 1607</span>&#160;<span class="preprocessor">#define ZTS_IPTOS_PREC_MASK            0xe0</span></div>
+<div class="line"><a name="l01608"></a><span class="lineno"> 1608</span>&#160;<span class="preprocessor">#define ZTS_IPTOS_PREC(tos)            ((tos)&amp;ZTS_IPTOS_PREC_MASK)</span></div>
+<div class="line"><a name="l01609"></a><span class="lineno"> 1609</span>&#160;<span class="preprocessor">#define ZTS_IPTOS_PREC_NETCONTROL      0xe0</span></div>
+<div class="line"><a name="l01610"></a><span class="lineno"> 1610</span>&#160;<span class="preprocessor">#define ZTS_IPTOS_PREC_INTERNETCONTROL 0xc0</span></div>
+<div class="line"><a name="l01611"></a><span class="lineno"> 1611</span>&#160;<span class="preprocessor">#define ZTS_IPTOS_PREC_CRITIC_ECP      0xa0</span></div>
+<div class="line"><a name="l01612"></a><span class="lineno"> 1612</span>&#160;<span class="preprocessor">#define ZTS_IPTOS_PREC_FLASHOVERRIDE   0x80</span></div>
+<div class="line"><a name="l01613"></a><span class="lineno"> 1613</span>&#160;<span class="preprocessor">#define ZTS_IPTOS_PREC_FLASH           0x60</span></div>
+<div class="line"><a name="l01614"></a><span class="lineno"> 1614</span>&#160;<span class="preprocessor">#define ZTS_IPTOS_PREC_IMMEDIATE       0x40</span></div>
+<div class="line"><a name="l01615"></a><span class="lineno"> 1615</span>&#160;<span class="preprocessor">#define ZTS_IPTOS_PREC_PRIORITY        0x20</span></div>
+<div class="line"><a name="l01616"></a><span class="lineno"> 1616</span>&#160;<span class="preprocessor">#define ZTS_IPTOS_PREC_ROUTINE         0x00</span></div>
+<div class="line"><a name="l01617"></a><span class="lineno"> 1617</span>&#160; </div>
+<div class="line"><a name="l01629"></a><span class="lineno"> 1629</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL</div>
+<div class="line"><a name="l01630"></a><span class="lineno"> 1630</span>&#160;<a class="code" href="ZeroTierSockets_8h.html#aaebaadfd1354eb0ce5445452751972e6">zts_setsockopt</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> level, <span class="keywordtype">int</span> optname, <span class="keyword">const</span> <span class="keywordtype">void</span>* optval, zts_socklen_t optlen);</div>
+<div class="line"><a name="l01631"></a><span class="lineno"> 1631</span>&#160; </div>
+<div class="line"><a name="l01643"></a><span class="lineno"> 1643</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL</div>
+<div class="line"><a name="l01644"></a><span class="lineno"> 1644</span>&#160;<a class="code" href="ZeroTierSockets_8h.html#ab1df6ce59fc7fc91da6d73b59034b94c">zts_getsockopt</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> level, <span class="keywordtype">int</span> optname, <span class="keywordtype">void</span>* optval, zts_socklen_t* optlen);</div>
+<div class="line"><a name="l01645"></a><span class="lineno"> 1645</span>&#160; </div>
+<div class="line"><a name="l01655"></a><span class="lineno"> 1655</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a3dc3013d07920e87b7bb1eeb21829cd5">zts_getsockname</a>(<span class="keywordtype">int</span> fd, <span class="keyword">struct</span> zts_sockaddr* addr, zts_socklen_t* addrlen);</div>
+<div class="line"><a name="l01656"></a><span class="lineno"> 1656</span>&#160; </div>
+<div class="line"><a name="l01666"></a><span class="lineno"> 1666</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#ab576edea552a2d27610581211c3d80eb">zts_getpeername</a>(<span class="keywordtype">int</span> fd, <span class="keyword">struct</span> zts_sockaddr* addr, zts_socklen_t* addrlen);</div>
+<div class="line"><a name="l01667"></a><span class="lineno"> 1667</span>&#160; </div>
+<div class="line"><a name="l01675"></a><span class="lineno"> 1675</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a8185fa2fc76de69eb4c45c25c4918856">zts_close</a>(<span class="keywordtype">int</span> fd);</div>
+<div class="line"><a name="l01676"></a><span class="lineno"> 1676</span>&#160; </div>
+<div class="line"><a name="l01677"></a><span class="lineno"> 1677</span>&#160;<span class="comment">/* FD_SET used for lwip_select */</span></div>
+<div class="line"><a name="l01678"></a><span class="lineno"> 1678</span>&#160; </div>
+<div class="line"><a name="l01679"></a><span class="lineno"> 1679</span>&#160;<span class="preprocessor">#define LWIP_SOCKET_OFFSET 0</span></div>
+<div class="line"><a name="l01680"></a><span class="lineno"> 1680</span>&#160;<span class="preprocessor">#define MEMP_NUM_NETCONN   1024</span></div>
+<div class="line"><a name="l01681"></a><span class="lineno"> 1681</span>&#160; </div>
+<div class="line"><a name="l01682"></a><span class="lineno"> 1682</span>&#160;<span class="preprocessor">#ifndef ZTS_FD_SET</span></div>
+<div class="line"><a name="l01683"></a><span class="lineno"> 1683</span>&#160;<span class="preprocessor">    #undef ZTS_FD_SETSIZE</span></div>
+<div class="line"><a name="l01684"></a><span class="lineno"> 1684</span>&#160;    <span class="comment">// Make FD_SETSIZE match NUM_SOCKETS in socket.c</span></div>
+<div class="line"><a name="l01685"></a><span class="lineno"> 1685</span>&#160;<span class="preprocessor">    #define ZTS_FD_SETSIZE MEMP_NUM_NETCONN</span></div>
+<div class="line"><a name="l01686"></a><span class="lineno"> 1686</span>&#160;<span class="preprocessor">    #define ZTS_FDSETSAFESET(n, code)                                                              \</span></div>
+<div class="line"><a name="l01687"></a><span class="lineno"> 1687</span>&#160;<span class="preprocessor">        do {                                                                                       \</span></div>
+<div class="line"><a name="l01688"></a><span class="lineno"> 1688</span>&#160;<span class="preprocessor">            if (((n)-LWIP_SOCKET_OFFSET &lt; MEMP_NUM_NETCONN)                                        \</span></div>
+<div class="line"><a name="l01689"></a><span class="lineno"> 1689</span>&#160;<span class="preprocessor">                &amp;&amp; (((int)(n)-LWIP_SOCKET_OFFSET) &gt;= 0)) {                                         \</span></div>
+<div class="line"><a name="l01690"></a><span class="lineno"> 1690</span>&#160;<span class="preprocessor">                code;                                                                              \</span></div>
+<div class="line"><a name="l01691"></a><span class="lineno"> 1691</span>&#160;<span class="preprocessor">            }                                                                                      \</span></div>
+<div class="line"><a name="l01692"></a><span class="lineno"> 1692</span>&#160;<span class="preprocessor">        } while (0)</span></div>
+<div class="line"><a name="l01693"></a><span class="lineno"> 1693</span>&#160;<span class="preprocessor">    #define ZTS_FDSETSAFEGET(n, code)                                                              \</span></div>
+<div class="line"><a name="l01694"></a><span class="lineno"> 1694</span>&#160;<span class="preprocessor">        (((n)-LWIP_SOCKET_OFFSET &lt; MEMP_NUM_NETCONN) &amp;&amp; (((int)(n)-LWIP_SOCKET_OFFSET) &gt;= 0)       \</span></div>
+<div class="line"><a name="l01695"></a><span class="lineno"> 1695</span>&#160;<span class="preprocessor">             ? (code)                                                                              \</span></div>
+<div class="line"><a name="l01696"></a><span class="lineno"> 1696</span>&#160;<span class="preprocessor">             : 0)</span></div>
+<div class="line"><a name="l01697"></a><span class="lineno"> 1697</span>&#160;<span class="preprocessor">    #define ZTS_FD_SET(n, p)                                                                       \</span></div>
+<div class="line"><a name="l01698"></a><span class="lineno"> 1698</span>&#160;<span class="preprocessor">        ZTS_FDSETSAFESET(                                                                          \</span></div>
+<div class="line"><a name="l01699"></a><span class="lineno"> 1699</span>&#160;<span class="preprocessor">            n,                                                                                     \</span></div>
+<div class="line"><a name="l01700"></a><span class="lineno"> 1700</span>&#160;<span class="preprocessor">            (p)-&gt;fd_bits[((n)-LWIP_SOCKET_OFFSET) / 8] |= (1 &lt;&lt; (((n)-LWIP_SOCKET_OFFSET) &amp; 7)))</span></div>
+<div class="line"><a name="l01701"></a><span class="lineno"> 1701</span>&#160;<span class="preprocessor">    #define ZTS_FD_CLR(n, p)                                                                       \</span></div>
+<div class="line"><a name="l01702"></a><span class="lineno"> 1702</span>&#160;<span class="preprocessor">        ZTS_FDSETSAFESET(                                                                          \</span></div>
+<div class="line"><a name="l01703"></a><span class="lineno"> 1703</span>&#160;<span class="preprocessor">            n,                                                                                     \</span></div>
+<div class="line"><a name="l01704"></a><span class="lineno"> 1704</span>&#160;<span class="preprocessor">            (p)-&gt;fd_bits[((n)-LWIP_SOCKET_OFFSET) / 8] &amp;= ~(1 &lt;&lt; (((n)-LWIP_SOCKET_OFFSET) &amp; 7)))</span></div>
+<div class="line"><a name="l01705"></a><span class="lineno"> 1705</span>&#160;<span class="preprocessor">    #define ZTS_FD_ISSET(n, p)                                                                     \</span></div>
+<div class="line"><a name="l01706"></a><span class="lineno"> 1706</span>&#160;<span class="preprocessor">        ZTS_FDSETSAFEGET(                                                                          \</span></div>
+<div class="line"><a name="l01707"></a><span class="lineno"> 1707</span>&#160;<span class="preprocessor">            n,                                                                                     \</span></div>
+<div class="line"><a name="l01708"></a><span class="lineno"> 1708</span>&#160;<span class="preprocessor">            (p)-&gt;fd_bits[((n)-LWIP_SOCKET_OFFSET) / 8] &amp; (1 &lt;&lt; (((n)-LWIP_SOCKET_OFFSET) &amp; 7)))</span></div>
+<div class="line"><a name="l01709"></a><span class="lineno"> 1709</span>&#160;<span class="preprocessor">    #define ZTS_FD_ZERO(p) memset((void*)(p), 0, sizeof(*(p)))</span></div>
+<div class="line"><a name="l01710"></a><span class="lineno"> 1710</span>&#160; </div>
+<div class="line"><a name="l01711"></a><span class="lineno"> 1711</span>&#160;<span class="preprocessor">#elif LWIP_SOCKET_OFFSET</span></div>
+<div class="line"><a name="l01712"></a><span class="lineno"> 1712</span>&#160;<span class="preprocessor">    #error LWIP_SOCKET_OFFSET does not work with external FD_SET!</span></div>
+<div class="line"><a name="l01713"></a><span class="lineno"> 1713</span>&#160;<span class="preprocessor">#elif ZTS_FD_SETSIZE &lt; MEMP_NUM_NETCONN</span></div>
+<div class="line"><a name="l01714"></a><span class="lineno"> 1714</span>&#160;<span class="preprocessor">    #error &quot;external ZTS_FD_SETSIZE too small for number of sockets&quot;</span></div>
+<div class="line"><a name="l01715"></a><span class="lineno"> 1715</span>&#160;<span class="preprocessor">#endif   // FD_SET</span></div>
+<div class="line"><a name="l01716"></a><span class="lineno"> 1716</span>&#160; </div>
+<div class="line"><a name="l01717"></a><span class="lineno"> 1717</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>zts_fd_set {</div>
+<div class="line"><a name="l01718"></a><span class="lineno"> 1718</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> fd_bits[(ZTS_FD_SETSIZE + 7) / 8];</div>
+<div class="line"><a name="l01719"></a><span class="lineno"> 1719</span>&#160;} zts_fd_set;</div>
+<div class="line"><a name="l01720"></a><span class="lineno"> 1720</span>&#160; </div>
+<div class="line"><a name="l01721"></a><span class="lineno"> 1721</span>&#160;<span class="keyword">struct </span>zts_timeval {</div>
+<div class="line"><a name="l01722"></a><span class="lineno"> 1722</span>&#160;    <span class="keywordtype">long</span> tv_sec;  <span class="comment">/* seconds */</span></div>
+<div class="line"><a name="l01723"></a><span class="lineno"> 1723</span>&#160;    <span class="keywordtype">long</span> tv_usec; <span class="comment">/* and microseconds */</span></div>
+<div class="line"><a name="l01724"></a><span class="lineno"> 1724</span>&#160;};</div>
+<div class="line"><a name="l01725"></a><span class="lineno"> 1725</span>&#160; </div>
+<div class="line"><a name="l01739"></a><span class="lineno"> 1739</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#aa97cae3a1e8f11b1edfbac4d7cc350e7">zts_select</a>(</div>
+<div class="line"><a name="l01740"></a><span class="lineno"> 1740</span>&#160;    <span class="keywordtype">int</span> nfds,</div>
+<div class="line"><a name="l01741"></a><span class="lineno"> 1741</span>&#160;    zts_fd_set* readfds,</div>
+<div class="line"><a name="l01742"></a><span class="lineno"> 1742</span>&#160;    zts_fd_set* writefds,</div>
+<div class="line"><a name="l01743"></a><span class="lineno"> 1743</span>&#160;    zts_fd_set* exceptfds,</div>
+<div class="line"><a name="l01744"></a><span class="lineno"> 1744</span>&#160;    <span class="keyword">struct</span> zts_timeval* timeout);</div>
+<div class="line"><a name="l01745"></a><span class="lineno"> 1745</span>&#160; </div>
+<div class="line"><a name="l01746"></a><span class="lineno"> 1746</span>&#160;<span class="comment">// fnctl() commands</span></div>
+<div class="line"><a name="l01747"></a><span class="lineno"> 1747</span>&#160;<span class="preprocessor">#define ZTS_F_GETFL 0x0003</span></div>
+<div class="line"><a name="l01748"></a><span class="lineno"> 1748</span>&#160;<span class="preprocessor">#define ZTS_F_SETFL 0x0004</span></div>
+<div class="line"><a name="l01749"></a><span class="lineno"> 1749</span>&#160;<span class="comment">/* File status flags and file access modes for fnctl,</span></div>
+<div class="line"><a name="l01750"></a><span class="lineno"> 1750</span>&#160;<span class="comment">   these are bits in an int. */</span></div>
+<div class="line"><a name="l01751"></a><span class="lineno"> 1751</span>&#160;<span class="preprocessor">#define ZTS_O_NONBLOCK 1</span></div>
+<div class="line"><a name="l01752"></a><span class="lineno"> 1752</span>&#160;<span class="preprocessor">#define ZTS_O_NDELAY   ZTS_O_NONBLOCK</span></div>
+<div class="line"><a name="l01753"></a><span class="lineno"> 1753</span>&#160;<span class="preprocessor">#define ZTS_O_RDONLY   2</span></div>
+<div class="line"><a name="l01754"></a><span class="lineno"> 1754</span>&#160;<span class="preprocessor">#define ZTS_O_WRONLY   4</span></div>
+<div class="line"><a name="l01755"></a><span class="lineno"> 1755</span>&#160;<span class="preprocessor">#define ZTS_O_RDWR     (ZTS_O_RDONLY | ZTS_O_WRONLY)</span></div>
+<div class="line"><a name="l01756"></a><span class="lineno"> 1756</span>&#160; </div>
+<div class="line"><a name="l01765"></a><span class="lineno"> 1765</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#aeedf78b8ec177e4a9e7db1d6cd265010">zts_fcntl</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> cmd, <span class="keywordtype">int</span> flags);</div>
+<div class="line"><a name="l01766"></a><span class="lineno"> 1766</span>&#160; </div>
+<div class="line"><a name="l01767"></a><span class="lineno"> 1767</span>&#160;<span class="preprocessor">#define ZTS_POLLIN   0x001</span></div>
+<div class="line"><a name="l01768"></a><span class="lineno"> 1768</span>&#160;<span class="preprocessor">#define ZTS_POLLOUT  0x002</span></div>
+<div class="line"><a name="l01769"></a><span class="lineno"> 1769</span>&#160;<span class="preprocessor">#define ZTS_POLLERR  0x004</span></div>
+<div class="line"><a name="l01770"></a><span class="lineno"> 1770</span>&#160;<span class="preprocessor">#define ZTS_POLLNVAL 0x008</span></div>
+<div class="line"><a name="l01771"></a><span class="lineno"> 1771</span>&#160;<span class="comment">/* Below values are unimplemented */</span></div>
+<div class="line"><a name="l01772"></a><span class="lineno"> 1772</span>&#160;<span class="preprocessor">#define ZTS_POLLRDNORM 0x010</span></div>
+<div class="line"><a name="l01773"></a><span class="lineno"> 1773</span>&#160;<span class="preprocessor">#define ZTS_POLLRDBAND 0x020</span></div>
+<div class="line"><a name="l01774"></a><span class="lineno"> 1774</span>&#160;<span class="preprocessor">#define ZTS_POLLPRI    0x040</span></div>
+<div class="line"><a name="l01775"></a><span class="lineno"> 1775</span>&#160;<span class="preprocessor">#define ZTS_POLLWRNORM 0x080</span></div>
+<div class="line"><a name="l01776"></a><span class="lineno"> 1776</span>&#160;<span class="preprocessor">#define ZTS_POLLWRBAND 0x100</span></div>
+<div class="line"><a name="l01777"></a><span class="lineno"> 1777</span>&#160;<span class="preprocessor">#define ZTS_POLLHUP    0x200</span></div>
+<div class="line"><a name="l01778"></a><span class="lineno"> 1778</span>&#160; </div>
+<div class="line"><a name="l01779"></a><span class="lineno"> 1779</span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> zts_nfds_t;</div>
+<div class="line"><a name="l01780"></a><span class="lineno"> 1780</span>&#160; </div>
+<div class="line"><a name="l01781"></a><span class="lineno"> 1781</span>&#160;<span class="keyword">struct </span>zts_pollfd {</div>
+<div class="line"><a name="l01782"></a><span class="lineno"> 1782</span>&#160;    <span class="keywordtype">int</span> fd;</div>
+<div class="line"><a name="l01783"></a><span class="lineno"> 1783</span>&#160;    <span class="keywordtype">short</span> events;</div>
+<div class="line"><a name="l01784"></a><span class="lineno"> 1784</span>&#160;    <span class="keywordtype">short</span> revents;</div>
+<div class="line"><a name="l01785"></a><span class="lineno"> 1785</span>&#160;};</div>
+<div class="line"><a name="l01786"></a><span class="lineno"> 1786</span>&#160; </div>
+<div class="line"><a name="l01797"></a><span class="lineno"> 1797</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a2160a66eaf4f404ac114c462117d6f8d">zts_poll</a>(<span class="keyword">struct</span> zts_pollfd* fds, zts_nfds_t nfds, <span class="keywordtype">int</span> timeout);</div>
+<div class="line"><a name="l01798"></a><span class="lineno"> 1798</span>&#160; </div>
+<div class="line"><a name="l01808"></a><span class="lineno"> 1808</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#aedb71e0ec87a7a62257f9b1737fa8f2e">zts_ioctl</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> request, <span class="keywordtype">void</span>* argp);</div>
+<div class="line"><a name="l01809"></a><span class="lineno"> 1809</span>&#160; </div>
+<div class="line"><a name="l01820"></a><span class="lineno"> 1820</span>&#160;ZTS_API ssize_t ZTCALL <a class="code" href="ZeroTierSockets_8h.html#af179ffb8206f7f3de870fbc38c64f1b1">zts_send</a>(<span class="keywordtype">int</span> fd, <span class="keyword">const</span> <span class="keywordtype">void</span>* buf, <span class="keywordtype">size_t</span> len, <span class="keywordtype">int</span> flags);</div>
+<div class="line"><a name="l01821"></a><span class="lineno"> 1821</span>&#160; </div>
+<div class="line"><a name="l01834"></a><span class="lineno"> 1834</span>&#160;ZTS_API ssize_t ZTCALL <a class="code" href="ZeroTierSockets_8h.html#ac4a9cb959f0483b51d4c470e18874957">zts_sendto</a>(</div>
+<div class="line"><a name="l01835"></a><span class="lineno"> 1835</span>&#160;    <span class="keywordtype">int</span> fd,</div>
+<div class="line"><a name="l01836"></a><span class="lineno"> 1836</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">void</span>* buf,</div>
+<div class="line"><a name="l01837"></a><span class="lineno"> 1837</span>&#160;    <span class="keywordtype">size_t</span> len,</div>
+<div class="line"><a name="l01838"></a><span class="lineno"> 1838</span>&#160;    <span class="keywordtype">int</span> flags,</div>
+<div class="line"><a name="l01839"></a><span class="lineno"> 1839</span>&#160;    <span class="keyword">const</span> <span class="keyword">struct</span> zts_sockaddr* addr,</div>
+<div class="line"><a name="l01840"></a><span class="lineno"> 1840</span>&#160;    zts_socklen_t addrlen);</div>
+<div class="line"><a name="l01841"></a><span class="lineno"> 1841</span>&#160; </div>
+<div class="line"><a name="l01842"></a><span class="lineno"> 1842</span>&#160;<span class="keyword">struct </span>zts_iovec {</div>
+<div class="line"><a name="l01843"></a><span class="lineno"> 1843</span>&#160;    <span class="keywordtype">void</span>* iov_base;</div>
+<div class="line"><a name="l01844"></a><span class="lineno"> 1844</span>&#160;    <span class="keywordtype">size_t</span> iov_len;</div>
+<div class="line"><a name="l01845"></a><span class="lineno"> 1845</span>&#160;};</div>
+<div class="line"><a name="l01846"></a><span class="lineno"> 1846</span>&#160; </div>
+<div class="line"><a name="l01847"></a><span class="lineno"> 1847</span>&#160;<span class="comment">/* */</span></div>
+<div class="line"><a name="l01848"></a><span class="lineno"> 1848</span>&#160;<span class="keyword">struct </span>zts_msghdr {</div>
+<div class="line"><a name="l01849"></a><span class="lineno"> 1849</span>&#160;    <span class="keywordtype">void</span>* msg_name;</div>
+<div class="line"><a name="l01850"></a><span class="lineno"> 1850</span>&#160;    zts_socklen_t msg_namelen;</div>
+<div class="line"><a name="l01851"></a><span class="lineno"> 1851</span>&#160;    <span class="keyword">struct </span>zts_iovec* msg_iov;</div>
+<div class="line"><a name="l01852"></a><span class="lineno"> 1852</span>&#160;    <span class="keywordtype">int</span> msg_iovlen;</div>
+<div class="line"><a name="l01853"></a><span class="lineno"> 1853</span>&#160;    <span class="keywordtype">void</span>* msg_control;</div>
+<div class="line"><a name="l01854"></a><span class="lineno"> 1854</span>&#160;    zts_socklen_t msg_controllen;</div>
+<div class="line"><a name="l01855"></a><span class="lineno"> 1855</span>&#160;    <span class="keywordtype">int</span> msg_flags;</div>
+<div class="line"><a name="l01856"></a><span class="lineno"> 1856</span>&#160;};</div>
+<div class="line"><a name="l01857"></a><span class="lineno"> 1857</span>&#160; </div>
+<div class="line"><a name="l01858"></a><span class="lineno"> 1858</span>&#160;<span class="comment">/* struct msghdr-&gt;msg_flags bit field values */</span></div>
+<div class="line"><a name="l01859"></a><span class="lineno"> 1859</span>&#160;<span class="preprocessor">#define ZTS_MSG_TRUNC  0x04</span></div>
+<div class="line"><a name="l01860"></a><span class="lineno"> 1860</span>&#160;<span class="preprocessor">#define ZTS_MSG_CTRUNC 0x08</span></div>
+<div class="line"><a name="l01861"></a><span class="lineno"> 1861</span>&#160; </div>
+<div class="line"><a name="l01871"></a><span class="lineno"> 1871</span>&#160;ZTS_API ssize_t ZTCALL <a class="code" href="ZeroTierSockets_8h.html#abed38fe59f0f742597894610797b4902">zts_sendmsg</a>(<span class="keywordtype">int</span> fd, <span class="keyword">const</span> <span class="keyword">struct</span> zts_msghdr* msg, <span class="keywordtype">int</span> flags);</div>
+<div class="line"><a name="l01872"></a><span class="lineno"> 1872</span>&#160; </div>
+<div class="line"><a name="l01883"></a><span class="lineno"> 1883</span>&#160;ZTS_API ssize_t ZTCALL <a class="code" href="ZeroTierSockets_8h.html#ae519750e0423c3327b5eaac46248c841">zts_recv</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">void</span>* buf, <span class="keywordtype">size_t</span> len, <span class="keywordtype">int</span> flags);</div>
+<div class="line"><a name="l01884"></a><span class="lineno"> 1884</span>&#160; </div>
+<div class="line"><a name="l01897"></a><span class="lineno"> 1897</span>&#160;ZTS_API ssize_t ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a38bfaf72d66ec76f47c9410df2a78a2a">zts_recvfrom</a>(</div>
+<div class="line"><a name="l01898"></a><span class="lineno"> 1898</span>&#160;    <span class="keywordtype">int</span> fd,</div>
+<div class="line"><a name="l01899"></a><span class="lineno"> 1899</span>&#160;    <span class="keywordtype">void</span>* buf,</div>
+<div class="line"><a name="l01900"></a><span class="lineno"> 1900</span>&#160;    <span class="keywordtype">size_t</span> len,</div>
+<div class="line"><a name="l01901"></a><span class="lineno"> 1901</span>&#160;    <span class="keywordtype">int</span> flags,</div>
+<div class="line"><a name="l01902"></a><span class="lineno"> 1902</span>&#160;    <span class="keyword">struct</span> zts_sockaddr* addr,</div>
+<div class="line"><a name="l01903"></a><span class="lineno"> 1903</span>&#160;    zts_socklen_t* addrlen);</div>
+<div class="line"><a name="l01904"></a><span class="lineno"> 1904</span>&#160; </div>
+<div class="line"><a name="l01914"></a><span class="lineno"> 1914</span>&#160;ZTS_API ssize_t ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a3bb5ca55de3a0dfc97fc42ded64612ca">zts_recvmsg</a>(<span class="keywordtype">int</span> fd, <span class="keyword">struct</span> zts_msghdr* msg, <span class="keywordtype">int</span> flags);</div>
+<div class="line"><a name="l01915"></a><span class="lineno"> 1915</span>&#160; </div>
+<div class="line"><a name="l01925"></a><span class="lineno"> 1925</span>&#160;ZTS_API ssize_t ZTCALL <a class="code" href="ZeroTierSockets_8h.html#ad60a93ff6ac6316203f824f677defd8e">zts_read</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">void</span>* buf, <span class="keywordtype">size_t</span> len);</div>
+<div class="line"><a name="l01926"></a><span class="lineno"> 1926</span>&#160; </div>
+<div class="line"><a name="l01936"></a><span class="lineno"> 1936</span>&#160;ZTS_API ssize_t ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a2f13449d19bbf4600e4d7b635fd82f6a">zts_readv</a>(<span class="keywordtype">int</span> fd, <span class="keyword">const</span> <span class="keyword">struct</span> zts_iovec* iov, <span class="keywordtype">int</span> iovcnt);</div>
+<div class="line"><a name="l01937"></a><span class="lineno"> 1937</span>&#160; </div>
+<div class="line"><a name="l01947"></a><span class="lineno"> 1947</span>&#160;ZTS_API ssize_t ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a927f54288d9d12a356f0bf46f0dd682a">zts_write</a>(<span class="keywordtype">int</span> fd, <span class="keyword">const</span> <span class="keywordtype">void</span>* buf, <span class="keywordtype">size_t</span> len);</div>
+<div class="line"><a name="l01948"></a><span class="lineno"> 1948</span>&#160; </div>
+<div class="line"><a name="l01958"></a><span class="lineno"> 1958</span>&#160;ZTS_API ssize_t ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a9441245a889070a029d704ef4422dbf3">zts_writev</a>(<span class="keywordtype">int</span> fd, <span class="keyword">const</span> <span class="keyword">struct</span> zts_iovec* iov, <span class="keywordtype">int</span> iovcnt);</div>
+<div class="line"><a name="l01959"></a><span class="lineno"> 1959</span>&#160; </div>
+<div class="line"><a name="l01960"></a><span class="lineno"> 1960</span>&#160;<span class="preprocessor">#define ZTS_SHUT_RD   0x0</span></div>
+<div class="line"><a name="l01961"></a><span class="lineno"> 1961</span>&#160;<span class="preprocessor">#define ZTS_SHUT_WR   0x1</span></div>
+<div class="line"><a name="l01962"></a><span class="lineno"> 1962</span>&#160;<span class="preprocessor">#define ZTS_SHUT_RDWR 0x2</span></div>
+<div class="line"><a name="l01963"></a><span class="lineno"> 1963</span>&#160; </div>
+<div class="line"><a name="l01972"></a><span class="lineno"> 1972</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#acf578e4ecb3190be0238394a7f10cb15">zts_shutdown</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> how);</div>
+<div class="line"><a name="l01973"></a><span class="lineno"> 1973</span>&#160; </div>
+<div class="line"><a name="l01974"></a><span class="lineno"> 1974</span>&#160;<span class="comment">//----------------------------------------------------------------------------//</span></div>
+<div class="line"><a name="l01975"></a><span class="lineno"> 1975</span>&#160;<span class="comment">// Convenience functions                                                      //</span></div>
+<div class="line"><a name="l01976"></a><span class="lineno"> 1976</span>&#160;<span class="comment">//----------------------------------------------------------------------------//</span></div>
+<div class="line"><a name="l01977"></a><span class="lineno"> 1977</span>&#160; </div>
+<div class="line"><a name="l01987"></a><span class="lineno"> 1987</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#ab090878878777ae99bee7897c271d604">zts_prim_set_no_delay</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> enabled);</div>
+<div class="line"><a name="l01988"></a><span class="lineno"> 1988</span>&#160; </div>
+<div class="line"><a name="l01996"></a><span class="lineno"> 1996</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a539f50ec97a74d16cc4550e53c72dc9b">zts_prim_get_no_delay</a>(<span class="keywordtype">int</span> fd);</div>
+<div class="line"><a name="l01997"></a><span class="lineno"> 1997</span>&#160; </div>
+<div class="line"><a name="l02007"></a><span class="lineno"> 2007</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a6e9063260efdca03557c5bb1f5f7d19b">zts_prim_set_linger</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> enabled, <span class="keywordtype">int</span> value);</div>
+<div class="line"><a name="l02008"></a><span class="lineno"> 2008</span>&#160; </div>
+<div class="line"><a name="l02016"></a><span class="lineno"> 2016</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#af6ef706a2e550e0b852c5293711af5ea">zts_prim_get_linger_enabled</a>(<span class="keywordtype">int</span> fd);</div>
+<div class="line"><a name="l02017"></a><span class="lineno"> 2017</span>&#160; </div>
+<div class="line"><a name="l02025"></a><span class="lineno"> 2025</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a3e4945dd1bc8ece9d764a7b4581b1778">zts_prim_get_linger_value</a>(<span class="keywordtype">int</span> fd);</div>
+<div class="line"><a name="l02026"></a><span class="lineno"> 2026</span>&#160; </div>
+<div class="line"><a name="l02035"></a><span class="lineno"> 2035</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#afc1ecc06732803335214418d751b04d6">zts_prim_set_reuse_addr</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> enabled);</div>
+<div class="line"><a name="l02036"></a><span class="lineno"> 2036</span>&#160; </div>
+<div class="line"><a name="l02044"></a><span class="lineno"> 2044</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#aa43ad66bb865cf3f7d82d32e3f730e6e">zts_prim_get_reuse_addr</a>(<span class="keywordtype">int</span> fd);</div>
+<div class="line"><a name="l02045"></a><span class="lineno"> 2045</span>&#160; </div>
+<div class="line"><a name="l02055"></a><span class="lineno"> 2055</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a81ea7ff5c36f26de5bf220b625e93ac5">zts_prim_set_recv_timeout</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> seconds, <span class="keywordtype">int</span> microseconds);</div>
+<div class="line"><a name="l02056"></a><span class="lineno"> 2056</span>&#160; </div>
+<div class="line"><a name="l02064"></a><span class="lineno"> 2064</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a0495057c080d2dd1dd030466aa0cd949">zts_prim_get_recv_timeout</a>(<span class="keywordtype">int</span> fd);</div>
+<div class="line"><a name="l02065"></a><span class="lineno"> 2065</span>&#160; </div>
+<div class="line"><a name="l02075"></a><span class="lineno"> 2075</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#ad4204f3b4ae325f54a2e1a055b27931f">zts_prim_set_send_timeout</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> seconds, <span class="keywordtype">int</span> microseconds);</div>
+<div class="line"><a name="l02076"></a><span class="lineno"> 2076</span>&#160; </div>
+<div class="line"><a name="l02084"></a><span class="lineno"> 2084</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a1158678ed9bd64e5b846c0719ba7f3a1">zts_prim_get_send_timeout</a>(<span class="keywordtype">int</span> fd);</div>
+<div class="line"><a name="l02085"></a><span class="lineno"> 2085</span>&#160; </div>
+<div class="line"><a name="l02094"></a><span class="lineno"> 2094</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#aa39916e5802dd712a7d878322bd35593">zts_prim_set_send_buf_size</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> size);</div>
+<div class="line"><a name="l02095"></a><span class="lineno"> 2095</span>&#160; </div>
+<div class="line"><a name="l02103"></a><span class="lineno"> 2103</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#ab1384b0f1da7dc737a5d5aed454a47e8">zts_prim_get_send_buf_size</a>(<span class="keywordtype">int</span> fd);</div>
+<div class="line"><a name="l02104"></a><span class="lineno"> 2104</span>&#160; </div>
+<div class="line"><a name="l02113"></a><span class="lineno"> 2113</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#ad22b16d641d94c8a161fb014bccd17ea">zts_prim_set_recv_buf_size</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> size);</div>
+<div class="line"><a name="l02114"></a><span class="lineno"> 2114</span>&#160; </div>
+<div class="line"><a name="l02122"></a><span class="lineno"> 2122</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a7234d511f1330f711b5c9ff340a09b4a">zts_prim_get_recv_buf_size</a>(<span class="keywordtype">int</span> fd);</div>
+<div class="line"><a name="l02123"></a><span class="lineno"> 2123</span>&#160; </div>
+<div class="line"><a name="l02132"></a><span class="lineno"> 2132</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#aaa82aeb7bf620b859d97409cbd2c07b3">zts_prim_set_ttl</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> ttl);</div>
+<div class="line"><a name="l02133"></a><span class="lineno"> 2133</span>&#160; </div>
+<div class="line"><a name="l02141"></a><span class="lineno"> 2141</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#aa0a2ceb56a5bae23a3ff3a2018b67ffc">zts_prim_get_ttl</a>(<span class="keywordtype">int</span> fd);</div>
+<div class="line"><a name="l02142"></a><span class="lineno"> 2142</span>&#160; </div>
+<div class="line"><a name="l02152"></a><span class="lineno"> 2152</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a2f6e3c11a2bd5f24caf14d5058fd470c">zts_prim_set_blocking</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> enabled);</div>
+<div class="line"><a name="l02153"></a><span class="lineno"> 2153</span>&#160; </div>
+<div class="line"><a name="l02161"></a><span class="lineno"> 2161</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a4727026b5ae51e6a490a04fed4b4197d">zts_prim_get_blocking</a>(<span class="keywordtype">int</span> fd);</div>
+<div class="line"><a name="l02162"></a><span class="lineno"> 2162</span>&#160; </div>
+<div class="line"><a name="l02171"></a><span class="lineno"> 2171</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#adca1b14086c1a816a36bb12326551399">zts_prim_set_keepalive</a>(<span class="keywordtype">int</span> fd, <span class="keywordtype">int</span> enabled);</div>
+<div class="line"><a name="l02172"></a><span class="lineno"> 2172</span>&#160; </div>
+<div class="line"><a name="l02180"></a><span class="lineno"> 2180</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a139890bd38fc8d0faadb0226f39279f7">zts_prim_get_keepalive</a>(<span class="keywordtype">int</span> fd);</div>
+<div class="line"><a name="l02181"></a><span class="lineno"> 2181</span>&#160; </div>
+<div class="line"><a name="l02182"></a><span class="lineno"> 2182</span>&#160;<span class="comment">//----------------------------------------------------------------------------//</span></div>
+<div class="line"><a name="l02183"></a><span class="lineno"> 2183</span>&#160;<span class="comment">// DNS                                                                        //</span></div>
+<div class="line"><a name="l02184"></a><span class="lineno"> 2184</span>&#160;<span class="comment">//----------------------------------------------------------------------------//</span></div>
+<div class="line"><a name="l02185"></a><span class="lineno"> 2185</span>&#160; </div>
+<div class="line"><a name="l02186"></a><span class="lineno"> 2186</span>&#160;<span class="keyword">struct </span>zts_hostent {</div>
+<div class="line"><a name="l02187"></a><span class="lineno"> 2187</span>&#160;    <span class="keywordtype">char</span>* h_name;             <span class="comment">/* Official name of the host. */</span></div>
+<div class="line"><a name="l02188"></a><span class="lineno"> 2188</span>&#160;    <span class="keywordtype">char</span>** h_aliases;         <span class="comment">/* A pointer to an array of pointers to alternative host</span></div>
+<div class="line"><a name="l02189"></a><span class="lineno"> 2189</span>&#160;<span class="comment">                                 names,   terminated by a null pointer. */</span></div>
+<div class="line"><a name="l02190"></a><span class="lineno"> 2190</span>&#160;    <span class="keywordtype">int</span> h_addrtype;           <span class="comment">/* Address type. */</span></div>
+<div class="line"><a name="l02191"></a><span class="lineno"> 2191</span>&#160;    <span class="keywordtype">int</span> h_length;             <span class="comment">/* The length, in bytes, of the address. */</span></div>
+<div class="line"><a name="l02192"></a><span class="lineno"> 2192</span>&#160;    <span class="keywordtype">char</span>** h_addr_list;       <span class="comment">/* A pointer to an array of pointers to network</span></div>
+<div class="line"><a name="l02193"></a><span class="lineno"> 2193</span>&#160;<span class="comment">                                 addresses (in network byte order) for the host,</span></div>
+<div class="line"><a name="l02194"></a><span class="lineno"> 2194</span>&#160;<span class="comment">                                 terminated by a null pointer. */</span></div>
+<div class="line"><a name="l02195"></a><span class="lineno"> 2195</span>&#160;<span class="preprocessor">#define h_addr h_addr_list[0] </span><span class="comment">/* for backward compatibility */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l02196"></a><span class="lineno"> 2196</span>&#160;};</div>
+<div class="line"><a name="l02197"></a><span class="lineno"> 2197</span>&#160; </div>
+<div class="line"><a name="l02204"></a><span class="lineno"> 2204</span>&#160;<span class="keyword">struct </span>zts_hostent* <a class="code" href="ZeroTierSockets_8h.html#a8094779eec9df34a58be6531d25967b6">zts_gethostbyname</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* name);</div>
+<div class="line"><a name="l02205"></a><span class="lineno"> 2205</span>&#160; </div>
+<div class="line"><a name="l02206"></a><span class="lineno"> 2206</span>&#160;<span class="keyword">enum</span> zts_ip_addr_type {</div>
+<div class="line"><a name="l02207"></a><span class="lineno"> 2207</span>&#160;    ZTS_IPADDR_TYPE_V4 = 0U,</div>
+<div class="line"><a name="l02208"></a><span class="lineno"> 2208</span>&#160;    ZTS_IPADDR_TYPE_V6 = 6U,</div>
+<div class="line"><a name="l02209"></a><span class="lineno"> 2209</span>&#160;    ZTS_IPADDR_TYPE_ANY = 46U   <span class="comment">// Dual stack</span></div>
+<div class="line"><a name="l02210"></a><span class="lineno"> 2210</span>&#160;};</div>
 <div class="line"><a name="l02211"></a><span class="lineno"> 2211</span>&#160; </div>
-<div class="line"><a name="l02212"></a><span class="lineno"> 2212</span>&#160;<span class="keyword">enum</span> zts_ip_addr_type {</div>
-<div class="line"><a name="l02213"></a><span class="lineno"> 2213</span>&#160;    ZTS_IPADDR_TYPE_V4 = 0U,</div>
-<div class="line"><a name="l02214"></a><span class="lineno"> 2214</span>&#160;    ZTS_IPADDR_TYPE_V6 = 6U,</div>
-<div class="line"><a name="l02215"></a><span class="lineno"> 2215</span>&#160;    ZTS_IPADDR_TYPE_ANY = 46U   <span class="comment">// Dual stack</span></div>
-<div class="line"><a name="l02216"></a><span class="lineno"> 2216</span>&#160;};</div>
-<div class="line"><a name="l02217"></a><span class="lineno"> 2217</span>&#160; </div>
-<div class="line"><a name="l02218"></a><span class="lineno"> 2218</span>&#160;<span class="keyword">struct </span>zts_ip4_addr {</div>
-<div class="line"><a name="l02219"></a><span class="lineno"> 2219</span>&#160;    uint32_t addr;</div>
-<div class="line"><a name="l02220"></a><span class="lineno"> 2220</span>&#160;};</div>
-<div class="line"><a name="l02221"></a><span class="lineno"> 2221</span>&#160; </div>
-<div class="line"><a name="l02224"></a><span class="lineno"> 2224</span>&#160;<span class="keyword">struct </span><a class="code" href="structzts__ip6__addr.html">zts_ip6_addr</a> {</div>
-<div class="line"><a name="l02225"></a><span class="lineno"> 2225</span>&#160;    uint32_t addr[4];</div>
-<div class="line"><a name="l02226"></a><span class="lineno"> 2226</span>&#160;<span class="preprocessor">#if LWIP_IPV6_SCOPES</span></div>
-<div class="line"><a name="l02227"></a><span class="lineno"> 2227</span>&#160;    uint8_t zone;</div>
-<div class="line"><a name="l02228"></a><span class="lineno"> 2228</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* LWIP_IPV6_SCOPES */</span><span class="preprocessor"></span></div>
-<div class="line"><a name="l02229"></a><span class="lineno"> 2229</span>&#160;};</div>
-<div class="line"><a name="l02230"></a><span class="lineno"> 2230</span>&#160; </div>
-<div class="line"><a name="l02235"></a><span class="lineno"> 2235</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structzts__ip__addr.html">zts_ip_addr</a> {</div>
-<div class="line"><a name="l02236"></a><span class="lineno"> 2236</span>&#160;    <span class="keyword">union </span>{</div>
-<div class="line"><a name="l02237"></a><span class="lineno"> 2237</span>&#160;        <span class="keyword">struct </span><a class="code" href="structzts__ip6__addr.html">zts_ip6_addr</a> ip6;</div>
-<div class="line"><a name="l02238"></a><span class="lineno"> 2238</span>&#160;        <span class="keyword">struct </span>zts_ip4_addr ip4;</div>
-<div class="line"><a name="l02239"></a><span class="lineno"> 2239</span>&#160;    } u_addr;</div>
-<div class="line"><a name="l02240"></a><span class="lineno"> 2240</span>&#160;    uint8_t type;   <span class="comment">// ZTS_IPADDR_TYPE_V4, ZTS_IPADDR_TYPE_V6</span></div>
-<div class="line"><a name="l02241"></a><span class="lineno"> 2241</span>&#160;} <a class="code" href="ZeroTierSockets_8h.html#abacaa9b1f5b196a210da63f01d13e2ab">zts_ip_addr</a>;</div>
-<div class="line"><a name="l02242"></a><span class="lineno"> 2242</span>&#160; </div>
-<div class="line"><a name="l02249"></a><span class="lineno"> 2249</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#abb8eb8b828a365391352f8cec7da4165">zts_dns_set_server</a>(uint8_t index, <span class="keyword">const</span> <a class="code" href="structzts__ip__addr.html">zts_ip_addr</a>* addr);</div>
-<div class="line"><a name="l02250"></a><span class="lineno"> 2250</span>&#160; </div>
-<div class="line"><a name="l02258"></a><span class="lineno"> 2258</span>&#160;ZTS_API <span class="keyword">const</span> <a class="code" href="structzts__ip__addr.html">zts_ip_addr</a>* ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a8f1cfa33c185e21df87d422b1f58343a">zts_dns_get_server</a>(uint8_t index);</div>
-<div class="line"><a name="l02259"></a><span class="lineno"> 2259</span>&#160; </div>
-<div class="line"><a name="l02260"></a><span class="lineno"> 2260</span>&#160;<span class="comment">//----------------------------------------------------------------------------//</span></div>
-<div class="line"><a name="l02261"></a><span class="lineno"> 2261</span>&#160;<span class="comment">// Convenience functions pulled from lwIP                                     //</span></div>
-<div class="line"><a name="l02262"></a><span class="lineno"> 2262</span>&#160;<span class="comment">//----------------------------------------------------------------------------//</span></div>
-<div class="line"><a name="l02271"></a><span class="lineno"> 2271</span>&#160;<span class="comment"></span><span class="keywordtype">char</span>* <a class="code" href="ZeroTierSockets_8h.html#a03541d0c8fa6df867758ea9bda02463b">zts_ipaddr_ntoa</a>(<span class="keyword">const</span> <a class="code" href="structzts__ip__addr.html">zts_ip_addr</a>* addr);</div>
-<div class="line"><a name="l02272"></a><span class="lineno"> 2272</span>&#160; </div>
-<div class="line"><a name="l02281"></a><span class="lineno"> 2281</span>&#160;<span class="keywordtype">int</span> <a class="code" href="ZeroTierSockets_8h.html#a5fb59a30bc0878e47035a15334cbcd76">zts_ipaddr_aton</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* cp, <a class="code" href="structzts__ip__addr.html">zts_ip_addr</a>* addr);</div>
-<div class="line"><a name="l02282"></a><span class="lineno"> 2282</span>&#160; </div>
-<div class="line"><a name="l02293"></a><span class="lineno"> 2293</span>&#160;ZTS_API <span class="keyword">const</span> <span class="keywordtype">char</span>* ZTCALL</div>
-<div class="line"><a name="l02294"></a><span class="lineno"> 2294</span>&#160;<a class="code" href="ZeroTierSockets_8h.html#aa4323d5be2e466f719bd178ac035d722">zts_inet_ntop</a>(<span class="keywordtype">int</span> family, <span class="keyword">const</span> <span class="keywordtype">void</span>* src, <span class="keywordtype">char</span>* dst, zts_socklen_t size);</div>
-<div class="line"><a name="l02295"></a><span class="lineno"> 2295</span>&#160; </div>
-<div class="line"><a name="l02305"></a><span class="lineno"> 2305</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#ae320f3e58f7e7c3c276d1b7f892eb5fe">zts_inet_pton</a>(<span class="keywordtype">int</span> family, <span class="keyword">const</span> <span class="keywordtype">char</span>* src, <span class="keywordtype">void</span>* dst);</div>
-<div class="line"><a name="l02306"></a><span class="lineno"> 2306</span>&#160; </div>
-<div class="line"><a name="l02319"></a><span class="lineno"> 2319</span>&#160;<span class="keywordtype">int</span> <a class="code" href="ZeroTierSockets_8h.html#a1189d841165abdc5e07ab201fa61f42f">zts_ipstr2sockaddr</a>(</div>
-<div class="line"><a name="l02320"></a><span class="lineno"> 2320</span>&#160;    <span class="keywordtype">int</span> family,</div>
-<div class="line"><a name="l02321"></a><span class="lineno"> 2321</span>&#160;    <span class="keywordtype">char</span>* src_ipstr,</div>
-<div class="line"><a name="l02322"></a><span class="lineno"> 2322</span>&#160;    <span class="keywordtype">int</span> port,</div>
-<div class="line"><a name="l02323"></a><span class="lineno"> 2323</span>&#160;    <span class="keyword">struct</span> zts_sockaddr* dstaddr,</div>
-<div class="line"><a name="l02324"></a><span class="lineno"> 2324</span>&#160;    zts_socklen_t* addrlen);</div>
-<div class="line"><a name="l02325"></a><span class="lineno"> 2325</span>&#160; </div>
-<div class="line"><a name="l02326"></a><span class="lineno"> 2326</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a name="l02327"></a><span class="lineno"> 2327</span>&#160;}   <span class="comment">// extern &quot;C&quot;</span></div>
-<div class="line"><a name="l02328"></a><span class="lineno"> 2328</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l02329"></a><span class="lineno"> 2329</span>&#160; </div>
-<div class="line"><a name="l02330"></a><span class="lineno"> 2330</span>&#160;<span class="preprocessor">#endif   // _H</span></div>
+<div class="line"><a name="l02212"></a><span class="lineno"> 2212</span>&#160;<span class="keyword">struct </span>zts_ip4_addr {</div>
+<div class="line"><a name="l02213"></a><span class="lineno"> 2213</span>&#160;    uint32_t addr;</div>
+<div class="line"><a name="l02214"></a><span class="lineno"> 2214</span>&#160;};</div>
+<div class="line"><a name="l02215"></a><span class="lineno"> 2215</span>&#160; </div>
+<div class="line"><a name="l02218"></a><span class="lineno"> 2218</span>&#160;<span class="keyword">struct </span><a class="code" href="structzts__ip6__addr.html">zts_ip6_addr</a> {</div>
+<div class="line"><a name="l02219"></a><span class="lineno"> 2219</span>&#160;    uint32_t addr[4];</div>
+<div class="line"><a name="l02220"></a><span class="lineno"> 2220</span>&#160;<span class="preprocessor">#if LWIP_IPV6_SCOPES</span></div>
+<div class="line"><a name="l02221"></a><span class="lineno"> 2221</span>&#160;    uint8_t zone;</div>
+<div class="line"><a name="l02222"></a><span class="lineno"> 2222</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* LWIP_IPV6_SCOPES */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l02223"></a><span class="lineno"> 2223</span>&#160;};</div>
+<div class="line"><a name="l02224"></a><span class="lineno"> 2224</span>&#160; </div>
+<div class="line"><a name="l02229"></a><span class="lineno"> 2229</span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structzts__ip__addr.html">zts_ip_addr</a> {</div>
+<div class="line"><a name="l02230"></a><span class="lineno"> 2230</span>&#160;    <span class="keyword">union </span>{</div>
+<div class="line"><a name="l02231"></a><span class="lineno"> 2231</span>&#160;        <span class="keyword">struct </span><a class="code" href="structzts__ip6__addr.html">zts_ip6_addr</a> ip6;</div>
+<div class="line"><a name="l02232"></a><span class="lineno"> 2232</span>&#160;        <span class="keyword">struct </span>zts_ip4_addr ip4;</div>
+<div class="line"><a name="l02233"></a><span class="lineno"> 2233</span>&#160;    } u_addr;</div>
+<div class="line"><a name="l02234"></a><span class="lineno"> 2234</span>&#160;    uint8_t type;   <span class="comment">// ZTS_IPADDR_TYPE_V4, ZTS_IPADDR_TYPE_V6</span></div>
+<div class="line"><a name="l02235"></a><span class="lineno"> 2235</span>&#160;} <a class="code" href="ZeroTierSockets_8h.html#abacaa9b1f5b196a210da63f01d13e2ab">zts_ip_addr</a>;</div>
+<div class="line"><a name="l02236"></a><span class="lineno"> 2236</span>&#160; </div>
+<div class="line"><a name="l02243"></a><span class="lineno"> 2243</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#abb8eb8b828a365391352f8cec7da4165">zts_dns_set_server</a>(uint8_t index, <span class="keyword">const</span> <a class="code" href="structzts__ip__addr.html">zts_ip_addr</a>* addr);</div>
+<div class="line"><a name="l02244"></a><span class="lineno"> 2244</span>&#160; </div>
+<div class="line"><a name="l02252"></a><span class="lineno"> 2252</span>&#160;ZTS_API <span class="keyword">const</span> <a class="code" href="structzts__ip__addr.html">zts_ip_addr</a>* ZTCALL <a class="code" href="ZeroTierSockets_8h.html#a8f1cfa33c185e21df87d422b1f58343a">zts_dns_get_server</a>(uint8_t index);</div>
+<div class="line"><a name="l02253"></a><span class="lineno"> 2253</span>&#160; </div>
+<div class="line"><a name="l02254"></a><span class="lineno"> 2254</span>&#160;<span class="comment">//----------------------------------------------------------------------------//</span></div>
+<div class="line"><a name="l02255"></a><span class="lineno"> 2255</span>&#160;<span class="comment">// Convenience functions pulled from lwIP                                     //</span></div>
+<div class="line"><a name="l02256"></a><span class="lineno"> 2256</span>&#160;<span class="comment">//----------------------------------------------------------------------------//</span></div>
+<div class="line"><a name="l02265"></a><span class="lineno"> 2265</span>&#160;<span class="comment"></span><span class="keywordtype">char</span>* <a class="code" href="ZeroTierSockets_8h.html#a03541d0c8fa6df867758ea9bda02463b">zts_ipaddr_ntoa</a>(<span class="keyword">const</span> <a class="code" href="structzts__ip__addr.html">zts_ip_addr</a>* addr);</div>
+<div class="line"><a name="l02266"></a><span class="lineno"> 2266</span>&#160; </div>
+<div class="line"><a name="l02275"></a><span class="lineno"> 2275</span>&#160;<span class="keywordtype">int</span> <a class="code" href="ZeroTierSockets_8h.html#a5fb59a30bc0878e47035a15334cbcd76">zts_ipaddr_aton</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* cp, <a class="code" href="structzts__ip__addr.html">zts_ip_addr</a>* addr);</div>
+<div class="line"><a name="l02276"></a><span class="lineno"> 2276</span>&#160; </div>
+<div class="line"><a name="l02287"></a><span class="lineno"> 2287</span>&#160;ZTS_API <span class="keyword">const</span> <span class="keywordtype">char</span>* ZTCALL</div>
+<div class="line"><a name="l02288"></a><span class="lineno"> 2288</span>&#160;<a class="code" href="ZeroTierSockets_8h.html#aa4323d5be2e466f719bd178ac035d722">zts_inet_ntop</a>(<span class="keywordtype">int</span> family, <span class="keyword">const</span> <span class="keywordtype">void</span>* src, <span class="keywordtype">char</span>* dst, zts_socklen_t size);</div>
+<div class="line"><a name="l02289"></a><span class="lineno"> 2289</span>&#160; </div>
+<div class="line"><a name="l02299"></a><span class="lineno"> 2299</span>&#160;ZTS_API <span class="keywordtype">int</span> ZTCALL <a class="code" href="ZeroTierSockets_8h.html#ae320f3e58f7e7c3c276d1b7f892eb5fe">zts_inet_pton</a>(<span class="keywordtype">int</span> family, <span class="keyword">const</span> <span class="keywordtype">char</span>* src, <span class="keywordtype">void</span>* dst);</div>
+<div class="line"><a name="l02300"></a><span class="lineno"> 2300</span>&#160; </div>
+<div class="line"><a name="l02313"></a><span class="lineno"> 2313</span>&#160;<span class="keywordtype">int</span> <a class="code" href="ZeroTierSockets_8h.html#a1189d841165abdc5e07ab201fa61f42f">zts_ipstr2sockaddr</a>(</div>
+<div class="line"><a name="l02314"></a><span class="lineno"> 2314</span>&#160;    <span class="keywordtype">int</span> family,</div>
+<div class="line"><a name="l02315"></a><span class="lineno"> 2315</span>&#160;    <span class="keywordtype">char</span>* src_ipstr,</div>
+<div class="line"><a name="l02316"></a><span class="lineno"> 2316</span>&#160;    <span class="keywordtype">int</span> port,</div>
+<div class="line"><a name="l02317"></a><span class="lineno"> 2317</span>&#160;    <span class="keyword">struct</span> zts_sockaddr* dstaddr,</div>
+<div class="line"><a name="l02318"></a><span class="lineno"> 2318</span>&#160;    zts_socklen_t* addrlen);</div>
+<div class="line"><a name="l02319"></a><span class="lineno"> 2319</span>&#160; </div>
+<div class="line"><a name="l02320"></a><span class="lineno"> 2320</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l02321"></a><span class="lineno"> 2321</span>&#160;}   <span class="comment">// extern &quot;C&quot;</span></div>
+<div class="line"><a name="l02322"></a><span class="lineno"> 2322</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l02323"></a><span class="lineno"> 2323</span>&#160; </div>
+<div class="line"><a name="l02324"></a><span class="lineno"> 2324</span>&#160;<span class="preprocessor">#endif   // _H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aZeroTierSockets_8h_html_a59c292d2e9cab9a032cac650292bcad3"><div class="ttname"><a href="ZeroTierSockets_8h.html#a59c292d2e9cab9a032cac650292bcad3">zts_bind</a></div><div class="ttdeci">int zts_bind(int fd, const struct zts_sockaddr *addr, zts_socklen_t addrlen)</div><div class="ttdoc">Bind a socket to a local address.</div></div>
 <div class="ttc" id="aZeroTierSockets_8h_html_aa0a2ceb56a5bae23a3ff3a2018b67ffc"><div class="ttname"><a href="ZeroTierSockets_8h.html#aa0a2ceb56a5bae23a3ff3a2018b67ffc">zts_prim_get_ttl</a></div><div class="ttdeci">int zts_prim_get_ttl(int fd)</div><div class="ttdoc">Return the value of IP_TTL</div></div>
 <div class="ttc" id="aZeroTierSockets_8h_html_a3e4945dd1bc8ece9d764a7b4581b1778"><div class="ttname"><a href="ZeroTierSockets_8h.html#a3e4945dd1bc8ece9d764a7b4581b1778">zts_prim_get_linger_value</a></div><div class="ttdeci">int zts_prim_get_linger_value(int fd)</div><div class="ttdoc">Return the value of SO_LINGER</div></div>
-<div class="ttc" id="aZeroTierSockets_8h_html_ad60a93ff6ac6316203f824f677defd8e"><div class="ttname"><a href="ZeroTierSockets_8h.html#ad60a93ff6ac6316203f824f677defd8e">zts_read</a></div><div class="ttdeci">ssize_t zts_read(int fd, void *buf, size_t len)</div><div class="ttdoc">Read bytes from socket onto buffer.</div></div>
+<div class="ttc" id="aZeroTierSockets_8h_html_ad60a93ff6ac6316203f824f677defd8e"><div class="ttname"><a href="ZeroTierSockets_8h.html#ad60a93ff6ac6316203f824f677defd8e">zts_read</a></div><div class="ttdeci">ssize_t zts_read(int fd, void *buf, size_t len)</div><div class="ttdoc">Read data from socket onto buffer.</div></div>
 <div class="ttc" id="aZeroTierSockets_8h_html_aa0a61b9df274611d908ed2fac35d7303afae60c966d420f86ec701658d319c1f6"><div class="ttname"><a href="ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303afae60c966d420f86ec701658d319c1f6">ZTS_EVENT_NODE_OFFLINE</a></div><div class="ttdeci">@ ZTS_EVENT_NODE_OFFLINE</div><div class="ttdef"><b>Definition:</b> ZeroTierSockets.h:73</div></div>
 <div class="ttc" id="aZeroTierSockets_8h_html_aa0a61b9df274611d908ed2fac35d7303a1253a87e1f854169a404c541e693cdb1"><div class="ttname"><a href="ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303a1253a87e1f854169a404c541e693cdb1">ZTS_EVENT_PEER_UNREACHABLE</a></div><div class="ttdeci">@ ZTS_EVENT_PEER_UNREACHABLE</div><div class="ttdef"><b>Definition:</b> ZeroTierSockets.h:171</div></div>
 <div class="ttc" id="aZeroTierSockets_8h_html_aa0a61b9df274611d908ed2fac35d7303a38fe4ff9437298760d95c0baf50232c9"><div class="ttname"><a href="ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303a38fe4ff9437298760d95c0baf50232c9">ZTS_EVENT_ROUTE_REMOVED</a></div><div class="ttdeci">@ ZTS_EVENT_ROUTE_REMOVED</div><div class="ttdef"><b>Definition:</b> ZeroTierSockets.h:182</div></div>
@@ -1332,7 +1332,7 @@ $(document).ready(function(){initNavTree('ZeroTierSockets_8h_source.html',''); i
 <div class="ttc" id="aZeroTierSockets_8h_html_adca1b14086c1a816a36bb12326551399"><div class="ttname"><a href="ZeroTierSockets_8h.html#adca1b14086c1a816a36bb12326551399">zts_prim_set_keepalive</a></div><div class="ttdeci">int zts_prim_set_keepalive(int fd, int enabled)</div><div class="ttdoc">Enable or disable SO_KEEPALIVE</div></div>
 <div class="ttc" id="aZeroTierSockets_8h_html_aa0a61b9df274611d908ed2fac35d7303a14b5877b3734b91c1aa8058783fd4426"><div class="ttname"><a href="ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303a14b5877b3734b91c1aa8058783fd4426">ZTS_EVENT_NODE_IDENTITY_COLLISION</a></div><div class="ttdeci">@ ZTS_EVENT_NODE_IDENTITY_COLLISION</div><div class="ttdef"><b>Definition:</b> ZeroTierSockets.h:115</div></div>
 <div class="ttc" id="aZeroTierSockets_8h_html_a564392efdce9f91bda4b1b9e2937a827"><div class="ttname"><a href="ZeroTierSockets_8h.html#a564392efdce9f91bda4b1b9e2937a827">zts_prim_bind</a></div><div class="ttdeci">int zts_prim_bind(int fd, int family, char *ipstr, int port)</div><div class="ttdoc">Bind a socket to a local address.</div></div>
-<div class="ttc" id="aZeroTierSockets_8h_html_a927f54288d9d12a356f0bf46f0dd682a"><div class="ttname"><a href="ZeroTierSockets_8h.html#a927f54288d9d12a356f0bf46f0dd682a">zts_write</a></div><div class="ttdeci">ssize_t zts_write(int fd, const void *buf, size_t len)</div><div class="ttdoc">Write bytes from buffer to socket.</div></div>
+<div class="ttc" id="aZeroTierSockets_8h_html_a927f54288d9d12a356f0bf46f0dd682a"><div class="ttname"><a href="ZeroTierSockets_8h.html#a927f54288d9d12a356f0bf46f0dd682a">zts_write</a></div><div class="ttdeci">ssize_t zts_write(int fd, const void *buf, size_t len)</div><div class="ttdoc">Write data from buffer to socket.</div></div>
 <div class="ttc" id="aZeroTierSockets_8h_html_aa0a61b9df274611d908ed2fac35d7303a5d7bdf6a2aee02a7be23be06037d97f6"><div class="ttname"><a href="ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303a5d7bdf6a2aee02a7be23be06037d97f6">ZTS_EVENT_NODE_UP</a></div><div class="ttdeci">@ ZTS_EVENT_NODE_UP</div><div class="ttdef"><b>Definition:</b> ZeroTierSockets.h:60</div></div>
 <div class="ttc" id="aZeroTierSockets_8h_html_a3bd3ede7a561566692ee4a9fbc42ce91abed480e782998c08d934217a43e5a1bb"><div class="ttname"><a href="ZeroTierSockets_8h.html#a3bd3ede7a561566692ee4a9fbc42ce91abed480e782998c08d934217a43e5a1bb">ZTS_ERR_OK</a></div><div class="ttdeci">@ ZTS_ERR_OK</div><div class="ttdef"><b>Definition:</b> ZeroTierSockets.h:34</div></div>
 <div class="ttc" id="aZeroTierSockets_8h_html_a8094779eec9df34a58be6531d25967b6"><div class="ttname"><a href="ZeroTierSockets_8h.html#a8094779eec9df34a58be6531d25967b6">zts_gethostbyname</a></div><div class="ttdeci">struct zts_hostent * zts_gethostbyname(const char *name)</div><div class="ttdoc">Resolve a host-name.</div></div>
@@ -1343,7 +1343,7 @@ $(document).ready(function(){initNavTree('ZeroTierSockets_8h_source.html',''); i
 <div class="ttc" id="aZeroTierSockets_8h_html_a3bb5ca55de3a0dfc97fc42ded64612ca"><div class="ttname"><a href="ZeroTierSockets_8h.html#a3bb5ca55de3a0dfc97fc42ded64612ca">zts_recvmsg</a></div><div class="ttdeci">ssize_t zts_recvmsg(int fd, struct zts_msghdr *msg, int flags)</div><div class="ttdoc">Receive a message from remote host.</div></div>
 <div class="ttc" id="aZeroTierSockets_8h_html_af179ffb8206f7f3de870fbc38c64f1b1"><div class="ttname"><a href="ZeroTierSockets_8h.html#af179ffb8206f7f3de870fbc38c64f1b1">zts_send</a></div><div class="ttdeci">ssize_t zts_send(int fd, const void *buf, size_t len, int flags)</div><div class="ttdoc">Send data to remote host.</div></div>
 <div class="ttc" id="aZeroTierSockets_8h_html_aa0a61b9df274611d908ed2fac35d7303a507c07a77de86193c5b763501d727a6d"><div class="ttname"><a href="ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303a507c07a77de86193c5b763501d727a6d">ZTS_EVENT_NETWORK_READY_IP6</a></div><div class="ttdeci">@ ZTS_EVENT_NETWORK_READY_IP6</div><div class="ttdef"><b>Definition:</b> ZeroTierSockets.h:136</div></div>
-<div class="ttc" id="astructzts__ip__addr_html"><div class="ttname"><a href="structzts__ip__addr.html">zts_ip_addr</a></div><div class="ttdef"><b>Definition:</b> ZeroTierSockets.h:2233</div></div>
+<div class="ttc" id="astructzts__ip__addr_html"><div class="ttname"><a href="structzts__ip__addr.html">zts_ip_addr</a></div><div class="ttdef"><b>Definition:</b> ZeroTierSockets.h:2227</div></div>
 <div class="ttc" id="aZeroTierSockets_8h_html_abacaa9b1f5b196a210da63f01d13e2ab"><div class="ttname"><a href="ZeroTierSockets_8h.html#abacaa9b1f5b196a210da63f01d13e2ab">zts_ip_addr</a></div><div class="ttdeci">struct zts_ip_addr zts_ip_addr</div></div>
 <div class="ttc" id="astructZTS__VirtualNetworkRoute_html"><div class="ttname"><a href="structZTS__VirtualNetworkRoute.html">ZTS_VirtualNetworkRoute</a></div><div class="ttdef"><b>Definition:</b> ZeroTier.h:187</div></div>
 <div class="ttc" id="astructZTS__Netif_html_a769b032262347a9db279a46e0c6e2d4c"><div class="ttname"><a href="structZTS__Netif.html#a769b032262347a9db279a46e0c6e2d4c">ZTS_Netif::mtu</a></div><div class="ttdeci">int mtu</div><div class="ttdef"><b>Definition:</b> ZeroTierSockets.h:617</div></div>
@@ -1362,7 +1362,7 @@ $(document).ready(function(){initNavTree('ZeroTierSockets_8h_source.html',''); i
 <div class="ttc" id="aZeroTierSockets_8h_html_a3bd3ede7a561566692ee4a9fbc42ce91"><div class="ttname"><a href="ZeroTierSockets_8h.html#a3bd3ede7a561566692ee4a9fbc42ce91">ZTS_Error</a></div><div class="ttdeci">ZTS_Error</div><div class="ttdef"><b>Definition:</b> ZeroTierSockets.h:32</div></div>
 <div class="ttc" id="aZeroTierSockets_8h_html_a119db9e1496010598bb7bdcf407985d7"><div class="ttname"><a href="ZeroTierSockets_8h.html#a119db9e1496010598bb7bdcf407985d7">zts_node_get_port</a></div><div class="ttdeci">unsigned short zts_node_get_port()</div><div class="ttdoc">Get the primary port that node is bound to.</div></div>
 <div class="ttc" id="astructZTS__Netif_html_a224e0b19ba843766c0a805aceda6f19d"><div class="ttname"><a href="structZTS__Netif.html#a224e0b19ba843766c0a805aceda6f19d">ZTS_Netif::net_id</a></div><div class="ttdeci">uint64_t net_id</div><div class="ttdef"><b>Definition:</b> ZeroTierSockets.h:607</div></div>
-<div class="ttc" id="aZeroTierSockets_8h_html_a2f13449d19bbf4600e4d7b635fd82f6a"><div class="ttname"><a href="ZeroTierSockets_8h.html#a2f13449d19bbf4600e4d7b635fd82f6a">zts_readv</a></div><div class="ttdeci">ssize_t zts_readv(int fd, const struct zts_iovec *iov, int iovcnt)</div><div class="ttdoc">Read bytes from socket into multiple buffers.</div></div>
+<div class="ttc" id="aZeroTierSockets_8h_html_a2f13449d19bbf4600e4d7b635fd82f6a"><div class="ttname"><a href="ZeroTierSockets_8h.html#a2f13449d19bbf4600e4d7b635fd82f6a">zts_readv</a></div><div class="ttdeci">ssize_t zts_readv(int fd, const struct zts_iovec *iov, int iovcnt)</div><div class="ttdoc">Read data from socket into multiple buffers.</div></div>
 <div class="ttc" id="aZeroTierSockets_8h_html_ae578d7d6309465097449e6fcd46e575e"><div class="ttname"><a href="ZeroTierSockets_8h.html#ae578d7d6309465097449e6fcd46e575e">zts_node_get_id_pair</a></div><div class="ttdeci">int zts_node_get_id_pair(char *key, uint16_t *key_buf_len)</div><div class="ttdoc">Copies the current node's identity into a buffer.</div></div>
 <div class="ttc" id="aZeroTierSockets_8h_html_aa0a61b9df274611d908ed2fac35d7303ab5d90cd32b8d58e148781180e7714560"><div class="ttname"><a href="ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303ab5d90cd32b8d58e148781180e7714560">ZTS_CACHE_UPDATE_IDENTITY_SECRET</a></div><div class="ttdeci">@ ZTS_CACHE_UPDATE_IDENTITY_SECRET</div><div class="ttdef"><b>Definition:</b> ZeroTierSockets.h:196</div></div>
 <div class="ttc" id="aZeroTierSockets_8h_html_a6c784063b8705c605fffc715ca2b6bb0"><div class="ttname"><a href="ZeroTierSockets_8h.html#a6c784063b8705c605fffc715ca2b6bb0">zts_errno</a></div><div class="ttdeci">int zts_errno</div></div>
@@ -1375,7 +1375,7 @@ $(document).ready(function(){initNavTree('ZeroTierSockets_8h_source.html',''); i
 <div class="ttc" id="aZeroTierSockets_8h_html_a9e63a9ef2986029c92e9068a6aa22e66"><div class="ttname"><a href="ZeroTierSockets_8h.html#a9e63a9ef2986029c92e9068a6aa22e66">zts_init_from_memory</a></div><div class="ttdeci">int zts_init_from_memory(const char *key, uint16_t len)</div><div class="ttdoc">Tell ZeroTier to use the identity provided in key. This is an initialization function that can only b...</div></div>
 <div class="ttc" id="aZeroTierSockets_8h_html_aa0a61b9df274611d908ed2fac35d7303a76ea2a7063ee03a1facef8eaf3eef2cb"><div class="ttname"><a href="ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303a76ea2a7063ee03a1facef8eaf3eef2cb">ZTS_EVENT_ADDR_ADDED_IP6</a></div><div class="ttdeci">@ ZTS_EVENT_ADDR_ADDED_IP6</div><div class="ttdef"><b>Definition:</b> ZeroTierSockets.h:191</div></div>
 <div class="ttc" id="aZeroTierSockets_8h_html_aaebaadfd1354eb0ce5445452751972e6"><div class="ttname"><a href="ZeroTierSockets_8h.html#aaebaadfd1354eb0ce5445452751972e6">zts_setsockopt</a></div><div class="ttdeci">int zts_setsockopt(int fd, int level, int optname, const void *optval, zts_socklen_t optlen)</div><div class="ttdoc">Set socket options.</div></div>
-<div class="ttc" id="astructzts__ip6__addr_html"><div class="ttname"><a href="structzts__ip6__addr.html">zts_ip6_addr</a></div><div class="ttdef"><b>Definition:</b> ZeroTierSockets.h:2222</div></div>
+<div class="ttc" id="astructzts__ip6__addr_html"><div class="ttname"><a href="structzts__ip6__addr.html">zts_ip6_addr</a></div><div class="ttdef"><b>Definition:</b> ZeroTierSockets.h:2216</div></div>
 <div class="ttc" id="aZeroTierSockets_8h_html_a9441245a889070a029d704ef4422dbf3"><div class="ttname"><a href="ZeroTierSockets_8h.html#a9441245a889070a029d704ef4422dbf3">zts_writev</a></div><div class="ttdeci">ssize_t zts_writev(int fd, const struct zts_iovec *iov, int iovcnt)</div><div class="ttdoc">Write data from multiple buffers to socket.</div></div>
 <div class="ttc" id="aZeroTierSockets_8h_html_aa0a61b9df274611d908ed2fac35d7303a022ff90e77c0a039eb82b6c221132b3a"><div class="ttname"><a href="ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303a022ff90e77c0a039eb82b6c221132b3a">ZTS_EVENT_NETWORK_ACCESS_DENIED</a></div><div class="ttdeci">@ ZTS_EVENT_NETWORK_ACCESS_DENIED</div><div class="ttdef"><b>Definition:</b> ZeroTierSockets.h:132</div></div>
 <div class="ttc" id="astructZTS__Node_html_ae4927122562e871ee1847f76f0a30777"><div class="ttname"><a href="structZTS__Node.html#ae4927122562e871ee1847f76f0a30777">ZTS_Node::address</a></div><div class="ttdeci">uint64_t address</div><div class="ttdef"><b>Definition:</b> ZeroTierSockets.h:558</div></div>

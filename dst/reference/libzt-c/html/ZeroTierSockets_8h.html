@@ -405,13 +405,13 @@ Functions</h2></td></tr>
 <tr class="memdesc:a3bb5ca55de3a0dfc97fc42ded64612ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive a message from remote host.  <a href="ZeroTierSockets_8h.html#a3bb5ca55de3a0dfc97fc42ded64612ca">More...</a><br /></td></tr>
 <tr class="separator:a3bb5ca55de3a0dfc97fc42ded64612ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad60a93ff6ac6316203f824f677defd8e"><td class="memItemLeft" align="right" valign="top">ssize_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ad60a93ff6ac6316203f824f677defd8e">zts_read</a> (int fd, void *buf, size_t len)</td></tr>
-<tr class="memdesc:ad60a93ff6ac6316203f824f677defd8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read bytes from socket onto buffer.  <a href="ZeroTierSockets_8h.html#ad60a93ff6ac6316203f824f677defd8e">More...</a><br /></td></tr>
+<tr class="memdesc:ad60a93ff6ac6316203f824f677defd8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read data from socket onto buffer.  <a href="ZeroTierSockets_8h.html#ad60a93ff6ac6316203f824f677defd8e">More...</a><br /></td></tr>
 <tr class="separator:ad60a93ff6ac6316203f824f677defd8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f13449d19bbf4600e4d7b635fd82f6a"><td class="memItemLeft" align="right" valign="top">ssize_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a2f13449d19bbf4600e4d7b635fd82f6a">zts_readv</a> (int fd, const struct zts_iovec *iov, int iovcnt)</td></tr>
-<tr class="memdesc:a2f13449d19bbf4600e4d7b635fd82f6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read bytes from socket into multiple buffers.  <a href="ZeroTierSockets_8h.html#a2f13449d19bbf4600e4d7b635fd82f6a">More...</a><br /></td></tr>
+<tr class="memdesc:a2f13449d19bbf4600e4d7b635fd82f6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read data from socket into multiple buffers.  <a href="ZeroTierSockets_8h.html#a2f13449d19bbf4600e4d7b635fd82f6a">More...</a><br /></td></tr>
 <tr class="separator:a2f13449d19bbf4600e4d7b635fd82f6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a927f54288d9d12a356f0bf46f0dd682a"><td class="memItemLeft" align="right" valign="top">ssize_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a927f54288d9d12a356f0bf46f0dd682a">zts_write</a> (int fd, const void *buf, size_t len)</td></tr>
-<tr class="memdesc:a927f54288d9d12a356f0bf46f0dd682a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write bytes from buffer to socket.  <a href="ZeroTierSockets_8h.html#a927f54288d9d12a356f0bf46f0dd682a">More...</a><br /></td></tr>
+<tr class="memdesc:a927f54288d9d12a356f0bf46f0dd682a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write data from buffer to socket.  <a href="ZeroTierSockets_8h.html#a927f54288d9d12a356f0bf46f0dd682a">More...</a><br /></td></tr>
 <tr class="separator:a927f54288d9d12a356f0bf46f0dd682a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9441245a889070a029d704ef4422dbf3"><td class="memItemLeft" align="right" valign="top">ssize_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a9441245a889070a029d704ef4422dbf3">zts_writev</a> (int fd, const struct zts_iovec *iov, int iovcnt)</td></tr>
 <tr class="memdesc:a9441245a889070a029d704ef4422dbf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write data from multiple buffers to socket.  <a href="ZeroTierSockets_8h.html#a9441245a889070a029d704ef4422dbf3">More...</a><br /></td></tr>
@@ -755,7 +755,7 @@ Variables</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="aa0a61b9df274611d908ed2fac35d7303a38b1359f55f43b335261774bd1a625f6"></a>ZTS_EVENT_NODE_NORMAL_TERMINATION&#160;</td><td class="fielddoc"><p>The node has been terminated </p>
 </td></tr>
-<tr><td class="fieldname"><a id="aa0a61b9df274611d908ed2fac35d7303ab731d15e1d0b5a05cb9909747bf5fb89"></a>ZTS_EVENT_NETWORK_NOT_FOUND&#160;</td><td class="fielddoc"><p>The network ID does not correspond to a known network </p>
+<tr><td class="fieldname"><a id="aa0a61b9df274611d908ed2fac35d7303ab731d15e1d0b5a05cb9909747bf5fb89"></a>ZTS_EVENT_NETWORK_NOT_FOUND&#160;</td><td class="fielddoc"><p>Network ID does not correspond to a known network </p>
 </td></tr>
 <tr><td class="fieldname"><a id="aa0a61b9df274611d908ed2fac35d7303a9e08fa3bab076daaaeac83c831f10071"></a>ZTS_EVENT_NETWORK_CLIENT_TOO_OLD&#160;</td><td class="fielddoc"><p>The version of ZeroTier inside libzt is too old </p>
 </td></tr>
@@ -964,7 +964,7 @@ Variables</h2></td></tr>
     <tr><td class="paramname">net_id</td><td>Network ID </td></tr>
     <tr><td class="paramname">node_id</td><td>Node ID </td></tr>
     <tr><td class="paramname">dst</td><td>Destination string buffer </td></tr>
-    <tr><td class="paramname">dst</td><td>Length of destination string buffer (must be exactly <code>ZTS_IP_MAX_STR_LEN</code>) </td></tr>
+    <tr><td class="paramname">len</td><td>Length of destination string buffer (must be exactly <code>ZTS_IP_MAX_STR_LEN</code>) </td></tr>
   </table>
   </dd>
 </dl>
@@ -1061,7 +1061,7 @@ Variables</h2></td></tr>
     <tr><td class="paramname">net_id</td><td>Network ID </td></tr>
     <tr><td class="paramname">node_id</td><td>Node ID </td></tr>
     <tr><td class="paramname">dst</td><td>Destination string buffer </td></tr>
-    <tr><td class="paramname">dst</td><td>Length of destination string buffer (must be exactly <code>ZTS_IP_MAX_STR_LEN</code>) </td></tr>
+    <tr><td class="paramname">len</td><td>Length of destination string buffer (must be exactly <code>ZTS_IP_MAX_STR_LEN</code>) </td></tr>
   </table>
   </dd>
 </dl>
@@ -1104,7 +1104,7 @@ Variables</h2></td></tr>
 <p>Get the first-assigned IP on the given network. Use <code>zts_addr_get_all</code> to get all assigned IP addresses. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">net_id</td><td>A <code>16-digit hexadecimal</code> virtual network ID </td></tr>
+    <tr><td class="paramname">net_id</td><td>Network ID </td></tr>
     <tr><td class="paramname">family</td><td><code>ZTS_AF_INET</code>, or <code>ZTS_AF_INET6</code> </td></tr>
     <tr><td class="paramname">addr</td><td>Destination buffer to hold address </td></tr>
   </table>
@@ -1149,7 +1149,7 @@ Variables</h2></td></tr>
 <p>Get all IP addresses assigned to this node by the given network. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">net_id</td><td>A <code>16-digit hexadecimal</code> virtual network ID </td></tr>
+    <tr><td class="paramname">net_id</td><td>Network ID </td></tr>
     <tr><td class="paramname">addr</td><td>Destination buffer to hold address </td></tr>
     <tr><td class="paramname">count</td><td>Number of addresses returned </td></tr>
   </table>
@@ -1200,7 +1200,7 @@ Variables</h2></td></tr>
 <p>Get the first-assigned IP on the given network as a null-terminated human-readable string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">net_id</td><td>A <code>16-digit hexadecimal</code> virtual network ID </td></tr>
+    <tr><td class="paramname">net_id</td><td>Network ID </td></tr>
     <tr><td class="paramname">family</td><td><code>ZTS_AF_INET</code>, or <code>ZTS_AF_INET6</code> </td></tr>
     <tr><td class="paramname">dst</td><td>Destination buffer ^</td></tr>
     <tr><td class="paramname">len</td><td>Length of destination buffer. Must be exactly ZTS_INET6_ADDRSTRLEN </td></tr>
@@ -1240,7 +1240,7 @@ Variables</h2></td></tr>
 <p>Return whether an address of the given family has been assigned by the network. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">net_id</td><td>A <code>16-digit hexadecimal</code> virtual network ID </td></tr>
+    <tr><td class="paramname">net_id</td><td>Network ID </td></tr>
     <tr><td class="paramname">family</td><td><code>ZTS_AF_INET</code>, or <code>ZTS_AF_INET6</code> </td></tr>
   </table>
   </dd>
@@ -2060,8 +2060,8 @@ Variables</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">fd</td><td>Socket file descriptor </td></tr>
-    <tr><td class="paramname">request</td><td></td></tr>
-    <tr><td class="paramname">argp</td><td></td></tr>
+    <tr><td class="paramname">request</td><td>Selects the control function to be performed </td></tr>
+    <tr><td class="paramname">argp</td><td>Additional information </td></tr>
   </table>
   </dd>
 </dl>
@@ -2379,7 +2379,7 @@ Variables</h2></td></tr>
 <p>Join a network. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">net_id</td><td>A <code>16-digit hexadecimal</code> virtual network ID </td></tr>
+    <tr><td class="paramname">net_id</td><td>Network ID </td></tr>
   </table>
   </dd>
 </dl>
@@ -2406,7 +2406,7 @@ Variables</h2></td></tr>
 <p>Leave a network. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">net_id</td><td>A <code>16-digit hexadecimal</code> virtual network ID </td></tr>
+    <tr><td class="paramname">net_id</td><td>Network ID </td></tr>
   </table>
   </dd>
 </dl>
@@ -3248,7 +3248,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Enable or disable <code>TCP_NODELAY</code>. Enabling this is equivalent to turning off Nagle's algorithm. </p>
-<p>Helper functions that simplify API wrapper generation and usage in other non-C-like languages. Use simple integer types instead of bit flags, limit the number of operations each function performs, prevent the user from needing to manipulate the content of structures in a non-native language. </p><dl class="params"><dt>Parameters</dt><dd>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">fd</td><td>Socket file descriptor </td></tr>
     <tr><td class="paramname">enabled</td><td><code>[0, 1]</code> integer value </td></tr>
@@ -3333,7 +3333,8 @@ Variables</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">fd</td><td>Socket file descriptor </td></tr>
-    <tr><td class="paramname">something</td><td></td></tr>
+    <tr><td class="paramname">seconds</td><td>Number of seconds for timeout </td></tr>
+    <tr><td class="paramname">microseconds</td><td>Number of microseconds for timeout </td></tr>
   </table>
   </dd>
 </dl>
@@ -3453,7 +3454,8 @@ Variables</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">fd</td><td>Socket file descriptor </td></tr>
-    <tr><td class="paramname">something</td><td></td></tr>
+    <tr><td class="paramname">seconds</td><td>Number of seconds for timeout </td></tr>
+    <tr><td class="paramname">microseconds</td><td>Number of microseconds for timeout </td></tr>
   </table>
   </dd>
 </dl>
@@ -3531,7 +3533,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Read bytes from socket onto buffer. </p>
+<p>Read data from socket onto buffer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">fd</td><td>Socket file descriptor </td></tr>
@@ -3576,7 +3578,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Read bytes from socket into multiple buffers. </p>
+<p>Read data from socket into multiple buffers. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">fd</td><td>Socket file descriptor </td></tr>
@@ -3633,7 +3635,7 @@ Variables</h2></td></tr>
     <tr><td class="paramname">fd</td><td>Socket file descriptor </td></tr>
     <tr><td class="paramname">buf</td><td>Pointer to data buffer </td></tr>
     <tr><td class="paramname">len</td><td>Length of data buffer </td></tr>
-    <tr><td class="paramname">flags</td><td></td></tr>
+    <tr><td class="paramname">flags</td><td>Specifies the type of message receipt </td></tr>
   </table>
   </dd>
 </dl>
@@ -3697,9 +3699,9 @@ Variables</h2></td></tr>
     <tr><td class="paramname">fd</td><td>Socket file descriptor </td></tr>
     <tr><td class="paramname">buf</td><td>Pointer to data buffer </td></tr>
     <tr><td class="paramname">len</td><td>Length of data buffer </td></tr>
-    <tr><td class="paramname">flags</td><td></td></tr>
-    <tr><td class="paramname">addr</td><td></td></tr>
-    <tr><td class="paramname">addrlen</td><td></td></tr>
+    <tr><td class="paramname">flags</td><td>Specifies the type of message receipt </td></tr>
+    <tr><td class="paramname">addr</td><td>Destination address buffer </td></tr>
+    <tr><td class="paramname">addrlen</td><td>Length of destination address buffer </td></tr>
   </table>
   </dd>
 </dl>
@@ -3743,8 +3745,8 @@ Variables</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">fd</td><td>Socket file descriptor </td></tr>
-    <tr><td class="paramname">msg</td><td></td></tr>
-    <tr><td class="paramname">flags</td><td></td></tr>
+    <tr><td class="paramname">msg</td><td>Message that was received </td></tr>
+    <tr><td class="paramname">flags</td><td>Specifies the type of message receipt </td></tr>
   </table>
   </dd>
 </dl>
@@ -3771,7 +3773,7 @@ Variables</h2></td></tr>
 <p>Return the number of managed routes assigned by this network. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">net_id</td><td>A <code>16-digit hexadecimal</code> virtual network ID </td></tr>
+    <tr><td class="paramname">net_id</td><td>Network ID </td></tr>
   </table>
   </dd>
 </dl>
@@ -3808,7 +3810,7 @@ Variables</h2></td></tr>
 <p>Return whether a managed route of the given address family has been assigned by the network. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">net_id</td><td>A <code>16-digit hexadecimal</code> virtual network ID </td></tr>
+    <tr><td class="paramname">net_id</td><td>Network ID </td></tr>
     <tr><td class="paramname">family</td><td><code>ZTS_AF_INET</code>, or <code>ZTS_AF_INET6</code> </td></tr>
   </table>
   </dd>
@@ -3872,7 +3874,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of ready file descriptors on success. ZTS_ERR_SOCKET, ZTS_ERR_SERVICE on failure. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of ready file descriptors on success. <code>ZTS_ERR_SOCKET</code>, <code>ZTS_ERR_SERVICE</code> on failure. Sets <code>zts_errno</code> </dd></dl>
 
 </div>
 </div>
@@ -3964,8 +3966,8 @@ Variables</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">fd</td><td>Socket file descriptor </td></tr>
-    <tr><td class="paramname">msg</td><td></td></tr>
-    <tr><td class="paramname">flags</td><td></td></tr>
+    <tr><td class="paramname">msg</td><td>Message to send </td></tr>
+    <tr><td class="paramname">flags</td><td>Specifies type of message transmission </td></tr>
   </table>
   </dd>
 </dl>
@@ -4029,7 +4031,7 @@ Variables</h2></td></tr>
     <tr><td class="paramname">fd</td><td>Socket file descriptor </td></tr>
     <tr><td class="paramname">buf</td><td>Pointer to data buffer </td></tr>
     <tr><td class="paramname">len</td><td>Length of data to write </td></tr>
-    <tr><td class="paramname">flags</td><td></td></tr>
+    <tr><td class="paramname">flags</td><td>Specifies type of message transmission </td></tr>
     <tr><td class="paramname">addr</td><td>Destination address </td></tr>
     <tr><td class="paramname">addrlen</td><td>Length of destination address </td></tr>
   </table>
@@ -4128,7 +4130,7 @@ Variables</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">fd</td><td>Socket file descriptor </td></tr>
-    <tr><td class="paramname">how</td><td>Which aspects of the socket should be shut down </td></tr>
+    <tr><td class="paramname">how</td><td>Which aspects of the socket should be shut down. Options are <code>ZTS_SHUT_RD</code>, <code>ZTS_SHUT_WR</code>, or <code>ZTS_SHUT_RDWR</code>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -4172,7 +4174,7 @@ Variables</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">socket_family</td><td><code>ZTS_AF_INET</code>, or <code>ZTS_AF_INET6</code> </td></tr>
-    <tr><td class="paramname">socket_type</td><td><code>ZTS_SOCK_STREAM,</code>ZTS_SOCK_DGRAM<code>, </code>ZTS_SOCK_RAW` </td></tr>
+    <tr><td class="paramname">socket_type</td><td><code>ZTS_SOCK_STREAM</code>, <code>ZTS_SOCK_DGRAM</code> </td></tr>
     <tr><td class="paramname">protocol</td><td>Protocols supported on this socket </td></tr>
   </table>
   </dd>
@@ -4213,7 +4215,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Write bytes from buffer to socket. </p>
+<p>Write data from buffer to socket. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">fd</td><td>Socket file descriptor </td></tr>
