@@ -869,7 +869,7 @@ ZTS_API int ZTCALL zts_central_get_members_of_network(int* http_resp_code, uint6
  *     to the number of bytes copied.
  * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_ARG` if invalid arg.
  */
-ZTS_API int ZTCALL zts_id_generate(char* key, uint16_t* key_buf_len);
+ZTS_API int ZTCALL zts_id_new(char* key, uint16_t* key_buf_len);
 
 /**
  * @brief Verifies that a key-pair is valid. Checks formatting and pairing of
@@ -879,13 +879,14 @@ ZTS_API int ZTCALL zts_id_generate(char* key, uint16_t* key_buf_len);
  * @param len Length of key-pair buffer
  * @return `1` if true, `0` if false.
  */
-ZTS_API int ZTCALL zts_id_is_valid(const char* key, int len);
+ZTS_API int ZTCALL zts_id_pair_is_valid(const char* key, int len);
 
 /**
  * @brief Instruct ZeroTier to look for node identity files at the given location. This is an
  * initialization function that can only be called before `zts_node_start()`.
  *
- * Note that calling this function is not mandatory and if it is not called the node's keys will be kept in memory and retrievable via `zts_node_get_id_pair()`.
+ * Note that calling this function is not mandatory and if it is not called the node's keys will be
+ * kept in memory and retrievable via `zts_node_get_id_pair()`.
  *
  * See also: `zts_init_from_memory()`
  *
@@ -896,10 +897,11 @@ ZTS_API int ZTCALL zts_id_is_valid(const char* key, int len);
 ZTS_API int ZTCALL zts_init_from_storage(char* path);
 
 /**
- * @brief Instruct ZeroTier to use the identity provided in `key`. This is an initialization function
- * that can only be called before `zts_node_start()`.
+ * @brief Instruct ZeroTier to use the identity provided in `key`. This is an initialization
+ * function that can only be called before `zts_node_start()`.
  *
- * Note that calling this function is not mandatory and if it is not called the node's keys will be kept in memory and retrievable via `zts_node_get_id_pair()`.
+ * Note that calling this function is not mandatory and if it is not called the node's keys will be
+ * kept in memory and retrievable via `zts_node_get_id_pair()`.
  *
  * See also: `zts_init_from_storage()`
  *
@@ -936,8 +938,8 @@ ZTS_API int ZTCALL zts_init_blacklist_ip4(char* cidr, int len);
 ZTS_API int ZTCALL zts_init_set_planet(char* src, int len);
 
 /**
- * @brief Set the port to which the node should bind. This is an initialization function that can only be called
- * before `zts_node_start()`.
+ * @brief Set the port to which the node should bind. This is an initialization function that can
+ * only be called before `zts_node_start()`.
  *
  * @param port Port number
  * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_SERVICE` if the node
@@ -946,17 +948,18 @@ ZTS_API int ZTCALL zts_init_set_planet(char* src, int len);
 ZTS_API int ZTCALL zts_init_set_port(unsigned short port);
 
 /**
- * @brief Enable or disable whether the service will cache network details
- * (enabled by default)
+ * @brief Enable or disable whether the node will cache network details
+ * (enabled by default when `zts_init_from_storage()` is used.) Must be called before
+ * `zts_node_start()`.
  *
- * This can potentially shorten (startup) times. This allows the service to
+ * This can potentially shorten (startup) times between node restarts. This allows the service to
  * nearly instantly inform the network stack of an address to use for this peer
- * so that it can create an interface. This can be disabled for cases where one
+ * so that it can create a transport service. This can be disabled for cases where one
  * may not want network config details to be written to storage. This is
  * especially useful for situations where address assignments do not change
  * often.
  *
- * Should be called before `zts_start()` if you intend on changing its state.
+ * See also: `zts_init_allow_peer_cache()`
  *
  * @param enabled Whether or not this feature is enabled
  * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_SERVICE` if the node
@@ -965,17 +968,17 @@ ZTS_API int ZTCALL zts_init_set_port(unsigned short port);
 ZTS_API int ZTCALL zts_init_allow_net_cache(int allowed);
 
 /**
- * @brief Enable or disable whether the service will cache peer details (enabled
- * by default)
+ * @brief Enable or disable whether the node will cache peer details (enabled
+ * by default when `zts_init_from_storage()` is used.) Must be called before `zts_node_start()`.
  *
- * This can potentially shorten (connection) times. This allows the service to
+ * This can potentially shorten (connection) times between node restarts. This allows the service to
  * re-use previously discovered paths to a peer, this prevents the service from
  * having to go through the entire transport-triggered link provisioning
  * process. This is especially useful for situations where paths to peers do not
  * change often. This is enabled by default and can be disabled for cases where
  * one may not want peer details to be written to storage.
  *
- * Should be called before `zts_start()` if you intend on changing its state.
+ * See also: `zts_init_allow_net_cache()`
  *
  * @param enabled Whether or not this feature is enabled
  * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_SERVICE` if the node
@@ -993,8 +996,9 @@ ZTS_API int ZTCALL zts_init_allow_peer_cache(int allowed);
 ZTS_API int ZTCALL zts_addr_is_assigned(uint64_t net_id, int family);
 
 /**
- * @brief Get the first-assigned IP on the given network. Use `zts_addr_get_all` to get all assigned
- * IP addresses
+ * @brief Get the first-assigned IP on the given network.
+ *
+ * To get *all* assigned addresses on a given network, use `zts_addr_get_all()`.
  *
  * @param net_id Network ID
  * @param family `ZTS_AF_INET`, or `ZTS_AF_INET6`
@@ -1007,10 +1011,12 @@ ZTS_API int ZTCALL zts_addr_get(uint64_t net_id, int family, struct zts_sockaddr
 /**
  * @brief Get the first-assigned IP on the given network as a null-terminated human-readable string
  *
+ * To get *all* assigned addresses on a given network, use `zts_addr_get_all()`.
+ *
  * @param net_id Network ID
  * @param family `ZTS_AF_INET`, or `ZTS_AF_INET6`
  * @param dst Destination buffer
- ^ @param len Length of destination buffer (must be exactly `ZTS_IP_MAX_STR_LEN`)
+ * @param len Length of destination buffer (must be exactly `ZTS_IP_MAX_STR_LEN`)
  * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_SERVICE` if the node
  *     experiences a problem, `ZTS_ERR_ARG` if invalid arg.
  */
@@ -1027,7 +1033,6 @@ ZTS_API int ZTCALL zts_addr_get_str(uint64_t net_id, int family, char* dst, int 
  */
 ZTS_API int ZTCALL zts_addr_get_all(uint64_t net_id, struct zts_sockaddr_storage* addr, int* count);
 
-
 /**
  * @brief Compute a `6PLANE` IPv6 address for the given Network ID and Node ID
  *
@@ -1042,7 +1047,7 @@ ZTS_API int ZTCALL zts_addr_compute_6plane(
     struct zts_sockaddr_storage* addr);
 
 /**
- * @brief Compute a `RFC4193` IPv6 address for the given Network ID and Node ID
+ * @brief Compute `RFC4193` IPv6 address for the given Network ID and Node ID
  *
  * @param net_id Network ID
  * @param node_id Node ID
@@ -1055,7 +1060,8 @@ ZTS_API int ZTCALL zts_addr_compute_rfc4193(
     struct zts_sockaddr_storage* addr);
 
 /**
- * @brief Compute `RFC4193` IPv6 address for the given Network ID and Node ID and copy its null-terminated human-readable representation into destination buffer.
+ * @brief Compute `RFC4193` IPv6 address for the given Network ID and Node ID and copy its
+ * null-terminated human-readable string representation into destination buffer.
  *
  * @param net_id Network ID
  * @param node_id Node ID
@@ -1067,7 +1073,8 @@ ZTS_API int ZTCALL
 zts_addr_compute_rfc4193_str(uint64_t net_id, uint64_t node_id, char* dst, int len);
 
 /**
- * @brief Compute `6PLANE` IPv6 address for the given Network ID and Node ID and copy its null-terminated human-readable representation into destination buffer.
+ * @brief Compute `6PLANE` IPv6 address for the given Network ID and Node ID and copy its
+ * null-terminated human-readable string representation into destination buffer.
  *
  * @param net_id Network ID
  * @param node_id Node ID
@@ -1110,8 +1117,7 @@ zts_addr_compute_6plane_str(uint64_t net_id, uint64_t node_id, char* dst, int le
  * @param end_port End of allowed port range
  * @return An Ad-hoc network ID
  */
-ZTS_API uint64_t ZTCALL
-zts_net_compute_adhoc_id(uint16_t start_port, uint16_t end_port);
+ZTS_API uint64_t ZTCALL zts_net_compute_adhoc_id(uint16_t start_port, uint16_t end_port);
 
 /**
  * @brief Join a network
@@ -1175,6 +1181,10 @@ ZTS_API int ZTCALL zts_route_count(uint64_t net_id);
  *    `zts_init_from_storage()` before this function. To enable event callbacks
  *     call `zts_init_set_event_handler()` before this function.
  *
+ * Note: If neither `zts_init_from_storage()` or `zts_init_from_memory()` are
+ * called a new identity will be generated and will be retrievable via
+ * `zts_node_get_id_pair()` *after* the node has started.
+ *
  * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_SERVICE` if the node
  *     experiences a problem.
  */
@@ -1188,7 +1198,8 @@ ZTS_API int ZTCALL zts_node_start();
 ZTS_API int ZTCALL zts_node_is_online();
 
 /**
- * @brief Get the public node identity (aka `node_id`). Callable only after the node has been started.
+ * @brief Get the public node identity (aka `node_id`). Callable only after the node has been
+ * started.
  *
  * @return Identity in numerical form
  */
@@ -1208,7 +1219,8 @@ ZTS_API uint64_t ZTCALL zts_node_get_id();
 ZTS_API int ZTCALL zts_node_get_id_pair(char* key, uint16_t* key_buf_len);
 
 /**
- * @brief Get the primary port to which the node is bound. Callable only after the node has been started.
+ * @brief Get the primary port to which the node is bound. Callable only after the node has been
+ * started.
  *
  * @return Port number
  */
@@ -1631,7 +1643,7 @@ typedef struct zts_ipv6_mreq {
 #define ZTS_IPTOS_PREC_ROUTINE         0x00
 
 /**
- * @brief Set socket options
+ * @brief Set socket options.
  *
  * @param fd Socket file descriptor
  * @param level Protocol level to which option name should apply
@@ -1645,7 +1657,7 @@ ZTS_API int ZTCALL
 zts_setsockopt(int fd, int level, int optname, const void* optval, zts_socklen_t optlen);
 
 /**
- * @brief Get socket options
+ * @brief Get socket options.
  *
  * @param fd Socket file descriptor
  * @param level Protocol level to which option name should apply
@@ -1659,7 +1671,7 @@ ZTS_API int ZTCALL
 zts_getsockopt(int fd, int level, int optname, void* optval, zts_socklen_t* optlen);
 
 /**
- * @brief Get socket name
+ * @brief Get socket name.
  *
  * @param fd Socket file descriptor
  * @param addr Name associated with this socket
@@ -1670,7 +1682,7 @@ zts_getsockopt(int fd, int level, int optname, void* optval, zts_socklen_t* optl
 ZTS_API int ZTCALL zts_getsockname(int fd, struct zts_sockaddr* addr, zts_socklen_t* addrlen);
 
 /**
- * @brief Get the peer name for the remote end of a connected socket
+ * @brief Get the peer name for the remote end of a connected socket.
  *
  * @param fd Socket file descriptor
  * @param addr Name associated with remote end of this socket
@@ -1681,7 +1693,7 @@ ZTS_API int ZTCALL zts_getsockname(int fd, struct zts_sockaddr* addr, zts_sockle
 ZTS_API int ZTCALL zts_getpeername(int fd, struct zts_sockaddr* addr, zts_socklen_t* addrlen);
 
 /**
- * @brief Close a socket
+ * @brief Close socket.
  *
  * @param fd Socket file descriptor
  * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_SERVICE` if the node
@@ -1772,9 +1784,9 @@ ZTS_API int ZTCALL zts_select(
 /**
  * @brief Issue file control commands on a socket
  *
- * @param fd File descriptor
- * @param cmd
- * @param flags
+ * @param fd Socket file descriptor
+ * @param cmd Operation to be performed
+ * @param flags Flags
  * @return
  */
 ZTS_API int ZTCALL zts_fcntl(int fd, int cmd, int flags);
@@ -1980,7 +1992,8 @@ ZTS_API ssize_t ZTCALL zts_writev(int fd, const struct zts_iovec* iov, int iovcn
  * @brief Shut down some aspect of a socket
  *
  * @param fd Socket file descriptor
- * @param how Which aspects of the socket should be shut down. Options are `ZTS_SHUT_RD`, `ZTS_SHUT_WR`, or `ZTS_SHUT_RDWR`.
+ * @param how Which aspects of the socket should be shut down. Options are `ZTS_SHUT_RD`,
+ * `ZTS_SHUT_WR`, or `ZTS_SHUT_RDWR`.
  * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_SERVICE` if the node
  *     experiences a problem, `ZTS_ERR_ARG` if invalid arg. Sets `zts_errno`
  */
@@ -2252,7 +2265,7 @@ typedef struct zts_ip_addr {
 /**
  * Initialize one of the DNS servers.
  *
- * @param index the index of the DNS server to set must be < DNS_MAX_SERVERS
+ * @param index the index of the DNS server to set must be `< DNS_MAX_SERVERS`
  * @param addr IP address of the DNS server to set
  */
 ZTS_API int ZTCALL zts_dns_set_server(uint8_t index, const zts_ip_addr* addr);
@@ -2261,7 +2274,7 @@ ZTS_API int ZTCALL zts_dns_set_server(uint8_t index, const zts_ip_addr* addr);
  * Obtain one of the currently configured DNS server.
  *
  * @param index the index of the DNS server
- * @return IP address of the indexed DNS server or "ip_addr_any" if the DNS
+ * @return IP address of the indexed DNS server or `ip_addr_any` if the DNS
  *         server has not been configured.
  */
 ZTS_API const zts_ip_addr* ZTCALL zts_dns_get_server(uint8_t index);
@@ -2308,7 +2321,7 @@ zts_inet_ntop(int family, const void* src, char* dst, zts_socklen_t size);
  * @param family Address family: `ZTS_AF_INET` or `ZTS_AF_INET6`
  * @param src Pointer to source character array
  * @param dst Pointer to destination address structure
- * @return return `1` on success. `0` or `-1` on failure. (Does not follow
+ * @return return `1` on success. `0` or `-1` on failure. (Does not follow regular
  * `zts_*` conventions)
  */
 ZTS_API int ZTCALL zts_inet_pton(int family, const char* src, void* dst);
