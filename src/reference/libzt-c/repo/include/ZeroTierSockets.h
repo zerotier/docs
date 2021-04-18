@@ -417,6 +417,13 @@ typedef void (*CppCallback)(void* msg);
 #define ZTS_INET_ADDRSTRLEN  16
 #define ZTS_INET6_ADDRSTRLEN 46
 
+/**
+ * Maximum (and required) length of string buffers used to receive
+ * string-format IP addresses from the API. This is set to `ZTS_INET6_ADDRSTRLEN`
+ * to handle all cases: `ZTS_AF_INET` and `ZTS_AF_INET6`
+ */
+#define ZTS_IP_MAX_STR_LEN ZTS_INET6_ADDRSTRLEN
+
 /** 255.255.255.255 */
 #define ZTS_IPADDR_NONE ((uint32_t)0xffffffffUL)
 /** 127.0.0.1 */
@@ -585,7 +592,7 @@ typedef struct {
  * Details about an assigned address that was added or removed
  */
 typedef struct {
-	uint64_t nwid;
+	uint64_t net_id;
 	struct zts_sockaddr_storage addr;
 } ZTS_Address;
 
@@ -597,7 +604,7 @@ typedef struct {
 	/**
 	 * The virtual network that this interface was created for
 	 */
-	uint64_t nwid;
+	uint64_t net_id;
 
 	/**
 	 * The hardware address assigned to this interface
@@ -769,19 +776,19 @@ ZTS_API int ZTCALL zts_central_get_self(int* http_resp_code);
  *
  * @return Standard HTTP response codes.
  */
-ZTS_API int ZTCALL zts_central_get_network(int* http_resp_code, uint64_t nwid);
+ZTS_API int ZTCALL zts_central_get_network(int* http_resp_code, uint64_t net_id);
 
 /**
  * @brief Update or create a Network.
  *
  * Only fields marked as [rw] can be directly modified. If other fields are
  * present in the posted request they are ignored. New networks can be
- * created by POSTing to /api/network with no nwid parameter. The server
+ * created by POSTing to /api/network with no net_id parameter. The server
  * will create a random unused network ID and return the new network record.
  *
  * @return Standard HTTP response codes.
  */
-ZTS_API int ZTCALL zts_central_update_network(int* http_resp_code, uint64_t nwid);
+ZTS_API int ZTCALL zts_central_update_network(int* http_resp_code, uint64_t net_id);
 
 /**
  * @brief Delete a Network.
@@ -791,7 +798,7 @@ ZTS_API int ZTCALL zts_central_update_network(int* http_resp_code, uint64_t nwid
  *
  * @return Standard HTTP response codes.
  */
-ZTS_API int ZTCALL zts_central_delete_network(int* http_resp_code, uint64_t nwid);
+ZTS_API int ZTCALL zts_central_delete_network(int* http_resp_code, uint64_t net_id);
 
 /**
  * @brief Get All Viewable Networks.
@@ -806,7 +813,7 @@ ZTS_API int ZTCALL zts_central_get_networks(int* http_resp_code);
  *
  * @return Standard HTTP response codes.
  */
-ZTS_API int ZTCALL zts_central_get_member(int* http_resp_code, uint64_t nwid, uint64_t nodeid);
+ZTS_API int ZTCALL zts_central_get_member(int* http_resp_code, uint64_t net_id, uint64_t node_id);
 
 /**
  * @brief Update or add a Member.
@@ -816,19 +823,22 @@ ZTS_API int ZTCALL zts_central_get_member(int* http_resp_code, uint64_t nwid, ui
  * @return Standard HTTP response codes.
  */
 ZTS_API int ZTCALL
-zts_central_update_member(int* http_resp_code, uint64_t nwid, uint64_t nodeid, char* post_data);
+zts_central_update_member(int* http_resp_code, uint64_t net_id, uint64_t node_id, char* post_data);
 
 /**
  * @brief Authorize or (De)authorize a node on a network. This operation
  * is idempotent.
  *
- * @param nwid The network ID
- * @param nodeid The node ID
+ * @param net_id The network ID
+ * @param node_id The node ID
  * @param is_authed Boolean value for whether this node should be authorized
  * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_ARG` if invalid arg.
  */
-ZTS_API int ZTCALL
-zts_central_set_node_auth(int* http_resp_code, uint64_t nwid, uint64_t nodeid, uint8_t is_authed);
+ZTS_API int ZTCALL zts_central_set_node_auth(
+    int* http_resp_code,
+    uint64_t net_id,
+    uint64_t node_id,
+    uint8_t is_authed);
 
 /**
  * @brief Get All Members of a Network.
@@ -837,7 +847,7 @@ zts_central_set_node_auth(int* http_resp_code, uint64_t nwid, uint64_t nodeid, u
  *
  * @return Standard HTTP response codes.
  */
-ZTS_API int ZTCALL zts_central_get_members_of_network(int* http_resp_code, uint64_t nwid);
+ZTS_API int ZTCALL zts_central_get_members_of_network(int* http_resp_code, uint64_t net_id);
 
 #endif   // NO_CENTRAL_API
 
@@ -848,7 +858,7 @@ ZTS_API int ZTCALL zts_central_get_members_of_network(int* http_resp_code, uint6
 /**
  * The length of a human-friendly identity key pair string
  */
-#define ZTS_IDENTITY_STRING_BUFFER_LENGTH 384
+#define ZTS_ID_STR_BUF_LEN 384
 
 /**
  * @brief Generates a node identity (public/secret key-pair) and stores it in a
@@ -870,38 +880,6 @@ ZTS_API int ZTCALL zts_id_generate(char* key, uint16_t* key_buf_len);
  * @return `1` if true, `0` if false.
  */
 ZTS_API int ZTCALL zts_id_is_valid(const char* key, int len);
-
-// events
-
-// ZTS_API int ZTCALL zts_events_lock();
-// ZTS_API int ZTCALL zts_events_unlock();
-ZTS_API int ZTCALL zts_events_start();
-ZTS_API int ZTCALL zts_events_stop();
-
-// Toys
-
-/*
-
-zts_ping(struct zts_sockaddr *addr, addrlen);
-zts_ping_easy("")
-
-
-*/
-
-// controller
-
-/*
-
-ZTS_API int ZTCALL zts_controller_();
-ZTS_API int ZTCALL zts_controller_();
-ZTS_API int ZTCALL zts_controller_();
-ZTS_API int ZTCALL zts_controller_();
-ZTS_API int ZTCALL zts_controller_();
-ZTS_API int ZTCALL zts_controller_();
-ZTS_API int ZTCALL zts_controller_();
-
-
-*/
 
 /**
  * @brief Tell ZeroTier to look for node identity files at the given location. This is an
@@ -997,7 +975,212 @@ ZTS_API int ZTCALL zts_init_network_cache(int allowed);
  */
 ZTS_API int ZTCALL zts_init_peer_cache(int allowed);
 
-// node
+/**
+ * @brief Return whether an address of the given family has been assigned by the network
+ *
+ * @param net_id A `16-digit hexadecimal` virtual network ID
+ * @param family `ZTS_AF_INET`, or `ZTS_AF_INET6`
+ * @return `1` if true, `0` if false.
+ */
+ZTS_API int ZTCALL zts_addr_is_assigned(uint64_t net_id, int family);
+
+/**
+ * @brief Get the first-assigned IP on the given network. Use `zts_addr_get_all` to get all assigned
+ * IP addresses
+ *
+ * @param net_id A `16-digit hexadecimal` virtual network ID
+ * @param family `ZTS_AF_INET`, or `ZTS_AF_INET6`
+ * @param addr Destination buffer to hold address
+ * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_SERVICE` if the node
+ *     experiences a problem, `ZTS_ERR_ARG` if invalid arg.
+ */
+ZTS_API int ZTCALL zts_addr_get(uint64_t net_id, int family, struct zts_sockaddr_storage* addr);
+
+/**
+ * @brief Get the first-assigned IP on the given network as a null-terminated human-readable string
+ *
+ * @param net_id A `16-digit hexadecimal` virtual network ID
+ * @param family `ZTS_AF_INET`, or `ZTS_AF_INET6`
+ * @param dst Destination buffer
+ ^ @param len Length of destination buffer. Must be exactly ZTS_INET6_ADDRSTRLEN
+ * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_SERVICE` if the node
+ *     experiences a problem, `ZTS_ERR_ARG` if invalid arg.
+ */
+ZTS_API int ZTCALL zts_addr_get_str(uint64_t net_id, int family, char* dst, int len);
+
+/**
+ * @brief Get all IP addresses assigned to this node by the given network
+ *
+ * @param net_id A `16-digit hexadecimal` virtual network ID
+ * @param addr Destination buffer to hold address
+ * @param count Number of addresses returned
+ * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_SERVICE` if the node
+ *     experiences a problem, `ZTS_ERR_ARG` if invalid arg.
+ */
+ZTS_API int ZTCALL zts_addr_get_all(uint64_t net_id, struct zts_sockaddr_storage* addr, int* count);
+
+
+/**
+ * @brief Compute a `6PLANE` IPv6 address for the given Network ID and Node ID
+ *
+ * @param net_id Network ID
+ * @param node_id Node ID
+ * @param addr Destination structure for address
+ * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_ARG` if invalid arg.
+ */
+ZTS_API int ZTCALL zts_addr_compute_6plane(
+    const uint64_t net_id,
+    const uint64_t node_id,
+    struct zts_sockaddr_storage* addr);
+
+/**
+ * @brief Compute a `RFC4193` IPv6 address for the given Network ID and Node ID
+ *
+ * @param net_id Network ID
+ * @param node_id Node ID
+ * @param addr Destination structure for address
+ * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_ARG` if invalid arg.
+ */
+ZTS_API int ZTCALL zts_addr_compute_rfc4193(
+    const uint64_t net_id,
+    const uint64_t node_id,
+    struct zts_sockaddr_storage* addr);
+
+/**
+ * @brief Compute `RFC4193` IPv6 address for the given Network ID and Node ID and copy its null-terminated human-readable representation into destination buffer.
+ *
+ * @param net_id Network ID
+ * @param node_id Node ID
+ * @param dst Destination string buffer
+ * @param dst Length of destination string buffer (must be exactly `ZTS_IP_MAX_STR_LEN`)
+ * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_ARG` if invalid arg.
+ */
+ZTS_API int ZTCALL
+zts_addr_compute_rfc4193_str(uint64_t net_id, uint64_t node_id, char* dst, int len);
+
+/**
+ * @brief Compute `6PLANE` IPv6 address for the given Network ID and Node ID and copy its null-terminated human-readable representation into destination buffer.
+ *
+ * @param net_id Network ID
+ * @param node_id Node ID
+ * @param dst Destination string buffer
+ * @param dst Length of destination string buffer (must be exactly `ZTS_IP_MAX_STR_LEN`)
+ * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_ARG` if invalid arg.
+ */
+ZTS_API int ZTCALL
+zts_addr_compute_6plane_str(uint64_t net_id, uint64_t node_id, char* dst, int len);
+
+/**
+ * @brief Compute a `RFC4193` IPv6 address for the given Network ID and Node ID
+ *
+ * Ad-hoc Network:
+ * ```
+ * ffSSSSEEEE000000
+ * | |   |   |
+ * | |   |   Reserved for future use, must be 0
+ * | |   End of port range (hex)
+ * | Start of port range (hex)
+ * Reserved ZeroTier address prefix indicating a controller-less network.
+ * ```
+ * Ad-hoc networks are public (no access control) networks that have no network
+ * controller. Instead their configuration and other credentials are generated
+ * locally. Ad-hoc networks permit only IPv6 UDP and TCP unicast traffic
+ * (no multicast or broadcast) using 6plane format NDP-emulated IPv6 addresses.
+ * In addition an ad-hoc network ID encodes an IP port range. UDP packets and
+ * TCP SYN (connection open) packets are only allowed to destination ports
+ * within the encoded range.
+ *
+ * For example `ff00160016000000` is an ad-hoc network allowing only SSH,
+ * while `ff0000ffff000000` is an ad-hoc network allowing any UDP or TCP port.
+ *
+ * Keep in mind that these networks are public and anyone in the entire world
+ * can join them. Care must be taken to avoid exposing vulnerable services or
+ * sharing unwanted files or other resources.
+ *
+ *
+ * @param startPortOfRange Start of port allowed port range
+ * @param endPortOfRange End of allowed port range
+ * @return An Ad-hoc network ID
+ */
+ZTS_API uint64_t ZTCALL
+zts_net_compute_adhoc_id(uint16_t startPortOfRange, uint16_t endPortOfRange);
+
+/**
+ * @brief Join a network
+ *
+ * @param net_id A `16-digit hexadecimal` virtual network ID
+ * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_SERVICE` if the node
+ *     experiences a problem, `ZTS_ERR_ARG` if invalid arg.
+ */
+ZTS_API int ZTCALL zts_net_join(const uint64_t net_id);
+
+/**
+ * @brief Leave a network
+ *
+ * @param net_id A `16-digit hexadecimal` virtual network ID
+ * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_SERVICE` if the node
+ *     experiences a problem, `ZTS_ERR_ARG` if invalid arg.
+ */
+ZTS_API int ZTCALL zts_net_leave(const uint64_t net_id);
+
+/**
+ * @brief Return number of joined networks
+ *
+ * @return Number of joined networks
+ */
+ZTS_API int ZTCALL zts_net_count();
+ZTS_API int ZTCALL zts_net_get_mac(uint64_t net_id);
+ZTS_API int ZTCALL zts_net_get_broadcast(uint64_t net_id);
+ZTS_API int ZTCALL zts_net_get_mtu(uint64_t net_id);
+ZTS_API int ZTCALL zts_net_set_mtu(uint64_t net_id, int mtu);
+ZTS_API int ZTCALL zts_net_get_name(uint64_t net_id, char* dst, int len);
+ZTS_API int ZTCALL zts_net_set_name(uint64_t net_id, char* src, int len);
+ZTS_API int ZTCALL zts_net_get_status(uint64_t net_id);
+ZTS_API int ZTCALL zts_net_get_type(uint64_t net_id);
+ZTS_API int ZTCALL zts_net_set_type(uint64_t net_id, enum ZTS_VirtualNetworkType type);
+ZTS_API int ZTCALL zts_net_get_info(uint64_t net_id, ZTS_VirtualNetworkConfig* config);
+ZTS_API int ZTCALL zts_net_get_info_str(uint64_t net_id, char* dst, int len);
+
+/**
+ * @brief Return whether a managed route of the given address family has been assigned by the
+ * network
+ *
+ * @param net_id A `16-digit hexadecimal` virtual network ID
+ * @param family `ZTS_AF_INET`, or `ZTS_AF_INET6`
+ * @return `1` if true, `0` if false.
+ */
+ZTS_API int ZTCALL zts_route_is_assigned(uint64_t net_id, int family);
+
+/**
+ * @brief Return the number of managed routes assigned by this network
+ *
+ * @param net_id A `16-digit hexadecimal` virtual network ID
+ * @return Number of routes
+ */
+ZTS_API int ZTCALL zts_route_count(uint64_t net_id);
+
+/**
+ * @brief Start the ZeroTier node. Should be called after calling the relevant
+ *    `zts_init_*` functions.
+ *
+ * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_SERVICE` if the node
+ *     experiences a problem.
+ */
+ZTS_API int ZTCALL zts_node_start();
+
+/**
+ * @brief Return whether the node is online (Can reach the Internet)
+ *
+ * @return `1` if true, `0` if false.
+ */
+ZTS_API int ZTCALL zts_node_is_online();
+
+/**
+ * @brief Get the public node identity (aka node ID)
+ *
+ * @return Identity in numerical form
+ */
+ZTS_API uint64_t ZTCALL zts_node_get_id();
 
 /**
  * @brief Copies the current node's identity into a buffer
@@ -1009,89 +1192,13 @@ ZTS_API int ZTCALL zts_init_peer_cache(int allowed);
  *     experiences a problem, `ZTS_ERR_ARG` if invalid arg.
  */
 ZTS_API int ZTCALL zts_node_get_id_pair(char* key, uint16_t* key_buf_len);
-ZTS_API uint64_t ZTCALL zts_node_get_id();
+
+/**
+ * @brief Get the primary port that node is bound to
+ *
+ * @return Port number
+ */
 ZTS_API unsigned short ZTCALL zts_node_get_port();
-
-/**
- * @brief Return whether an address of the given family has been assigned by the network
- *
- * @param nwid A `16-digit hexadecimal` virtual network ID
- * @param family `ZTS_AF_INET`, or `ZTS_AF_INET6`
- * @return `true` or `false`
- */
-ZTS_API int ZTCALL zts_addr_is_assigned(uint64_t nwid, int family);
-ZTS_API int ZTCALL zts_addr_get(uint64_t nwid, int family, struct zts_sockaddr_storage* addr);
-ZTS_API int ZTCALL zts_addr_get_str(uint64_t nwid, int family, char* dst, int len);
-ZTS_API int ZTCALL zts_addr_get_all(uint64_t nwid, struct zts_sockaddr_storage* addr, int* count);
-
-// network
-
-/**
- * @brief Join a network
- *
- * @param nwid A `16-digit hexadecimal` virtual network ID
- * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_SERVICE` if the node
- *     experiences a problem, `ZTS_ERR_ARG` if invalid arg.
- */
-ZTS_API int ZTCALL zts_net_join(const uint64_t nwid);
-
-/**
- * @brief Leave a network
- *
- * @param nwid A `16-digit hexadecimal` virtual network ID
- * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_SERVICE` if the node
- *     experiences a problem, `ZTS_ERR_ARG` if invalid arg.
- */
-ZTS_API int ZTCALL zts_net_leave(const uint64_t nwid);
-
-/**
- * @brief Return number of joined networks
- *
- * @return Number of joined networks
- */
-ZTS_API int ZTCALL zts_net_count();
-ZTS_API int ZTCALL zts_net_get_mac(uint64_t nwid);
-ZTS_API int ZTCALL zts_net_get_broadcast(uint64_t nwid);
-ZTS_API int ZTCALL zts_net_get_mtu(uint64_t nwid);
-ZTS_API int ZTCALL zts_net_set_mtu(uint64_t nwid, int mtu);
-ZTS_API int ZTCALL zts_net_get_name(uint64_t nwid, char* dst, int len);
-ZTS_API int ZTCALL zts_net_set_name(uint64_t nwid, char* src, int len);
-ZTS_API int ZTCALL zts_net_get_status(uint64_t nwid);
-ZTS_API int ZTCALL zts_net_get_type(uint64_t nwid);
-ZTS_API int ZTCALL zts_net_set_type(uint64_t nwid, enum ZTS_VirtualNetworkType type);
-ZTS_API int ZTCALL zts_net_get_info(uint64_t nwid, ZTS_VirtualNetworkConfig* config);
-ZTS_API int ZTCALL zts_net_get_info_str(uint64_t nwid, char* dst, int len);
-
-// route
-
-ZTS_API int ZTCALL zts_route_is_assigned(uint64_t nwid, int family);
-ZTS_API int ZTCALL zts_route_count(uint64_t nwid);
-
-// mc sub
-
-/*
-ZTS_API int ZTCALL zts_multicast_sub_count(uint64_t nwid);
-*/
-
-// peer
-
-ZTS_API int ZTCALL zts_peer_count(int role);
-
-// path
-
-ZTS_API int ZTCALL zts_path_count(uint64_t peer_id);
-
-/**
- * @brief Start the ZeroTier node. Should be called after calling the relevant
- *    `zts_init_*` functions.
- *
- * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_SERVICE` if the node
- *     experiences a problem.
- */
-ZTS_API int ZTCALL zts_node_start();
-
-ZTS_API int ZTCALL zts_node_is_online();
-ZTS_API uint64_t ZTCALL zts_node_get_id();
 
 /**
  * @brief Stop the ZeroTier node and brings down all virtual network
@@ -1148,63 +1255,6 @@ ZTS_API int ZTCALL zts_moon_orbit(uint64_t moonWorldId, uint64_t moonSeed);
  *     experiences a problem, `ZTS_ERR_ARG` if invalid arg.
  */
 ZTS_API int ZTCALL zts_moon_deorbit(uint64_t moonWorldId);
-
-/**
- * @brief Compute a `6PLANE` IPv6 address for the given Network ID and Node ID
- *
- * @param addr Destination structure for address
- * @param nwid Network ID
- * @param nodeId Node ID
- * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_ARG` if invalid arg.
- */
-ZTS_API int ZTCALL
-zts_get_6plane_addr(struct zts_sockaddr_storage* addr, const uint64_t nwid, const uint64_t nodeId);
-
-/**
- * @brief Compute a `RFC4193` IPv6 address for the given Network ID and Node ID
- *
- * @param addr Destination structure for address
- * @param nwid Network ID
- * @param nodeId Node ID
- * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_ARG` if invalid arg.
- */
-ZTS_API int ZTCALL
-zts_get_rfc4193_addr(struct zts_sockaddr_storage* addr, const uint64_t nwid, const uint64_t nodeId);
-
-/**
- * @brief Compute a `RFC4193` IPv6 address for the given Network ID and Node ID
- *
- * Ad-hoc Network:
- * ```
- * ffSSSSEEEE000000
- * | |   |   |
- * | |   |   Reserved for future use, must be 0
- * | |   End of port range (hex)
- * | Start of port range (hex)
- * Reserved ZeroTier address prefix indicating a controller-less network.
- * ```
- * Ad-hoc networks are public (no access control) networks that have no network
- * controller. Instead their configuration and other credentials are generated
- * locally. Ad-hoc networks permit only IPv6 UDP and TCP unicast traffic
- * (no multicast or broadcast) using 6plane format NDP-emulated IPv6 addresses.
- * In addition an ad-hoc network ID encodes an IP port range. UDP packets and
- * TCP SYN (connection open) packets are only allowed to destination ports
- * within the encoded range.
- *
- * For example `ff00160016000000` is an ad-hoc network allowing only SSH,
- * while `ff0000ffff000000` is an ad-hoc network allowing any UDP or TCP port.
- *
- * Keep in mind that these networks are public and anyone in the entire world
- * can join them. Care must be taken to avoid exposing vulnerable services or
- * sharing unwanted files or other resources.
- *
- *
- * @param startPortOfRange Start of port allowed port range
- * @param endPortOfRange End of allowed port range
- * @return An Ad-hoc network ID
- */
-ZTS_API uint64_t ZTCALL
-zts_generate_adhoc_net_id_from_range(uint16_t startPortOfRange, uint16_t endPortOfRange);
 
 /**
  * @brief Platform-agnostic delay (provided for convenience)

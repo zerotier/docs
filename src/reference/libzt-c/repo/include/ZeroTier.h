@@ -239,7 +239,7 @@ typedef struct {
 	/**
 	 * 64-bit ZeroTier network ID
 	 */
-	uint64_t nwid;
+	uint64_t net_id;
 
 	/**
 	 * Ethernet MAC (48 bits) that should be assigned to port
