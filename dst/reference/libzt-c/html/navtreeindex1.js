@@ -1,5 +1,16 @@
 var NAVTREEINDEX1 =
 {
+"structZTS__VirtualNetworkConfig.html#a20449351951f5d7b6f8d0f1efecdb8ef":[0,0,10,8],
+"structZTS__VirtualNetworkConfig.html#a21cc9dead3815b1dd796cdfbb8523515":[0,0,10,11],
+"structZTS__VirtualNetworkConfig.html#a4200497d8ae001b56bdc27561d21dfc0":[0,0,10,4],
+"structZTS__VirtualNetworkConfig.html#a49bc13ca9b6b042142e94089f8bdbed2":[0,0,10,16],
+"structZTS__VirtualNetworkConfig.html#a4a01e324a1149c3f6f63dab5d8bdbf8a":[0,0,10,13],
+"structZTS__VirtualNetworkConfig.html#a6bf37f4658f05800deaff23980f28db8":[0,0,10,0],
+"structZTS__VirtualNetworkConfig.html#a787de95fe48bfc06fb9182215217e9be":[0,0,10,14],
+"structZTS__VirtualNetworkConfig.html#a86e6105f98a3d33bd7b27b2901208305":[0,0,10,15],
+"structZTS__VirtualNetworkConfig.html#aa229ea7e8ce6c93b833e65beef808795":[0,0,10,10],
+"structZTS__VirtualNetworkConfig.html#aacb1dde2ec53f9762f93888f46958e81":[0,0,10,1],
+"structZTS__VirtualNetworkConfig.html#abe2ae4433a466c50cb44c7daecd81eea":[0,0,10,3],
 "structZTS__VirtualNetworkConfig.html#acfcb534f6e20a700e07fa294c85cd4a0":[0,0,10,2],
 "structZTS__VirtualNetworkConfig.html#adb131d7d84c371feb93bb47ee9f4f86f":[0,0,10,6],
 "structZTS__VirtualNetworkConfig.html#add0e989c168d646b26ae1e65d0280e25":[0,0,10,9],

@@ -49,7 +49,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "ZeroTierSockets_8h.html",
-"structZTS__VirtualNetworkConfig.html#acfcb534f6e20a700e07fa294c85cd4a0"
+"structZTS__VirtualNetworkConfig.html#a20449351951f5d7b6f8d0f1efecdb8ef"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

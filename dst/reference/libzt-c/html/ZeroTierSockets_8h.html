@@ -141,6 +141,8 @@ Macros</h2></td></tr>
 <tr class="separator:af07cc78fb637f652ad5e63c04a4ae113"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea0386a5763402bd397b2b9d6db3188e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#aea0386a5763402bd397b2b9d6db3188e">ZTS_MAC_ADDRSTRLEN</a>&#160;&#160;&#160;18</td></tr>
 <tr class="separator:aea0386a5763402bd397b2b9d6db3188e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2c0a21d2f5cc1e86441df52cd0da89a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ab2c0a21d2f5cc1e86441df52cd0da89a">ZTS_IP_MAX_STR_LEN</a>&#160;&#160;&#160;ZTS_INET6_ADDRSTRLEN</td></tr>
+<tr class="separator:ab2c0a21d2f5cc1e86441df52cd0da89a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1cb62a7b7716a91fbb0a9fe9a4b4ca3f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a1cb62a7b7716a91fbb0a9fe9a4b4ca3f">ZTS_IPADDR_NONE</a>&#160;&#160;&#160;((uint32_t)0xffffffffUL)</td></tr>
 <tr class="separator:a1cb62a7b7716a91fbb0a9fe9a4b4ca3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2510c754a85003d80974ebe4ccbeae1e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a2510c754a85003d80974ebe4ccbeae1e">ZTS_IPADDR_LOOPBACK</a>&#160;&#160;&#160;((uint32_t)0x7f000001UL)</td></tr>
@@ -157,8 +159,8 @@ Macros</h2></td></tr>
 <tr class="separator:a04d6b5c4ee3986bf4d5d88a38cb3efa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab2003cbdf04383bd09c761b0f0d70dc6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ab2003cbdf04383bd09c761b0f0d70dc6">ZTS_INADDR_BROADCAST</a>&#160;&#160;&#160;<a class="el" href="ZeroTierSockets_8h.html#af17dfb94df3c8793d212b08bffaf6480">ZTS_IPADDR_BROADCAST</a></td></tr>
 <tr class="separator:ab2003cbdf04383bd09c761b0f0d70dc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a133ce00ca7697a3b3ae854e968e75ee2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a133ce00ca7697a3b3ae854e968e75ee2">ZTS_IDENTITY_STRING_BUFFER_LENGTH</a>&#160;&#160;&#160;384</td></tr>
-<tr class="separator:a133ce00ca7697a3b3ae854e968e75ee2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57d95247358171ac71b99e04a8cec8db"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a57d95247358171ac71b99e04a8cec8db">ZTS_ID_STR_BUF_LEN</a>&#160;&#160;&#160;384</td></tr>
+<tr class="separator:a57d95247358171ac71b99e04a8cec8db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -258,24 +260,63 @@ Functions</h2></td></tr>
 <tr class="memitem:add45f65edea4e05e721f5d626108e82b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#add45f65edea4e05e721f5d626108e82b">zts_init_peer_cache</a> (int allowed)</td></tr>
 <tr class="memdesc:add45f65edea4e05e721f5d626108e82b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable or disable whether the service will cache peer details (enabled by default)  <a href="ZeroTierSockets_8h.html#add45f65edea4e05e721f5d626108e82b">More...</a><br /></td></tr>
 <tr class="separator:add45f65edea4e05e721f5d626108e82b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae578d7d6309465097449e6fcd46e575e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ae578d7d6309465097449e6fcd46e575e">zts_node_get_id_pair</a> (char *key, uint16_t *key_buf_len)</td></tr>
-<tr class="memdesc:ae578d7d6309465097449e6fcd46e575e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies the current node's identity into a buffer.  <a href="ZeroTierSockets_8h.html#ae578d7d6309465097449e6fcd46e575e">More...</a><br /></td></tr>
-<tr class="separator:ae578d7d6309465097449e6fcd46e575e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96c42e5c40180f9d05baf8409a88a5b8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a96c42e5c40180f9d05baf8409a88a5b8">zts_addr_is_assigned</a> (uint64_t nwid, int family)</td></tr>
-<tr class="memdesc:a96c42e5c40180f9d05baf8409a88a5b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return whether an address of the given family has been assigned by the network.  <a href="ZeroTierSockets_8h.html#a96c42e5c40180f9d05baf8409a88a5b8">More...</a><br /></td></tr>
-<tr class="separator:a96c42e5c40180f9d05baf8409a88a5b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3f71a2dff39703f09773b5bcd84db788"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a3f71a2dff39703f09773b5bcd84db788">zts_net_join</a> (const uint64_t nwid)</td></tr>
-<tr class="memdesc:a3f71a2dff39703f09773b5bcd84db788"><td class="mdescLeft">&#160;</td><td class="mdescRight">Join a network.  <a href="ZeroTierSockets_8h.html#a3f71a2dff39703f09773b5bcd84db788">More...</a><br /></td></tr>
-<tr class="separator:a3f71a2dff39703f09773b5bcd84db788"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2f2c0e786ab32bf9381936768b67f03c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a2f2c0e786ab32bf9381936768b67f03c">zts_net_leave</a> (const uint64_t nwid)</td></tr>
-<tr class="memdesc:a2f2c0e786ab32bf9381936768b67f03c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Leave a network.  <a href="ZeroTierSockets_8h.html#a2f2c0e786ab32bf9381936768b67f03c">More...</a><br /></td></tr>
-<tr class="separator:a2f2c0e786ab32bf9381936768b67f03c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f41eab535ed11797dfe1dda56739b54"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a4f41eab535ed11797dfe1dda56739b54">zts_addr_is_assigned</a> (uint64_t net_id, int family)</td></tr>
+<tr class="memdesc:a4f41eab535ed11797dfe1dda56739b54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return whether an address of the given family has been assigned by the network.  <a href="ZeroTierSockets_8h.html#a4f41eab535ed11797dfe1dda56739b54">More...</a><br /></td></tr>
+<tr class="separator:a4f41eab535ed11797dfe1dda56739b54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacda97f8304d1c0a029979e8b642ab82"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#aacda97f8304d1c0a029979e8b642ab82">zts_addr_get</a> (uint64_t net_id, int family, struct zts_sockaddr_storage *addr)</td></tr>
+<tr class="memdesc:aacda97f8304d1c0a029979e8b642ab82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first-assigned IP on the given network. Use <code>zts_addr_get_all</code> to get all assigned IP addresses.  <a href="ZeroTierSockets_8h.html#aacda97f8304d1c0a029979e8b642ab82">More...</a><br /></td></tr>
+<tr class="separator:aacda97f8304d1c0a029979e8b642ab82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1629b5d5b570cd5e23c17f729268dd34"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a1629b5d5b570cd5e23c17f729268dd34">zts_addr_get_str</a> (uint64_t net_id, int family, char *dst, int len)</td></tr>
+<tr class="memdesc:a1629b5d5b570cd5e23c17f729268dd34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first-assigned IP on the given network as a null-terminated human-readable string.  <a href="ZeroTierSockets_8h.html#a1629b5d5b570cd5e23c17f729268dd34">More...</a><br /></td></tr>
+<tr class="separator:a1629b5d5b570cd5e23c17f729268dd34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a739a5acc86e9465c198f9d10cfda6734"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a739a5acc86e9465c198f9d10cfda6734">zts_addr_get_all</a> (uint64_t net_id, struct zts_sockaddr_storage *addr, int *count)</td></tr>
+<tr class="memdesc:a739a5acc86e9465c198f9d10cfda6734"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get all IP addresses assigned to this node by the given network.  <a href="ZeroTierSockets_8h.html#a739a5acc86e9465c198f9d10cfda6734">More...</a><br /></td></tr>
+<tr class="separator:a739a5acc86e9465c198f9d10cfda6734"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3a3b5e96b71cf0c97bc8d2f4d9746c4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ae3a3b5e96b71cf0c97bc8d2f4d9746c4">zts_addr_compute_6plane</a> (const uint64_t net_id, const uint64_t node_id, struct zts_sockaddr_storage *addr)</td></tr>
+<tr class="memdesc:ae3a3b5e96b71cf0c97bc8d2f4d9746c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute a <code>6PLANE</code> IPv6 address for the given Network ID and Node ID.  <a href="ZeroTierSockets_8h.html#ae3a3b5e96b71cf0c97bc8d2f4d9746c4">More...</a><br /></td></tr>
+<tr class="separator:ae3a3b5e96b71cf0c97bc8d2f4d9746c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32ce88604b804b883e8e74623d216523"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a32ce88604b804b883e8e74623d216523">zts_addr_compute_rfc4193</a> (const uint64_t net_id, const uint64_t node_id, struct zts_sockaddr_storage *addr)</td></tr>
+<tr class="memdesc:a32ce88604b804b883e8e74623d216523"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute a <code>RFC4193</code> IPv6 address for the given Network ID and Node ID.  <a href="ZeroTierSockets_8h.html#a32ce88604b804b883e8e74623d216523">More...</a><br /></td></tr>
+<tr class="separator:a32ce88604b804b883e8e74623d216523"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad140ecb434b823807d6590eaae75ffcf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ad140ecb434b823807d6590eaae75ffcf">zts_addr_compute_rfc4193_str</a> (uint64_t net_id, uint64_t node_id, char *dst, int len)</td></tr>
+<tr class="memdesc:ad140ecb434b823807d6590eaae75ffcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute <code>RFC4193</code> IPv6 address for the given Network ID and Node ID and copy its null-terminated human-readable representation into destination buffer.  <a href="ZeroTierSockets_8h.html#ad140ecb434b823807d6590eaae75ffcf">More...</a><br /></td></tr>
+<tr class="separator:ad140ecb434b823807d6590eaae75ffcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63b1ae8232b53a13127f1d4a626134be"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a63b1ae8232b53a13127f1d4a626134be">zts_addr_compute_6plane_str</a> (uint64_t net_id, uint64_t node_id, char *dst, int len)</td></tr>
+<tr class="memdesc:a63b1ae8232b53a13127f1d4a626134be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute <code>6PLANE</code> IPv6 address for the given Network ID and Node ID and copy its null-terminated human-readable representation into destination buffer.  <a href="ZeroTierSockets_8h.html#a63b1ae8232b53a13127f1d4a626134be">More...</a><br /></td></tr>
+<tr class="separator:a63b1ae8232b53a13127f1d4a626134be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fdb332009d00e4823b206fb28c1b5da"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a0fdb332009d00e4823b206fb28c1b5da">zts_net_compute_adhoc_id</a> (uint16_t startPortOfRange, uint16_t endPortOfRange)</td></tr>
+<tr class="memdesc:a0fdb332009d00e4823b206fb28c1b5da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute a <code>RFC4193</code> IPv6 address for the given Network ID and Node ID.  <a href="ZeroTierSockets_8h.html#a0fdb332009d00e4823b206fb28c1b5da">More...</a><br /></td></tr>
+<tr class="separator:a0fdb332009d00e4823b206fb28c1b5da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1f41f1c806ed8b70287bb09baeb7799"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ad1f41f1c806ed8b70287bb09baeb7799">zts_net_join</a> (const uint64_t net_id)</td></tr>
+<tr class="memdesc:ad1f41f1c806ed8b70287bb09baeb7799"><td class="mdescLeft">&#160;</td><td class="mdescRight">Join a network.  <a href="ZeroTierSockets_8h.html#ad1f41f1c806ed8b70287bb09baeb7799">More...</a><br /></td></tr>
+<tr class="separator:ad1f41f1c806ed8b70287bb09baeb7799"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbf4af333d0dbef128d49eea0c7e1be5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#acbf4af333d0dbef128d49eea0c7e1be5">zts_net_leave</a> (const uint64_t net_id)</td></tr>
+<tr class="memdesc:acbf4af333d0dbef128d49eea0c7e1be5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Leave a network.  <a href="ZeroTierSockets_8h.html#acbf4af333d0dbef128d49eea0c7e1be5">More...</a><br /></td></tr>
+<tr class="separator:acbf4af333d0dbef128d49eea0c7e1be5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a198950eb8fe1ab991f3677f244393a84"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a198950eb8fe1ab991f3677f244393a84">zts_net_count</a> ()</td></tr>
 <tr class="memdesc:a198950eb8fe1ab991f3677f244393a84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return number of joined networks.  <a href="ZeroTierSockets_8h.html#a198950eb8fe1ab991f3677f244393a84">More...</a><br /></td></tr>
 <tr class="separator:a198950eb8fe1ab991f3677f244393a84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1dda19345f962c7368353f1ac9f07ad"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ab1dda19345f962c7368353f1ac9f07ad">zts_route_is_assigned</a> (uint64_t net_id, int family)</td></tr>
+<tr class="memdesc:ab1dda19345f962c7368353f1ac9f07ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return whether a managed route of the given address family has been assigned by the network.  <a href="ZeroTierSockets_8h.html#ab1dda19345f962c7368353f1ac9f07ad">More...</a><br /></td></tr>
+<tr class="separator:ab1dda19345f962c7368353f1ac9f07ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65d06546fc36fd0586bad82206ae8a38"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a65d06546fc36fd0586bad82206ae8a38">zts_route_count</a> (uint64_t net_id)</td></tr>
+<tr class="memdesc:a65d06546fc36fd0586bad82206ae8a38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the number of managed routes assigned by this network.  <a href="ZeroTierSockets_8h.html#a65d06546fc36fd0586bad82206ae8a38">More...</a><br /></td></tr>
+<tr class="separator:a65d06546fc36fd0586bad82206ae8a38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13d90c9c244b4b177e0b06c2f6bdebae"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a13d90c9c244b4b177e0b06c2f6bdebae">zts_node_start</a> ()</td></tr>
 <tr class="memdesc:a13d90c9c244b4b177e0b06c2f6bdebae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start the ZeroTier node. Should be called after calling the relevant <code>zts_init_*</code> functions.  <a href="ZeroTierSockets_8h.html#a13d90c9c244b4b177e0b06c2f6bdebae">More...</a><br /></td></tr>
 <tr class="separator:a13d90c9c244b4b177e0b06c2f6bdebae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8875994fa8607e9a0254632e1239498"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#af8875994fa8607e9a0254632e1239498">zts_node_is_online</a> ()</td></tr>
+<tr class="memdesc:af8875994fa8607e9a0254632e1239498"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return whether the node is online (Can reach the Internet)  <a href="ZeroTierSockets_8h.html#af8875994fa8607e9a0254632e1239498">More...</a><br /></td></tr>
+<tr class="separator:af8875994fa8607e9a0254632e1239498"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9a8f86f01bcf1593512669c4fe1b473"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ad9a8f86f01bcf1593512669c4fe1b473">zts_node_get_id</a> ()</td></tr>
+<tr class="memdesc:ad9a8f86f01bcf1593512669c4fe1b473"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the public node identity (aka node ID)  <a href="ZeroTierSockets_8h.html#ad9a8f86f01bcf1593512669c4fe1b473">More...</a><br /></td></tr>
+<tr class="separator:ad9a8f86f01bcf1593512669c4fe1b473"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae578d7d6309465097449e6fcd46e575e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ae578d7d6309465097449e6fcd46e575e">zts_node_get_id_pair</a> (char *key, uint16_t *key_buf_len)</td></tr>
+<tr class="memdesc:ae578d7d6309465097449e6fcd46e575e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies the current node's identity into a buffer.  <a href="ZeroTierSockets_8h.html#ae578d7d6309465097449e6fcd46e575e">More...</a><br /></td></tr>
+<tr class="separator:ae578d7d6309465097449e6fcd46e575e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a119db9e1496010598bb7bdcf407985d7"><td class="memItemLeft" align="right" valign="top">unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a119db9e1496010598bb7bdcf407985d7">zts_node_get_port</a> ()</td></tr>
+<tr class="memdesc:a119db9e1496010598bb7bdcf407985d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the primary port that node is bound to.  <a href="ZeroTierSockets_8h.html#a119db9e1496010598bb7bdcf407985d7">More...</a><br /></td></tr>
+<tr class="separator:a119db9e1496010598bb7bdcf407985d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b797c6321a7aaa0c9e9f02faf362d08"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a8b797c6321a7aaa0c9e9f02faf362d08">zts_node_stop</a> ()</td></tr>
 <tr class="memdesc:a8b797c6321a7aaa0c9e9f02faf362d08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop the ZeroTier node and brings down all virtual network interfaces.  <a href="ZeroTierSockets_8h.html#a8b797c6321a7aaa0c9e9f02faf362d08">More...</a><br /></td></tr>
 <tr class="separator:a8b797c6321a7aaa0c9e9f02faf362d08"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -291,15 +332,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a8c99c1e055f0e2ed7157f8beab6fd639"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a8c99c1e055f0e2ed7157f8beab6fd639">zts_moon_deorbit</a> (uint64_t moonWorldId)</td></tr>
 <tr class="memdesc:a8c99c1e055f0e2ed7157f8beab6fd639"><td class="mdescLeft">&#160;</td><td class="mdescRight">De-orbit a given moon (user-defined root server)  <a href="ZeroTierSockets_8h.html#a8c99c1e055f0e2ed7157f8beab6fd639">More...</a><br /></td></tr>
 <tr class="separator:a8c99c1e055f0e2ed7157f8beab6fd639"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a9cb405508787b0c0a92d4e959dfa34"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a4a9cb405508787b0c0a92d4e959dfa34">zts_get_6plane_addr</a> (struct zts_sockaddr_storage *addr, const uint64_t nwid, const uint64_t nodeId)</td></tr>
-<tr class="memdesc:a4a9cb405508787b0c0a92d4e959dfa34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute a <code>6PLANE</code> IPv6 address for the given Network ID and Node ID.  <a href="ZeroTierSockets_8h.html#a4a9cb405508787b0c0a92d4e959dfa34">More...</a><br /></td></tr>
-<tr class="separator:a4a9cb405508787b0c0a92d4e959dfa34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae61129c09316372b1345ca186c787970"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ae61129c09316372b1345ca186c787970">zts_get_rfc4193_addr</a> (struct zts_sockaddr_storage *addr, const uint64_t nwid, const uint64_t nodeId)</td></tr>
-<tr class="memdesc:ae61129c09316372b1345ca186c787970"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute a <code>RFC4193</code> IPv6 address for the given Network ID and Node ID.  <a href="ZeroTierSockets_8h.html#ae61129c09316372b1345ca186c787970">More...</a><br /></td></tr>
-<tr class="separator:ae61129c09316372b1345ca186c787970"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bafb61db7a3438c3b5fbe03be53f473"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a5bafb61db7a3438c3b5fbe03be53f473">zts_generate_adhoc_net_id_from_range</a> (uint16_t startPortOfRange, uint16_t endPortOfRange)</td></tr>
-<tr class="memdesc:a5bafb61db7a3438c3b5fbe03be53f473"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute a <code>RFC4193</code> IPv6 address for the given Network ID and Node ID.  <a href="ZeroTierSockets_8h.html#a5bafb61db7a3438c3b5fbe03be53f473">More...</a><br /></td></tr>
-<tr class="separator:a5bafb61db7a3438c3b5fbe03be53f473"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a901782a027ebda0e63c16088c73d47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a4a901782a027ebda0e63c16088c73d47">zts_delay_ms</a> (long interval_ms)</td></tr>
 <tr class="memdesc:a4a901782a027ebda0e63c16088c73d47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Platform-agnostic delay (provided for convenience)  <a href="ZeroTierSockets_8h.html#a4a901782a027ebda0e63c16088c73d47">More...</a><br /></td></tr>
 <tr class="separator:a4a901782a027ebda0e63c16088c73d47"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -476,14 +508,14 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This defines the external C API for ZeroTier Sockets </p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a133ce00ca7697a3b3ae854e968e75ee2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a133ce00ca7697a3b3ae854e968e75ee2">&#9670;&nbsp;</a></span>ZTS_IDENTITY_STRING_BUFFER_LENGTH</h2>
+<a id="a57d95247358171ac71b99e04a8cec8db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57d95247358171ac71b99e04a8cec8db">&#9670;&nbsp;</a></span>ZTS_ID_STR_BUF_LEN</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define ZTS_IDENTITY_STRING_BUFFER_LENGTH&#160;&#160;&#160;384</td>
+          <td class="memname">#define ZTS_ID_STR_BUF_LEN&#160;&#160;&#160;384</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -548,6 +580,21 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>255.255.255.255 </p>
+
+</div>
+</div>
+<a id="ab2c0a21d2f5cc1e86441df52cd0da89a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2c0a21d2f5cc1e86441df52cd0da89a">&#9670;&nbsp;</a></span>ZTS_IP_MAX_STR_LEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ZTS_IP_MAX_STR_LEN&#160;&#160;&#160;ZTS_INET6_ADDRSTRLEN</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Maximum (and required) length of string buffers used to receive string-format IP addresses from the API. This is set to <code>ZTS_INET6_ADDRSTRLEN</code> to handle all cases: <code>ZTS_AF_INET</code> and <code>ZTS_AF_INET6</code> </p>
 
 </div>
 </div>
@@ -828,8 +875,344 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a96c42e5c40180f9d05baf8409a88a5b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a96c42e5c40180f9d05baf8409a88a5b8">&#9670;&nbsp;</a></span>zts_addr_is_assigned()</h2>
+<a id="ae3a3b5e96b71cf0c97bc8d2f4d9746c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3a3b5e96b71cf0c97bc8d2f4d9746c4">&#9670;&nbsp;</a></span>zts_addr_compute_6plane()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int zts_addr_compute_6plane </td>
+          <td>(</td>
+          <td class="paramtype">const uint64_t&#160;</td>
+          <td class="paramname"><em>net_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint64_t&#160;</td>
+          <td class="paramname"><em>node_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct zts_sockaddr_storage *&#160;</td>
+          <td class="paramname"><em>addr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute a <code>6PLANE</code> IPv6 address for the given Network ID and Node ID. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">net_id</td><td>Network ID </td></tr>
+    <tr><td class="paramname">node_id</td><td>Node ID </td></tr>
+    <tr><td class="paramname">addr</td><td>Destination structure for address </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>ZTS_ERR_OK</code> if successful, <code>ZTS_ERR_ARG</code> if invalid arg. </dd></dl>
+
+</div>
+</div>
+<a id="a63b1ae8232b53a13127f1d4a626134be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63b1ae8232b53a13127f1d4a626134be">&#9670;&nbsp;</a></span>zts_addr_compute_6plane_str()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int zts_addr_compute_6plane_str </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>net_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>node_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>dst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute <code>6PLANE</code> IPv6 address for the given Network ID and Node ID and copy its null-terminated human-readable representation into destination buffer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">net_id</td><td>Network ID </td></tr>
+    <tr><td class="paramname">node_id</td><td>Node ID </td></tr>
+    <tr><td class="paramname">dst</td><td>Destination string buffer </td></tr>
+    <tr><td class="paramname">dst</td><td>Length of destination string buffer (must be exactly <code>ZTS_IP_MAX_STR_LEN</code>) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>ZTS_ERR_OK</code> if successful, <code>ZTS_ERR_ARG</code> if invalid arg. </dd></dl>
+
+</div>
+</div>
+<a id="a32ce88604b804b883e8e74623d216523"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32ce88604b804b883e8e74623d216523">&#9670;&nbsp;</a></span>zts_addr_compute_rfc4193()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int zts_addr_compute_rfc4193 </td>
+          <td>(</td>
+          <td class="paramtype">const uint64_t&#160;</td>
+          <td class="paramname"><em>net_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint64_t&#160;</td>
+          <td class="paramname"><em>node_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct zts_sockaddr_storage *&#160;</td>
+          <td class="paramname"><em>addr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute a <code>RFC4193</code> IPv6 address for the given Network ID and Node ID. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">net_id</td><td>Network ID </td></tr>
+    <tr><td class="paramname">node_id</td><td>Node ID </td></tr>
+    <tr><td class="paramname">addr</td><td>Destination structure for address </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>ZTS_ERR_OK</code> if successful, <code>ZTS_ERR_ARG</code> if invalid arg. </dd></dl>
+
+</div>
+</div>
+<a id="ad140ecb434b823807d6590eaae75ffcf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad140ecb434b823807d6590eaae75ffcf">&#9670;&nbsp;</a></span>zts_addr_compute_rfc4193_str()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int zts_addr_compute_rfc4193_str </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>net_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>node_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>dst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute <code>RFC4193</code> IPv6 address for the given Network ID and Node ID and copy its null-terminated human-readable representation into destination buffer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">net_id</td><td>Network ID </td></tr>
+    <tr><td class="paramname">node_id</td><td>Node ID </td></tr>
+    <tr><td class="paramname">dst</td><td>Destination string buffer </td></tr>
+    <tr><td class="paramname">dst</td><td>Length of destination string buffer (must be exactly <code>ZTS_IP_MAX_STR_LEN</code>) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>ZTS_ERR_OK</code> if successful, <code>ZTS_ERR_ARG</code> if invalid arg. </dd></dl>
+
+</div>
+</div>
+<a id="aacda97f8304d1c0a029979e8b642ab82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacda97f8304d1c0a029979e8b642ab82">&#9670;&nbsp;</a></span>zts_addr_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int zts_addr_get </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>net_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>family</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct zts_sockaddr_storage *&#160;</td>
+          <td class="paramname"><em>addr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the first-assigned IP on the given network. Use <code>zts_addr_get_all</code> to get all assigned IP addresses. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">net_id</td><td>A <code>16-digit hexadecimal</code> virtual network ID </td></tr>
+    <tr><td class="paramname">family</td><td><code>ZTS_AF_INET</code>, or <code>ZTS_AF_INET6</code> </td></tr>
+    <tr><td class="paramname">addr</td><td>Destination buffer to hold address </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>ZTS_ERR_OK</code> if successful, <code>ZTS_ERR_SERVICE</code> if the node experiences a problem, <code>ZTS_ERR_ARG</code> if invalid arg. </dd></dl>
+
+</div>
+</div>
+<a id="a739a5acc86e9465c198f9d10cfda6734"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a739a5acc86e9465c198f9d10cfda6734">&#9670;&nbsp;</a></span>zts_addr_get_all()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int zts_addr_get_all </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>net_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct zts_sockaddr_storage *&#160;</td>
+          <td class="paramname"><em>addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>count</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get all IP addresses assigned to this node by the given network. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">net_id</td><td>A <code>16-digit hexadecimal</code> virtual network ID </td></tr>
+    <tr><td class="paramname">addr</td><td>Destination buffer to hold address </td></tr>
+    <tr><td class="paramname">count</td><td>Number of addresses returned </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>ZTS_ERR_OK</code> if successful, <code>ZTS_ERR_SERVICE</code> if the node experiences a problem, <code>ZTS_ERR_ARG</code> if invalid arg. </dd></dl>
+
+</div>
+</div>
+<a id="a1629b5d5b570cd5e23c17f729268dd34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1629b5d5b570cd5e23c17f729268dd34">&#9670;&nbsp;</a></span>zts_addr_get_str()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int zts_addr_get_str </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>net_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>family</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>dst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the first-assigned IP on the given network as a null-terminated human-readable string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">net_id</td><td>A <code>16-digit hexadecimal</code> virtual network ID </td></tr>
+    <tr><td class="paramname">family</td><td><code>ZTS_AF_INET</code>, or <code>ZTS_AF_INET6</code> </td></tr>
+    <tr><td class="paramname">dst</td><td>Destination buffer ^</td></tr>
+    <tr><td class="paramname">len</td><td>Length of destination buffer. Must be exactly ZTS_INET6_ADDRSTRLEN </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>ZTS_ERR_OK</code> if successful, <code>ZTS_ERR_SERVICE</code> if the node experiences a problem, <code>ZTS_ERR_ARG</code> if invalid arg. </dd></dl>
+
+</div>
+</div>
+<a id="a4f41eab535ed11797dfe1dda56739b54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f41eab535ed11797dfe1dda56739b54">&#9670;&nbsp;</a></span>zts_addr_is_assigned()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -838,7 +1221,7 @@ Variables</h2></td></tr>
           <td class="memname">int zts_addr_is_assigned </td>
           <td>(</td>
           <td class="paramtype">uint64_t&#160;</td>
-          <td class="paramname"><em>nwid</em>, </td>
+          <td class="paramname"><em>net_id</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -857,12 +1240,12 @@ Variables</h2></td></tr>
 <p>Return whether an address of the given family has been assigned by the network. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">nwid</td><td>A <code>16-digit hexadecimal</code> virtual network ID </td></tr>
+    <tr><td class="paramname">net_id</td><td>A <code>16-digit hexadecimal</code> virtual network ID </td></tr>
     <tr><td class="paramname">family</td><td><code>ZTS_AF_INET</code>, or <code>ZTS_AF_INET6</code> </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> or <code>false</code> </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><code>1</code> if true, <code>0</code> if false. </dd></dl>
 
 </div>
 </div>
@@ -1113,143 +1496,6 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
-
-</div>
-</div>
-<a id="a5bafb61db7a3438c3b5fbe03be53f473"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5bafb61db7a3438c3b5fbe03be53f473">&#9670;&nbsp;</a></span>zts_generate_adhoc_net_id_from_range()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint64_t zts_generate_adhoc_net_id_from_range </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>startPortOfRange</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>endPortOfRange</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Compute a <code>RFC4193</code> IPv6 address for the given Network ID and Node ID. </p>
-<p>Ad-hoc Network: </p><div class="fragment"><div class="line">ffSSSSEEEE000000</div>
-<div class="line">| |   |   |</div>
-<div class="line">| |   |   Reserved <span class="keywordflow">for</span> future use, must be 0</div>
-<div class="line">| |   End of port range (hex)</div>
-<div class="line">| Start of port range (hex)</div>
-<div class="line">Reserved ZeroTier address prefix indicating a controller-less network.</div>
-</div><!-- fragment --><p>Ad-hoc networks are public (no access control) networks that have no network controller. Instead their configuration and other credentials are generated locally. Ad-hoc networks permit only IPv6 UDP and TCP unicast traffic (no multicast or broadcast) using 6plane format NDP-emulated IPv6 addresses. In addition an ad-hoc network ID encodes an IP port range. UDP packets and TCP SYN (connection open) packets are only allowed to destination ports within the encoded range.</p>
-<p>For example <code>ff00160016000000</code> is an ad-hoc network allowing only SSH, while <code>ff0000ffff000000</code> is an ad-hoc network allowing any UDP or TCP port.</p>
-<p>Keep in mind that these networks are public and anyone in the entire world can join them. Care must be taken to avoid exposing vulnerable services or sharing unwanted files or other resources.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">startPortOfRange</td><td>Start of port allowed port range </td></tr>
-    <tr><td class="paramname">endPortOfRange</td><td>End of allowed port range </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>An Ad-hoc network ID </dd></dl>
-
-</div>
-</div>
-<a id="a4a9cb405508787b0c0a92d4e959dfa34"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a9cb405508787b0c0a92d4e959dfa34">&#9670;&nbsp;</a></span>zts_get_6plane_addr()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int zts_get_6plane_addr </td>
-          <td>(</td>
-          <td class="paramtype">struct zts_sockaddr_storage *&#160;</td>
-          <td class="paramname"><em>addr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const uint64_t&#160;</td>
-          <td class="paramname"><em>nwid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const uint64_t&#160;</td>
-          <td class="paramname"><em>nodeId</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Compute a <code>6PLANE</code> IPv6 address for the given Network ID and Node ID. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">addr</td><td>Destination structure for address </td></tr>
-    <tr><td class="paramname">nwid</td><td>Network ID </td></tr>
-    <tr><td class="paramname">nodeId</td><td>Node ID </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><code>ZTS_ERR_OK</code> if successful, <code>ZTS_ERR_ARG</code> if invalid arg. </dd></dl>
-
-</div>
-</div>
-<a id="ae61129c09316372b1345ca186c787970"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae61129c09316372b1345ca186c787970">&#9670;&nbsp;</a></span>zts_get_rfc4193_addr()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int zts_get_rfc4193_addr </td>
-          <td>(</td>
-          <td class="paramtype">struct zts_sockaddr_storage *&#160;</td>
-          <td class="paramname"><em>addr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const uint64_t&#160;</td>
-          <td class="paramname"><em>nwid</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const uint64_t&#160;</td>
-          <td class="paramname"><em>nodeId</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Compute a <code>RFC4193</code> IPv6 address for the given Network ID and Node ID. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">addr</td><td>Destination structure for address </td></tr>
-    <tr><td class="paramname">nwid</td><td>Network ID </td></tr>
-    <tr><td class="paramname">nodeId</td><td>Node ID </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><code>ZTS_ERR_OK</code> if successful, <code>ZTS_ERR_ARG</code> if invalid arg. </dd></dl>
 
 </div>
 </div>
@@ -2047,6 +2293,53 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a0fdb332009d00e4823b206fb28c1b5da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fdb332009d00e4823b206fb28c1b5da">&#9670;&nbsp;</a></span>zts_net_compute_adhoc_id()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t zts_net_compute_adhoc_id </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>startPortOfRange</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>endPortOfRange</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compute a <code>RFC4193</code> IPv6 address for the given Network ID and Node ID. </p>
+<p>Ad-hoc Network: </p><div class="fragment"><div class="line">ffSSSSEEEE000000</div>
+<div class="line">| |   |   |</div>
+<div class="line">| |   |   Reserved <span class="keywordflow">for</span> future use, must be 0</div>
+<div class="line">| |   End of port range (hex)</div>
+<div class="line">| Start of port range (hex)</div>
+<div class="line">Reserved ZeroTier address prefix indicating a controller-less network.</div>
+</div><!-- fragment --><p>Ad-hoc networks are public (no access control) networks that have no network controller. Instead their configuration and other credentials are generated locally. Ad-hoc networks permit only IPv6 UDP and TCP unicast traffic (no multicast or broadcast) using 6plane format NDP-emulated IPv6 addresses. In addition an ad-hoc network ID encodes an IP port range. UDP packets and TCP SYN (connection open) packets are only allowed to destination ports within the encoded range.</p>
+<p>For example <code>ff00160016000000</code> is an ad-hoc network allowing only SSH, while <code>ff0000ffff000000</code> is an ad-hoc network allowing any UDP or TCP port.</p>
+<p>Keep in mind that these networks are public and anyone in the entire world can join them. Care must be taken to avoid exposing vulnerable services or sharing unwanted files or other resources.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">startPortOfRange</td><td>Start of port allowed port range </td></tr>
+    <tr><td class="paramname">endPortOfRange</td><td>End of allowed port range </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An Ad-hoc network ID </dd></dl>
+
+</div>
+</div>
 <a id="a198950eb8fe1ab991f3677f244393a84"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a198950eb8fe1ab991f3677f244393a84">&#9670;&nbsp;</a></span>zts_net_count()</h2>
 
@@ -2067,8 +2360,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a3f71a2dff39703f09773b5bcd84db788"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3f71a2dff39703f09773b5bcd84db788">&#9670;&nbsp;</a></span>zts_net_join()</h2>
+<a id="ad1f41f1c806ed8b70287bb09baeb7799"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1f41f1c806ed8b70287bb09baeb7799">&#9670;&nbsp;</a></span>zts_net_join()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2077,7 +2370,7 @@ Variables</h2></td></tr>
           <td class="memname">int zts_net_join </td>
           <td>(</td>
           <td class="paramtype">const uint64_t&#160;</td>
-          <td class="paramname"><em>nwid</em></td><td>)</td>
+          <td class="paramname"><em>net_id</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -2086,7 +2379,7 @@ Variables</h2></td></tr>
 <p>Join a network. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">nwid</td><td>A <code>16-digit hexadecimal</code> virtual network ID </td></tr>
+    <tr><td class="paramname">net_id</td><td>A <code>16-digit hexadecimal</code> virtual network ID </td></tr>
   </table>
   </dd>
 </dl>
@@ -2094,8 +2387,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a2f2c0e786ab32bf9381936768b67f03c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f2c0e786ab32bf9381936768b67f03c">&#9670;&nbsp;</a></span>zts_net_leave()</h2>
+<a id="acbf4af333d0dbef128d49eea0c7e1be5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbf4af333d0dbef128d49eea0c7e1be5">&#9670;&nbsp;</a></span>zts_net_leave()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2104,7 +2397,7 @@ Variables</h2></td></tr>
           <td class="memname">int zts_net_leave </td>
           <td>(</td>
           <td class="paramtype">const uint64_t&#160;</td>
-          <td class="paramname"><em>nwid</em></td><td>)</td>
+          <td class="paramname"><em>net_id</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -2113,7 +2406,7 @@ Variables</h2></td></tr>
 <p>Leave a network. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">nwid</td><td>A <code>16-digit hexadecimal</code> virtual network ID </td></tr>
+    <tr><td class="paramname">net_id</td><td>A <code>16-digit hexadecimal</code> virtual network ID </td></tr>
   </table>
   </dd>
 </dl>
@@ -2139,6 +2432,26 @@ Variables</h2></td></tr>
 <p>Stop all background services, bring down all interfaces, free all resources. After calling this function an application restart will be required before the library can be used again. </p>
 <p>This should be called at the end of your program or when you do not anticipate communicating over ZeroTier</p>
 <dl class="section return"><dt>Returns</dt><dd><code>ZTS_ERR_OK</code> if successful, <code>ZTS_ERR_SERVICE</code> if the node experiences a problem. </dd></dl>
+
+</div>
+</div>
+<a id="ad9a8f86f01bcf1593512669c4fe1b473"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9a8f86f01bcf1593512669c4fe1b473">&#9670;&nbsp;</a></span>zts_node_get_id()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t zts_node_get_id </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the public node identity (aka node ID) </p>
+<dl class="section return"><dt>Returns</dt><dd>Identity in numerical form </dd></dl>
 
 </div>
 </div>
@@ -2177,6 +2490,46 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>ZTS_ERR_OK</code> if successful, <code>ZTS_ERR_SERVICE</code> if the node experiences a problem, <code>ZTS_ERR_ARG</code> if invalid arg. </dd></dl>
+
+</div>
+</div>
+<a id="a119db9e1496010598bb7bdcf407985d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a119db9e1496010598bb7bdcf407985d7">&#9670;&nbsp;</a></span>zts_node_get_port()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned short zts_node_get_port </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the primary port that node is bound to. </p>
+<dl class="section return"><dt>Returns</dt><dd>Port number </dd></dl>
+
+</div>
+</div>
+<a id="af8875994fa8607e9a0254632e1239498"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8875994fa8607e9a0254632e1239498">&#9670;&nbsp;</a></span>zts_node_is_online()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int zts_node_is_online </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return whether the node is online (Can reach the Internet) </p>
+<dl class="section return"><dt>Returns</dt><dd><code>1</code> if true, <code>0</code> if false. </dd></dl>
 
 </div>
 </div>
@@ -3396,6 +3749,71 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Number of bytes received if successful, <code>ZTS_ERR_SERVICE</code> if the node experiences a problem, <code>ZTS_ERR_ARG</code> if invalid arg. Sets <code>zts_errno</code> </dd></dl>
+
+</div>
+</div>
+<a id="a65d06546fc36fd0586bad82206ae8a38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65d06546fc36fd0586bad82206ae8a38">&#9670;&nbsp;</a></span>zts_route_count()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int zts_route_count </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>net_id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return the number of managed routes assigned by this network. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">net_id</td><td>A <code>16-digit hexadecimal</code> virtual network ID </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of routes </dd></dl>
+
+</div>
+</div>
+<a id="ab1dda19345f962c7368353f1ac9f07ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1dda19345f962c7368353f1ac9f07ad">&#9670;&nbsp;</a></span>zts_route_is_assigned()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int zts_route_is_assigned </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>net_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>family</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return whether a managed route of the given address family has been assigned by the network. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">net_id</td><td>A <code>16-digit hexadecimal</code> virtual network ID </td></tr>
+    <tr><td class="paramname">family</td><td><code>ZTS_AF_INET</code>, or <code>ZTS_AF_INET6</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>1</code> if true, <code>0</code> if false. </dd></dl>
 
 </div>
 </div>
