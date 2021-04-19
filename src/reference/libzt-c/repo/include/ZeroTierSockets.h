@@ -697,7 +697,7 @@ int zts_py_getblocking(int fd);
 // Central API                                                                //
 //----------------------------------------------------------------------------//
 
-#ifdef ZTS_ENABLE_CENTRAL_API
+#ifndef ZTS_DISABLE_CENTRAL_API
 
 	#define ZTS_CENTRAL_DEFAULT_URL         "https://my.zerotier.com"
 	#define ZTS_CENRTAL_MAX_URL_LEN         128
@@ -715,7 +715,7 @@ int zts_py_getblocking(int fd);
 	#define ZTS_CENTRAL_WRITE 2
 
 /**
- * @brief Enables read/write capability. Default before calling this is
+ * @brief Enable read/write capability. Default before calling this is
  * read-only: `ZTS_CENTRAL_READ`
  *
  * @param modes Whether the API allows read, write, or both
@@ -723,7 +723,7 @@ int zts_py_getblocking(int fd);
 ZTS_API void ZTCALL zts_central_set_access_mode(int8_t modes);
 
 /**
- * @brief Enables or disables libcurl verbosity
+ * @brief Enable or disable libcurl verbosity
  *
  * @param is_verbose Whether debug information is desired
  */
@@ -732,11 +732,11 @@ ZTS_API void ZTCALL zts_central_set_verbose(int8_t is_verbose);
 ZTS_API void ZTCALL zts_central_clear_resp_buf();
 
 /**
- * @brief Set the Central API URL and user API token.
+ * @brief Set the Central API `URL` and user API token.
  *
  * @param url_str The URL to the Central API server
  * @param token_str User API token
- * @param resp_buf Destination buffer for raw JSON output
+ * @param resp_buf Destination buffer for raw `JSON` output
  * @param buf_len Size of buffer for server response (specify `0` for default
  * size)
  * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_ARG` if invalid arg.
@@ -747,7 +747,7 @@ zts_central_init(const char* url_str, const char* token_str, char* resp_buf, uin
 ZTS_API void ZTCALL zts_central_cleanup();
 
 /**
- * @brief Copies the JSON-formatted string buffer from the last request into
+ * @brief Copies the `JSON`-formatted string buffer from the last request into
  *        a user-provided buffer.
  *
  * @param dst User-provided destination buffer
@@ -765,21 +765,21 @@ ZTS_API int ZTCALL zts_central_get_last_resp_buf(char* dst, int len);
 ZTS_API int ZTCALL zts_central_get_status(int* http_resp_code);
 
 /**
- * @brief Get the currently authenticated user’s user record.
+ * @brief Get the currently authenticated user’s record.
  *
  * @return Standard HTTP response codes.
  */
 ZTS_API int ZTCALL zts_central_get_self(int* http_resp_code);
 
 /**
- * @brief Retrieve a Network.
+ * @brief Retrieve a `Network`.
  *
  * @return Standard HTTP response codes.
  */
 ZTS_API int ZTCALL zts_central_get_network(int* http_resp_code, uint64_t net_id);
 
 /**
- * @brief Update or create a Network.
+ * @brief Update or create a `Network`.
  *
  * Only fields marked as [rw] can be directly modified. If other fields are
  * present in the posted request they are ignored. New networks can be
@@ -849,7 +849,7 @@ ZTS_API int ZTCALL zts_central_set_node_auth(
  */
 ZTS_API int ZTCALL zts_central_get_members_of_network(int* http_resp_code, uint64_t net_id);
 
-#endif   // NO_CENTRAL_API
+#endif   // ZTS_DISABLE_CENTRAL_API
 
 //----------------------------------------------------------------------------//
 // Identity Management                                                        //
