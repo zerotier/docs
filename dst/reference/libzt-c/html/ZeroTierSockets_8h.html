@@ -236,6 +236,48 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a7fe732cd35f01d82317235e63d97d7f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a7fe732cd35f01d82317235e63d97d7f8">zts_central_set_access_mode</a> (int8_t modes)</td></tr>
+<tr class="memdesc:a7fe732cd35f01d82317235e63d97d7f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable read/write capability. Default before calling this is read-only: <code>ZTS_CENTRAL_READ</code>  <a href="ZeroTierSockets_8h.html#a7fe732cd35f01d82317235e63d97d7f8">More...</a><br /></td></tr>
+<tr class="separator:a7fe732cd35f01d82317235e63d97d7f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe74724d792163c3089a420abcebbd4c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#abe74724d792163c3089a420abcebbd4c">zts_central_set_verbose</a> (int8_t is_verbose)</td></tr>
+<tr class="memdesc:abe74724d792163c3089a420abcebbd4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable or disable libcurl verbosity.  <a href="ZeroTierSockets_8h.html#abe74724d792163c3089a420abcebbd4c">More...</a><br /></td></tr>
+<tr class="separator:abe74724d792163c3089a420abcebbd4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af757b0021869f50fbf45263aa6d62088"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#af757b0021869f50fbf45263aa6d62088">zts_central_init</a> (const char *url_str, const char *token_str, char *resp_buf, uint32_t buf_len)</td></tr>
+<tr class="memdesc:af757b0021869f50fbf45263aa6d62088"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Central API <code>URL</code> and user API token.  <a href="ZeroTierSockets_8h.html#af757b0021869f50fbf45263aa6d62088">More...</a><br /></td></tr>
+<tr class="separator:af757b0021869f50fbf45263aa6d62088"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a1806f1259901d0fae836966daecc39"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a9a1806f1259901d0fae836966daecc39">zts_central_get_last_resp_buf</a> (char *dst, int len)</td></tr>
+<tr class="memdesc:a9a1806f1259901d0fae836966daecc39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies the <code>JSON</code>-formatted string buffer from the last request into a user-provided buffer.  <a href="ZeroTierSockets_8h.html#a9a1806f1259901d0fae836966daecc39">More...</a><br /></td></tr>
+<tr class="separator:a9a1806f1259901d0fae836966daecc39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2c79990928f889ec0252c35c89788e9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ac2c79990928f889ec0252c35c89788e9">zts_central_get_status</a> (int *http_resp_code)</td></tr>
+<tr class="memdesc:ac2c79990928f889ec0252c35c89788e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the status of the Central API server.  <a href="ZeroTierSockets_8h.html#ac2c79990928f889ec0252c35c89788e9">More...</a><br /></td></tr>
+<tr class="separator:ac2c79990928f889ec0252c35c89788e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a901eede44e048604c6066e1f033fc8b0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a901eede44e048604c6066e1f033fc8b0">zts_central_get_self</a> (int *http_resp_code)</td></tr>
+<tr class="memdesc:a901eede44e048604c6066e1f033fc8b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the currently authenticated user’s record.  <a href="ZeroTierSockets_8h.html#a901eede44e048604c6066e1f033fc8b0">More...</a><br /></td></tr>
+<tr class="separator:a901eede44e048604c6066e1f033fc8b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd74100168afa8e8d553cee98592bef8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#abd74100168afa8e8d553cee98592bef8">zts_central_get_network</a> (int *http_resp_code, uint64_t net_id)</td></tr>
+<tr class="memdesc:abd74100168afa8e8d553cee98592bef8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve a <code>Network</code>.  <a href="ZeroTierSockets_8h.html#abd74100168afa8e8d553cee98592bef8">More...</a><br /></td></tr>
+<tr class="separator:abd74100168afa8e8d553cee98592bef8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af52b9c4f9b5cf95011cff5e84dbe1899"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#af52b9c4f9b5cf95011cff5e84dbe1899">zts_central_update_network</a> (int *http_resp_code, uint64_t net_id)</td></tr>
+<tr class="memdesc:af52b9c4f9b5cf95011cff5e84dbe1899"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update or create a <code>Network</code>.  <a href="ZeroTierSockets_8h.html#af52b9c4f9b5cf95011cff5e84dbe1899">More...</a><br /></td></tr>
+<tr class="separator:af52b9c4f9b5cf95011cff5e84dbe1899"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2c2ad823094fcda6f74db1849af26a0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ae2c2ad823094fcda6f74db1849af26a0">zts_central_delete_network</a> (int *http_resp_code, uint64_t net_id)</td></tr>
+<tr class="memdesc:ae2c2ad823094fcda6f74db1849af26a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete a Network.  <a href="ZeroTierSockets_8h.html#ae2c2ad823094fcda6f74db1849af26a0">More...</a><br /></td></tr>
+<tr class="separator:ae2c2ad823094fcda6f74db1849af26a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adeca1cd8b54639dd3b704130ab453fbd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#adeca1cd8b54639dd3b704130ab453fbd">zts_central_get_networks</a> (int *http_resp_code)</td></tr>
+<tr class="memdesc:adeca1cd8b54639dd3b704130ab453fbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get All Viewable Networks.  <a href="ZeroTierSockets_8h.html#adeca1cd8b54639dd3b704130ab453fbd">More...</a><br /></td></tr>
+<tr class="separator:adeca1cd8b54639dd3b704130ab453fbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac53a9d49d50380c2ad7164b5c88cfb42"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ac53a9d49d50380c2ad7164b5c88cfb42">zts_central_get_member</a> (int *http_resp_code, uint64_t net_id, uint64_t node_id)</td></tr>
+<tr class="memdesc:ac53a9d49d50380c2ad7164b5c88cfb42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve a Member.  <a href="ZeroTierSockets_8h.html#ac53a9d49d50380c2ad7164b5c88cfb42">More...</a><br /></td></tr>
+<tr class="separator:ac53a9d49d50380c2ad7164b5c88cfb42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8dceee291725e1acca1be06406e83b6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ad8dceee291725e1acca1be06406e83b6">zts_central_update_member</a> (int *http_resp_code, uint64_t net_id, uint64_t node_id, char *post_data)</td></tr>
+<tr class="memdesc:ad8dceee291725e1acca1be06406e83b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update or add a Member.  <a href="ZeroTierSockets_8h.html#ad8dceee291725e1acca1be06406e83b6">More...</a><br /></td></tr>
+<tr class="separator:ad8dceee291725e1acca1be06406e83b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a95dd08da88d638116b7a8c13eb5784"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a0a95dd08da88d638116b7a8c13eb5784">zts_central_set_node_auth</a> (int *http_resp_code, uint64_t net_id, uint64_t node_id, uint8_t is_authed)</td></tr>
+<tr class="memdesc:a0a95dd08da88d638116b7a8c13eb5784"><td class="mdescLeft">&#160;</td><td class="mdescRight">Authorize or (De)authorize a node on a network. This operation is idempotent.  <a href="ZeroTierSockets_8h.html#a0a95dd08da88d638116b7a8c13eb5784">More...</a><br /></td></tr>
+<tr class="separator:a0a95dd08da88d638116b7a8c13eb5784"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfa1518ad8ffed935372b95c5abae711"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#acfa1518ad8ffed935372b95c5abae711">zts_central_get_members_of_network</a> (int *http_resp_code, uint64_t net_id)</td></tr>
+<tr class="memdesc:acfa1518ad8ffed935372b95c5abae711"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get All Members of a Network.  <a href="ZeroTierSockets_8h.html#acfa1518ad8ffed935372b95c5abae711">More...</a><br /></td></tr>
+<tr class="separator:acfa1518ad8ffed935372b95c5abae711"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84b5b4becda648ad0c137c6968ca5f86"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a84b5b4becda648ad0c137c6968ca5f86">zts_id_new</a> (char *key, uint16_t *key_buf_len)</td></tr>
 <tr class="memdesc:a84b5b4becda648ad0c137c6968ca5f86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a node identity (public/secret key-pair) and stores it in a user-provided buffer.  <a href="ZeroTierSockets_8h.html#a84b5b4becda648ad0c137c6968ca5f86">More...</a><br /></td></tr>
 <tr class="separator:a84b5b4becda648ad0c137c6968ca5f86"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1293,6 +1335,471 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>ZTS_ERR_OK</code> if successful, <code>ZTS_ERR_SERVICE</code> if the node experiences a problem, <code>ZTS_ERR_ARG</code> if invalid arg. Sets <code>zts_errno</code> </dd></dl>
+
+</div>
+</div>
+<a id="ae2c2ad823094fcda6f74db1849af26a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2c2ad823094fcda6f74db1849af26a0">&#9670;&nbsp;</a></span>zts_central_delete_network()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int zts_central_delete_network </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>http_resp_code</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>net_id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Delete a Network. </p>
+<p>Delete a network and all its related information permanently. Use extreme caution as this cannot be undone!</p>
+<dl class="section return"><dt>Returns</dt><dd>Standard HTTP response codes. </dd></dl>
+
+</div>
+</div>
+<a id="a9a1806f1259901d0fae836966daecc39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a1806f1259901d0fae836966daecc39">&#9670;&nbsp;</a></span>zts_central_get_last_resp_buf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int zts_central_get_last_resp_buf </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>dst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Copies the <code>JSON</code>-formatted string buffer from the last request into a user-provided buffer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dst</td><td>User-provided destination buffer </td></tr>
+    <tr><td class="paramname">len</td><td>Length of aforementioned buffer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>ZTS_ERR_OK</code> if all contents were copied successfully. <code>ZTS_ERR_ARG</code> if provided buffer was too small. </dd></dl>
+
+</div>
+</div>
+<a id="ac53a9d49d50380c2ad7164b5c88cfb42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac53a9d49d50380c2ad7164b5c88cfb42">&#9670;&nbsp;</a></span>zts_central_get_member()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int zts_central_get_member </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>http_resp_code</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>net_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>node_id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieve a Member. </p>
+<dl class="section return"><dt>Returns</dt><dd>Standard HTTP response codes. </dd></dl>
+
+</div>
+</div>
+<a id="acfa1518ad8ffed935372b95c5abae711"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfa1518ad8ffed935372b95c5abae711">&#9670;&nbsp;</a></span>zts_central_get_members_of_network()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int zts_central_get_members_of_network </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>http_resp_code</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>net_id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get All Members of a Network. </p>
+<p>Get all members of a network for which you have at least read access.</p>
+<dl class="section return"><dt>Returns</dt><dd>Standard HTTP response codes. </dd></dl>
+
+</div>
+</div>
+<a id="abd74100168afa8e8d553cee98592bef8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd74100168afa8e8d553cee98592bef8">&#9670;&nbsp;</a></span>zts_central_get_network()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int zts_central_get_network </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>http_resp_code</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>net_id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieve a <code>Network</code>. </p>
+<dl class="section return"><dt>Returns</dt><dd>Standard HTTP response codes. </dd></dl>
+
+</div>
+</div>
+<a id="adeca1cd8b54639dd3b704130ab453fbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adeca1cd8b54639dd3b704130ab453fbd">&#9670;&nbsp;</a></span>zts_central_get_networks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int zts_central_get_networks </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>http_resp_code</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get All Viewable Networks. </p>
+<p>Get all networks for which you have at least read access.</p>
+<dl class="section return"><dt>Returns</dt><dd>Standard HTTP response codes. </dd></dl>
+
+</div>
+</div>
+<a id="a901eede44e048604c6066e1f033fc8b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a901eede44e048604c6066e1f033fc8b0">&#9670;&nbsp;</a></span>zts_central_get_self()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int zts_central_get_self </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>http_resp_code</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the currently authenticated user’s record. </p>
+<dl class="section return"><dt>Returns</dt><dd>Standard HTTP response codes. </dd></dl>
+
+</div>
+</div>
+<a id="ac2c79990928f889ec0252c35c89788e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2c79990928f889ec0252c35c89788e9">&#9670;&nbsp;</a></span>zts_central_get_status()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int zts_central_get_status </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>http_resp_code</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the status of the Central API server. </p>
+<dl class="section return"><dt>Returns</dt><dd>Standard HTTP response codes. </dd></dl>
+
+</div>
+</div>
+<a id="af757b0021869f50fbf45263aa6d62088"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af757b0021869f50fbf45263aa6d62088">&#9670;&nbsp;</a></span>zts_central_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int zts_central_init </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>url_str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>token_str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>resp_buf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>buf_len</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the Central API <code>URL</code> and user API token. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">url_str</td><td>The URL to the Central API server </td></tr>
+    <tr><td class="paramname">token_str</td><td>User API token </td></tr>
+    <tr><td class="paramname">resp_buf</td><td>Destination buffer for raw <code>JSON</code> output </td></tr>
+    <tr><td class="paramname">buf_len</td><td>Size of buffer for server response (specify <code>0</code> for default size) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>ZTS_ERR_OK</code> if successful, <code>ZTS_ERR_ARG</code> if invalid arg. </dd></dl>
+
+</div>
+</div>
+<a id="a7fe732cd35f01d82317235e63d97d7f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fe732cd35f01d82317235e63d97d7f8">&#9670;&nbsp;</a></span>zts_central_set_access_mode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void zts_central_set_access_mode </td>
+          <td>(</td>
+          <td class="paramtype">int8_t&#160;</td>
+          <td class="paramname"><em>modes</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enable read/write capability. Default before calling this is read-only: <code>ZTS_CENTRAL_READ</code> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">modes</td><td>Whether the API allows read, write, or both </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0a95dd08da88d638116b7a8c13eb5784"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a95dd08da88d638116b7a8c13eb5784">&#9670;&nbsp;</a></span>zts_central_set_node_auth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int zts_central_set_node_auth </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>http_resp_code</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>net_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>node_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>is_authed</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Authorize or (De)authorize a node on a network. This operation is idempotent. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">net_id</td><td>Network ID </td></tr>
+    <tr><td class="paramname">node_id</td><td>Node ID </td></tr>
+    <tr><td class="paramname">is_authed</td><td>Boolean value for whether this node should be authorized </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>ZTS_ERR_OK</code> if successful, <code>ZTS_ERR_ARG</code> if invalid arg. </dd></dl>
+
+</div>
+</div>
+<a id="abe74724d792163c3089a420abcebbd4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe74724d792163c3089a420abcebbd4c">&#9670;&nbsp;</a></span>zts_central_set_verbose()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void zts_central_set_verbose </td>
+          <td>(</td>
+          <td class="paramtype">int8_t&#160;</td>
+          <td class="paramname"><em>is_verbose</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enable or disable libcurl verbosity. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">is_verbose</td><td>Whether debug information is desired </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad8dceee291725e1acca1be06406e83b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8dceee291725e1acca1be06406e83b6">&#9670;&nbsp;</a></span>zts_central_update_member()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int zts_central_update_member </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>http_resp_code</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>net_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>node_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>post_data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Update or add a Member. </p>
+<p>New members can be added to a network by POSTing them.</p>
+<dl class="section return"><dt>Returns</dt><dd>Standard HTTP response codes. </dd></dl>
+
+</div>
+</div>
+<a id="af52b9c4f9b5cf95011cff5e84dbe1899"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af52b9c4f9b5cf95011cff5e84dbe1899">&#9670;&nbsp;</a></span>zts_central_update_network()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int zts_central_update_network </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>http_resp_code</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>net_id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Update or create a <code>Network</code>. </p>
+<p>Only fields marked as [rw] can be directly modified. If other fields are present in the posted request they are ignored. New networks can be created by POSTing to /api/network with no net_id parameter. The server will create a random unused network ID and return the new network record.</p>
+<dl class="section return"><dt>Returns</dt><dd>Standard HTTP response codes. </dd></dl>
 
 </div>
 </div>
