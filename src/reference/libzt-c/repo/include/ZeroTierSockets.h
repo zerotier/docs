@@ -34,7 +34,7 @@ enum ZTS_Error {
 	ZTS_ERR_OK = 0,
 	/** Socket error, see `zts_errno` */
 	ZTS_ERR_SOCKET = -1,
-	/** The node service experienced a problem. Did you start the service? */
+	/** This operation is not allowed at this time. Or possibly the service hasn't been started */
 	ZTS_ERR_SERVICE = -2,
 	/** Invalid argument */
 	ZTS_ERR_ARG = -3,
@@ -48,7 +48,7 @@ enum ZTS_Error {
 // Event codes                                                                //
 //----------------------------------------------------------------------------//
 
-/** Event codes used by the callback API */
+/** Event codes used by the (optional) callback API */
 enum ZTS_Event {
 	/**
 	 * Node has been initialized
@@ -181,15 +181,15 @@ enum ZTS_Event {
 	ZTS_EVENT_ADDR_REMOVED_IP6 = 263,
 
 	/** The node's secret key (identity) */
-	ZTS_STORE_UPDATE_IDENTITY_SECRET = 270,
+	ZTS_EVENT_STORE_IDENTITY_SECRET = 270,
 	/** The node's public key (identity) */
-	ZTS_STORE_UPDATE_IDENTITY_PUBLIC = 271,
+	ZTS_EVENT_STORE_IDENTITY_PUBLIC = 271,
 	/** The node has received an updated planet config */
-	ZTS_STORE_UPDATE_PLANET = 272,
+	ZTS_EVENT_STORE_PLANET = 272,
 	/** New reachability hints and peer configuration */
-	ZTS_STORE_UPDATE_PEER = 273,
+	ZTS_EVENT_STORE_PEER = 273,
 	/** New network config */
-	ZTS_STORE_UPDATE_NETWORK = 274
+	ZTS_EVENT_STORE_NETWORK = 274
 };
 
 //--------------------------------------------------------------------------//
@@ -201,14 +201,14 @@ enum ZTS_Event {
  */
 extern int zts_errno;
 
-#define ZTS_EPERM           1          ///< Operation not permitted
-#define ZTS_ENOENT          2          ///< No such file or directory
-#define ZTS_ESRCH           3          ///< No such process
-#define ZTS_EINTR           4          ///< Interrupted system call
+#define ZTS_EPERM  1   ///< Operation not permitted
+#define ZTS_ENOENT 2   ///< No such file or directory
+#define ZTS_ESRCH  3   ///< No such process
+#define ZTS_EINTR  4   ///< Interrupted system call
 /** I/O error */
-#define ZTS_EIO             5
+#define ZTS_EIO 5
 /** No such device or address */
-#define ZTS_ENXIO           6
+#define ZTS_ENXIO 6
 /** Arg list too long */
 #define ZTS_E2BIG           7
 #define ZTS_ENOEXEC         8          /* Exec format error */
@@ -408,7 +408,7 @@ typedef void (*CppCallback)(void* msg);
 /**
  * Max length of human-readable IPv4 string
  */
-#define ZTS_INET_ADDRSTRLEN  16
+#define ZTS_INET_ADDRSTRLEN 16
 
 /**
  * Max length of human-readable IPv6 string
