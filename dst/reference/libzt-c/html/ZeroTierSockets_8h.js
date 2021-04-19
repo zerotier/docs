@@ -76,11 +76,11 @@ var ZeroTierSockets_8h =
       [ "ZTS_EVENT_ADDR_REMOVED_IP4", "ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303afa5b0a3eddafc65fc04ccfa6e4ab2b4b", null ],
       [ "ZTS_EVENT_ADDR_ADDED_IP6", "ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303a76ea2a7063ee03a1facef8eaf3eef2cb", null ],
       [ "ZTS_EVENT_ADDR_REMOVED_IP6", "ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303a3c23ca320cc62554f8347b5a6d9cee45", null ],
-      [ "ZTS_STORE_UPDATE_IDENTITY_SECRET", "ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303a85b70e208eb4d4129c199de35c5e6c8c", null ],
-      [ "ZTS_STORE_UPDATE_IDENTITY_PUBLIC", "ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303ae37b4ada09b2cbd2d97fd87ab63e4965", null ],
-      [ "ZTS_STORE_UPDATE_PLANET", "ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303a13f54e3d6fe1b982d20885911c30c7c2", null ],
-      [ "ZTS_STORE_UPDATE_PEER", "ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303a7938a0f3075ee41a343b2345eaf2232e", null ],
-      [ "ZTS_STORE_UPDATE_NETWORK", "ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303a2cca66788cc00e65c43c2326616d128f", null ]
+      [ "ZTS_EVENT_STORE_IDENTITY_SECRET", "ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303a3ee56d2002e7545e290d50b1a062e624", null ],
+      [ "ZTS_EVENT_STORE_IDENTITY_PUBLIC", "ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303a1d0d9f23ab33a4803fc104288ba48273", null ],
+      [ "ZTS_EVENT_STORE_PLANET", "ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303abb3b0dfb68907fe5dc66e77564a2b18b", null ],
+      [ "ZTS_EVENT_STORE_PEER", "ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303aa2003fc271d42cf2f5730d6f64c8a3e0", null ],
+      [ "ZTS_EVENT_STORE_NETWORK", "ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303a56402ee6349f569d26843d02ccc7b58b", null ]
     ] ],
     [ "zts_accept", "ZeroTierSockets_8h.html#ada54150e3756742502da4d3ec73a891c", null ],
     [ "zts_addr_compute_6plane", "ZeroTierSockets_8h.html#ae3a3b5e96b71cf0c97bc8d2f4d9746c4", null ],
