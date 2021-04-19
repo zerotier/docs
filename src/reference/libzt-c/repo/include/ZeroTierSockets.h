@@ -118,8 +118,6 @@ enum ZTS_Event {
 	/** The node has been terminated */
 	ZTS_EVENT_NODE_NORMAL_TERMINATION = 206,
 
-	// Network events
-
 	/** Network ID does not correspond to a known network */
 	ZTS_EVENT_NETWORK_NOT_FOUND = 210,
 	/** The version of ZeroTier inside libzt is too old */
@@ -141,14 +139,10 @@ enum ZTS_Event {
 	/** Network change received from controller */
 	ZTS_EVENT_NETWORK_UPDATE = 219,
 
-	// Network Stack events
-
 	/** TCP/IP stack (lwIP) is up (for debug purposes) */
 	ZTS_EVENT_STACK_UP = 220,
 	/** TCP/IP stack (lwIP) id down (for debug purposes) */
 	ZTS_EVENT_STACK_DOWN = 221,
-
-	// lwIP netif events
 
 	/** lwIP netif up (for debug purposes) */
 	ZTS_EVENT_NETIF_UP = 230,
@@ -161,8 +155,6 @@ enum ZTS_Event {
 	/** lwIP netif link down (for debug purposes) */
 	ZTS_EVENT_NETIF_LINK_DOWN = 234,
 
-	// Peer events
-
 	/** A direct P2P path to peer is known */
 	ZTS_EVENT_PEER_DIRECT = 240,
 	/** A direct P2P path to peer is NOT known. Traffic is now relayed  */
@@ -174,14 +166,10 @@ enum ZTS_Event {
 	/** A known path to a peer is now considered dead */
 	ZTS_EVENT_PEER_PATH_DEAD = 244,
 
-	// Route events
-
 	/** A new managed network route was added */
 	ZTS_EVENT_ROUTE_ADDED = 250,
 	/** A managed network route was removed */
 	ZTS_EVENT_ROUTE_REMOVED = 251,
-
-	// Address events
 
 	/** A new managed IPv4 address was assigned to this peer */
 	ZTS_EVENT_ADDR_ADDED_IP4 = 260,
@@ -193,15 +181,15 @@ enum ZTS_Event {
 	ZTS_EVENT_ADDR_REMOVED_IP6 = 263,
 
 	/** The node's secret key (identity) */
-	ZTS_CACHE_UPDATE_IDENTITY_SECRET = 270,
+	ZTS_STORE_UPDATE_IDENTITY_SECRET = 270,
 	/** The node's public key (identity) */
-	ZTS_CACHE_UPDATE_IDENTITY_PUBLIC = 271,
+	ZTS_STORE_UPDATE_IDENTITY_PUBLIC = 271,
 	/** The node has received an updated planet config */
-	ZTS_CACHE_UPDATE_PLANET = 272,
+	ZTS_STORE_UPDATE_PLANET = 272,
 	/** New reachability hints and peer configuration */
-	ZTS_CACHE_UPDATE_PEER = 273,
+	ZTS_STORE_UPDATE_PEER = 273,
 	/** New network config */
-	ZTS_CACHE_UPDATE_NETWORK = 274
+	ZTS_STORE_UPDATE_NETWORK = 274
 };
 
 //--------------------------------------------------------------------------//
@@ -217,9 +205,12 @@ extern int zts_errno;
 #define ZTS_ENOENT          2          ///< No such file or directory
 #define ZTS_ESRCH           3          ///< No such process
 #define ZTS_EINTR           4          ///< Interrupted system call
-#define ZTS_EIO             5          /* I/O error */
-#define ZTS_ENXIO           6          /* No such device or address */
-#define ZTS_E2BIG           7          /* Arg list too long */
+/** I/O error */
+#define ZTS_EIO             5
+/** No such device or address */
+#define ZTS_ENXIO           6
+/** Arg list too long */
+#define ZTS_E2BIG           7
 #define ZTS_ENOEXEC         8          /* Exec format error */
 #define ZTS_EBADF           9          /* Bad file number */
 #define ZTS_ECHILD          10         /* No child processes */
@@ -343,22 +334,22 @@ extern int zts_errno;
 //----------------------------------------------------------------------------//
 
 #if ! defined(ZTS_ENABLE_PYTHON) && ! defined(ZTS_ENABLE_PINVOKE)
-	#define ZTS_C_API_ONLY 1
+#define ZTS_C_API_ONLY 1
 #endif
 
 #if ! ZTS_NO_STDINT_H
-	#include <stdint.h>
+#include <stdint.h>
 #endif
 
 #if defined(_MSC_VER)
-	#ifndef ssize_t
+#ifndef ssize_t
 // TODO: Should be SSIZE_T, would require lwIP patch
 // #include <BaseTsd.h>
 // typedef SSIZE_T ssize_t;
 typedef int ssize_t;
-	#endif
+#endif
 #else
-	#include <unistd.h>
+#include <unistd.h>
 #endif
 
 #ifdef ZTS_ENABLE_PINVOKE
@@ -414,7 +405,14 @@ typedef void (*CppCallback)(void* msg);
  */
 #define ZTS_MAC_ADDRSTRLEN 18
 
+/**
+ * Max length of human-readable IPv4 string
+ */
 #define ZTS_INET_ADDRSTRLEN  16
+
+/**
+ * Max length of human-readable IPv6 string
+ */
 #define ZTS_INET6_ADDRSTRLEN 46
 
 /**
@@ -423,6 +421,11 @@ typedef void (*CppCallback)(void* msg);
  * to handle all cases: `ZTS_AF_INET` and `ZTS_AF_INET6`
  */
 #define ZTS_IP_MAX_STR_LEN ZTS_INET6_ADDRSTRLEN
+
+/**
+ * Required buffer length to safely receive data store items
+ */
+#define ZTS_STORE_DATA_LEN 4096
 
 /** 255.255.255.255 */
 #define ZTS_IPADDR_NONE ((uint32_t)0xffffffffUL)
@@ -510,6 +513,9 @@ struct zts_in6_addr {
 	//#define s6_addr  un.u8_addr
 };
 
+/**
+ * Address structure to specify an IPv4 endpoint
+ */
 struct zts_sockaddr_in {
 	uint8_t sin_len;
 	zts_sa_family_t sin_family;
@@ -519,6 +525,9 @@ struct zts_sockaddr_in {
 	char sin_zero[SIN_ZERO_LEN];
 };
 
+/**
+ * Address structure to specify an IPv6 endpoint
+ */
 struct zts_sockaddr_in6 {
 	uint8_t sin6_len;                // length of this structure
 	zts_sa_family_t sin6_family;     // ZTS_AF_INET6
@@ -528,12 +537,18 @@ struct zts_sockaddr_in6 {
 	uint32_t sin6_scope_id;          // Set of interfaces for scope
 };
 
+/**
+ * Pointers to socket address structures are often cast to this type
+ */
 struct zts_sockaddr {
 	uint8_t sa_len;
 	zts_sa_family_t sa_family;
 	char sa_data[14];
 };
 
+/**
+ * Address structure large enough to hold IPv4 and IPv6 addresses
+ */
 struct zts_sockaddr_storage {
 	uint8_t s2_len;
 	zts_sa_family_t ss_family;
@@ -640,7 +655,7 @@ typedef struct {
 //----------------------------------------------------------------------------//
 
 #ifdef ZTS_ENABLE_PYTHON
-	#include "Python.h"
+#include "Python.h"
 
 /**
  * Abstract class used as a director. Pointer to an instance of this class
@@ -682,15 +697,15 @@ int zts_py_getblocking(int fd);
 //----------------------------------------------------------------------------//
 
 #if defined(_WIN32)
-	#ifdef ADD_EXPORTS
-		#define ZTS_API __declspec(dllexport)
-	#else
-		#define ZTS_API __declspec(dllimport)
-	#endif
-	#define ZTCALL __cdecl
+#ifdef ADD_EXPORTS
+#define ZTS_API __declspec(dllexport)
 #else
-	#define ZTS_API
-	#define ZTCALL
+#define ZTS_API __declspec(dllimport)
+#endif
+#define ZTCALL __cdecl
+#else
+#define ZTS_API
+#define ZTCALL
 #endif
 
 //----------------------------------------------------------------------------//
@@ -699,20 +714,20 @@ int zts_py_getblocking(int fd);
 
 #ifndef ZTS_DISABLE_CENTRAL_API
 
-	#define ZTS_CENTRAL_DEFAULT_URL         "https://my.zerotier.com"
-	#define ZTS_CENRTAL_MAX_URL_LEN         128
-	#define ZTS_CENTRAL_TOKEN_LEN           32
-	#define ZTS_CENTRAL_RESP_BUF_DEFAULT_SZ (128 * 1024)
+#define ZTS_CENTRAL_DEFAULT_URL         "https://my.zerotier.com"
+#define ZTS_CENRTAL_MAX_URL_LEN         128
+#define ZTS_CENTRAL_TOKEN_LEN           32
+#define ZTS_CENTRAL_RESP_BUF_DEFAULT_SZ (128 * 1024)
 
-	#define ZTS_HTTP_GET    0
-	#define ZTS_HTTP_POST   1
-	#define ZTS_HTTP_DELETE 2
+#define ZTS_HTTP_GET    0
+#define ZTS_HTTP_POST   1
+#define ZTS_HTTP_DELETE 2
 
-	#define ZTS_CENTRAL_NODE_AUTH_FALSE 0
-	#define ZTS_CENTRAL_NODE_AUTH_TRUE  1
+#define ZTS_CENTRAL_NODE_AUTH_FALSE 0
+#define ZTS_CENTRAL_NODE_AUTH_TRUE  1
 
-	#define ZTS_CENTRAL_READ  1
-	#define ZTS_CENTRAL_WRITE 2
+#define ZTS_CENTRAL_READ  1
+#define ZTS_CENTRAL_WRITE 2
 
 /**
  * @brief Enable read/write capability. Default before calling this is
@@ -762,21 +777,21 @@ ZTS_API int ZTCALL zts_central_get_last_resp_buf(char* dst, int len);
  *
  * @return Standard HTTP response codes.
  */
-ZTS_API int ZTCALL zts_central_get_status(int* http_resp_code);
+ZTS_API int ZTCALL zts_central_status_get(int* http_resp_code);
 
 /**
  * @brief Get the currently authenticated user’s record.
  *
  * @return Standard HTTP response codes.
  */
-ZTS_API int ZTCALL zts_central_get_self(int* http_resp_code);
+ZTS_API int ZTCALL zts_central_self_get(int* http_resp_code);
 
 /**
  * @brief Retrieve a `Network`.
  *
  * @return Standard HTTP response codes.
  */
-ZTS_API int ZTCALL zts_central_get_network(int* http_resp_code, uint64_t net_id);
+ZTS_API int ZTCALL zts_central_net_get(int* http_resp_code, uint64_t net_id);
 
 /**
  * @brief Update or create a `Network`.
@@ -788,7 +803,7 @@ ZTS_API int ZTCALL zts_central_get_network(int* http_resp_code, uint64_t net_id)
  *
  * @return Standard HTTP response codes.
  */
-ZTS_API int ZTCALL zts_central_update_network(int* http_resp_code, uint64_t net_id);
+ZTS_API int ZTCALL zts_central_net_update(int* http_resp_code, uint64_t net_id);
 
 /**
  * @brief Delete a Network.
@@ -798,7 +813,7 @@ ZTS_API int ZTCALL zts_central_update_network(int* http_resp_code, uint64_t net_
  *
  * @return Standard HTTP response codes.
  */
-ZTS_API int ZTCALL zts_central_delete_network(int* http_resp_code, uint64_t net_id);
+ZTS_API int ZTCALL zts_central_net_delete(int* http_resp_code, uint64_t net_id);
 
 /**
  * @brief Get All Viewable Networks.
@@ -807,13 +822,13 @@ ZTS_API int ZTCALL zts_central_delete_network(int* http_resp_code, uint64_t net_
  *
  * @return Standard HTTP response codes.
  */
-ZTS_API int ZTCALL zts_central_get_networks(int* http_resp_code);
+ZTS_API int ZTCALL zts_central_net_get_all(int* http_resp_code);
 /**
  * @brief Retrieve a Member.
  *
  * @return Standard HTTP response codes.
  */
-ZTS_API int ZTCALL zts_central_get_member(int* http_resp_code, uint64_t net_id, uint64_t node_id);
+ZTS_API int ZTCALL zts_central_member_get(int* http_resp_code, uint64_t net_id, uint64_t node_id);
 
 /**
  * @brief Update or add a Member.
@@ -823,7 +838,7 @@ ZTS_API int ZTCALL zts_central_get_member(int* http_resp_code, uint64_t net_id, 
  * @return Standard HTTP response codes.
  */
 ZTS_API int ZTCALL
-zts_central_update_member(int* http_resp_code, uint64_t net_id, uint64_t node_id, char* post_data);
+zts_central_member_update(int* http_resp_code, uint64_t net_id, uint64_t node_id, char* post_data);
 
 /**
  * @brief Authorize or (De)authorize a node on a network. This operation
@@ -834,11 +849,8 @@ zts_central_update_member(int* http_resp_code, uint64_t net_id, uint64_t node_id
  * @param is_authed Boolean value for whether this node should be authorized
  * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_ARG` if invalid arg.
  */
-ZTS_API int ZTCALL zts_central_set_node_auth(
-    int* http_resp_code,
-    uint64_t net_id,
-    uint64_t node_id,
-    uint8_t is_authed);
+ZTS_API int ZTCALL
+zts_central_node_auth(int* http_resp_code, uint64_t net_id, uint64_t node_id, uint8_t is_authed);
 
 /**
  * @brief Get All Members of a Network.
@@ -847,7 +859,7 @@ ZTS_API int ZTCALL zts_central_set_node_auth(
  *
  * @return Standard HTTP response codes.
  */
-ZTS_API int ZTCALL zts_central_get_members_of_network(int* http_resp_code, uint64_t net_id);
+ZTS_API int ZTCALL zts_central_net_get_members(int* http_resp_code, uint64_t net_id);
 
 #endif   // ZTS_DISABLE_CENTRAL_API
 
@@ -935,7 +947,7 @@ ZTS_API int ZTCALL zts_init_blacklist_if(char* prefix, int len);
 ZTS_API int ZTCALL zts_init_blacklist_ip6(char* cidr, int len);
 ZTS_API int ZTCALL zts_init_blacklist_ip4(char* cidr, int len);
 
-ZTS_API int ZTCALL zts_init_set_planet(char* src, int len);
+ZTS_API int ZTCALL zts_init_set_planet(char* planet_data, int len);
 
 /**
  * @brief Set the port to which the node should bind. This is an initialization function that can
@@ -1296,16 +1308,16 @@ ZTS_API void ZTCALL zts_delay_ms(long interval_ms);
 
 #ifdef ZTS_ENABLE_STATS
 
-	#define ZTS_STATS_PROTOCOL_LINK     0
-	#define ZTS_STATS_PROTOCOL_ETHARP   1
-	#define ZTS_STATS_PROTOCOL_IP       2
-	#define ZTS_STATS_PROTOCOL_UDP      3
-	#define ZTS_STATS_PROTOCOL_TCP      4
-	#define ZTS_STATS_PROTOCOL_ICMP     5
-	#define ZTS_STATS_PROTOCOL_IP_FRAG  6
-	#define ZTS_STATS_PROTOCOL_IP6      7
-	#define ZTS_STATS_PROTOCOL_ICMP6    8
-	#define ZTS_STATS_PROTOCOL_IP6_FRAG 9
+#define ZTS_STATS_PROTOCOL_LINK     0
+#define ZTS_STATS_PROTOCOL_ETHARP   1
+#define ZTS_STATS_PROTOCOL_IP       2
+#define ZTS_STATS_PROTOCOL_UDP      3
+#define ZTS_STATS_PROTOCOL_TCP      4
+#define ZTS_STATS_PROTOCOL_ICMP     5
+#define ZTS_STATS_PROTOCOL_IP_FRAG  6
+#define ZTS_STATS_PROTOCOL_IP6      7
+#define ZTS_STATS_PROTOCOL_ICMP6    8
+#define ZTS_STATS_PROTOCOL_IP6_FRAG 9
 
 /** Protocol related stats */
 struct zts_stats_proto {
@@ -1707,38 +1719,36 @@ ZTS_API int ZTCALL zts_close(int fd);
 #define MEMP_NUM_NETCONN   1024
 
 #ifndef ZTS_FD_SET
-	#undef ZTS_FD_SETSIZE
-	// Make FD_SETSIZE match NUM_SOCKETS in socket.c
-	#define ZTS_FD_SETSIZE MEMP_NUM_NETCONN
-	#define ZTS_FDSETSAFESET(n, code)                                                              \
-		do {                                                                                       \
-			if (((n)-LWIP_SOCKET_OFFSET < MEMP_NUM_NETCONN)                                        \
-			    && (((int)(n)-LWIP_SOCKET_OFFSET) >= 0)) {                                         \
-				code;                                                                              \
-			}                                                                                      \
-		} while (0)
-	#define ZTS_FDSETSAFEGET(n, code)                                                              \
-		(((n)-LWIP_SOCKET_OFFSET < MEMP_NUM_NETCONN) && (((int)(n)-LWIP_SOCKET_OFFSET) >= 0)       \
-		     ? (code)                                                                              \
-		     : 0)
-	#define ZTS_FD_SET(n, p)                                                                       \
-		ZTS_FDSETSAFESET(                                                                          \
-		    n,                                                                                     \
-		    (p)->fd_bits[((n)-LWIP_SOCKET_OFFSET) / 8] |= (1 << (((n)-LWIP_SOCKET_OFFSET) & 7)))
-	#define ZTS_FD_CLR(n, p)                                                                       \
-		ZTS_FDSETSAFESET(                                                                          \
-		    n,                                                                                     \
-		    (p)->fd_bits[((n)-LWIP_SOCKET_OFFSET) / 8] &= ~(1 << (((n)-LWIP_SOCKET_OFFSET) & 7)))
-	#define ZTS_FD_ISSET(n, p)                                                                     \
-		ZTS_FDSETSAFEGET(                                                                          \
-		    n,                                                                                     \
-		    (p)->fd_bits[((n)-LWIP_SOCKET_OFFSET) / 8] & (1 << (((n)-LWIP_SOCKET_OFFSET) & 7)))
-	#define ZTS_FD_ZERO(p) memset((void*)(p), 0, sizeof(*(p)))
+#undef ZTS_FD_SETSIZE
+// Make FD_SETSIZE match NUM_SOCKETS in socket.c
+#define ZTS_FD_SETSIZE MEMP_NUM_NETCONN
+#define ZTS_FDSETSAFESET(n, code)                                                                  \
+	do {                                                                                           \
+		if (((n)-LWIP_SOCKET_OFFSET < MEMP_NUM_NETCONN) && (((int)(n)-LWIP_SOCKET_OFFSET) >= 0)) { \
+			code;                                                                                  \
+		}                                                                                          \
+	} while (0)
+#define ZTS_FDSETSAFEGET(n, code)                                                                  \
+	(((n)-LWIP_SOCKET_OFFSET < MEMP_NUM_NETCONN) && (((int)(n)-LWIP_SOCKET_OFFSET) >= 0) ? (code)  \
+	                                                                                     : 0)
+#define ZTS_FD_SET(n, p)                                                                           \
+	ZTS_FDSETSAFESET(                                                                              \
+	    n,                                                                                         \
+	    (p)->fd_bits[((n)-LWIP_SOCKET_OFFSET) / 8] |= (1 << (((n)-LWIP_SOCKET_OFFSET) & 7)))
+#define ZTS_FD_CLR(n, p)                                                                           \
+	ZTS_FDSETSAFESET(                                                                              \
+	    n,                                                                                         \
+	    (p)->fd_bits[((n)-LWIP_SOCKET_OFFSET) / 8] &= ~(1 << (((n)-LWIP_SOCKET_OFFSET) & 7)))
+#define ZTS_FD_ISSET(n, p)                                                                         \
+	ZTS_FDSETSAFEGET(                                                                              \
+	    n,                                                                                         \
+	    (p)->fd_bits[((n)-LWIP_SOCKET_OFFSET) / 8] & (1 << (((n)-LWIP_SOCKET_OFFSET) & 7)))
+#define ZTS_FD_ZERO(p) memset((void*)(p), 0, sizeof(*(p)))
 
 #elif LWIP_SOCKET_OFFSET
-	#error LWIP_SOCKET_OFFSET does not work with external FD_SET!
+#error LWIP_SOCKET_OFFSET does not work with external FD_SET!
 #elif ZTS_FD_SETSIZE < MEMP_NUM_NETCONN
-	#error "external ZTS_FD_SETSIZE too small for number of sockets"
+#error "external ZTS_FD_SETSIZE too small for number of sockets"
 #endif   // FD_SET
 
 typedef struct zts_fd_set {
