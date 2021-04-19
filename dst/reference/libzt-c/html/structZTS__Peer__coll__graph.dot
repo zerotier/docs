@@ -6,4 +6,6 @@ digraph "ZTS_Peer"
   Node1 [label="ZTS_Peer",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" paths" ,fontname="Helvetica"];
   Node2 [label="ZTS_PeerPhysicalPath",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structZTS__PeerPhysicalPath.html",tooltip=" "];
+  Node3 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" address" ,fontname="Helvetica"];
+  Node3 [label="zts_sockaddr_storage",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structzts__sockaddr__storage.html",tooltip=" "];
 }

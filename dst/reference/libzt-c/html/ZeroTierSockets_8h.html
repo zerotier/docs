@@ -108,6 +108,14 @@ Include dependency graph for ZeroTierSockets.h:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzts__sockaddr__in.html">zts_sockaddr_in</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzts__sockaddr__in6.html">zts_sockaddr_in6</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzts__sockaddr.html">zts_sockaddr</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structzts__sockaddr__storage.html">zts_sockaddr_storage</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structZTS__Node.html">ZTS_Node</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structZTS__Address.html">ZTS_Address</a></td></tr>
@@ -139,10 +147,22 @@ Macros</h2></td></tr>
 #define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#af07cc78fb637f652ad5e63c04a4ae113">ZTS_EINTR</a>&#160;&#160;&#160;4</td></tr>
 <tr class="memdesc:af07cc78fb637f652ad5e63c04a4ae113"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interrupted system call. <br /></td></tr>
 <tr class="separator:af07cc78fb637f652ad5e63c04a4ae113"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9afefc4709b3a94101d189f61769789e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a9afefc4709b3a94101d189f61769789e">ZTS_EIO</a>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:a9afefc4709b3a94101d189f61769789e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85e99be040fa69322df19a9f4d9d31bc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a85e99be040fa69322df19a9f4d9d31bc">ZTS_ENXIO</a>&#160;&#160;&#160;6</td></tr>
+<tr class="separator:a85e99be040fa69322df19a9f4d9d31bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa50428481ab33f0a469028a7db3e0635"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#aa50428481ab33f0a469028a7db3e0635">ZTS_E2BIG</a>&#160;&#160;&#160;7</td></tr>
+<tr class="separator:aa50428481ab33f0a469028a7db3e0635"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea0386a5763402bd397b2b9d6db3188e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#aea0386a5763402bd397b2b9d6db3188e">ZTS_MAC_ADDRSTRLEN</a>&#160;&#160;&#160;18</td></tr>
 <tr class="separator:aea0386a5763402bd397b2b9d6db3188e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2c0a21d2f5cc1e86441df52cd0da89a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ab2c0a21d2f5cc1e86441df52cd0da89a">ZTS_IP_MAX_STR_LEN</a>&#160;&#160;&#160;ZTS_INET6_ADDRSTRLEN</td></tr>
+<tr class="memitem:a8379b60edc5521dd523f7f8dace6f2fc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a8379b60edc5521dd523f7f8dace6f2fc">ZTS_INET_ADDRSTRLEN</a>&#160;&#160;&#160;16</td></tr>
+<tr class="separator:a8379b60edc5521dd523f7f8dace6f2fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3158761fce1cb9a3c4366857f9ef11f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#aa3158761fce1cb9a3c4366857f9ef11f">ZTS_INET6_ADDRSTRLEN</a>&#160;&#160;&#160;46</td></tr>
+<tr class="separator:aa3158761fce1cb9a3c4366857f9ef11f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2c0a21d2f5cc1e86441df52cd0da89a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ab2c0a21d2f5cc1e86441df52cd0da89a">ZTS_IP_MAX_STR_LEN</a>&#160;&#160;&#160;<a class="el" href="ZeroTierSockets_8h.html#aa3158761fce1cb9a3c4366857f9ef11f">ZTS_INET6_ADDRSTRLEN</a></td></tr>
 <tr class="separator:ab2c0a21d2f5cc1e86441df52cd0da89a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28a182f8a272ab6b4e1a0d1b388da81a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a28a182f8a272ab6b4e1a0d1b388da81a">ZTS_STORE_DATA_LEN</a>&#160;&#160;&#160;4096</td></tr>
+<tr class="separator:a28a182f8a272ab6b4e1a0d1b388da81a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1cb62a7b7716a91fbb0a9fe9a4b4ca3f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a1cb62a7b7716a91fbb0a9fe9a4b4ca3f">ZTS_IPADDR_NONE</a>&#160;&#160;&#160;((uint32_t)0xffffffffUL)</td></tr>
 <tr class="separator:a1cb62a7b7716a91fbb0a9fe9a4b4ca3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2510c754a85003d80974ebe4ccbeae1e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a2510c754a85003d80974ebe4ccbeae1e">ZTS_IPADDR_LOOPBACK</a>&#160;&#160;&#160;((uint32_t)0x7f000001UL)</td></tr>
@@ -224,12 +244,12 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303afa5b0a3eddafc65fc04ccfa6e4ab2b4b">ZTS_EVENT_ADDR_REMOVED_IP4</a> = 261, 
 <a class="el" href="ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303a76ea2a7063ee03a1facef8eaf3eef2cb">ZTS_EVENT_ADDR_ADDED_IP6</a> = 262, 
 <a class="el" href="ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303a3c23ca320cc62554f8347b5a6d9cee45">ZTS_EVENT_ADDR_REMOVED_IP6</a> = 263, 
-<a class="el" href="ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303ab5d90cd32b8d58e148781180e7714560">ZTS_CACHE_UPDATE_IDENTITY_SECRET</a> = 270, 
+<a class="el" href="ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303a85b70e208eb4d4129c199de35c5e6c8c">ZTS_STORE_UPDATE_IDENTITY_SECRET</a> = 270, 
 <br />
-&#160;&#160;<a class="el" href="ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303ab3385d9308b9d75f3a207ba9c8fe6885">ZTS_CACHE_UPDATE_IDENTITY_PUBLIC</a> = 271, 
-<a class="el" href="ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303a7b5a70e52a4768ccca0f3426cf95f772">ZTS_CACHE_UPDATE_PLANET</a> = 272, 
-<a class="el" href="ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303a26044593659240eb0fd29a88e1019da6">ZTS_CACHE_UPDATE_PEER</a> = 273, 
-<a class="el" href="ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303a68e2210fa66ba8ce2cccb96444fda2be">ZTS_CACHE_UPDATE_NETWORK</a> = 274
+&#160;&#160;<a class="el" href="ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303ae37b4ada09b2cbd2d97fd87ab63e4965">ZTS_STORE_UPDATE_IDENTITY_PUBLIC</a> = 271, 
+<a class="el" href="ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303a13f54e3d6fe1b982d20885911c30c7c2">ZTS_STORE_UPDATE_PLANET</a> = 272, 
+<a class="el" href="ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303a7938a0f3075ee41a343b2345eaf2232e">ZTS_STORE_UPDATE_PEER</a> = 273, 
+<a class="el" href="ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303a2cca66788cc00e65c43c2326616d128f">ZTS_STORE_UPDATE_NETWORK</a> = 274
 <br />
  }</td></tr>
 <tr class="separator:aa0a61b9df274611d908ed2fac35d7303"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -248,36 +268,36 @@ Functions</h2></td></tr>
 <tr class="memitem:a9a1806f1259901d0fae836966daecc39"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a9a1806f1259901d0fae836966daecc39">zts_central_get_last_resp_buf</a> (char *dst, int len)</td></tr>
 <tr class="memdesc:a9a1806f1259901d0fae836966daecc39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies the <code>JSON</code>-formatted string buffer from the last request into a user-provided buffer.  <a href="ZeroTierSockets_8h.html#a9a1806f1259901d0fae836966daecc39">More...</a><br /></td></tr>
 <tr class="separator:a9a1806f1259901d0fae836966daecc39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2c79990928f889ec0252c35c89788e9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ac2c79990928f889ec0252c35c89788e9">zts_central_get_status</a> (int *http_resp_code)</td></tr>
-<tr class="memdesc:ac2c79990928f889ec0252c35c89788e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the status of the Central API server.  <a href="ZeroTierSockets_8h.html#ac2c79990928f889ec0252c35c89788e9">More...</a><br /></td></tr>
-<tr class="separator:ac2c79990928f889ec0252c35c89788e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a901eede44e048604c6066e1f033fc8b0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a901eede44e048604c6066e1f033fc8b0">zts_central_get_self</a> (int *http_resp_code)</td></tr>
-<tr class="memdesc:a901eede44e048604c6066e1f033fc8b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the currently authenticated user’s record.  <a href="ZeroTierSockets_8h.html#a901eede44e048604c6066e1f033fc8b0">More...</a><br /></td></tr>
-<tr class="separator:a901eede44e048604c6066e1f033fc8b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd74100168afa8e8d553cee98592bef8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#abd74100168afa8e8d553cee98592bef8">zts_central_get_network</a> (int *http_resp_code, uint64_t net_id)</td></tr>
-<tr class="memdesc:abd74100168afa8e8d553cee98592bef8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve a <code>Network</code>.  <a href="ZeroTierSockets_8h.html#abd74100168afa8e8d553cee98592bef8">More...</a><br /></td></tr>
-<tr class="separator:abd74100168afa8e8d553cee98592bef8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af52b9c4f9b5cf95011cff5e84dbe1899"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#af52b9c4f9b5cf95011cff5e84dbe1899">zts_central_update_network</a> (int *http_resp_code, uint64_t net_id)</td></tr>
-<tr class="memdesc:af52b9c4f9b5cf95011cff5e84dbe1899"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update or create a <code>Network</code>.  <a href="ZeroTierSockets_8h.html#af52b9c4f9b5cf95011cff5e84dbe1899">More...</a><br /></td></tr>
-<tr class="separator:af52b9c4f9b5cf95011cff5e84dbe1899"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae2c2ad823094fcda6f74db1849af26a0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ae2c2ad823094fcda6f74db1849af26a0">zts_central_delete_network</a> (int *http_resp_code, uint64_t net_id)</td></tr>
-<tr class="memdesc:ae2c2ad823094fcda6f74db1849af26a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete a Network.  <a href="ZeroTierSockets_8h.html#ae2c2ad823094fcda6f74db1849af26a0">More...</a><br /></td></tr>
-<tr class="separator:ae2c2ad823094fcda6f74db1849af26a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adeca1cd8b54639dd3b704130ab453fbd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#adeca1cd8b54639dd3b704130ab453fbd">zts_central_get_networks</a> (int *http_resp_code)</td></tr>
-<tr class="memdesc:adeca1cd8b54639dd3b704130ab453fbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get All Viewable Networks.  <a href="ZeroTierSockets_8h.html#adeca1cd8b54639dd3b704130ab453fbd">More...</a><br /></td></tr>
-<tr class="separator:adeca1cd8b54639dd3b704130ab453fbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac53a9d49d50380c2ad7164b5c88cfb42"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ac53a9d49d50380c2ad7164b5c88cfb42">zts_central_get_member</a> (int *http_resp_code, uint64_t net_id, uint64_t node_id)</td></tr>
-<tr class="memdesc:ac53a9d49d50380c2ad7164b5c88cfb42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve a Member.  <a href="ZeroTierSockets_8h.html#ac53a9d49d50380c2ad7164b5c88cfb42">More...</a><br /></td></tr>
-<tr class="separator:ac53a9d49d50380c2ad7164b5c88cfb42"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8dceee291725e1acca1be06406e83b6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ad8dceee291725e1acca1be06406e83b6">zts_central_update_member</a> (int *http_resp_code, uint64_t net_id, uint64_t node_id, char *post_data)</td></tr>
-<tr class="memdesc:ad8dceee291725e1acca1be06406e83b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update or add a Member.  <a href="ZeroTierSockets_8h.html#ad8dceee291725e1acca1be06406e83b6">More...</a><br /></td></tr>
-<tr class="separator:ad8dceee291725e1acca1be06406e83b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a95dd08da88d638116b7a8c13eb5784"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a0a95dd08da88d638116b7a8c13eb5784">zts_central_set_node_auth</a> (int *http_resp_code, uint64_t net_id, uint64_t node_id, uint8_t is_authed)</td></tr>
-<tr class="memdesc:a0a95dd08da88d638116b7a8c13eb5784"><td class="mdescLeft">&#160;</td><td class="mdescRight">Authorize or (De)authorize a node on a network. This operation is idempotent.  <a href="ZeroTierSockets_8h.html#a0a95dd08da88d638116b7a8c13eb5784">More...</a><br /></td></tr>
-<tr class="separator:a0a95dd08da88d638116b7a8c13eb5784"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfa1518ad8ffed935372b95c5abae711"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#acfa1518ad8ffed935372b95c5abae711">zts_central_get_members_of_network</a> (int *http_resp_code, uint64_t net_id)</td></tr>
-<tr class="memdesc:acfa1518ad8ffed935372b95c5abae711"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get All Members of a Network.  <a href="ZeroTierSockets_8h.html#acfa1518ad8ffed935372b95c5abae711">More...</a><br /></td></tr>
-<tr class="separator:acfa1518ad8ffed935372b95c5abae711"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21ab6a0268ae0b38c2bdfe8156d4cce7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a21ab6a0268ae0b38c2bdfe8156d4cce7">zts_central_status_get</a> (int *http_resp_code)</td></tr>
+<tr class="memdesc:a21ab6a0268ae0b38c2bdfe8156d4cce7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the status of the Central API server.  <a href="ZeroTierSockets_8h.html#a21ab6a0268ae0b38c2bdfe8156d4cce7">More...</a><br /></td></tr>
+<tr class="separator:a21ab6a0268ae0b38c2bdfe8156d4cce7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c264d26096779bbc7274cfdc9a21f58"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a6c264d26096779bbc7274cfdc9a21f58">zts_central_self_get</a> (int *http_resp_code)</td></tr>
+<tr class="memdesc:a6c264d26096779bbc7274cfdc9a21f58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the currently authenticated user’s record.  <a href="ZeroTierSockets_8h.html#a6c264d26096779bbc7274cfdc9a21f58">More...</a><br /></td></tr>
+<tr class="separator:a6c264d26096779bbc7274cfdc9a21f58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a070c6527b2dd751812b81c826ef6fb73"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a070c6527b2dd751812b81c826ef6fb73">zts_central_net_get</a> (int *http_resp_code, uint64_t net_id)</td></tr>
+<tr class="memdesc:a070c6527b2dd751812b81c826ef6fb73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve a <code>Network</code>.  <a href="ZeroTierSockets_8h.html#a070c6527b2dd751812b81c826ef6fb73">More...</a><br /></td></tr>
+<tr class="separator:a070c6527b2dd751812b81c826ef6fb73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a877c35d8111084174a6a4859d74dbf61"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a877c35d8111084174a6a4859d74dbf61">zts_central_net_update</a> (int *http_resp_code, uint64_t net_id)</td></tr>
+<tr class="memdesc:a877c35d8111084174a6a4859d74dbf61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update or create a <code>Network</code>.  <a href="ZeroTierSockets_8h.html#a877c35d8111084174a6a4859d74dbf61">More...</a><br /></td></tr>
+<tr class="separator:a877c35d8111084174a6a4859d74dbf61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b0bb7cc0a77a76ffa3fa60b5c47ec0a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a2b0bb7cc0a77a76ffa3fa60b5c47ec0a">zts_central_net_delete</a> (int *http_resp_code, uint64_t net_id)</td></tr>
+<tr class="memdesc:a2b0bb7cc0a77a76ffa3fa60b5c47ec0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete a Network.  <a href="ZeroTierSockets_8h.html#a2b0bb7cc0a77a76ffa3fa60b5c47ec0a">More...</a><br /></td></tr>
+<tr class="separator:a2b0bb7cc0a77a76ffa3fa60b5c47ec0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a852f325073621e337d7c7cf96b5cbdb5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a852f325073621e337d7c7cf96b5cbdb5">zts_central_net_get_all</a> (int *http_resp_code)</td></tr>
+<tr class="memdesc:a852f325073621e337d7c7cf96b5cbdb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get All Viewable Networks.  <a href="ZeroTierSockets_8h.html#a852f325073621e337d7c7cf96b5cbdb5">More...</a><br /></td></tr>
+<tr class="separator:a852f325073621e337d7c7cf96b5cbdb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a20c76ada59592feb5a23ab552079af"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a1a20c76ada59592feb5a23ab552079af">zts_central_member_get</a> (int *http_resp_code, uint64_t net_id, uint64_t node_id)</td></tr>
+<tr class="memdesc:a1a20c76ada59592feb5a23ab552079af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve a Member.  <a href="ZeroTierSockets_8h.html#a1a20c76ada59592feb5a23ab552079af">More...</a><br /></td></tr>
+<tr class="separator:a1a20c76ada59592feb5a23ab552079af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a195e6dda8942dc00fb67bca69c4e3c29"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a195e6dda8942dc00fb67bca69c4e3c29">zts_central_member_update</a> (int *http_resp_code, uint64_t net_id, uint64_t node_id, char *post_data)</td></tr>
+<tr class="memdesc:a195e6dda8942dc00fb67bca69c4e3c29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update or add a Member.  <a href="ZeroTierSockets_8h.html#a195e6dda8942dc00fb67bca69c4e3c29">More...</a><br /></td></tr>
+<tr class="separator:a195e6dda8942dc00fb67bca69c4e3c29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb9a6c17bfd7de33ba309caa4d17040e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#adb9a6c17bfd7de33ba309caa4d17040e">zts_central_node_auth</a> (int *http_resp_code, uint64_t net_id, uint64_t node_id, uint8_t is_authed)</td></tr>
+<tr class="memdesc:adb9a6c17bfd7de33ba309caa4d17040e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Authorize or (De)authorize a node on a network. This operation is idempotent.  <a href="ZeroTierSockets_8h.html#adb9a6c17bfd7de33ba309caa4d17040e">More...</a><br /></td></tr>
+<tr class="separator:adb9a6c17bfd7de33ba309caa4d17040e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77e26b5db486900917eaf2493f5ee8ac"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a77e26b5db486900917eaf2493f5ee8ac">zts_central_net_get_members</a> (int *http_resp_code, uint64_t net_id)</td></tr>
+<tr class="memdesc:a77e26b5db486900917eaf2493f5ee8ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get All Members of a Network.  <a href="ZeroTierSockets_8h.html#a77e26b5db486900917eaf2493f5ee8ac">More...</a><br /></td></tr>
+<tr class="separator:a77e26b5db486900917eaf2493f5ee8ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84b5b4becda648ad0c137c6968ca5f86"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a84b5b4becda648ad0c137c6968ca5f86">zts_id_new</a> (char *key, uint16_t *key_buf_len)</td></tr>
 <tr class="memdesc:a84b5b4becda648ad0c137c6968ca5f86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a node identity (public/secret key-pair) and stores it in a user-provided buffer.  <a href="ZeroTierSockets_8h.html#a84b5b4becda648ad0c137c6968ca5f86">More...</a><br /></td></tr>
 <tr class="separator:a84b5b4becda648ad0c137c6968ca5f86"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -305,19 +325,19 @@ Functions</h2></td></tr>
 <tr class="memitem:a4f41eab535ed11797dfe1dda56739b54"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a4f41eab535ed11797dfe1dda56739b54">zts_addr_is_assigned</a> (uint64_t net_id, int family)</td></tr>
 <tr class="memdesc:a4f41eab535ed11797dfe1dda56739b54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return whether an address of the given family has been assigned by the network.  <a href="ZeroTierSockets_8h.html#a4f41eab535ed11797dfe1dda56739b54">More...</a><br /></td></tr>
 <tr class="separator:a4f41eab535ed11797dfe1dda56739b54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aacda97f8304d1c0a029979e8b642ab82"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#aacda97f8304d1c0a029979e8b642ab82">zts_addr_get</a> (uint64_t net_id, int family, struct zts_sockaddr_storage *addr)</td></tr>
+<tr class="memitem:aacda97f8304d1c0a029979e8b642ab82"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#aacda97f8304d1c0a029979e8b642ab82">zts_addr_get</a> (uint64_t net_id, int family, struct <a class="el" href="structzts__sockaddr__storage.html">zts_sockaddr_storage</a> *addr)</td></tr>
 <tr class="memdesc:aacda97f8304d1c0a029979e8b642ab82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first-assigned IP on the given network.  <a href="ZeroTierSockets_8h.html#aacda97f8304d1c0a029979e8b642ab82">More...</a><br /></td></tr>
 <tr class="separator:aacda97f8304d1c0a029979e8b642ab82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1629b5d5b570cd5e23c17f729268dd34"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a1629b5d5b570cd5e23c17f729268dd34">zts_addr_get_str</a> (uint64_t net_id, int family, char *dst, int len)</td></tr>
 <tr class="memdesc:a1629b5d5b570cd5e23c17f729268dd34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first-assigned IP on the given network as a null-terminated human-readable string.  <a href="ZeroTierSockets_8h.html#a1629b5d5b570cd5e23c17f729268dd34">More...</a><br /></td></tr>
 <tr class="separator:a1629b5d5b570cd5e23c17f729268dd34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a739a5acc86e9465c198f9d10cfda6734"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a739a5acc86e9465c198f9d10cfda6734">zts_addr_get_all</a> (uint64_t net_id, struct zts_sockaddr_storage *addr, int *count)</td></tr>
+<tr class="memitem:a739a5acc86e9465c198f9d10cfda6734"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a739a5acc86e9465c198f9d10cfda6734">zts_addr_get_all</a> (uint64_t net_id, struct <a class="el" href="structzts__sockaddr__storage.html">zts_sockaddr_storage</a> *addr, int *count)</td></tr>
 <tr class="memdesc:a739a5acc86e9465c198f9d10cfda6734"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get all IP addresses assigned to this node by the given network.  <a href="ZeroTierSockets_8h.html#a739a5acc86e9465c198f9d10cfda6734">More...</a><br /></td></tr>
 <tr class="separator:a739a5acc86e9465c198f9d10cfda6734"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3a3b5e96b71cf0c97bc8d2f4d9746c4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ae3a3b5e96b71cf0c97bc8d2f4d9746c4">zts_addr_compute_6plane</a> (const uint64_t net_id, const uint64_t node_id, struct zts_sockaddr_storage *addr)</td></tr>
+<tr class="memitem:ae3a3b5e96b71cf0c97bc8d2f4d9746c4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ae3a3b5e96b71cf0c97bc8d2f4d9746c4">zts_addr_compute_6plane</a> (const uint64_t net_id, const uint64_t node_id, struct <a class="el" href="structzts__sockaddr__storage.html">zts_sockaddr_storage</a> *addr)</td></tr>
 <tr class="memdesc:ae3a3b5e96b71cf0c97bc8d2f4d9746c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute a <code>6PLANE</code> IPv6 address for the given Network ID and Node ID.  <a href="ZeroTierSockets_8h.html#ae3a3b5e96b71cf0c97bc8d2f4d9746c4">More...</a><br /></td></tr>
 <tr class="separator:ae3a3b5e96b71cf0c97bc8d2f4d9746c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32ce88604b804b883e8e74623d216523"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a32ce88604b804b883e8e74623d216523">zts_addr_compute_rfc4193</a> (const uint64_t net_id, const uint64_t node_id, struct zts_sockaddr_storage *addr)</td></tr>
+<tr class="memitem:a32ce88604b804b883e8e74623d216523"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a32ce88604b804b883e8e74623d216523">zts_addr_compute_rfc4193</a> (const uint64_t net_id, const uint64_t node_id, struct <a class="el" href="structzts__sockaddr__storage.html">zts_sockaddr_storage</a> *addr)</td></tr>
 <tr class="memdesc:a32ce88604b804b883e8e74623d216523"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute <code>RFC4193</code> IPv6 address for the given Network ID and Node ID.  <a href="ZeroTierSockets_8h.html#a32ce88604b804b883e8e74623d216523">More...</a><br /></td></tr>
 <tr class="separator:a32ce88604b804b883e8e74623d216523"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad140ecb434b823807d6590eaae75ffcf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ad140ecb434b823807d6590eaae75ffcf">zts_addr_compute_rfc4193_str</a> (uint64_t net_id, uint64_t node_id, char *dst, int len)</td></tr>
@@ -380,13 +400,13 @@ Functions</h2></td></tr>
 <tr class="memitem:ade4842a34db57b12bfdefd1a3c6c7dc7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ade4842a34db57b12bfdefd1a3c6c7dc7">zts_socket</a> (const int socket_family, const int socket_type, const int protocol)</td></tr>
 <tr class="memdesc:ade4842a34db57b12bfdefd1a3c6c7dc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a socket.  <a href="ZeroTierSockets_8h.html#ade4842a34db57b12bfdefd1a3c6c7dc7">More...</a><br /></td></tr>
 <tr class="separator:ade4842a34db57b12bfdefd1a3c6c7dc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78748e1ad27e68ce06f960395da73435"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a78748e1ad27e68ce06f960395da73435">zts_connect</a> (int fd, const struct zts_sockaddr *addr, zts_socklen_t addrlen)</td></tr>
+<tr class="memitem:a78748e1ad27e68ce06f960395da73435"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a78748e1ad27e68ce06f960395da73435">zts_connect</a> (int fd, const struct <a class="el" href="structzts__sockaddr.html">zts_sockaddr</a> *addr, zts_socklen_t addrlen)</td></tr>
 <tr class="memdesc:a78748e1ad27e68ce06f960395da73435"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connect a socket to a remote host.  <a href="ZeroTierSockets_8h.html#a78748e1ad27e68ce06f960395da73435">More...</a><br /></td></tr>
 <tr class="separator:a78748e1ad27e68ce06f960395da73435"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33f77408d84469dca96dc71a390d4d6f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a33f77408d84469dca96dc71a390d4d6f">zts_prim_connect</a> (int fd, int family, char *ipstr, int port, int timeout_ms)</td></tr>
 <tr class="memdesc:a33f77408d84469dca96dc71a390d4d6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connect a socket to a remote host.  <a href="ZeroTierSockets_8h.html#a33f77408d84469dca96dc71a390d4d6f">More...</a><br /></td></tr>
 <tr class="separator:a33f77408d84469dca96dc71a390d4d6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59c292d2e9cab9a032cac650292bcad3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a59c292d2e9cab9a032cac650292bcad3">zts_bind</a> (int fd, const struct zts_sockaddr *addr, zts_socklen_t addrlen)</td></tr>
+<tr class="memitem:a59c292d2e9cab9a032cac650292bcad3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a59c292d2e9cab9a032cac650292bcad3">zts_bind</a> (int fd, const struct <a class="el" href="structzts__sockaddr.html">zts_sockaddr</a> *addr, zts_socklen_t addrlen)</td></tr>
 <tr class="memdesc:a59c292d2e9cab9a032cac650292bcad3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bind a socket to a local address.  <a href="ZeroTierSockets_8h.html#a59c292d2e9cab9a032cac650292bcad3">More...</a><br /></td></tr>
 <tr class="separator:a59c292d2e9cab9a032cac650292bcad3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a564392efdce9f91bda4b1b9e2937a827"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a564392efdce9f91bda4b1b9e2937a827">zts_prim_bind</a> (int fd, int family, char *ipstr, int port)</td></tr>
@@ -395,7 +415,7 @@ Functions</h2></td></tr>
 <tr class="memitem:a9671b0cd2cdcc097cba4dceb66512d86"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a9671b0cd2cdcc097cba4dceb66512d86">zts_listen</a> (int fd, int backlog)</td></tr>
 <tr class="memdesc:a9671b0cd2cdcc097cba4dceb66512d86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Listen for incoming connections on socket.  <a href="ZeroTierSockets_8h.html#a9671b0cd2cdcc097cba4dceb66512d86">More...</a><br /></td></tr>
 <tr class="separator:a9671b0cd2cdcc097cba4dceb66512d86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada54150e3756742502da4d3ec73a891c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ada54150e3756742502da4d3ec73a891c">zts_accept</a> (int fd, struct zts_sockaddr *addr, zts_socklen_t *addrlen)</td></tr>
+<tr class="memitem:ada54150e3756742502da4d3ec73a891c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ada54150e3756742502da4d3ec73a891c">zts_accept</a> (int fd, struct <a class="el" href="structzts__sockaddr.html">zts_sockaddr</a> *addr, zts_socklen_t *addrlen)</td></tr>
 <tr class="memdesc:ada54150e3756742502da4d3ec73a891c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accept an incoming connection.  <a href="ZeroTierSockets_8h.html#ada54150e3756742502da4d3ec73a891c">More...</a><br /></td></tr>
 <tr class="separator:ada54150e3756742502da4d3ec73a891c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac08fd543c81084a2fbed09891b17442c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ac08fd543c81084a2fbed09891b17442c">zts_prim_accept</a> (int fd, char *remote_addr, int len, int *port)</td></tr>
@@ -407,10 +427,10 @@ Functions</h2></td></tr>
 <tr class="memitem:ab1df6ce59fc7fc91da6d73b59034b94c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ab1df6ce59fc7fc91da6d73b59034b94c">zts_getsockopt</a> (int fd, int level, int optname, void *optval, zts_socklen_t *optlen)</td></tr>
 <tr class="memdesc:ab1df6ce59fc7fc91da6d73b59034b94c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get socket options.  <a href="ZeroTierSockets_8h.html#ab1df6ce59fc7fc91da6d73b59034b94c">More...</a><br /></td></tr>
 <tr class="separator:ab1df6ce59fc7fc91da6d73b59034b94c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3dc3013d07920e87b7bb1eeb21829cd5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a3dc3013d07920e87b7bb1eeb21829cd5">zts_getsockname</a> (int fd, struct zts_sockaddr *addr, zts_socklen_t *addrlen)</td></tr>
+<tr class="memitem:a3dc3013d07920e87b7bb1eeb21829cd5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a3dc3013d07920e87b7bb1eeb21829cd5">zts_getsockname</a> (int fd, struct <a class="el" href="structzts__sockaddr.html">zts_sockaddr</a> *addr, zts_socklen_t *addrlen)</td></tr>
 <tr class="memdesc:a3dc3013d07920e87b7bb1eeb21829cd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get socket name.  <a href="ZeroTierSockets_8h.html#a3dc3013d07920e87b7bb1eeb21829cd5">More...</a><br /></td></tr>
 <tr class="separator:a3dc3013d07920e87b7bb1eeb21829cd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab576edea552a2d27610581211c3d80eb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ab576edea552a2d27610581211c3d80eb">zts_getpeername</a> (int fd, struct zts_sockaddr *addr, zts_socklen_t *addrlen)</td></tr>
+<tr class="memitem:ab576edea552a2d27610581211c3d80eb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ab576edea552a2d27610581211c3d80eb">zts_getpeername</a> (int fd, struct <a class="el" href="structzts__sockaddr.html">zts_sockaddr</a> *addr, zts_socklen_t *addrlen)</td></tr>
 <tr class="memdesc:ab576edea552a2d27610581211c3d80eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the peer name for the remote end of a connected socket.  <a href="ZeroTierSockets_8h.html#ab576edea552a2d27610581211c3d80eb">More...</a><br /></td></tr>
 <tr class="separator:ab576edea552a2d27610581211c3d80eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8185fa2fc76de69eb4c45c25c4918856"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a8185fa2fc76de69eb4c45c25c4918856">zts_close</a> (int fd)</td></tr>
@@ -431,7 +451,7 @@ Functions</h2></td></tr>
 <tr class="memitem:af179ffb8206f7f3de870fbc38c64f1b1"><td class="memItemLeft" align="right" valign="top">ssize_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#af179ffb8206f7f3de870fbc38c64f1b1">zts_send</a> (int fd, const void *buf, size_t len, int flags)</td></tr>
 <tr class="memdesc:af179ffb8206f7f3de870fbc38c64f1b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send data to remote host.  <a href="ZeroTierSockets_8h.html#af179ffb8206f7f3de870fbc38c64f1b1">More...</a><br /></td></tr>
 <tr class="separator:af179ffb8206f7f3de870fbc38c64f1b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4a9cb959f0483b51d4c470e18874957"><td class="memItemLeft" align="right" valign="top">ssize_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ac4a9cb959f0483b51d4c470e18874957">zts_sendto</a> (int fd, const void *buf, size_t len, int flags, const struct zts_sockaddr *addr, zts_socklen_t addrlen)</td></tr>
+<tr class="memitem:ac4a9cb959f0483b51d4c470e18874957"><td class="memItemLeft" align="right" valign="top">ssize_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ac4a9cb959f0483b51d4c470e18874957">zts_sendto</a> (int fd, const void *buf, size_t len, int flags, const struct <a class="el" href="structzts__sockaddr.html">zts_sockaddr</a> *addr, zts_socklen_t addrlen)</td></tr>
 <tr class="memdesc:ac4a9cb959f0483b51d4c470e18874957"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send data to remote host.  <a href="ZeroTierSockets_8h.html#ac4a9cb959f0483b51d4c470e18874957">More...</a><br /></td></tr>
 <tr class="separator:ac4a9cb959f0483b51d4c470e18874957"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abed38fe59f0f742597894610797b4902"><td class="memItemLeft" align="right" valign="top">ssize_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#abed38fe59f0f742597894610797b4902">zts_sendmsg</a> (int fd, const struct zts_msghdr *msg, int flags)</td></tr>
@@ -440,7 +460,7 @@ Functions</h2></td></tr>
 <tr class="memitem:ae519750e0423c3327b5eaac46248c841"><td class="memItemLeft" align="right" valign="top">ssize_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ae519750e0423c3327b5eaac46248c841">zts_recv</a> (int fd, void *buf, size_t len, int flags)</td></tr>
 <tr class="memdesc:ae519750e0423c3327b5eaac46248c841"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive data from remote host.  <a href="ZeroTierSockets_8h.html#ae519750e0423c3327b5eaac46248c841">More...</a><br /></td></tr>
 <tr class="separator:ae519750e0423c3327b5eaac46248c841"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38bfaf72d66ec76f47c9410df2a78a2a"><td class="memItemLeft" align="right" valign="top">ssize_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a38bfaf72d66ec76f47c9410df2a78a2a">zts_recvfrom</a> (int fd, void *buf, size_t len, int flags, struct zts_sockaddr *addr, zts_socklen_t *addrlen)</td></tr>
+<tr class="memitem:a38bfaf72d66ec76f47c9410df2a78a2a"><td class="memItemLeft" align="right" valign="top">ssize_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a38bfaf72d66ec76f47c9410df2a78a2a">zts_recvfrom</a> (int fd, void *buf, size_t len, int flags, struct <a class="el" href="structzts__sockaddr.html">zts_sockaddr</a> *addr, zts_socklen_t *addrlen)</td></tr>
 <tr class="memdesc:a38bfaf72d66ec76f47c9410df2a78a2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive data from remote host.  <a href="ZeroTierSockets_8h.html#a38bfaf72d66ec76f47c9410df2a78a2a">More...</a><br /></td></tr>
 <tr class="separator:a38bfaf72d66ec76f47c9410df2a78a2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3bb5ca55de3a0dfc97fc42ded64612ca"><td class="memItemLeft" align="right" valign="top">ssize_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a3bb5ca55de3a0dfc97fc42ded64612ca">zts_recvmsg</a> (int fd, struct zts_msghdr *msg, int flags)</td></tr>
@@ -539,7 +559,7 @@ Functions</h2></td></tr>
 <tr class="separator:aa4323d5be2e466f719bd178ac035d722"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae320f3e58f7e7c3c276d1b7f892eb5fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ae320f3e58f7e7c3c276d1b7f892eb5fe">zts_inet_pton</a> (int family, const char *src, void *dst)</td></tr>
 <tr class="separator:ae320f3e58f7e7c3c276d1b7f892eb5fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1189d841165abdc5e07ab201fa61f42f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a1189d841165abdc5e07ab201fa61f42f">zts_ipstr2sockaddr</a> (int family, char *src_ipstr, int port, struct zts_sockaddr *dstaddr, zts_socklen_t *addrlen)</td></tr>
+<tr class="memitem:a1189d841165abdc5e07ab201fa61f42f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a1189d841165abdc5e07ab201fa61f42f">zts_ipstr2sockaddr</a> (int family, char *src_ipstr, int port, struct <a class="el" href="structzts__sockaddr.html">zts_sockaddr</a> *dstaddr, zts_socklen_t *addrlen)</td></tr>
 <tr class="separator:a1189d841165abdc5e07ab201fa61f42f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
@@ -550,6 +570,51 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This defines the external C API for ZeroTier Sockets </p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="aa50428481ab33f0a469028a7db3e0635"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa50428481ab33f0a469028a7db3e0635">&#9670;&nbsp;</a></span>ZTS_E2BIG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ZTS_E2BIG&#160;&#160;&#160;7</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Arg list too long </p>
+
+</div>
+</div>
+<a id="a9afefc4709b3a94101d189f61769789e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9afefc4709b3a94101d189f61769789e">&#9670;&nbsp;</a></span>ZTS_EIO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ZTS_EIO&#160;&#160;&#160;5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>I/O error </p>
+
+</div>
+</div>
+<a id="a85e99be040fa69322df19a9f4d9d31bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85e99be040fa69322df19a9f4d9d31bc">&#9670;&nbsp;</a></span>ZTS_ENXIO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ZTS_ENXIO&#160;&#160;&#160;6</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>No such device or address </p>
+
+</div>
+</div>
 <a id="a57d95247358171ac71b99e04a8cec8db"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a57d95247358171ac71b99e04a8cec8db">&#9670;&nbsp;</a></span>ZTS_ID_STR_BUF_LEN</h2>
 
@@ -625,6 +690,36 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="aa3158761fce1cb9a3c4366857f9ef11f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3158761fce1cb9a3c4366857f9ef11f">&#9670;&nbsp;</a></span>ZTS_INET6_ADDRSTRLEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ZTS_INET6_ADDRSTRLEN&#160;&#160;&#160;46</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Max length of human-readable IPv6 string </p>
+
+</div>
+</div>
+<a id="a8379b60edc5521dd523f7f8dace6f2fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8379b60edc5521dd523f7f8dace6f2fc">&#9670;&nbsp;</a></span>ZTS_INET_ADDRSTRLEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ZTS_INET_ADDRSTRLEN&#160;&#160;&#160;16</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Max length of human-readable IPv4 string </p>
+
+</div>
+</div>
 <a id="ab2c0a21d2f5cc1e86441df52cd0da89a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab2c0a21d2f5cc1e86441df52cd0da89a">&#9670;&nbsp;</a></span>ZTS_IP_MAX_STR_LEN</h2>
 
@@ -632,7 +727,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define ZTS_IP_MAX_STR_LEN&#160;&#160;&#160;ZTS_INET6_ADDRSTRLEN</td>
+          <td class="memname">#define ZTS_IP_MAX_STR_LEN&#160;&#160;&#160;<a class="el" href="ZeroTierSockets_8h.html#aa3158761fce1cb9a3c4366857f9ef11f">ZTS_INET6_ADDRSTRLEN</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -712,6 +807,21 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Length of human-readable MAC address string </p>
+
+</div>
+</div>
+<a id="a28a182f8a272ab6b4e1a0d1b388da81a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28a182f8a272ab6b4e1a0d1b388da81a">&#9670;&nbsp;</a></span>ZTS_STORE_DATA_LEN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ZTS_STORE_DATA_LEN&#160;&#160;&#160;4096</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Required buffer length to safely receive data store items </p>
 
 </div>
 </div>
@@ -857,15 +967,15 @@ Variables</h2></td></tr>
 <tr><td class="fieldname"><a id="aa0a61b9df274611d908ed2fac35d7303a3c23ca320cc62554f8347b5a6d9cee45"></a>ZTS_EVENT_ADDR_REMOVED_IP6&#160;</td><td class="fielddoc"><p>A managed IPv6 address assignment was removed from this peer <br  />
  </p>
 </td></tr>
-<tr><td class="fieldname"><a id="aa0a61b9df274611d908ed2fac35d7303ab5d90cd32b8d58e148781180e7714560"></a>ZTS_CACHE_UPDATE_IDENTITY_SECRET&#160;</td><td class="fielddoc"><p>The node's secret key (identity) </p>
+<tr><td class="fieldname"><a id="aa0a61b9df274611d908ed2fac35d7303a85b70e208eb4d4129c199de35c5e6c8c"></a>ZTS_STORE_UPDATE_IDENTITY_SECRET&#160;</td><td class="fielddoc"><p>The node's secret key (identity) </p>
 </td></tr>
-<tr><td class="fieldname"><a id="aa0a61b9df274611d908ed2fac35d7303ab3385d9308b9d75f3a207ba9c8fe6885"></a>ZTS_CACHE_UPDATE_IDENTITY_PUBLIC&#160;</td><td class="fielddoc"><p>The node's public key (identity) </p>
+<tr><td class="fieldname"><a id="aa0a61b9df274611d908ed2fac35d7303ae37b4ada09b2cbd2d97fd87ab63e4965"></a>ZTS_STORE_UPDATE_IDENTITY_PUBLIC&#160;</td><td class="fielddoc"><p>The node's public key (identity) </p>
 </td></tr>
-<tr><td class="fieldname"><a id="aa0a61b9df274611d908ed2fac35d7303a7b5a70e52a4768ccca0f3426cf95f772"></a>ZTS_CACHE_UPDATE_PLANET&#160;</td><td class="fielddoc"><p>The node has received an updated planet config </p>
+<tr><td class="fieldname"><a id="aa0a61b9df274611d908ed2fac35d7303a13f54e3d6fe1b982d20885911c30c7c2"></a>ZTS_STORE_UPDATE_PLANET&#160;</td><td class="fielddoc"><p>The node has received an updated planet config </p>
 </td></tr>
-<tr><td class="fieldname"><a id="aa0a61b9df274611d908ed2fac35d7303a26044593659240eb0fd29a88e1019da6"></a>ZTS_CACHE_UPDATE_PEER&#160;</td><td class="fielddoc"><p>New reachability hints and peer configuration </p>
+<tr><td class="fieldname"><a id="aa0a61b9df274611d908ed2fac35d7303a7938a0f3075ee41a343b2345eaf2232e"></a>ZTS_STORE_UPDATE_PEER&#160;</td><td class="fielddoc"><p>New reachability hints and peer configuration </p>
 </td></tr>
-<tr><td class="fieldname"><a id="aa0a61b9df274611d908ed2fac35d7303a68e2210fa66ba8ce2cccb96444fda2be"></a>ZTS_CACHE_UPDATE_NETWORK&#160;</td><td class="fielddoc"><p>New network config </p>
+<tr><td class="fieldname"><a id="aa0a61b9df274611d908ed2fac35d7303a2cca66788cc00e65c43c2326616d128f"></a>ZTS_STORE_UPDATE_NETWORK&#160;</td><td class="fielddoc"><p>New network config </p>
 </td></tr>
 </table>
 
@@ -887,7 +997,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">struct zts_sockaddr *&#160;</td>
+          <td class="paramtype">struct <a class="el" href="structzts__sockaddr.html">zts_sockaddr</a> *&#160;</td>
           <td class="paramname"><em>addr</em>, </td>
         </tr>
         <tr>
@@ -938,7 +1048,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">struct zts_sockaddr_storage *&#160;</td>
+          <td class="paramtype">struct <a class="el" href="structzts__sockaddr__storage.html">zts_sockaddr_storage</a> *&#160;</td>
           <td class="paramname"><em>addr</em>&#160;</td>
         </tr>
         <tr>
@@ -1035,7 +1145,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">struct zts_sockaddr_storage *&#160;</td>
+          <td class="paramtype">struct <a class="el" href="structzts__sockaddr__storage.html">zts_sockaddr_storage</a> *&#160;</td>
           <td class="paramname"><em>addr</em>&#160;</td>
         </tr>
         <tr>
@@ -1132,7 +1242,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">struct zts_sockaddr_storage *&#160;</td>
+          <td class="paramtype">struct <a class="el" href="structzts__sockaddr__storage.html">zts_sockaddr_storage</a> *&#160;</td>
           <td class="paramname"><em>addr</em>&#160;</td>
         </tr>
         <tr>
@@ -1172,7 +1282,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">struct zts_sockaddr_storage *&#160;</td>
+          <td class="paramtype">struct <a class="el" href="structzts__sockaddr__storage.html">zts_sockaddr_storage</a> *&#160;</td>
           <td class="paramname"><em>addr</em>, </td>
         </tr>
         <tr>
@@ -1308,7 +1418,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const struct zts_sockaddr *&#160;</td>
+          <td class="paramtype">const struct <a class="el" href="structzts__sockaddr.html">zts_sockaddr</a> *&#160;</td>
           <td class="paramname"><em>addr</em>, </td>
         </tr>
         <tr>
@@ -1335,38 +1445,6 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>ZTS_ERR_OK</code> if successful, <code>ZTS_ERR_SERVICE</code> if the node experiences a problem, <code>ZTS_ERR_ARG</code> if invalid arg. Sets <code>zts_errno</code> </dd></dl>
-
-</div>
-</div>
-<a id="ae2c2ad823094fcda6f74db1849af26a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2c2ad823094fcda6f74db1849af26a0">&#9670;&nbsp;</a></span>zts_central_delete_network()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int zts_central_delete_network </td>
-          <td>(</td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>http_resp_code</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint64_t&#160;</td>
-          <td class="paramname"><em>net_id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Delete a Network. </p>
-<p>Delete a network and all its related information permanently. Use extreme caution as this cannot be undone!</p>
-<dl class="section return"><dt>Returns</dt><dd>Standard HTTP response codes. </dd></dl>
 
 </div>
 </div>
@@ -1405,170 +1483,6 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><code>ZTS_ERR_OK</code> if all contents were copied successfully. <code>ZTS_ERR_ARG</code> if provided buffer was too small. </dd></dl>
-
-</div>
-</div>
-<a id="ac53a9d49d50380c2ad7164b5c88cfb42"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac53a9d49d50380c2ad7164b5c88cfb42">&#9670;&nbsp;</a></span>zts_central_get_member()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int zts_central_get_member </td>
-          <td>(</td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>http_resp_code</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint64_t&#160;</td>
-          <td class="paramname"><em>net_id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint64_t&#160;</td>
-          <td class="paramname"><em>node_id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Retrieve a Member. </p>
-<dl class="section return"><dt>Returns</dt><dd>Standard HTTP response codes. </dd></dl>
-
-</div>
-</div>
-<a id="acfa1518ad8ffed935372b95c5abae711"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acfa1518ad8ffed935372b95c5abae711">&#9670;&nbsp;</a></span>zts_central_get_members_of_network()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int zts_central_get_members_of_network </td>
-          <td>(</td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>http_resp_code</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint64_t&#160;</td>
-          <td class="paramname"><em>net_id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get All Members of a Network. </p>
-<p>Get all members of a network for which you have at least read access.</p>
-<dl class="section return"><dt>Returns</dt><dd>Standard HTTP response codes. </dd></dl>
-
-</div>
-</div>
-<a id="abd74100168afa8e8d553cee98592bef8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abd74100168afa8e8d553cee98592bef8">&#9670;&nbsp;</a></span>zts_central_get_network()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int zts_central_get_network </td>
-          <td>(</td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>http_resp_code</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint64_t&#160;</td>
-          <td class="paramname"><em>net_id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Retrieve a <code>Network</code>. </p>
-<dl class="section return"><dt>Returns</dt><dd>Standard HTTP response codes. </dd></dl>
-
-</div>
-</div>
-<a id="adeca1cd8b54639dd3b704130ab453fbd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adeca1cd8b54639dd3b704130ab453fbd">&#9670;&nbsp;</a></span>zts_central_get_networks()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int zts_central_get_networks </td>
-          <td>(</td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>http_resp_code</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get All Viewable Networks. </p>
-<p>Get all networks for which you have at least read access.</p>
-<dl class="section return"><dt>Returns</dt><dd>Standard HTTP response codes. </dd></dl>
-
-</div>
-</div>
-<a id="a901eede44e048604c6066e1f033fc8b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a901eede44e048604c6066e1f033fc8b0">&#9670;&nbsp;</a></span>zts_central_get_self()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int zts_central_get_self </td>
-          <td>(</td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>http_resp_code</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the currently authenticated user’s record. </p>
-<dl class="section return"><dt>Returns</dt><dd>Standard HTTP response codes. </dd></dl>
-
-</div>
-</div>
-<a id="ac2c79990928f889ec0252c35c89788e9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2c79990928f889ec0252c35c89788e9">&#9670;&nbsp;</a></span>zts_central_get_status()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int zts_central_get_status </td>
-          <td>(</td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>http_resp_code</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get the status of the Central API server. </p>
-<dl class="section return"><dt>Returns</dt><dd>Standard HTTP response codes. </dd></dl>
 
 </div>
 </div>
@@ -1624,40 +1538,244 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a7fe732cd35f01d82317235e63d97d7f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7fe732cd35f01d82317235e63d97d7f8">&#9670;&nbsp;</a></span>zts_central_set_access_mode()</h2>
+<a id="a1a20c76ada59592feb5a23ab552079af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a20c76ada59592feb5a23ab552079af">&#9670;&nbsp;</a></span>zts_central_member_get()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void zts_central_set_access_mode </td>
+          <td class="memname">int zts_central_member_get </td>
           <td>(</td>
-          <td class="paramtype">int8_t&#160;</td>
-          <td class="paramname"><em>modes</em></td><td>)</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>http_resp_code</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>net_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>node_id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieve a Member. </p>
+<dl class="section return"><dt>Returns</dt><dd>Standard HTTP response codes. </dd></dl>
+
+</div>
+</div>
+<a id="a195e6dda8942dc00fb67bca69c4e3c29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a195e6dda8942dc00fb67bca69c4e3c29">&#9670;&nbsp;</a></span>zts_central_member_update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int zts_central_member_update </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>http_resp_code</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>net_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>node_id</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>post_data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Update or add a Member. </p>
+<p>New members can be added to a network by POSTing them.</p>
+<dl class="section return"><dt>Returns</dt><dd>Standard HTTP response codes. </dd></dl>
+
+</div>
+</div>
+<a id="a2b0bb7cc0a77a76ffa3fa60b5c47ec0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b0bb7cc0a77a76ffa3fa60b5c47ec0a">&#9670;&nbsp;</a></span>zts_central_net_delete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int zts_central_net_delete </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>http_resp_code</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>net_id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Delete a Network. </p>
+<p>Delete a network and all its related information permanently. Use extreme caution as this cannot be undone!</p>
+<dl class="section return"><dt>Returns</dt><dd>Standard HTTP response codes. </dd></dl>
+
+</div>
+</div>
+<a id="a070c6527b2dd751812b81c826ef6fb73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a070c6527b2dd751812b81c826ef6fb73">&#9670;&nbsp;</a></span>zts_central_net_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int zts_central_net_get </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>http_resp_code</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>net_id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieve a <code>Network</code>. </p>
+<dl class="section return"><dt>Returns</dt><dd>Standard HTTP response codes. </dd></dl>
+
+</div>
+</div>
+<a id="a852f325073621e337d7c7cf96b5cbdb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a852f325073621e337d7c7cf96b5cbdb5">&#9670;&nbsp;</a></span>zts_central_net_get_all()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int zts_central_net_get_all </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>http_resp_code</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Enable read/write capability. Default before calling this is read-only: <code>ZTS_CENTRAL_READ</code> </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">modes</td><td>Whether the API allows read, write, or both </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Get All Viewable Networks. </p>
+<p>Get all networks for which you have at least read access.</p>
+<dl class="section return"><dt>Returns</dt><dd>Standard HTTP response codes. </dd></dl>
 
 </div>
 </div>
-<a id="a0a95dd08da88d638116b7a8c13eb5784"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0a95dd08da88d638116b7a8c13eb5784">&#9670;&nbsp;</a></span>zts_central_set_node_auth()</h2>
+<a id="a77e26b5db486900917eaf2493f5ee8ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77e26b5db486900917eaf2493f5ee8ac">&#9670;&nbsp;</a></span>zts_central_net_get_members()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int zts_central_set_node_auth </td>
+          <td class="memname">int zts_central_net_get_members </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>http_resp_code</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>net_id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get All Members of a Network. </p>
+<p>Get all members of a network for which you have at least read access.</p>
+<dl class="section return"><dt>Returns</dt><dd>Standard HTTP response codes. </dd></dl>
+
+</div>
+</div>
+<a id="a877c35d8111084174a6a4859d74dbf61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a877c35d8111084174a6a4859d74dbf61">&#9670;&nbsp;</a></span>zts_central_net_update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int zts_central_net_update </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>http_resp_code</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>net_id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Update or create a <code>Network</code>. </p>
+<p>Only fields marked as [rw] can be directly modified. If other fields are present in the posted request they are ignored. New networks can be created by POSTing to /api/network with no net_id parameter. The server will create a random unused network ID and return the new network record.</p>
+<dl class="section return"><dt>Returns</dt><dd>Standard HTTP response codes. </dd></dl>
+
+</div>
+</div>
+<a id="adb9a6c17bfd7de33ba309caa4d17040e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb9a6c17bfd7de33ba309caa4d17040e">&#9670;&nbsp;</a></span>zts_central_node_auth()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int zts_central_node_auth </td>
           <td>(</td>
           <td class="paramtype">int *&#160;</td>
           <td class="paramname"><em>http_resp_code</em>, </td>
@@ -1701,6 +1819,53 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a6c264d26096779bbc7274cfdc9a21f58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c264d26096779bbc7274cfdc9a21f58">&#9670;&nbsp;</a></span>zts_central_self_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int zts_central_self_get </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>http_resp_code</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the currently authenticated user’s record. </p>
+<dl class="section return"><dt>Returns</dt><dd>Standard HTTP response codes. </dd></dl>
+
+</div>
+</div>
+<a id="a7fe732cd35f01d82317235e63d97d7f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fe732cd35f01d82317235e63d97d7f8">&#9670;&nbsp;</a></span>zts_central_set_access_mode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void zts_central_set_access_mode </td>
+          <td>(</td>
+          <td class="paramtype">int8_t&#160;</td>
+          <td class="paramname"><em>modes</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enable read/write capability. Default before calling this is read-only: <code>ZTS_CENTRAL_READ</code> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">modes</td><td>Whether the API allows read, write, or both </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="abe74724d792163c3089a420abcebbd4c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abe74724d792163c3089a420abcebbd4c">&#9670;&nbsp;</a></span>zts_central_set_verbose()</h2>
 
@@ -1727,78 +1892,23 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ad8dceee291725e1acca1be06406e83b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad8dceee291725e1acca1be06406e83b6">&#9670;&nbsp;</a></span>zts_central_update_member()</h2>
+<a id="a21ab6a0268ae0b38c2bdfe8156d4cce7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21ab6a0268ae0b38c2bdfe8156d4cce7">&#9670;&nbsp;</a></span>zts_central_status_get()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int zts_central_update_member </td>
+          <td class="memname">int zts_central_status_get </td>
           <td>(</td>
           <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>http_resp_code</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>http_resp_code</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">uint64_t&#160;</td>
-          <td class="paramname"><em>net_id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint64_t&#160;</td>
-          <td class="paramname"><em>node_id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>post_data</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Update or add a Member. </p>
-<p>New members can be added to a network by POSTing them.</p>
-<dl class="section return"><dt>Returns</dt><dd>Standard HTTP response codes. </dd></dl>
-
-</div>
-</div>
-<a id="af52b9c4f9b5cf95011cff5e84dbe1899"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af52b9c4f9b5cf95011cff5e84dbe1899">&#9670;&nbsp;</a></span>zts_central_update_network()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int zts_central_update_network </td>
-          <td>(</td>
-          <td class="paramtype">int *&#160;</td>
-          <td class="paramname"><em>http_resp_code</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint64_t&#160;</td>
-          <td class="paramname"><em>net_id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Update or create a <code>Network</code>. </p>
-<p>Only fields marked as [rw] can be directly modified. If other fields are present in the posted request they are ignored. New networks can be created by POSTing to /api/network with no net_id parameter. The server will create a random unused network ID and return the new network record.</p>
+<p>Get the status of the Central API server. </p>
 <dl class="section return"><dt>Returns</dt><dd>Standard HTTP response codes. </dd></dl>
 
 </div>
@@ -1845,7 +1955,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const struct zts_sockaddr *&#160;</td>
+          <td class="paramtype">const struct <a class="el" href="structzts__sockaddr.html">zts_sockaddr</a> *&#160;</td>
           <td class="paramname"><em>addr</em>, </td>
         </tr>
         <tr>
@@ -2050,7 +2160,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">struct zts_sockaddr *&#160;</td>
+          <td class="paramtype">struct <a class="el" href="structzts__sockaddr.html">zts_sockaddr</a> *&#160;</td>
           <td class="paramname"><em>addr</em>, </td>
         </tr>
         <tr>
@@ -2095,7 +2205,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">struct zts_sockaddr *&#160;</td>
+          <td class="paramtype">struct <a class="el" href="structzts__sockaddr.html">zts_sockaddr</a> *&#160;</td>
           <td class="paramname"><em>addr</em>, </td>
         </tr>
         <tr>
@@ -2672,7 +2782,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">struct zts_sockaddr *&#160;</td>
+          <td class="paramtype">struct <a class="el" href="structzts__sockaddr.html">zts_sockaddr</a> *&#160;</td>
           <td class="paramname"><em>dstaddr</em>, </td>
         </tr>
         <tr>
@@ -2688,13 +2798,13 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Convert human-friendly IP string to <code>zts_sockaddr_in</code> or <code>zts_sockaddr_in6</code>.</p>
+<p>Convert human-friendly IP string to <code><a class="el" href="structzts__sockaddr__in.html">zts_sockaddr_in</a></code> or <code><a class="el" href="structzts__sockaddr__in6.html">zts_sockaddr_in6</a></code>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">family</td><td>Address family: <code>ZTS_AF_INET</code> or <code>ZTS_AF_INET6</code> </td></tr>
     <tr><td class="paramname">src_ipstr</td><td>Source IP string </td></tr>
     <tr><td class="paramname">port</td><td>Port </td></tr>
-    <tr><td class="paramname">dstaddr</td><td>Pointer to destination structure <code>zts_sockaddr_in</code> or <code>zts_sockaddr_in6</code> </td></tr>
+    <tr><td class="paramname">dstaddr</td><td>Pointer to destination structure <code><a class="el" href="structzts__sockaddr__in.html">zts_sockaddr_in</a></code> or <code><a class="el" href="structzts__sockaddr__in6.html">zts_sockaddr_in6</a></code> </td></tr>
     <tr><td class="paramname">addrlen</td><td>Size of destination structure. Value-result: Will be set to actual size of data available </td></tr>
   </table>
   </dd>
@@ -4191,7 +4301,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">struct zts_sockaddr *&#160;</td>
+          <td class="paramtype">struct <a class="el" href="structzts__sockaddr.html">zts_sockaddr</a> *&#160;</td>
           <td class="paramname"><em>addr</em>, </td>
         </tr>
         <tr>
@@ -4524,7 +4634,7 @@ Variables</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const struct zts_sockaddr *&#160;</td>
+          <td class="paramtype">const struct <a class="el" href="structzts__sockaddr.html">zts_sockaddr</a> *&#160;</td>
           <td class="paramname"><em>addr</em>, </td>
         </tr>
         <tr>

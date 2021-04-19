@@ -10,6 +10,10 @@ var annotated_dup =
     [ "ZTS_NodeStatus", "structZTS__NodeStatus.html", "structZTS__NodeStatus" ],
     [ "ZTS_Peer", "structZTS__Peer.html", "structZTS__Peer" ],
     [ "ZTS_PeerPhysicalPath", "structZTS__PeerPhysicalPath.html", "structZTS__PeerPhysicalPath" ],
+    [ "zts_sockaddr", "structzts__sockaddr.html", null ],
+    [ "zts_sockaddr_in", "structzts__sockaddr__in.html", null ],
+    [ "zts_sockaddr_in6", "structzts__sockaddr__in6.html", null ],
+    [ "zts_sockaddr_storage", "structzts__sockaddr__storage.html", null ],
     [ "ZTS_VirtualNetworkConfig", "structZTS__VirtualNetworkConfig.html", "structZTS__VirtualNetworkConfig" ],
     [ "ZTS_VirtualNetworkRoute", "structZTS__VirtualNetworkRoute.html", "structZTS__VirtualNetworkRoute" ]
 ];
