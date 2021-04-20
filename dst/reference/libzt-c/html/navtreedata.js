@@ -34,7 +34,7 @@ var NAVTREE =
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "Globals", "globals.html", [
-        [ "All", "globals.html", null ],
+        [ "All", "globals.html", "globals_dup" ],
         [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
         [ "Typedefs", "globals_type.html", null ],
@@ -49,7 +49,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "ZeroTierSockets_8h.html",
-"structZTS__PeerPhysicalPath.html"
+"functions_vars.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
