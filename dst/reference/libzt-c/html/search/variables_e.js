@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['target_483',['target',['../structZTS__VirtualNetworkRoute.html#a3c74cd0131bccb8480d2bcfd2b65268b',1,'ZTS_VirtualNetworkRoute']]],
-  ['tertiaryport_484',['tertiaryPort',['../structZTS__Node.html#ae4578a3a8e734c16e6075703b7c8b635',1,'ZTS_Node']]],
-  ['throughput_485',['throughput',['../structZTS__PeerPhysicalPath.html#a03cb553f439165b3037019e1eabfd13b',1,'ZTS_PeerPhysicalPath']]],
-  ['throughputdisturbcoeff_486',['throughputDisturbCoeff',['../structZTS__PeerPhysicalPath.html#a2d333579e942808aa92662c5adbd5803',1,'ZTS_PeerPhysicalPath']]],
-  ['trustedpathid_487',['trustedPathId',['../structZTS__PeerPhysicalPath.html#ae4ad727faa2239662a3da5aac0baedca',1,'ZTS_PeerPhysicalPath']]],
-  ['type_488',['type',['../structZTS__VirtualNetworkConfig.html#a49bc13ca9b6b042142e94089f8bdbed2',1,'ZTS_VirtualNetworkConfig']]]
+  ['secondaryport_488',['secondaryPort',['../structZTS__Node.html#ac498066ba9fa73d67404696d90f010e8',1,'ZTS_Node']]],
+  ['secretidentity_489',['secretIdentity',['../structZTS__NodeStatus.html#a0f83ea84f48a37b2311d1ad6c3633956',1,'ZTS_NodeStatus']]],
+  ['stability_490',['stability',['../structZTS__PeerPhysicalPath.html#a5173a6b3e950ff431b77487af57d7b5a',1,'ZTS_PeerPhysicalPath']]],
+  ['status_491',['status',['../structZTS__VirtualNetworkConfig.html#a86e6105f98a3d33bd7b27b2901208305',1,'ZTS_VirtualNetworkConfig']]]
 ];

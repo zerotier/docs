@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['mac_457',['mac',['../structZTS__Netif.html#a332ff404b16cbdc0b9b780d58249f077',1,'ZTS_Netif::mac()'],['../structZTS__MulticastGroup.html#addbff18ea8dc2c8392bcaf07692c18f1',1,'ZTS_MulticastGroup::mac()'],['../structZTS__VirtualNetworkConfig.html#a0ccaee3b3e23a251c8b0051bebb5c7f0',1,'ZTS_VirtualNetworkConfig::mac()']]],
-  ['maxthroughput_458',['maxThroughput',['../structZTS__PeerPhysicalPath.html#afaee5f8949c11b738fdaf256e5bb668a',1,'ZTS_PeerPhysicalPath']]],
-  ['metric_459',['metric',['../structZTS__VirtualNetworkRoute.html#aa3b6241532766bac98ad9dce06a85a52',1,'ZTS_VirtualNetworkRoute']]],
-  ['mtu_460',['mtu',['../structZTS__Netif.html#a769b032262347a9db279a46e0c6e2d4c',1,'ZTS_Netif::mtu()'],['../structZTS__VirtualNetworkConfig.html#adb131d7d84c371feb93bb47ee9f4f86f',1,'ZTS_VirtualNetworkConfig::mtu()']]],
-  ['multicastsubscriptioncount_461',['multicastSubscriptionCount',['../structZTS__VirtualNetworkConfig.html#a1d00979a7b3efa3627a0e2fb15b95aff',1,'ZTS_VirtualNetworkConfig']]],
-  ['multicastsubscriptions_462',['multicastSubscriptions',['../structZTS__VirtualNetworkConfig.html#a20449351951f5d7b6f8d0f1efecdb8ef',1,'ZTS_VirtualNetworkConfig']]]
+  ['lastreceive_457',['lastReceive',['../structZTS__PeerPhysicalPath.html#a74ea6cc78d05698a4d5099b2d2bf7a04',1,'ZTS_PeerPhysicalPath']]],
+  ['lastsend_458',['lastSend',['../structZTS__PeerPhysicalPath.html#a5f286fab1e47ad739ff7d31379602374',1,'ZTS_PeerPhysicalPath']]],
+  ['latency_459',['latency',['../structZTS__PeerPhysicalPath.html#ac09315cfde2b980d1851d0dfca25b1d7',1,'ZTS_PeerPhysicalPath::latency()'],['../structZTS__Peer.html#a6daf065770ad3e9b4e729d9d394ea75c',1,'ZTS_Peer::latency()']]],
+  ['len_460',['len',['../structZTS__CallbackMessage.html#a4f9c332fdbdd89c5016cb1b458aaf34e',1,'ZTS_CallbackMessage']]]
 ];

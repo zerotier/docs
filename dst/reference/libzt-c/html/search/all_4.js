@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['flags_10',['flags',['../structZTS__VirtualNetworkRoute.html#a3e199ae5110d7322aa2960771e7601cc',1,'ZTS_VirtualNetworkRoute']]]
+  ['eventcode_10',['eventCode',['../structZTS__CallbackMessage.html#a2657bb59770e170f6a472faa0a7e0734',1,'ZTS_CallbackMessage']]],
+  ['expired_11',['expired',['../structZTS__PeerPhysicalPath.html#a8baf0b027331499e1bd7e8388b29b694',1,'ZTS_PeerPhysicalPath']]]
 ];

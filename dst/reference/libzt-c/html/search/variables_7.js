@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['lastreceive_454',['lastReceive',['../structZTS__PeerPhysicalPath.html#a74ea6cc78d05698a4d5099b2d2bf7a04',1,'ZTS_PeerPhysicalPath']]],
-  ['lastsend_455',['lastSend',['../structZTS__PeerPhysicalPath.html#a5f286fab1e47ad739ff7d31379602374',1,'ZTS_PeerPhysicalPath']]],
-  ['latency_456',['latency',['../structZTS__PeerPhysicalPath.html#ac09315cfde2b980d1851d0dfca25b1d7',1,'ZTS_PeerPhysicalPath::latency()'],['../structZTS__Peer.html#a6daf065770ad3e9b4e729d9d394ea75c',1,'ZTS_Peer::latency()']]]
+  ['ifname_456',['ifname',['../structZTS__PeerPhysicalPath.html#af9abcf4a250507b55fe18495e1ba3bac',1,'ZTS_PeerPhysicalPath']]]
 ];

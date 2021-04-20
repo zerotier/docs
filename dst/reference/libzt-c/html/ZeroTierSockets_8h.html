@@ -97,7 +97,6 @@ $(document).ready(function(){initNavTree('ZeroTierSockets_8h.html',''); initResi
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &lt;unistd.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="ZeroTier_8h_source.html">ZeroTier.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for ZeroTierSockets.h:</div>
 <div class="dyncontent">
@@ -119,6 +118,18 @@ Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structZTS__Node.html">ZTS_Node</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structZTS__Address.html">ZTS_Address</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structZTS__NodeStatus.html">ZTS_NodeStatus</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structZTS__VirtualNetworkRoute.html">ZTS_VirtualNetworkRoute</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structZTS__MulticastGroup.html">ZTS_MulticastGroup</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structZTS__VirtualNetworkConfig.html">ZTS_VirtualNetworkConfig</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structZTS__PeerPhysicalPath.html">ZTS_PeerPhysicalPath</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structZTS__Peer.html">ZTS_Peer</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structZTS__Netif.html">ZTS_Netif</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -225,6 +236,16 @@ Macros</h2></td></tr>
 <tr class="separator:ab2c0a21d2f5cc1e86441df52cd0da89a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28a182f8a272ab6b4e1a0d1b388da81a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a28a182f8a272ab6b4e1a0d1b388da81a">ZTS_STORE_DATA_LEN</a>&#160;&#160;&#160;4096</td></tr>
 <tr class="separator:a28a182f8a272ab6b4e1a0d1b388da81a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7d64b9b0e20546ff3f5b1f9425c5c31"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ab7d64b9b0e20546ff3f5b1f9425c5c31">ZTS_MAX_NETWORK_SHORT_NAME_LENGTH</a>&#160;&#160;&#160;127</td></tr>
+<tr class="separator:ab7d64b9b0e20546ff3f5b1f9425c5c31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0ef205bf27352a905e053d27368efab"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ae0ef205bf27352a905e053d27368efab">ZTS_MAX_NETWORK_ROUTES</a>&#160;&#160;&#160;32</td></tr>
+<tr class="separator:ae0ef205bf27352a905e053d27368efab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0050e622f64a79e32d262ec8d6997181"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a0050e622f64a79e32d262ec8d6997181">ZTS_MAX_ASSIGNED_ADDRESSES</a>&#160;&#160;&#160;16</td></tr>
+<tr class="separator:a0050e622f64a79e32d262ec8d6997181"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae07c5f252c5b6001a14a4554265b3769"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#ae07c5f252c5b6001a14a4554265b3769">ZTS_MAX_PEER_NETWORK_PATHS</a>&#160;&#160;&#160;16</td></tr>
+<tr class="separator:ae07c5f252c5b6001a14a4554265b3769"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f3d71bb4dfcbf2e28767231841acaa9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a9f3d71bb4dfcbf2e28767231841acaa9">ZTS_MAX_MULTICAST_SUBSCRIPTIONS</a>&#160;&#160;&#160;1024</td></tr>
+<tr class="separator:a9f3d71bb4dfcbf2e28767231841acaa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1cb62a7b7716a91fbb0a9fe9a4b4ca3f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a1cb62a7b7716a91fbb0a9fe9a4b4ca3f">ZTS_IPADDR_NONE</a>&#160;&#160;&#160;((uint32_t)0xffffffffUL)</td></tr>
 <tr class="separator:a1cb62a7b7716a91fbb0a9fe9a4b4ca3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2510c754a85003d80974ebe4ccbeae1e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a2510c754a85003d80974ebe4ccbeae1e">ZTS_IPADDR_LOOPBACK</a>&#160;&#160;&#160;((uint32_t)0x7f000001UL)</td></tr>
@@ -349,6 +370,37 @@ Enumerations</h2></td></tr>
 <br />
  }</td></tr>
 <tr class="separator:aa0a61b9df274611d908ed2fac35d7303"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a241820de887063b9bde29db53c1bbf8c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a241820de887063b9bde29db53c1bbf8c">ZTS_VirtualNetworkStatus</a> { <br />
+&#160;&#160;<a class="el" href="ZeroTierSockets_8h.html#a241820de887063b9bde29db53c1bbf8ca408963b0d2732aa5592230f944793e86">ZTS_NETWORK_STATUS_REQUESTING_CONFIGURATION</a> = 0, 
+<br />
+&#160;&#160;<a class="el" href="ZeroTierSockets_8h.html#a241820de887063b9bde29db53c1bbf8ca1b0c9491353528a7997c847ca57bc1f9">ZTS_NETWORK_STATUS_OK</a> = 1, 
+<br />
+&#160;&#160;<a class="el" href="ZeroTierSockets_8h.html#a241820de887063b9bde29db53c1bbf8ca3f598b4c8ceef34c4e8f240665c9ee8b">ZTS_NETWORK_STATUS_ACCESS_DENIED</a> = 2, 
+<br />
+&#160;&#160;<a class="el" href="ZeroTierSockets_8h.html#a241820de887063b9bde29db53c1bbf8ca8c729303b2ae7139d2643f4c35c0d8d3">ZTS_NETWORK_STATUS_NOT_FOUND</a> = 3, 
+<br />
+&#160;&#160;<a class="el" href="ZeroTierSockets_8h.html#a241820de887063b9bde29db53c1bbf8ca01e406ae70660bbf4eb7df2d10e21166">ZTS_NETWORK_STATUS_PORT_ERROR</a> = 4, 
+<br />
+&#160;&#160;<a class="el" href="ZeroTierSockets_8h.html#a241820de887063b9bde29db53c1bbf8ca4092f7a44d5c7b95198fe0987c09d42a">ZTS_NETWORK_STATUS_CLIENT_TOO_OLD</a> = 5
+<br />
+ }</td></tr>
+<tr class="separator:a241820de887063b9bde29db53c1bbf8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c638dfa5b726cb1b5ddfcd5bf5b955a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#a7c638dfa5b726cb1b5ddfcd5bf5b955a">ZTS_VirtualNetworkType</a> { <br />
+&#160;&#160;<a class="el" href="ZeroTierSockets_8h.html#a7c638dfa5b726cb1b5ddfcd5bf5b955aa8c73a011276f1e0bf3ebefa10c76093a">ZTS_NETWORK_TYPE_PRIVATE</a> = 0, 
+<br />
+&#160;&#160;<a class="el" href="ZeroTierSockets_8h.html#a7c638dfa5b726cb1b5ddfcd5bf5b955aa466a6479f3a56c8098a697724872bb93">ZTS_NETWORK_TYPE_PUBLIC</a> = 1
+<br />
+ }</td></tr>
+<tr class="separator:a7c638dfa5b726cb1b5ddfcd5bf5b955a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aded4346d55cee07e6a3372447f5c5c97"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ZeroTierSockets_8h.html#aded4346d55cee07e6a3372447f5c5c97">ZTS_PeerRole</a> { <br />
+&#160;&#160;<a class="el" href="ZeroTierSockets_8h.html#aded4346d55cee07e6a3372447f5c5c97add787d4124152ce5521f9bb7515f45c0">ZTS_PEER_ROLE_LEAF</a> = 0, 
+<br />
+&#160;&#160;<a class="el" href="ZeroTierSockets_8h.html#aded4346d55cee07e6a3372447f5c5c97aef6d9824cb88d401c8a55e9ed5181953">ZTS_PEER_ROLE_MOON</a> = 1, 
+<br />
+&#160;&#160;<a class="el" href="ZeroTierSockets_8h.html#aded4346d55cee07e6a3372447f5c5c97a841f3411a5b19440081dfc64f0e19c55">ZTS_PEER_ROLE_PLANET</a> = 2
+<br />
+ }</td></tr>
+<tr class="separator:aded4346d55cee07e6a3372447f5c5c97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -1395,6 +1447,81 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="ab7d64b9b0e20546ff3f5b1f9425c5c31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7d64b9b0e20546ff3f5b1f9425c5c31">&#9670;&nbsp;</a></span>ZTS_MAX_NETWORK_SHORT_NAME_LENGTH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ZTS_MAX_NETWORK_SHORT_NAME_LENGTH&#160;&#160;&#160;127</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Maximum length of network short name </p>
+
+</div>
+</div>
+<a id="ae0ef205bf27352a905e053d27368efab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0ef205bf27352a905e053d27368efab">&#9670;&nbsp;</a></span>ZTS_MAX_NETWORK_ROUTES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ZTS_MAX_NETWORK_ROUTES&#160;&#160;&#160;32</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Maximum number of pushed routes on a network </p>
+
+</div>
+</div>
+<a id="a0050e622f64a79e32d262ec8d6997181"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0050e622f64a79e32d262ec8d6997181">&#9670;&nbsp;</a></span>ZTS_MAX_ASSIGNED_ADDRESSES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ZTS_MAX_ASSIGNED_ADDRESSES&#160;&#160;&#160;16</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Maximum number of statically assigned IP addresses per network endpoint using ZT address management (not DHCP) </p>
+
+</div>
+</div>
+<a id="ae07c5f252c5b6001a14a4554265b3769"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae07c5f252c5b6001a14a4554265b3769">&#9670;&nbsp;</a></span>ZTS_MAX_PEER_NETWORK_PATHS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ZTS_MAX_PEER_NETWORK_PATHS&#160;&#160;&#160;16</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Maximum number of direct network paths to a given peer </p>
+
+</div>
+</div>
+<a id="a9f3d71bb4dfcbf2e28767231841acaa9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f3d71bb4dfcbf2e28767231841acaa9">&#9670;&nbsp;</a></span>ZTS_MAX_MULTICAST_SUBSCRIPTIONS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define ZTS_MAX_MULTICAST_SUBSCRIPTIONS&#160;&#160;&#160;1024</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Maximum number of multicast groups a device / network interface can be subscribed to at once </p>
+
+</div>
+</div>
 <a id="a1cb62a7b7716a91fbb0a9fe9a4b4ca3f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1cb62a7b7716a91fbb0a9fe9a4b4ca3f">&#9670;&nbsp;</a></span>ZTS_IPADDR_NONE</h2>
 
@@ -1681,6 +1808,79 @@ Variables</h2></td></tr>
 <tr><td class="fieldname"><a id="aa0a61b9df274611d908ed2fac35d7303aa2003fc271d42cf2f5730d6f64c8a3e0"></a>ZTS_EVENT_STORE_PEER&#160;</td><td class="fielddoc"><p>New reachability hints and peer configuration </p>
 </td></tr>
 <tr><td class="fieldname"><a id="aa0a61b9df274611d908ed2fac35d7303a56402ee6349f569d26843d02ccc7b58b"></a>ZTS_EVENT_STORE_NETWORK&#160;</td><td class="fielddoc"><p>New network config </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="a241820de887063b9bde29db53c1bbf8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a241820de887063b9bde29db53c1bbf8c">&#9670;&nbsp;</a></span>ZTS_VirtualNetworkStatus</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="ZeroTierSockets_8h.html#a241820de887063b9bde29db53c1bbf8c">ZTS_VirtualNetworkStatus</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Virtual network status codes </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a241820de887063b9bde29db53c1bbf8ca408963b0d2732aa5592230f944793e86"></a>ZTS_NETWORK_STATUS_REQUESTING_CONFIGURATION&#160;</td><td class="fielddoc"><p>Waiting for network configuration (also means revision == 0) </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a241820de887063b9bde29db53c1bbf8ca1b0c9491353528a7997c847ca57bc1f9"></a>ZTS_NETWORK_STATUS_OK&#160;</td><td class="fielddoc"><p>Configuration received and we are authorized </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a241820de887063b9bde29db53c1bbf8ca3f598b4c8ceef34c4e8f240665c9ee8b"></a>ZTS_NETWORK_STATUS_ACCESS_DENIED&#160;</td><td class="fielddoc"><p>Netconf master told us 'nope' </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a241820de887063b9bde29db53c1bbf8ca8c729303b2ae7139d2643f4c35c0d8d3"></a>ZTS_NETWORK_STATUS_NOT_FOUND&#160;</td><td class="fielddoc"><p>Netconf master exists, but this virtual network does not </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a241820de887063b9bde29db53c1bbf8ca01e406ae70660bbf4eb7df2d10e21166"></a>ZTS_NETWORK_STATUS_PORT_ERROR&#160;</td><td class="fielddoc"><p>Initialization of network failed or other internal error </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a241820de887063b9bde29db53c1bbf8ca4092f7a44d5c7b95198fe0987c09d42a"></a>ZTS_NETWORK_STATUS_CLIENT_TOO_OLD&#160;</td><td class="fielddoc"><p>ZeroTier core version too old </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="a7c638dfa5b726cb1b5ddfcd5bf5b955a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c638dfa5b726cb1b5ddfcd5bf5b955a">&#9670;&nbsp;</a></span>ZTS_VirtualNetworkType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="ZeroTierSockets_8h.html#a7c638dfa5b726cb1b5ddfcd5bf5b955a">ZTS_VirtualNetworkType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Virtual network type codes </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a7c638dfa5b726cb1b5ddfcd5bf5b955aa8c73a011276f1e0bf3ebefa10c76093a"></a>ZTS_NETWORK_TYPE_PRIVATE&#160;</td><td class="fielddoc"><p>Private networks are authorized via certificates of membership </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a7c638dfa5b726cb1b5ddfcd5bf5b955aa466a6479f3a56c8098a697724872bb93"></a>ZTS_NETWORK_TYPE_PUBLIC&#160;</td><td class="fielddoc"><p>Public networks have no access control &ndash; they'll always be AUTHORIZED </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="aded4346d55cee07e6a3372447f5c5c97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aded4346d55cee07e6a3372447f5c5c97">&#9670;&nbsp;</a></span>ZTS_PeerRole</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="ZeroTierSockets_8h.html#aded4346d55cee07e6a3372447f5c5c97">ZTS_PeerRole</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The peer's trust hierarchy role </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aded4346d55cee07e6a3372447f5c5c97add787d4124152ce5521f9bb7515f45c0"></a>ZTS_PEER_ROLE_LEAF&#160;</td><td class="fielddoc"><p>Ordinary node </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aded4346d55cee07e6a3372447f5c5c97aef6d9824cb88d401c8a55e9ed5181953"></a>ZTS_PEER_ROLE_MOON&#160;</td><td class="fielddoc"><p>Moon root </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aded4346d55cee07e6a3372447f5c5c97a841f3411a5b19440081dfc64f0e19c55"></a>ZTS_PEER_ROLE_PLANET&#160;</td><td class="fielddoc"><p>Planetary root </p>
 </td></tr>
 </table>
 

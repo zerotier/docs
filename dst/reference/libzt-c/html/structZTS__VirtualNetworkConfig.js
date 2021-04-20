@@ -16,5 +16,5 @@ var structZTS__VirtualNetworkConfig =
     [ "routeCount", "structZTS__VirtualNetworkConfig.html#a4a01e324a1149c3f6f63dab5d8bdbf8a", null ],
     [ "routes", "structZTS__VirtualNetworkConfig.html#a787de95fe48bfc06fb9182215217e9be", null ],
     [ "multicastSubscriptionCount", "structZTS__VirtualNetworkConfig.html#a1d00979a7b3efa3627a0e2fb15b95aff", null ],
-    [ "multicastSubscriptions", "structZTS__VirtualNetworkConfig.html#a20449351951f5d7b6f8d0f1efecdb8ef", null ]
+    [ "multicastSubscriptions", "structZTS__VirtualNetworkConfig.html#a830a9fa6f126d14326cee80d2b5a124a", null ]
 ];

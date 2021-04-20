@@ -6,6 +6,12 @@ var ZeroTierSockets_8h =
     [ "zts_sockaddr_storage", "structzts__sockaddr__storage.html", null ],
     [ "ZTS_Node", "structZTS__Node.html", "structZTS__Node" ],
     [ "ZTS_Address", "structZTS__Address.html", null ],
+    [ "ZTS_NodeStatus", "structZTS__NodeStatus.html", "structZTS__NodeStatus" ],
+    [ "ZTS_VirtualNetworkRoute", "structZTS__VirtualNetworkRoute.html", "structZTS__VirtualNetworkRoute" ],
+    [ "ZTS_MulticastGroup", "structZTS__MulticastGroup.html", "structZTS__MulticastGroup" ],
+    [ "ZTS_VirtualNetworkConfig", "structZTS__VirtualNetworkConfig.html", "structZTS__VirtualNetworkConfig" ],
+    [ "ZTS_PeerPhysicalPath", "structZTS__PeerPhysicalPath.html", "structZTS__PeerPhysicalPath" ],
+    [ "ZTS_Peer", "structZTS__Peer.html", "structZTS__Peer" ],
     [ "ZTS_Netif", "structZTS__Netif.html", "structZTS__Netif" ],
     [ "ZTS_CallbackMessage", "structZTS__CallbackMessage.html", "structZTS__CallbackMessage" ],
     [ "zts_ip6_addr", "structzts__ip6__addr.html", null ],
@@ -57,6 +63,11 @@ var ZeroTierSockets_8h =
     [ "ZTS_INET6_ADDRSTRLEN", "ZeroTierSockets_8h.html#aa3158761fce1cb9a3c4366857f9ef11f", null ],
     [ "ZTS_IP_MAX_STR_LEN", "ZeroTierSockets_8h.html#ab2c0a21d2f5cc1e86441df52cd0da89a", null ],
     [ "ZTS_STORE_DATA_LEN", "ZeroTierSockets_8h.html#a28a182f8a272ab6b4e1a0d1b388da81a", null ],
+    [ "ZTS_MAX_NETWORK_SHORT_NAME_LENGTH", "ZeroTierSockets_8h.html#ab7d64b9b0e20546ff3f5b1f9425c5c31", null ],
+    [ "ZTS_MAX_NETWORK_ROUTES", "ZeroTierSockets_8h.html#ae0ef205bf27352a905e053d27368efab", null ],
+    [ "ZTS_MAX_ASSIGNED_ADDRESSES", "ZeroTierSockets_8h.html#a0050e622f64a79e32d262ec8d6997181", null ],
+    [ "ZTS_MAX_PEER_NETWORK_PATHS", "ZeroTierSockets_8h.html#ae07c5f252c5b6001a14a4554265b3769", null ],
+    [ "ZTS_MAX_MULTICAST_SUBSCRIPTIONS", "ZeroTierSockets_8h.html#a9f3d71bb4dfcbf2e28767231841acaa9", null ],
     [ "ZTS_IPADDR_NONE", "ZeroTierSockets_8h.html#a1cb62a7b7716a91fbb0a9fe9a4b4ca3f", null ],
     [ "ZTS_IPADDR_LOOPBACK", "ZeroTierSockets_8h.html#a2510c754a85003d80974ebe4ccbeae1e", null ],
     [ "ZTS_IPADDR_ANY", "ZeroTierSockets_8h.html#aa0c5df6f907fb3ff76471de185516471", null ],
@@ -116,6 +127,23 @@ var ZeroTierSockets_8h =
       [ "ZTS_EVENT_STORE_PLANET", "ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303abb3b0dfb68907fe5dc66e77564a2b18b", null ],
       [ "ZTS_EVENT_STORE_PEER", "ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303aa2003fc271d42cf2f5730d6f64c8a3e0", null ],
       [ "ZTS_EVENT_STORE_NETWORK", "ZeroTierSockets_8h.html#aa0a61b9df274611d908ed2fac35d7303a56402ee6349f569d26843d02ccc7b58b", null ]
+    ] ],
+    [ "ZTS_VirtualNetworkStatus", "ZeroTierSockets_8h.html#a241820de887063b9bde29db53c1bbf8c", [
+      [ "ZTS_NETWORK_STATUS_REQUESTING_CONFIGURATION", "ZeroTierSockets_8h.html#a241820de887063b9bde29db53c1bbf8ca408963b0d2732aa5592230f944793e86", null ],
+      [ "ZTS_NETWORK_STATUS_OK", "ZeroTierSockets_8h.html#a241820de887063b9bde29db53c1bbf8ca1b0c9491353528a7997c847ca57bc1f9", null ],
+      [ "ZTS_NETWORK_STATUS_ACCESS_DENIED", "ZeroTierSockets_8h.html#a241820de887063b9bde29db53c1bbf8ca3f598b4c8ceef34c4e8f240665c9ee8b", null ],
+      [ "ZTS_NETWORK_STATUS_NOT_FOUND", "ZeroTierSockets_8h.html#a241820de887063b9bde29db53c1bbf8ca8c729303b2ae7139d2643f4c35c0d8d3", null ],
+      [ "ZTS_NETWORK_STATUS_PORT_ERROR", "ZeroTierSockets_8h.html#a241820de887063b9bde29db53c1bbf8ca01e406ae70660bbf4eb7df2d10e21166", null ],
+      [ "ZTS_NETWORK_STATUS_CLIENT_TOO_OLD", "ZeroTierSockets_8h.html#a241820de887063b9bde29db53c1bbf8ca4092f7a44d5c7b95198fe0987c09d42a", null ]
+    ] ],
+    [ "ZTS_VirtualNetworkType", "ZeroTierSockets_8h.html#a7c638dfa5b726cb1b5ddfcd5bf5b955a", [
+      [ "ZTS_NETWORK_TYPE_PRIVATE", "ZeroTierSockets_8h.html#a7c638dfa5b726cb1b5ddfcd5bf5b955aa8c73a011276f1e0bf3ebefa10c76093a", null ],
+      [ "ZTS_NETWORK_TYPE_PUBLIC", "ZeroTierSockets_8h.html#a7c638dfa5b726cb1b5ddfcd5bf5b955aa466a6479f3a56c8098a697724872bb93", null ]
+    ] ],
+    [ "ZTS_PeerRole", "ZeroTierSockets_8h.html#aded4346d55cee07e6a3372447f5c5c97", [
+      [ "ZTS_PEER_ROLE_LEAF", "ZeroTierSockets_8h.html#aded4346d55cee07e6a3372447f5c5c97add787d4124152ce5521f9bb7515f45c0", null ],
+      [ "ZTS_PEER_ROLE_MOON", "ZeroTierSockets_8h.html#aded4346d55cee07e6a3372447f5c5c97aef6d9824cb88d401c8a55e9ed5181953", null ],
+      [ "ZTS_PEER_ROLE_PLANET", "ZeroTierSockets_8h.html#aded4346d55cee07e6a3372447f5c5c97a841f3411a5b19440081dfc64f0e19c55", null ]
     ] ],
     [ "zts_central_set_access_mode", "ZeroTierSockets_8h.html#a7fe732cd35f01d82317235e63d97d7f8", null ],
     [ "zts_central_set_verbose", "ZeroTierSockets_8h.html#abe74724d792163c3089a420abcebbd4c", null ],
