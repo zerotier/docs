@@ -201,7 +201,7 @@ enum ZTS_Event {
  */
 extern int zts_errno;
 
-/** Operation not permitted */
+/** Operation not permitted (`zts_errno` value) */
 #define ZTS_EPERM 1
 /** No such file or directory */
 #define ZTS_ENOENT 2
