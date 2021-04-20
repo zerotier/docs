@@ -151,48 +151,18 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="ab6fdfb0d57dcc80b1eab44bba637d0c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab6fdfb0d57dcc80b1eab44bba637d0c8">&#9670;&nbsp;</a></span>allocation</h2>
+<a id="a5f286fab1e47ad739ff7d31379602374"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f286fab1e47ad739ff7d31379602374">&#9670;&nbsp;</a></span>lastSend</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float ZTS_PeerPhysicalPath::allocation</td>
+          <td class="memname">uint64_t ZTS_PeerPhysicalPath::lastSend</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Percentage of traffic allocated to this path </p>
-
-</div>
-</div>
-<a id="a8baf0b027331499e1bd7e8388b29b694"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8baf0b027331499e1bd7e8388b29b694">&#9670;&nbsp;</a></span>expired</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int ZTS_PeerPhysicalPath::expired</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Is path expired? </p>
-
-</div>
-</div>
-<a id="af9abcf4a250507b55fe18495e1ba3bac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af9abcf4a250507b55fe18495e1ba3bac">&#9670;&nbsp;</a></span>ifname</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">char* ZTS_PeerPhysicalPath::ifname</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Name of physical interface (for monitoring) </p>
+<p>Time of last send in milliseconds or 0 for never </p>
 
 </div>
 </div>
@@ -211,18 +181,18 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="a5f286fab1e47ad739ff7d31379602374"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f286fab1e47ad739ff7d31379602374">&#9670;&nbsp;</a></span>lastSend</h2>
+<a id="ae4ad727faa2239662a3da5aac0baedca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4ad727faa2239662a3da5aac0baedca">&#9670;&nbsp;</a></span>trustedPathId</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint64_t ZTS_PeerPhysicalPath::lastSend</td>
+          <td class="memname">uint64_t ZTS_PeerPhysicalPath::trustedPathId</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Time of last send in milliseconds or 0 for never </p>
+<p>Is this a trusted path? If so this will be its nonzero ID. </p>
 
 </div>
 </div>
@@ -241,21 +211,6 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="afaee5f8949c11b738fdaf256e5bb668a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afaee5f8949c11b738fdaf256e5bb668a">&#9670;&nbsp;</a></span>maxThroughput</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint64_t ZTS_PeerPhysicalPath::maxThroughput</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Maximum observed throughput for this path </p>
-
-</div>
-</div>
 <a id="a629f6a2f5f68978c1a883014e86cb095"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a629f6a2f5f68978c1a883014e86cb095">&#9670;&nbsp;</a></span>packetDelayVariance</h2>
 
@@ -268,6 +223,21 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>How much latency varies over time </p>
+
+</div>
+</div>
+<a id="a2d333579e942808aa92662c5adbd5803"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d333579e942808aa92662c5adbd5803">&#9670;&nbsp;</a></span>throughputDisturbCoeff</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float ZTS_PeerPhysicalPath::throughputDisturbCoeff</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>How much observed throughput varies over time </p>
 
 </div>
 </div>
@@ -301,21 +271,6 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="aa09a7fb157122395f381a4bd59f01a41"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa09a7fb157122395f381a4bd59f01a41">&#9670;&nbsp;</a></span>preferred</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int ZTS_PeerPhysicalPath::preferred</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Is path preferred? </p>
-
-</div>
-</div>
 <a id="a5173a6b3e950ff431b77487af57d7b5a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5173a6b3e950ff431b77487af57d7b5a">&#9670;&nbsp;</a></span>stability</h2>
 
@@ -346,33 +301,78 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="a2d333579e942808aa92662c5adbd5803"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d333579e942808aa92662c5adbd5803">&#9670;&nbsp;</a></span>throughputDisturbCoeff</h2>
+<a id="afaee5f8949c11b738fdaf256e5bb668a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afaee5f8949c11b738fdaf256e5bb668a">&#9670;&nbsp;</a></span>maxThroughput</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float ZTS_PeerPhysicalPath::throughputDisturbCoeff</td>
+          <td class="memname">uint64_t ZTS_PeerPhysicalPath::maxThroughput</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>How much observed throughput varies over time </p>
+<p>Maximum observed throughput for this path </p>
 
 </div>
 </div>
-<a id="ae4ad727faa2239662a3da5aac0baedca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4ad727faa2239662a3da5aac0baedca">&#9670;&nbsp;</a></span>trustedPathId</h2>
+<a id="ab6fdfb0d57dcc80b1eab44bba637d0c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6fdfb0d57dcc80b1eab44bba637d0c8">&#9670;&nbsp;</a></span>allocation</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint64_t ZTS_PeerPhysicalPath::trustedPathId</td>
+          <td class="memname">float ZTS_PeerPhysicalPath::allocation</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Is this a trusted path? If so this will be its nonzero ID. </p>
+<p>Percentage of traffic allocated to this path </p>
+
+</div>
+</div>
+<a id="af9abcf4a250507b55fe18495e1ba3bac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9abcf4a250507b55fe18495e1ba3bac">&#9670;&nbsp;</a></span>ifname</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* ZTS_PeerPhysicalPath::ifname</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Name of physical interface (for monitoring) </p>
+
+</div>
+</div>
+<a id="a8baf0b027331499e1bd7e8388b29b694"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8baf0b027331499e1bd7e8388b29b694">&#9670;&nbsp;</a></span>expired</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ZTS_PeerPhysicalPath::expired</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Is path expired? </p>
+
+</div>
+</div>
+<a id="aa09a7fb157122395f381a4bd59f01a41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa09a7fb157122395f381a4bd59f01a41">&#9670;&nbsp;</a></span>preferred</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ZTS_PeerPhysicalPath::preferred</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Is path preferred? </p>
 
 </div>
 </div>

@@ -139,35 +139,109 @@ Data Fields</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Virtual network configuration </p>
 </div><h2 class="groupheader">Field Documentation</h2>
-<a id="a6bf37f4658f05800deaff23980f28db8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6bf37f4658f05800deaff23980f28db8">&#9670;&nbsp;</a></span>assignedAddressCount</h2>
+<a id="aa229ea7e8ce6c93b833e65beef808795"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa229ea7e8ce6c93b833e65beef808795">&#9670;&nbsp;</a></span>net_id</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned int ZTS_VirtualNetworkConfig::assignedAddressCount</td>
+          <td class="memname">uint64_t ZTS_VirtualNetworkConfig::net_id</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Number of assigned addresses </p>
+<p>64-bit ZeroTier network ID </p>
 
 </div>
 </div>
-<a id="aacb1dde2ec53f9762f93888f46958e81"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aacb1dde2ec53f9762f93888f46958e81">&#9670;&nbsp;</a></span>assignedAddresses</h2>
+<a id="a0ccaee3b3e23a251c8b0051bebb5c7f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ccaee3b3e23a251c8b0051bebb5c7f0">&#9670;&nbsp;</a></span>mac</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct <a class="el" href="structzts__sockaddr__storage.html">zts_sockaddr_storage</a> ZTS_VirtualNetworkConfig::assignedAddresses[16]</td>
+          <td class="memname">uint64_t ZTS_VirtualNetworkConfig::mac</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>ZeroTier-assigned addresses (in sockaddr_storage structures)</p>
-<p>For IP, the port number of the sockaddr_XX structure contains the number of bits in the address netmask. Only the IP address and port are used. Other fields like interface number can be ignored.</p>
-<p>This is only used for ZeroTier-managed address assignments sent by the virtual network's configuration master. </p>
+<p>Ethernet MAC (48 bits) that should be assigned to port </p>
+
+</div>
+</div>
+<a id="add0e989c168d646b26ae1e65d0280e25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add0e989c168d646b26ae1e65d0280e25">&#9670;&nbsp;</a></span>name</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char ZTS_VirtualNetworkConfig::name[127+1]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Network name (from network configuration master) </p>
+
+</div>
+</div>
+<a id="a86e6105f98a3d33bd7b27b2901208305"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86e6105f98a3d33bd7b27b2901208305">&#9670;&nbsp;</a></span>status</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="ZeroTier_8h.html#a241820de887063b9bde29db53c1bbf8c">ZTS_VirtualNetworkStatus</a> ZTS_VirtualNetworkConfig::status</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Network configuration request status </p>
+
+</div>
+</div>
+<a id="a49bc13ca9b6b042142e94089f8bdbed2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49bc13ca9b6b042142e94089f8bdbed2">&#9670;&nbsp;</a></span>type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="ZeroTier_8h.html#a7c638dfa5b726cb1b5ddfcd5bf5b955a">ZTS_VirtualNetworkType</a> ZTS_VirtualNetworkConfig::type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Network type </p>
+
+</div>
+</div>
+<a id="adb131d7d84c371feb93bb47ee9f4f86f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb131d7d84c371feb93bb47ee9f4f86f">&#9670;&nbsp;</a></span>mtu</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int ZTS_VirtualNetworkConfig::mtu</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Maximum interface MTU </p>
+
+</div>
+</div>
+<a id="a4200497d8ae001b56bdc27561d21dfc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4200497d8ae001b56bdc27561d21dfc0">&#9670;&nbsp;</a></span>dhcp</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ZTS_VirtualNetworkConfig::dhcp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>If nonzero, the network this port belongs to indicates DHCP availability</p>
+<p>This is a suggestion. The underlying implementation is free to ignore it for security or other reasons. This is simply a netconf parameter that means 'DHCP is available on this network.' </p>
 
 </div>
 </div>
@@ -202,109 +276,18 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="a4200497d8ae001b56bdc27561d21dfc0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4200497d8ae001b56bdc27561d21dfc0">&#9670;&nbsp;</a></span>dhcp</h2>
+<a id="af462a45d3dd4cf1b553a7b96eddc8758"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af462a45d3dd4cf1b553a7b96eddc8758">&#9670;&nbsp;</a></span>portError</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int ZTS_VirtualNetworkConfig::dhcp</td>
+          <td class="memname">int ZTS_VirtualNetworkConfig::portError</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>If nonzero, the network this port belongs to indicates DHCP availability</p>
-<p>This is a suggestion. The underlying implementation is free to ignore it for security or other reasons. This is simply a netconf parameter that means 'DHCP is available on this network.' </p>
-
-</div>
-</div>
-<a id="a0ccaee3b3e23a251c8b0051bebb5c7f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ccaee3b3e23a251c8b0051bebb5c7f0">&#9670;&nbsp;</a></span>mac</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint64_t ZTS_VirtualNetworkConfig::mac</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Ethernet MAC (48 bits) that should be assigned to port </p>
-
-</div>
-</div>
-<a id="adb131d7d84c371feb93bb47ee9f4f86f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adb131d7d84c371feb93bb47ee9f4f86f">&#9670;&nbsp;</a></span>mtu</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int ZTS_VirtualNetworkConfig::mtu</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Maximum interface MTU </p>
-
-</div>
-</div>
-<a id="a1d00979a7b3efa3627a0e2fb15b95aff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d00979a7b3efa3627a0e2fb15b95aff">&#9670;&nbsp;</a></span>multicastSubscriptionCount</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int ZTS_VirtualNetworkConfig::multicastSubscriptionCount</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Number of multicast groups subscribed </p>
-
-</div>
-</div>
-<a id="a20449351951f5d7b6f8d0f1efecdb8ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a20449351951f5d7b6f8d0f1efecdb8ef">&#9670;&nbsp;</a></span>multicastSubscriptions</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">struct { ... }  ZTS_VirtualNetworkConfig::multicastSubscriptions[ 1024 ]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Multicast groups to which this network's device is subscribed </p>
-
-</div>
-</div>
-<a id="add0e989c168d646b26ae1e65d0280e25"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add0e989c168d646b26ae1e65d0280e25">&#9670;&nbsp;</a></span>name</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">char ZTS_VirtualNetworkConfig::name[127+1]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Network name (from network configuration master) </p>
-
-</div>
-</div>
-<a id="aa229ea7e8ce6c93b833e65beef808795"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa229ea7e8ce6c93b833e65beef808795">&#9670;&nbsp;</a></span>net_id</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint64_t ZTS_VirtualNetworkConfig::net_id</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>64-bit ZeroTier network ID </p>
+<p>If the network is in PORT_ERROR state, this is the (negative) error code most recently reported </p>
 
 </div>
 </div>
@@ -323,18 +306,35 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="af462a45d3dd4cf1b553a7b96eddc8758"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af462a45d3dd4cf1b553a7b96eddc8758">&#9670;&nbsp;</a></span>portError</h2>
+<a id="a6bf37f4658f05800deaff23980f28db8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bf37f4658f05800deaff23980f28db8">&#9670;&nbsp;</a></span>assignedAddressCount</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int ZTS_VirtualNetworkConfig::portError</td>
+          <td class="memname">unsigned int ZTS_VirtualNetworkConfig::assignedAddressCount</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>If the network is in PORT_ERROR state, this is the (negative) error code most recently reported </p>
+<p>Number of assigned addresses </p>
+
+</div>
+</div>
+<a id="aacb1dde2ec53f9762f93888f46958e81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacb1dde2ec53f9762f93888f46958e81">&#9670;&nbsp;</a></span>assignedAddresses</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="structzts__sockaddr__storage.html">zts_sockaddr_storage</a> ZTS_VirtualNetworkConfig::assignedAddresses[16]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>ZeroTier-assigned addresses (in sockaddr_storage structures)</p>
+<p>For IP, the port number of the sockaddr_XX structure contains the number of bits in the address netmask. Only the IP address and port are used. Other fields like interface number can be ignored.</p>
+<p>This is only used for ZeroTier-managed address assignments sent by the virtual network's configuration master. </p>
 
 </div>
 </div>
@@ -368,33 +368,33 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="a86e6105f98a3d33bd7b27b2901208305"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86e6105f98a3d33bd7b27b2901208305">&#9670;&nbsp;</a></span>status</h2>
+<a id="a1d00979a7b3efa3627a0e2fb15b95aff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d00979a7b3efa3627a0e2fb15b95aff">&#9670;&nbsp;</a></span>multicastSubscriptionCount</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="ZeroTier_8h.html#a241820de887063b9bde29db53c1bbf8c">ZTS_VirtualNetworkStatus</a> ZTS_VirtualNetworkConfig::status</td>
+          <td class="memname">unsigned int ZTS_VirtualNetworkConfig::multicastSubscriptionCount</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Network configuration request status </p>
+<p>Number of multicast groups subscribed </p>
 
 </div>
 </div>
-<a id="a49bc13ca9b6b042142e94089f8bdbed2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49bc13ca9b6b042142e94089f8bdbed2">&#9670;&nbsp;</a></span>type</h2>
+<a id="a20449351951f5d7b6f8d0f1efecdb8ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20449351951f5d7b6f8d0f1efecdb8ef">&#9670;&nbsp;</a></span>multicastSubscriptions</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="ZeroTier_8h.html#a7c638dfa5b726cb1b5ddfcd5bf5b955a">ZTS_VirtualNetworkType</a> ZTS_VirtualNetworkConfig::type</td>
+          <td class="memname">struct { ... }  ZTS_VirtualNetworkConfig::multicastSubscriptions[ 1024 ]</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Network type </p>
+<p>Multicast groups to which this network's device is subscribed </p>
 
 </div>
 </div>

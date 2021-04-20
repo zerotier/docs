@@ -137,81 +137,6 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="a300bae28ca5af7e012148186c9a41732"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a300bae28ca5af7e012148186c9a41732">&#9670;&nbsp;</a></span>hadAggregateLink</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int ZTS_Peer::hadAggregateLink</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Whether this peer was ever reachable via an aggregate link </p>
-
-</div>
-</div>
-<a id="a6daf065770ad3e9b4e729d9d394ea75c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6daf065770ad3e9b4e729d9d394ea75c">&#9670;&nbsp;</a></span>latency</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int ZTS_Peer::latency</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Last measured latency in milliseconds or -1 if unknown </p>
-
-</div>
-</div>
-<a id="a03359cef237894e69b1379b393b79d47"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a03359cef237894e69b1379b393b79d47">&#9670;&nbsp;</a></span>pathCount</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int ZTS_Peer::pathCount</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Number of paths (size of paths[]) </p>
-
-</div>
-</div>
-<a id="a1bd92b3402b124be48d3161226cfa331"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1bd92b3402b124be48d3161226cfa331">&#9670;&nbsp;</a></span>paths</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structZTS__PeerPhysicalPath.html">ZTS_PeerPhysicalPath</a> ZTS_Peer::paths[16]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Known network paths to peer </p>
-
-</div>
-</div>
-<a id="ad5fa0e74e8b7fd7d653c4164310fb5ed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad5fa0e74e8b7fd7d653c4164310fb5ed">&#9670;&nbsp;</a></span>role</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="ZeroTier_8h.html#aded4346d55cee07e6a3372447f5c5c97">ZTS_PeerRole</a> ZTS_Peer::role</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>What trust hierarchy role does this device have? </p>
-
-</div>
-</div>
 <a id="ae057dc8bc9d6f643a2aa0e2f865d017c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae057dc8bc9d6f643a2aa0e2f865d017c">&#9670;&nbsp;</a></span>versionMajor</h2>
 
@@ -254,6 +179,81 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Remote revision or -1 if not known </p>
+
+</div>
+</div>
+<a id="a6daf065770ad3e9b4e729d9d394ea75c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6daf065770ad3e9b4e729d9d394ea75c">&#9670;&nbsp;</a></span>latency</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ZTS_Peer::latency</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Last measured latency in milliseconds or -1 if unknown </p>
+
+</div>
+</div>
+<a id="ad5fa0e74e8b7fd7d653c4164310fb5ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5fa0e74e8b7fd7d653c4164310fb5ed">&#9670;&nbsp;</a></span>role</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="ZeroTier_8h.html#aded4346d55cee07e6a3372447f5c5c97">ZTS_PeerRole</a> ZTS_Peer::role</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>What trust hierarchy role does this device have? </p>
+
+</div>
+</div>
+<a id="a03359cef237894e69b1379b393b79d47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03359cef237894e69b1379b393b79d47">&#9670;&nbsp;</a></span>pathCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int ZTS_Peer::pathCount</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Number of paths (size of paths[]) </p>
+
+</div>
+</div>
+<a id="a300bae28ca5af7e012148186c9a41732"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a300bae28ca5af7e012148186c9a41732">&#9670;&nbsp;</a></span>hadAggregateLink</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ZTS_Peer::hadAggregateLink</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Whether this peer was ever reachable via an aggregate link </p>
+
+</div>
+</div>
+<a id="a1bd92b3402b124be48d3161226cfa331"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bd92b3402b124be48d3161226cfa331">&#9670;&nbsp;</a></span>paths</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structZTS__PeerPhysicalPath.html">ZTS_PeerPhysicalPath</a> ZTS_Peer::paths[16]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Known network paths to peer </p>
 
 </div>
 </div>
