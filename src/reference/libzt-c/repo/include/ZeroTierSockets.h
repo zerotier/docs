@@ -29,7 +29,7 @@ extern "C" {
 //----------------------------------------------------------------------------//
 
 /** Common error return values */
-enum ZTS_Error {
+typedef enum {
 	/** No error */
 	ZTS_ERR_OK = 0,
 	/** Socket error, see `zts_errno` */
@@ -42,14 +42,14 @@ enum ZTS_Error {
 	ZTS_ERR_NO_RESULT = -4,
 	/** Consider filing a bug report */
 	ZTS_ERR_GENERAL = -5
-};
+} zts_error_t;
 
 //----------------------------------------------------------------------------//
 // Event codes                                                                //
 //----------------------------------------------------------------------------//
 
 /** Event codes used by the (optional) callback API */
-enum ZTS_Event {
+typedef enum {
 	/**
 	 * Node has been initialized
 	 *
@@ -83,6 +83,8 @@ enum ZTS_Event {
 	ZTS_EVENT_NODE_DOWN = 203,
 
 	/**
+	 * A fatal error has occurred. One possible reason is:
+	 *
 	 * Your identity has collided with another node's ZeroTier address
 	 *
 	 * This happens if two different public keys both hash (via the algorithm
@@ -112,11 +114,7 @@ enum ZTS_Event {
 	 *
 	 * Meta-data: none
 	 */
-	ZTS_EVENT_NODE_IDENTITY_COLLISION = 204,
-	/** Something went horribly wrong */
-	ZTS_EVENT_NODE_UNRECOVERABLE_ERROR = 205,
-	/** The node has been terminated */
-	ZTS_EVENT_NODE_NORMAL_TERMINATION = 206,
+	ZTS_EVENT_NODE_FATAL_ERROR = 204,
 
 	/** Network ID does not correspond to a known network */
 	ZTS_EVENT_NETWORK_NOT_FOUND = 210,
@@ -190,7 +188,7 @@ enum ZTS_Event {
 	ZTS_EVENT_STORE_PEER = 273,
 	/** New network config */
 	ZTS_EVENT_STORE_NETWORK = 274
-};
+} zts_event_t;
 
 //----------------------------------------------------------------------------//
 // zts_errno Error codes                                                      //
@@ -587,7 +585,7 @@ typedef struct {
 	 * ZT version
 	 */
 	uint8_t versionRev;
-} ZTS_Node;
+} zts_node_t;
 
 /**
  * Details about an assigned address that was added or removed
@@ -595,7 +593,7 @@ typedef struct {
 typedef struct {
 	uint64_t net_id;
 	struct zts_sockaddr_storage addr;
-} ZTS_Address;
+} zts_address_t;
 
 /**
  * Current node status
@@ -624,12 +622,12 @@ typedef struct {
 	 * True if some kind of connectivity appears available
 	 */
 	int online;
-} ZTS_NodeStatus;
+} zts_node_status_t;
 
 /**
  * Virtual network status codes
  */
-enum ZTS_VirtualNetworkStatus {
+typedef enum {
 	/**
 	 * Waiting for network configuration (also means revision == 0)
 	 */
@@ -659,12 +657,12 @@ enum ZTS_VirtualNetworkStatus {
 	 * ZeroTier core version too old
 	 */
 	ZTS_NETWORK_STATUS_CLIENT_TOO_OLD = 5
-};
+} zts_network_status_t;
 
 /**
  * Virtual network type codes
  */
-enum ZTS_VirtualNetworkType {
+typedef enum {
 	/**
 	 * Private networks are authorized via certificates of membership
 	 */
@@ -674,7 +672,7 @@ enum ZTS_VirtualNetworkType {
 	 * Public networks have no access control -- they'll always be AUTHORIZED
 	 */
 	ZTS_NETWORK_TYPE_PUBLIC = 1
-};
+} zts_network_type_t;
 
 /**
  * A route to be pushed on a virtual network
@@ -701,7 +699,7 @@ typedef struct {
 	 * Route metric (not currently used)
 	 */
 	uint16_t metric;
-} ZTS_VirtualNetworkRoute;
+} zts_route_t;
 
 /**
  * An Ethernet multicast group
@@ -716,12 +714,12 @@ typedef struct {
 	 * Additional distinguishing information (usually zero)
 	 */
 	unsigned long adi;
-} ZTS_MulticastGroup;
+} zts_multicast_group_t;
 
 /**
  * The peer's trust hierarchy role
  */
-enum ZTS_PeerRole {
+typedef enum {
 	/**
 	 * Ordinary node
 	 */
@@ -734,7 +732,7 @@ enum ZTS_PeerRole {
 	 * Planetary root
 	 */
 	ZTS_PEER_ROLE_PLANET = 2
-};
+} zts_peer_role_t;
 
 /**
  * Virtual network configuration
@@ -758,12 +756,12 @@ typedef struct {
 	/**
 	 * Network configuration request status
 	 */
-	enum ZTS_VirtualNetworkStatus status;
+	zts_network_status_t status;
 
 	/**
 	 * Network type
 	 */
-	enum ZTS_VirtualNetworkType type;
+	zts_network_type_t type;
 
 	/**
 	 * Maximum interface MTU
@@ -830,7 +828,7 @@ typedef struct {
 	/**
 	 * Routes (excluding those implied by assigned addresses and their masks)
 	 */
-	ZTS_VirtualNetworkRoute routes[ZTS_MAX_NETWORK_ROUTES];
+	zts_route_t routes[ZTS_MAX_NETWORK_ROUTES];
 
 	/**
 	 * Number of multicast groups subscribed
@@ -845,7 +843,7 @@ typedef struct {
 		uint32_t adi; /* Additional distinguishing information, usually zero
 		                 except for IPv4 ARP groups */
 	} multicastSubscriptions[ZTS_MAX_MULTICAST_SUBSCRIPTIONS];
-} ZTS_VirtualNetworkConfig;
+} zts_network_t;
 
 /**
  * Physical network path to a peer
@@ -930,7 +928,7 @@ typedef struct {
 	 * Is path preferred?
 	 */
 	int preferred;
-} ZTS_PeerPhysicalPath;
+} zts_path_t;
 
 /**
  * Peer status result buffer
@@ -964,7 +962,7 @@ typedef struct {
 	/**
 	 * What trust hierarchy role does this device have?
 	 */
-	enum ZTS_PeerRole role;
+	zts_peer_role_t role;
 
 	/**
 	 * Number of paths (size of paths[])
@@ -979,8 +977,8 @@ typedef struct {
 	/**
 	 * Known network paths to peer
 	 */
-	ZTS_PeerPhysicalPath paths[ZTS_MAX_PEER_NETWORK_PATHS];
-} ZTS_Peer;
+	zts_path_t paths[ZTS_MAX_PEER_NETWORK_PATHS];
+} zts_peer_t;
 
 /**
  * A structure used to convey information about a virtual network
@@ -1001,7 +999,7 @@ typedef struct {
 	 * The MTU for this interface
 	 */
 	int mtu;
-} ZTS_Netif;
+} zts_netif_t;
 
 /**
  * Callback message
@@ -1014,27 +1012,27 @@ typedef struct {
 	/**
 	 * Node status
 	 */
-	ZTS_Node* node;
+	zts_node_t* node;
 	/**
 	 * Network information
 	 */
-	ZTS_VirtualNetworkConfig* network;
+	zts_network_t* network;
 	/**
 	 * Netif status
 	 */
-	ZTS_Netif* netif;
+	zts_netif_t* netif;
 	/**
 	 * Managed routes
 	 */
-	ZTS_VirtualNetworkRoute* route;
+	zts_route_t* route;
 	/**
 	 * Peer info
 	 */
-	ZTS_Peer* peer;
+	zts_peer_t* peer;
 	/**
 	 * Assigned address
 	 */
-	ZTS_Address* addr;
+	zts_address_t* addr;
 	/**
 	 * Binary data (identities, planets, network configs, peer hints, etc)
 	 */
@@ -1043,7 +1041,7 @@ typedef struct {
 	 * Length of data message or structure
 	 */
 	int len;
-} ZTS_CallbackMessage;
+} zts_callback_message_t;
 
 //----------------------------------------------------------------------------//
 // Python Bindings (Subset of regular socket API)                             //
@@ -1061,7 +1059,7 @@ class PythonDirectorCallbackClass {
 	/**
 	 * Called by native code on event. Implemented in Python
 	 */
-	virtual void on_zerotier_event(ZTS_CallbackMessage* msg);
+	virtual void on_zerotier_event(zts_callback_message_t* msg);
 	virtual ~PythonDirectorCallbackClass() {};
 };
 
@@ -1128,16 +1126,21 @@ int zts_py_getblocking(int fd);
  * @brief Enable read/write capability. Default before calling this is
  * read-only: `ZTS_CENTRAL_READ`
  *
- * @param modes Whether the API allows read, write, or both
+ * @param modes `ZTS_CENTRAL_READ` and/or `ZTS_CENTRAL_WRITE`. Whether the API allows read, write,
+ * or both
+ *
+ * @return `ZTS_ERR_OK` if successful. `ZTS_ERR_ARG` if invalid argument.
  */
-ZTS_API void ZTCALL zts_central_set_access_mode(int8_t modes);
+ZTS_API int ZTCALL zts_central_set_access_mode(int8_t modes);
 
 /**
  * @brief Enable or disable libcurl verbosity
  *
- * @param is_verbose Whether debug information is desired
+ * @param is_verbose `[1, 0]`, Whether debug information is desired
+ *
+ * @return `ZTS_ERR_OK` if successful. `ZTS_ERR_ARG` if invalid argument.
  */
-ZTS_API void ZTCALL zts_central_set_verbose(int8_t is_verbose);
+ZTS_API int ZTCALL zts_central_set_verbose(int8_t is_verbose);
 
 ZTS_API void ZTCALL zts_central_clear_resp_buf();
 
@@ -1329,13 +1332,13 @@ ZTS_API int ZTCALL zts_init_from_memory(const char* key, uint16_t len);
  *     experiences a problem, `ZTS_ERR_ARG` if invalid argument.
  */
 #ifdef ZTS_ENABLE_PYTHON
-int zts_init_set_event_handler(PythonDirectorCallbackClass* callback);
+ZTS_API int ZTCALL zts_init_set_event_handler(PythonDirectorCallbackClass* callback);
 #endif
 #ifdef ZTS_ENABLE_PINVOKE
-int zts_init_set_event_handler(CppCallback callback);
+ZTS_API int ZTCALL zts_init_set_event_handler(CppCallback callback);
 #endif
 #ifdef ZTS_C_API_ONLY
-int zts_init_set_event_handler(void (*callback)(void*));
+ZTS_API int ZTCALL zts_init_set_event_handler(void (*callback)(void*));
 #endif
 
 /**
@@ -1409,6 +1412,15 @@ ZTS_API int ZTCALL zts_init_allow_net_cache(int allowed);
  *     experiences a problem, `ZTS_ERR_ARG` if invalid argument.
  */
 ZTS_API int ZTCALL zts_init_allow_peer_cache(int allowed);
+
+/**
+ * @brief Clear all initialization settings. This is an initialization function that can
+ * only be called before `zts_node_start()` or after `zts_node_stop()`.
+ *
+ * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_SERVICE` if the node
+ *     experiences a problem.
+ */
+ZTS_API int ZTCALL  zts_init_clear();
 
 /**
  * @brief Return whether an address of the given family has been assigned by the network
@@ -1695,7 +1707,7 @@ ZTS_API int ZTCALL zts_node_get_id_pair(char* key, uint16_t* key_buf_len);
  *
  * @return Port number
  */
-ZTS_API unsigned short ZTCALL zts_node_get_port();
+ZTS_API int ZTCALL zts_node_get_port();
 
 /**
  * @brief Stop the ZeroTier node and bring down all virtual network
@@ -2214,10 +2226,10 @@ typedef struct zts_fd_set {
 	unsigned char fd_bits[(ZTS_FD_SETSIZE + 7) / 8];
 } zts_fd_set;
 
-struct zts_timeval {
+typedef struct zts_timeval {
 	long tv_sec;  /* seconds */
 	long tv_usec; /* and microseconds */
-};
+} zts_timeval;
 
 /**
  * @brief Monitor multiple file descriptors for "readiness"
