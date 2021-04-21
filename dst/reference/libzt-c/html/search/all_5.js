@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['flags_12',['flags',['../structZTS__VirtualNetworkRoute.html#a3e199ae5110d7322aa2960771e7601cc',1,'ZTS_VirtualNetworkRoute']]]
+  ['flags_12',['flags',['../structzts__route__t.html#ae95d0968c2d814c76629aa8b37761122',1,'zts_route_t']]]
 ];

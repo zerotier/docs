@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['mac_461',['mac',['../structZTS__MulticastGroup.html#addbff18ea8dc2c8392bcaf07692c18f1',1,'ZTS_MulticastGroup::mac()'],['../structZTS__VirtualNetworkConfig.html#a0ccaee3b3e23a251c8b0051bebb5c7f0',1,'ZTS_VirtualNetworkConfig::mac()'],['../structZTS__Netif.html#a332ff404b16cbdc0b9b780d58249f077',1,'ZTS_Netif::mac()']]],
-  ['maxthroughput_462',['maxThroughput',['../structZTS__PeerPhysicalPath.html#afaee5f8949c11b738fdaf256e5bb668a',1,'ZTS_PeerPhysicalPath']]],
-  ['metric_463',['metric',['../structZTS__VirtualNetworkRoute.html#aa3b6241532766bac98ad9dce06a85a52',1,'ZTS_VirtualNetworkRoute']]],
-  ['mtu_464',['mtu',['../structZTS__VirtualNetworkConfig.html#adb131d7d84c371feb93bb47ee9f4f86f',1,'ZTS_VirtualNetworkConfig::mtu()'],['../structZTS__Netif.html#a769b032262347a9db279a46e0c6e2d4c',1,'ZTS_Netif::mtu()']]],
-  ['multicastsubscriptioncount_465',['multicastSubscriptionCount',['../structZTS__VirtualNetworkConfig.html#a1d00979a7b3efa3627a0e2fb15b95aff',1,'ZTS_VirtualNetworkConfig']]],
-  ['multicastsubscriptions_466',['multicastSubscriptions',['../structZTS__VirtualNetworkConfig.html#a830a9fa6f126d14326cee80d2b5a124a',1,'ZTS_VirtualNetworkConfig']]]
+  ['mac_461',['mac',['../structzts__multicast__group__t.html#a29ca0d620f7c9f893c88d66891995847',1,'zts_multicast_group_t::mac()'],['../structzts__network__t.html#a749eccf5de4abe8c28a4a22ef801810f',1,'zts_network_t::mac()'],['../structzts__netif__t.html#a5a7c7644e63a5b33412614e5904a8f04',1,'zts_netif_t::mac()']]],
+  ['maxthroughput_462',['maxThroughput',['../structzts__path__t.html#a06f52476eeee2adc7d440e8f1813499e',1,'zts_path_t']]],
+  ['metric_463',['metric',['../structzts__route__t.html#a59537e76e00a0e705e311d978c1e472d',1,'zts_route_t']]],
+  ['mtu_464',['mtu',['../structzts__network__t.html#aa18a9945fdce3c5755d1175c3eaa04f1',1,'zts_network_t::mtu()'],['../structzts__netif__t.html#ae61bc8ddc8e273a6a100b9b3ebee82fc',1,'zts_netif_t::mtu()']]],
+  ['multicastsubscriptioncount_465',['multicastSubscriptionCount',['../structzts__network__t.html#ae552be1679972bac96905fe3601ac053',1,'zts_network_t']]],
+  ['multicastsubscriptions_466',['multicastSubscriptions',['../structzts__network__t.html#ab8eb729a3ab3c0dbcf9fc67f7b23e9fe',1,'zts_network_t']]]
 ];

@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['secondaryport_46',['secondaryPort',['../structZTS__Node.html#ac498066ba9fa73d67404696d90f010e8',1,'ZTS_Node']]],
-  ['secretidentity_47',['secretIdentity',['../structZTS__NodeStatus.html#a0f83ea84f48a37b2311d1ad6c3633956',1,'ZTS_NodeStatus']]],
-  ['stability_48',['stability',['../structZTS__PeerPhysicalPath.html#a5173a6b3e950ff431b77487af57d7b5a',1,'ZTS_PeerPhysicalPath']]],
-  ['status_49',['status',['../structZTS__VirtualNetworkConfig.html#a86e6105f98a3d33bd7b27b2901208305',1,'ZTS_VirtualNetworkConfig']]]
+  ['secondaryport_46',['secondaryPort',['../structzts__node__t.html#a447548de37539fe77cd0d9e49866a7e4',1,'zts_node_t']]],
+  ['secretidentity_47',['secretIdentity',['../structzts__node__status__t.html#a28689392dc6d26529c7adcbcf4ef0c89',1,'zts_node_status_t']]],
+  ['stability_48',['stability',['../structzts__path__t.html#a314de309dd4af987f16d8c19975ffdcb',1,'zts_path_t']]],
+  ['status_49',['status',['../structzts__network__t.html#a83ea600ade656bb0d1609a0816ae2ceb',1,'zts_network_t']]]
 ];

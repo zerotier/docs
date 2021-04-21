@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['name_25',['name',['../structZTS__VirtualNetworkConfig.html#add0e989c168d646b26ae1e65d0280e25',1,'ZTS_VirtualNetworkConfig']]],
-  ['net_5fid_26',['net_id',['../structZTS__VirtualNetworkConfig.html#aa229ea7e8ce6c93b833e65beef808795',1,'ZTS_VirtualNetworkConfig::net_id()'],['../structZTS__Netif.html#a224e0b19ba843766c0a805aceda6f19d',1,'ZTS_Netif::net_id()']]],
-  ['netconfrevision_27',['netconfRevision',['../structZTS__VirtualNetworkConfig.html#a21cc9dead3815b1dd796cdfbb8523515',1,'ZTS_VirtualNetworkConfig']]],
-  ['netif_28',['netif',['../structZTS__CallbackMessage.html#a5e0b8f7ef38ce325b712dbfe4ab13bc7',1,'ZTS_CallbackMessage']]],
-  ['network_29',['network',['../structZTS__CallbackMessage.html#a09059bf7cf8167adc689b3c0bd1dff0f',1,'ZTS_CallbackMessage']]],
-  ['node_30',['node',['../structZTS__CallbackMessage.html#a95bb00a89ecb93afbd81bfffdbcd90ff',1,'ZTS_CallbackMessage']]]
+  ['name_25',['name',['../structzts__network__t.html#a3512d2c602989b8272fcc1a477c85021',1,'zts_network_t']]],
+  ['net_5fid_26',['net_id',['../structzts__network__t.html#af6b280706e073c6fbb4f438efc22dc97',1,'zts_network_t::net_id()'],['../structzts__netif__t.html#a61ac274195b3b7d1a931e2590fbbb06f',1,'zts_netif_t::net_id()']]],
+  ['netconfrevision_27',['netconfRevision',['../structzts__network__t.html#a3f6bada665407cad2304fd42d1293cc2',1,'zts_network_t']]],
+  ['netif_28',['netif',['../structzts__callback__message__t.html#a85aaf59b43bb88a72a6ae9a58e233d73',1,'zts_callback_message_t']]],
+  ['network_29',['network',['../structzts__callback__message__t.html#a13e9afbadf6325f44242a44af9f7875a',1,'zts_callback_message_t']]],
+  ['node_30',['node',['../structzts__callback__message__t.html#aa7b94c06de0895fe18fc283da4679988',1,'zts_callback_message_t']]]
 ];

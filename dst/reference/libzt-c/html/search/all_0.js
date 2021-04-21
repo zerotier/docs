@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['addr_0',['addr',['../structZTS__CallbackMessage.html#ac22bbe8a92e9ff2c38c9200714a11a18',1,'ZTS_CallbackMessage']]],
-  ['address_1',['address',['../structZTS__Node.html#ae4927122562e871ee1847f76f0a30777',1,'ZTS_Node::address()'],['../structZTS__NodeStatus.html#a0a43bb466260bf213678570a7bb8816c',1,'ZTS_NodeStatus::address()'],['../structZTS__PeerPhysicalPath.html#a8d4ac7f501630a5b28c28d2f63cd92cc',1,'ZTS_PeerPhysicalPath::address()'],['../structZTS__Peer.html#a573458092205dd8bb48e20f1892295fc',1,'ZTS_Peer::address()']]],
-  ['adi_2',['adi',['../structZTS__MulticastGroup.html#a61311682a55e7fdc96966665800a9772',1,'ZTS_MulticastGroup']]],
-  ['allocation_3',['allocation',['../structZTS__PeerPhysicalPath.html#ab6fdfb0d57dcc80b1eab44bba637d0c8',1,'ZTS_PeerPhysicalPath']]],
-  ['assignedaddresscount_4',['assignedAddressCount',['../structZTS__VirtualNetworkConfig.html#a6bf37f4658f05800deaff23980f28db8',1,'ZTS_VirtualNetworkConfig']]],
-  ['assignedaddresses_5',['assignedAddresses',['../structZTS__VirtualNetworkConfig.html#aacb1dde2ec53f9762f93888f46958e81',1,'ZTS_VirtualNetworkConfig']]]
+  ['addr_0',['addr',['../structzts__callback__message__t.html#ac7b6ffbb257f778edcf1ac10f44c9961',1,'zts_callback_message_t']]],
+  ['address_1',['address',['../structzts__node__t.html#a9a0505ac8248dbeb6b7082e57fff549d',1,'zts_node_t::address()'],['../structzts__node__status__t.html#a57c5532cfb9ee73040edf86958893f37',1,'zts_node_status_t::address()'],['../structzts__path__t.html#acbd00e2de7b434d8da847c94c543354e',1,'zts_path_t::address()'],['../structzts__peer__t.html#a7e7aa65571c013fc36ce18d15249fef0',1,'zts_peer_t::address()']]],
+  ['adi_2',['adi',['../structzts__multicast__group__t.html#ae216087a1cc453d890c4cea8971752e1',1,'zts_multicast_group_t']]],
+  ['allocation_3',['allocation',['../structzts__path__t.html#a59db4e90556530f17eb454c876406c52',1,'zts_path_t']]],
+  ['assignedaddresscount_4',['assignedAddressCount',['../structzts__network__t.html#a32917b42e2fba4dacace5177a2d7e196',1,'zts_network_t']]],
+  ['assignedaddresses_5',['assignedAddresses',['../structzts__network__t.html#a42f45f8d451fc84b939ce89f0f866df1',1,'zts_network_t']]]
 ];

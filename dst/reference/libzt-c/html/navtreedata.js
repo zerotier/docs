@@ -49,7 +49,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "ZeroTierSockets_8h.html",
-"globals_type.html"
+"globals_vars.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,13 +1,13 @@
 var searchData=
 [
-  ['packetdelayvariance_32',['packetDelayVariance',['../structZTS__PeerPhysicalPath.html#a629f6a2f5f68978c1a883014e86cb095',1,'ZTS_PeerPhysicalPath']]],
-  ['packeterrorratio_33',['packetErrorRatio',['../structZTS__PeerPhysicalPath.html#a5e51ea866a86580a76ea9d8d2eb6bf0c',1,'ZTS_PeerPhysicalPath']]],
-  ['packetlossratio_34',['packetLossRatio',['../structZTS__PeerPhysicalPath.html#a7333dc8aafc873dfb039f5c20270e629',1,'ZTS_PeerPhysicalPath']]],
-  ['pathcount_35',['pathCount',['../structZTS__Peer.html#a03359cef237894e69b1379b393b79d47',1,'ZTS_Peer']]],
-  ['paths_36',['paths',['../structZTS__Peer.html#a1bd92b3402b124be48d3161226cfa331',1,'ZTS_Peer']]],
-  ['peer_37',['peer',['../structZTS__CallbackMessage.html#a3db181362ffbc37e8dff0d3c696a268a',1,'ZTS_CallbackMessage']]],
-  ['porterror_38',['portError',['../structZTS__VirtualNetworkConfig.html#af462a45d3dd4cf1b553a7b96eddc8758',1,'ZTS_VirtualNetworkConfig']]],
-  ['preferred_39',['preferred',['../structZTS__PeerPhysicalPath.html#aa09a7fb157122395f381a4bd59f01a41',1,'ZTS_PeerPhysicalPath']]],
-  ['primaryport_40',['primaryPort',['../structZTS__Node.html#ab7b16c67ff5bd2301f0328dca61edd2d',1,'ZTS_Node']]],
-  ['publicidentity_41',['publicIdentity',['../structZTS__NodeStatus.html#a5a766674178c7baf668c96776991a76d',1,'ZTS_NodeStatus']]]
+  ['packetdelayvariance_32',['packetDelayVariance',['../structzts__path__t.html#af0761c394248db044528bca75ee82240',1,'zts_path_t']]],
+  ['packeterrorratio_33',['packetErrorRatio',['../structzts__path__t.html#ad69df8d372103e31dad09de4f12ae09e',1,'zts_path_t']]],
+  ['packetlossratio_34',['packetLossRatio',['../structzts__path__t.html#a65a8adcd93570661afdd1e15b99223e8',1,'zts_path_t']]],
+  ['pathcount_35',['pathCount',['../structzts__peer__t.html#a762ab749369f1fbc391fe23685308bf8',1,'zts_peer_t']]],
+  ['paths_36',['paths',['../structzts__peer__t.html#add5ed7b3b040cae03da0b01b0cc51d19',1,'zts_peer_t']]],
+  ['peer_37',['peer',['../structzts__callback__message__t.html#a01faa6f345980a2ae726a4ef7723e539',1,'zts_callback_message_t']]],
+  ['porterror_38',['portError',['../structzts__network__t.html#a767410d291f99e632c3d562f21c2b0e4',1,'zts_network_t']]],
+  ['preferred_39',['preferred',['../structzts__path__t.html#a029e41a1b0ad87fd5a4ebb32308fe676',1,'zts_path_t']]],
+  ['primaryport_40',['primaryPort',['../structzts__node__t.html#ac6d18e21c0d70d32e7cec55868e3b1bd',1,'zts_node_t']]],
+  ['publicidentity_41',['publicIdentity',['../structzts__node__status__t.html#a311393f474ac7b534de03b66af7e17d7',1,'zts_node_status_t']]]
 ];

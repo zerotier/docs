@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['lastreceive_457',['lastReceive',['../structZTS__PeerPhysicalPath.html#a74ea6cc78d05698a4d5099b2d2bf7a04',1,'ZTS_PeerPhysicalPath']]],
-  ['lastsend_458',['lastSend',['../structZTS__PeerPhysicalPath.html#a5f286fab1e47ad739ff7d31379602374',1,'ZTS_PeerPhysicalPath']]],
-  ['latency_459',['latency',['../structZTS__PeerPhysicalPath.html#ac09315cfde2b980d1851d0dfca25b1d7',1,'ZTS_PeerPhysicalPath::latency()'],['../structZTS__Peer.html#a6daf065770ad3e9b4e729d9d394ea75c',1,'ZTS_Peer::latency()']]],
-  ['len_460',['len',['../structZTS__CallbackMessage.html#a4f9c332fdbdd89c5016cb1b458aaf34e',1,'ZTS_CallbackMessage']]]
+  ['lastreceive_457',['lastReceive',['../structzts__path__t.html#a08b5c6b0c27f6aa9a8588ba969e2f7df',1,'zts_path_t']]],
+  ['lastsend_458',['lastSend',['../structzts__path__t.html#ad48e6cea7c5f0decfd6f630d741394ad',1,'zts_path_t']]],
+  ['latency_459',['latency',['../structzts__path__t.html#a8325fcc6b8ad98a94232b1a5cebda9b9',1,'zts_path_t::latency()'],['../structzts__peer__t.html#a761581777374a799d2113c4d741b8d98',1,'zts_peer_t::latency()']]],
+  ['len_460',['len',['../structzts__callback__message__t.html#ab1befffd93a7d69305380a5f5fb65abd',1,'zts_callback_message_t']]]
 ];

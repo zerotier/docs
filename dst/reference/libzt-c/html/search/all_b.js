@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['online_31',['online',['../structZTS__NodeStatus.html#af043a60d1f29c7a95466df8b164610ef',1,'ZTS_NodeStatus']]]
+  ['online_31',['online',['../structzts__node__status__t.html#a1e922fadcb47c1e85630514e78bde3f5',1,'zts_node_status_t']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['bridge_448',['bridge',['../structZTS__VirtualNetworkConfig.html#acfcb534f6e20a700e07fa294c85cd4a0',1,'ZTS_VirtualNetworkConfig']]],
-  ['broadcastenabled_449',['broadcastEnabled',['../structZTS__VirtualNetworkConfig.html#abe2ae4433a466c50cb44c7daecd81eea',1,'ZTS_VirtualNetworkConfig']]]
+  ['bridge_448',['bridge',['../structzts__network__t.html#a531f4c8895bddd822db1eb45ca8a3fd4',1,'zts_network_t']]],
+  ['broadcastenabled_449',['broadcastEnabled',['../structzts__network__t.html#a755b7c9bca18e680689c4c4b71beef24',1,'zts_network_t']]]
 ];
