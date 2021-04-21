@@ -199,90 +199,92 @@ typedef enum {
  */
 extern int zts_errno;
 
-/** Operation not permitted (`zts_errno` value) */
-#define ZTS_EPERM 1
-/** No such file or directory */
-#define ZTS_ENOENT 2
-/** No such process */
-#define ZTS_ESRCH 3
-/** Interrupted system call */
-#define ZTS_EINTR 4
-/** I/O error */
-#define ZTS_EIO 5
-/** No such device or address */
-#define ZTS_ENXIO 6
-/** Bad file number */
-#define ZTS_EBADF 9
-/** Try again */
-#define ZTS_EAGAIN 11
-/** Operation would block */
-#define ZTS_EWOULDBLOCK ZTS_EAGAIN
-/** Out of memory */
-#define ZTS_ENOMEM 12
-/** Permission denied */
-#define ZTS_EACCES 13
-/** Bad address */
-#define ZTS_EFAULT 14
-/** Device or resource busy */
-#define ZTS_EBUSY 16
-/** File exists */
-#define ZTS_EEXIST 17
-/** No such device */
-#define ZTS_ENODEV 19
-/** Invalid argument */
-#define ZTS_EINVAL 22
-/** File table overflow */
-#define ZTS_ENFILE 23
-/** Too many open files */
-#define ZTS_EMFILE 24
-/** Function not implemented */
-#define ZTS_ENOSYS 38
-/** Socket operation on non-socket */
-#define ZTS_ENOTSOCK 88
-/** Destination address required */
-#define ZTS_EDESTADDRREQ 89
-/** Message too long */
-#define ZTS_EMSGSIZE 90
-/** Protocol wrong type for socket */
-#define ZTS_EPROTOTYPE 91
-/** Protocol not available */
-#define ZTS_ENOPROTOOPT 92
-/** Protocol not supported */
-#define ZTS_EPROTONOSUPPORT 93
-/** Socket type not supported */
-#define ZTS_ESOCKTNOSUPPORT 94
-/** Operation not supported on transport endpoint */
-#define ZTS_EOPNOTSUPP 95
-/** Protocol family not supported */
-#define ZTS_EPFNOSUPPORT 96
-/** Address family not supported by protocol */
-#define ZTS_EAFNOSUPPORT 97
-/** Address already in use */
-#define ZTS_EADDRINUSE 98
-/** Cannot assign requested address */
-#define ZTS_EADDRNOTAVAIL 99
-/** Network is down */
-#define ZTS_ENETDOWN 100
-/** Network is unreachable */
-#define ZTS_ENETUNREACH 101
-/** Software caused connection abort */
-#define ZTS_ECONNABORTED 103
-/** Connection reset by peer */
-#define ZTS_ECONNRESET 104
-/** No buffer space available */
-#define ZTS_ENOBUFS 105
-/** Transport endpoint is already connected */
-#define ZTS_EISCONN 106
-/** Transport endpoint is not connected */
-#define ZTS_ENOTCONN 107
-/** Connection timed out */
-#define ZTS_ETIMEDOUT 110
-/** No route to host */
-#define ZTS_EHOSTUNREACH 113
-/** Operation already in progress */
-#define ZTS_EALREADY 114
-/** Operation now in progress */
-#define ZTS_EINPROGRESS 115
+typedef enum {
+	/** Operation not permitted (`zts_errno` value) */
+	ZTS_EPERM = 1,
+	/** No such file or directory */
+	ZTS_ENOENT = 2,
+	/** No such process */
+	ZTS_ESRCH = 3,
+	/** Interrupted system call */
+	ZTS_EINTR = 4,
+	/** I/O error */
+	ZTS_EIO = 5,
+	/** No such device or address */
+	ZTS_ENXIO = 6,
+	/** Bad file number */
+	ZTS_EBADF = 9,
+	/** Try again */
+	ZTS_EAGAIN = 11,
+	/** Operation would block */
+	ZTS_EWOULDBLOCK = ZTS_EAGAIN,
+	/** Out of memory */
+	ZTS_ENOMEM = 12,
+	/** Permission denied */
+	ZTS_EACCES = 13,
+	/** Bad address */
+	ZTS_EFAULT = 14,
+	/** Device or resource busy */
+	ZTS_EBUSY = 16,
+	/** File exists */
+	ZTS_EEXIST = 17,
+	/** No such device */
+	ZTS_ENODEV = 19,
+	/** Invalid argument */
+	ZTS_EINVAL = 22,
+	/** File table overflow */
+	ZTS_ENFILE = 23,
+	/** Too many open files */
+	ZTS_EMFILE = 24,
+	/** Function not implemented */
+	ZTS_ENOSYS = 38,
+	/** Socket operation on non-socket */
+	ZTS_ENOTSOCK = 88,
+	/** Destination address required */
+	ZTS_EDESTADDRREQ = 89,
+	/** Message too long */
+	ZTS_EMSGSIZE = 90,
+	/** Protocol wrong type for socket */
+	ZTS_EPROTOTYPE = 91,
+	/** Protocol not available */
+	ZTS_ENOPROTOOPT = 92,
+	/** Protocol not supported */
+	ZTS_EPROTONOSUPPORT = 93,
+	/** Socket type not supported */
+	ZTS_ESOCKTNOSUPPORT = 94,
+	/** Operation not supported on transport endpoint */
+	ZTS_EOPNOTSUPP = 95,
+	/** Protocol family not supported */
+	ZTS_EPFNOSUPPORT = 96,
+	/** Address family not supported by protocol */
+	ZTS_EAFNOSUPPORT = 97,
+	/** Address already in use */
+	ZTS_EADDRINUSE = 98,
+	/** Cannot assign requested address */
+	ZTS_EADDRNOTAVAIL = 99,
+	/** Network is down */
+	ZTS_ENETDOWN = 100,
+	/** Network is unreachable */
+	ZTS_ENETUNREACH = 101,
+	/** Software caused connection abort */
+	ZTS_ECONNABORTED = 103,
+	/** Connection reset by peer */
+	ZTS_ECONNRESET = 104,
+	/** No buffer space available */
+	ZTS_ENOBUFS = 105,
+	/** Transport endpoint is already connected */
+	ZTS_EISCONN = 106,
+	/** Transport endpoint is not connected */
+	ZTS_ENOTCONN = 107,
+	/** Connection timed out */
+	ZTS_ETIMEDOUT = 110,
+	/** No route to host */
+	ZTS_EHOSTUNREACH = 113,
+	/** Operation already in progress */
+	ZTS_EALREADY = 114,
+	/** Operation now in progress */
+	ZTS_EINPROGRESS = 115
+} zts_errno_t;
 
 //----------------------------------------------------------------------------//
 // Misc definitions                                                           //
@@ -1131,7 +1133,7 @@ int zts_py_getblocking(int fd);
  *
  * @return `ZTS_ERR_OK` if successful. `ZTS_ERR_ARG` if invalid argument.
  */
-ZTS_API int ZTCALL zts_central_set_access_mode(int8_t modes);
+ZTS_API zts_error_t ZTCALL zts_central_set_access_mode(int8_t modes);
 
 /**
  * @brief Enable or disable libcurl verbosity
@@ -1140,7 +1142,7 @@ ZTS_API int ZTCALL zts_central_set_access_mode(int8_t modes);
  *
  * @return `ZTS_ERR_OK` if successful. `ZTS_ERR_ARG` if invalid argument.
  */
-ZTS_API int ZTCALL zts_central_set_verbose(int8_t is_verbose);
+ZTS_API zts_error_t ZTCALL zts_central_set_verbose(int8_t is_verbose);
 
 ZTS_API void ZTCALL zts_central_clear_resp_buf();
 
@@ -1154,7 +1156,7 @@ ZTS_API void ZTCALL zts_central_clear_resp_buf();
  * size)
  * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_ARG` if invalid argument.
  */
-ZTS_API int ZTCALL
+ZTS_API zts_error_t ZTCALL
 zts_central_init(const char* url_str, const char* token_str, char* resp_buf, uint32_t buf_len);
 
 ZTS_API void ZTCALL zts_central_cleanup();
@@ -1168,14 +1170,14 @@ ZTS_API void ZTCALL zts_central_cleanup();
  * @return `ZTS_ERR_OK` if all contents were copied successfully.
  *     `ZTS_ERR_ARG` if provided buffer was too small.
  */
-ZTS_API int ZTCALL zts_central_get_last_resp_buf(char* dst, int len);
+ZTS_API zts_error_t ZTCALL zts_central_get_last_resp_buf(char* dst, int len);
 
 /**
  * @brief Get the status of the Central API server.
  *
  * @return Standard HTTP response codes.
  */
-ZTS_API int ZTCALL zts_central_status_get(int* http_resp_code);
+ZTS_API zts_error_t ZTCALL zts_central_status_get(int* http_resp_code);
 
 /**
  * @brief Get the currently authenticated user’s record.
@@ -1420,7 +1422,7 @@ ZTS_API int ZTCALL zts_init_allow_peer_cache(int allowed);
  * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_SERVICE` if the node
  *     experiences a problem.
  */
-ZTS_API int ZTCALL  zts_init_clear();
+ZTS_API int ZTCALL zts_init_clear();
 
 /**
  * @brief Return whether an address of the given family has been assigned by the network
