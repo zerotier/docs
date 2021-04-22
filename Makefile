@@ -1,5 +1,5 @@
-all:
-	./build.sh all
 
-clean:
-	./build.sh clean
+all:
+	npm install
+	./build.sh all
+	npm run build

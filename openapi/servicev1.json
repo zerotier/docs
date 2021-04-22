@@ -1,0 +1,275 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "ZeroTierOne Service API",
+    "version": "0.1.0",
+    "description": "<p> This API controls the ZeroTier service that runs in the background on your computer. This is how zerotier-cli, and the macOS and Windows apps control the service. </p> <p> API requests must be authenticated via an authentication token. ZeroTier One saves this token in the authtoken.secret file in its working directory. This token may be supplied via the X-ZT1-Auth HTTP request header. </p> <p> For example: <code>curl -H \"X-ZT1-Auth: $TOKEN\" http://localhost:9993/status</code> </p> <p> The token can be found in: <ul> <li>Mac :: /Library/Application Support/ZeroTier/One</li> <li>Windows :: \\ProgramData\\ZeroTier\\One</li> <li>Linux :: /var/lib/zerotier-one</li> </ul> </p> ",
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:9993",
+      "description": "Production Server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "status",
+      "description": "status"
+    },
+    {
+      "name": "network",
+      "description": "settings and status of a joined network"
+    },
+    {
+      "name": "peer",
+      "description": "peer status"
+    }
+  ],
+  "paths": {
+    "/status": {
+      "get": {
+        "tags": ["status"],
+        "summary": "Node status and addressing info.",
+        "operationId": "getStatus",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/network": {
+      "get": {
+        "tags": ["network"],
+        "summary": "Get all network memberships.",
+        "operationId": "getNetworks",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Network"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/network/{networkID}": {
+      "get": {
+        "tags": ["network"],
+        "summary": "Gets a joined Network by ID.",
+        "operationId": "getNetwork",
+        "parameters": [
+          {
+            "name": "networkID",
+            "description": "ID of the network to change",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Network"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      },
+      "post": {
+        "tags": ["network"],
+        "summary": "Join a network or update it's configuration",
+        "operationId": "updateNetwork",
+        "parameters": [
+          {
+            "name": "networkID",
+            "description": "ID of the network to change",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Network object JSON",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "./openapi/schemas/network-w.json"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Network"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["network"],
+        "summary": "Leave a network",
+        "operationId": "deleteNetwork",
+        "parameters": [
+          {
+            "name": "networkID",
+            "description": "ID of the network",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "network deleted"
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/peer": {
+      "get": {
+        "tags": ["peer"],
+        "summary": "Get all peers.",
+        "operationId": "getPeers",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Peer"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/peer/{address}": {
+      "get": {
+        "tags": ["peer"],
+        "summary": "Get information about a specific peer.",
+        "operationId": "getPeer",
+        "parameters": [
+          {
+            "name": "address",
+            "description": "ZeroTier address of the peer",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Peer"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-ZT1-Auth"
+      }
+    },
+    "responses": {
+      "UnauthorizedError": {
+        "description": "Authorization required"
+      }
+    },
+    "schemas": {
+      "Status": {
+        "$ref": "./openapi/schemas/status.json"
+      },
+      "Network": {
+        "allOf": [
+          {
+            "$ref": "./openapi/schemas/network-w.json"
+          },
+          {
+            "$ref": "./openapi/schemas/network-r.json"
+          }
+        ]
+      },
+      "Peer": {
+        "$ref": "./openapi/schemas/peer.json"
+      }
+    }
+  },
+  "security": [
+    {
+      "ApiKeyAuth": []
+    }
+  ]
+}

@@ -1,27 +1,11 @@
 #!/bin/bash
 
-################################################################################
-# STYLE FIXES                                                                  #
-################################################################################
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	DOXYBOOK="bin/doxybook-mac"
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+	DOXYBOOK="bin/doxybook-linux"
+fi
 
-apply-slate-style-to()
-{
-	mkdir -p $1
-	cp -rf style/slate/* $1
-}
-
-remove-slate-style-from()
-{
-	cd $1
-	rm -rf fonts images includes javascripts layouts stylesheets
-	cd -
-}
-
-apply-doxygen-style-to()
-{
-	mkdir -p $1
-	cp -f style/doxygen/*.png $1
-}
 
 ################################################################################
 # PROJECTS                                                                     #
@@ -38,30 +22,33 @@ manual()
 libztcore()
 {
 	# API REFERENCE
-	mkdir -p dst/reference/libztcore-c # dst
-	cd src/reference/libztcore-c # src
-	git clone https://github.com/zerotier/zerotierone.git repo
+	pushd reference/libztcore-c # src
 	doxygen
 	rm -rf repo
-	cd -
-	apply-doxygen-style-to dst/reference/libztcore-c/html
+	popd
+
+	rm -rf docs/autogen/libztcore
+	mkdir -p docs/autogen/libztcore
+	$DOXYBOOK -i reference/libztcore-c/tmp/xml -o docs/autogen/libztcore/ --config doxybook2/config/doxybook-config-zerotier.json --templates doxybook2/template/libzt
+	rm -f docs/autogen/libztcore/files/dir_*.md
+	echo '{"label": "API Reference", "position": 9}' > docs/autogen/libztcore/_category_.json
+	rm -rf reference/libztcore-c/tmp
 }
 
 libzt()
 {
 	# API REFERENCE
-	mkdir -p dst/reference/libzt-c # dst
-	cd src/reference/libzt-c # src
-	#git clone https://github.com/zerotier/libzt.git repo
+	mkdir -p docs/autogen/libzt-c # dst
+	pushd reference/libzt-c # src
 	doxygen
-	#rm -rf repo
-	cd -
-	apply-doxygen-style-to dst/reference/libzt-c/html
+	popd
 
-	# GUIDE
-	apply-slate-style-to src/guides/libzt/
-	docker run --rm --name slate -v $(pwd)/dst/guides/libzt:/srv/slate/build -v $(pwd)/src/guides/libzt:/srv/slate/source slatedocs/slate
-	remove-slate-style-from src/guides/libzt/
+	rm -rf docs/autogen/libzt/* 
+	mkdir -p docs/autogen/libzt
+	$DOXYBOOK -i reference/libzt-c/tmp/xml -o docs/autogen/libzt --config doxybook2/config/doxybook-config-libzt.json --templates doxybook2/template/libzt
+	rm -f autogen/libzt/files/dir_*.md
+	echo '{"label": "API Reference", "position": 9}' > docs/autogen/libzt/_category_.json
+	rm -rf reference/libzt-c/tmp
 }
 
 ################################################################################
@@ -85,14 +72,14 @@ are-there-changes-we-care-about()
 
 clean()
 {
-	rm -rf dst
+	rm -rf docs/autogen/*
 }
 
 all()
 {
 	#are-there-changes-we-care-about
 
-	manual
+	#manual
 	libztcore
 	libzt
 	#terraport

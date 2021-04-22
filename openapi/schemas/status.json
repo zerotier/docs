@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "properties": {
+    "address": {
+      "type": "string",
+      "example": "0deadbeef0"
+    },
+    "clock": {
+      "type": "integer",
+      "example": "1618948931097"
+    },
+    "config": {
+      "type": "object",
+      "properties": {
+        "settings": {
+          "type": "object",
+          "properties": {
+            "allowTcpFallbackRelay": {
+              "type": "boolean"
+            },
+            "portMappingEnabled": {
+              "type": "boolean"
+            },
+            "primaryPort": {
+              "type": "integer",
+              "example": "9993"
+            }
+          }
+        }
+      }
+    },
+    "online": {
+      "type": "boolean"
+    },
+    "planetWorldId": {
+      "type": "number",
+      "example": "149604618"
+    },
+    "planetWorldTimestamp": {
+      "type": "number",
+      "example": "1618339625163"
+    },
+    "publicIdentity": {
+      "type": "string",
+      "example": "33c799cb58:0:690b44091ec50a44eb7f7769354b49abb47ac8747d99d547a1ec8c4d47623c5a6e3927f29b8d8443aebebc9ba4d4a812bd8902d71318db34b89d00186e8f4e4e"
+    },
+    "tcpFallbackActive": {
+      "type": "boolean"
+    },
+    "version": {
+      "type": "string",
+      "example": "1.6.4"
+    },
+    "versionBuild": {
+      "type": "integer",
+      "example": "0"
+    },
+    "versionMajor": {
+      "type": "integer",
+      "example": "1"
+    },
+    "versionMinor": {
+      "type": "integer",
+      "example": "6"
+    },
+    "versionRev": {
+      "type": "integer",
+      "example": "4"
+    }
+  }
+}
