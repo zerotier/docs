@@ -62,11 +62,11 @@ module.exports = {
             },
             {
               label: 'Central API',
-              to: '/centralv1'
+              to: '/central/v1'
             },
             {
               label: 'Service API',
-              to: '/servicev1'
+              to: '/service/v1'
             }
           ],
         },
@@ -77,6 +77,10 @@ module.exports = {
               label: 'ZeroTier Discussions',
               href: 'https://discuss.zerotier.com',
             },
+            {
+              label: 'Twitter',
+              href: 'https://twitter.com/zerotier',
+            }
           ],
         },
         {
@@ -120,7 +124,13 @@ module.exports = {
             routePath: '/service/v1',
             spec: './openapi/servicev1.json',
           },
-        ]
+        ],
+        theme: {
+          primaryColor: "#FFB354",
+          redocOptions: {
+            hideDownloadButton: false,
+          }
+        }
       },
     ],
   ],
