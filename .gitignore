@@ -26,4 +26,5 @@ Temporary Items
 .apdisk
 
 node_modules/
-
+build/
+.docusaurus/

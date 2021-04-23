@@ -20,7 +20,7 @@ module.exports = {
     {
       type: 'category',
       label: 'ZeroTier',
-      items: ['zerotier/ztintro', 'zerotier/manual.html', 'zerotier/multipath']
+      items: ['zerotier/ztintro', 'zerotier/manual.html', 'zerotier/rules', 'zerotier/zerotier.conf', 'zerotier/multipath', 'zerotier/moons']
     },
     {
       type: 'category',
@@ -47,7 +47,7 @@ module.exports = {
                 {
                   type: 'link',
                   label: 'V1',
-                  href: '/centralv1',
+                  href: '/central/v1',
                 }
               ]
             },
@@ -63,7 +63,7 @@ module.exports = {
                 {
                   type: 'link',
                   label: 'V1',
-                  href: '/servicev1',
+                  href: '/service/v1',
                 }
               ]
             }
