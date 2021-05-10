@@ -6,18 +6,9 @@ elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
 	DOXYBOOK="bin/doxybook-linux"
 fi
 
-
 ################################################################################
 # PROJECTS                                                                     #
 ################################################################################
-
-manual()
-{
-	# GUIDE
-	apply-slate-style-to src/guides/manual/
-	docker run --rm --name slate -v $(pwd)/dst/guides/manual:/srv/slate/build -v $(pwd)/src/guides/manual:/srv/slate/source slatedocs/slate
-	remove-slate-style-from src/guides/manual/
-}
 
 libztcore()
 {
@@ -43,7 +34,7 @@ libzt()
 	doxygen
 	popd
 
-	rm -rf docs/autogen/libzt/* 
+	rm -rf docs/autogen/libzt/*
 	mkdir -p docs/autogen/libzt
 	$DOXYBOOK -i reference/libzt-c/tmp/xml -o docs/autogen/libzt --config doxybook2/config/doxybook-config-libzt.json --templates doxybook2/template/libzt
 	rm -f autogen/libzt/files/dir_*.md
@@ -55,35 +46,10 @@ libzt()
 #                                                                              #
 ################################################################################
 
-# Prevent running the full workflow for no reason
-# This is run by github actions so it will inspect your *last* commit
-are-there-changes-we-care-about()
-{
-	git diff --name-only --diff-filter=AMDR @~..@ | grep -q "src\|style\|build.sh\|.github"
-  	retval=$?
-	if [[ $retval -eq 0 ]];
-	then
-		echo "Documentation changes detected. Continuing with full workflow."
-	else
-		echo "No documentation changes detected. Stopping workflow."
-		exit 0
-	fi
-}
-
-clean()
-{
-	rm -rf docs/autogen/*
-}
-
 all()
 {
-	#are-there-changes-we-care-about
-
-	#manual
 	libztcore
 	libzt
-	#terraport
-	#central
 }
 
 "$@"

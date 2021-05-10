@@ -10,6 +10,29 @@ module.exports = {
   organizationName: 'zerotier', // Usually your GitHub org/user name.
   projectName: 'docs', // Usually your repo name.
   themeConfig: {
+
+    announcementBar: {
+      id: 'support_us', // Any value that will identify this message.
+      content:
+        'This banner is here to inform you that we have a new banner',
+      backgroundColor: '#fafbfc', // Defaults to `#fff`.
+      textColor: '#091E42', // Defaults to `#000`.
+      isCloseable: false, // Defaults to `true`.
+    },
+
+    colorMode: {
+      defaultMode: "light",
+      disableSwitch: false,
+      respectPrefersColorScheme: true,
+      switchConfig: {
+        darkIcon: "🌜",
+        darkIconStyle: {},
+        lightIcon: "🌞",
+        lightIconStyle: {}
+      }
+    },
+
+
     separateCss: true,
     navbar: {
       title: 'ZeroTier Documentation',
@@ -93,7 +116,7 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} ZeroTier, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} ZeroTier, Inc.`,
     },
   },
   presets: [

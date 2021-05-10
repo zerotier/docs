@@ -1,5 +1,5 @@
 ---
-title: ZeroTier SDK Core
+title: Core
 id: zerotier-sdk
 sidebar_position: 2
 

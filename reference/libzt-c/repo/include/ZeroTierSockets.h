@@ -1247,7 +1247,7 @@ ZTS_API int ZTCALL zts_id_pair_is_valid(const char* key, unsigned int len);
 
 /**
  * @brief Instruct ZeroTier to look for node identity files at the given location. This is an
- * initialization function that can only be called before `zts_node_start()`.
+ * initialization function that can only be called before `zts_node_start`.
  *
  * Note that calling this function is not mandatory and if it is not called the node's keys will be
  * kept in memory and retrievable via `zts_node_get_id_pair()`.
@@ -1267,7 +1267,7 @@ ZTS_API int ZTCALL zts_init_from_storage(const char* path);
  * Note that calling this function is not mandatory and if it is not called the node's keys will be
  * kept in memory and retrievable via `zts_node_get_id_pair()`.
  *
- * See also: `zts_init_from_storage()`
+ * See also: `zts_init_from_storage`
  *
  * @param key Path Null-terminated file-system path string
  * @param len Length of `key` buffer
@@ -1809,9 +1809,8 @@ typedef struct {
 } zts_stats_counter_t;
 
 /**
- * @brief Get all statistical counters for all protocols and levels, where
- * *all* means *most*. If you need anything more detailed you should inspect
- * what is available in `lwip/stats.h`.
+ * @brief Get summary statistics for all protocols and levels, If you need
+ * anything more detailed you should inspect what is available in `lwip/stats.h`.
  *
  * This function can only be used in debug builds.
  *

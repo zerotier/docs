@@ -31,7 +31,7 @@
   "indexNamespacesTitle": "Namespaces",
   "indexRelatedPagesName": "index_pages",
   "indexRelatedPagesTitle": "Pages",
-  "linkAndInlineCodeAsHTML": false,
+  "linkAndInlineCodeAsHTML": true,
   "linkLowercase": true,
   "linkSuffix": ".md",
   "mainPageInRoot": false,
