@@ -19,5 +19,15 @@ node('linux-centos8') {
             sh("gcloud container clusters get-credentials ${cluster} --region ${region}")
             sh("kubectl set image deployment docs-zerotier-com docs-zerotier-com=registry.zerotier.com/zerotier/docs.zerotier.com:${env.BUILD_TAG}")
         }
+    } catch (err) {
+        currentBuild.result = "FAILURE"
+        mattermostSend color: '#ff0000', message: "${env.JOB_NAME} broken (<${env.BUILD_URL}|Open>)"
+
+        throw err
     }
+}
+@NonCPS
+def getUserFromErr(err) {
+    def user = err.getCauses()[0].getUser()
+    return "${user}"
 }
