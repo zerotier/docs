@@ -20,8 +20,8 @@ custom_edit_url: null
 | uint64_t | **[net_id](/autogen/libzt/classes/structzts__net__info__t.md#variable-net_id)**  |
 | uint64_t | **[mac](/autogen/libzt/classes/structzts__net__info__t.md#variable-mac)**  |
 | char | **[name](/autogen/libzt/classes/structzts__net__info__t.md#variable-name)**  |
-| [zts_network_status_t](/autogen/libzt/files/_zero_tier_sockets_8h.md#enum-zts_network_status_t) | **[status](/autogen/libzt/classes/structzts__net__info__t.md#variable-status)**  |
-| [zts_net_info_type_t](/autogen/libzt/files/_zero_tier_sockets_8h.md#enum-zts_net_info_type_t) | **[type](/autogen/libzt/classes/structzts__net__info__t.md#variable-type)**  |
+| <a href="/autogen/libzt/files/_zero_tier_sockets_8h.md#enum-zts_network_status_t">zts_network_status_t</a> | **[status](/autogen/libzt/classes/structzts__net__info__t.md#variable-status)**  |
+| <a href="/autogen/libzt/files/_zero_tier_sockets_8h.md#enum-zts_net_info_type_t">zts_net_info_type_t</a> | **[type](/autogen/libzt/classes/structzts__net__info__t.md#variable-type)**  |
 | unsigned int | **[mtu](/autogen/libzt/classes/structzts__net__info__t.md#variable-mtu)**  |
 | int | **[dhcp](/autogen/libzt/classes/structzts__net__info__t.md#variable-dhcp)**  |
 | int | **[bridge](/autogen/libzt/classes/structzts__net__info__t.md#variable-bridge)**  |
@@ -29,9 +29,9 @@ custom_edit_url: null
 | int | **[port_error](/autogen/libzt/classes/structzts__net__info__t.md#variable-port_error)**  |
 | unsigned long | **[netconf_rev](/autogen/libzt/classes/structzts__net__info__t.md#variable-netconf_rev)**  |
 | unsigned int | **[assigned_addr_count](/autogen/libzt/classes/structzts__net__info__t.md#variable-assigned_addr_count)**  |
-| struct [zts_sockaddr_storage](/autogen/libzt/classes/structzts__sockaddr__storage.md) | **[assigned_addrs](/autogen/libzt/classes/structzts__net__info__t.md#variable-assigned_addrs)**  |
+| struct <a href="/autogen/libzt/classes/structzts__sockaddr__storage.md">zts_sockaddr_storage</a> | **[assigned_addrs](/autogen/libzt/classes/structzts__net__info__t.md#variable-assigned_addrs)**  |
 | unsigned int | **[route_count](/autogen/libzt/classes/structzts__net__info__t.md#variable-route_count)**  |
-| [zts_route_info_t](/autogen/libzt/classes/structzts__route__info__t.md) | **[routes](/autogen/libzt/classes/structzts__net__info__t.md#variable-routes)**  |
+| <a href="/autogen/libzt/classes/structzts__route__info__t.md">zts_route_info_t</a> | **[routes](/autogen/libzt/classes/structzts__net__info__t.md#variable-routes)**  |
 | unsigned int | **[multicast_sub_count](/autogen/libzt/classes/structzts__net__info__t.md#variable-multicast_sub_count)**  |
 | uint32_t | **[adi](/autogen/libzt/classes/structzts__net__info__t.md#variable-adi)**  |
 | struct zts_net_info_t::@0 | **[multicast_subs](/autogen/libzt/classes/structzts__net__info__t.md#variable-multicast_subs)**  |
@@ -234,4 +234,4 @@ Multicast groups to which this network's device is subscribed
 
 -------------------------------
 
-Updated on 23 April 2021 at 08:55:11 PDT
+Updated on 19 May 2021 at 11:01:17 PDT

@@ -1058,9 +1058,7 @@ int zts_py_getblocking(int fd);
 // Central API                                                                //
 //----------------------------------------------------------------------------//
 
-#ifdef ZTS_ENABLE_PYTHON
 #define ZTS_DISABLE_CENTRAL_API 1
-#endif
 
 #ifndef ZTS_DISABLE_CENTRAL_API
 
@@ -1247,7 +1245,7 @@ ZTS_API int ZTCALL zts_id_pair_is_valid(const char* key, unsigned int len);
 
 /**
  * @brief Instruct ZeroTier to look for node identity files at the given location. This is an
- * initialization function that can only be called before `zts_node_start`.
+ * initialization function that can only be called before `zts_node_start()`.
  *
  * Note that calling this function is not mandatory and if it is not called the node's keys will be
  * kept in memory and retrievable via `zts_node_get_id_pair()`.
@@ -1267,7 +1265,7 @@ ZTS_API int ZTCALL zts_init_from_storage(const char* path);
  * Note that calling this function is not mandatory and if it is not called the node's keys will be
  * kept in memory and retrievable via `zts_node_get_id_pair()`.
  *
- * See also: `zts_init_from_storage`
+ * See also: `zts_init_from_storage()`
  *
  * @param key Path Null-terminated file-system path string
  * @param len Length of `key` buffer
@@ -1331,6 +1329,40 @@ ZTS_API int ZTCALL zts_init_set_roots(const void* roots_data, unsigned int len);
  *     experiences a problem, `ZTS_ERR_ARG` if invalid argument.
  */
 ZTS_API int ZTCALL zts_init_set_port(unsigned short port);
+
+/**
+ * @brief Set range that random ports will be selected from. This is an initialization function that can
+ * only be called before `zts_node_start()`.
+ *
+ * @param start_port Start of port range
+ * @param end_port End of port range
+ * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_SERVICE` if the node
+ *     experiences a problem, `ZTS_ERR_ARG` if invalid argument.
+ */
+ZTS_API int ZTCALL zts_init_set_random_port_range(unsigned short start_port, unsigned short end_port);
+
+/**
+ * @brief Allow or disallow ZeroTier from automatically selecting a backup port to help get through
+ * buggy NAT. This is enabled by default. This port is randomly chosen and should be disabled if you
+ * want to control exactly which ports ZeroTier talks on and (iff) you know with absolute certainty
+ * that traffic on your chosen primary port is allowed. This is an initialization function that can
+ * only be called before `zts_node_start()`.
+ *
+ * @param port Port number
+ * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_SERVICE` if the node
+ *     experiences a problem, `ZTS_ERR_ARG` if invalid argument.
+ */
+ZTS_API int ZTCALL zts_init_allow_secondary_port(unsigned int allowed);
+
+/**
+ * @brief Allow or disallow the use of port-mapping. This is enabled by default. This is an
+ * initialization function that can only be called before `zts_node_start()`.
+ *
+ * @param port Port number
+ * @return `ZTS_ERR_OK` if successful, `ZTS_ERR_SERVICE` if the node
+ *     experiences a problem, `ZTS_ERR_ARG` if invalid argument.
+ */
+ZTS_API int ZTCALL zts_init_allow_port_mapping(unsigned int allowed);
 
 /**
  * @brief Enable or disable whether the node will cache network details
@@ -1809,8 +1841,8 @@ typedef struct {
 } zts_stats_counter_t;
 
 /**
- * @brief Get summary statistics for all protocols and levels, If you need
- * anything more detailed you should inspect what is available in `lwip/stats.h`.
+ * @brief Get all statistical counters for all protocols and levels.
+ * See also: lwip/stats.h.
  *
  * This function can only be used in debug builds.
  *
@@ -2591,6 +2623,24 @@ ZTS_API int ZTCALL zts_udp_client(const char* remote_ipstr);
 ZTS_API int ZTCALL zts_set_no_delay(int fd, int enabled);
 
 /**
+ * @brief Get the last error for the given socket
+ *
+ * @param fd Socket file descriptor
+ * @return Error number defined in `zts_errno_t`. `ZTS_ERR_SERVICE` if the node
+ *     experiences a problem, `ZTS_ERR_ARG` if invalid argument. Sets `zts_errno`
+ */
+ZTS_API int ZTCALL zts_get_last_socket_error(int fd);
+
+/**
+ * @brief Return amount of data available to read from socket
+ *
+ * @param fd Socket file descriptor
+ * @return Number of bytes available to read. `ZTS_ERR_SERVICE` if the node
+ *     experiences a problem, `ZTS_ERR_ARG` if invalid argument. Sets `zts_errno`
+ */
+ZTS_API size_t ZTCALL zts_get_data_available(int fd);
+
+/**
  * @brief Return whether `TCP_NODELAY` is enabled
  *
  * @param fd Socket file descriptor
@@ -2866,7 +2916,7 @@ ZTS_API const zts_ip_addr* ZTCALL zts_dns_get_server(uint8_t index);
  * @brief Lock the core service so that queries about addresses, routes, paths, etc. can be
  * performed.
  *
- * `Notice`: `zts_core_` functions are intended to be used by high-level language wrappers.
+ * Notice: Core locking functions are intended to be used by high-level language wrappers.
  * Only lock the core if you know *exactly* what you are doing.
  *
  * @return `ZTS_ERR_OK` if successful. `ZTS_ERR_SERVICE` if the core service is unavailable.
@@ -2877,7 +2927,7 @@ ZTS_API int ZTCALL zts_core_lock_obtain();
  * @brief Lock the core service so that queries about addresses, routes, paths, etc. can be
  * performed.
  *
- * `Notice`: `zts_core_` functions are intended to be used by high-level language wrappers.
+ * Notice: Core locking functions are intended to be used by high-level language wrappers.
  * Only lock the core if you know *exactly* what you are doing.
  *
  * @return `ZTS_ERR_OK` if successful. `ZTS_ERR_SERVICE` if the core service is unavailable.
@@ -2888,9 +2938,9 @@ ZTS_API int ZTCALL zts_core_lock_release();
  * @brief Lock the core service so that queries about addresses, routes, paths, etc. can be
  * performed.
  *
- * `Notice`: `zts_core_` functions are intended to be used by high-level language wrappers.
- * Only lock the core if you know *exactly* what you are doing. `zts_core_lock_obtain()` and
- * `zts_core_lock_release()` must be called before and after this function.
+ * Notice: Core locking functions are intended to be used by high-level language wrappers.
+ * Only lock the core if you know *exactly* what you are doing. zts_core_lock_obtain() and
+ * zts_core_lock_release() must be called before and after this function.
  *
  * @return `ZTS_ERR_OK` if successful. `ZTS_ERR_SERVICE` if the core service is unavailable.
  */
@@ -2900,9 +2950,9 @@ ZTS_API int ZTCALL zts_core_query_addr_count(uint64_t net_id);
  * @brief Lock the core service so that queries about addresses, routes, paths, etc. can be
  * performed.
  *
- * `Notice`: `zts_core_` functions are intended to be used by high-level language wrappers.
- * Only lock the core if you know *exactly* what you are doing. `zts_core_lock_obtain()` and
- * `zts_core_lock_release()` must be called before and after this function.
+ * Notice: Core locking functions are intended to be used by high-level language wrappers.
+ * Only lock the core if you know *exactly* what you are doing. zts_core_lock_obtain() and
+ * zts_core_lock_release() must be called before and after this function.
  *
  * @return `ZTS_ERR_OK` if successful. `ZTS_ERR_SERVICE` if the core service is unavailable.
  */
@@ -2912,9 +2962,9 @@ ZTS_API int ZTCALL zts_core_query_addr(uint64_t net_id, unsigned int idx, char* 
  * @brief Lock the core service so that queries about addresses, routes, paths, etc. can be
  * performed.
  *
- * `Notice`: `zts_core_` functions are intended to be used by high-level language wrappers.
- * Only lock the core if you know *exactly* what you are doing. `zts_core_lock_obtain()` and
- * `zts_core_lock_release()` must be called before and after this function.
+ * Notice: Core locking functions are intended to be used by high-level language wrappers.
+ * Only lock the core if you know *exactly* what you are doing. zts_core_lock_obtain() and
+ * zts_core_lock_release() must be called before and after this function.
  *
  * @return `ZTS_ERR_OK` if successful. `ZTS_ERR_SERVICE` if the core service is unavailable.
  */
@@ -2924,9 +2974,9 @@ ZTS_API int ZTCALL zts_core_query_route_count(uint64_t net_id);
  * @brief Lock the core service so that queries about addresses, routes, paths, etc. can be
  * performed.
  *
- * `Notice`: `zts_core_` functions are intended to be used by high-level language wrappers.
- * Only lock the core if you know *exactly* what you are doing. `zts_core_lock_obtain()` and
- * `zts_core_lock_release()` must be called before and after this function.
+ * Notice: Core locking functions are intended to be used by high-level language wrappers.
+ * Only lock the core if you know *exactly* what you are doing. zts_core_lock_obtain() and
+ * zts_core_lock_release() must be called before and after this function.
  *
  * @return `ZTS_ERR_OK` if successful. `ZTS_ERR_SERVICE` if the core service is unavailable.
  */
@@ -2943,9 +2993,9 @@ ZTS_API int ZTCALL zts_core_query_route(
  * @brief Lock the core service so that queries about addresses, routes, paths, etc. can be
  * performed.
  *
- * `Notice`: `zts_core_` functions are intended to be used by high-level language wrappers.
- * Only lock the core if you know *exactly* what you are doing. `zts_core_lock_obtain()` and
- * `zts_core_lock_release()` must be called before and after this function.
+ * Notice: Core locking functions are intended to be used by high-level language wrappers.
+ * Only lock the core if you know *exactly* what you are doing. zts_core_lock_obtain() and
+ * zts_core_lock_release() must be called before and after this function.
  *
  * @return `ZTS_ERR_OK` if successful. `ZTS_ERR_SERVICE` if the core service is unavailable.
  */
@@ -2955,9 +3005,9 @@ ZTS_API int ZTCALL zts_core_query_path_count(uint64_t peer_id);
  * @brief Lock the core service so that queries about addresses, routes, paths, etc. can be
  * performed.
  *
- * `Notice`: `zts_core_` functions are intended to be used by high-level language wrappers.
- * Only lock the core if you know *exactly* what you are doing. `zts_core_lock_obtain()` and
- * `zts_core_lock_release()` must be called before and after this function.
+ * Notice: Core locking functions are intended to be used by high-level language wrappers.
+ * Only lock the core if you know *exactly* what you are doing. zts_core_lock_obtain() and
+ * zts_core_lock_release() must be called before and after this function.
  *
  * @return `ZTS_ERR_OK` if successful. `ZTS_ERR_SERVICE` if the core service is unavailable.
  */
@@ -2967,9 +3017,9 @@ ZTS_API int ZTCALL zts_core_query_path(uint64_t peer_id, unsigned int idx, char*
  * @brief Lock the core service so that queries about addresses, routes, paths, etc. can be
  * performed.
  *
- * `Notice`: `zts_core_` functions are intended to be used by high-level language wrappers.
- * Only lock the core if you know *exactly* what you are doing. `zts_core_lock_obtain()` and
- * `zts_core_lock_release()` must be called before and after this function.
+ * Notice: Core locking functions are intended to be used by high-level language wrappers.
+ * Only lock the core if you know *exactly* what you are doing. zts_core_lock_obtain() and
+ * zts_core_lock_release() must be called before and after this function.
  *
  * @return `ZTS_ERR_OK` if successful. `ZTS_ERR_SERVICE` if the core service is unavailable.
  */
@@ -2979,9 +3029,9 @@ ZTS_API int ZTCALL zts_core_query_mc_count(uint64_t net_id);
  * @brief Lock the core service so that queries about addresses, routes, paths, etc. can be
  * performed.
  *
- * `Notice`: `zts_core_` functions are intended to be used by high-level language wrappers.
- * Only lock the core if you know *exactly* what you are doing. `zts_core_lock_obtain()` and
- * `zts_core_lock_release()` must be called before and after this function.
+ * Notice: Core locking functions are intended to be used by high-level language wrappers.
+ * Only lock the core if you know *exactly* what you are doing. zts_core_lock_obtain() and
+ * zts_core_lock_release() must be called before and after this function.
  *
  * @return `ZTS_ERR_OK` if successful. `ZTS_ERR_SERVICE` if the core service is unavailable.
  */

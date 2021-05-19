@@ -28,7 +28,7 @@ struct zts_netif_info_t;
 ```
 
 
-A structure used to convey information about a virtual network interface (netif) to a user application. 
+Structure used to convey information about a virtual network interface (netif) to a user application. 
 
 ## Public Attributes Documentation
 
@@ -64,4 +64,4 @@ The MTU for this interface
 
 -------------------------------
 
-Updated on 23 April 2021 at 08:55:11 PDT
+Updated on 19 May 2021 at 11:01:17 PDT

@@ -17,15 +17,15 @@ custom_edit_url: null
 
 |                | Name           |
 | -------------- | -------------- |
-| uint64_t | **[address](/autogen/libzt/classes/structzts__peer__info__t.md#variable-address)**  |
+| uint64_t | **[peer_id](/autogen/libzt/classes/structzts__peer__info__t.md#variable-peer_id)**  |
 | int | **[ver_major](/autogen/libzt/classes/structzts__peer__info__t.md#variable-ver_major)**  |
 | int | **[ver_minor](/autogen/libzt/classes/structzts__peer__info__t.md#variable-ver_minor)**  |
 | int | **[ver_rev](/autogen/libzt/classes/structzts__peer__info__t.md#variable-ver_rev)**  |
 | int | **[latency](/autogen/libzt/classes/structzts__peer__info__t.md#variable-latency)**  |
-| [zts_peer_role_t](/autogen/libzt/files/_zero_tier_sockets_8h.md#enum-zts_peer_role_t) | **[role](/autogen/libzt/classes/structzts__peer__info__t.md#variable-role)**  |
+| <a href="/autogen/libzt/files/_zero_tier_sockets_8h.md#enum-zts_peer_role_t">zts_peer_role_t</a> | **[role](/autogen/libzt/classes/structzts__peer__info__t.md#variable-role)**  |
 | unsigned int | **[path_count](/autogen/libzt/classes/structzts__peer__info__t.md#variable-path_count)**  |
 | int | **[unused_0](/autogen/libzt/classes/structzts__peer__info__t.md#variable-unused_0)**  |
-| [zts_path_t](/autogen/libzt/classes/structzts__path__t.md) | **[paths](/autogen/libzt/classes/structzts__peer__info__t.md#variable-paths)**  |
+| <a href="/autogen/libzt/classes/structzts__path__t.md">zts_path_t</a> | **[paths](/autogen/libzt/classes/structzts__peer__info__t.md#variable-paths)**  |
 
 ## Detailed Description
 
@@ -38,10 +38,10 @@ Peer status result buffer
 
 ## Public Attributes Documentation
 
-### variable address
+### variable peer_id
 
 ```cpp
-uint64_t address;
+uint64_t peer_id;
 ```
 
 
@@ -130,4 +130,4 @@ Known network paths to peer
 
 -------------------------------
 
-Updated on 23 April 2021 at 08:55:11 PDT
+Updated on 19 May 2021 at 11:01:17 PDT

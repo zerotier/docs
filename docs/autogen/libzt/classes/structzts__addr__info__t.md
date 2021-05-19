@@ -18,7 +18,7 @@ custom_edit_url: null
 |                | Name           |
 | -------------- | -------------- |
 | uint64_t | **[net_id](/autogen/libzt/classes/structzts__addr__info__t.md#variable-net_id)**  |
-| struct [zts_sockaddr_storage](/autogen/libzt/classes/structzts__sockaddr__storage.md) | **[addr](/autogen/libzt/classes/structzts__addr__info__t.md#variable-addr)**  |
+| struct <a href="/autogen/libzt/classes/structzts__sockaddr__storage.md">zts_sockaddr_storage</a> | **[addr](/autogen/libzt/classes/structzts__addr__info__t.md#variable-addr)**  |
 
 ## Detailed Description
 
@@ -47,4 +47,4 @@ struct zts_sockaddr_storage addr;
 
 -------------------------------
 
-Updated on 23 April 2021 at 08:55:11 PDT
+Updated on 19 May 2021 at 11:01:17 PDT

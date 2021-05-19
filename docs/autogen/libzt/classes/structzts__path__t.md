@@ -17,7 +17,7 @@ custom_edit_url: null
 
 |                | Name           |
 | -------------- | -------------- |
-| struct [zts_sockaddr_storage](/autogen/libzt/classes/structzts__sockaddr__storage.md) | **[address](/autogen/libzt/classes/structzts__path__t.md#variable-address)**  |
+| struct <a href="/autogen/libzt/classes/structzts__sockaddr__storage.md">zts_sockaddr_storage</a> | **[address](/autogen/libzt/classes/structzts__path__t.md#variable-address)**  |
 | uint64_t | **[last_tx](/autogen/libzt/classes/structzts__path__t.md#variable-last_tx)**  |
 | uint64_t | **[last_rx](/autogen/libzt/classes/structzts__path__t.md#variable-last_rx)**  |
 | uint64_t | **[trusted_path_id](/autogen/libzt/classes/structzts__path__t.md#variable-trusted_path_id)**  |
@@ -183,4 +183,4 @@ Is path preferred?
 
 -------------------------------
 
-Updated on 23 April 2021 at 08:55:11 PDT
+Updated on 19 May 2021 at 11:01:17 PDT

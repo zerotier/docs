@@ -32,6 +32,7 @@ custom_edit_url: null
 * **struct [zts_path_t](/autogen/libzt/classes/structzts__path__t.md)** 
 * **struct [zts_peer_info_t](/autogen/libzt/classes/structzts__peer__info__t.md)** 
 * **struct [zts_pollfd](/autogen/libzt/classes/structzts__pollfd.md)** 
+* **struct [zts_root_set_t](/autogen/libzt/classes/structzts__root__set__t.md)** 
 * **struct [zts_route_info_t](/autogen/libzt/classes/structzts__route__info__t.md)** 
 * **struct [zts_sockaddr](/autogen/libzt/classes/structzts__sockaddr.md)** 
 * **struct [zts_sockaddr_in](/autogen/libzt/classes/structzts__sockaddr__in.md)** 
@@ -44,4 +45,4 @@ custom_edit_url: null
 
 -------------------------------
 
-Updated on 23 April 2021 at 08:55:11 PDT
+Updated on 19 May 2021 at 11:01:17 PDT
