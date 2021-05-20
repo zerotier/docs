@@ -20,7 +20,13 @@ module.exports = {
     {
       type: 'category',
       label: 'ZeroTier',
-      items: ['zerotier/ztintro', 'zerotier/manual', 'zerotier/rules', 'zerotier/zerotier.conf', 'zerotier/multipath', 'zerotier/moons']
+      items: ['zerotier/ztintro', 
+        'zerotier/manual', 
+        'zerotier/rules', 
+        'zerotier/zerotier.conf', 
+        'zerotier/multipath', 
+        'zerotier/moons'
+      ]
     },
     {
       type: 'category',
