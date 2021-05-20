@@ -81,7 +81,7 @@ module.exports = {
             },
             {
               label: 'libzt SDK',
-              to: '/libzt/manual.html'
+              to: '/libzt-c/tutorial.html'
             },
             {
               label: 'Central API',
