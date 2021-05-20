@@ -849,7 +849,7 @@ Notice that in the above code we use a new type of initialization function. In t
 
 ### TCP Server
 
-Below is a simple blocking server that will open a listening socket, wait for a message and print what it receives.
+Below is a simple blocking server that will open a listening socket, wait for a message and print what it receives. To see full source code of the following with proper error and exception handling, see [libzt/examples](https://github.com/zerotier/libzt/tree/master/examples) and [libzt/test](https://github.com/zerotier/libzt/tree/master/test).
 
 <Tabs
   defaultValue="c"
@@ -869,49 +869,55 @@ char remote_addr[ZTS_INET6_ADDRSTRLEN] = { 0 };
 int remote_port = 0;
 int len = ZTS_INET6_ADDRSTRLEN;
 
-// We could also use traditional zts_bsd_socket, zts_bsd_connect, etc here
-int conn = zts_tcp_server(local_addr, local_port, remote_addr, len, &remote_port)
+// Set up listen socket
+// Note: We could also use standard zts_bsd_socket, zts_bsd_bind, etc
+int fd = zts_tcp_server(local_addr, local_port, remote_addr, len, &remote_port)
 printf("Accepted connection from %s:%d\n", remote_addr, remote_port);
 
-char recvBuf[128] = { 0 };
-
 // RX
-ts_read(conn, recvBuf, sizeof(recvBuf));
+char recvBuf[128] = { 0 };
+zts_read(fd, recvBuf, sizeof(recvBuf));
 printf("RX: %s\n", recvBuf);
 
 // Cleanup
-zts_close(conn);
 zts_close(fd);
 zts_node_stop();
+
+
+
 ```
 
 </TabItem>
 <TabItem value="python">
 
 ```python
+# Set up listen socket
 serv = libzt.socket(libzt.ZTS_AF_INET, libzt.ZTS_SOCK_STREAM, 0)
 serv.bind(("0.0.0.0", local_port))
 serv.listen(1)
 conn, addr = serv.accept()
 print("Accepted connection from: ", addr)
 
-
 # RX
 data = conn.recv(128)
-if data:
-  print("RX: ", data)
+print("RX: ", data)
 
 # Cleanup
 conn.close()
 node.node_stop()
+
+
+
+
+
+
 ```
+
 </TabItem>
 
 <TabItem value="rust">
 
 ```rust
-
-
 
 
 
@@ -932,7 +938,6 @@ node.node_stop()
 
 
 
-
 ```
 
 </TabItem>
@@ -940,23 +945,20 @@ node.node_stop()
 <TabItem value="csharp">
 
 ```c
-string data = null;
-byte[] bytes = new Byte[128];
-
+// Set up listen socket
 ZeroTier.Sockets.Socket listener =
   new ZeroTier.Sockets.Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-
 listener.Bind(localEndPoint);
 listener.Listen(1);
-
 ZeroTier.Sockets.Socket handler;
 handler = listener.Accept();
 Console.WriteLine("Accepted connection from: " + handler.RemoteEndPoint.ToString());
 
 // RX
-int bytes = 0;
-bytes = handler.Receive(bytes);
-data = Encoding.ASCII.GetString(bytes, 0, bytes);
+string data = null;
+byte[] bytes = new Byte[128];
+int bytesReceived = handler.Receive(bytes);
+data = Encoding.ASCII.GetString(bytes, 0, bytesReceived);
 Console.WriteLine("RX: " + data);
 
 // Cleanup
@@ -970,6 +972,7 @@ node.Stop();
 <TabItem value="java">
 
 ```c
+// Set up listen socket
 ZeroTierServerSocket listener = new ZeroTierServerSocket(port);
 ZeroTierSocket conn = listener.accept();
 ZeroTierInputStream inputStream = conn.getInputStream();
@@ -983,6 +986,12 @@ System.out.println("RX: " + message);
 listener.close();
 conn.close();
 node.stop();
+
+
+
+
+
+
 ```
 
 </TabItem>
@@ -991,7 +1000,7 @@ node.stop();
 
 ### TCP Client
 
-Below is a simple client that will connect to a remote host and send a message.
+Below is a simple client that will connect to a remote host and send a message. To see full source code of the following with proper error and exception handling, see [libzt/examples](https://github.com/zerotier/libzt/tree/master/examples) and [libzt/test](https://github.com/zerotier/libzt/tree/master/test).
 
 <Tabs
   defaultValue="c"
@@ -1010,7 +1019,8 @@ Below is a simple client that will connect to a remote host and send a message.
 char* msgStr = (char*)"Hello, network!";
 int bytes = 0, fd;
 
-// Can also use traditional: zts_bsd_socket(), zts_bsd_connect(), etc
+// Set up connection socket
+// Note: We could also use standard zts_bsd_socket, zts_bsd_connect, etc
 fd = zts_tcp_client(remote_addr, remote_port);
 
 // TX
@@ -1019,12 +1029,14 @@ zts_write(fd, msgStr, strlen(msgStr))
 // Cleanup
 zts_close(fd);
 zts_node_stop();
+
 ```
 
 </TabItem>
 <TabItem value="python">
 
 ```python
+# Set up connection socket
 client = libzt.socket(libzt.ZTS_AF_INET, libzt.ZTS_SOCK_STREAM, 0)
 client.connect((remote_ip, remote_port))
 
@@ -1035,7 +1047,11 @@ client.send(data.encode("utf-8"))
 # Cleanup
 client.close()
 node.node_stop()
+
+
+
 ```
+
 </TabItem>
 
 <TabItem value="rust">
@@ -1055,7 +1071,6 @@ node.node_stop()
 
 
 
-
 ```
 
 </TabItem>
@@ -1063,10 +1078,10 @@ node.node_stop()
 <TabItem value="csharp">
 
 ```c
+// Set up connection socket
 byte[] bytes = new byte[128];
 ZeroTier.Sockets.Socket sender =
   new ZeroTier.Sockets.Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-
 sender.Connect(remoteServerEndPoint);
 
 // TX
@@ -1084,6 +1099,7 @@ node.Stop();
 <TabItem value="java">
 
 ```c
+// Set up connection socket
 ZeroTierSocket socket = new ZeroTierSocket(remoteAddr, port);
 ZeroTierOutputStream outputStream = socket.getOutputStream();
 DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
@@ -1094,6 +1110,9 @@ dataOutputStream.writeUTF("Hello, network!");
 // Cleanup
 socket.close();
 node.stop();
+
+
+
 ```
 
 </TabItem>
@@ -1222,10 +1241,10 @@ ZeroTier can send your application notifications when certain internal states ar
 ```c
 void on_zts_event(void* msgPtr)
 {
-    zts_event_msg_t* msg = (zts_event_msg_t*)msgPtr;
-    if (msg->event_code == ZTS_EVENT_NODE_ONLINE) {
-        printf("Node ID is %llx\n", msg->node->node_id);
-    }
+  zts_event_msg_t* msg = (zts_event_msg_t*)msgPtr;
+  if (msg->event_code == ZTS_EVENT_NODE_ONLINE) {
+    printf("Node ID is %llx\n", msg->node->node_id);
+  }
 }
 
 int main() {
@@ -1234,6 +1253,9 @@ int main() {
   zts_node_start();
   // ...
 }
+
+
+
 ```
 
 </TabItem>
@@ -1242,14 +1264,13 @@ int main() {
 
 ```python
 def on_zerotier_event(event_code, id):
-    if event_code == libzt.ZTS_EVENT_NODE_ONLINE:
-        print("ZTS_EVENT_NODE_ONLINE (" + str(event_code) + ") : " + hex(id))
+  if event_code == libzt.ZTS_EVENT_NODE_ONLINE:
+    print("ZTS_EVENT_NODE_ONLINE: " + hex(id))
 
 def main():
-    n = libzt.ZeroTierNode()
-    n.init_set_event_handler(on_zerotier_event)
-    n.node_start()
-
+  n = libzt.ZeroTierNode()
+  n.init_set_event_handler(on_zerotier_event)
+  n.node_start()
 
 
 
@@ -1291,21 +1312,20 @@ def main():
 ```c
 public void OnZeroTierEvent(ZeroTier.Core.Event e)
 {
-    if (e.Code == ZeroTier.Constants.EVENT_NODE_ONLINE) {
-        Console.WriteLine("");
-        Console.WriteLine("Node is online: Id = " + node.Id.ToString("x16"));
-    }
-    if (e.Code == ZeroTier.Constants.EVENT_NETWORK_OK) {
-        Console.WriteLine("Network OK: Id = " + e.NetworkInfo.Id.ToString("x16"));
-    }
+  if (e.Code == ZeroTier.Constants.EVENT_NODE_ONLINE) {
+    Console.WriteLine("EVENT_NODE_ONLINE: " + node.Id.ToString("x16"));
+  }
 }
 
 static int Main(string[] args)
 {
-    ZeroTier.Core.Node node = new ZeroTier.Core.Node();
-    node.InitSetEventHandler(OnZeroTierEvent);
-    node.Start();
+  ZeroTier.Core.Node node = new ZeroTier.Core.Node();
+  node.InitSetEventHandler(OnZeroTierEvent);
+  node.Start();
 }
+
+
+
 
 ```
 
@@ -1315,21 +1335,21 @@ static int Main(string[] args)
 
 ```c
 class MyZeroTierEventListener implements ZeroTierEventListener {
-    public void onZeroTierEvent(long id, int eventCode)
-    {
-        if (eventCode == ZeroTierNative.ZTS_EVENT_NODE_ONLINE) {
-            System.out.println("EVENT_NODE_ONLINE: " + Long.toHexString(id));
-        }
+  public void onZeroTierEvent(long id, int eventCode)
+  {
+    if (eventCode == ZeroTierNative.ZTS_EVENT_NODE_ONLINE) {
+      System.out.println("EVENT_NODE_ONLINE: " + Long.toHexString(id));
     }
+  }
 }
 
 public class selftest {
-    public static void main(String[] args)
-    {
-        ZeroTierNode node = new ZeroTierNode();
-        node.initSetEventHandler(new MyZeroTierEventListener());
-        node.start();
-    }
+  public static void main(String[] args)
+  {
+    ZeroTierNode node = new ZeroTierNode();
+    node.initSetEventHandler(new MyZeroTierEventListener());
+    node.start();
+  }
 }
 ```
 
