@@ -157,11 +157,11 @@ module.exports = {
         specs: [
           {
             routePath: '/central/v1',
-            spec: './openapi/centralv1.json',
+            spec: './static/openapi/centralv1.json',
           },
           {
             routePath: '/service/v1',
-            spec: './openapi/servicev1.json',
+            spec: './static/openapi/servicev1.json',
           },
         ],
         theme: {
