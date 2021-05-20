@@ -989,7 +989,7 @@
           "id": {
             "type": "string",
             "example": "8056c2e21c000001",
-            "readOnly": true,
+            "readOnly": true
           },
           "clock": {
             "type": "integer",
