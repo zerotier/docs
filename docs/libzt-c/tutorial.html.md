@@ -1419,7 +1419,7 @@ You should try to use our API exposed here instead: <a href="https://apidocs.zer
 - If you have started a node but have not received a `ZTS_EVENT_NODE_ONLINE`:
   - You may need to view our [Router Config Tips](https://zerotier.atlassian.net/wiki/spaces/SD/pages/6815768/Router+Configuration+Tips) knowledge base article. Sometimes this is due to firewall/NAT settings.
 
-- If you have received a `ZTS_EVENT_NODE_ONLINE` event and attempted to join a network but do not see your node ID in the network panel on [my.zerotier.com](my.zerotier.com) after some time:
+- If you have received a `ZTS_EVENT_NODE_ONLINE` event and attempted to join a network but do not see your node ID in the network panel on [my.zerotier.com](https://my.zerotier.com) after some time:
   - You may have typed in your network ID incorrectly.
   - Used an improper integer representation for your network ID (e.g. `int` instead of `uint64_t`).
 
