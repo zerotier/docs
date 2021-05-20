@@ -124,16 +124,11 @@ module.exports = {
             {
               label: 'Twitter',
               href: 'https://twitter.com/zerotier',
-            }
-          ],
-        },
-        {
-          title: 'More',
-          items: [
+            },
             {
               label: 'GitHub',
               href: 'https://github.com/zerotier/ZeroTierOne',
-            },
+            }
           ],
         },
       ],
