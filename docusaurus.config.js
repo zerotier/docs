@@ -80,15 +80,15 @@ module.exports = {
               to: '/zerotier/ztintro',
             },
             {
-              label: 'libzt SDK',
-              to: '/libzt-c/tutorial.html'
+              label: 'SDK',
+              to: '/sockets/tutorial.html'
             },
             {
-              label: 'Central API',
+              label: 'Central REST API',
               to: '/central/v1'
             },
             {
-              label: 'Service API',
+              label: 'Service REST API',
               to: '/service/v1'
             }
           ],
