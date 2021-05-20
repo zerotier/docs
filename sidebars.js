@@ -85,11 +85,16 @@ module.exports = {
         },
         {
           type: 'category',
-          label: 'libzt C API',
+          label: 'Sockets C API',
           items: [
             'autogen/libzt/files/_zero_tier_sockets_8h',
             'autogen/libzt/index_classes'
           ]
+        },
+        {
+          type: 'link',
+          label: 'Sockets Java API',
+          href: "http://docs.zerotier.com/sockets-java/com/zerotier/sockets/package-summary.html"
         }
       ],
     }
