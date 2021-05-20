@@ -11,14 +11,14 @@ module.exports = {
   projectName: 'docs', // Usually your repo name.
   themeConfig: {
 
-    announcementBar: {
-      id: 'support_us', // Any value that will identify this message.
-      content:
-        'This banner is here to inform you that we have a new banner',
-      backgroundColor: '#fafbfc', // Defaults to `#fff`.
-      textColor: '#091E42', // Defaults to `#000`.
-      isCloseable: false, // Defaults to `true`.
-    },
+    // announcementBar: {
+    //   id: 'support_us', // Any value that will identify this message.
+    //   content:
+    //     'This banner is here to inform you that we have a new banner',
+    //   backgroundColor: '#fafbfc', // Defaults to `#fff`.
+    //   textColor: '#091E42', // Defaults to `#000`.
+    //   isCloseable: false, // Defaults to `true`.
+    // },
 
     colorMode: {
       defaultMode: "light",
