@@ -20,18 +20,18 @@ module.exports = {
     {
       type: 'category',
       label: 'ZeroTier',
-      items: ['zerotier/ztintro', 
-        'zerotier/manual', 
-        'zerotier/rules', 
-        'zerotier/zerotier.conf', 
-        'zerotier/multipath', 
+      items: ['zerotier/ztintro',
+        'zerotier/manual',
+        'zerotier/rules',
+        'zerotier/zerotier.conf',
+        'zerotier/multipath',
         'zerotier/moons'
       ]
     },
     {
       type: 'category',
       label: 'SDK',
-      items: ['libzt-c/zerotier-sdk','libzt-c/tutorial.html'],
+      items: ['sockets/tutorial.html'],
     },
     {
       type: 'category',
