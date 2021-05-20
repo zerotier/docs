@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 Encrypted P2P connections for your app or service.
 
-This multi-part guide explains how to use the ZeroTier SDK Socket API. It is meant to be read linearly and progresses from beginner topics to advanced topics. We will start by creating a simple [pingable node](#pingable-node-part-1) while skipping over most of the gritty details. Then we'll move on to a full [client-server socket application](#client-and-server-part-2) where we will take the occasional tangent to learn more about how all of this works. Source code for the examples can be found here: <a href="https://github.com/zerotier/libzt/tree/master/examples">libzt/examples</a>. For API reference documentation see the sidebar to the left.
+This guide explains how to use the ZeroTier SDK Socket API. It is meant to be read linearly and progresses from beginner topics to advanced topics. We will start by creating a simple [pingable node](#pingable-node-part-1) while skipping over most of the gritty details. Then we'll move on to a full [client-server socket application](#client-and-server-part-2) where we will take the occasional tangent to learn more about how all of this works. Source code for the examples can be found here: <a href="https://github.com/zerotier/libzt/tree/master/examples">libzt/examples</a>. For API reference documentation see the sidebar to the left. To read more more about how ZeroTier works in general, see our [manual](https://docs.zerotier.com/zerotier/manual). If you find an error on this page or you just need help getting something to work please open a [GitHub issue](https://github.com/zerotier/libzt/issues).
 
 :::note Latest news
 
@@ -87,7 +87,7 @@ For the purposes of this guide it is recommended that you first [create an accou
 
 :::
 
-## Usage
+## Usage summary
 
 <Tabs
   defaultValue="c"
@@ -105,15 +105,15 @@ For the purposes of this guide it is recommended that you first [create an accou
 ```c
 #include <ZeroTierSockets.h>
 
-int main() {
-  zts_node_start();
-  zts_net_join(0x1234567890abcdef);
-  // ...
-  int s = zts_socket(ZTS_AF_INET, ZTS_SOCK_STREAM, 0);
-  zts_connect(s, in4, adddrlen);
-  // ...
-  return zts_node_stop();
-}
+// ...
+zts_node_start();
+zts_net_join(0x1234567890abcdef);
+// ...
+int s = zts_socket(ZTS_AF_INET, ZTS_SOCK_STREAM, 0);
+zts_connect(s, in4, adddrlen);
+// ...
+zts_node_stop();
+
 ```
 
 </TabItem>
@@ -123,62 +123,68 @@ int main() {
 ```python
 import libzt
 
+# ...
 n = libzt.ZeroTierNode()
 n.node_start()
-while not n.node_is_online():
-    time.sleep(1)
-n.net_join(net_id)
-while not n.net_transport_is_ready(net_id):
-    time.sleep(1)
+# ...
+n.net_join(0x1234567890abcdef)
+# ...
 client = libzt.socket(libzt.ZTS_AF_INET, libzt.ZTS_SOCK_STREAM, 0)
 client.connect((remote_ip, remote_port))
+
 ```
 </TabItem>
 
 <TabItem value="rust">
 
 ```rust
+
+
+
+
+
 // Coming soon
+
+
+
+
+
 ```
 
 </TabItem>
 
 <TabItem value="csharp">
 
-```csharp
+```c
 using ZeroTier;
-
-public class ExampleApp {
-    static int Main(string[] args)
-    {
-        ZeroTier.Core.Node node = new ZeroTier.Core.Node();
-        node.Start();
-        while (! node.Online) {
-            Thread.Sleep(50);
-        }
-        node.Join(networkId);
-
-        // ...
-
-        try {
-            ZeroTier.Sockets.Socket sender = new ZeroTier.Sockets.Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-                sender.Connect(remoteServerEndPoint);
-        }
-
-        // ...
-
-        node.Stop();
-    }
-}
-
+// ...
+ZeroTier.Core.Node node = new ZeroTier.Core.Node();
+node.Start();
+// ...
+node.Join(0x1234567890abcdef);
+// ...
+ZeroTier.Sockets.Socket sender = new ZeroTier.Sockets.Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+sender.Connect(remoteServerEndPoint);
+// ...
+node.Stop();
 ```
 
 </TabItem>
 
 <TabItem value="java">
 
-```java
-// Coming soon
+```c
+import com.zerotier.sockets.*;
+
+// ...
+ZeroTierNode node = new ZeroTierNode();
+node.start();
+// ...
+node.join(0x1234567890abcdef);
+// ...
+ZeroTierSocket socket = new ZeroTierSocket(remoteAddr, port);
+
+
 ```
 
 </TabItem>
@@ -198,7 +204,7 @@ We'll be skipping over a lot of details in this first example, but we'll cover t
 
 ### Starting a node
 
-Starting a node is easy and if you provide no configuration it will generate a new `identity` automatically, but let's not worry about that yet:
+Starting a node is easy and if you don't provide a configuration ZeroTier will generate a new `identity` automatically, but don't worry about that yet:
 
 <Tabs
   defaultValue="c"
@@ -214,7 +220,8 @@ Starting a node is easy and if you provide no configuration it will generate a n
 <TabItem value="c">
 
 ```c
-zts_node_start(); // No "node object" creation necessary in C
+// No "node object" creation necessary in C
+zts_node_start();
 ```
 
 </TabItem>
@@ -230,13 +237,14 @@ node.start()
 
 ```rust
 // Coming soon
+
 ```
 
 </TabItem>
 
 <TabItem value="csharp">
 
-```csharp
+```c
 ZeroTier.Core.Node node = new ZeroTier.Core.Node();
 node.Start();
 ```
@@ -245,15 +253,16 @@ node.Start();
 
 <TabItem value="java">
 
-```java
-// Coming soon
+```c
+ZeroTierNode node = new ZeroTierNode();
+node.start();
 ```
 
 </TabItem>
 
 </Tabs>
 
-Before we can join any networks or use sockets we need to know when the node has successfully come online. We will use a rather crude wait loop but there are [event](#events)-based methods for accomplishing this that we will discuss later:
+Before we can join any networks or use sockets we need to know when the node has successfully come online. We will use a rather crude wait loop but as mentioned before, there are [event](#events)-based methods for accomplishing this that we will discuss later:
 
 <Tabs
   defaultValue="c"
@@ -270,7 +279,7 @@ Before we can join any networks or use sockets we need to know when the node has
 
 ```c
 while (! zts_node_is_online()) {
-    zts_util_delay(1000);
+  zts_util_delay(1000);
 }
 ```
 
@@ -280,20 +289,23 @@ while (! zts_node_is_online()) {
 ```python
 while not node.is_online():
   time.sleep(1)
+
 ```
 </TabItem>
 
 <TabItem value="rust">
 
 ```rust
+
 // Coming soon
+
 ```
 
 </TabItem>
 
 <TabItem value="csharp">
 
-```csharp
+```c
 while (! node.Online) {
   Thread.Sleep(1000);
 }
@@ -303,8 +315,10 @@ while (! node.Online) {
 
 <TabItem value="java">
 
-```java
-// Coming soon
+```c
+while (! node.isOnline()) {
+  ZeroTierNative.zts_util_delay(1000);
+}
 ```
 
 </TabItem>
@@ -328,7 +342,7 @@ Once we've broken from this loop we can be confident that the node has a valid i
 <TabItem value="c">
 
 ```c
-printf("node_id = %llx\n", (long long int)zts_node_get_id());
+printf("%llx\n", (long long int)zts_node_get_id());
 ```
 
 </TabItem>
@@ -349,16 +363,16 @@ print(node.get_id())
 
 <TabItem value="csharp">
 
-```csharp
-Console.WriteLine("Id = " + node.Id.ToString("x16")); // (Or) node.IdString
+```c
+Console.WriteLine(node.Id.ToString("x16"));
 ```
 
 </TabItem>
 
 <TabItem value="java">
 
-```java
-// Coming soon
+```c
+System.out.println(Long.toHexString(node.getId()));
 ```
 
 </TabItem>
@@ -384,9 +398,7 @@ Now we're ready to join a network:
 <TabItem value="c">
 
 ```c
-if (zts_net_join(0x1234567890abcdef) != ZTS_ERR_OK) {
-    return -1; // Failure
-}
+zts_net_join(0x1234567890abcdef)
 ```
 
 </TabItem>
@@ -408,7 +420,7 @@ node.net_join(0x1234567890abcdef)
 
 <TabItem value="csharp">
 
-```csharp
+```c
 node.Join(0x1234567890abcdef);
 ```
 
@@ -416,8 +428,8 @@ node.Join(0x1234567890abcdef);
 
 <TabItem value="java">
 
-```java
-// Coming soon
+```c
+node.join(0x1234567890abcdef);
 ```
 
 </TabItem>
@@ -443,16 +455,18 @@ A node is not assigned an IP address until it has successfully joined the networ
 
 ```c
 while (! zts_net_transport_is_ready(net_id)) {
-    zts_util_delay(1000);
+  zts_util_delay(1000);
 }
 ```
 
 </TabItem>
 
-<TabItem value="rustff">
+<TabItem value="rust">
 
 ```rust
+
 // Coming soon
+
 ```
 
 </TabItem>
@@ -462,12 +476,13 @@ while (! zts_net_transport_is_ready(net_id)) {
 ```python
 while not node.net_transport_is_ready(net_id):
   time.sleep(1)
+
 ```
 </TabItem>
 
 <TabItem value="csharp">
 
-```csharp
+```c
 while (! node.IsNetworkTransportReady(networkId)) {
   Thread.Sleep(1000);
 }
@@ -477,8 +492,10 @@ while (! node.IsNetworkTransportReady(networkId)) {
 
 <TabItem value="java">
 
-```java
-// Coming soon
+```c
+while (! node.isNetworkTransportReady(networkId)) {
+  ZeroTierNative.zts_util_delay(1000);
+}
 ```
 
 </TabItem>
@@ -487,7 +504,13 @@ while (! node.IsNetworkTransportReady(networkId)) {
 
 The transport readiness check above essentially just makes sure we have been authorized on the network and that we also have an assigned address and a managed route.
 
-Now we can check that an IP address of a specific family type (IPv4 or IPv6) was assigned. In our case we'll just check for an IPv4 address:
+### Getting your IP address
+
+:::note
+
+As of current, only one address of each family type may be assigned (per network) to a libzt node at any time. That means one `IPv4` and one `IPv6` address. This is a technical limitation that will be removed in future versions.
+
+:::
 
 <Tabs defaultValue="c" groupId="language-examples"
   values={[
@@ -501,16 +524,18 @@ Now we can check that an IP address of a specific family type (IPv4 or IPv6) was
 <TabItem value="c">
 
 ```c
-while (! (err = zts_addr_is_assigned(net_id, ZTS_AF_INET))) {
-    zts_util_delay(1000);
-}
+char ipstr[ZTS_IP_MAX_STR_LEN] = { 0 };
+zts_addr_get_str(net_id, ZTS_AF_INET, ipstr, ZTS_IP_MAX_STR_LEN)
+printf("%s\n", ipstr);
 ```
 </TabItem>
 
 <TabItem value="rust">
 
 ```rust
+
 // Coming soon
+
 ```
 
 </TabItem>
@@ -518,132 +543,34 @@ while (! (err = zts_addr_is_assigned(net_id, ZTS_AF_INET))) {
 <TabItem value="python">
 
 ```python
-while not node.addr_is_assigned(net_id, ZTS_AF_INET):
-  time.sleep(1)
+print(n.addr_get_ipv4(net_id))
+print(n.addr_get_ipv6(net_id))
+
 ```
 </TabItem>
 
 <TabItem value="csharp">
-
-```csharp
-// Coming soon
-```
-
-</TabItem>
-
-<TabItem value="java">
-
-```java
-// Coming soon
-```
-
-</TabItem>
-
-</Tabs>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Getting your IP address
-
-:::note
-
-As of current, only one address of each family type may be assigned (per network) to a libzt node at any time. This is a technical limitation that will be removed in future versions.
-
-:::
-
-Now we can print the address assigned by this network and wait for incoming traffic:
-
-<Tabs
-  defaultValue="c"
-  groupId="language-examples"
-  values={[
-    { label: "C/C++", value: "c", },
-    { label: "Rust", value: "rust" },
-    { label: "Python", value: "python" },
-    { label: "C#", value: "csharp" },
-    { label: "Java", value: "java" }
-  ]}>
-
-<TabItem value="c">
 
 ```c
-char ipstr[ZTS_IP_MAX_STR_LEN] = { 0 };
-zts_addr_get_str(net_id, ZTS_AF_INET, ipstr, ZTS_IP_MAX_STR_LEN);
-printf("Ping me on %llx at %s\n", net_id, ipstr);
-
-// Do network stuff!
-// zts_bsd_socket, zts_bsd_connect, etc
-
-while (1) {
-    zts_util_delay(500);   // Idle indefinitely
+foreach (IPAddress addr in node.GetNetworkAddresses(networkId)) {
+  Console.WriteLine(addr);
 }
-```
-
-</TabItem>
-<TabItem value="python">
-
-```python
-char ipstr[ZTS_IP_MAX_STR_LEN] = { 0 };
-zts_addr_get_str(net_id, ZTS_AF_INET, ipstr, ZTS_IP_MAX_STR_LEN);
-printf("Ping me at %s\n", net_id, ipstr);
-
-// Do network stuff!
-// zts_bsd_socket, zts_bsd_connect, etc
-
-while (1) {
-    zts_util_delay(500);   // Idle indefinitely
-}
-```
-</TabItem>
-
-<TabItem value="rust">
-
-```rust
-// Coming soon
-```
-
-</TabItem>
-
-<TabItem value="csharp">
-
-```csharp
-// Coming soon
 ```
 
 </TabItem>
 
 <TabItem value="java">
 
-```java
-// Coming soon
+```c
+System.out.println(node.getIPv4Address(networkId).getHostAddress());
+System.out.println(node.getIPv6Address(networkId).getHostAddress());
+
 ```
 
 </TabItem>
 
 </Tabs>
 
-From another machine (or the same machine, whatever you're into), use our regular client `zerotier-one` (or another libzt instance) to join the same network and ping the address displayed by your new node above. You should see some jittery initial responses as our transport-triggered link is established and then once a VL2 P2P connection is established the response time will stabilize.
-
-Congratulations you've just done something cool I guess. Ready for something with sockets?
 
 
 
@@ -651,11 +578,9 @@ Congratulations you've just done something cool I guess. Ready for something wit
 
 
 
+From another machine (or the same machine, whatever you're into), use our regular client [zerotier-one](https://www.zerotier.com/download/) (or another libzt instance) to join the same network and ping the address displayed by your new node above. You should see some jittery initial responses as our transport-triggered link is established and then once a VL2 P2P link is established the response time will stabilize.
 
-
-
-
-
+🎉 Congratulations you've just done something cool, I guess. Ready for something with sockets?
 
 Oh crap, I forgot. We need to stop the node when we're done:
 
@@ -694,16 +619,16 @@ node.stop()
 
 <TabItem value="csharp">
 
-```csharp
-// Coming soon
+```c
+node.Stop()
 ```
 
 </TabItem>
 
 <TabItem value="java">
 
-```java
-// Coming soon
+```c
+node.stop()
 ```
 
 </TabItem>
@@ -730,33 +655,29 @@ Full example source code can be found here: <a href="https://github.com/zerotier
 
 ## Sockets
 
-Before we move onto the next section we need to quickly discuss how the socket API is structured. For each supported language ZeroTier provides a socket interface that *attempts* to be as idiomatic as possible so the following text about the `C API` may not apply to you. The following [Client and Server](#client-and-server-part-2) section will demonstrate how to use this interface.
+:::tip
 
-:::note C API
+If you're new to socket programming I *highly* recommend at least perusing [Beej's Guide to Network Programming](https://beej.us/guide/bgnet/). This is the best reference material you'll find on the subject. It greatly helped in my own personal understanding. A portion of our C API is merely redirected calls to [lwIP's C API](https://savannah.nongnu.org/projects/lwip/) and is thus directly compatible with what you'll learn in his guide.
+
+:::
+
+Before we move onto the next section we need to quickly discuss how the socket API is structured. For each supported language ZeroTier provides a socket interface that *attempts* to be as idiomatic as possible. If you are using one of these non-C bindings the following text about the `C API` may not apply to you, but it's still good to know. [I don't care about this](#client-and-server-part-2)
 
 ZeroTier sockets can be controlled via `zts_bsd_` functions that operate nearly identically to normal BSD-style sockets, and `zts_` functions that provide simplified arguments and reduce the need to use things like `struct sockaddr`. These functions can be used on the same socket interchangeably without issue.
 
 For instance:
 
  - `zts_bsd_connect()` will behave in the same way as an ordinary `connect()` call (but over ZeroTier of course)
- - `zts_connect()` will perform a little magic behind the scenes to deal with transport-triggered link provisioning
- - `zts_tcp_client()` will wrap all of the common socket calls into a single call.
+ - `zts_connect()` will perform a little magic behind the scenes to deal with transport-triggered link provisioning. (i.e. re-attempting for you)
+ - `zts_tcp_client()` will wrap all of the common socket calls (including a `zts_connect()`) into a single call.
 
- You are allowed to use each type of call and mix their usage among sockets as you please, as long as what you're doing makes sense at the protocol level. For instance the following is legal:
+You are allowed to use each type of call and mix their usage among sockets as you please, as long as what you're doing makes sense at the protocol level. For instance the following is legal:
 
 ```
 int sock = zts_bsd_socket(ZTS_AF_INET, ZTS_SOCK_STREAM, 0);
 zts_connect(sock, addr, addrlen);
 zts_bsd_write(sock, buf, buflen);
 ```
-
-:::
-
-:::tip
-
-If you're new to socket programming I *highly* recommend at least perusing [Beej's Guide to Network Programming](https://beej.us/guide/bgnet/). This is the best reference material you'll find on the subject. It greatly helped in my own personal understanding. A portion of our C API is merely redirected calls to [lwIP's C API](https://savannah.nongnu.org/projects/lwip/) and is thus directly compatible with what you'll learn in his guide.
-
-:::
 
 
 
@@ -769,11 +690,13 @@ If you're new to socket programming I *highly* recommend at least perusing [Beej
 
 In this section we will:
 
-  - Use knowledge gained in the previous section to set up a node
+  - Use most of the same setup code as the [Pingable Node](#pingable-node-part-1) example
   - Set up a TCP server and client
   - Echo a simple messages between the two
 
-To get us started we will use most of the same setup code as the [Pingable Node](#pingable-node-part-1) example:
+To see full source code of the following with proper error and exception handling, see [libzt/examples](https://github.com/zerotier/libzt/tree/master/examples) and [libzt/test](https://github.com/zerotier/libzt/tree/master/test).
+
+Let's start our node:
 
 <Tabs
   defaultValue="c"
@@ -789,78 +712,144 @@ To get us started we will use most of the same setup code as the [Pingable Node]
 <TabItem value="c">
 
 ```c
-// Initialize and start node
-if ((err = zts_init_from_storage(storage_path)) != ZTS_ERR_OK) {
-    printf("Unable to initialize node (%d)\n", err);
-    return -1;
-}
-if ((err = zts_node_start()) != ZTS_ERR_OK) {
-    printf("Unable to start service (%d)\n", err);
-    return -1;
-}
+zts_init_from_storage(storage_path);
+
+zts_node_start();
+
 while (! zts_node_is_online()) {
-    zts_util_delay(50);
+  zts_util_delay(1000);
 }
-printf("Public identity (node ID) is %llx\n", zts_node_get_id());
 
-// Join network
-if (zts_net_join(net_id) != ZTS_ERR_OK) {
-    printf("Unable to join network\n");
-    return -1;
-}
+printf("Node ID: %llx\n", zts_node_get_id());
+
+zts_net_join(net_id);
+
 while (! zts_net_transport_is_ready(net_id)) {
-    zts_util_delay(50);
+  zts_util_delay(1000);
 }
 
-// Wait for IPv4 address assignment
-while (! (err = zts_addr_is_assigned(net_id, ZTS_AF_INET))) {
-    zts_util_delay(50);
-}
 char ipstr[ZTS_IP_MAX_STR_LEN] = { 0 };
 zts_addr_get_str(net_id, family, ipstr, ZTS_IP_MAX_STR_LEN);
-printf("IP address on network %llx is %s\n", net_id, ipstr);
+printf("IP address: %s\n", net_id, ipstr);
+
 ```
 
 </TabItem>
 <TabItem value="python">
 
 ```python
-while not node.addr_is_assigned(net_id, ZTS_AF_INET):
+n = libzt.ZeroTierNode()
+n.init_from_storage(storage_path)
+
+n.node_start()
+
+while not n.node_is_online():
   time.sleep(1)
+
+print("Node ID:" + node.node_id())
+
+n.net_join(net_id)
+
+while not n.net_transport_is_ready(net_id):
+  time.sleep(1)
+
+print("IP address: ", n.addr_get_ipv4(net_id))
+
+
+
+
 ```
+
 </TabItem>
 
 <TabItem value="rust">
 
 ```rust
+
+
+
+
+
+
+
+
 // Coming soon
+
+
+
+
+
+
+
+
+
+
+
 ```
 
 </TabItem>
 
 <TabItem value="csharp">
 
-```csharp
-// Coming soon
+```c
+node = new ZeroTier.Core.Node();
+node.InitFromStorage(configFilePath);
+
+node.Start();
+
+while (! node.Online) {
+  Thread.Sleep(1000);
+}
+
+Console.WriteLine("Node ID:" + node.Id)
+
+node.Join(networkId);
+
+while (! node.IsNetworkTransportReady(networkId)) {
+  Thread.Sleep(1000);
+}
+
+foreach (IPAddress addr in node.GetNetworkAddresses(networkId)) {
+  Console.WriteLine("IP address: " + addr);
+}
 ```
 
 </TabItem>
 
 <TabItem value="java">
 
-```java
-// Coming soon
+```c
+ZeroTierNode node = new ZeroTierNode();
+node.initFromStorage(storagePath);
+
+node.start();
+
+while (! node.isOnline()) {
+  ZeroTierNative.zts_util_delay(1000);
+}
+
+System.out.println("Node ID: " + Long.toHexString(node.getId()));
+
+node.join(networkId);
+
+while (! node.isNetworkTransportReady(networkId)) {
+  ZeroTierNative.zts_util_delay(1000);
+}
+
+System.out.println("IP address: " + node.getIPv4Address(networkId).getHostAddress());
+
+
 ```
 
 </TabItem>
 
 </Tabs>
 
-Notice that in the above code we use a new type of initialization function. In this case we are using a location on storage to retrieve and store our identities. We do this since we don't want to generate a unique identity for each application run.
+Notice that in the above code we use a new type of initialization function. In this case we are using a location on storage to retrieve and store our identities. We do this since we don't want to generate a unique identity for each application run. It's computationally-expensive and wasteful, think of the tardigrades.
 
 ### TCP Server
 
-Before you begin this section please read the [Sockets](#sockets) section. It's short. And remember, full example source code can be found here: <a href="https://github.com/zerotier/libzt/tree/master/examples">libzt/examples</a>
+Below is a simple blocking server that will open a listening socket, wait for a message and print what it receives.
 
 <Tabs
   defaultValue="c"
@@ -879,66 +868,121 @@ Before you begin this section please read the [Sockets](#sockets) section. It's 
 char remote_addr[ZTS_INET6_ADDRSTRLEN] = { 0 };
 int remote_port = 0;
 int len = ZTS_INET6_ADDRSTRLEN;
-if ((accfd = zts_tcp_server(local_addr, local_port, remote_addr, len, &remote_port)) < 0) {
-    printf("Error (fd=%d, zts_errno=%d). Exiting.\n", accfd, zts_errno);
-    exit(1);
-}
+
+// We could also use traditional zts_bsd_socket, zts_bsd_connect, etc here
+int conn = zts_tcp_server(local_addr, local_port, remote_addr, len, &remote_port)
 printf("Accepted connection from %s:%d\n", remote_addr, remote_port);
 
-// Data I/O
-
-int bytes = 0;
 char recvBuf[128] = { 0 };
 
-printf("Reading message string from client...\n");
-if ((bytes = zts_read(accfd, recvBuf, sizeof(recvBuf))) < 0) {
-    printf("Error (fd=%d, ret=%d, zts_errno=%d). Exiting.\n", fd, bytes, zts_errno);
-    exit(1);
-}
-printf("Read %d bytes: %s\n", bytes, recvBuf);
-printf("Sending message string to client...\n");
-if ((bytes = zts_write(accfd, recvBuf, bytes)) < 0) {
-    printf("Error (fd=%d, ret=%d, zts_errno=%d). Exiting.\n", fd, bytes, zts_errno);
-    exit(1);
-}
-printf("Sent %d bytes: %s\n", bytes, recvBuf);
+// RX
+ts_read(conn, recvBuf, sizeof(recvBuf));
+printf("RX: %s\n", recvBuf);
 
-// Close
-
-printf("Closing sockets\n");
-err = zts_close(accfd);
-err = zts_close(fd);
-return zts_node_stop();
+// Cleanup
+zts_close(conn);
+zts_close(fd);
+zts_node_stop();
 ```
 
 </TabItem>
 <TabItem value="python">
 
 ```python
-# Coming soon
+serv = libzt.socket(libzt.ZTS_AF_INET, libzt.ZTS_SOCK_STREAM, 0)
+serv.bind(("0.0.0.0", local_port))
+serv.listen(1)
+conn, addr = serv.accept()
+print("Accepted connection from: ", addr)
+
+
+# RX
+data = conn.recv(128)
+if data:
+  print("RX: ", data)
+
+# Cleanup
+conn.close()
+node.node_stop()
 ```
 </TabItem>
 
 <TabItem value="rust">
 
 ```rust
+
+
+
+
+
+
+
+
+
+
+
 // Coming soon
+
+
+
+
+
+
+
+
+
+
+
 ```
 
 </TabItem>
 
 <TabItem value="csharp">
 
-```csharp
-// Coming soon
+```c
+string data = null;
+byte[] bytes = new Byte[128];
+
+ZeroTier.Sockets.Socket listener =
+  new ZeroTier.Sockets.Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+
+listener.Bind(localEndPoint);
+listener.Listen(1);
+
+ZeroTier.Sockets.Socket handler;
+handler = listener.Accept();
+Console.WriteLine("Accepted connection from: " + handler.RemoteEndPoint.ToString());
+
+// RX
+int bytes = 0;
+bytes = handler.Receive(bytes);
+data = Encoding.ASCII.GetString(bytes, 0, bytes);
+Console.WriteLine("RX: " + data);
+
+// Cleanup
+handler.Shutdown(SocketShutdown.Both);
+handler.Close();
+node.Stop();
 ```
 
 </TabItem>
 
 <TabItem value="java">
 
-```java
-// Coming soon
+```c
+ZeroTierServerSocket listener = new ZeroTierServerSocket(port);
+ZeroTierSocket conn = listener.accept();
+ZeroTierInputStream inputStream = conn.getInputStream();
+DataInputStream dataInputStream = new DataInputStream(inputStream);
+
+// RX
+String message = dataInputStream.readUTF();
+System.out.println("RX: " + message);
+
+// Cleanup
+listener.close();
+conn.close();
+node.stop();
 ```
 
 </TabItem>
@@ -947,7 +991,7 @@ return zts_node_stop();
 
 ### TCP Client
 
-Before you begin this section please read the [Sockets](#sockets) section. It's short. And remember, full example source code can be found here: <a href="https://github.com/zerotier/libzt/tree/master/examples">libzt/examples</a>
+Below is a simple client that will connect to a remote host and send a message.
 
 <Tabs
   defaultValue="c"
@@ -963,89 +1007,98 @@ Before you begin this section please read the [Sockets](#sockets) section. It's 
 <TabItem value="c">
 
 ```c
-char* msgStr = (char*)"Welcome to the machine";
+char* msgStr = (char*)"Hello, network!";
 int bytes = 0, fd;
-char recvBuf[128] = { 0 };
-memset(recvBuf, 0, sizeof(recvBuf));
-
-// Connect to remote host
 
 // Can also use traditional: zts_bsd_socket(), zts_bsd_connect(), etc
+fd = zts_tcp_client(remote_addr, remote_port);
 
-printf("Attempting to connect...\n");
-while ((fd = zts_tcp_client(remote_addr, remote_port)) < 0) {
-    printf("Re-attempting to connect...\n");
-}
+// TX
+zts_write(fd, msgStr, strlen(msgStr))
 
-// Data I/O
-
-printf("Sending message string to server...\n");
-if ((bytes = zts_write(fd, msgStr, strlen(msgStr))) < 0) {
-    printf("Error (fd=%d, ret=%d, zts_errno=%d). Exiting.\n", fd, bytes, zts_errno);
-    exit(1);
-}
-printf("Sent %d bytes: %s\n", bytes, msgStr);
-printf("Reading message string from server...\n");
-if ((bytes = zts_read(fd, recvBuf, sizeof(recvBuf))) < 0) {
-    printf("Error (fd=%d, ret=%d, zts_errno=%d). Exiting.\n", fd, bytes, zts_errno);
-    exit(1);
-}
-printf("Read %d bytes: %s\n", bytes, recvBuf);
-
-// Close
-
-printf("Closing sockets\n");
+// Cleanup
 zts_close(fd);
-return zts_node_stop();
+zts_node_stop();
 ```
 
 </TabItem>
 <TabItem value="python">
 
 ```python
-# Coming soon
+client = libzt.socket(libzt.ZTS_AF_INET, libzt.ZTS_SOCK_STREAM, 0)
+client.connect((remote_ip, remote_port))
+
+# TX
+data = "Hello, network!"
+client.send(data.encode("utf-8"))
+
+# Cleanup
+client.close()
+node.node_stop()
 ```
 </TabItem>
 
 <TabItem value="rust">
 
 ```rust
+
+
+
+
+
+
 // Coming soon
+
+
+
+
+
+
+
+
 ```
 
 </TabItem>
 
 <TabItem value="csharp">
 
-```csharp
-// Coming soon
+```c
+byte[] bytes = new byte[128];
+ZeroTier.Sockets.Socket sender =
+  new ZeroTier.Sockets.Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+
+sender.Connect(remoteServerEndPoint);
+
+// TX
+byte[] msg = Encoding.ASCII.GetBytes("Hello, network!");
+int bytesSent = sender.Send(msg);
+
+// Cleanup
+sender.Shutdown(SocketShutdown.Both);
+sender.Close();
+node.Stop();
 ```
 
 </TabItem>
 
 <TabItem value="java">
 
-```java
-// Coming soon
+```c
+ZeroTierSocket socket = new ZeroTierSocket(remoteAddr, port);
+ZeroTierOutputStream outputStream = socket.getOutputStream();
+DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
+
+// TX
+dataOutputStream.writeUTF("Hello, network!");
+
+// Cleanup
+socket.close();
+node.stop();
 ```
 
 </TabItem>
 
 </Tabs>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1095,23 +1148,38 @@ node.init_from_memory(key, len)
 <TabItem value="rust">
 
 ```rust
+
+
 // Coming soon
+
+
+
 ```
 
 </TabItem>
 
 <TabItem value="csharp">
 
-```csharp
-// Coming soon
+```c
+// Generate a new identity
+node.InitNewIdentity() // Not available yet
+// (or) Load from storage (will generate new identity if path is empty)
+node.InitFromStorage("./node_path")
+// (or) Load from memory
+node.InitFromMemory() // Not available yet
 ```
 
 </TabItem>
 
 <TabItem value="java">
 
-```java
-// Coming soon
+```c
+// Generate a new identity
+node.initNewIdentity() // Not available yet
+// (or) Load from storage (will generate new identity if path is empty)
+node.initFromStorage("./node_path")
+// (or) Load from memory
+node.initFromMemory() // Not available yet
 ```
 
 </TabItem>
@@ -1256,9 +1324,9 @@ void on_zts_event(void* msgPtr)
 
 int main() {
   zts_init_set_event_handler(&on_zt_event);
-  ...
+  // ...
   zts_node_start();
-  ...
+  // ...
 }
 ```
 
@@ -1267,21 +1335,54 @@ int main() {
 <TabItem value="python">
 
 ```python
-socket.errno;
+def on_zerotier_event(event_code, id):
+    if event_code == libzt.ZTS_EVENT_NODE_ONLINE:
+        print("ZTS_EVENT_NODE_ONLINE (" + str(event_code) + ") : " + hex(id))
+
+def main():
+    n = libzt.ZeroTierNode()
+    n.init_set_event_handler(on_zerotier_event)
+    n.node_start()
+
+
+
+
+
+
+
+
+
+
 ```
 </TabItem>
 
 <TabItem value="rust">
 
 ```rust
+
+
+
+
+
+
+
 // Coming soon
+
+
+
+
+
+
+
+
+
 ```
 
 </TabItem>
 
 <TabItem value="csharp">
 
-```csharp
+```c
 public void OnZeroTierEvent(ZeroTier.Core.Event e)
 {
     if (e.Code == ZeroTier.Constants.EVENT_NODE_ONLINE) {
@@ -1306,8 +1407,24 @@ static int Main(string[] args)
 
 <TabItem value="java">
 
-```java
-// Coming soon
+```c
+class MyZeroTierEventListener implements ZeroTierEventListener {
+    public void onZeroTierEvent(long id, int eventCode)
+    {
+        if (eventCode == ZeroTierNative.ZTS_EVENT_NODE_ONLINE) {
+            System.out.println("EVENT_NODE_ONLINE: " + Long.toHexString(id));
+        }
+    }
+}
+
+public class selftest {
+    public static void main(String[] args)
+    {
+        ZeroTierNode node = new ZeroTierNode();
+        node.initSetEventHandler(new MyZeroTierEventListener());
+        node.start();
+    }
+}
 ```
 
 </TabItem>
@@ -1336,65 +1453,6 @@ ZTS_ERR_NO_RESULT = -4, // No result (not necessarily an error)
 ZTS_ERR_GENERAL   = -5  // Consider filing a bug report
 ```
 In the event of a failure from a socket call `zts_errno` will be set to a value that offers additional context. These values are defined as `zts_errno_t` in [include/ZeroTierSockets.h](https://github.com/zerotier/libzt/blob/master/include/ZeroTierSockets.h). This is accessible via the following:
-
-<Tabs
-  defaultValue="c"
-  groupId="language-examples"
-  values={[
-    { label: "C/C++", value: "c", },
-    { label: "Rust", value: "rust" },
-    { label: "Python", value: "python" },
-    { label: "C#", value: "csharp" },
-    { label: "Java", value: "java" }
-    ]}>
-
-<TabItem value="c">
-
-```c
-zts_errno
-```
-
-</TabItem>
-
-<TabItem value="python">
-
-```python
-socket.errno
-```
-</TabItem>
-
-<TabItem value="rust">
-
-```rust
-// Coming soon
-```
-
-</TabItem>
-
-<TabItem value="csharp">
-
-```csharp
-socket.ErrNo
-```
-
-</TabItem>
-
-<TabItem value="java">
-
-```java
-// Coming soon
-```
-
-</TabItem>
-
-</Tabs>
-
-:::note
-
-For Android/Java (or similar) which use JNI, the socket API's error codes are negative values encoded in the return values of function calls.
-
-:::
-
 
 
 
@@ -1450,10 +1508,6 @@ If the information in those sections hasn't helped, there are a couple of ways t
 
 
 ## Self-hosting
-
-Q: Can I run my own infrastructure independently from ZeroTier?
-
-A: Yes
 
 We expend considerable effort designing and maintaining a robust and globally available constellation of root servers and redundant network controllers but we understand that security practices may require you to function independently from our infrastructure. For this reason we try to make it as easy as possible to set up your own infrastructure: See [here](https://github.com/zerotier/ZeroTierOne/tree/master/controller) to learn more about how to set up your own network controller, and [here](https://www.zerotier.com/manual/#4_4) to learn more about setting up your own roots.
 
