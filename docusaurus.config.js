@@ -73,6 +73,27 @@ module.exports = {
       style: 'dark',
       links: [
         {
+          title: 'ZeroTier',
+          items: [
+            {
+              label: 'Home',
+              href: 'https://www.zerotier.com'
+            },
+            {
+              label: 'Downloads',
+              href: 'https://www.zerotier.com/download/'
+            },
+            {
+              label: 'Blog',
+              href: 'https://www.zerotier.com/blog/'
+            },
+            {
+              label: 'ZeroTier Central',
+              href: 'https://my.zerotier.com'
+            }
+          ]
+        },
+        {
           title: 'Docs',
           items: [
             {
