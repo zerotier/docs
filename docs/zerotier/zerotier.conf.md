@@ -117,6 +117,6 @@ An example `local.conf`:
         },
         "settings": {
             "softwareUpdate": "apply",
-            "softwraeUpdateChannel": "release"
+            "softwareUpdateChannel": "release"
         }
     }
