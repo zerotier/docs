@@ -257,7 +257,7 @@
             "example": "0deadbeef0"
           },
           "clock": {
-            "type": "int64",
+            "type": "number",
             "example": "1618948931097"
           },
           "config": {
