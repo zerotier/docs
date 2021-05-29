@@ -426,7 +426,7 @@
                       "example": "0"
                     },
                     "mac": {
-                      "type": "integer",
+                      "type": "string",
                       "example": "34:34:ff:da:6e:ff"
                     }
                   }
