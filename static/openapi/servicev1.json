@@ -422,7 +422,7 @@
                   "type": "object",
                   "properties": {
                     "adi": {
-                      "type": "integer",
+                      "type": "number",
                       "example": "0"
                     },
                     "mac": {
