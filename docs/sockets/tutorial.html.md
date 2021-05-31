@@ -39,7 +39,9 @@ In the coming weeks ahead of our webinar we will be making available a number of
 <TabItem value="c">
 
 ```sh
+
 brew install zerotier/tap/libzt
+
 ```
 
 </TabItem>
@@ -47,7 +49,9 @@ brew install zerotier/tap/libzt
 <TabItem value="rust">
 
 ```sh
-cargo install libzt
+
+# See https://crates.io/crates/libzt
+
 ```
 
 </TabItem>
@@ -55,7 +59,9 @@ cargo install libzt
 <TabItem value="python">
 
 ```sh
+
 pip install libzt
+
 ```
 
 </TabItem>
@@ -63,7 +69,9 @@ pip install libzt
 <TabItem value="csharp">
 
 ```psh
+
 Install-Package ZeroTier.Sockets
+
 ```
 
 </TabItem>
@@ -71,7 +79,9 @@ Install-Package ZeroTier.Sockets
 <TabItem value="java">
 
 ```sh
+
 ./build.sh host-jar
+
 ```
 
 </TabItem>
@@ -114,6 +124,7 @@ zts_connect(s, in4, adddrlen);
 // ...
 zts_node_stop();
 
+
 ```
 
 </TabItem>
@@ -132,21 +143,23 @@ n.net_join(0x1234567890abcdef)
 client = libzt.socket(libzt.ZTS_AF_INET, libzt.ZTS_SOCK_STREAM, 0)
 client.connect((remote_ip, remote_port))
 
+
 ```
 </TabItem>
 
 <TabItem value="rust">
 
 ```rust
-
-
-
-
-
-// Coming soon
-
-
-
+use libzt;
+use libzt::tcp::{TcpListener, TcpStream};
+// ...
+let node = libzt::node::ZeroTierNode {};
+node.start();
+node.net_join(net_id);
+// ...
+TcpStream::connect(remote_addr);
+// ...
+node.stop();
 
 
 ```
@@ -155,7 +168,7 @@ client.connect((remote_ip, remote_port))
 
 <TabItem value="csharp">
 
-```c
+```csharp
 using ZeroTier;
 // ...
 ZeroTier.Core.Node node = new ZeroTier.Core.Node();
@@ -167,13 +180,14 @@ ZeroTier.Sockets.Socket sender = new ZeroTier.Sockets.Socket(AddressFamily.Inter
 sender.Connect(remoteServerEndPoint);
 // ...
 node.Stop();
+
 ```
 
 </TabItem>
 
 <TabItem value="java">
 
-```c
+```java
 import com.zerotier.sockets.*;
 
 // ...
@@ -183,6 +197,7 @@ node.start();
 node.join(0x1234567890abcdef);
 // ...
 ZeroTierSocket socket = new ZeroTierSocket(remoteAddr, port);
+
 
 
 ```
@@ -236,15 +251,15 @@ node.start()
 <TabItem value="rust">
 
 ```rust
-// Coming soon
-
+let node = libzt::node::ZeroTierNode {};
+node.start();
 ```
 
 </TabItem>
 
 <TabItem value="csharp">
 
-```c
+```csharp
 ZeroTier.Core.Node node = new ZeroTier.Core.Node();
 node.Start();
 ```
@@ -253,7 +268,7 @@ node.Start();
 
 <TabItem value="java">
 
-```c
+```java
 ZeroTierNode node = new ZeroTierNode();
 node.start();
 ```
@@ -296,16 +311,16 @@ while not node.is_online():
 <TabItem value="rust">
 
 ```rust
-
-// Coming soon
-
+while !node.is_online() {
+    node.delay(1000);
+}
 ```
 
 </TabItem>
 
 <TabItem value="csharp">
 
-```c
+```csharp
 while (! node.Online) {
   Thread.Sleep(1000);
 }
@@ -315,7 +330,7 @@ while (! node.Online) {
 
 <TabItem value="java">
 
-```c
+```java
 while (! node.isOnline()) {
   ZeroTierNative.zts_util_delay(1000);
 }
@@ -356,14 +371,14 @@ print(node.get_id())
 <TabItem value="rust">
 
 ```rust
-// Coming soon
+println!("{:#06x}", node.id());
 ```
 
 </TabItem>
 
 <TabItem value="csharp">
 
-```c
+```csharp
 Console.WriteLine(node.Id.ToString("x16"));
 ```
 
@@ -371,7 +386,7 @@ Console.WriteLine(node.Id.ToString("x16"));
 
 <TabItem value="java">
 
-```c
+```java
 System.out.println(Long.toHexString(node.getId()));
 ```
 
@@ -413,14 +428,14 @@ node.net_join(0x1234567890abcdef)
 <TabItem value="rust">
 
 ```rust
-// Coming soon
+node.net_join(0x1234567890abcdef);
 ```
 
 </TabItem>
 
 <TabItem value="csharp">
 
-```c
+```csharp
 node.Join(0x1234567890abcdef);
 ```
 
@@ -428,7 +443,7 @@ node.Join(0x1234567890abcdef);
 
 <TabItem value="java">
 
-```c
+```java
 node.join(0x1234567890abcdef);
 ```
 
@@ -464,9 +479,9 @@ while (! zts_net_transport_is_ready(net_id)) {
 <TabItem value="rust">
 
 ```rust
-
-// Coming soon
-
+while !node.net_transport_is_ready(net_id) {
+    node.delay(1000);
+}
 ```
 
 </TabItem>
@@ -482,7 +497,7 @@ while not node.net_transport_is_ready(net_id):
 
 <TabItem value="csharp">
 
-```c
+```csharp
 while (! node.IsNetworkTransportReady(networkId)) {
   Thread.Sleep(1000);
 }
@@ -492,7 +507,7 @@ while (! node.IsNetworkTransportReady(networkId)) {
 
 <TabItem value="java">
 
-```c
+```java
 while (! node.isNetworkTransportReady(networkId)) {
   ZeroTierNative.zts_util_delay(1000);
 }
@@ -533,8 +548,8 @@ printf("%s\n", ipstr);
 <TabItem value="rust">
 
 ```rust
-
-// Coming soon
+let addr = node.addr_get(net_id).unwrap();
+println!("{}", addr);
 
 ```
 
@@ -551,7 +566,7 @@ print(n.addr_get_ipv6(net_id))
 
 <TabItem value="csharp">
 
-```c
+```csharp
 foreach (IPAddress addr in node.GetNetworkAddresses(networkId)) {
   Console.WriteLine(addr);
 }
@@ -561,7 +576,7 @@ foreach (IPAddress addr in node.GetNetworkAddresses(networkId)) {
 
 <TabItem value="java">
 
-```c
+```java
 System.out.println(node.getIPv4Address(networkId).getHostAddress());
 System.out.println(node.getIPv6Address(networkId).getHostAddress());
 
@@ -612,14 +627,14 @@ node.stop()
 <TabItem value="rust">
 
 ```rust
-// Coming soon
+node.stop();
 ```
 
 </TabItem>
 
 <TabItem value="csharp">
 
-```c
+```csharp
 node.Stop()
 ```
 
@@ -627,7 +642,7 @@ node.Stop()
 
 <TabItem value="java">
 
-```c
+```java
 node.stop()
 ```
 
@@ -692,7 +707,7 @@ In this section we will:
 
   - Use most of the same setup code as the [Pingable Node](#pingable-node-part-1) example
   - Set up a TCP server and client
-  - Echo a simple messages between the two
+  - Send a short message between the two
 
 To see full source code of the following with proper error and exception handling, see [libzt/examples](https://github.com/zerotier/libzt/tree/master/examples) and [libzt/test](https://github.com/zerotier/libzt/tree/master/test).
 
@@ -765,24 +780,24 @@ print("IP address: ", n.addr_get_ipv4(net_id))
 <TabItem value="rust">
 
 ```rust
+let node = libzt::node::ZeroTierNode {};
+node.init_from_storage(&storage_path);
 
+node.start();
 
+while !node.is_online() {
+    node.delay(1000);
+}
 
+println!("Node ID = {:#06x}", node.id());
 
+node.net_join(net_id);
 
-
-
-
-// Coming soon
-
-
-
-
-
-
-
-
-
+while !node.net_transport_is_ready(net_id) {
+    node.delay(1000);
+}
+let addr = node.addr_get(net_id).unwrap();
+println!("IP address: {}", addr);
 
 
 ```
@@ -791,7 +806,7 @@ print("IP address: ", n.addr_get_ipv4(net_id))
 
 <TabItem value="csharp">
 
-```c
+```csharp
 node = new ZeroTier.Core.Node();
 node.InitFromStorage(configFilePath);
 
@@ -818,7 +833,7 @@ foreach (IPAddress addr in node.GetNetworkAddresses(networkId)) {
 
 <TabItem value="java">
 
-```c
+```java
 ZeroTierNode node = new ZeroTierNode();
 node.initFromStorage(storagePath);
 
@@ -871,7 +886,7 @@ int len = ZTS_INET6_ADDRSTRLEN;
 
 // Set up listen socket
 // Note: We could also use standard zts_bsd_socket, zts_bsd_bind, etc
-int fd = zts_tcp_server(local_addr, local_port, remote_addr, len, &remote_port)
+int fd = zts_tcp_server(local_addr, 8000, remote_addr, len, &remote_port)
 printf("Accepted connection from %s:%d\n", remote_addr, remote_port);
 
 // RX
@@ -893,7 +908,7 @@ zts_node_stop();
 ```python
 # Set up listen socket
 serv = libzt.socket(libzt.ZTS_AF_INET, libzt.ZTS_SOCK_STREAM, 0)
-serv.bind(("0.0.0.0", local_port))
+serv.bind(("0.0.0.0", 8000))
 serv.listen(1)
 conn, addr = serv.accept()
 print("Accepted connection from: ", addr)
@@ -918,22 +933,22 @@ node.node_stop()
 <TabItem value="rust">
 
 ```rust
-
-
-
-
-
-
-
-
-
-// Coming soon
-
-
-
-
-
-
+// Set up listen socket
+let listener = TcpListener::bind("0.0.0.0:8000").unwrap();
+for stream in listener.incoming() {
+    match stream {
+        Ok(stream) => {
+            println!("Accepted connection from: {}", stream.peer_addr().unwrap());
+            thread::spawn(move || {
+                handle_client(stream)
+            });
+        }
+        Err(e) => {
+            println!("Error: {}", e);
+        }
+    }
+}
+drop(listener);
 
 
 
@@ -944,7 +959,7 @@ node.node_stop()
 
 <TabItem value="csharp">
 
-```c
+```csharp
 // Set up listen socket
 ZeroTier.Sockets.Socket listener =
   new ZeroTier.Sockets.Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -971,7 +986,7 @@ node.Stop();
 
 <TabItem value="java">
 
-```c
+```java
 // Set up listen socket
 ZeroTierServerSocket listener = new ZeroTierServerSocket(port);
 ZeroTierSocket conn = listener.accept();
@@ -1057,17 +1072,17 @@ node.node_stop()
 <TabItem value="rust">
 
 ```rust
-
-
-
-
-
-
-// Coming soon
-
-
-
-
+// Set up connection socket
+match TcpStream::connect(remote_addr) {
+    Ok(mut stream) => {
+        // TX
+        let msg = b"Hello, network!";
+        stream.write(msg).unwrap();
+    }
+    Err(e) => {
+        // Failed to connect
+    }
+}
 
 
 
@@ -1077,7 +1092,7 @@ node.node_stop()
 
 <TabItem value="csharp">
 
-```c
+```csharp
 // Set up connection socket
 byte[] bytes = new byte[128];
 ZeroTier.Sockets.Socket sender =
@@ -1098,7 +1113,7 @@ node.Stop();
 
 <TabItem value="java">
 
-```c
+```java
 // Set up connection socket
 ZeroTierSocket socket = new ZeroTierSocket(remoteAddr, port);
 ZeroTierOutputStream outputStream = socket.getOutputStream();
@@ -1167,19 +1182,19 @@ node.init_from_memory(key, len)
 <TabItem value="rust">
 
 ```rust
-
-
-// Coming soon
-
-
-
+// Generate a new identity
+node.init_new_identity()
+// (or) Load from storage (will generate new identity if path is empty)
+node.init_from_storage("./node_path")
+// (or) Load from memory
+node.init_from_memory(key, len)
 ```
 
 </TabItem>
 
 <TabItem value="csharp">
 
-```c
+```csharp
 // Generate a new identity
 node.InitNewIdentity() // Not available yet
 // (or) Load from storage (will generate new identity if path is empty)
@@ -1192,7 +1207,7 @@ node.InitFromMemory() // Not available yet
 
 <TabItem value="java">
 
-```c
+```java
 // Generate a new identity
 node.initNewIdentity() // Not available yet
 // (or) Load from storage (will generate new identity if path is empty)
@@ -1286,14 +1301,14 @@ def main():
 <TabItem value="rust">
 
 ```rust
+fn user_event_handler(event_code: i16) -> () {
+    println!("user_event {}", event_code);
+}
 
+fn main() {
+  node.init_set_event_handler(user_event_handler);
+}
 
-
-
-
-
-
-// Coming soon
 
 
 
@@ -1309,7 +1324,7 @@ def main():
 
 <TabItem value="csharp">
 
-```c
+```csharp
 public void OnZeroTierEvent(ZeroTier.Core.Event e)
 {
   if (e.Code == ZeroTier.Constants.EVENT_NODE_ONLINE) {
@@ -1333,7 +1348,7 @@ static int Main(string[] args)
 
 <TabItem value="java">
 
-```c
+```java
 class MyZeroTierEventListener implements ZeroTierEventListener {
   public void onZeroTierEvent(long id, int eventCode)
   {
@@ -1378,6 +1393,7 @@ ZTS_ERR_ARG       = -3, // Invalid argument
 ZTS_ERR_NO_RESULT = -4, // No result (not necessarily an error)
 ZTS_ERR_GENERAL   = -5  // Consider filing a bug report
 ```
+
 In the event of a failure from a socket call `zts_errno` will be set to a value that offers additional context. These values are defined as `zts_errno_t` in [include/ZeroTierSockets.h](https://github.com/zerotier/libzt/blob/master/include/ZeroTierSockets.h). This is accessible via the following:
 
 
