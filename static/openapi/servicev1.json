@@ -257,7 +257,7 @@
             "example": "0deadbeef0"
           },
           "clock": {
-            "type": "integer",
+            "type": "number",
             "example": "1618948931097"
           },
           "config": {
@@ -422,11 +422,11 @@
                   "type": "object",
                   "properties": {
                     "adi": {
-                      "type": "integer",
+                      "type": "number",
                       "example": "0"
                     },
                     "mac": {
-                      "type": "integer",
+                      "type": "string",
                       "example": "34:34:ff:da:6e:ff"
                     }
                   }
