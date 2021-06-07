@@ -17,8 +17,9 @@ module.exports = {
         'rust',
         'powershell',
         'csharp',
-        // 'python',
-        // 'java',
+        'python',
+        'java',
+        'scala',
       ]
     },
 
