@@ -10,8 +10,16 @@ module.exports = {
   organizationName: 'zerotier', // Usually your GitHub org/user name.
   projectName: 'docs', // Usually your repo name.
   themeConfig: {
+   
+    // for some reason if python or java are enabled here, the OpenAPI docs go boom :(
     prism: {
-      additionalLanguages: ['rust','powershell','csharp','java','python']
+      additionalLanguages: [
+        'rust',
+        'powershell',
+        'csharp',
+        // 'python',
+        // 'java',
+      ]
     },
 
     // announcementBar: {
