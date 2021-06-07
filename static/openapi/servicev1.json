@@ -30,6 +30,259 @@
     }
   ],
   "paths": {
+    "/controller": {
+      "get": {
+        "tags": ["controller"],
+        "summary": "Get Controller Status.",
+        "operationId": "getControllerStatus",
+        "description": "Check for controller function and return controller status.",
+        "responses": {
+          "200": {
+            "description": "Status object.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ControllerStatus"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/controller/network": {
+      "get": {
+        "tags": ["controller"],
+        "summary": "List Networks.",
+        "operationId": "getControllerNetworks",
+        "description": "List IDs of all networks hosted by this controller.",
+        "responses": {
+          "200": {
+            "description": "List of network IDs.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "example": "3e245e31af7a726a"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/controller/network/{networkID}": {
+      "get": {
+        "tags": ["controller"],
+        "summary": "Get Network by ID.",
+        "description": "Get details of a network by it's ID.",
+        "operationId": "getControllerNetwork",
+        "parameters": [
+          {
+            "name": "networkID",
+            "description": "ID of the network.",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "3e245e31af7a726a"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Network Details.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ControllerNetwork"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      },
+      "post": {
+        "tags": ["controller"],
+        "summary": "Create or Update a Network.",
+        "operationId": "setControllerNetwork",
+        "parameters": [
+          {
+            "name": "networkID",
+            "description": "ID of the network.",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "3e245e31af7a726a"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Network object JSON.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ControllerNetwork"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ControllerNetwork"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/controller/network/{controllerID}______": {
+      "post": {
+        "tags": ["controller"],
+        "summary": "Generate Random Network ID.",
+        "operationId": "generateControllerNetwork",
+        "description": "Create a new network with a random ID.",
+        "parameters": [
+          {
+            "name": "controllerID",
+            "description": "Node ID of the controller.",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Network object JSON.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ControllerNetwork"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ControllerNetwork"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/controller/network/{networkID}/member": {
+      "get": {
+        "tags": ["controller"],
+        "summary": "List Network Members.",
+        "operationId": "getControllerNetworkMembers",
+        "description": "JSON object containing all member IDs as keys and their memberRevisionCounter values as values.",
+        "parameters": [
+          {
+            "name": "networkID",
+            "description": "ID of the network.",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "integer"
+                  },
+                  "example": { "03d516a9df": 5, "b9d5ad8e13": 1 }
+                }
+              }
+            }
+          },
+          "401": {
+              "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
+    "/controller/network/{networkID}/member{nodeID}": {
+      "get": {
+        "tags": ["controller"],
+        "summary": "Get Network Member Details by ID.",
+        "operationId": "getControllerNetworkMember",
+        "parameters": [
+          {
+            "name": "networkID",
+            "description": "ID of the network.",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "nodeID",
+            "description": "ID of the member node.",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ControllerNetworkMember"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/UnauthorizedError"
+          }
+        }
+      }
+    },
     "/status": {
       "get": {
         "tags": ["status"],
@@ -80,12 +333,12 @@
     "/network/{networkID}": {
       "get": {
         "tags": ["network"],
-        "summary": "Gets a joined Network by ID.",
+        "summary": "Get a joined Network membership configuration by Network ID.",
         "operationId": "getNetwork",
         "parameters": [
           {
             "name": "networkID",
-            "description": "ID of the network to change",
+            "description": "ID of the network to get.",
             "in": "path",
             "required": true,
             "schema": {
@@ -111,12 +364,12 @@
       },
       "post": {
         "tags": ["network"],
-        "summary": "Join a network or update it's configuration",
+        "summary": "Join a network or update it's configuration by Network ID.",
         "operationId": "updateNetwork",
         "parameters": [
           {
             "name": "networkID",
-            "description": "ID of the network to change",
+            "description": "ID of the network to change.",
             "in": "path",
             "required": true,
             "schema": {
@@ -125,7 +378,7 @@
           }
         ],
         "requestBody": {
-          "description": "Network object JSON",
+          "description": "Network membership object",
           "required": true,
           "content": {
             "application/json": {
@@ -137,7 +390,7 @@
         },
         "responses": {
           "200": {
-            "description": "success",
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -153,7 +406,7 @@
       },
       "delete": {
         "tags": ["network"],
-        "summary": "Leave a network",
+        "summary": "Leave a network.",
         "operationId": "deleteNetwork",
         "parameters": [
           {
@@ -168,7 +421,7 @@
         ],
         "responses": {
           "200": {
-            "description": "network deleted"
+            "description": "Network deleted."
           },
           "401": {
             "$ref": "#/components/responses/UnauthorizedError"
@@ -183,7 +436,7 @@
         "operationId": "getPeers",
         "responses": {
           "200": {
-            "description": "",
+            "description": "Array of Peer objects",
             "content": {
               "application/json": {
                 "schema": {
@@ -204,12 +457,12 @@
     "/peer/{address}": {
       "get": {
         "tags": ["peer"],
-        "summary": "Get information about a specific peer.",
+        "summary": "Get information about a specific peer by Node ID.",
         "operationId": "getPeer",
         "parameters": [
           {
             "name": "address",
-            "description": "ZeroTier address of the peer",
+            "description": "ZeroTier address of the peer to get",
             "in": "path",
             "required": true,
             "schema": {
@@ -219,7 +472,7 @@
         ],
         "responses": {
           "200": {
-            "description": "",
+            "description": "Peer object",
             "content": {
               "application/json": {
                 "schema": {
@@ -245,20 +498,230 @@
     },
     "responses": {
       "UnauthorizedError": {
-        "description": "Authorization required"
+        "description": "Authorization required."
       }
     },
     "schemas": {
+      "ControllerStatus": {
+        "type": "object",
+        "properties": {
+          "controller": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "apiVersion": {
+            "type": "integer",
+            "example": 3,
+            "readOnly": true
+          },
+          "clock": {
+            "type": "integer",
+            "example": 1623101592,
+            "readOnly": true
+          }
+        }
+      },
+      "ControllerNetwork": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "readOnly": true,
+            "example": "3e245e31af000001"
+          },
+          "nwid": {
+            "type": "string",
+            "readOnly": true,
+            "example": "3e245e31af000001"
+          },
+          "objtype": {
+            "type": "string",
+            "example": "network",
+            "readOnly": true
+          },
+          "name": {
+            "type": "string",
+            "example": "my-cool-network"
+          },
+          "creationTime": {
+            "type": "number",
+            "example": 1623101592,
+            "readOnly": true
+          },
+          "private": {
+            "type": "boolean"
+          },
+          "enableBroadcast": {
+            "type": "boolean"
+          },
+          "v4AssignMode": {
+            "type": "object",
+            "properties": {
+              "zt": {
+                "type": "boolean"
+              }
+            }
+          },
+          "v6AssignMode": {
+            "type": "object",
+            "properties": {
+              "6plane": {
+                "type": "boolean"
+              },
+              "rfc4193": {
+                "type": "boolean"
+              },
+              "zt": {
+                "type": "boolean"
+              }
+            }
+          },
+          "mtu": {
+            "type": "integer",
+            "example": 2800
+          },
+          "multicastLimit": {
+            "type": "integer",
+            "example": 32
+          },
+          "revision": {
+            "type": "integer",
+            "example": 1,
+            "readOnly": true
+          },
+          "routes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "target": {
+                  "type": "string",
+                  "example": "192.168.192.0/24"
+                },
+                "via": {
+                  "type": "string",
+                  "example": "192.168.192.1",
+                  "nullable": true
+                }
+              }
+            }
+          },
+          "ipAssignmentPools": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "ipRangeStart": {
+                  "type": "string",
+                  "example": "192.168.192.1"
+                },
+                "ipRangeEnd": {
+                  "type": "string",
+                  "example": "192.168.192.254"
+                }
+              }
+            }
+          },
+          "rules": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "capabilities": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "remoteTraceTarget": {
+            "type": "string",
+            "example": "7f5d90eb87"
+          },
+          "remoteTraceLevel": {
+            "type": "integer"
+          }
+        }
+      },
+      "ControllerNetworkMember": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "readOnly": true,
+            "example": "eb8d45c5c9"
+          },
+          "address": {
+            "type": "string",
+            "readOnly": true,
+            "example": "eb8d45c5c9"
+          },
+          "nwid": {
+            "type": "string",
+            "readOnly": true,
+            "example": "3e245e31af000001"
+          },
+          "authorized": {
+            "type": "boolean"
+          },
+          "activeBridge": {
+            "type": "boolean"
+          },
+          "identity": {
+            "type": "string",
+            "readOnly": true,
+            "example": "eb8d45c5c9:0:0279558f1a731cb2f628b3adc9f8915d7c2f3752e07d75f2d75fde08274b9c3a43d8b04115fd30f37043f61758ac874b844cc184fdf51e1022e988c1d093a50d:91a840bcd3fbac910afc56be4222973f675204a0ca9625218352e1c82debaa758b915d948c5fe4bd3c38cf1255904804a5b937f5edaef182ba8d5f3d8a243329"
+          },
+          "ipAssignments": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "10.147.20.190"
+            }
+          },
+          "revision": {
+            "type": "integer",
+            "readOnly": true,
+            "example": 1
+          },
+          "vMajor": {
+            "type": "integer",
+            "readOnly": true,
+            "example": 1
+          },
+          "vMinor": {
+            "type": "integer",
+            "readOnly": true,
+            "example": 6
+          },
+          "vRev": {
+            "type": "integer",
+            "readOnly": true,
+            "example": 5
+          },
+          "vProto": {
+            "type": "integer",
+            "readOnly": true,
+            "example": 5
+          }
+        }
+      },
       "Status": {
         "type": "object",
         "properties": {
           "address": {
             "type": "string",
-            "example": "0deadbeef0"
+            "example": "0deadbeef1"
           },
           "clock": {
-            "type": "number",
-            "example": "1618948931097"
+            "type": "integer",
+            "example": 1618948931097
           },
           "config": {
             "type": "object",
@@ -274,7 +737,7 @@
                   },
                   "primaryPort": {
                     "type": "integer",
-                    "example": "9993"
+                    "example": 9993
                   }
                 }
               }
@@ -284,12 +747,12 @@
             "type": "boolean"
           },
           "planetWorldId": {
-            "type": "number",
-            "example": "149604618"
+            "type": "integer",
+            "example": 149604618
           },
           "planetWorldTimestamp": {
-            "type": "number",
-            "example": "1618339625163"
+            "type": "integer",
+            "example": 1618339625163
           },
           "publicIdentity": {
             "type": "string",
@@ -304,19 +767,19 @@
           },
           "versionBuild": {
             "type": "integer",
-            "example": "0"
+            "example": 0
           },
           "versionMajor": {
             "type": "integer",
-            "example": "1"
+            "example": 1
           },
           "versionMinor": {
             "type": "integer",
-            "example": "6"
+            "example": 6
           },
           "versionRev": {
             "type": "integer",
-            "example": "4"
+            "example": 4
           }
         }
       },
@@ -328,25 +791,25 @@
               "allowDNS": {
                 "type": "boolean",
                 "readOnly": false,
-                "description": "Let ZeroTier modify the system's DNS settings",
+                "description": "Let ZeroTier modify the system's DNS settings.",
                 "example": false
               },
               "allowDefault": {
                 "type": "boolean",
                 "readOnly": false,
-                "description": "Let ZeroTier to modify the system's default route.",
+                "description": "Let ZeroTier modify the system's default route.",
                 "example": false
               },
               "allowGlobal": {
                 "type": "boolean",
                 "readOnly": false,
-                "description": "Let ZeroTier to manage IP addresses and Route assignments that aren't in private ranges (rfc1918).",
+                "description": "Let ZeroTier manage IP addresses and route assignments that aren't in private ranges (rfc1918).",
                 "example": false
               },
               "allowManaged": {
                 "type": "boolean",
                 "readOnly": false,
-                "description": "Let ZeroTier to manage IP addresses and Route assignments.",
+                "description": "Let ZeroTier manage IP addresses and Route assignments.",
                 "example": true
               }
             }
@@ -357,17 +820,17 @@
               "allowDNS": {
                 "type": "boolean",
                 "readOnly": false,
-                "description": "Let ZeroTier modify the system's DNS settings"
+                "description": "Let ZeroTier modify the system's DNS settings."
               },
               "allowDefault": {
                 "type": "boolean",
                 "readOnly": false,
-                "description": "Let ZeroTier to modify the system's default route."
+                "description": "Let ZeroTier modify the system's default route."
               },
               "allowGlobal": {
                 "type": "boolean",
                 "readOnly": false,
-                "description": "Let ZeroTier to manage IP addresses and Route assignments that aren't in private ranges (rfc1918)."
+                "description": "Let ZeroTier manage IP addresses and Route assignments that aren't in private ranges (rfc1918)."
               },
               "allowManaged": {
                 "type": "boolean",
@@ -410,11 +873,11 @@
               "mac": {
                 "type": "string",
                 "example": "e6:d2:2b:e6:68:73",
-                "description": "MAC address for this network's interface"
+                "description": "MAC address for this network's interface."
               },
               "mtu": {
                 "type": "integer",
-                "example": "2800"
+                "example": 2800
               },
               "multicastSubscriptions": {
                 "type": "array",
@@ -422,8 +885,8 @@
                   "type": "object",
                   "properties": {
                     "adi": {
-                      "type": "number",
-                      "example": "0"
+                      "type": "integer",
+                      "example": 0
                     },
                     "mac": {
                       "type": "string",
@@ -438,27 +901,27 @@
               },
               "netconfRevision": {
                 "type": "integer",
-                "example": "1234"
+                "example": 123
               },
               "portDeviceName": {
                 "type": "string",
                 "example": "ztnnhrtimp"
               },
               "portError": {
-                "type": "number",
-                "example": "0"
+                "type": "integer",
+                "example": 0
               },
               "routes": {
                 "type": "array",
                 "items": {
                   "properties": {
                     "flags": {
-                      "type": "number",
-                      "example": "0"
+                      "type": "integer",
+                      "example": 0
                     },
                     "metric": {
-                      "type": "number",
-                      "example": "0"
+                      "type": "integer",
+                      "example": 0
                     },
                     "target": {
                       "type": "string",
@@ -492,11 +955,11 @@
           },
           "isBonded": {
             "type": "boolean",
-            "example": "false"
+            "example": false
           },
           "latency": {
             "type": "integer",
-            "example": "40"
+            "example": 40
           },
           "paths": {
             "type": "array",
@@ -512,23 +975,23 @@
                 },
                 "expired": {
                   "type": "boolean",
-                  "example": "false"
+                  "example": false
                 },
                 "lastReceive": {
                   "type": "integer",
-                  "example": "1618955164580"
+                  "example": 1618955164580
                 },
                 "lastSend": {
                   "type": "integer",
-                  "example": "1618955164596"
+                  "example": 1618955164596
                 },
                 "preferred": {
                   "type": "boolean",
-                  "example": "true"
+                  "example": true
                 },
                 "trustedPathId": {
                   "type": "integer",
-                  "example": "0"
+                  "example": 0
                 }
               }
             }
@@ -543,15 +1006,15 @@
           },
           "versionMajor": {
             "type": "integer",
-            "example": "1"
+            "example": 1
           },
           "versionMinor": {
             "type": "integer",
-            "example": "6"
+            "example": 6
           },
           "versionRev": {
             "type": "integer",
-            "example": "4"
+            "example": 4
           }
         }
       }
