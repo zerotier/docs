@@ -111,7 +111,7 @@ But again, they can’t see your traffic unless they are on the same network.
 
 When your ZeroTier Client is showing `NOT_FOUND` as your network status, this usually means that you've entered your network ID incorrectly and are trying to join a non-existent network.  Please check your network ID and try again.
 
-## Error: Cannot connect to ZeroTier service
+## Error: Cannot connect to ZeroTier service (or Node ID "Unknown" in the GUI apps) 
 
 This error means that the ZeroTier background service on your computer is either not running, or your local firewall is preventing the UI or CLI from talking to it.
 
