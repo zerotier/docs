@@ -25,7 +25,8 @@ module.exports = {
         'zerotier/rules',
         'zerotier/zerotier.conf',
         'zerotier/multipath',
-        'zerotier/moons'
+        'zerotier/moons',
+        'zerotier/troubleshooting'
       ]
     },
     {
