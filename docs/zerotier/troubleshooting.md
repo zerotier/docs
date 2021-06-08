@@ -142,7 +142,7 @@ Your system firewall is likely blocking communication with the ZeroTier service.
 
 ## How do I Update Zerotier?
 
-### macOS and WIndows
+### macOS and Windows
 
 Grab the latest version from the [download page](https://www.zerotier.com/download) and run the installer
 
