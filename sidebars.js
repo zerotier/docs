@@ -98,9 +98,13 @@ module.exports = {
           href: "http://docs.zerotier.com/sockets-java/com/zerotier/sockets/package-summary.html"
         }
       ],
+    },
+    {
+      type: 'category',
+      label: 'Self-Hosting',
+      items: ['self-hosting/network-controllers'],
     }
-
-  ],
+  ]
 
   // But you can create a sidebar manually
   /*
