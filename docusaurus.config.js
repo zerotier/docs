@@ -1,26 +1,25 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
-  title: 'ZeroTier Documentation',
-  tagline: 'Because documentation makes things more good',
-  url: 'https://docs.zerotier.com',
-  baseUrl: '/',
-  onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
-  organizationName: 'zerotier', // Usually your GitHub org/user name.
-  projectName: 'docs', // Usually your repo name.
+  title: "ZeroTier Documentation",
+  tagline: "Because documentation makes things more good",
+  url: "https://docs.zerotier.com",
+  baseUrl: "/",
+  onBrokenLinks: "warn",
+  onBrokenMarkdownLinks: "warn",
+  favicon: "img/favicon.ico",
+  organizationName: "zerotier", // Usually your GitHub org/user name.
+  projectName: "docs", // Usually your repo name.
   themeConfig: {
-   
     // for some reason if python or java are enabled here, the OpenAPI docs go boom :(
     prism: {
       additionalLanguages: [
-        'rust',
-        'powershell',
-        'csharp',
-        'python',
-        'java',
-        'scala',
-      ]
+        "rust",
+        "powershell",
+        "csharp",
+        "python",
+        "java",
+        "scala",
+      ],
     },
 
     // announcementBar: {
@@ -40,17 +39,16 @@ module.exports = {
         darkIcon: "🌜",
         darkIconStyle: {},
         lightIcon: "🌞",
-        lightIconStyle: {}
-      }
+        lightIconStyle: {},
+      },
     },
-
 
     separateCss: true,
     navbar: {
-      title: 'ZeroTier Documentation',
+      title: "ZeroTier Documentation",
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/ZeroTierIcon.png',
+        alt: "My Site Logo",
+        src: "img/ZeroTierIcon.png",
       },
       items: [
         // {
@@ -82,65 +80,69 @@ module.exports = {
       ],
     },
     footer: {
-      style: 'dark',
+      style: "dark",
       links: [
         {
-          title: 'ZeroTier',
+          title: "ZeroTier",
           items: [
             {
-              label: 'Home',
-              href: 'https://www.zerotier.com'
+              label: "Home",
+              href: "https://www.zerotier.com",
             },
             {
-              label: 'Downloads',
-              href: 'https://www.zerotier.com/download/'
+              label: "Downloads",
+              href: "https://www.zerotier.com/download/",
             },
             {
-              label: 'Blog',
-              href: 'https://www.zerotier.com/blog/'
+              label: "Blog",
+              href: "https://www.zerotier.com/blog/",
             },
             {
-              label: 'ZeroTier Central',
-              href: 'https://my.zerotier.com'
-            }
-          ]
-        },
-        {
-          title: 'Docs',
-          items: [
-            {
-              label: 'ZeroTier',
-              to: '/zerotier/ztintro',
+              label: "ZeroTier Central",
+              href: "https://my.zerotier.com",
             },
-            {
-              label: 'SDK',
-              to: '/sockets/tutorial.html'
-            },
-            {
-              label: 'Central REST API',
-              to: '/central/v1'
-            },
-            {
-              label: 'Service REST API',
-              to: '/service/v1'
-            }
           ],
         },
         {
-          title: 'Community',
+          title: "Docs",
           items: [
             {
-              label: 'ZeroTier Discussions',
-              href: 'https://discuss.zerotier.com',
+              label: "ZeroTier",
+              to: "/zerotier/ztintro",
             },
             {
-              label: 'Twitter',
-              href: 'https://twitter.com/zerotier',
+              label: "SDK",
+              to: "/sockets/tutorial.html",
             },
             {
-              label: 'GitHub',
-              href: 'https://github.com/zerotier/ZeroTierOne',
-            }
+              label: "Central REST API",
+              to: "/central/v1",
+            },
+            {
+              label: "Service REST API",
+              to: "/service/v1",
+            },
+            {
+              label: "ZeroNSD (DNS Service) Quickstart",
+              to: "/zeronsd/quickstart",
+            },
+          ],
+        },
+        {
+          title: "Community",
+          items: [
+            {
+              label: "ZeroTier Discussions",
+              href: "https://discuss.zerotier.com",
+            },
+            {
+              label: "Twitter",
+              href: "https://twitter.com/zerotier",
+            },
+            {
+              label: "GitHub",
+              href: "https://github.com/zerotier/ZeroTierOne",
+            },
           ],
         },
       ],
@@ -149,39 +151,38 @@ module.exports = {
   },
   presets: [
     [
-      '@docusaurus/preset-classic',
+      "@docusaurus/preset-classic",
       {
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
-          editUrl:
-            'https://github.com/zerotier/docs',
-            routeBasePath: '/',
+          editUrl: "https://github.com/zerotier/docs",
+          routeBasePath: "/",
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve("./src/css/custom.css"),
         },
       },
     ],
     [
-      'redocusaurus',
+      "redocusaurus",
       {
         specs: [
           {
-            routePath: '/central/v1',
-            spec: './static/openapi/centralv1.json',
+            routePath: "/central/v1",
+            spec: "./static/openapi/centralv1.json",
           },
           {
-            routePath: '/service/v1',
-            spec: './static/openapi/servicev1.json',
+            routePath: "/service/v1",
+            spec: "./static/openapi/servicev1.json",
           },
         ],
         theme: {
           primaryColor: "#FFB354",
           redocOptions: {
             hideDownloadButton: false,
-          }
-        }
+          },
+        },
       },
     ],
   ],
