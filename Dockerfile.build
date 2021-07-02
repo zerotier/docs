@@ -1,0 +1,8 @@
+# vim: ft=dockerfile
+FROM node:15
+
+RUN apt-get update -qq && apt-get install make doxygen -y && apt-get clean -y
+
+WORKDIR /code
+
+CMD "make"
