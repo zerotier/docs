@@ -20,7 +20,8 @@ module.exports = {
     {
       type: 'category',
       label: 'ZeroTier',
-      items: ['zerotier/ztintro',
+      items: [
+        // 'zerotier/ztintro',
         'zerotier/manual',
         'zerotier/rules',
         'zerotier/zerotier.conf',
