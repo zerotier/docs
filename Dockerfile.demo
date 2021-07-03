@@ -1,8 +1,7 @@
 # vim: ft=dockerfile
 FROM node:15
 
-RUN npm install -g yarn
 WORKDIR /code
 
-CMD 'yarn install && yarn start'
+CMD ["bash", "-c", "yarn install && yarn start"]
 
