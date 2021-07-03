@@ -51,8 +51,8 @@ custom_edit_url: null
 | typedef int(*)(ZT_Node *, void *, void *, uint64_t, void **, enum ZT_VirtualNetworkConfigOperation, const ZT_VirtualNetworkConfig *) | **[ZT_VirtualNetworkConfigFunction](/autogen/libztcore/files/_zero_tier_one_8h.md#typedef-zt_virtualnetworkconfigfunction)**  |
 | typedef void(*)(ZT_Node *, void *, void *, uint64_t, void **, uint64_t, uint64_t, unsigned int, unsigned int, const void *, unsigned int) | **[ZT_VirtualNetworkFrameFunction](/autogen/libztcore/files/_zero_tier_one_8h.md#typedef-zt_virtualnetworkframefunction)**  |
 | typedef void(*)(ZT_Node *, void *, void *, enum ZT_Event, const void *) | **[ZT_EventCallback](/autogen/libztcore/files/_zero_tier_one_8h.md#typedef-zt_eventcallback)**  |
-| typedef void(*)(ZT_Node *, void *, void *, enum ZT_StateObjectType, const uint64_t[2], const void *, int) | **[ZT_StatePutFunction](/autogen/libztcore/files/_zero_tier_one_8h.md#typedef-zt_stateputfunction)**  |
-| typedef int(*)(ZT_Node *, void *, void *, enum ZT_StateObjectType, const uint64_t[2], void *, unsigned int) | **[ZT_StateGetFunction](/autogen/libztcore/files/_zero_tier_one_8h.md#typedef-zt_stategetfunction)**  |
+| typedef void(*)(ZT_Node *, void *, void *, enum ZT_StateObjectType, const uint64_t [2], const void *, int) | **[ZT_StatePutFunction](/autogen/libztcore/files/_zero_tier_one_8h.md#typedef-zt_stateputfunction)**  |
+| typedef int(*)(ZT_Node *, void *, void *, enum ZT_StateObjectType, const uint64_t [2], void *, unsigned int) | **[ZT_StateGetFunction](/autogen/libztcore/files/_zero_tier_one_8h.md#typedef-zt_stategetfunction)**  |
 | typedef int(*)(ZT_Node *, void *, void *, int64_t, const struct sockaddr_storage *, const void *, unsigned int, unsigned int) | **[ZT_WirePacketSendFunction](/autogen/libztcore/files/_zero_tier_one_8h.md#typedef-zt_wirepacketsendfunction)**  |
 | typedef int(*)(ZT_Node *, void *, void *, uint64_t, int64_t, const struct sockaddr_storage *) | **[ZT_PathCheckFunction](/autogen/libztcore/files/_zero_tier_one_8h.md#typedef-zt_pathcheckfunction)**  |
 | typedef int(*)(ZT_Node *, void *, void *, uint64_t, int, struct sockaddr_storage *) | **[ZT_PathLookupFunction](/autogen/libztcore/files/_zero_tier_one_8h.md#typedef-zt_pathlookupfunction)**  |
@@ -641,7 +641,7 @@ Events are generated when the node's status changes in a significant way and on 
 ### typedef ZT_StatePutFunction
 
 ```cpp
-typedef void(* ZT_StatePutFunction) (ZT_Node *, void *, void *, enum ZT_StateObjectType, const uint64_t[2], const void *, int);
+typedef void(* ZT_StatePutFunction) (ZT_Node *, void *, void *, enum ZT_StateObjectType, const uint64_t [2], const void *, int);
 ```
 
 
@@ -655,7 +655,7 @@ An object of length -1 is sent to indicate that an object should be deleted.
 ### typedef ZT_StateGetFunction
 
 ```cpp
-typedef int(* ZT_StateGetFunction) (ZT_Node *, void *, void *, enum ZT_StateObjectType, const uint64_t[2], void *, unsigned int);
+typedef int(* ZT_StateGetFunction) (ZT_Node *, void *, void *, enum ZT_StateObjectType, const uint64_t [2], void *, unsigned int);
 ```
 
 
@@ -3143,4 +3143,4 @@ ZT_SDK_API void ZT_version(int *major,int *minor,int *revision);
 
 -------------------------------
 
-Updated on 20 May 2021 at 14:25:51 PDT
+Updated on  3 July 2021 at 00:01:41 UTC

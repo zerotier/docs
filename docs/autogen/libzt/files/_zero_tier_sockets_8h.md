@@ -586,28 +586,28 @@ typedef uint8_t zts_sa_family_t;
 ### typedef zts_ip_mreq
 
 ```cpp
-typedef struct zts_ip_mreq zts_ip_mreq;
+typedef struct zts_ip_mreq  zts_ip_mreq;
 ```
 
 
 ### typedef zts_ipv6_mreq
 
 ```cpp
-typedef struct zts_ipv6_mreq zts_ipv6_mreq;
+typedef struct zts_ipv6_mreq  zts_ipv6_mreq;
 ```
 
 
 ### typedef zts_fd_set
 
 ```cpp
-typedef struct zts_fd_set zts_fd_set;
+typedef struct zts_fd_set  zts_fd_set;
 ```
 
 
 ### typedef zts_timeval
 
 ```cpp
-typedef struct zts_timeval zts_timeval;
+typedef struct zts_timeval  zts_timeval;
 ```
 
 
@@ -621,7 +621,7 @@ typedef unsigned int zts_nfds_t;
 ### typedef zts_ip_addr
 
 ```cpp
-typedef struct zts_ip_addr zts_ip_addr;
+typedef struct zts_ip_addr  zts_ip_addr;
 ```
 
 
@@ -2039,7 +2039,7 @@ Create a socket.
 
 **Return**: Numbered file descriptor on success, <code>ZTS\_ERR\_SERVICE             </code> if the node experiences a problem, <code>ZTS\_ERR\_ARG         </code> if invalid argument. Sets <code>zts\_errno        </code>
 
-A subset (and) extension of the traditional BSD-style socket API that simplifies API wrapper generation and usage in other non-C-like languages. Uses simple integer types instead of bit flags, limit the number of operations each function performs, prevent the user from needing to manipulate the contents of structures in a non-native language.
+A subset (and) extension of the traditional BSD-style socket API that simplifies API wrapper generation and usage in other non-C-like languages. Uses simple integer types instead of bit flags, limit the number of operations each function performs, prevent the user from needing to manipulate the contents of structures in a non-native language. 
 
 
 ### function zts_connect
@@ -3977,7 +3977,7 @@ The length of a human-friendly identity key pair string
 ### define ZTS_IPV6_CHECKSUM
 
 ```cpp
-#define ZTS_IPV6_CHECKSUM     0x0007 /* RFC3542: calculate and insert the ICMPv6 checksum for raw                                                \
+#define ZTS_IPV6_CHECKSUM 0x0007 /* RFC3542: calculate and insert the ICMPv6 checksum for raw                                                \
               sockets. */
 ```
 
@@ -3985,7 +3985,7 @@ The length of a human-friendly identity key pair string
 ### define ZTS_IPV6_V6ONLY
 
 ```cpp
-#define ZTS_IPV6_V6ONLY     0x001b /* RFC3493: boolean control to restrict ZTS_AF_INET6 sockets to                                             \
+#define ZTS_IPV6_V6ONLY 0x001b /* RFC3493: boolean control to restrict ZTS_AF_INET6 sockets to                                             \
               IPv6 communications only. */
 ```
 
@@ -4220,7 +4220,7 @@ The length of a human-friendly identity key pair string
     n,
     code
 )
-    do {                                                                                                               \
+do {                                                                                                               \
         if (((n)-LWIP_SOCKET_OFFSET < MEMP_NUM_NETCONN) && (((int)(n)-LWIP_SOCKET_OFFSET) >= 0)) {                     \
             code;                                                                                                      \
         }                                                                                                              \
@@ -4235,7 +4235,7 @@ The length of a human-friendly identity key pair string
     n,
     code
 )
-    (((n)-LWIP_SOCKET_OFFSET < MEMP_NUM_NETCONN) && (((int)(n)-LWIP_SOCKET_OFFSET) >= 0) ? (code) : 0)
+(((n)-LWIP_SOCKET_OFFSET < MEMP_NUM_NETCONN) && (((int)(n)-LWIP_SOCKET_OFFSET) >= 0) ? (code) : 0)
 ```
 
 
@@ -4246,7 +4246,7 @@ The length of a human-friendly identity key pair string
     n,
     p
 )
-    ZTS_FDSETSAFESET(n, (p)->fd_bits[((n)-LWIP_SOCKET_OFFSET) / 8] |= (1 << (((n)-LWIP_SOCKET_OFFSET) & 7)))
+ZTS_FDSETSAFESET(n, (p)->fd_bits[((n)-LWIP_SOCKET_OFFSET) / 8] |= (1 << (((n)-LWIP_SOCKET_OFFSET) & 7)))
 ```
 
 
@@ -4257,7 +4257,7 @@ The length of a human-friendly identity key pair string
     n,
     p
 )
-    ZTS_FDSETSAFESET(n, (p)->fd_bits[((n)-LWIP_SOCKET_OFFSET) / 8] &= ~(1 << (((n)-LWIP_SOCKET_OFFSET) & 7)))
+ZTS_FDSETSAFESET(n, (p)->fd_bits[((n)-LWIP_SOCKET_OFFSET) / 8] &= ~(1 << (((n)-LWIP_SOCKET_OFFSET) & 7)))
 ```
 
 
@@ -4268,7 +4268,7 @@ The length of a human-friendly identity key pair string
     n,
     p
 )
-    ZTS_FDSETSAFEGET(n, (p)->fd_bits[((n)-LWIP_SOCKET_OFFSET) / 8] & (1 << (((n)-LWIP_SOCKET_OFFSET) & 7)))
+ZTS_FDSETSAFEGET(n, (p)->fd_bits[((n)-LWIP_SOCKET_OFFSET) / 8] & (1 << (((n)-LWIP_SOCKET_OFFSET) & 7)))
 ```
 
 
@@ -4684,13 +4684,19 @@ typedef void (*CppCallback)(void* msg);
  */
 
 #define ZTS_IPADDR_NONE ((uint32_t)0xffffffffUL)
+
 #define ZTS_IPADDR_LOOPBACK ((uint32_t)0x7f000001UL)
+
 #define ZTS_IPADDR_ANY ((uint32_t)0x00000000UL)
+
 #define ZTS_IPADDR_BROADCAST ((uint32_t)0xffffffffUL)
 
 #define ZTS_INADDR_NONE ZTS_IPADDR_NONE
+
 #define ZTS_INADDR_LOOPBACK ZTS_IPADDR_LOOPBACK
+
 #define ZTS_INADDR_ANY ZTS_IPADDR_ANY
+
 #define ZTS_INADDR_BROADCAST ZTS_IPADDR_BROADCAST
 
 // Socket protocol types
@@ -5737,4 +5743,4 @@ ZTS_API int ZTCALL zts_inet_pton(int family, const char* src, void* dst);
 
 -------------------------------
 
-Updated on 20 May 2021 at 14:25:52 PDT
+Updated on  3 July 2021 at 00:01:41 UTC
