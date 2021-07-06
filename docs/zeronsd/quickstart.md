@@ -1,5 +1,7 @@
 # ZeroNSD Quickstart
 
+ A DNS server for ZeroTier users 
+
 <center>
 
 **It's not DNS.**
