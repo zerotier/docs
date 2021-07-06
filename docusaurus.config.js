@@ -1,4 +1,6 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
+const path = require("path");
+
 module.exports = {
   title: "ZeroTier Documentation",
   tagline: "Because documentation makes things more good",
@@ -9,6 +11,7 @@ module.exports = {
   favicon: "img/favicon.ico",
   organizationName: "zerotier", // Usually your GitHub org/user name.
   projectName: "docs", // Usually your repo name.
+  plugins: [path.resolve(__dirname, "matomo-plugin")],
   themeConfig: {
     // for some reason if python or java are enabled here, the OpenAPI docs go boom :(
     prism: {
@@ -20,6 +23,10 @@ module.exports = {
         "java",
         "scala",
       ],
+    },
+    matomo: {
+      matomoUrl: "https://matomo.zerotier.com/",
+      siteId: "4",
     },
 
     // announcementBar: {
