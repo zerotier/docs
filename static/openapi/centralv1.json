@@ -15,7 +15,7 @@
   },
   "servers": [
     {
-      "url": "https://my.zerotier.com/api",
+      "url": "https://my.zerotier.com/api/v1",
       "description": "Production Server"
     }
   ],
