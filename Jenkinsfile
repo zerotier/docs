@@ -5,7 +5,7 @@ node('master') {
     def changelog = getChangeLog currentBuild
     mattermostSend "Building ${env.JOB_NAME} #${env.BUILD_NUMBER} \n Change Log: \n ${changelog}"
 }
-node('linux-centos8') {
+node('ubuntu-2004') {
     properties([disableConcurrentBuilds()])
     checkout scm
     try {
