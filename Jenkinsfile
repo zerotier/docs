@@ -16,7 +16,7 @@ node('linux-centos8') {
         sh("make docker DOCKER_TAG=${env.BUILD_TAG}")
         if ("${env.BRANCH_NAME}" == "master") {
             sh("docker push registry.zerotier.com/zerotier/docs.zerotier.com:${env.BUILD_TAG}")
-            sh("gcloud container clusters get-credentials ${cluster} --region ${region}")
+            sh("gcloud --project ${project} container clusters get-credentials ${cluster} --region ${region}")
             sh("kubectl set image deployment docs-zerotier-com docs-zerotier-com=registry.zerotier.com/zerotier/docs.zerotier.com:${env.BUILD_TAG}")
             mattermostSend color: "#00ff00", message: "${env.JOB_NAME} #${env.BUILD_NUMBER} Deployed (<${env.BUILD_URL}|Show More...>)"
         }
