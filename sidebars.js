@@ -105,6 +105,11 @@ module.exports = {
       label: "Self-Hosting",
       items: ["self-hosting/network-controllers", "zeronsd/quickstart"],
     },
+    {
+      type: "category",
+      label: "Supported Devices",
+      items: ["devices/synology"],
+    }
   ],
 
   // But you can create a sidebar manually
