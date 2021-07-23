@@ -58,32 +58,22 @@ module.exports = {
         src: "img/ZeroTierIcon.png",
       },
       items: [
-        // {
-        //   label: "Central API",
-        //   items: [
-        //     {
-        //       label: "Latest",
-        //       to: "centralv1/"
-        //     },
-        //     {
-        //       label: "V1",
-        //       to: "centralv1/"
-        //     }
-        //   ]
-        // },
-        // {
-        //   label: "Service API",
-        //   items: [
-        //     {
-        //       label: "Latest",
-        //       to: "servicev1/"
-        //     },
-        //     {
-        //       label: "V1",
-        //       to: "servicev1/"
-        //     }
-        //   ]
-        // }
+        {
+          to: "https://www.zerotier.com",
+          label: "Home",
+        },
+        {
+          to: "https://www.zerotier.com/download",
+          label: "Install",
+        },
+        {
+          to: "https://my.zerotier.com/",
+          label: "Manage Networks",
+        },
+        {
+          to: "https://discuss.zerotier.com/",
+          label: "Community",
+        }
       ],
     },
     footer: {
