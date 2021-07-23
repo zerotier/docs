@@ -62,6 +62,15 @@ Run script once to create a TUN
 /usr/local/etc/rc.d/tun.sh
 ```
 
+Check for the TUN
+
+```sh
+user@host:~# ls /dev/net/tun
+/dev/net/tun
+```
+
+*If you experience trouble getting the TUN to work check out [Rui Marinho's guide](https://memoryleak.dev/post/fix-tun-tap-not-available-on-a-synology-nas/)*
+
 ## Install [docker](https://www.synology.com/en-us/dsm/packages/Docker) on your NAS
 
 `Package Center -> Search "Docker" -> Install`
@@ -124,7 +133,7 @@ Show running container (optional)
 ```sh
 docker ps
 CONTAINER ID   IMAGE                      COMMAND            CREATED         STATUS         PORTS     NAMES
-acaf2c859d6f   zerotier/zerotier:latest   "/entrypoint.sh"   2 minutes ago   Up 2 minutes             zt
+acaf2c859d6f   zerotier/zerotier-synology:latest   "/entrypoint.sh"   2 minutes ago   Up 2 minutes             zt
 ```
 
 Enter the container (optional)
