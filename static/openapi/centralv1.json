@@ -42,6 +42,25 @@
     }
   ],
   "paths": {
+    "/status": {
+      "get": {
+        "tags": ["util"],
+        "summary": "Obtain the overall status of the account tied to the API token in use.",
+        "operationId": "getStatus",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Status"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/network": {
       "get": {
         "tags": ["network"],
@@ -1606,6 +1625,73 @@
       "InviteStatus": {
         "type": "string",
         "enum": ["pending", "accepted", "canceled"]
+      },
+      "Status": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "central_status"
+          },
+          "type": {
+            "type": "string",
+            "example": "CentralStatus"
+          },
+          "clock": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1613067920454,
+            "readOnly": true,
+            "description": "Current time on server"
+          },
+          "version": {
+            "type": "string",
+            "example": "1.6.5"
+          },
+          "apiVersion": {
+            "type": "string",
+            "example": "4"
+          },
+          "uptime": {
+            "type": "integer",
+            "format": "int64",
+            "example": 1613067920454,
+            "readOnly": true,
+            "description": "Uptime on server"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          },
+          "readOnlyMode": {
+            "type": "boolean"
+          },
+          "loginMethods": {
+            "type": "object",
+            "properties": {
+              "local": {
+                "type": "boolean"
+              },
+              "google": {
+                "type": "boolean"
+              },
+              "twitter": {
+                "type": "boolean"
+              },
+              "facebook": {
+                "type": "boolean"
+              },
+              "github": {
+                "type": "boolean"
+              },
+              "saml": {
+                "type": "boolean"
+              },
+              "oidc": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
       },
       "RandomToken": {
         "type": "object",
