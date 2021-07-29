@@ -750,10 +750,12 @@
           },
           "planetWorldId": {
             "type": "integer",
+            "format": "int64",
             "example": 149604618
           },
           "planetWorldTimestamp": {
             "type": "integer",
+            "format": "int64",
             "example": 1618339625163
           },
           "publicIdentity": {
@@ -981,10 +983,12 @@
                 },
                 "lastReceive": {
                   "type": "integer",
+                  "format": "int64",
                   "example": 1618955164580
                 },
                 "lastSend": {
                   "type": "integer",
+                  "format": "int64",
                   "example": 1618955164596
                 },
                 "preferred": {
