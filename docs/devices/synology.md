@@ -19,7 +19,7 @@ Synology's DSM 7 doesn't allow third-party applications to run as root. Therefor
 
 The GUI for the Synology Docker package is unreliable at best so it is suggested that all operations performed on your container be done through the Docker CLI. If you choose to use the GUI you do so at your own peril.
 
-If your NAS does not support Docker you can still use the older packages for DSM 6 or follow our [bridging tutorial](https://zerotier.atlassian.net/wiki/spaces/SD/pages/193134593/Bridge+your+ZeroTier+and+local+network+with+a+RaspberryPi).
+If your NAS does not support Docker you can still use the [older packages for DSM 6](http://download.zerotier.com/RELEASES/1.4.6/dist/synology/) or follow our [bridging tutorial](https://zerotier.atlassian.net/wiki/spaces/SD/pages/193134593/Bridge+your+ZeroTier+and+local+network+with+a+RaspberryPi).
 
 There are four steps that need to be performed only once:
 
@@ -89,7 +89,7 @@ In the next step we bind mount to the host's `/var/lib/zerotier-one` created abo
 
 :::
 
-Make Docker container called `zt`
+Make Docker container called `zt` (Repo: [zerotier/zerotier-synology](https://github.com/zerotier/zerotier-synology))
 
 ```sh
 docker run -d           \
@@ -110,30 +110,24 @@ View node status
 
 ```sh
 docker exec -it zt zerotier-cli status
-200 info ea6c67b63f X.Y.Z ONLINE
 ```
 
 Join your network
 
 ```sh
 docker exec -it zt zerotier-cli join e5cd7a9e1cae134f
-200 join OK
 ```
 
 Authorize the NAS on your [network](https://my.zerotier.com). Then view the network status:
 
 ```sh
 docker exec -it zt zerotier-cli listnetworks
-200 listnetworks <nwid> <name> <mac> <status> <type> <dev> <ZT assigned ips>
-200 listnetworks e5cd7a9e1cae134f DERPANET 4e:b1:4c:71:68:42 OK PRIVATE ztppivcb2t 40,10.147.17.47/24
 ```
 
 Show running container (optional)
 
 ```sh
 docker ps
-CONTAINER ID   IMAGE                      COMMAND            CREATED         STATUS         PORTS     NAMES
-acaf2c859d6f   zerotier/zerotier-synology:latest   "/entrypoint.sh"   2 minutes ago   Up 2 minutes             zt
 ```
 
 Enter the container (optional)
