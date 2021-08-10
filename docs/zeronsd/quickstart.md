@@ -1,16 +1,15 @@
 # ZeroNSD Quickstart
 
- A DNS server for ZeroTier users 
+A DNS server for ZeroTier users
 
-<center>
-
-**It's not DNS.**
-
-**There's no way it's DNS.**
-
-**It was DNS.**
-
-</center>
+<p align="center">
+<img src="https://avatars.githubusercontent.com/u/4173285?s=150&v=4" alt="ZeroNSD" /><br/>
+<b><i>
+It's not DNS.<br />
+There's no way it's DNS.<br />
+It was DNS.<br />
+</i></b>
+</p>
 
 ## Status
 
