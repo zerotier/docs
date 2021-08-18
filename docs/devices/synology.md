@@ -65,7 +65,7 @@ Run script once to create a TUN
 Check for the TUN
 
 ```sh
-user@host:~# ls /dev/net/tun
+ls /dev/net/tun
 /dev/net/tun
 ```
 
