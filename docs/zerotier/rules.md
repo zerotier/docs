@@ -323,8 +323,8 @@ in-browser editor in ZeroTier Central.
 
     # Allow SSH, HTTP, and HTTPS by allowing all TCP packets (including SYN/!ACK) to these ports
     accept
-      ipprotocol tcp
-      and dport 22 or dport 80 or dport 443
+      dport 22 or dport 80 or dport 443
+      and ipprotocol tcp
     ;
 
     # Create a tag for which department someone is in
@@ -338,9 +338,9 @@ in-browser editor in ZeroTier Central.
 
     # Allow Windows CIFS and netbios between computers in the same department using a tag
     accept
-      ipprotocol tcp
+      dport 139 or dport 445
+      and ipprotocol tcp
       and tdiff department 0  # difference between department tags is 0, meaning they match
-      and dport 139 or dport 445
     ;
 
     # Drop TCP SYN,!ACK packets (new connections) not explicitly whitelisted above
@@ -616,8 +616,8 @@ filter traffic in depth since the observer cannot directly intervene
 Active in-line monitoring can be achieved with **redirect**:
 
     redirect deadbeef11
-      ipprotocol tcp
-      and dport 80 or sport 80
+      dport 80 or sport 80
+      and ipprotocol tcp
     ;
 
 This will pipe all HTTP traffic through `deadbeef11`. The target node
