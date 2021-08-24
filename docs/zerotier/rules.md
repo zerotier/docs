@@ -479,6 +479,9 @@ Central to make it easier to assign and search tags.
 Match conditions may be joined by **and** (default if none specified) or
 **or** and may be modified by **not**.
 
+Match conditions are evaluated from left to right; `a and b or c` is a different rule than `b or c and a`.
+The rules language doesn't support parens, but for example purposes the above would evaluate as: `(a and b) or c` vs `(b or c) and a`
+
 For convenience the following symbols can be used when matching on
 certain packet attributes:
 
