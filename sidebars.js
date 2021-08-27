@@ -109,6 +109,11 @@ module.exports = {
       type: "category",
       label: "Supported Devices",
       items: ["devices/synology"],
+    },
+    {
+      type: "category",
+      label: "IaC",
+      items: ["terraform/quickstart"],
     }
   ],
 
