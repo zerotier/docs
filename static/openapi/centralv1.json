@@ -1457,6 +1457,7 @@
           },
           "creation_time": {
             "type": "integer",
+            "format": "int64",
             "description": "Creation time of the invite",
             "example": 1613067920454,
             "readOnly": true
