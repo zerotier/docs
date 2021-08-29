@@ -144,7 +144,7 @@ do the bare minimum required to spin up an instance and
 [inject](https://github.com/zerotier/zerotier-terraform-quickstart/blob/d04d0bd9ee69461e59666efccda9978a1767e076/modules/aws/main.tf#L140)
 an identity into a boot script.
 
-The [boot script](https://github.com/zerotier/zerotier-terraform-quickstart/blob/main/init-common.tpl)
+The [boot script](https://github.com/zerotier/zerotier-terraform-quickstart/blob/main/init-demolab.tpl)
 writes the ZeroTier identity to disk and installs ZeroTier. It also
 installs SSH keys and various utilities for our lab, such as ping and tshark.
 
@@ -342,10 +342,11 @@ Sorry.
 #   subnet_cidr    = "192.168.1.0/24"
 #   compartment_id = var.compartment_id
 #   dnsdomain      = zerotier_network.demolab.name
-#   zt_networks    = { demolab = { id = zerotier_network.demolab.id } }
-#   zt_identity    = zerotier_identity.instances["oci"]
+#   pod_cidr       = "10.42.5.1/24"
+#   script         = "init-demolab.tpl"
 #   svc            = var.users
-#   script         = "init-common.tpl"
+#   zt_identity    = zerotier_identity.instances["oci"]
+#   zt_network     = zerotier_network.demolab.id
 # }
 ```
 
@@ -712,6 +713,128 @@ alice@gcp:$ sudo ip addr del 10.0.3.2/24 dev ztyqb6mebi
 alice@gcp:$ sudo ip addr del 10.0.3.3/24 dev ztyqb6mebi
 alice@gcp:$ sudo ip addr del 10.0.3.4/24 dev ztyqb6mebi
 ```
+
+## Native Container Routing
+
+<p align="center">
+<img src="https://i.imgur.com/QzuTXdA.jpg" height="200" alt="https://www.flickr.com/photos/agizienski/3605131450" /><br/>
+Amy Gizienski - whale
+</p>
+
+We would be remiss not to mention containers in the year 2021. A great
+attribute of Layer 2 networks is that containers can talk directly to
+each other using native routing. 
+
+No really.
+
+Pick a box, any box, and start a shell in Docker.
+
+```bash
+alice@ibm:~$ docker run -it alpine:latest /bin/sh
+alice@ibm:~$ docker run -it alpine:latest /bin/sh
+/ # ip addr
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+7: eth0@if8: <BROADCAST,MULTICAST,UP,LOWER_UP,M-DOWN> mtu 1500 qdisc noqueue state UP
+    link/ether 02:42:0a:2a:06:02 brd ff:ff:ff:ff:ff:ff
+    inet 10.42.6.2/24 brd 10.42.6.255 scope global eth0
+       valid_lft forever preferred_lft forever
+    inet6 fcfb:88ae:e176:cdbb:4cc4:242:a2a:602/80 scope global flags 02
+       valid_lft forever preferred_lft forever
+    inet6 fe80::42:aff:fe2a:602/64 scope link
+       valid_lft forever preferred_lft forever
+/ #
+```
+
+Then, pick another random box and do the same.
+
+```
+alice@oci:~$ docker run -it alpine:latest /bin/sh
+Unable to find image 'alpine:latest' locally
+latest: Pulling from library/alpine
+a0d0a0d46f8b: Already exists
+Digest: sha256:e1c082e3d3c45cccac829840a25941e679c25d438cc8412c2fa221cf1a824e6a
+Status: Downloaded newer image for alpine:latest
+/ # ip addr
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+5: eth0@if6: <BROADCAST,MULTICAST,UP,LOWER_UP,M-DOWN> mtu 1500 qdisc noqueue state UP
+    link/ether 02:42:0a:2a:05:02 brd ff:ff:ff:ff:ff:ff
+    inet 10.42.5.2/24 brd 10.42.5.255 scope global eth0
+       valid_lft forever preferred_lft forever
+    inet6 fcfb:88ae:e1b8:5eb5:963e:242:a2a:502/80 scope global flags 02
+       valid_lft forever preferred_lft forever
+    inet6 fe80::42:aff:fe2a:502/64 scope link
+       valid_lft forever preferred_lft forever
+/ #
+```
+
+Ping the IPv4 and IPv6 addresses of the container, from the other
+container.
+
+```
+/ # ping 10.42.6.2
+PING 10.42.6.2 (10.42.6.2): 56 data bytes
+64 bytes from 10.42.6.2: seq=0 ttl=62 time=5.992 ms
+64 bytes from 10.42.6.2: seq=1 ttl=62 time=1.441 ms
+64 bytes from 10.42.6.2: seq=2 ttl=62 time=1.710 ms
+64 bytes from 10.42.6.2: seq=3 ttl=62 time=1.391 ms
+64 bytes from 10.42.6.2: seq=4 ttl=62 time=1.520 ms
+^C
+--- 10.42.6.2 ping statistics ---
+5 packets transmitted, 5 packets received, 0% packet loss
+round-trip min/avg/max = 1.391/2.410/5.992 ms
+/ #
+/ # ping fcfb:88ae:e176:cdbb:4cc4:242:a2a:602
+PING fcfb:88ae:e176:cdbb:4cc4:242:a2a:602 (fcfb:88ae:e176:cdbb:4cc4:242:a2a:602): 56 data bytes
+64 bytes from fcfb:88ae:e176:cdbb:4cc4:242:a2a:602: seq=0 ttl=62 time=1.810 ms
+64 bytes from fcfb:88ae:e176:cdbb:4cc4:242:a2a:602: seq=1 ttl=62 time=2.103 ms
+64 bytes from fcfb:88ae:e176:cdbb:4cc4:242:a2a:602: seq=2 ttl=62 time=1.388 ms
+64 bytes from fcfb:88ae:e176:cdbb:4cc4:242:a2a:602: seq=3 ttl=62 time=1.403 ms
+^C
+--- fcfb:88ae:e176:cdbb:4cc4:242:a2a:602 ping statistics ---
+4 packets transmitted, 4 packets received, 0% packet loss
+round-trip min/avg/max = 1.388/1.676/2.103 ms
+/ #
+```
+
+What black magic is this? Let's examine the routing table.
+
+```
+alice@eqx:~$ ip route | grep 42
+10.42.1.0/24 via 10.0.1.1 dev ztly57gs2e proto bird metric 64
+10.42.2.0/24 via 10.0.2.1 dev ztly57gs2e proto bird metric 64
+10.42.3.0/24 via 10.0.3.1 dev ztly57gs2e proto bird metric 64
+10.42.4.0/24 via 10.0.4.1 dev ztly57gs2e proto bird metric 64
+10.42.5.0/24 via 10.0.5.1 dev ztly57gs2e proto bird metric 64
+10.42.6.0/24 via 10.0.6.1 dev ztly57gs2e proto bird metric 64
+10.42.7.0/24 via 10.0.7.1 dev ztly57gs2e proto bird metric 64
+10.42.8.0/24 via 10.0.8.1 dev ztly57gs2e proto bird metric 64
+10.42.9.0/24 dev docker0 proto kernel scope link src 10.42.9.1 linkdown
+```
+
+At the bottom of the lab [boot script](https://github.com/zerotier/zerotier-terraform-quickstart/blob/main/init-demolab.tpl)
+we're installed a [routing daemon](https://bird.network.cz/) and
+gave it with a simple OSPF configuration. This propigates the routes
+of the Docker networks among all the instances so they can talk over
+the ZeroTier network.
+
+But what about IPv6? For that, we've enabled the
+[ZeroTier 6PLANE](https://zerotier.atlassian.net/wiki/spaces/SD/pages/7274520/Using+NDP+Emulated+6PLANE+Addressing+With+Docker).
+
+ZeroTier 6PLANE encodes the network's name (8bd5124fd6f45ffe) into
+IPv6 addresses, and emulates
+[NDP](https://datatracker.ietf.org/doc/html/rfc4861). This allows for
+private IPv6 networking to work at massive scales, without actually
+having to send the discovery traffic.
 
 ## Tear it all down
 
