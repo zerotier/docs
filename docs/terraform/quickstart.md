@@ -11,7 +11,7 @@ And I am an ephemeral girl<br/>
 ## What does this let you do?
 
 * Manage your ZeroTier networks as code
-* Multi-Cloud Zero Trust Network Access across any clouds that Terraform supports
+* Multi-cloud Zero Trust Network Access across any clouds that Terraform supports
 * Seamlessly integrate ZeroTier into your existing Terraform projects
 
 ## Conceptual Prerequisites
