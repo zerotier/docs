@@ -8,20 +8,26 @@ And I am an ephemeral girl<br/>
 </i></b>
 </p>
 
+## What does this let you do?
+
+* Manage your ZeroTier networks as code
+* Multi-Cloud Zero Trust Network Access across any clouds that Terraform supports
+* Seamlessly integrate ZeroTier into your existing Terraform projects
+
 ## Conceptual Prerequisites
 
 * ZeroTier Networks are objects in the Central API.
 * ZeroTier Identities are cryptographic identities of nodes; machines, containers, or binaries.
 * ZeroTier Members are associations between Networks and Identities.
-* ZeroTier virtualizes at L1 and L2 (ethernet).
+* ZeroTier creates encrypted NAT traversing Layer2 overlay works.
 
 This means:
 
 * We can do a lot of cool stuff.
+* Across clouds, and through NAT devices.
 * Pinging IPv4 yields ARP table entries.
 * Pinging IPv6 yields ICMPv6 Neighbor Solicitation.
 * Multicast works out of the box.
-* Across clouds, and through NAT devices.
 
 ## What lies ahead
 
