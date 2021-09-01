@@ -113,7 +113,10 @@ module.exports = {
     {
       type: "category",
       label: "Devops & IaC",
-      items: ["terraform/quickstart"],
+        items: [
+            "terraform/quickstart"
+            "terraform/multicloud-quickstart"
+        ],
     }
   ],
 
