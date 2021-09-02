@@ -19,7 +19,7 @@ pipelines.
 
 Now we can!
 
-HashiCorp Terraform allows us to talk to the ZeroTier Central API and
+Terraform allows us to talk to the ZeroTier Central API and
 describe our network infrastruture, as code. This turorial will walk
 you though how to get started.
 
@@ -295,8 +295,9 @@ function to find all possible combinations of two sets.
 
 The `zerotier_identity` resource is a distant cousin of the Terraform [tls_private_key](https://registry.terraform.io/providers/hashicorp/tls/latest/docs/resources/private_key)
 resource. This resource would normally be used to inject secrets into
-cloud instances via `cloudinit`. We encourage you to use the HashiCorp
-[Terraform Cloud](https://app.terraform.io/) to keep your Terraform state safe.
+cloud instances via `cloudinit`. We encourage you to use the
+[Terraform Cloud](https://app.terraform.io/) to keep your Terraform
+state safe.
 
 Repeat the steps from "Hello World" with `many2many.tf`
 
