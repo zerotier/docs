@@ -1,7 +1,7 @@
-# Multicloud Terraform Quickstart
+# Terraform Multicloud Quickstart
 
 <p align="center">
-<img src="https://avatars.githubusercontent.com/u/4173285?s=200&v=4" alt="ZeroNSD" /><br/>
+<img src="https://avatars.githubusercontent.com/u/4173285?s=150&v=4" alt="ZeroNSD" /><br/>
 <b><i>
 We are living in an ephemeral world<br/>
 And I am an ephemeral girl<br/>
