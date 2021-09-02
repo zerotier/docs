@@ -1,7 +1,7 @@
 # Terraform Quickstart
 
 <p align="center">
-<img src="https://avatars.githubusercontent.com/u/4173285?s=200&v=4" alt="ZeroNSD" /><br/>
+<img src="https://avatars.githubusercontent.com/u/4173285?s=150&v=4" alt="ZeroNSD"/><br/>
 <b><i>
 I think I am<br/>
 Therefore, I am<br/>
