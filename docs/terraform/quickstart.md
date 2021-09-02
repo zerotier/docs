@@ -75,7 +75,7 @@ authenticate to the API. The variable must be named
 <img src="https://i.imgur.com/cZxQNdU.png" alt="Add Environmet Variables" /><br/>
 </p>
 
-# Hello World
+## Hello World
 
 This example is probably the simplest thing you can do with
 ZeroTier. It creates a single network, then joins two members. The
@@ -131,7 +131,7 @@ to confirm it was created.
 <img src="https://i.imgur.com/P0C0U5J.png" alt="hello zerotier" /><br/>
 </p>
 
-# Bridging Networks
+## Bridging Networks
 
 The next example manipulates the `allow_ethernet_bridging` settings on
 the Member objects. When running on machines with multiple physical
@@ -188,7 +188,7 @@ to confirm it was created.
 <img src="https://i.imgur.com/S61AHzN.png" alt="hello zerotier" /><br/>
 </p>
 
-# Network Segmentation
+## Network Segmentation
 
 The next example creates the networks, `red`, `green`, and
 `yellow`. We define two groups. The red team gets access to the `red`
@@ -286,7 +286,7 @@ to confirm it was created.
 <img src="https://i.imgur.com/qT2Im1f.png" alt="hello zerotier" /><br/>
 </p>
 
-# Many to Many
+## Many to Many
 
 In the last example, show how to assign many members to many
 networks. This example used the Terraform
@@ -343,7 +343,7 @@ to confirm it was created.
 <img src="https://i.imgur.com/l5vqsfz.png" alt="hello zerotier" /><br/>
 </p>
 
-# Cleaning up
+## Cleaning up
 
 When you're done experimenting with ZeroTier and Terraform, clean up
 by deleting all the networks. Look under your workspace's settings
@@ -355,7 +355,7 @@ menu for "Destruction and Deletion"
 
 Queue the destroy plan to tear everything down.
 
-# That's all folks!
+## That's all folks!
 
 If you like this tutorial, check out the [ZeroTier Multicloud Terraform Quickstart](https://docs.zerotier.com/terraform/multicloud-quickstart) next!
 
