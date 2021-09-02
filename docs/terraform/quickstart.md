@@ -9,7 +9,7 @@ I think<br/>
 </i></b>
 </p>
 
-## Welcome!
+# Welcome!
 
 Managing large numbers of setting in a webUI can be a total
 bummer. It'd be much nicer if we could describe our ZeroTier networks
@@ -21,44 +21,74 @@ Now we can!
 
 HashiCorp Terraform allows us to talk to the ZeroTier Central API and
 describe our network infrastruture, as code. This turorial will walk
-you though how to get started with four easy examples.
+you though how to get started.
 
-To follow along step by step, you will need a ZeroTier Central account,
-a text editor, and a copy of Terraform 1.0.0 or later installed
-locally.
+To follow along step by step, you will need:
 
-## Provision a ZeroTier Central API Token
+- A [Github](https://github.com) account,
+- A [ZeroTier Central](https://my.zerotier.com) account,
+- A [Terraform Cloud](https://app.terraform.io) account.
 
-![Create a Network](https://i.imgur.com/3GDoBaF.png)
+It should take you about 10 minutes to through this turorial. It will
+be done *in browser* without touching the command line at all.
 
-## Environment Variables
+## Fork the Github repo
 
-Please place the following in your ```~/.bash_profile```
+Fork the [ZeroTier Terraform Quickstart Github repo](https://github.com/zerotier/terraform-quickstart). If
+you're new to Github, I will point you at the little "fork" button on the upper right hand side of the page. This will create a copy of the
+quickstart repo in your personal namspace. We will hook this up to a Terraform runner on [Terraform Cloud](https://app.terraform.io).
 
-```
-export ZEROTIER_CENTRAL_TOKEN="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-```
+<p align="center">
+<img src="https://i.imgur.com/zZRIO8a.png" alt="fork on Github" /><br/>
+</p>
 
-## Clone git repo
+After that, we will use Github's in-browser editing feature to drive the tutorial.
 
-Check out the source code for the quickstart and change into the
-directory.
+## Create a Terraform Workspace
 
-```bash
-laptop:~$ git clone git@github.com:zerotier/terraform-quickstart.git
-laptop:~$ cd terraform-quickstart
-laptop:~/terraform-quickstart$ terraform init
-```
+Create an account on [Terraform Cloud](https://app.terraform.io), and
+follow the prompts to create an organization and a workspace. Follow
+the prompts, and create a "Version Controlled Workflow". Add your
+repository fork to the workspace. When you're done, you will see
+something simillar to this.
 
-## Hello World
+<p align="center">
+<img src="https://i.imgur.com/pCm7ike.png" "Create workspace" /><br/>
+</p>
 
-```bash
-laptop:~/terraform-quickstart$ emacs example-01.tf
-```
+## Create a Central API Token
+
+Next, we create an API token that Terraform will use to drive the ZeroTier Central API. Navigate to `Account` -> `API Access Tokens`.
+
+<p align="center">
+<img src="https://i.imgur.com/3GDoBaF.png" alt="Provision a ZeroTier Central Token" /><br/>
+</p>
+
+## Add token as a Workspace Environment Variable
+
+Add the token as an Environment Variable to our workspace. This will let the
+[ZeroTier Terraform Provider](https://github.com/zerotier/terraform-provider-zerotier)
+authenticate to the API. The variable must be named
+`ZEROTIER_CENTRAL_TOKEN`. Be sure to check the `Sensitive` box.
+
+<p align="center">
+<img src="https://i.imgur.com/cZxQNdU.png" "Add Environmet Variables" /><br/>
+</p>
+
+# Hello World
+
 This example is probably the simplest thing you can do with
-ZeroTier. It creates a single network, then joins two members.. The
+ZeroTier. It creates a single network, then joins two members. The
 `member_id` settings are made up, so feel free to replace them with
-real ones.
+real device ids.
+
+<p align="center">
+<img src="https://i.imgur.com/q6kQPI4.png" alt="uncomment resources" /><br/>
+</p>
+
+On Github, click on `hello.tf`. There will be a little "edit" icon
+around the section with the code. Uncomment the Terraform resources
+and click the green "commit changes" button.
 
 ```hcl
 resource "zerotier_network" "hello" {
@@ -88,23 +118,25 @@ resource "zerotier_member" "bob" {
 }
 ```
 
-Make it real by running Terraform from the command line. Check it out
-in the Central webUI when you are done.
+Queue a plan then "Confim and Apply".
 
-```
-laptop:~/terraform-quickstart$ terraform plan && terraform apply
-```
+<p align="center">
+<img src="https://i.imgur.com/y3alCUp.png" alt="queue the plan" /><br/>
+</p>
 
-## Bridging Networks
+After Terraform applies the plan, check out the ZeroTier Cental webui
+to confirm it was created.
 
-```bash
-laptop:~/terraform-quickstart$ emacs example-03.tf
-```
+<p align="center">
+<img src="https://i.imgur.com/P0C0U5J.png" alt="hello zerotier" /><br/>
+</p>
+
+# Bridging Networks
 
 The next example manipulates the `allow_ethernet_bridging` settings on
 the Member objects. When running on machines with multiple physical
 ethernet interfaces, ZeroTier can be configured to pass layer2
-traffic such as  ARP, NDP, multicast, mDNS, etc. 
+traffic such as  ARP, NDP, multicast, mDNS, etc.
 
 To make this work, you'll need to go into your router's OS and
 configure a bridge between a physical interface and the ZeroTier
@@ -113,6 +145,8 @@ interface.
 The [ZeroTier Network](https://registry.terraform.io/modules/zerotier/network/zerotier/)
 Terraform module provides a slightly nicer interface, letting us use
 CIDRs for our subnets.
+
+Repeat the steps from "Hello World" with `bridging.tf`
 
 ```hcl
 module "bridgenet" {
@@ -143,16 +177,25 @@ resource "zerotier_member" "router2" {
 }
 ```
 
-## Network Segmentation
+<p align="center">
+<img src="https://i.imgur.com/U0wwQtN.png" alt="queue the plan" /><br/>
+</p>
 
-```bash
-laptop:~/terraform-quickstart$ emacs example-03.tf
-```
+After Terraform applies the plan, check out the ZeroTier Cental webui
+to confirm it was created.
+
+<p align="center">
+<img src="https://i.imgur.com/S61AHzN.png" alt="hello zerotier" /><br/>
+</p>
+
+# Network Segmentation
 
 The next example creates the networks, `red`, `green`, and
 `yellow`. We define two groups. The red team gets access to the `red`
 network, and the green team gets access to the `green` network. Red
 and green make `yellow`.
+
+Repeat the steps from "Hello World" with `groups.tf`
 
 ```hcl
 variable "segments" {
@@ -232,11 +275,18 @@ resource "zerotier_member" "yellow" {
 }
 ```
 
-# Many to Many
+<p align="center">
+<img src="https://i.imgur.com/Lf5AgFn.png" alt="queue the plan" /><br/>
+</p>
 
-```bash
-laptop:~/terraform-quickstart$ emacs example-03.tf
-```
+After Terraform applies the plan, check out the ZeroTier Cental webui
+to confirm it was created.
+
+<p align="center">
+<img src="https://i.imgur.com/qT2Im1f.png" alt="hello zerotier" /><br/>
+</p>
+
+# Many to Many
 
 In the last example, show how to assign many members to many
 networks. This example used the Terraform
@@ -247,6 +297,8 @@ The `zerotier_identity` resource is a distant cousin of the Terraform [tls_priva
 resource. This resource would normally be used to inject secrets into
 cloud instances via `cloudinit`. We encourage you to use the HashiCorp
 [Terraform Cloud](https://app.terraform.io/) to keep your Terraform state safe.
+
+Repeat the steps from "Hello World" with `many2many.tf`
 
 ```hcl
 variable "letters" {
@@ -280,10 +332,31 @@ resource "zerotier_member" "shape-letters" {
 }
 ```
 
-## Cleaning up
+<p align="center">
+<img src="https://i.imgur.com/lPGOwhs.png" alt="queue the plan" /><br/>
+</p>
 
-When you're done experimenting with Terraform, tear everything down!
+After Terraform applies the plan, check out the ZeroTier Cental webui
+to confirm it was created.
 
-```bash
-laptop:~/terraform-quickstart$ terraform destroy -auto-approve
-```
+<p align="center">
+<img src="https://i.imgur.com/l5vqsfz.png" alt="hello zerotier" /><br/>
+</p>
+
+# Cleaning up
+
+When you're done experimenting with ZeroTier and Terraform, clean up
+by deleting all the networks. Look under your workspace's settings
+menu for "Destruction and Deletion"
+
+<p align="center">
+<img src="https://i.imgur.com/gZuqacO.png" "Create workspace" /><br/>
+</p>
+
+Queue the destroy plan to tear everything down.
+
+# That's all folks!
+
+If you like this tutorial, check out the [ZeroTier Multicloud Terraform Quickstart](https://docs.zerotier.com/terraform/multicloud-quickstart) next!
+
+-s
