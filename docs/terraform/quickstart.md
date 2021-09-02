@@ -350,7 +350,7 @@ by deleting all the networks. Look under your workspace's settings
 menu for "Destruction and Deletion"
 
 <p align="center">
-<img src="https://i.imgur.com/gZuqacO.png" "Create workspace" /><br/>
+<img src="https://i.imgur.com/gZuqacO.png" alt="destroy plan" /><br/>
 </p>
 
 Queue the destroy plan to tear everything down.
