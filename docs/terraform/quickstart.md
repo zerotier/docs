@@ -53,7 +53,7 @@ repository fork to the workspace. When you're done, you will see
 something simillar to this.
 
 <p align="center">
-<img src="https://i.imgur.com/pCm7ike.png" "Create workspace" /><br/>
+<img src="https://i.imgur.com/pCm7ike.png" alt="Create workspace" /><br/>
 </p>
 
 ## Create a Central API Token
@@ -72,7 +72,7 @@ authenticate to the API. The variable must be named
 `ZEROTIER_CENTRAL_TOKEN`. Be sure to check the `Sensitive` box.
 
 <p align="center">
-<img src="https://i.imgur.com/cZxQNdU.png" "Add Environmet Variables" /><br/>
+<img src="https://i.imgur.com/cZxQNdU.png" alt="Add Environmet Variables" /><br/>
 </p>
 
 # Hello World
