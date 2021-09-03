@@ -32,25 +32,27 @@ To follow along step by step, you will need:
 It should take you about 10 minutes to through this turorial. It will
 be done *in browser* without touching the command line at all.
 
-## Fork the Github repo
+## Import the Quickstart repo.
 
-Fork the [ZeroTier Terraform Quickstart Github repo](https://github.com/zerotier/terraform-quickstart). If
-you're new to Github, I will point you at the little "fork" button on the upper right hand side of the page. This will create a copy of the
-quickstart repo in your personal namspace. We will hook this up to a Terraform runner on [Terraform Cloud](https://app.terraform.io).
+Use Github's [Import]( https://github.com/new/import) feature to
+create a private copy of the
+[ZeroTier Terraform Quickstart repo](https://github.com/zerotier/terraform-quickstart). We
+will hook this up to a Terraform runner on
+[Terraform Cloud](https://app.terraform.io). After that, we will use
+Github's in-browser editing feature to drive the tutorial.
+
 
 <p align="center">
-<img src="https://i.imgur.com/zZRIO8a.png" alt="fork on Github" /><br/>
+<img src="https://i.imgur.com/aK3IXis.png" alt="import to a private Github repo" /><br/>
 </p>
-
-After that, we will use Github's in-browser editing feature to drive the tutorial.
 
 ## Create a Terraform Workspace
 
 Create an account on [Terraform Cloud](https://app.terraform.io), and
 follow the prompts to create an organization and a workspace. Follow
 the prompts, and create a "Version Controlled Workflow". Add your
-repository fork to the workspace. When you're done, you will see
-something simillar to this.
+repository to the workspace. When you're done, you will see something
+simillar to this.
 
 <p align="center">
 <img src="https://i.imgur.com/pCm7ike.png" alt="Create workspace" /><br/>
@@ -79,14 +81,16 @@ authenticate to the API. The variable must be named
 
 This example is probably the simplest thing you can do with
 ZeroTier. It creates a single network, then joins two members. The
-`member_id` settings are made up, so feel free to replace them with
-real device ids.
+`member_id` settings in the repository are made up, which is good
+enough to demonstrate how to drive the API with Terraform. Feel free
+to replace them with real Node IDs of any devices you may wish to join
+to the networks.
 
 <p align="center">
 <img src="https://i.imgur.com/q6kQPI4.png" alt="uncomment resources" /><br/>
 </p>
 
-On Github, click on `hello.tf`. There will be a little "edit" icon
+In your Github repo, click on `hello.tf`. There will be a little "edit" icon
 around the section with the code. Uncomment the Terraform resources
 and click the green "commit changes" button.
 
