@@ -50,9 +50,9 @@ Github's in-browser editing feature to drive the tutorial.
 
 Create an account on [Terraform Cloud](https://app.terraform.io), and
 follow the prompts to create an organization and a workspace. Follow
-the prompts, and create a "Version Controlled Workflow". Add your
-repository to the workspace. When you're done, you will see something
-simillar to this.
+the prompts, selecting "Start from scratch", and create a "Version
+Controlled Workflow". Add your repository to the workspace. When
+you're done, you will see something simillar to this.
 
 <p align="center">
 <img src="https://i.imgur.com/pCm7ike.png" alt="Create workspace" /><br/>
