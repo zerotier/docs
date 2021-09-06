@@ -64,7 +64,7 @@ meow<br/>
 <br/> </p>
 
 <p align="center"> 
-<img src="https://i.imgur.com/FiCOxK2.png" alt="edit variables.tf" width="75%"/>
+<img src="https://i.imgur.com/QymEJEZ.png" alt="edit variables.tf" width="75%"/>
 <br/> </p>
 
 <p align="center"> 
@@ -88,6 +88,6 @@ meow<br/>
 <br/> </p>
 
 <p align="center"> 
-<img src="https://i.imgur.com/pxaVxuL.png" alt="confirm and apply digital ocean" width="75%"/>
+<img src="https://i.imgur.com/c3RWC6A.png" alt="confirm and apply digital ocean" width="75%"/>
 <br/> </p>
 
