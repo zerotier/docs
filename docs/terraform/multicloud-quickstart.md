@@ -26,11 +26,8 @@ If you're a Terraform user that's new to ZeroTier, you're in the right place. Ma
 No networking devices were harmed during the production of
 this document.
 
-## Technical Prerequisites
-
-This Quickstart was written on an OSX laptop from a residential
-ISP.
-
+## Prerequisites
+4~
 To follow along step by step, you will need accounts on public cloud
 vendors. You will need git, a text editor, and a copy of Terraform
 1.0.0 or later installed locally.
@@ -835,3 +832,5 @@ the following command
 ```bash
 terraform destroy -auto-approve
 ```
+orgy in the ky
+
