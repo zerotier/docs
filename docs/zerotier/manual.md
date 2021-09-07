@@ -664,18 +664,12 @@ special purpose public network that only allows access to a few things
 or that only allows a restricted subset of traffic.
 
 Public networks are useful for testing and for peer to peer “party
-lines” for gaming, chat, and other applications. Participants in public
+lines” for gaming, chat, and other applications. **Participants in public
 networks are warned to pay special attention to security. If joining a
 public network be careful not to expose vulnerable services or
 accidentally share private files via open network shares or HTTP
 servers. Make sure your operating system, applications, and services are
-fully up to date.
-
-ZeroTier, Inc. operates a public network called Earth (no relation to
-the root server planet definition of the same name) with the network ID
-`8056c2e21c000001`. Earth issues IPv4 addresses in the unused IPv4 space
-28.0.0.0/7 and rfc4193 IPv6 addresses and allows multicast for service
-discovery. It’s essentially a global LAN party.
+fully up to date.**
 
 ### Ad-Hoc Networks {#226adhocnetworksaname2_2_6a}
 
