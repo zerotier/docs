@@ -41,7 +41,6 @@ will hook this up to a Terraform runner on
 [Terraform Cloud](https://app.terraform.io). After that, we will use
 Github's in-browser editing feature to drive the tutorial.
 
-
 <p align="center">
 <img src="https://i.imgur.com/aK3IXis.png" alt="import to a private Github repo" /><br/>
 </p>

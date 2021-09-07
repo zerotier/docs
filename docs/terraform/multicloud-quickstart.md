@@ -16,21 +16,14 @@ ZeroTier user that's new to Terraform, You might be looking for the [Terraform Q
 
 If you're a Terraform user that's new to ZeroTier, you're in the right place. Make yourself a coffee a and buckle up.
 
-## What lies ahead
-
-- We shall ping
-- We shall tcpdump
-- We shall manipulate interfaces and bridges
-- We shall do IPv6
-
-No networking devices were harmed during the production of
-this document.
-
 ## Prerequisites
-4~
-To follow along step by step, you will need accounts on public cloud
-vendors. You will need git, a text editor, and a copy of Terraform
-1.0.0 or later installed locally.
+
+To follow along step by step, you will need:
+
+- A [Github](https://github.com) account,
+- A [ZeroTier Central](https://my.zerotier.com) account,
+- A [Terraform Cloud](https://app.terraform.io) account.
+- Accounts on multiple cloud providers
 
 The full-blown multicloud demo uses:
 
@@ -66,205 +59,206 @@ should be pretty straight forward.
 
 You can do this. We believe in you.
 
-## A Quick Tour of the Terraform code
+## Import repo
 
-This repository is meant to teach you three things.
+[Import](https://github.com/new/import) the
+[Terraform Multicloud Quickstart](https://github.com/zerotier/terraform-multicloud-quickstart)
+to your Github account. We are "importing" instead of "cloning" so
+that we can set the repository as private.  If you're comforable on
+the command line, feel free to clone to your laptop and commits from
+there, otherwise, we will use Github's in-browser editing feature to
+drive the tutorial.
 
-- How to manipulate ZeroTier Networks and Members with Terraform.
-- How to bootstrap ZeroTier on your favorite cloud provider.
-- How to use some of ZeroTier's more advanced capabilities.
+<p align="center"><img src="https://i.imgur.com/M2WL54b.png" alt="import repo" width="75%"/></p>
 
-Open [main.tf](https://github.com/zerotier/zerotier-terraform-quickstart/blob/main/main.tf)
+## Create a Terraform workspace
 
+Next, we create a Terraform workspace and attach it to our private
+Github repository. Be sure to select <b><i>version control
+workflow</i></b>, select the correct Github account, (we want the
+private copy, not the original), and give it a unique name.
 
-At the top, you'll see Terraform resources for creating
-[Identities](https://github.com/zerotier/terraform-provider-zerotier#identities),
+<p align="center"><img src="https://i.imgur.com/DU568Ww.png" alt="click new workspace" width="75%"/></p>
+<p align="center"><img src="https://i.imgur.com/GASI3u4.png" alt="version control workflow" width="75%"/></p>
+<p align="center"><img src="https://i.imgur.com/5cTcPNO.png" alt="connect to a version control provider" width="75%"/></p>
+<p align="center"><img src="https://i.imgur.com/uuZlbJZ.png" alt="choose a repository" width="75%"/></p>
+<p align="center"><img src="https://i.imgur.com/ZQ2lmvM.png" alt="name workspace" width="75%"/></p>
+
+## Create ZeroTier Central variables
+
+Next, we will use Terraform to create some resources in the ZeroTier
+Central API. Before we can do this, we need to give Terraform
+credentials as Environment Variables.
+
+<p align="center"><img src="https://i.imgur.com/Pydl0B0.png" alt="configure variables" width="75%"/><br/> </p>
+<p align="center"><img src="https://i.imgur.com/E9vJgVT.png" alt="zerotier_central_token" width="75%"/></p>
+
+## Create ZeroTier Central resources
+
+Examine `main.tf` At the top, you will see Terraform resources for
+creating [Identities](https://github.com/zerotier/terraform-provider-zerotier#identities),
 [Networks](https://github.com/zerotier/terraform-provider-zerotier#networks),
-and [Members](https://github.com/zerotier/terraform-provider-zerotier#members).
+and [Members](https://github.com/zerotier/terraform-provider-zerotier#members). There
+is also a [Token](https://github.com/zerotier/terraform-provider-zerotier#tokens)
+that we will use later.
 
-The synopsis is as follows:
+<p align="center"><img src="https://i.imgur.com/U3aCeNv.png" alt="click on main.tf" width="75%"/></p>
 
-```hcl
-# zerotier networks
-
-resource "zerotier_network" "hello" {
-  # settings ...
+```jsx
+resource "zerotier_identity" "instances" {
+  for_each = { for k, v in var.instances : k => (v) if v.enabled }
 }
 
-resource "zerotier_identity" "instance" {}
-
-resource "somecloud_instance" "instance" {
-  # settings ...
-  #
-  # zerotier_identity.instance.public_key to disk
-  # zerotier_identity.instance.private_key to disk
-  # install zerotier
-}
-
-resource "zerotier_member" "instance" {
-  network_id  = zerotier_network.hello.id
-  member_id   = zerotier_identity.instance.id
-}
-
-```
-
-And for physical devices such as phones, laptops, workstations, etc
-
-```hcl
-# non-ephemeral devices
-
-resource "zerotier_member" "laptop" {
-  network_id  = zerotier_network.hello.id
-  member_id   = "laptop_id"
-}
-
-```
-
-
-Below that, you'll see a module for each cloud. You'll notice
-overlapping `192.168` CIDRs. This is on purpose, to simulate
-residential ISPs and other networks outside our administrative
-control.
-
-The
-[modules](https://github.com/zerotier/zerotier-terraform-quickstart/tree/main/modules)
-do the bare minimum required to spin up an instance and
-[inject](https://github.com/zerotier/zerotier-terraform-quickstart/blob/d04d0bd9ee69461e59666efccda9978a1767e076/modules/aws/main.tf#L140)
-an identity into a boot script.
-
-The [boot script](https://github.com/zerotier/zerotier-terraform-quickstart/blob/main/init-demolab.tpl)
-writes the ZeroTier identity to disk and installs ZeroTier. It also
-installs SSH keys and various utilities for our lab, such as ping and tshark.
-
-## Configure the Quickstart repository
-
-Check out the source code for the quickstart and change into the
-directory.
-
-```bash
-laptop:~$ git clone git@github.com:zerotier/zerotier-terraform-quickstart.git
-laptop:~$ cd zerotier-terraform-quickstart
-laptop:~/zerotier-terraform-quickstart$ emacs variables.tf
-```
-
-### User account SSH keys
-
-Next, add some SSH keys to the `users` variable. These will be passed to
-[cloud-init](https://cloudinit.readthedocs.io/en/latest/) when
-bootstrapping the instances. You'll need at least one for yourself,
-but we recommending adding a friend.
-
-```hcl
-variable "users" {
-  default = {
-    alice = {
-      username   = "alice"
-      ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGxBkqXD41K8LfyJrjf8PSrxsNqhNUlWfqIzM52iWy+B alice@computers.biz"
-    }
-    bob = {
-      username   = "bob"
-      ssh_pubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKPxC8oiMHeqcTH507iWJbHs/4/yx3vOOBDf/n6Eowj7 bob@computers.biz"
-    }
+resource "zerotier_network" "demolab" {
+  name        = "demo.lab"
+  description = "ZeroTier Terraform Demolab"
+  assign_ipv6 {
+    zerotier = true
+    sixplane = true
+    rfc4193  = true
+  }
+  assignment_pool {
+    start = "10.0.0.1"
+    end   = "10.0.0.254"
+  }
+  route {
+    target = "10.0.0.0/16"
   }
 }
-```
 
-### Device identities
+resource "zerotier_member" "devices" {
+  for_each    = var.devices
+  name        = each.key
+  member_id   = each.value.member_id
+  description = each.value.description
+  network_id  = zerotier_network.demolab.id
+}
 
-Next, add the ZeroTier identities of any non-ephemeral devices we plan
-to connect to our lab network. If you haven't already, install the
-ZeroTier client on your laptop or workstation. You can get it from the
-[ZeroTier Downloads page](https://www.zerotier.com/download/).
+resource "zerotier_member" "instances" {
+  for_each           = { for k, v in var.instances : k => (v) if v.enabled }
+  name               = each.key
+  member_id          = zerotier_identity.instances[each.key].id
+  description        = each.value.description
+  network_id         = zerotier_network.demolab.id
+  no_auto_assign_ips = false
+  ip_assignments     = [each.value.ip_assignment]
+}
 
-```bash
-laptop:~$ zerotier-cli info
-200 info a11c3411ce 1.6.5 ONLINE
-```
-
-```hcl
-variable "devices" {
-  default = {
-    laptop = {
-      member_id   = "a11c3411ce"
-      description = "Alice's laptop"
-    }
-    desktop = {
-      member_id   = "b0bd0bb0bb"
-      description = "Bob's laptop"
-    }
-  }
+resource "zerotier_token" "this" {
+  name = "demolab"
 }
 ```
 
-### Enable or Disable Clouds
+Normally, to kick off a Terraform plan, we would make commits to our
+repository. However, since we have a fresh workspace and nothing to
+change, we'll need to manually queue our first plan in the Terraform
+webUI.
 
-Next, select which clouds to enable. You'll need at least two for
-demonstration purposes, but I recommend using them all for dramatic
-effect. Digital Ocean is required, since it will be providing DNS
-service for the lab.
+<p align="center"><img src="https://i.imgur.com/NAXrrij.png" alt="list workspaces" width="75%"/></p>
+<p align="center"><img src="https://i.imgur.com/7i33Dpu.png" alt="queue plan" width="75%"/></p>
 
-```hcl
+<p align="center"> Confirm the plan by clicking "Confirm & Apply" </p>
+<p align="center"> <img src="https://i.imgur.com/lwECXNN.png" alt="confirm plan" width="75%"/> </p>
 
-  default = {
-    do = {
-      description   = "Digital Ocean"
-      ip_assignment = "10.0.1.1"
-      enabled       = true
-    }
-    aws = {
-      description   = "Amazon Web Services"
-      ip_assignment = "10.0.2.1"
-      enabled       = true
-    }
-    gcp = {
-      description   = "Google Compute Platform"
-      ip_assignment = "10.0.3.1"
-      enabled       = true
-    }
-    azu = {
-      description   = "Microsoft Azure"
-      ip_assignment = "10.0.4.1"
-      enabled       = true
-    }
-    oci = {
-      description   = "Oracle Cloud Infrastructure"
-      ip_assignment = "10.0.5.1"
-      enabled       = true
-    }
-    ibm = {
-      description   = "IBM Cloud"
-      ip_assignment = "10.0.6.1"
-      enabled       = true
-    }
-    vul = {
-      description   = "Vultr"
-      ip_assignment = "10.0.7.1"
-      enabled       = true
-    }
-    ali = {
-      description   = "Alibaba Cloud"
-      ip_assignment = "10.0.8.1"
-      enabled       = true
-    }
-    eqx = {
-      description   = "Equinix Metal"
-      ip_assignment = "10.0.9.1"
-      enabled       = true
-    }
-  }
-}
-```
+<p align="center"><img src="https://i.imgur.com/dYCJLGa.png" alt="observe ran plan" width="75%"/></p>
 
-## Provision a ZeroTier Central API Token
+Congratulations! You have just succesfully created your first ZeroTier
+network using Terraform! Go over to
+[ZeroTier Central](https://my.zerotier.com) and check out your new
+network. Alice and Bob are both authorized onto the network, but don't
+worry, they aren't real. We will replace them shortly.
 
-![Create a Network](https://i.imgur.com/3GDoBaF.png)
+<p align="center"><img src="https://i.imgur.com/wiChZJ8.png" alt="observe in central" width="75%"/></p>
 
-## Set Environment Variables
+## Edit variables.tf
 
-Please place the following in your ```~/.bash_profile```, then ```source ~/.bash_profile```
+Terraform has two kinds of variables. We have already seen some
+Environmet Variables, which we used to make credentials available to
+the [ZeroTier Terraform Provider](https://github.com/zerotier/terraform-provider-zerotier). The
+other kinds of variables are known as [Input Variables](https://www.terraform.io/docs/language/values/variables.html). We
+will use these to supply some usernames and SSH keys, as well as toggle which clouds we want to use.
+
+<p align="center"><img src="https://i.imgur.com/9BSgNcf.png" alt="open variables.tf" width="75%"/></p>
+
+Use Github's editor to set the `users`, `devices`, and `instances`
+variables. Replace Alice and Bob's information with your own SSH keys
+and ZeroTier Node ID's. In the `instances` variable, toggle the clouds
+you plan on using to `enabled`.
+
+<p align="center"><img src="https://i.imgur.com/QymEJEZ.png" alt="edit variables.tf" width="75%"/></p>
+
+<p align="center"> Save your work by clicking "Commit changes" at the bottom of the page. </p>
+<p align="center"> <img src="https://i.imgur.com/9utqx2i.png" alt="commit changes" width="75%"/> </p>
+
+Go back to your workspace and see that it now says "Planned". Every
+time a commit is pushed to the repo, Terraform will queue a plan. This
+is the essence of the "Version control workflow" we selected earlier.
+
+<p align="center"><img src="https://i.imgur.com/HpjFQgB.png" alt="observe planned workspace" width="75%"/></p>
+
+Navigate through "Runs" and then "confirm and apply". There is a
+setting to make this step automatic, but we will leave it manual for
+now.
+
+<p align="center"><img src="https://i.imgur.com/xIVg2r1.png" alt="navigate to runs.. main.tf" width="75%"/></p>
+<p align="center"><img src="https://i.imgur.com/kzoRqQL.png" alt="confirm and apply variables.tf" width="75%"/></p>
+
+We now have pre-generated ZeroTier Identities that we will inject into
+our cloud instances when we bring them up. They are stored in the
+workspace's Terraform State on Terraform Cloud. Be careful about who
+has access to your account, as well as source repository that drives it.
+
+## Create Digital Ocean resources
+
+Add your your `DIGITALOCEAN_TOKEN` to the worksace's Environmet Variables using the same procedure as before.
+
+<p align="center"><img src="https://i.imgur.com/EfcXeaD.png" alt="add digitalocean_token" width="75%"/></p>
+
+<p align="center">
+Next, edit main.tf and uncomment the Digital Ocean module.
+<img src="https://i.imgur.com/U3aCeNv.png" alt="click on main.tf" width="75%"/>
+</p>
+
+<p align="center"><img src="https://i.imgur.com/PZqHbMJ.png" alt="uncomment digital ocean" width="75%"/></p>
+<p align="center"><img src="https://i.imgur.com/9utqx2i.png" alt="commit changes" width="75%"/></p>
+<p align="center"><img src="https://i.imgur.com/sNWSHQH.png" alt="observe planned workspace" width="75%"/></p>
+<p align="center"><img src="https://i.imgur.com/nrRZBuZ.png" alt="navigate to runs" width="75%"/></p>
+<p align="center"><img src="https://i.imgur.com/5I7pu2q.png" alt="confirm and apply digital ocean" width="75%"/></p>
+<p align="center"><img src="https://i.imgur.com/6Ts9o9B.png" alt="plan finished" width="75%"/></p>
+
+## Join laptop to Network
+
+The ZeroTier Network can be found in the Terraform output. Find it by
+nagivating to the "Outputs" tab of the latest run.
+<p align="center"><img src="https://i.imgur.com/MLkTwe6.png" alt="examine outputs" width="75%"/></p>
+
+<p align="center">
+You can also find it in the ZeroTier Central webUI.
+<img src="https://i.imgur.com/8YIRPMw.png" alt="examine outputs" width="75%"/>
+</p>
+
+<p align="center">Join your laptop to the network. Make sure to check "Allow DNS"</p>
+<p align="center"><img src="https://i.imgur.com/6pYKfyK.png" alt="examine outputs" width="75%"/></p>
+
+You will be able to SSH into the box. If this does not work, make sure
+`username`, `ssh_pubkey` and `member_id` are correct in `variables.tf`. 
+<p align="center"><img src="https://i.imgur.com/ya5TVVz.png" alt="ssh to digital ocean" width="75%"/></p>
+
+## Spin up Multiple Clouds
+
+<p align="center">
+<img src="https://i.imgur.com/qglRkyw.jpeg" width="75%" alt="Baton Bunny, Copyright 1959  Warner Bros." /><br/>
+Baton Bunny - Warner Bros. 1959 
+</p>
+
+Next, spin up the rest of the cloud instances. Go through each cloud provider,
+one by one, adding Environment Variables to the Terraform workspace,
+then uncommenting out the corresponding module in `main.tf`.  
+
+Here's a complete list of Environment Variables to set if you plan on
+spinning up every cloud the tutorial supports.
 
 ```bash
-
 # ZeroTier Central
 export ZEROTIER_CENTRAL_TOKEN="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 export ZEROTIER_CENTRAL_URL="https://my.zerotier.com/api"
@@ -275,6 +269,7 @@ export DIGITALOCEAN_TOKEN="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 # Amazon Web Services
 export AWS_ACCESS_KEY_ID="XXXXXXXXXXXXXXXXXXXX"
 export AWS_SECRET_ACCESS_KEY="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+export AWS_REGION="us-east-1"
 
 # Google Compute Platform
 export GOOGLE_CREDENTIALS="$(cat key-downloaded-from-gcp-console.json)"
@@ -308,178 +303,25 @@ export VULTR_API_KEY="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 export METAL_AUTH_TOKEN="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 ```
 
-## Comment out unused clouds in `main.tf`
-
-Due to the way Terraform's provider system works, you'll end up having
-to comment out any unused clouds in [main.tf](https://github.com/zerotier/zerotier-terraform-quickstart/blob/main/main.tf)
-
-Sorry.
-
-``` hcl
-# #
-# # Oracle Cloud Infrastructure
-# #
-
-# variable "compartment_id" { default = "set_me_as_a_TF_VAR_" }
-
-# module "oci" {
-#   source         = "./modules/oci"
-#   for_each       = { for k, v in var.instances : k => v if k == "oci" && v.enabled }
-#   name           = "oci"
-#   vpc_cidr       = "192.168.0.0/16"
-#   subnet_cidr    = "192.168.1.0/24"
-#   compartment_id = var.compartment_id
-#   dnsdomain      = zerotier_network.demolab.name
-#   pod_cidr       = "10.42.5.1/24"
-#   script         = "init-demolab.tpl"
-#   svc            = var.users
-#   zt_identity    = zerotier_identity.instances["oci"]
-#   zt_network     = zerotier_network.demolab.id
-# }
-```
-
-## Spin up the lab instances
-
-<p align="center">
-<img src="https://i.imgur.com/qglRkyw.jpeg" height="300" alt="Baton Bunny, Copyright 1959  Warner Bros." /><br/>
-Baton Bunny - Warner Bros. 1959
-</p>
-
-```bash
-terraform init -upgrade && terraform plan && terraform apply -auto-approve
-```
-
-```
-Upgrading modules...
-- ali in modules/ali
-- aws in modules/aws
-- azu in modules/azu
-- do in modules/do
-- eqx in modules/eqx
-- gcp in modules/gcp
-- ibm in modules/ibm
-- oci in modules/oci
-- vul in modules/vul
-
-Initializing the backend...
-
-Initializing provider plugins...
-- Finding latest version of hashicorp/oci...
-- Finding latest version of aliyun/alicloud...
-- Finding latest version of vultr/vultr...
-- Finding latest version of hashicorp/google...
-- Finding latest version of zerotier/zerotier...
-- Finding latest version of hashicorp/aws...
-- Finding latest version of ibm-cloud/ibm...
-- Finding latest version of equinix/metal...
-- Finding latest version of hashicorp/tls...
-- Finding latest version of digitalocean/digitalocean...
-- Finding latest version of hashicorp/template...
-- Finding latest version of hashicorp/azurerm...
-- Installing hashicorp/aws v3.55.0...
-- Installed hashicorp/aws v3.55.0 (signed by HashiCorp)
-- Installing equinix/metal v3.1.0...
-- Installed equinix/metal v3.1.0 (signed by a HashiCorp partner, key ID 1A65631C7288685E)
-- Installing hashicorp/tls v3.1.0...
-- Installed hashicorp/tls v3.1.0 (signed by HashiCorp)
-- Installing hashicorp/template v2.2.0...
-- Installed hashicorp/template v2.2.0 (signed by HashiCorp)
-- Installing aliyun/alicloud v1.132.0...
-- Installed aliyun/alicloud v1.132.0 (signed by a HashiCorp partner, key ID 47422B4AA9FA381B)
-- Installing hashicorp/google v3.81.0...
-- Installed hashicorp/google v3.81.0 (signed by HashiCorp)
-- Installing zerotier/zerotier v1.0.2...
-- Installed zerotier/zerotier v1.0.2 (signed by a HashiCorp partner, key ID FE5A2DBE1B75988C)
-- Installing ibm-cloud/ibm v1.30.0...
-- Installed ibm-cloud/ibm v1.30.0 (self-signed, key ID AAD3B791C49CC253)
-- Installing digitalocean/digitalocean v2.11.1...
-- Installed digitalocean/digitalocean v2.11.1 (signed by a HashiCorp partner, key ID F82037E524B9C0E8)
-- Installing hashicorp/azurerm v2.73.0...
-- Installed hashicorp/azurerm v2.73.0 (signed by HashiCorp)
-- Installing hashicorp/oci v4.40.0...
-- Installed hashicorp/oci v4.40.0 (signed by HashiCorp)
-- Installing vultr/vultr v2.4.1...
-- Installed vultr/vultr v2.4.1 (signed by a HashiCorp partner, key ID 853B1ED644084048)
-<snip>
-```
-
-(lots of text scrolling by...)
-
-```bash
-<snip>
-module.ali["ali"].alicloud_eip_association.this: Still creating... [30s elapsed]
-module.azu["azu"].azurerm_linux_virtual_machine.this: Still creating... [20s elapsed]
-module.ibm["ibm"].ibm_is_instance.this: Still creating... [30s elapsed]
-module.eqx["eqx"].metal_device.this: Still creating... [1m20s elapsed]
-module.ali["ali"].alicloud_eip_association.this: Creation complete after 39s [id=eip-0xid1dwiqzt7rjrzzmg8p:i-0xige8omj8sojsvhyqfc]
-module.azu["azu"].azurerm_linux_virtual_machine.this: Still creating... [30s elapsed]
-module.ibm["ibm"].ibm_is_instance.this: Still creating... [40s elapsed]
-module.eqx["eqx"].metal_device.this: Still creating... [1m30s elapsed]
-module.azu["azu"].azurerm_linux_virtual_machine.this: Still creating... [40s elapsed]
-module.ibm["ibm"].ibm_is_instance.this: Still creating... [50s elapsed]
-module.eqx["eqx"].metal_device.this: Still creating... [1m40s elapsed]
-module.azu["azu"].azurerm_linux_virtual_machine.this: Still creating... [50s elapsed]
-module.ibm["ibm"].ibm_is_instance.this: Still creating... [1m0s elapsed]
-module.eqx["eqx"].metal_device.this: Still creating... [1m50s elapsed]
-module.ibm["ibm"].ibm_is_instance.this: Creation complete after 1m1s [id=0757_e76365c7-217e-4ca5-a8ad-3dd7ec80af45]
-module.azu["azu"].azurerm_linux_virtual_machine.this: Creation complete after 55s [id=/subscriptions/4d967f78-4005-4c96-9c28-c8965b2c6dfe/resourceGroups/azu/providers/Microsoft.Compute/virtualMachines/azu]
-module.eqx["eqx"].metal_device.this: Still creating... [2m0s elapsed]
-module.eqx["eqx"].metal_device.this: Still creating... [2m10s elapsed]
-module.eqx["eqx"].metal_device.this: Still creating... [2m20s elapsed]
-module.eqx["eqx"].metal_device.this: Still creating... [2m30s elapsed]
-module.eqx["eqx"].metal_device.this: Creation complete after 2m40s [id=9eac4e4d-4a13-4d0a-b54f-268ce3bc9beb]
-
-Apply complete! Resources: 89 added, 0 changed, 0 destroyed.
-
-Outputs:
-
-identities = {
-  "ali" = "b0ae957168"
-  "aws" = "6695d1fce6"
-  "azu" = "b7ab6594a9"
-  "do" = "37f2b7c94f"
-  "eqx" = "cc5c1f20d1"
-  "gcp" = "01d835fcf2"
-  "ibm" = "ad6cb853aa"
-  "oci" = "d5b230e028"
-  "vul" = "1dcc6338ff"
-}
-networks = {
-  "demolab" = "8bd5124fd6f45ffe"
-}
-```
-
-## Join Laptop to Lab Network
-
-<p align="center">
-<img src="https://i.imgur.com/iyC4zUT.png" alt="join network" /><br/>
-</p>
-
-## Behold the network in the Central UI
-
-<p align="center">
-<img src="https://i.imgur.com/i3OpSpF.png" alt="join network" /><br/>
-</p>
-
 ## Hit the web servers
 
 Each node is running a web server with an example nginx page,
 accessible with an internal DNS address.
 
-For example,  [http://aws.demo.lab](http://aws.demo.lab/).
+For example, [http://aws.demo.lab](http://aws.demo.lab/).
 
 <p align="center">
-<img src="https://i.imgur.com/UHe6UXq.png" alt="join network" /><br/>
+<img src="https://i.imgur.com/QfvO8yL.png" alt="hit a webserver" width="75%" /><br/>
 </p>
 
-# Understanding ZeroTier VL2
+## Understanding ZeroTier VL2
 
 ZeroTier networks are virtual Ethernet switches. This means that
 anything you can do on a physical LAN segment, ZeroTier can over the
 Internet, securely, across clouds, and through NAT devices.
 
 <p align="center">
-<img src="https://live.staticflickr.com/106/311526846_24b03feedf_w_d.jpg" alt="https://www.flickr.com/photos/valkyrieh116/311526846" /><br/>
+<img src="https://live.staticflickr.com/106/311526846_24b03feedf_w_d.jpg" alt="https://www.flickr.com/photos/valkyrieh116/311526846" width="75%"/><br/>
 Down the Rabbit Hole - Valerie Hinojosa 2006
 </p>
 
@@ -544,13 +386,13 @@ You may have noticed the [flow_rules](https://github.com/zerotier/zerotier-terra
 section in the `zerotier_network` while examining [main.tf](https://github.com/zerotier/zerotier-terraform-quickstart/blob/main/main.tf)
 earlier.
 
-```hcl
+```jsx
 resource "zerotier_network" "demolab" {
   name        = "demo.lab"
   description = "ZeroTier Terraform Demolab"
   assign_ipv6 {
     zerotier = true
-    sixplane = false
+    sixplane = true
     rfc4193  = true
   }
   assignment_pool {
@@ -705,7 +547,7 @@ alice@gcp:$ sudo ip addr del 10.0.3.4/24 dev ztyqb6mebi
 ## Native Container Routing
 
 <p align="center">
-<img src="https://i.imgur.com/QzuTXdA.jpg" height="200" alt="https://www.flickr.com/photos/agizienski/3605131450" /><br/>
+<img src="https://i.imgur.com/QzuTXdA.jpg" width="75%" alt="https://www.flickr.com/photos/agizienski/3605131450" /><br/>
 Amy Gizienski - whale
 </p>
 
@@ -826,11 +668,8 @@ having to send the discovery traffic.
 
 ## Tear it all down
 
-When you're done experimenting with the lab, tear everything down with
-the following command
+When you're done experimenting with the lab, tear everything down by
+queueing a destroy plan.
 
-```bash
-terraform destroy -auto-approve
-```
-orgy in the ky
-
+<p align="center"><img src="https://i.imgur.com/QxF7CO1.png" alt="import repo" width="75%"/></p>
+<p align="center"><img src="https://i.imgur.com/IP06LeW.png" alt="import repo" width="75%"/></p>
