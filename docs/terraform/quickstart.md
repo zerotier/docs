@@ -42,27 +42,28 @@ will hook this up to a Terraform runner on
 Github's in-browser editing feature to drive the tutorial.
 
 <p align="center">
-<img src="https://i.imgur.com/aK3IXis.png" alt="import to a private Github repo" /><br/>
+<img src="https://i.imgur.com/NB335SI.png" width="75%" alt="import to a private Github repo" />
 </p>
 
-## Create a Terraform Workspace
+## Create a Terraform workspace
 
-Create an account on [Terraform Cloud](https://app.terraform.io), and
-follow the prompts to create an organization and a workspace. Follow
-the prompts, selecting "Start from scratch", and create a "Version
-Controlled Workflow". Add your repository to the workspace. When
-you're done, you will see something simillar to this.
+Next, we create a Terraform workspace and attach it to our private
+Github repository. Be sure to select <b><i>version control
+workflow</i></b>, select the correct Github account, (we want the
+private copy, not the original), and give it a unique name.
 
-<p align="center">
-<img src="https://i.imgur.com/pCm7ike.png" alt="Create workspace" /><br/>
-</p>
+<p align="center"><img src="https://i.imgur.com/DU568Ww.png" alt="click new workspace" width="75%"/></p>
+<p align="center"><img src="https://i.imgur.com/GASI3u4.png" alt="version control workflow" width="75%"/></p>
+<p align="center"><img src="https://i.imgur.com/5cTcPNO.png" alt="connect to a version control provider" width="75%"/></p>
+<p align="center"><img src="https://i.imgur.com/yexTK8k.png" alt="choose a repository" width="75%"/></p>
+<p align="center"><img src="https://i.imgur.com/FCnubpp.png" alt="name workspace" width="75%"/></p>
 
 ## Create a Central API Token
 
 Next, we create an API token that Terraform will use to drive the ZeroTier Central API. Navigate to `Account` -> `API Access Tokens`.
 
 <p align="center">
-<img src="https://i.imgur.com/3GDoBaF.png" alt="Provision a ZeroTier Central Token" /><br/>
+<img src="https://i.imgur.com/G16pxF7.png" width="75%" alt="Provision a ZeroTier Central Token" /><br/>
 </p>
 
 ## Add token as a Workspace Environment Variable
@@ -73,7 +74,7 @@ authenticate to the API. The variable must be named
 `ZEROTIER_CENTRAL_TOKEN`. Be sure to check the `Sensitive` box.
 
 <p align="center">
-<img src="https://i.imgur.com/cZxQNdU.png" alt="Add Environmet Variables" /><br/>
+<img src="https://i.imgur.com/mNpgmbT.png" width="75%" alt="Add Environmet Variables" /><br/>
 </p>
 
 ## Hello World
@@ -85,15 +86,14 @@ enough to demonstrate how to drive the API with Terraform. Feel free
 to replace them with real Node IDs of any devices you may wish to join
 to the networks.
 
-<p align="center">
-<img src="https://i.imgur.com/q6kQPI4.png" alt="uncomment resources" /><br/>
-</p>
-
 In your Github repo, click on `hello.tf`. There will be a little "edit" icon
 around the section with the code. Uncomment the Terraform resources
 and click the green "commit changes" button.
 
-```hcl
+<p align="center"><img src="https://i.imgur.com/PIcjPLx.png" width="75%" alt="hello.tf" /></p>
+<p align="center"><img src="https://i.imgur.com/q6kQPI4.png" alt="edit text" /></p>
+
+```jsx
 resource "zerotier_network" "hello" {
   name        = "hello"
   description = "Hello World"
@@ -123,16 +123,14 @@ resource "zerotier_member" "bob" {
 
 Queue a plan then "Confim and Apply".
 
-<p align="center">
-<img src="https://i.imgur.com/y3alCUp.png" alt="queue the plan" /><br/>
-</p>
+<p align="center"><img src="https://i.imgur.com/Dq7Bivj.png" width="75%" alt="queue the plan" /></p>
+<p align="center"><img src="https://i.imgur.com/eWuW0aD.png" width="75%" alt="queue the plan" /></p>
 
 After Terraform applies the plan, check out the ZeroTier Cental webui
 to confirm it was created.
 
-<p align="center">
-<img src="https://i.imgur.com/P0C0U5J.png" alt="hello zerotier" /><br/>
-</p>
+<p align="center"><img src="https://i.imgur.com/BWQEYwQ.png" width="75%" alt="hello zerotier" /></p>
+<p align="center"><img src="https://i.imgur.com/XXzaTAD.png" width="75%" alt="hello zerotier" /></p>
 
 ## Bridging Networks
 
@@ -151,7 +149,9 @@ CIDRs for our subnets.
 
 Repeat the steps from "Hello World" with `bridging.tf`
 
-```hcl
+<p align="center"><img src="https://i.imgur.com/FOEHRpc.png" width="75%" alt="bridging.tf" /></p>
+
+```jsx
 module "bridgenet" {
   source      = "zerotier/network/zerotier"
   version     = "1.0.0"
@@ -179,17 +179,13 @@ resource "zerotier_member" "router2" {
   network_id              = module.bridgenet.id
 }
 ```
-
-<p align="center">
-<img src="https://i.imgur.com/U0wwQtN.png" alt="queue the plan" /><br/>
-</p>
+<p align="center"><img src="https://i.imgur.com/EWfgCDW.png" width="75%" alt="observe planned" /></p>
+<p align="center"><img src="https://i.imgur.com/RPnMMRt.png" width="75%" alt="queue the plan" /></p>
 
 After Terraform applies the plan, check out the ZeroTier Cental webui
 to confirm it was created.
 
-<p align="center">
-<img src="https://i.imgur.com/S61AHzN.png" alt="hello zerotier" /><br/>
-</p>
+<p align="center"><img src="https://i.imgur.com/ZwviLen.png" width="75%" alt="hello bridgenet" /></p>
 
 ## Network Segmentation
 
@@ -200,7 +196,9 @@ and green make `yellow`.
 
 Repeat the steps from "Hello World" with `groups.tf`
 
-```hcl
+<p align="center"><img src="https://i.imgur.com/1VomNgu.png" width="75%" alt="groups.tf" /></p>
+
+```jsx
 variable "segments" {
   default = {
     red = {
@@ -278,16 +276,12 @@ resource "zerotier_member" "yellow" {
 }
 ```
 
-<p align="center">
-<img src="https://i.imgur.com/Lf5AgFn.png" alt="queue the plan" /><br/>
-</p>
+<p align="center"><img src="https://i.imgur.com/1aW8a8K.png" width="75%" alt="queue the plan" /></p>
 
 After Terraform applies the plan, check out the ZeroTier Cental webui
 to confirm it was created.
 
-<p align="center">
-<img src="https://i.imgur.com/qT2Im1f.png" alt="hello zerotier" /><br/>
-</p>
+<p align="center"><img src="https://i.imgur.com/rNUg7pZ.png" width="75%" alt="hello zerotier" /></p>
 
 ## Many to Many
 
@@ -304,7 +298,9 @@ state safe.
 
 Repeat the steps from "Hello World" with `many2many.tf`
 
-```hcl
+<p align="center"><img src="https://i.imgur.com/UNom5tz.png" width="75%" alt="man2many.tf" /></p>
+
+```jsx
 variable "letters" {
   default = ["alfa", "bravo", "charlie"]
 }
@@ -336,28 +332,19 @@ resource "zerotier_member" "shape-letters" {
 }
 ```
 
-<p align="center">
-<img src="https://i.imgur.com/lPGOwhs.png" alt="queue the plan" /><br/>
-</p>
+<p align="center"><img src="https://i.imgur.com/qPzd3qD.png" width="75%" alt="queue the plan" /></p>
 
 After Terraform applies the plan, check out the ZeroTier Cental webui
 to confirm it was created.
 
-<p align="center">
-<img src="https://i.imgur.com/l5vqsfz.png" alt="hello zerotier" /><br/>
-</p>
+<p align="center"><img src="https://i.imgur.com/wLQ9z7D.png" width="75%" alt="hello everything" /></p>
 
 ## Cleaning up
 
-When you're done experimenting with ZeroTier and Terraform, clean up
-by deleting all the networks. Look under your workspace's settings
-menu for "Destruction and Deletion"
+When you're done experimenting with ZeroTier and Terraform, tear everything down by queueing a destroy plan.
 
-<p align="center">
-<img src="https://i.imgur.com/gZuqacO.png" alt="destroy plan" /><br/>
-</p>
-
-Queue the destroy plan to tear everything down.
+<p align="center"><img src="https://i.imgur.com/QxF7CO1.png" alt="import repo" width="75%"/></p>
+<p align="center"><img src="https://i.imgur.com/IP06LeW.png" alt="import repo" width="75%"/></p>
 
 ## That's all folks!
 
