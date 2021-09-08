@@ -9,20 +9,6 @@ Encrypted P2P connections for your app or service.
 
 This guide explains how to use the ZeroTier SDK Socket API. It is meant to be read linearly and progresses from beginner topics to advanced topics. We will start by creating a simple [pingable node](#pingable-node-part-1) while skipping over most of the gritty details. Then we'll move on to a full [client-server socket application](#client-and-server-part-2) where we will take the occasional tangent to learn more about how all of this works. Source code for the examples can be found here: <a href="https://github.com/zerotier/libzt/tree/master/examples">libzt/examples</a>. For API reference documentation see the sidebar to the left. To read more more about how ZeroTier works in general, see our [manual](https://docs.zerotier.com/zerotier/manual). If you find an error on this page or you just need help getting something to work please open a [GitHub issue](https://github.com/zerotier/libzt/issues).
 
-:::note Latest news
-
-In the coming weeks ahead of our webinar we will be making available a number of improvements to our SDK, these include:
-
- - Upgrade of libzt core version to `1.6.X` series
- - Improved and expanded C API
-    - Easier creation and usage of custom root sets (formerly worlds/planets)
- - Rust bindings 🦀
- - New reference docs, guides, and examples (this page)
- - Updated `1.6.X` packages for Python, C# and Java
- - New Homebrew Tap: [zerotier/tap](https://github.com/zerotier/homebrew-tap)
-
-:::
-
 ## Install
 
 <Tabs
