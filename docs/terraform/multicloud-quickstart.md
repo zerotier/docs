@@ -652,7 +652,7 @@ alice@eqx:~$ ip route | grep 42
 ```
 
 At the bottom of the lab [boot script](https://github.com/zerotier/zerotier-terraform-quickstart/blob/main/init-demolab.tpl)
-we're installed a [routing daemon](https://bird.network.cz/) and
+we've installed a [routing daemon](https://bird.network.cz/) and
 gave it a simple OSPF configuration. This propigates the routes
 of the Docker networks among all the instances so they can talk over
 the ZeroTier network.
