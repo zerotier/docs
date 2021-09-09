@@ -156,7 +156,7 @@ physical LAN.
 
 *[A blog post from 2014 by ZeroTier’s original author explains some of
 the reasoning behind VL1’s
-design.](http://adamierymenko.com/decentralization-i-want-to-believe/)*
+design.](http://adamierymenko.com/decentralization.html)*
 
 ### Addressing {#212addressinganame2_1_2a}
 
