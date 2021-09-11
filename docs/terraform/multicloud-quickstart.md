@@ -27,15 +27,15 @@ To follow along step by step, you will need:
 
 The full-blown multicloud demo uses:
 
-- Digital Ocean
-- Amazon Web Services
-- Google Compute Engine
-- Microsoft Azure
-- Oracle Cloud Infrastructure
-- Alibaba Cloud
-- IBM Cloud
-- Vultr
-- Equinix Metal
+- [Digital Ocean](https://www.digitalocean.com/)
+- [Amazon Web Services](https://aws.amazon.com/)
+- [Google Compute Engine](https://cloud.google.com/compute)
+- [Microsoft Azure](https://azure.microsoft.com)
+- [Oracle Cloud Infrastructure](https://www.oracle.com/cloud)
+- [Alibaba Cloud](https://alibabacloud.com)
+- [IBM Cloud](https://www.ibm.com/cloud)
+- [Vultr](https://www.vultr.com)
+- [Equinix Metal](https://metal.equinix.com)
 
 That's a lot of service providers. You'll need at least two for
 demonstration purposes, but I recommend using them all for dramatic
