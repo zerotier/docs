@@ -136,3 +136,38 @@ Enter the container (optional)
 docker exec -it zt bash
 ```
 
+## Upgrading ZeroTier
+
+To upgrade ZeroTier you'll need to stop and remove the container, then pull latest and start a new container:
+
+```
+docker ps
+```
+
+Example output:
+
+```
+CONTAINER ID   IMAGE                               COMMAND          CREATED       STATUS      PORTS     NAMES
+52c7cb58a1dd   zerotier/zerotier-synology:latest   "zerotier-one"   5 weeks ago   Up 9 days             zt
+```
+
+Stop the container
+
+```
+docker stop 52c7cb58a1dd
+```
+
+Remove the container
+
+```
+docker container rm 52c7cb58a1dd
+```
+
+Pull latest updates
+
+```
+docker pull zerotier/zerotier-synology:latest
+```
+
+Now, re-run the commands from the [Set up container](#set-up-container) section.
+
