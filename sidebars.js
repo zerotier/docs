@@ -108,7 +108,7 @@ module.exports = {
     {
       type: "category",
       label: "Supported Devices",
-      items: ["devices/synology", "devices/ubiquiti"],
+      items: ["devices/synology", "devices/ubiquiti", "devices/qnap"],
     },
     {
       type: "category",
