@@ -13,22 +13,21 @@ custom_edit_url: null
 Western Digital NAS
 =====
 
-:::note
-
-Compression is disabled for lower-powered devices such as `WDMyCloudEX2`.
-
+:::tip
+Buy a Synology instead.
 :::
 
 ## Install ZeroTier
 
-[Download latest ZeroTier package](http://download.zerotier.com/dist/western-digital/). 
+[Download latest ZeroTier package](http://download.zerotier.com/dist/western-digital/). These packages only support `My Cloud OS 5`. Compression is disabled for lower-powered devices such as `WDMyCloudEX2`.
 
 ## Enable SSH
 
-If you've already [enabled SSH access on your NAS](https://support-en.wd.com/app/answers/detail/a_id/14460), log in:
+If you've already [enabled SSH access on your NAS](https://support-en.wd.com/app/answers/detail/a_id/14460), log in. The default SSH username on WD devices is `sshd`, not `admin` or `root`:
+
 
 ```sh
-ssh admin@local-ip
+ssh sshd@local-ip
 ```
 
 ## Usage
