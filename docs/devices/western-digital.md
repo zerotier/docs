@@ -13,10 +13,6 @@ custom_edit_url: null
 Western Digital NAS
 =====
 
-:::tip
-Buy a Synology instead.
-:::
-
 ## Install ZeroTier
 
 [Download latest ZeroTier package](http://download.zerotier.com/dist/western-digital/). These packages only support `My Cloud OS 5`. Compression is disabled for lower-powered devices such as `WDMyCloudEX2`.
