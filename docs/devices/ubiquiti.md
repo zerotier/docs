@@ -10,24 +10,47 @@ code_clipboard: true
 custom_edit_url: null
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 Ubiquiti
 =====
 
- - [Download latest package](https://download.zerotier.com/RELEASES/1.4.6/dist/ubiquiti)
- 
- - Copy package to: `/config/data/firstboot/install-packages/`
+## Download
 
- - Install:
+Currently only the `EdgeRouter` line has been tested. Most devices have either a MIP64 or MIPS32 processor. The package below *should* work for both. Please report bugs or compatibility issues [here](https://github.com/zerotier/ZeroTierOne/issues).
+
+```sh
+
+curl https://download.zerotier.com/dist/ubiquiti/zerotier-one_ubiquiti-latest.deb \
+--output /config/data/firstboot/install-packages/zerotier-one.deb
 
 ```
-sudo dpkg -i /config/data/firstboot/install-packages/zerotier-one_1.4.6_ubiquiti_mips.deb
+
+*Note: The package must be placed and kept in `/config/data/firstboot/install-packages/` so that your device can automatically re-install ZeroTier upon firmware upgrade.*
+
+
+## Install
+
+```
+sudo dpkg -i /config/data/firstboot/install-packages/zerotier-one.deb
 ```
 
-:::note
+## Starting and stopping
 
-This package was tested on an `EdgeRouter 4` but it should work on other Ubiquiti offerings such as their `UniFi Security Gateway`. Please report bugs or compatibility issues [here](https://github.com/zerotier/ZeroTierOne/issues). Your router's ZeroTier identities and configuration will be stored in `/config/zerotier-one` which persists across firmware upgrades. However, when you upgrade firmware the ZeroTier package will be automatically reinstalled and started from `/config/data/firstboot/install-packages/`
+*Note: the service will start automatically on system boot.*
 
-:::
+```sh
+sudo systemctl status|start|stop zerotier-one.service
+```
+
+## Uninstall
+
+```sh
+sudo dpkg -r zerotier-one
+sudo rm -rf /config/data/firstboot/install-packages/zerotier-one.deb
+sudo rm -rf /config/zerotier-one
+```
 
 :::tip
 
