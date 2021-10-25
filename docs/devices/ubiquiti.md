@@ -22,7 +22,7 @@ Currently only the `EdgeRouter` line has been tested. Most devices have either a
 
 ```sh
 
-curl https://download.zerotier.com/dist/ubiquiti/zerotier-one_ubiquiti-latest.deb \
+curl https://download.zerotier.com/RELEASES/1.8.1/dist/ubiquiti/zerotier-one_1.8.1_mips.deb \
 --output /config/data/firstboot/install-packages/zerotier-one.deb
 
 ```
