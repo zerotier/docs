@@ -142,6 +142,8 @@ Your system firewall is likely blocking communication with the ZeroTier service.
 
 ## How do I Update Zerotier?
 
+When you update ZeroTier, your configuration stays. You don't need to re-join your networks.
+
 ### macOS and Windows
 
 Grab the latest version from the [download page](https://www.zerotier.com/download) and run the installer
