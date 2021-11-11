@@ -468,7 +468,7 @@ Central to make it easier to assign and search tags.
 | chr | <mask/name\> | Bitwise AND characteristic bits with mask, true if result is nonzero. |
 | framesize | <start[-end]\> | Ethernet frame size range (inclusive). |
 | random | <probability\> | Match randomly with probability 0.0 (0%) to 1.0 (100%). |
-| tdiff | <id\> <value\> | Difference between tags with this ID is less than or equal to the value. |
+| tdiff | <id\> <value\> | Difference between tags (absolute value) with this ID is less than or equal to the value. |
 | tand | <id\> <value\> | Tags ANDed together equal value. |
 | tor | <id\> <value\> | Tags ORed together equal value. |
 | txor | <id\> <value\> | Tags XORed together equal value. |
