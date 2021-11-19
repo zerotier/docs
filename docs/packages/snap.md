@@ -5,12 +5,12 @@ Snap Package
 
 ## Installation
 
-The official [ZeroTier Snap package](https://snapcraft.io/zerotier) supports `amd64`, `arm64`, `armhf`, `s390x` and `i386`. It's generally pretty easy to install:
+The official [ZeroTier Snap package](https://snapcraft.io/zerotier) supports `amd64`, `arm64`, `armhf`, `s390x` `ppc64el`, and `i386`. It's generally pretty easy to install:
 
 ```
 sudo snap install zerotier
-sudo zerotier.cli status
-sudo zerotier.cli join <nwid>
+sudo zerotier status
+sudo zerotier join <nwid>
 ```
 
 ## Channels
@@ -37,7 +37,7 @@ Try re-issuing the command with `sudo`. If that doesn't work try using the inter
 
 ```
 user@host$ sudo -i
-root@host# zerotier.cli status
+root@host# zerotier status
 root@host# exit
 user@host$
 ```
@@ -50,3 +50,7 @@ ERROR: ld.so: object '/usr/lib/arm-linux-gnueabihf/libarmmem-v7l.so' from \
 ```
 
 This can safely be ignored. This is unrelated to the ZeroTier snap package. See this [Snapcraft forum post](https://forum.snapcraft.io/t/ld-so-error-on-debian-on-raspberry-pi/13887) for more context.
+
+## Special Thanks
+
+Special thanks goes to the open source community for initially developing and maintaining this package.

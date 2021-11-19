@@ -108,4 +108,4 @@ Available commands:
 
 ## Upgrading ZeroTier
 
-To upgrade ZeroTier you will need to uninstall the current version of the package and install the desired version. If you wish to preserve your identity you should back up the `identity.secret` file located in `/var/lib/zerotier-one`.
+To upgrade ZeroTier you will need to uninstall the current version of the package and install the desired version. If you wish to preserve your identity you should back up the `identity.secret` file located in `/var/lib/zerotier-one` or `/share/CACHEDEV1_DATA/.qpkg/zerotier` before uninstalling.
