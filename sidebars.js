@@ -108,7 +108,7 @@ module.exports = {
     {
       type: "category",
       label: "Devices",
-      items: ["devices/synology", "devices/ubiquiti", "devices/qnap", "devices/asustor", "devices/freenas", "devices/western-digital"],
+      items: ["devices/synology", "devices/ubiquiti", "devices/qnap", "devices/asustor", "devices/freenas", "devices/western-digital", "devices/mikrotik"],
     },
     {
       type: "category",
