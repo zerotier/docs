@@ -103,7 +103,7 @@ module.exports = {
     {
       type: "category",
       label: "Self-Hosting",
-      items: ["self-hosting/network-controllers", "zeronsd/quickstart"],
+      items: ["self-hosting/introduction", "self-hosting/network-controllers", "zeronsd/quickstart"],
     },
     {
       type: "category",

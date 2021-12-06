@@ -1,0 +1,29 @@
+---
+title: Introduction
+---
+
+Self Hosting
+======
+There are 2 types of ZeroTier infrastructure: roots and controllers. If you're looking to "self host zerotier", read on. 
+
+
+## Network Controllers
+Controllers handle [Virtual Layer 2](../zerotier/manual.md#22vl2theethernetvirtualizationlayeraname2_2a). No traffic is handled by controllers. 
+
+ZeroTier Inc runs controllers at with a Web UI and API at [ZeroTier Central](https://my.zerotier.com).
+
+You can [self-host controllers](./network-controllers), but we don't currently offer the web UI for self-hosting. You'll have to use the json api. 
+
+The controller is open-source. Please check the [license](https://github.com/zerotier/ZeroTierOne/blob/master/LICENSE.txt). It's built in to the zerotier-one binary. 
+
+
+## Roots
+Roots handle [Virtual Layer 1](../zerotier/manual.md#211networktopologyandpeerdiscoveryaname2_1_1a). 
+ZeroTier Inc hosts the roots. 
+
+Introductions for peer to peer connections happen via the roots. If p2p connections can't be made and traffic is "relayed" through these roots.
+
+Remember: All traffic is end-to-end encrypted. The roots can't read anything that passes through them. 
+
+You can [host your own roots](../zerotier/moons) in addition to ours, but you can't not use ours' (unless your are a Very Large Enterprise Customer) and the mobile apps don't support custom roots. 
+
