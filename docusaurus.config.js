@@ -152,13 +152,6 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          exclude: [
-            // our doxygen generates a couple files that start with _
-            // '**/_*.{js,jsx,ts,tsx,md,mdx}',
-            '**/_*/**',
-            '**/*.test.{js,jsx,ts,tsx}',
-            '**/__tests__/**',
-          ],
           // Please change this to your repo.
           editUrl: "https://github.com/zerotier/docs",
           routeBasePath: "/",
