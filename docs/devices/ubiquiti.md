@@ -16,27 +16,62 @@ import TabItem from '@theme/TabItem';
 Ubiquiti
 =====
 
-## Download
+### Download
 
-Currently only the `EdgeRouter` line has been tested. Most devices have either a MIP64 or MIPS32 processor. The package below *should* work for both. Please report bugs or compatibility issues [here](https://github.com/zerotier/ZeroTierOne/issues).
+<Tabs
+  defaultValue="mips64"
+  groupId="install-instructions"
+  values={[
+    { label: "MIPS64", value: "mips64", },
+    { label: "ARM64", value: "arm64" },
+    { label: "ARM32", value: "arm32" },
+  ]}>
 
-```sh
+<TabItem value="mips64">
 
-curl https://download.zerotier.com/RELEASES/1.8.4/dist/ubiquiti/zerotier-one_1.8.4_mips.deb \
+```sh title="ER-4, ER-6P, ER-12, ER-12P, ERLite-3, ERPoe-5, ER-8, ERPro-8, EP-R8, USG, USG-Pro, USG-XG-8"
+
+curl https://download.zerotier.com/dist/ubiquiti/zerotier-one_mips64.deb \
 --output /config/data/firstboot/install-packages/zerotier-one.deb
 
 ```
 
+</TabItem>
+
+
+<TabItem value="arm64">
+
+```sh title="UniFi Dream Machine (all variants), UDM, UDM-Pro-SE, UXG-Pro, Cloud Key Gen2, UDR"
+
+curl https://download.zerotier.com/dist/ubiquiti/zerotier-one_arm64.deb \
+--output /config/data/firstboot/install-packages/zerotier-one.deb
+
+```
+
+</TabItem>
+
+<TabItem value="arm32">
+
+```sh title="EP-S16"
+
+curl https://download.zerotier.com/dist/ubiquiti/zerotier-one_arm32.deb \
+--output /config/data/firstboot/install-packages/zerotier-one.deb
+
+```
+
+</TabItem>
+
+</Tabs>
+
 *Note: The package must be placed and kept in `/config/data/firstboot/install-packages/` so that your device can automatically re-install ZeroTier upon firmware upgrade.*
 
-
-## Install
+### Install
 
 ```
 sudo dpkg -i /config/data/firstboot/install-packages/zerotier-one.deb
 ```
 
-## Starting and stopping
+### Starting and stopping
 
 *Note: the service will start automatically on system boot.*
 
@@ -44,7 +79,7 @@ sudo dpkg -i /config/data/firstboot/install-packages/zerotier-one.deb
 sudo systemctl status|start|stop zerotier-one.service
 ```
 
-## Uninstall
+### Uninstall
 
 ```sh
 sudo dpkg -r zerotier-one
@@ -53,6 +88,8 @@ sudo rm -rf /config/zerotier-one
 ```
 
 :::tip
+
+Please report bugs or compatibility issues [here](https://github.com/zerotier/ZeroTierOne/issues).
 
 More information about routing between physical and virtual ZeroTier networks can be found [here](https://zerotier.atlassian.net/wiki/spaces/SD/pages/224395274/Route+between+ZeroTier+and+Physical+Networks)
 
