@@ -54,7 +54,7 @@ curl https://download.zerotier.com/dist/ubiquiti/zerotier-one_arm64.deb \
 
 ```sh title="EP-S16"
 
-curl https://download.zerotier.com/dist/ubiquiti/zerotier-one_arm32.deb \
+curl https://download.zerotier.com/dist/ubiquiti/zerotier-one_armhf.deb \
 --output /config/data/firstboot/install-packages/zerotier-one.deb
 
 ```
