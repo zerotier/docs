@@ -19,7 +19,7 @@ Synology's DSM 7 doesn't allow third-party applications to run as root. Therefor
 
 The GUI for the Synology Docker package is unreliable at best so it is suggested that all operations performed on your container be done through the Docker CLI. If you choose to use the GUI you do so at your own peril.
 
-If your NAS does not support Docker you can still use the [older packages for DSM 6](http://download.zerotier.com/RELEASES/1.4.6/dist/synology/) or follow our [bridging tutorial](https://zerotier.atlassian.net/wiki/spaces/SD/pages/193134593/Bridge+your+ZeroTier+and+local+network+with+a+RaspberryPi).
+If your NAS does not support Docker you can still use the [older packages for DSM 6](http://download.zerotier.com/RELEASES/1.8.6/dist/synology/) or follow our [bridging tutorial](https://zerotier.atlassian.net/wiki/spaces/SD/pages/193134593/Bridge+your+ZeroTier+and+local+network+with+a+RaspberryPi).
 
 There are four steps that need to be performed only once:
 
