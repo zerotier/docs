@@ -6,6 +6,8 @@ title: SSO Beta
 SSO Beta
 =====
 
+
+## ZeroTier Central configuration
 ### Get access
 - Contact ZeroTier to enable SSO on your my.zerotier.com account.
 
@@ -41,3 +43,11 @@ You can do this from the wrench icon in the Members list.
 
 
 ![SSO-Member-Exclude](/img/sso-member-exclude.png)
+
+## Provider Specific Configuration Notes
+### Auth0 
+Please ensure the following fields are set on your Auth0 application config:
+- Application Type:  Native
+- Token Endpoint Authentication Method: None
+- Allowed Callback URL: http://localhost:9993/sso
+- Under Advanced Settings -> Grant Types, ensure Implicit, Authorization Code, and Refresh Token are selected.
