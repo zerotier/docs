@@ -39,6 +39,8 @@ Visit your SSO provider and use this callback URL:
 http://localhost:9993/sso
 ```
 
+Ensure the following scopes are allowed:  `openid`, `profile`, `email`, `offline_access`.
+
 
 
 ![SSO-Member-Exclude](/img/sso-member-exclude.png)
@@ -50,3 +52,9 @@ Please ensure the following fields are set on your Auth0 application config:
 - Token Endpoint Authentication Method: None
 - Allowed Callback URL: http://localhost:9993/sso
 - Under Advanced Settings -> Grant Types, ensure Implicit, Authorization Code, and Refresh Token are selected.
+
+### Google
+Google OAuth2/OIDC is not supported as Google does not support PKCE clients at this time.
+
+### OneIdentity
+OneIdentity may require manual whitelisting of the following scopes: `openid`, `profile`, `email`, `offline_access`.
