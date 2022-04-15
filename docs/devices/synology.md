@@ -13,17 +13,24 @@ custom_edit_url: null
 Synology NAS
 =====
 
-:::note DSM 7 Update
+:::tip DSM 6
+
+Synology's DSM 6 will enter EOL status sometime in 2023. ZeroTier will support the latest patched versions of DSM 6.2 until that point. If you are on DSM 6 you can skip all of the below steps and simply: [Download DSM 6 packages](http://download.zerotier.com/dist/synology/)
+
+:::
+
+:::note DSM 7
 
 Synology's DSM 7 doesn't allow third-party applications to run as root. Therefore, we now recommend using Docker to run ZeroTier. While this is somewhat inconvenient at first it is undeniably a safer way to run third-party applications on your NAS. Once set up this configuration will be persistent across reboots and DSM upgrades.
 
-The GUI for the Synology Docker package is unreliable at best so it is suggested that all operations performed on your container be done through the Docker CLI. If you choose to use the GUI you do so at your own peril.
+The GUI for the Synology Docker package is unreliable at best so it is suggested that all operations performed on your container be done through the Docker CLI. If you choose to use the GUI you do so at your own peril. If you have any issues or questions come join us over at [discuss.zerotier.com](https://discuss.zerotier.com) and we'll try to help out.
 
-If your NAS does not support Docker you can still use the [older packages for DSM 6](http://download.zerotier.com/RELEASES/1.8.6/dist/synology/) or follow our [bridging tutorial](https://zerotier.atlassian.net/wiki/spaces/SD/pages/193134593/Bridge+your+ZeroTier+and+local+network+with+a+RaspberryPi).
-
-There are four steps that need to be performed only once:
+If your NAS does not support Docker or if you wish to [downgrade to DSM 6](https://www.blackvoid.club/dsm-7-to-dsm-6-downgrade/
+) you can still use the [older DSM 6 packages](http://download.zerotier.com/dist/synology/) or follow our [bridging tutorial](https://zerotier.atlassian.net/wiki/spaces/SD/pages/193134593/Bridge+your+ZeroTier+and+local+network+with+a+RaspberryPi).
 
 :::
+
+To install via Docker there are four steps that need to be performed only once:
 
  - [Enable SSH access on your NAS](https://kb.synology.com/en-global/DSM/tutorial/How_to_login_to_DSM_with_root_permission_via_SSH_Telnet)
  - [Create a persistent TUN](#create-a-persistent-tun)
