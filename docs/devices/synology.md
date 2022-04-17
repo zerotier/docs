@@ -15,7 +15,7 @@ Synology NAS
 
 :::tip DSM 6
 
-Synology's DSM 6 will enter EOL status sometime in 2023. ZeroTier will support the latest patched versions of DSM 6.2 until that point. If you are on DSM 6 you can skip all of the below steps and simply: [Download DSM 6 packages](http://download.zerotier.com/dist/synology/)
+Synology's DSM 6 will enter EOL status sometime in 2023. ZeroTier will support the latest patched versions of DSM 6.2 until that point. If you are on DSM 6 you can skip all of the below steps and simply: [Download DSM 6 packages](http://download.zerotier.com/dist/synology/). Please note that the latest packages will *delete* your existing identities upon install. Back up these identities if you wish to preserve them.
 
 :::
 
