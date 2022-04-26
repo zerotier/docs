@@ -241,7 +241,7 @@
         }
       }
     },
-    "/controller/network/{networkID}/member{nodeID}": {
+    "/controller/network/{networkID}/member/{nodeID}": {
       "get": {
         "tags": ["controller"],
         "summary": "Get Network Member Details by ID.",
