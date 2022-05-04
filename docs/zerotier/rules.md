@@ -482,6 +482,8 @@ Match conditions may be joined by **and** (default if none specified) or
 Match conditions are evaluated from left to right; `a and b or c` is a different rule than `b or c and a`.
 The rules language doesn't support parens, but for example purposes the above would evaluate as: `(a and b) or c` vs `(b or c) and a`
 
+Traffic won't be `tee`d if it is blocked by a `break` or `drop`.
+
 For convenience the following symbols can be used when matching on
 certain packet attributes:
 
