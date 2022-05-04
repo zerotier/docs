@@ -8,7 +8,7 @@ module.exports = {
   baseUrl: "/",
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
-  favicon: "img/favicon.ico",
+  favicon: "img/favicon-32x32.png",
   organizationName: "zerotier", // Usually your GitHub org/user name.
   projectName: "docs", // Usually your repo name.
   plugins: [path.resolve(__dirname, "matomo-plugin")],
