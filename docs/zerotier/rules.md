@@ -491,7 +491,8 @@ certain packet attributes:
     **egp**, **igp**, **udp**, **rdp**, **esp**, **ah**, **icmp6** (for
     IPv6), **l2tp**, **sctp**, and **udplite**.
 -   Ethernet frame types: **ipv4**, **arp**, **ipv6**, **wol** (wake on
-    LAN), **rarp**, **atalk**, **aarp**, **ipx*a****, **ipx*****b**.
+    LAN), **rarp**, **atalk**, **aarp**, **ipx_a**, **ipx_b**.
+
 -   Packet characteristics (bit masks for **chr**):
     -   **inbound**: packet is being filtered on the receiving side (use
         `not inbound` for sending side)
