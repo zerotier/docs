@@ -12,7 +12,7 @@ SSO Beta
 - Contact ZeroTier to enable SSO on your my.zerotier.com account.
 
 ### Update clients
-- Download and install ZeroTier 1.8.7 on clients that will use SSO.
+- Download and install ZeroTier 1.8.10 or greater on clients that will use SSO.
 
     https://www.zerotier.com/download/
 
@@ -58,3 +58,21 @@ Google OAuth2/OIDC is not supported as Google does not support PKCE clients at t
 
 ### OneIdentity
 OneIdentity may require manual whitelisting of the following scopes: `openid`, `profile`, `email`, `offline_access`.
+
+
+## Customizing the SSO Completion Page
+
+If you wish, you can customize the final view of the sso login process. 
+Create the file `$ZEROTIER_HOME/sso-auth.template.html`.
+
+You may customize the page to look however you wish. At this time there
+are only two template values set by zerotier:
+- networkId
+- messageText
+
+Templates must be valid HTML, and the template values must be placed inside ``{{ ...  }}` blocks like so:
+
+    {{ networkId }}
+    {{ messageText }}
+
+More info and instructions to come.
