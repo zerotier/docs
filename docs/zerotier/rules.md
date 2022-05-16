@@ -521,7 +521,7 @@ First, add this at or near the bottom of your rules:
 
     # Block TCP SYN,!ACK to prevent new non-whitelisted TCP connections from being initiated
     # unless previously whitelisted or allowed by a capability.
-    break chr tcp_syn and not tcp_ack;
+    break chr tcp_syn and not chr tcp_ack;
 
 Then above the SYN,!ACK break (or in a capability) add rules to allow
 TCP packets with permitted destination ports:
