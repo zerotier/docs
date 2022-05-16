@@ -60,19 +60,28 @@ Google OAuth2/OIDC is not supported as Google does not support PKCE clients at t
 OneIdentity may require manual whitelisting of the following scopes: `openid`, `profile`, `email`, `offline_access`.
 
 
-## Customizing the SSO Completion Page
+## Customizing the Final SSO Flow Page (1.10.0+)
 
 If you wish, you can customize the final view of the sso login process. 
-Create the file `$ZEROTIER_HOME/sso-auth.template.html`.
+Create the file `$ZEROTIER_HOME/sso-auth.template.html`. 
+
+Note: Any CSS or images must be hosted externaly, or placed within the single HTML page itself.
 
 You may customize the page to look however you wish. At this time there
 are only two template values set by zerotier:
-- networkId
-- messageText
+- `networkId`
+- `messageText`
 
 Templates must be valid HTML, and the template values must be placed inside ``{{ ...  }}` blocks like so:
 
     {{ networkId }}
     {{ messageText }}
 
-More info and instructions to come.
+You may react to errors via the `isError` variable:
+
+    {% if isError %}
+    <span style="color: red;">{{ messageText }}</span>
+    {% else %}
+    {{ messageText }}
+    {% endif %}
+
