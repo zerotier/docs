@@ -68,8 +68,7 @@ layer, the “virtual wire,” while VL2 is an emulated Ethernet layer that
 provides operating systems and apps with a familiar communication
 medium.
 
-VL1: The ZeroTier Peer to Peer Network {#21vl1thezerotierpeertopeernetworkaname2_1a}
---------------------------
+### VL1: The ZeroTier Peer to Peer Network {#21vl1thezerotierpeertopeernetworkaname2_1a}
 
 A global data center requires a global wire closet.
 
