@@ -21,9 +21,9 @@ Synology's DSM 6 will enter EOL status sometime in 2023. ZeroTier will support t
 
 :::note DSM 7
 
-Synology's DSM 7 doesn't allow third-party applications to run as root. Therefore, we now recommend using Docker to run ZeroTier. While this is somewhat inconvenient at first it is undeniably a safer way to run third-party applications on your NAS. Once set up this configuration will be persistent across reboots and DSM upgrades.
+Synology's DSM 7 doesn't allow third-party applications to run as root. Therefore, we now recommend using Docker to run ZeroTier. While this is somewhat inconvenient at first it is undeniably a safer way to run third-party applications on your NAS. This configuration will be persistent across reboots and DSM upgrades.
 
-The GUI for the Synology Docker package is unreliable at best so it is suggested that all operations performed on your container be done through the Docker CLI. If you choose to use the GUI you do so at your own peril. If you have any issues or questions come join us over at [discuss.zerotier.com](https://discuss.zerotier.com) and we'll try to help out.
+The GUI for the Synology Docker package is unreliable at best so it is suggested that all operations performed on your container be done through the Docker CLI. If you choose to use the GUI you do so at your own peril. If you have any issues or questions please [create a ticket](https://github.com/zerotier/ZeroTierOne/issues) and we'll try to help out.
 
 If your NAS does not support Docker or if you wish to [downgrade to DSM 6](https://www.blackvoid.club/dsm-7-to-dsm-6-downgrade/
 ) you can still use the [older DSM 6 packages](http://download.zerotier.com/dist/synology/) or follow our [bridging tutorial](https://zerotier.atlassian.net/wiki/spaces/SD/pages/193134593/Bridge+your+ZeroTier+and+local+network+with+a+RaspberryPi).
@@ -96,7 +96,7 @@ In the next step we bind mount to the host's `/var/lib/zerotier-one` created abo
 
 :::
 
-Make Docker container called `zt` (Repo: [zerotier/zerotier-synology](https://github.com/zerotier/zerotier-synology))
+Make Docker container called `zt` (Repo: [zerotier/zerotier-synology](https://hub.docker.com/repository/docker/zerotier/zerotier-synology))
 
 ```sh
 docker run -d           \
