@@ -9,6 +9,12 @@ SSO Configuration
 
 ## ZeroTier Central configuration
 
+:::note
+
+SSO is currently only supported on desktop operating systems such as macOS and Windows. Support for iOS and Android, and better support for authenticating via the command line is still to come.
+
+:::
+
 ### Update clients
 - Download and install ZeroTier 1.10.0 or greater on clients that will use SSO.
 
