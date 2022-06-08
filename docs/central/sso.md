@@ -30,29 +30,20 @@ If you enable this on an existing network, you may accidentally block existing u
 This is useful for routers, servers, embedded devices, etc…
 You can do this from the wrench icon in the Members list.
 
-
-## SSO provider configuration
-Visit your SSO provider and use this callback URL:
-```
-http://localhost:9993/sso
-```
-
-Ensure the following scopes are allowed:  `openid`, `profile`, `email`, `offline_access`.
-
-
-
 ![SSO-Member-Exclude](/img/sso-member-exclude.png)
 
-## Provider Specific Configuration Notes
+## SSO provider configuration
 
-### General SSO Provider Requirements
-
-* Must support [PKCE](https://oauth.net/2/pkce/)
+* SSO Provider **must** support [PKCE](https://oauth.net/2/pkce/)
 * Requires the following scopes:
-  * openid
-  * profile
-  * email
-  * offline_access
+  * `openid`
+  * `profile`
+  * `email`
+  * `offline_access`
+* Configure the callback URL to `http://localhost:9993/sso`
+
+
+## Provider Specific Configuration Notes
 
 ### Auth0 
 Please ensure the following fields are set on your Auth0 application config:
