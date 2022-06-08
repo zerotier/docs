@@ -31,6 +31,13 @@ module.exports = {
       ],
     },
     {
+      "type": "category",
+      "label": "my.zerotier.com",
+      "items": [
+        "central/sso",
+      ],
+    },
+    {
       type: "category",
       label: "SDK",
       items: ["sockets/tutorial.html"],
