@@ -999,7 +999,8 @@
             "type": "integer",
             "example": 123,
             "readOnly": true,
-            "nullable": true
+            "nullable": true,
+            "description": "Note: May be 0 on endpoints returning lists of Networks"
           },
           "authorizedMemberCount": {
             "type": "integer",
@@ -1197,7 +1198,7 @@
             "type": "integer",
             "format": "int64",
             "readOnly": true,
-            "description": "Last seen time of the member",
+            "description": "Last seen time of the member.  Note: This data is considered ephemeral and may be reset to 0 at any time without warning.",
             "example": 1612993673254,
             "nullable": true
           },
