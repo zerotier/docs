@@ -1205,7 +1205,7 @@
           "physicalAddress": {
             "type": "string",
             "readOnly": true,
-            "description": "IP address the member last spoke to the controller via",
+            "description": "IP address the member last spoke to the controller via.  Note: This data is considered ephemeral and may be reset to 0 at any time without warning.",
             "example": "8.8.8.8",
             "nullable": true
           },
