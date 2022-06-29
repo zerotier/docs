@@ -61,6 +61,82 @@ Please ensure the following fields are set on your Auth0 application config:
 ### OneIdentity
 OneIdentity may require manual whitelisting of the following scopes: `openid`, `profile`, `email`, `offline_access`.
 
+### Authelia
+
+[Authelia](https://www.authelia.com/) is a self hosted SSO solution. ZeroTier uses PKCE, so the field `secret` must be an empty string and `public` must be true.
+    
+:::note 
+
+Use of authelia requires ZeroTierOne version 1.10.1 or greater.  There is an incompatibility between the two in the 1.10.0 release.
+
+:::
+
+Example client configuration:
+
+    clients:
+        ## The ID is the OpenID Connect ClientID which is used to link an application to a configuration.
+      - id: authelia-sso-client
+
+        ## The description to show to users when they end up on the consent screen. Defaults to the ID above.
+        description: zerotier
+
+        ## The client secret is a shared secret between Authelia and the consumer of this client.
+        secret: ""
+
+        ## Sector Identifiers are occasionally used to generate pairwise subject identifiers. In most cases this is not
+        ## necessary. Read the documentation for more information.
+        ## The subject identifier must be the host component of a URL, which is a domain name with an optional port.
+        # sector_identifier: example.com
+
+        ## Sets the client to public. This should typically not be set, please see the documentation for usage.
+        public: true
+
+        ## The policy to require for this client; one_factor or two_factor.
+        authorization_policy: one_factor
+
+        ## By default users cannot remember pre-configured consents. Setting this value to a period of time using a
+        ## duration notation will enable users to remember consent for this client. The time configured is the amount
+        ## of time the pre-configured consent is valid for granting new authorizations to the user.
+        # pre_configured_consent_duration:
+
+        ## Audience this client is allowed to request.
+        audience: [
+          "authelia-test-client"
+        ]
+
+        ## Scopes this client is allowed to request.
+        scopes:
+          - openid
+          - groups
+          - email
+          - profile
+          - offline_access
+
+        ## Redirect URI's specifies a list of valid case-sensitive callbacks for this client.
+        redirect_uris:
+          - http://localhost:9993/sso
+
+        ## Grant Types configures which grants this client can obtain.
+        ## It's not recommended to define this unless you know what you're doing.
+        grant_types:
+          - refresh_token
+          - authorization_code
+
+        ## Response Types configures which responses this client can be sent.
+        ## It's not recommended to define this unless you know what you're doing.
+        response_types:
+          - code
+          - id_token
+
+        ## Response Modes configures which response modes this client supports.
+        response_modes:
+          - form_post
+          - query
+          - fragment
+
+        ## The algorithm used to sign userinfo endpoint responses for this client, either none or RS256.
+        userinfo_signing_algorithm: none
+
 ### Google Workspace
 Google OAuth2/OIDC is not supported as Google does not support PKCE clients at this time.
 
