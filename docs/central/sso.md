@@ -58,16 +58,13 @@ Please ensure the following fields are set on your Auth0 application config:
 - Allowed Callback URL: http://localhost:9993/sso
 - Under Advanced Settings -> Grant Types, ensure Implicit, Authorization Code, and Refresh Token are selected.
 
-### OneIdentity
-OneIdentity may require manual whitelisting of the following scopes: `openid`, `profile`, `email`, `offline_access`.
-
 ### Authelia
 
 [Authelia](https://www.authelia.com/) is a self hosted SSO solution. ZeroTier uses PKCE, so the field `secret` must be an empty string and `public` must be true.
     
 :::note 
 
-Use of authelia requires ZeroTierOne version 1.10.1 or greater.  There is an incompatibility between the two in the 1.10.0 release.
+Use of Authelia requires ZeroTierOne version 1.10.1 or greater.  There is an incompatibility between the two in the 1.10.0 release.
 
 :::
 
@@ -139,6 +136,9 @@ Example client configuration:
 
 ### Google Workspace
 Google OAuth2/OIDC is not supported as Google does not support PKCE clients at this time.
+
+### OneIdentity
+OneIdentity may require manual whitelisting of the following scopes: `openid`, `profile`, `email`, `offline_access`.
 
 ## Customizing the Final SSO Flow Page
 
