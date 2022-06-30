@@ -219,6 +219,9 @@ dig +short @172.22.245.70 example.com
 OSX uses `dns-sd` for DNS resolution. Unfortunately, `nslookup`,`host`, and `dig` are broken on OSX.  
 `ping` works.
 
+
+`dscacheutil -q host -a name host` and `dns-sd -G v4v6 host` work.
+
 ```
 user@osx:~$ ping server.beyond.corp
 PING server.beyond.corp (172.22.245.70): 56 data bytes
