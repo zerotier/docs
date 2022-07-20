@@ -17,7 +17,7 @@ Each network can have it's own [Network Flow Rules](/zerotier/rules). "Network A
 
 ### Summary
 
-- Create a ZeroTier network for each role: _Red, Green, and Blue. Or: Sales, HR, IT. Or: Dev, Prod, Staging_
+- Create a ZeroTier network for each role: _Red, Green, and Blue. Or: Sales, HR, IT. Or: Dev, Prod, Staging_. Or: _Customer A_, _Customer B_
 - Join shared resources to multiple networks
 - Join users to the networks they need access to
 
@@ -40,9 +40,12 @@ Tag network members with roles.
 -  Rules not integrated with OIDC yet
 
 
-### Example
+### Summary
 
-Simplest possible [ZeroTier Flow Rules](/zerotier/rules/) example 
+- Create a network
+- Use the Flow Rules to segment the network
+
+Here is the simplest possible [ZeroTier Flow Rules](/zerotier/rules/) example.
 More complex rules can be mixed in with these. See the docs or contact us for help.
 
 Replace the default rules with:
