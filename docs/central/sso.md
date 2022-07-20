@@ -137,6 +137,12 @@ Example client configuration:
 ### Google Workspace
 Google OAuth2/OIDC is not supported as Google does not support PKCE clients at this time.
 
+### Okta
+- Application Type:  Native
+- Token Endpoint Authentication Method: None
+- Allowed Callback URL: http://localhost:9993/sso
+- Under Advanced Settings -> Grant Types, ensure Implicit, Authorization Code, and Refresh Token are selected.
+
 ### OneIdentity
 OneIdentity may require manual whitelisting of the following scopes: `openid`, `profile`, `email`, `offline_access`.
 
