@@ -134,6 +134,20 @@ Example client configuration:
         ## The algorithm used to sign userinfo endpoint responses for this client, either none or RS256.
         userinfo_signing_algorithm: none
 
+### Azure AD
+
+Navigate to your directory in the Azure portal, and select "App Registrations" in the Manage column.
+
+Click "New Registration"
+
+Set the Name of the application. e.g. "ZeroTier Central SSO"
+
+Under Redirect URI:
+
+Platform: Public client/native (mobile & desktop)
+
+Set the Redirect URI to `http://localhost:9993/sso`
+
 ### Google Workspace
 Google OAuth2/OIDC is not supported as Google does not support PKCE clients at this time.
 
