@@ -47,7 +47,7 @@ footprint, and memory use very low to support small embedded devices.
 The second and more fundamental reason is that distributed stateful
 filtering requires distributed state synchronization. This would have
 added a large volume of additional sync traffic as well as introducing
-[inescapable](https://en.wikipedia.org/wiki/CAP_theorem)new sources of
+[inescapable](https://en.wikipedia.org/wiki/CAP_theorem) new sources of
 instability and failure and a lot of surface area for security
 vulnerabilities.
 
