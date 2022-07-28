@@ -261,7 +261,7 @@ spinning up every cloud the tutorial supports.
 ```bash
 # ZeroTier Central
 export ZEROTIER_CENTRAL_TOKEN="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-export ZEROTIER_CENTRAL_URL="https://my.zerotier.com/api"
+export ZEROTIER_CENTRAL_URL="https://api.zerotier.com/api"
 
 # Digital Ocean
 export DIGITALOCEAN_TOKEN="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
