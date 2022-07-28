@@ -938,7 +938,7 @@
     "securitySchemes": {
       "bearerAuth": {
         "type": "http",
-        "scheme": "bearer"
+        "scheme": "token"
       }
     },
     "responses": {
