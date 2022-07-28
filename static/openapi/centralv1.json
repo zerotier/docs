@@ -936,7 +936,7 @@
   },
   "components": {
     "securitySchemes": {
-      "bearerAuth": {
+      "tokenAuth": {
         "type": "http",
         "scheme": "token"
       }
