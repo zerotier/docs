@@ -158,7 +158,7 @@
         }
       }
     },
-    "/controller/network/{controllerID}______": {
+    "/controller/network/{controllerID}": {
       "post": {
         "tags": ["controller"],
         "summary": "Generate Random Network ID.",
