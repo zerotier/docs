@@ -10,7 +10,7 @@ MikroTik maintains a [ZeroTier package](https://help.mikrotik.com/docs/display/R
 
 :::note
 
-If you're an enterprise-sized entity looking to integrate MikroTik + ZeroTier we'd recommend getting some guidance from [IPArchitects](https://iparchitechs.com/ecosystem/mikrotik-network-consulting) who are very familiar with the performance characteristics of various models and can help design a solution for you.
+If you're an enterprise-sized entity looking to integrate MikroTik + ZeroTier we'd recommend getting some guidance from [IP ArchiTechs](https://iparchitechs.com/ecosystem/mikrotik-network-consulting) who are very familiar with the performance characteristics of various models and can help design a solution for you.
 :::
 
 ### Performance
