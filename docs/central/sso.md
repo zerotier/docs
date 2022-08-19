@@ -149,7 +149,27 @@ Platform: Public client/native (mobile & desktop)
 Set the Redirect URI to `http://localhost:9993/sso`
 
 ### Google Workspace
-Google OAuth2/OIDC is not supported as Google does not support PKCE clients at this time.
+Google OAuth2/OIDC is not supported as Google does not support PKCE clients at this time. You can, however, use [Keycloak as a SAML Identity Broker](http://localhost:3000/central/sso#keycloak-as-a-saml-identity-broker) with Google Workspace.
+
+### Keycloak 
+
+Log into your Keycloak administration console, go to the Client configuration and create a new client. Configuration is fairly straightforward, with the following requirements:
+
+- Client Protocol: openid-conect
+- Access Type: public
+- Standard Flow Enabled: ON
+- Root URL: https://my.zerotier.com
+- Valid Redirect URLS
+  - https://my.zerotier.com/*
+  - http://localhost/sso
+- Admin URL: https://my.zerotier.com
+- Web Origins: *
+
+See [here](https://www.keycloak.org/docs/latest/server_admin/index.html#assembly-managing-clients_server_administration_guide) for full documentation for configuring OpenID Connect clients with Keycloak.
+
+#### Keycloak as a SAML Identity Broker
+
+If you have a SAML provider, but not an OpenID Connect provider, [Keycloak](https://www.keycloak.org) can also be used to bridge the gap. On your keycloak Admin page, go to Identity Providers. From the dropdown, select `SAML v2.0` and create the connection to your SAML provider. Combined with the general Keycloak OIDC client settings above, you now have an OIDC server that authenticates against your SAML provider.
 
 ### Okta
 - Application Type:  Native
