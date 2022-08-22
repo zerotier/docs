@@ -12,7 +12,7 @@ Controllers handle [Virtual Layer 2](../zerotier/manual.md#22vl2theethernetvirtu
 
 ZeroTier Inc runs controllers with a web UI and API at [ZeroTier Central](https://my.zerotier.com).
 
-You can [self-host controllers](./network-controllers), but we don't currently offer the web UI for self-hosting. You'll have to use the json api. 
+You can [self-host controllers](/self-hosting/network-controllers), but we don't currently offer the web UI for self-hosting. You'll have to use the json api.
 
 The controller is open-source. Please check the [license](https://github.com/zerotier/ZeroTierOne/blob/master/LICENSE.txt). It's built in to the zerotier-one binary. 
 
@@ -25,7 +25,7 @@ Setup for peer to peer connections happen via the roots. If p2p connections can'
 
 Remember: All traffic is end-to-end encrypted. The roots can't read anything that passes through them. 
 
-You can [host your own roots](../zerotier/moons) (previously called "moons") in addition to ZeroTier's, but we can't provide support for removing ZeroTier's roots (unless you are a large enterprise customer).
+You can [host your own roots](/zerotier/moons) (previously called "moons") in addition to ZeroTier's, but we can't provide support for removing ZeroTier's roots (unless you are a large enterprise customer).
 The mobile apps don't support custom roots.
 
 If you are using a custom root setup, your nodes won't be able to find standard nodes. If you want to add additional roots and still talk to standard nodes, see [moons](/zerotier/moons).
