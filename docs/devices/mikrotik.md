@@ -15,5 +15,4 @@ If you're an enterprise-sized entity looking to integrate MikroTik + ZeroTier we
 
 ### Performance
 
-MikroTik's hardware lineup is a mixture of `ARM32`, `ARM64`, `MIPS` and `TILE` architectures. Currently only ARM is supported and the performance of ZeroTier on their `ARM64` models is vastly superior to that of their `ARM32` models.
-
+For best performance it is recommended that you choose an `ARM64` device. `ARM32` devices will work but with significantly reduced performance. Currently no `MIPS` ZeroTier package exists for MikroTik devices.
