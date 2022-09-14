@@ -22,7 +22,7 @@ SSO is currently only supported on desktop operating systems such as macOS and W
     
 
 ### Configure SSO in ZeroTier Central 
-Visit https://my-dev.zerotier.com/account and complete the SSO configuration toward the bottom of the page. You will need your sso provider's Isssuer URL as well as a Client ID.
+Visit https://my.zerotier.com/account and complete the SSO configuration toward the bottom of the page. You will need your sso provider's Isssuer URL as well as a Client ID.
 
 ![SSO-Account-Setup](/img/sso-account-setup.png)
 
