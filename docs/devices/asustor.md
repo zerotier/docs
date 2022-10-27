@@ -15,7 +15,11 @@ ASUSTOR NAS
 
 ### Install ZeroTier
 
-Download the [latest ZeroTier package](http://download.zerotier.com/dist/asustor) and then manually install:
+:::info Download
+Latest ZeroTier package: http://download.zerotier.com/dist/asustor
+:::
+
+Manually install:
 
  - `App Central` -> `Management (bottom left)` -> `Manual Install`.
 
