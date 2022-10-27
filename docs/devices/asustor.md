@@ -13,21 +13,25 @@ custom_edit_url: null
 ASUSTOR NAS
 =====
 
-## Install ZeroTier
+### Install ZeroTier
 
-Download the [latest ZeroTier package](http://download.zerotier.com/dist/asustor) and then manually install via: `App Central` -> `Management (bottom left)` -> `Manual Install (top)`. 
+Download the [latest ZeroTier package](http://download.zerotier.com/dist/asustor) and then manually install:
 
-## Enable SSH
+ - `App Central` -> `Management (bottom left)` -> `Manual Install`.
 
-If you've already enabled SSH access on your NAS, then log into a shell:
+### Enable SSH
+
+Enable remote access via SSH:
+
+ - `Services` -> `Terminal`
 
 ```sh
 ssh admin@local-ip
 ```
 
-## Usage
+### ZeroTier CLI
 
-There is no GUI for the ZeroTier package, only a CLI. Be sure to run each command as root using `sudo`:
+There is no GUI for NAS packages, only a CLI:
 
 ```
 Usage: zerotier-cli [-switches] <command/path> [<args>]
@@ -53,6 +57,6 @@ Available commands:
 
 ```
 
-## Upgrading ZeroTier
+### Upgrading ZeroTier
 
 To upgrade ZeroTier you will need to uninstall the current version of the package and install the desired version. If you wish to preserve your identity you should back up the `identity.secret` file located in `/var/lib/zerotier-one`.
