@@ -13,7 +13,10 @@ node('ubuntu-2204') {
         def region = 'us-central1'
         def project = 'zerotier-central'
 
-        sh("make docker DOCKER_TAG=${env.BUILD_TAG}")
+        sh """
+        export NODE_OPTIONS=--openssl-legacy-provider
+        make docker DOCKER_TAG=${env.BUILD_TAG}
+        """
         if ("${env.BRANCH_NAME}" == "master") {
             sh("docker push registry.zerotier.com/zerotier/docs.zerotier.com:${env.BUILD_TAG}")
             sh("gcloud --project ${project} container clusters get-credentials ${cluster} --region ${region}")
