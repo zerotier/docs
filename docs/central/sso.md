@@ -58,6 +58,14 @@ Please ensure the following fields are set on your Auth0 application config:
 - Allowed Callback URL: http://localhost:9993/sso
 - Under Advanced Settings -> Grant Types, ensure Implicit, Authorization Code, and Refresh Token are selected.
 
+::: note
+
+The OIDC spec is picky about the Issuer URL you enter.  It must match what the server configuration metadata endpoint returns. 
+
+In the case of Auth0 specifically, Your Issuer URL *MUST* end with a `/`.  For example, in Auth0's application configuration, show's just the fully qualified domain name.  What must be entered in the Issuer field in ZeroTier Central is: `https://your-domain-id.auth0.com/`
+
+:::
+
 ### Authelia
 
 [Authelia](https://www.authelia.com/) is a self hosted SSO solution. ZeroTier uses PKCE, so the field `secret` must be an empty string and `public` must be true.

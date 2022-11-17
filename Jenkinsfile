@@ -1,11 +1,11 @@
 def gitHash = null
-node('master') {
+node('main') {
     def scmVars = checkout scm
     gitHash = scmVars.GIT_COMMIT.substring(0,8)
     def changelog = getChangeLog currentBuild
     mattermostSend "Building ${env.JOB_NAME} #${env.BUILD_NUMBER} \n Change Log: \n ${changelog}"
 }
-node('ubuntu-2004') {
+node('ubuntu-2204') {
     properties([disableConcurrentBuilds()])
     checkout scm
     try {
