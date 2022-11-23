@@ -16,7 +16,13 @@ steps:
   commands:
   - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin
     084037375216.dkr.ecr.us-east-2.amazonaws.com
+  - echo $DOCKER_PASSWORD | docker login --username $DOCKER_LOGIN --password-stdin
   - make docker
+  environment:
+    DOCKER_LOGIN:
+      from_secret: docker-registry-login
+    DOCKER_PASSWORD:
+      from_secret: docker-registry-password
 - name: notify-mattermost
   pull: always
   image: 084037375216.dkr.ecr.us-east-2.amazonaws.com/mattermost-notify
