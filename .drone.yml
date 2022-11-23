@@ -17,7 +17,7 @@ steps:
   commands:
   - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin
     084037375216.dkr.ecr.us-east-2.amazonaws.com
-  - docker login --username ${DOCKER_LOGIN} --password ${DOCKER_PASSWORD} registry.zerotier.com
+  - docker login --username $${DOCKER_LOGIN} --password $${DOCKER_PASSWORD} registry.zerotier.com
   - make docker
   - docker push registry.zerotier.com/zerotier/docs.zerotier.com:drone-${DRONE_BUILD_NUMBER}
   environment:
