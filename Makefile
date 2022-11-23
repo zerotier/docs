@@ -5,10 +5,6 @@ DEMO_DOCKERFILE=Dockerfile.demo
 DEMO_IMAGE=docs:demo
 
 
-TIMESTAMP=$(shell date +"%Y%m%d%H%M")
-
-DOCKER_TAG=$(TIMESTAMP)
-
 buildx:
 	@echo "docker buildx create"
 	# docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
@@ -22,7 +18,7 @@ all:
 	NODE_OPTIONS=--openssl-legacy-provider yarn build
 
 docker: buildx all
-	docker build -t registry.zerotier.com/zerotier/docs.zerotier.com:$(DOCKER_TAG) .
+	docker build -t registry.zerotier.com/zerotier/docs.zerotier.com:drone-$(DRONE_BUILD_NUMBER) .
 
 clean:
 	rm -rf docs/autogen/*

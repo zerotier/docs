@@ -18,6 +18,7 @@ steps:
     084037375216.dkr.ecr.us-east-2.amazonaws.com
   - echo $DOCKER_PASSWORD | docker login --username $DOCKER_LOGIN --password-stdin registry.zerotier.com
   - make docker
+  - docker push registry.zerotier.com/zerotier/docs.zerotier.com:drone-$DRONE_BUILD_NUMBER
   environment:
     DOCKER_LOGIN:
       from_secret: docker-registry-login
