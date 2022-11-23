@@ -10,6 +10,12 @@ platform:
 clone:
   depth: 1
 
+environment:
+  DOCKER_LOGIN:
+    from_secret: docker-registry-login
+  DOCKER_PASSWORD:
+    from_secret: docker-registry-password
+
 steps:
 - name: build docs.zerotier.com
   image: 084037375216.dkr.ecr.us-east-2.amazonaws.com/central-builder
@@ -19,11 +25,6 @@ steps:
   - echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_LOGIN} --password-stdin registry.zerotier.com
   - make docker
   - docker push registry.zerotier.com/zerotier/docs.zerotier.com:drone-${DRONE_BUILD_NUMBER}
-  environment:
-    DOCKER_LOGIN:
-      from_secret: docker-registry-login
-    DOCKER_PASSWORD:
-      from_secret: docker-registry-password
 - name: notify-mattermost
   pull: always
   image: 084037375216.dkr.ecr.us-east-2.amazonaws.com/mattermost-notify
