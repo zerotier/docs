@@ -12,7 +12,7 @@ clone:
 
 
 steps:
-- name: build docs.zerotier.com
+- name: build
   image: 084037375216.dkr.ecr.us-east-2.amazonaws.com/central-builder
   commands:
   - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 084037375216.dkr.ecr.us-east-2.amazonaws.com
@@ -25,7 +25,18 @@ steps:
       from_secret: docker-registry-login
     DOCKER_PASSWORD:
       from_secret: docker-registry-password
-
+- name: deploy
+  image: 084037375216.dkr.ecr.us-east-2.amazonaws.com/central-builder
+  depends_on:
+  - build
+  commands:
+  - echo ${GCP_CREDENTIALS} > /tmp/gcp.json
+  # - ggloud auth activate-service-account drone-ci@zerotier-central.iam.gserviceaccount.com --key-file /tmp/gcp.json --project zerotier-central
+  # - gcloud --project zerotier-central container clusters get-credentials ztc-controller-us-central --region us-central1
+  # - kubectl set image deployment docs-zerotier-com docs-zerotier-com=registry.zerotier.com/zerotier/docs.zerotier.com:drone-${DRONE_BUILD_NUMBER}
+  environment:
+    GCP_CREDENTIALS:
+      from_secret: gcp-k8s-creds
 - name: notify-mattermost
   pull: always
   image: 084037375216.dkr.ecr.us-east-2.amazonaws.com/mattermost-notify
