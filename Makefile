@@ -19,7 +19,7 @@ buildx:
 all:
 	yarn install
 	./build.sh all
-	yarn build
+	NODE_OPTIONS=--optenssl-legacy-provider yarn build
 
 docker: buildx all
 	docker build -t registry.zerotier.com/zerotier/docs.zerotier.com:$(DOCKER_TAG) .
