@@ -9,12 +9,19 @@ TIMESTAMP=$(shell date +"%Y%m%d%H%M")
 
 DOCKER_TAG=$(TIMESTAMP)
 
+buildx:
+	@echo "docker buildx create"
+	# docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+	docker run --privileged --rm tonistiigi/binfmt --install all
+	@echo docker buildx create --name multiarch --driver docker-container --use
+	@echo docker buildx inspect --bootstrap
+
 all:
 	yarn install
 	./build.sh all
 	yarn build
 
-docker: all
+docker: buildx all
 	docker build -t registry.zerotier.com/zerotier/docs.zerotier.com:$(DOCKER_TAG) .
 
 clean:

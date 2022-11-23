@@ -1,0 +1,33 @@
+---
+kind: pipeline
+type: docker
+name: docs.zerotier.com
+
+platform:
+  arch: amd64
+  os: linux
+
+clone:
+  depth: 1
+
+steps:
+- name: build docs.zerotier.com
+  image: 084037375216.dkr.ecr.us-east-2.amazonaws.com/central-builder
+  commands:
+  - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin
+    084037375216.dkr.ecr.us-east-2.amazonaws.com
+  - make docker
+- name: notify-mattermost
+  pull: always
+  image: 084037375216.dkr.ecr.us-east-2.amazonaws.com/mattermost-notify
+  environment:
+    token:
+      from_secret: mattermost-token
+    host:
+      from_secret: mattermost-host
+    channel:
+      from_secret: mattermost-channel
+    maxRetry: 3
+  when:
+    status:
+    - failure
