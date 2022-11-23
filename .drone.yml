@@ -15,7 +15,7 @@ steps:
 - name: build docs.zerotier.com
   image: 084037375216.dkr.ecr.us-east-2.amazonaws.com/central-builder
   commands:
-  - env
+  - env | sort
   - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin
     084037375216.dkr.ecr.us-east-2.amazonaws.com
   - docker login --username $${DOCKER_LOGIN} --password $${DOCKER_PASSWORD} registry.zerotier.com
