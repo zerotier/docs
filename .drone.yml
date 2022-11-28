@@ -48,9 +48,27 @@ steps:
   when:
     branch:
     - master
-- name: notify-mattermost
+- name: notify-mattermost-build-failure
   pull: always
   image: 084037375216.dkr.ecr.us-east-2.amazonaws.com/mattermost-notify
+  depends_on:
+  - build
+  environment:
+    token:
+      from_secret: mattermost-token
+    host:
+      from_secret: mattermost-host
+    channel:
+      from_secret: mattermost-channel
+    maxRetry: 3
+  when:
+    status:
+    - failure
+- name: notify-mattermost-deploy-failure
+  pull: always
+  image: 084037375216.dkr.ecr.us-east-2.amazonaws.com/mattermost-notify
+  depends_on:
+  - deploy
   environment:
     token:
       from_secret: mattermost-token
