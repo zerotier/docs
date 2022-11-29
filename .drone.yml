@@ -13,17 +13,25 @@ clone:
 
 steps:
 - name: build
-  image: 084037375216.dkr.ecr.us-east-2.amazonaws.com/central-builder
+  image: $${ECR_DOCKER_HOST}/central-builder
   commands:
-  - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 084037375216.dkr.ecr.us-east-2.amazonaws.com
+  - aws ecr get-login-password --region $${ECR_DOCKER_REGION} | docker login --username $${ECR_DOCKER_LOGIN} --password-stdin $${ECR_DOCKER_HOST}
   - echo $${DOCKER_PASSWORD} | docker login --username $${DOCKER_LOGIN} --password-stdin registry.zerotier.com
   - make docker
-  - docker push registry.zerotier.com/zerotier/docs.zerotier.com:drone-${DRONE_BUILD_NUMBER}
+  - docker push $${DOCKER_HOST}/zerotier/docs.zerotier.com:drone-${DRONE_BUILD_NUMBER}
   environment:
     DOCKER_LOGIN:
       from_secret: docker-registry-login
     DOCKER_PASSWORD:
       from_secret: docker-registry-password
+    DOCKER_HOST:
+      from_secret: docker-registry-host
+    ECR_DOCKER_LOGIN:
+      from_secret: ecr-docker-login
+    ECR_DOCKER_HOST:
+      from_secret: ecr-docker-host
+    ECR_DOCKER_REGION:
+      from_secret: ecr-docker-region
 - name: deploy
   image: 084037375216.dkr.ecr.us-east-2.amazonaws.com/central-builder
   depends_on:
