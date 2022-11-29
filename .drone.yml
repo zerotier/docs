@@ -13,7 +13,7 @@ clone:
 
 steps:
 - name: build
-  image: $${ECR_DOCKER_HOST}/central-builder
+  image: $${env.ECR_DOCKER_HOST}/central-builder
   commands:
   - aws ecr get-login-password --region $${ECR_DOCKER_REGION} | docker login --username $${ECR_DOCKER_LOGIN} --password-stdin $${ECR_DOCKER_HOST}
   - echo $${DOCKER_PASSWORD} | docker login --username $${DOCKER_LOGIN} --password-stdin registry.zerotier.com
