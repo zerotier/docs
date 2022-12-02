@@ -15,6 +15,10 @@ all:
 	./build.sh all
 	NODE_OPTIONS=--openssl-legacy-provider yarn build
 
+start:
+	NODE_OPTIONS=--openssl-legacy-provider yarn start
+
+
 docker: buildx all
 	docker build -t registry.zerotier.com/zerotier/docs.zerotier.com:drone-$(DRONE_BUILD_NUMBER) .
 
