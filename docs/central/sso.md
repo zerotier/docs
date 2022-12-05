@@ -228,7 +228,7 @@ With Email based network access, a network administrator can limit access to the
 
 ## Role Based Network Access
 
-Configuring Role Based Access controls is different across all of the different OIDC providers available.  We'll give examples for many of the large ones. The one commonality between all of them is the name of the field the rolls must be mapped to:
+Configuring Role Based Access controls is different across all of the different OIDC providers available.  We'll give examples for many of the large ones. The one commonality between all of them is the name of the field the roles must be mapped to:
 
 `my.zerotier.com/roles`
 
