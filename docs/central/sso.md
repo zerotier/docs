@@ -3,7 +3,7 @@ title: SSO
 
 ---
 
-SSO Configuration
+OIDC Configuration
 =====
 
 
@@ -26,10 +26,17 @@ Visit https://my.zerotier.com/account and complete the SSO configuration toward 
 
 ![SSO-Account-Setup](/img/sso-account-setup.png)
 
+You can configure multiple OIDC clients for your organization, but only one may be used at a time on an individual network.
 
 ### Configure SSO on individual networks. 
 If you enable this on an existing network, you may accidentally block existing users. Please practice on a test network.
 ![SSO-Network-Enable](/img/sso-network-enable.png)
+
+There are three login modes for SSO enabled networks.
+
+1. Standard - If the user can successfully authenticate to your OIDC provider, they weill be allowed access to the ZeroTier network
+2. [Email Based Access](/central/sso#email-based-network-access) - The user is allowed to access the network if and only if their email address is in the email list provided by the network administrator.
+3. [Group/Role Based Access](/central/sso#role-based-network-access) - The user is allowed to access the network if and only if they are assigned one of the  proper roles by the OIDC server.
 
 
 ### Exclude specific devices from SSO requirements
@@ -58,7 +65,7 @@ Please ensure the following fields are set on your Auth0 application config:
 - Allowed Callback URL: http://localhost:9993/sso
 - Under Advanced Settings -> Grant Types, ensure Implicit, Authorization Code, and Refresh Token are selected.
 
-::: note
+:::note
 
 The OIDC spec is picky about the Issuer URL you enter.  It must match what the server configuration metadata endpoint returns. 
 
@@ -212,4 +219,53 @@ You may react to errors via the `isError` variable:
     {% else %}
     {{ messageText }}
     {% endif %}
+    
+## Email Based Network Access
+
+With Email based network access, a network administrator can limit access to the network to only users whose email addresses are present in the list specified by the network administrator.
+
+![sso email list](/img/sso-email-access.png)
+
+## Role Based Network Access
+
+Configuring Role Based Access controls is different across all of the different OIDC providers available.  We'll give examples for many of the large ones. The one commonality between all of them is the name of the field the rolls must be mapped to:
+
+`my.zerotier.com/roles`
+
+Aside from that, role/group names are up to the network administrator.  Simply add one or more role name to your network configuration, and users will be required to have at least one of those roles assigned in order to acess the network.
+
+### Auth0
+
+Auth0 requires multple steps to configure.
+
+#### Step 1: Create a Role
+
+Log into your auth0.com management console.  Go to User Management and select roles.  Hit the `+ Create Role` button in the upper right corner.  Give your new role a name & description of your choosing.
+
+![auth0 create role](/img/sso-auth0-create-role.png)
+
+#### Step 2: Add users to Role
+
+Once the new role is created, go to the Users tab.  There you will be able to add the users you wish to have access to the role.
+
+#### Step 3: Attach Roles to ID and Access tokens
+
+In order for ZeroTier to be able to read the roles a user has been assigned, they must be added to the ID and Access tokens, and mapped to the correct name.  In the Auth0.com dashboard, go to Actions, and select Flows. Click the Login flow. On the right side of the screen, hit the + next to  `Add Action` and select `Build Custom`.  Give the action a name such as "Attach ZeroTier Roles" with Trigger set to "Login/Post Login" and Runtime set to "Node 16" (or whatever the latest default is).
+
+Next you will get a screen with a code editor.  Delete everything in the buffer and add the following:
+
+    exports.onExecutePostLogin = async (event, api) => {
+        if (event.authorization) {
+            api.idToken.setCustomClaim(`my.zerotier.com/roles`, event.authorization.roles);
+            api.accessToken.setCustomClaim(`my.zerotier.com/roles`, event.authorization.roles);
+        }
+    }
+
+Once it is entered, hit `Deploy` on the upper right hand side of the screen.  
+
+Hit the `<- Back to flow` link, which will take you back to the Login Flow graph.  Under Add Action, select Custom.  You'll find your new action listed there.  Drag it between `Start` and `Complete` in the login flow and click Apply. When finished, your flow will look something like this:
+
+![auth0 login flow](/img/sso-auth0-login-flow.png)
+
+Your users' assigned roles will now be attached to the tokens required to authorize a user on your ZeroTier networks. 
 
