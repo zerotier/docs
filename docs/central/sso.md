@@ -230,7 +230,7 @@ With Email based network access, a network administrator can limit access to the
 
 Configuring Role Based Access controls is different across all of the different OIDC providers available.  We'll give examples for many of the large ones. The one commonality between all of them is the name of the field the roles must be mapped to:
 
-`my.zerotier.com/roles`
+`zerotier-roles`
 
 Aside from that, role/group names are up to the network administrator.  Simply add one or more role name to your network configuration, and users will be required to have at least one of those roles assigned in order to acess the network.
 
@@ -238,17 +238,15 @@ Aside from that, role/group names are up to the network administrator.  Simply a
 
 Auth0 requires multple steps to configure.
 
-#### Step 1: Create a Role
+#### Step 1: Create a Role and Assign Users
 
 Log into your auth0.com management console.  Go to User Management and select roles.  Hit the `+ Create Role` button in the upper right corner.  Give your new role a name & description of your choosing.
 
 ![auth0 create role](/img/sso-auth0-create-role.png)
 
-#### Step 2: Add users to Role
-
 Once the new role is created, go to the Users tab.  There you will be able to add the users you wish to have access to the role.
 
-#### Step 3: Attach Roles to ID and Access tokens
+#### Step 2: Attach Roles to ID and Access Tokens
 
 In order for ZeroTier to be able to read the roles a user has been assigned, they must be added to the ID and Access tokens, and mapped to the correct name.  In the Auth0.com dashboard, go to Actions, and select Flows. Click the Login flow. On the right side of the screen, hit the + next to  `Add Action` and select `Build Custom`.  Give the action a name such as "Attach ZeroTier Roles" with Trigger set to "Login/Post Login" and Runtime set to "Node 16" (or whatever the latest default is).
 
@@ -256,8 +254,8 @@ Next you will get a screen with a code editor.  Delete everything in the buffer 
 
     exports.onExecutePostLogin = async (event, api) => {
         if (event.authorization) {
-            api.idToken.setCustomClaim(`my.zerotier.com/roles`, event.authorization.roles);
-            api.accessToken.setCustomClaim(`my.zerotier.com/roles`, event.authorization.roles);
+            api.idToken.setCustomClaim(`zerotier-roles`, event.authorization.roles);
+            api.accessToken.setCustomClaim(`zerotier-roles`, event.authorization.roles);
         }
     }
 
@@ -268,4 +266,20 @@ Hit the `<- Back to flow` link, which will take you back to the Login Flow graph
 ![auth0 login flow](/img/sso-auth0-login-flow.png)
 
 Your users' assigned roles will now be attached to the tokens required to authorize a user on your ZeroTier networks. 
+
+### Okta
+
+Okta doesn't have the concept of Roles, but it does have Groups that can be used for the same purpose when authenticating to a ZeroTier network. 
+
+:::note
+
+Okta role/group based access requires ZeroTier One version 1.10.4+
+
+:::
+
+#### Step 1: Create a Group and Assign Users.
+
+From your Okta, administrator dashboard, go to Directory and select Groups. Create a group with the name of your choice.  Once created, assign people to the group that you want to have access to your ZeroTier network.
+
+#### Step 2: Attach Groups to Tokens
 
