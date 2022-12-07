@@ -279,7 +279,13 @@ Okta role/group based access requires ZeroTier One version 1.10.4+
 
 #### Step 1: Create a Group and Assign Users.
 
-From your Okta, administrator dashboard, go to Directory and select Groups. Create a group with the name of your choice.  Once created, assign people to the group that you want to have access to your ZeroTier network.
+From your Okta administrator dashboard, go to Directory and select Groups. Create a group with the name of your choice.  Once created, assign people to the group that you want to have access to your ZeroTier network.
 
 #### Step 2: Attach Groups to Tokens
+
+In the Okta administrator dashboard, go to Applications and opne the configuration for the Okta Application you've configured for use with ZeroTier.  Click the 'Edit' button in the "OpenID Connect ID Token" box.  Set "Group claim type" to "Filter", and set the three fields for "Group claim filter" to `zerotier-roles`, `Matches regex`, and `.*`.
+
+![okta token config](/img/sso-okta-setup.png)
+
+It is possible to limit the groups to only certain groups.  See Okta's [group filter documentation](https://developer.okta.com/docs/reference/okta-expression-language/#group-functions) for more information.
 
