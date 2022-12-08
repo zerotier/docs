@@ -32,7 +32,7 @@ You can configure multiple OIDC clients for your organization, but only one may 
 If you enable this on an existing network, you may accidentally block existing users. Please practice on a test network.
 ![SSO-Network-Enable](/img/sso-network-enable.png)
 
-There are three login modes for SSO enabled networks.
+There are three login modes for SSO enabled networks:
 
 1. Standard - If the user can successfully authenticate to your OIDC provider, they weill be allowed access to the ZeroTier network
 2. [Email Based Access](/central/sso#email-based-network-access) - The user is allowed to access the network if and only if their email address is in the email list provided by the network administrator.
@@ -63,7 +63,7 @@ Please ensure the following fields are set on your Auth0 application config:
 - Application Type:  Native
 - Token Endpoint Authentication Method: None
 - Allowed Callback URL: http://localhost:9993/sso
-- Under Advanced Settings -> Grant Types, ensure Implicit, Authorization Code, and Refresh Token are selected.
+- Under Advanced Settings -> Grant Types, ensure Authorization Code, and Refresh Token are selected.
 
 :::note
 
@@ -228,11 +228,9 @@ With Email based network access, a network administrator can limit access to the
 
 ## Role Based Network Access
 
-Configuring Role Based Access controls is different across all of the different OIDC providers available.  We'll give examples for many of the large ones. The one commonality between all of them is the name of the field the roles must be mapped to:
+Configuring Role Based Access controls is different across all of the different OIDC providers available.  We'll give examples for many of the large ones. 
 
-`zerotier-roles`
-
-Aside from that, role/group names are up to the network administrator.  Simply add one or more role name to your network configuration, and users will be required to have at least one of those roles assigned in order to acess the network.
+Role/group names are up to the network administrator.  Simply add one or more role name to your network configuration, and users will be required to have at least one of those roles assigned in order to acess the network.
 
 ### Auth0
 
@@ -253,11 +251,18 @@ In order for ZeroTier to be able to read the roles a user has been assigned, the
 Next you will get a screen with a code editor.  Delete everything in the buffer and add the following:
 
     exports.onExecutePostLogin = async (event, api) => {
+        const namespace = "https://my.zerotier.com";
         if (event.authorization) {
-            api.idToken.setCustomClaim(`zerotier-roles`, event.authorization.roles);
-            api.accessToken.setCustomClaim(`zerotier-roles`, event.authorization.roles);
+            api.idToken.setCustomClaim(`${namespace}/roles`, event.authorization.roles);
+            api.accessToken.setCustomClaim(`${namespace}/roles`, event.authorization.roles);
         }
     }
+    
+:::note
+
+Auth0 requires roles to be in a namespaced name. To properly intergrate with ZeroTier Central, the final claim name set on the token via the script above **must** be `https://my.zerotier.com/roles`. Please enter the login script exactly as shown above to reduce the chances of errors.
+
+:::
 
 Once it is entered, hit `Deploy` on the upper right hand side of the screen.  
 
@@ -266,6 +271,24 @@ Hit the `<- Back to flow` link, which will take you back to the Login Flow graph
 ![auth0 login flow](/img/sso-auth0-login-flow.png)
 
 Your users' assigned roles will now be attached to the tokens required to authorize a user on your ZeroTier networks. 
+
+### Azure AD
+
+https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps
+
+### Step 1: Create an App Role
+
+In the Azure portal, go to Azure Active Directory and select App Registrations. Select the app you've created for integration with ZeroTier Central.  In the Manage menu, select App Roles, and then create a new app role and hit Apply
+
+![azure app role](/img/sso-azure-app-role.png)
+
+The `Value` field is what you use as the role name in the network configuration on https://my.zerotier.com
+
+### Step 2: Assign App Role
+
+Go back to Azure Active Directory in the Azure portal. Select Enterprise Applications from the list of optoins on the side of the screen.  Select the app to be used for ZeroTier Central intergraiton.
+
+Select `Users and Groups` from the Manage menu. Select all of the users you want to assign the App Role and select `Edit Assignment`.  Click on the area of the screen that says "Select a Role", then find your newly created app role from step 1, click it and hit the `Select` button.
 
 ### Okta
 
@@ -283,7 +306,7 @@ From your Okta administrator dashboard, go to Directory and select Groups. Creat
 
 #### Step 2: Attach Groups to Tokens
 
-In the Okta administrator dashboard, go to Applications and opne the configuration for the Okta Application you've configured for use with ZeroTier.  Click the 'Edit' button in the "OpenID Connect ID Token" box.  Set "Group claim type" to "Filter", and set the three fields for "Group claim filter" to `zerotier-roles`, `Matches regex`, and `.*`.
+In the Okta administrator dashboard, go to Applications and opne the configuration for the Okta Application you've configured for use with ZeroTier.  Click the 'Edit' button in the "OpenID Connect ID Token" box.  Set "Group claim type" to "Filter", and set the three fields for "Group claim filter" to `roles`, `Matches regex`, and `.*`.
 
 ![okta token config](/img/sso-okta-setup.png)
 
