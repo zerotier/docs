@@ -57,7 +57,7 @@ It's free, no credit card is required.
 
 - Go to <a href="https://my.zerotier.com/" target="_blank">my.zerotier.com</a> and create an account.
 
-### Create a ZeroTier Network
+### Create a network
 - Make sure you're on the "Networks" tab of my.zerotier.com
 ![image](./images/01-networks-empty.png)
 - Click the __Create A Network__ button.
@@ -112,11 +112,11 @@ On macOS and Windows, there is a menubar/tray app. Select "join" from the menu.
   values={[
     { label: "macOS", value: "mac", },
     { label: "Windows", value: "windows", },
-    { label: "Command Line", value: "linux", }
+    { label: "Command Line", value: "linux", },
+    { label: "Mobile", value: "mobile", }
   ]}>
 
 <TabItem value="mac">
-
 
 ![image](./images/mac-menubar-01.png)
 ![image](./images/mac-menubar-02.png)
@@ -125,7 +125,8 @@ On macOS and Windows, there is a menubar/tray app. Select "join" from the menu.
 
 <TabItem value="windows">
 
-Windows screen shots coming soon. Use mac screen shots. The UIs are similar. 
+![image](./images/windows-tray-01.png)
+![image](./images/windows-tray-02.png)
 
 </TabItem>
 <TabItem value="linux">
@@ -142,6 +143,12 @@ On Windows, you need to use an Admin Prompt. Type "powershell" into the start me
 ```
 
 </TabItem>
+<TabItem value="mobile">
+
+![image](./images/ios-01.png)
+![image](./images/ios-02.png)
+
+</TabItem>
 
 </Tabs>
 
@@ -156,11 +163,11 @@ A device can't talk on your network unless you allow it, even if someone discove
   values={[
     { label: "macOS", value: "mac", },
     { label: "Windows", value: "windows", },
-    { label: "Linux", value: "linux", }
+    { label: "Linux", value: "linux", },
+    { label: "Mobile", value: "mobile", }
   ]}>
 
 <TabItem value="mac">
-
 
 ![image](./images/mac-menubar-03.png)
 ![image](./images/mac-menubar-04.png)
@@ -169,7 +176,12 @@ A device can't talk on your network unless you allow it, even if someone discove
 
 <TabItem value="windows">
 
-Windows screen shots coming soon. Use mac screen shots. The UIs are similar. 
+![image](./images/windows-tray-03.png)
+
+</TabItem>
+<TabItem value="mobile">
+
+![image](./images/ios-04.png)
 
 </TabItem>
 
@@ -205,11 +217,11 @@ Back on your computer, your client should now say "OK" instead of "ACCESS DENIED
   values={[
     { label: "macOS", value: "mac", },
     { label: "Windows", value: "windows", },
-    { label: "Linux", value: "linux", }
+    { label: "Linux", value: "linux", },
+    { label: "Mobile", value: "mobile", }
   ]}>
 
 <TabItem value="mac">
-
 
 ![image](./images/mac-menubar-05.png)
 ![image](./images/mac-menubar-06.png)
@@ -218,7 +230,7 @@ Back on your computer, your client should now say "OK" instead of "ACCESS DENIED
 
 <TabItem value="windows">
 
-Windows screen shots coming soon. Use mac screen shots. The UIs are similar. 
+![image](./images/windows-tray-04.png)
 
 </TabItem>
 
@@ -229,6 +241,11 @@ Windows screen shots coming soon. Use mac screen shots. The UIs are similar.
 200 listnetworks <nwid> <name> <mac> <status> <type> <dev> <ZT assigned ips>
 200 listnetworks d5e04297a16fa690 my cool network 92:2c:98:8f:4a:e5 OK PRIVATE feth3903 172.22.195.59/16```
 ```
+
+</TabItem>
+<TabItem value="mobile">
+
+![image](./images/ios-05.png)
 
 </TabItem>
 
