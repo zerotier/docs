@@ -274,10 +274,8 @@ This is a command line program, but don't worry: You can do it.
 ### Gotcha: Windows blocks ping
 Windows by default doesn't respond to pings. If you try to ping a Windows computer from a different computer, it won't work. It can be enabled. 
 
-You Windows device should be able to _send_ pings to another device and receive the replies.
-
 <details>
-<summary>How to enable ping</summary>
+<summary>How to enable ping on Windows</summary>
 
 - Search for Windows Firewall in the Start Menu, and click to open it.
 - Click Advanced Settings on the left.
@@ -285,7 +283,7 @@ You Windows device should be able to _send_ pings to another device and receive 
 - In the right pane, find the rules titled File and Printer Sharing (Echo Request - ICMPv4-In).
 - Right-click each rule and choose Enable Rule.
 
-Alternatively, here is a [tutorial by Microsoft](https://learn.microsoft.com/en-us/windows/security/threat-protection/windows-firewall/create-an-inbound-icmp-rule)
+Here is a [tutorial by Microsoft](https://learn.microsoft.com/en-us/windows/security/threat-protection/windows-firewall/create-an-inbound-icmp-rule)
 
 </details>
 
@@ -298,12 +296,15 @@ Alternatively, here is a [tutorial by Microsoft](https://learn.microsoft.com/en-
   values={[
     { label: "macOS", value: "mac", },
     { label: "Windows", value: "windows", },
-    { label: "Linux", value: "linux", }
+    { label: "Linux", value: "linux", },
+    { label: "Mobile", value: "mobile", }
   ]}>
 
 <TabItem value="mac">
 
 - Use Spotlight (cmd-space) to search for Terminal
+
+[Apple's Instructions](https://support.apple.com/guide/terminal/open-or-quit-terminal-apd5265185d-f365-44cb-8b09-71a064a42125/mac)
 
 </TabItem>
 
@@ -311,11 +312,20 @@ Alternatively, here is a [tutorial by Microsoft](https://learn.microsoft.com/en-
 
 - Search for "powershell" and open it
 
+[Microsoft's Instructions](https://learn.microsoft.com/en-us/powershell/scripting/windows-powershell/starting-windows-powershell?view=powershell-7.3)
+
 </TabItem>
 
 <TabItem value="linux">
 
-- You likely know how to do this. It's different on every flavor of linux.
+- It's different on every flavor of linux. You'll have to search duckduckgo for "open terminal ubuntu" or similar.
+
+</TabItem>
+
+<TabItem value="mobile">
+Mobile operating systems don't really have a command line. You can download a "ping" app from your app store if you want. 
+
+Or `ping` your phone from your desktop computer. If it doesn't work, make sure the screen of the phone is turned on, so the network doesn't go to sleep. 
 
 </TabItem>
 
