@@ -17,7 +17,7 @@ module.exports = {
     //   dirName: '.'
     // },
     "welcome",
-    // "getting-started/getting-started",
+    "getting-started/getting-started",
     {
       type: "category",
       label: "ZeroTier",
