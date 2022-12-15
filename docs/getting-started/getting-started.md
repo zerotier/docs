@@ -12,13 +12,24 @@ ZeroTier connects _your_ devices with _each other_.
 
 Let's connect two devices over ZeroTier. We'll use `ping` to test the connection. Any two devices that can run ZeroTier will do: laptop, phone, virtual machine, etc… 
 
-Both devices can be at the same location, on the same physcial network. If you move one to a cafe or to your office, it should still _just work_.
+Both devices can be at the same location, on the same physcial network. If you move one to a cafe or to your office, it should still just work.
+
+The rough outline is:
+
+- Create a ZeroTier network
+- Join the network from two devices
+- `ping` one device from the other over the ZeroTier network
 
 This should take about 5 minutes.
 
+
 <details>
 <summary>Results Preview</summary>
-Here is a summary of the results of this tutorial. If this doesn't mean anything to you, that's OK. We'll get there.
+Here is a summary of the results of this tutorial, if you're a networking person.
+
+If this doesn't mean anything to you, that's OK. We'll get there.
+
+Each zerotier network you join creates a network interface on your device. It's like adding another ethernet port to your computer.
 
 ```
 node1# ip -o a
@@ -88,10 +99,9 @@ It should say "No devices have joined this network".
 
 ## Setup the ZeroTier app
 ### Download and install ZeroTier
-- Go to <a href="https://www.zerotier.com/download" target="_blank">zerotier.com/download</a> in a different tab of your browser.
-
 For mobile devices, use the app store.
 
+- Go to <a href="https://www.zerotier.com/download" target="_blank">zerotier.com/download</a> in a different tab of your browser.
 - Run the installer
 
 The ZeroTier client should now running on your device.
@@ -152,10 +162,18 @@ On Windows, you need to use an Admin Prompt. Type "powershell" into the start me
 
 </Tabs>
 
+:::note
+
+Every running instance of ZeroTier has a unique address. It's the 10 digit "Address" in the app, or `zerotier-cli info` command.
+
+ZeroTier addresses are a very secure method of unique identification.
+
+:::
+
 ## Authorize your device on your network
 
-At this point, your client should say "Access Denied"
-A device can't talk on your network unless you allow it, even if someone discovers your Network ID.
+At this point, your client should say "Access Denied."
+A device can't talk on your network unless you allow it, even if someone discovers the network's ID.
 
 <Tabs
   defaultValue="mac"
@@ -202,7 +220,7 @@ A device can't talk on your network unless you allow it, even if someone discove
 - Your node that just "joined" should appear here.
 - The "Address" should match the address in your client. 
 - Click the "Auth?" check box for it. 
-- Give it a name. Type "laptop" into the `(short name)` input. Or maybe use your own name.
+- Give it a name. Type something like "laptop" or "bob" into the `(short name)` input. 
 
 ![image](./images/05-network-members-1.png)
 
@@ -272,7 +290,7 @@ This is a command line program, but don't worry: You can do it.
 
 
 ### Gotcha: Windows blocks ping
-Windows by default doesn't respond to pings. If you try to ping a Windows computer from a different computer, it won't work. It can be enabled. 
+Windows by default doesn't respond to pings. If you try to ping a Windows computer from a different computer, it won't work. You can enable ping.
 
 <details>
 <summary>How to enable ping on Windows</summary>
@@ -323,9 +341,11 @@ Here is a [tutorial by Microsoft](https://learn.microsoft.com/en-us/windows/secu
 </TabItem>
 
 <TabItem value="mobile">
-Mobile operating systems don't really have a command line. You can download a "ping" app from your app store if you want. 
+Mobile operating systems don't have a command line. You can download a "ping" app from your app store if you want. 
 
-Or `ping` your phone from your desktop computer. If it doesn't work, make sure the screen of the phone is turned on, so the network doesn't go to sleep. 
+Or `ping` your phone from your desktop computer.
+
+Try switching your phone from wifi to cell and back. It may take about a minute, but ZeroTier should automatically keep the connection working. 
 
 </TabItem>
 
@@ -384,7 +404,7 @@ Vr HL TOS  Len   ID Flg  off TTL Pro  cks      Src      Dst
  4  5  00 5400 56e7   0 0000  3f  01 d4ad 192.168.82.217  192.168.123.234 
 ```
 
-There may just be a typo in the IP address.
+There may just be a typo in the IP address. Double check that your device is authorized at my.zerotier.com
 
 Contact us on the [discussion forum](https://discuss.zerotier.com/) and see the [troubleshooting section](/zerotier/troubleshooting) if you get stuck.
 :::
@@ -406,7 +426,7 @@ Visit the [discussion forum](https://discuss.zerotier.com/) to talk about your u
 - Build your own [VPN](https://zerotier.atlassian.net/wiki/spaces/SD/pages/7110693/Overriding+Default+Route+Full+Tunnel+Mode)
 - Route to a [remote subnet](https://zerotier.atlassian.net/wiki/spaces/SD/pages/224395274/Route+between+ZeroTier+and+Physical+Networks)
 - Route to a [Docker network](https://zerotier.atlassian.net/wiki/spaces/SD/pages/7274520/Using+NDP+Emulated+6PLANE+Addressing+With+Docker)
-- Add [dns](/zeronsd/quickstart/) to your network.
+- Add [dns](/zeronsd/quickstart/) to your network
 
 ### Join multiple networks
 A node can join many networks at once. Make sure they don't use the same subnet! 
@@ -414,3 +434,6 @@ A node can join many networks at once. Make sure they don't use the same subnet!
 You can have a `home` network, a `friends` network, and a `work` network, for example. 
 
 They don't all need to be networks that you've created. You can join other people's networks.
+
+### Check out the Whitepaper
+For more info on the cryptogrophy and protocol, see the: [Manual](/zerotier/manual)
