@@ -13,5 +13,5 @@ custom_edit_url: null
 FreeNAS
 =====
 
-ZeroTier comes pre-installed on FreeNAS as of FreeNAS-11.0-RC2
+ZeroTier was pre-installed on FreeNAS as of FreeNAS-11.0-RC2, but removed in Freenas-11.3.
 
