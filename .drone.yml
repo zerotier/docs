@@ -51,7 +51,7 @@ steps:
       from_secret: docker-registry-host
   when:
     branch:
-    - master
+    - main
 - name: notify-mattermost-build-failure
   pull: always
   image: 084037375216.dkr.ecr.us-east-2.amazonaws.com/mattermost-notify
