@@ -192,8 +192,17 @@ If you have a SAML provider, but not an OpenID Connect provider, [Keycloak](http
 - Allowed Callback URL: http://localhost:9993/sso
 - Under Advanced Settings -> Grant Types, ensure Implicit, Authorization Code, and Refresh Token are selected.
 
-### OneIdentity
-OneIdentity may require manual whitelisting of the following scopes: `openid`, `profile`, `email`, `offline_access`.
+### OneLogin
+
+:::note
+
+OneLogin requires ZeroTier One v1.10.3+
+
+:::
+
+Log in to your OneLogin admin console.  Select "Custom Connectors" from the "Applications" menu.  Hit the "New Connector" button.  Name your connector, set Sign on method to OpenID Connect, and set the Redirect URI to `https://localhost:9993/sso`. Finally, back on the on Custom Connectors page, hit the "Add App to Connector" link. Adjust the descriptioin & logo settings as you see fit, and then save.
+
+Once the above steps are complete, go to the SSO tab for your new OneLogin Application. There you'll find the required Client ID and Issuer URLs to enter into https://my.zerotier.com/account.
 
 ## Customizing the Final SSO Flow Page
 
@@ -296,7 +305,7 @@ Okta doesn't have the concept of Roles, but it does have Groups that can be used
 
 :::note
 
-Okta role/group based access requires ZeroTier One version 1.10.4+
+Okta role/group based access requires ZeroTier One version 1.10.3+
 
 :::
 
@@ -312,3 +321,6 @@ In the Okta administrator dashboard, go to Applications and opne the configurati
 
 It is possible to limit the groups to only certain groups.  See Okta's [group filter documentation](https://developer.okta.com/docs/reference/okta-expression-language/#group-functions) for more information.
 
+### OneLogin by OneIdentity
+
+Coming Soon
