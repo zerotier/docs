@@ -64,7 +64,7 @@ You can do this. We believe in you.
 [Import](https://github.com/new/import) the
 [Terraform Multicloud Quickstart](https://github.com/zerotier/terraform-multicloud-quickstart)
 to your Github account. We are "importing" instead of "cloning" so
-that we can set the repository as private.  If you're comforable on
+that we can set the repository as private.  If you're comfortable on
 the command line, feel free to clone to your laptop and commits from
 there, otherwise, we will use Github's in-browser editing feature to
 drive the tutorial.
@@ -162,7 +162,7 @@ webUI.
 
 <p align="center"><img src="https://i.imgur.com/dYCJLGa.png" alt="observe ran plan" width="75%"/></p>
 
-Congratulations! You have just succesfully created your first ZeroTier
+Congratulations! You have just successfully created your first ZeroTier
 network using Terraform! Go over to
 [ZeroTier Central](https://my.zerotier.com) and check out your new
 network. Alice and Bob are both authorized onto the network, but don't
@@ -173,7 +173,7 @@ worry, they aren't real. We will replace them shortly.
 ## Edit variables.tf
 
 Terraform has two kinds of variables. We have already seen some
-Environmet Variables, which we used to make credentials available to
+Environment Variables, which we used to make credentials available to
 the [ZeroTier Terraform Provider](https://github.com/zerotier/terraform-provider-zerotier). The
 other kinds of variables are known as [Input Variables](https://www.terraform.io/docs/language/values/variables.html). We
 will use these to supply some usernames and SSH keys, as well as toggle which clouds we want to use.
@@ -210,7 +210,7 @@ has access to your account, as well as source repository that drives it.
 
 ## Create Digital Ocean resources
 
-Add your your `DIGITALOCEAN_TOKEN` to the worksace's Environmet Variables using the same procedure as before.
+Add your `DIGITALOCEAN_TOKEN` to the workspace's Environment Variables using the same procedure as before.
 
 <p align="center"><img src="https://i.imgur.com/EfcXeaD.png" alt="add digitalocean_token" width="75%"/></p>
 
@@ -229,7 +229,7 @@ Next, edit main.tf and uncomment the Digital Ocean module.
 ## Join laptop to Network
 
 The ZeroTier Network can be found in the Terraform output. Find it by
-nagivating to the "Outputs" tab of the latest run.
+navigating to the "Outputs" tab of the latest run.
 <p align="center"><img src="https://i.imgur.com/MLkTwe6.png" alt="examine outputs" width="75%"/></p>
 
 <p align="center">

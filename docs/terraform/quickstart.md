@@ -20,7 +20,7 @@ pipelines.
 Now we can!
 
 Terraform allows us to talk to the ZeroTier Central API and
-describe our network infrastruture, as code. This turorial will walk
+describe our network infrastructure, as code. This tutorial will walk
 you though how to get started.
 
 To follow along step by step, you will need:
@@ -29,7 +29,7 @@ To follow along step by step, you will need:
 - A [ZeroTier Central](https://my.zerotier.com) account,
 - A [Terraform Cloud](https://app.terraform.io) account.
 
-It should take you about 10 minutes to through this turorial. It will
+It should take you about 10 minutes to through this tutorial. It will
 be done *in browser* without touching the command line at all.
 
 ## Import the Quickstart repo.
@@ -74,7 +74,7 @@ authenticate to the API. The variable must be named
 `ZEROTIER_CENTRAL_TOKEN`. Be sure to check the `Sensitive` box.
 
 <p align="center">
-<img src="https://i.imgur.com/mNpgmbT.png" width="75%" alt="Add Environmet Variables" /><br/>
+<img src="https://i.imgur.com/mNpgmbT.png" width="75%" alt="Add Environment Variables" /><br/>
 </p>
 
 ## Hello World
@@ -121,7 +121,7 @@ resource "zerotier_member" "bob" {
 }
 ```
 
-Queue a plan then "Confim and Apply".
+Queue a plan then "Confirm and Apply".
 
 <p align="center"><img src="https://i.imgur.com/Dq7Bivj.png" width="75%" alt="queue the plan" /></p>
 <p align="center"><img src="https://i.imgur.com/eWuW0aD.png" width="75%" alt="queue the plan" /></p>
