@@ -23,7 +23,7 @@ QVPN provides your NAS with a permanent `/dev/net/tun` device used by ZeroTier. 
 
 :::note Picking the correct package
 
-*Due to the lack of documentation on architecture designations selecting the correct package is an inexact science, as far as I can discerne there are the following categories. If you don't see your model on this list or you see an error please let us know:*
+*Due to the lack of documentation on architecture designations selecting the correct package is an inexact science, as far as I can discern there are the following categories. If you don't see your model on this list or you see an error please let us know:*
 
 
 ### x86

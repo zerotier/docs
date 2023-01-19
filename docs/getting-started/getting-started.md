@@ -436,4 +436,4 @@ You can have a `home` network, a `friends` network, and a `work` network, for ex
 They don't all need to be networks that you've created. You can join other people's networks.
 
 ### Check out the Whitepaper
-For more info on the cryptogrophy and protocol, see the: [Manual](/zerotier/manual)
+For more info on the cryptography and protocol, see the: [Manual](/zerotier/manual)

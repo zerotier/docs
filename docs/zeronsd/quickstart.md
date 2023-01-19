@@ -20,7 +20,7 @@ It was DNS.<br />
 ## Conceptual Prerequisites
 
 - When ZeroTier joins a network, it creates a virtual network interface.
-- When ZeroTier joins mutiple networks, there will be multiple network interfaces.
+- When ZeroTier joins multiple networks, there will be multiple network interfaces.
 - When ZeroNSD starts, it binds to a ZeroTier network interface.
 - When ZeroTier is joined to multiple networks, it needs multiple ZeroNSDs, one for each interface.
 

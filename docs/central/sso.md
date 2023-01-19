@@ -163,7 +163,7 @@ Google OAuth2/OIDC is not supported as Google does not support PKCE clients at t
 
 Log into your Keycloak administration console, go to the Client configuration and create a new client. Configuration is fairly straightforward, with the following requirements:
 
-- Client Protocol: openid-conect
+- Client Protocol: openid-connect
 - Access Type: public
 - Standard Flow Enabled: ON
 - Root URL: https://my.zerotier.com
@@ -193,7 +193,7 @@ OneIdentity may require manual whitelisting of the following scopes: `openid`, `
 If you wish, you can customize the final view of the sso login process. 
 Create the file `$ZEROTIER_HOME/sso-auth.template.html`. 
 
-Note: Any CSS or images must be hosted externaly, or placed within the single HTML page itself.
+Note: Any CSS or images must be hosted externally, or placed within the single HTML page itself.
 
 You may customize the page to look however you wish. At this time there
 are only two template values set by zerotier:
