@@ -12,7 +12,7 @@ ZeroTier connects _your_ devices with _each other_.
 
 Let's connect two devices over ZeroTier. We'll use `ping` to test the connection. Any two devices that can run ZeroTier will do: laptop, phone, virtual machine, etc… 
 
-Both devices can be at the same location, on the same physcial network. If you move one to a cafe or to your office, it should still just work.
+Both devices can be at the same location, on the same physical network. If you move one to a cafe or to your office, it should still just work.
 
 The rough outline is:
 
