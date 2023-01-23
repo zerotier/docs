@@ -78,6 +78,7 @@ Use of Authelia requires ZeroTierOne version 1.10.1 or greater.  There is an inc
 
 Example client configuration:
 
+```yaml
     clients:
         ## The ID is the OpenID Connect ClientID which is used to link an application to a configuration.
       - id: authelia-sso-client
@@ -141,6 +142,7 @@ Example client configuration:
 
         ## The algorithm used to sign userinfo endpoint responses for this client, either none or RS256.
         userinfo_signing_algorithm: none
+```
 
 ### Azure AD
 

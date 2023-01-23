@@ -501,12 +501,14 @@ fully up to date.**
 A special kind of public network called an ad-hoc network may be
 accessed by joining a network ID with the format:
 
+```text
     ffSSSSEEEE000000
     | |   |   |
     | |   |   Reserved for future use, must be 0
     | |   End of port range (hex)
     | Start of port range (hex)
     Reserved ZeroTier address prefix indicating a controller-less network
+```
 
 Ad-hoc networks are public (no access control) networks that have no
 network controller. Instead their configuration and other credentials
