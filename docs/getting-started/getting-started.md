@@ -29,7 +29,7 @@ Here is a summary of the results of this tutorial, if you're a networking person
 
 If this doesn't mean anything to you, that's OK. We'll get there.
 
-Each zerotier network you join creates a network interface on your device. It's like adding another ethernet port to your computer.
+Each zerotier network you join creates a network interface on your device. It's like adding another Ethernet port to your computer.
 
 ```
 node1# ip -o a

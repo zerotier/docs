@@ -137,7 +137,7 @@ to confirm it was created.
 
 The next example manipulates the `allow_ethernet_bridging` settings on
 the Member objects. When running on machines with multiple physical
-ethernet interfaces, ZeroTier can be configured to pass layer2
+Ethernet interfaces, ZeroTier can be configured to pass layer2
 traffic such as  ARP, NDP, multicast, mDNS, etc.
 
 To make this work, you'll need to go into your router's OS and

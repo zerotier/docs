@@ -202,7 +202,7 @@ be used unless certain traffic must be absolutely prohibited under any
 circumstance.
 
 In the simple base rule set example in section 3.1 the drop action is
-taken in the unapproved case. This means that ethernet whitelisting
+taken in the unapproved case. This means that Ethernet whitelisting
 cannot be overridden by a capability. If we change `ACTION_DROP` in our
 example to `ACTION_BREAK`, then it becomes possible to issue the
 following capability:
@@ -309,7 +309,7 @@ classification to be implemented.
 ### Rule Definition Language {#34ruledefinitionlanguageaname3_4a}
 
 Raw rule sets are verbose and difficult to write, so we created a
-minimal rule definition langugage that’s easier for human beings.
+minimal rule definition language that’s easier for human beings.
 
 The parser for this language can be found in the [rule-compiler
 subfolder of the ZeroTierOne

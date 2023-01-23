@@ -352,7 +352,7 @@ vul.demo.lab (10.0.7.1) at 5e:3c:36:a8:9f:9d [ether] on ztyqb6mebi
 ```
 
 As you can see, the ARP table now contains an entry for each node on
-our network, just as it would on a local ethernet network.
+our network, just as it would on a local Ethernet network.
 
 ## Examine the interfaces
 
@@ -364,7 +364,7 @@ alice@do:~$ ip link | grep -A1 zt
     link/ether 5e:56:14:d3:25:ed brd ff:ff:ff:ff:ff:ff
 ```
 
-You'll see a virtual ethernet interface for each ZeroTier network the node is joined to. (in this case, one)
+You'll see a virtual Ethernet interface for each ZeroTier network the node is joined to. (in this case, one)
 
 ```bash
 alice@aws:~$ ip link | grep  -A1 zt
@@ -504,7 +504,7 @@ observe the traffic in your Digital Ocean terminal.
 
 ## Manually manipulate IP addresses
 
-Because ZeroTier behaves like ethernet, we can assign multiple IP addresses to an interface, just like on a physical network.
+Because ZeroTier behaves like Ethernet, we can assign multiple IP addresses to an interface, just like on a physical network.
 
 ```bash
 alice@aws:~$ ip -4 addr show ztyqb6mebi
