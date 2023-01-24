@@ -127,7 +127,7 @@ Queue a plan then "Confirm and Apply".
 <p align="center"><img src="https://i.imgur.com/Dq7Bivj.png" width="75%" alt="queue the plan" /></p>
 <p align="center"><img src="https://i.imgur.com/eWuW0aD.png" width="75%" alt="queue the plan" /></p>
 
-After Terraform applies the plan, check out the ZeroTier Cental webui
+After Terraform applies the plan, check out the ZeroTier Cental webUI
 to confirm it was created.
 
 <p align="center"><img src="https://i.imgur.com/BWQEYwQ.png" width="75%" alt="hello zerotier" /></p>
@@ -183,7 +183,7 @@ resource "zerotier_member" "router2" {
 <p align="center"><img src="https://i.imgur.com/EWfgCDW.png" width="75%" alt="observe planned" /></p>
 <p align="center"><img src="https://i.imgur.com/RPnMMRt.png" width="75%" alt="queue the plan" /></p>
 
-After Terraform applies the plan, check out the ZeroTier Cental webui
+After Terraform applies the plan, check out the ZeroTier Cental webUI
 to confirm it was created.
 
 <p align="center"><img src="https://i.imgur.com/ZwviLen.png" width="75%" alt="hello bridgenet" /></p>
@@ -279,7 +279,7 @@ resource "zerotier_member" "yellow" {
 
 <p align="center"><img src="https://i.imgur.com/1aW8a8K.png" width="75%" alt="queue the plan" /></p>
 
-After Terraform applies the plan, check out the ZeroTier Cental webui
+After Terraform applies the plan, check out the ZeroTier Cental webUI
 to confirm it was created.
 
 <p align="center"><img src="https://i.imgur.com/rNUg7pZ.png" width="75%" alt="hello zerotier" /></p>
@@ -335,7 +335,7 @@ resource "zerotier_member" "shape-letters" {
 
 <p align="center"><img src="https://i.imgur.com/qPzd3qD.png" width="75%" alt="queue the plan" /></p>
 
-After Terraform applies the plan, check out the ZeroTier Cental webui
+After Terraform applies the plan, check out the ZeroTier Cental webUI
 to confirm it was created.
 
 <p align="center"><img src="https://i.imgur.com/wLQ9z7D.png" width="75%" alt="hello everything" /></p>
