@@ -43,9 +43,14 @@ This is currently configured to not stop the build in CI. `|| true`
 You can add more words to ignore in the file `custom-words.txt`
 
 You can ignore words in an individual markdown file like this:
+Make sure it's inside the front matter 
+
+
 
 ``` console
+---
 [//]: # cSpell:words Hinojosa Gizienski
+---
 ```
 
 or 
