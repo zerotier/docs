@@ -16,7 +16,7 @@ SSO is currently only supported on desktop operating systems such as macOS and W
 :::
 
 ### Update clients
-- Download and install ZeroTier 1.10.0 or greater on clients that will use SSO.
+- Download and install ZeroTier 1.10.3 or greater on clients that will use SSO.
 
     https://www.zerotier.com/download/
     
