@@ -121,10 +121,10 @@ zts_node_stop();
 import libzt
 
 # ...
-n = libzt.ZeroTierNode()
-n.node_start()
+node = libzt.ZeroTierNode()
+node.node_start()
 # ...
-n.net_join(0x1234567890abcdef)
+node.net_join(0x1234567890abcdef)
 # ...
 client = libzt.socket(libzt.ZTS_AF_INET, libzt.ZTS_SOCK_STREAM, 0)
 client.connect((remote_ip, remote_port))
@@ -544,8 +544,8 @@ println!("{}", addr);
 <TabItem value="python">
 
 ```python
-print(n.addr_get_ipv4(net_id))
-print(n.addr_get_ipv6(net_id))
+print(node.addr_get_ipv4(net_id))
+print(node.addr_get_ipv6(net_id))
 
 ```
 </TabItem>
@@ -739,22 +739,22 @@ printf("IP address: %s\n", net_id, ipstr);
 <TabItem value="python">
 
 ```python
-n = libzt.ZeroTierNode()
-n.init_from_storage(storage_path)
+node = libzt.ZeroTierNode()
+node.init_from_storage(storage_path)
 
-n.node_start()
+node.node_start()
 
-while not n.node_is_online():
+while not node.node_is_online():
   time.sleep(1)
 
-print("Node ID:" + node.node_id())
+print("Node ID:", node.node_id())
 
-n.net_join(net_id)
+node.net_join(net_id)
 
-while not n.net_transport_is_ready(net_id):
+while not node.net_transport_is_ready(net_id):
   time.sleep(1)
 
-print("IP address: ", n.addr_get_ipv4(net_id))
+print("IP address: ", node.addr_get_ipv4(net_id))
 
 
 
@@ -1266,12 +1266,12 @@ int main() {
 ```python
 def on_zerotier_event(event_code, id):
   if event_code == libzt.ZTS_EVENT_NODE_ONLINE:
-    print("ZTS_EVENT_NODE_ONLINE: " + hex(id))
+    print("ZTS_EVENT_NODE_ONLINE: ", hex(id))
 
 def main():
-  n = libzt.ZeroTierNode()
-  n.init_set_event_handler(on_zerotier_event)
-  n.node_start()
+  node = libzt.ZeroTierNode()
+  node.init_set_event_handler(on_zerotier_event)
+  node.node_start()
 
 
 
@@ -1392,6 +1392,7 @@ This section will show you how to use the built-in Central API to make calls to 
 
 The Central API built into libzt is still `beta` and is not included in most builds by default. It is currently only available in `C` and can be enabled by commenting out `#define ZTS_DISABLE_CENTRAL_API 1` in `ZeroTierSockets.h`. You will need your system's edition of the `libcurl` development headers and libraries. This exercise is left to the reader for the time being.
 
+[//]: # cSpell:disable-next-line
 You should try to use our API exposed here instead: <a href="https://apidocs.zerotier.com/">apidocs.zerotier.com</a>.
 :::
 

@@ -1,3 +1,7 @@
+---
+[//]: # cSpell:words Hinojosa Gizienski
+---
+
 # Terraform Multicloud Quickstart
 
 <p align="center">
@@ -64,7 +68,7 @@ You can do this. We believe in you.
 [Import](https://github.com/new/import) the
 [Terraform Multicloud Quickstart](https://github.com/zerotier/terraform-multicloud-quickstart)
 to your Github account. We are "importing" instead of "cloning" so
-that we can set the repository as private.  If you're comforable on
+that we can set the repository as private.  If you're comfortable on
 the command line, feel free to clone to your laptop and commits from
 there, otherwise, we will use Github's in-browser editing feature to
 drive the tutorial.
@@ -162,7 +166,7 @@ webUI.
 
 <p align="center"><img src="https://i.imgur.com/dYCJLGa.png" alt="observe ran plan" width="75%"/></p>
 
-Congratulations! You have just succesfully created your first ZeroTier
+Congratulations! You have just successfully created your first ZeroTier
 network using Terraform! Go over to
 [ZeroTier Central](https://my.zerotier.com) and check out your new
 network. Alice and Bob are both authorized onto the network, but don't
@@ -173,7 +177,7 @@ worry, they aren't real. We will replace them shortly.
 ## Edit variables.tf
 
 Terraform has two kinds of variables. We have already seen some
-Environmet Variables, which we used to make credentials available to
+Environment Variables, which we used to make credentials available to
 the [ZeroTier Terraform Provider](https://github.com/zerotier/terraform-provider-zerotier). The
 other kinds of variables are known as [Input Variables](https://www.terraform.io/docs/language/values/variables.html). We
 will use these to supply some usernames and SSH keys, as well as toggle which clouds we want to use.
@@ -210,7 +214,7 @@ has access to your account, as well as source repository that drives it.
 
 ## Create Digital Ocean resources
 
-Add your your `DIGITALOCEAN_TOKEN` to the worksace's Environmet Variables using the same procedure as before.
+Add your `DIGITALOCEAN_TOKEN` to the workspace's Environment Variables using the same procedure as before.
 
 <p align="center"><img src="https://i.imgur.com/EfcXeaD.png" alt="add digitalocean_token" width="75%"/></p>
 
@@ -229,7 +233,7 @@ Next, edit main.tf and uncomment the Digital Ocean module.
 ## Join laptop to Network
 
 The ZeroTier Network can be found in the Terraform output. Find it by
-nagivating to the "Outputs" tab of the latest run.
+navigating to the "Outputs" tab of the latest run.
 <p align="center"><img src="https://i.imgur.com/MLkTwe6.png" alt="examine outputs" width="75%"/></p>
 
 <p align="center">
@@ -351,7 +355,7 @@ vul.demo.lab (10.0.7.1) at 5e:3c:36:a8:9f:9d [ether] on ztyqb6mebi
 ```
 
 As you can see, the ARP table now contains an entry for each node on
-our network, just as it would on a local ethernet network.
+our network, just as it would on a local Ethernet network.
 
 ## Examine the interfaces
 
@@ -363,7 +367,7 @@ alice@do:~$ ip link | grep -A1 zt
     link/ether 5e:56:14:d3:25:ed brd ff:ff:ff:ff:ff:ff
 ```
 
-You'll see a virtual ethernet interface for each ZeroTier network the node is joined to. (in this case, one)
+You'll see a virtual Ethernet interface for each ZeroTier network the node is joined to. (in this case, one)
 
 ```bash
 alice@aws:~$ ip link | grep  -A1 zt
@@ -503,7 +507,7 @@ observe the traffic in your Digital Ocean terminal.
 
 ## Manually manipulate IP addresses
 
-Because ZeroTier behaves like ethernet, we can assign multiple IP addresses to an interface, just like on a physical network.
+Because ZeroTier behaves like Ethernet, we can assign multiple IP addresses to an interface, just like on a physical network.
 
 ```bash
 alice@aws:~$ ip -4 addr show ztyqb6mebi
@@ -653,7 +657,7 @@ alice@eqx:~$ ip route | grep 42
 
 At the bottom of the lab [boot script](https://github.com/zerotier/zerotier-terraform-quickstart/blob/main/init-demolab.tpl)
 we've installed a [routing daemon](https://bird.network.cz/) and
-gave it a simple OSPF configuration. This propigates the routes
+gave it a simple OSPF configuration. This propagates the routes
 of the Docker networks among all the instances so they can talk over
 the ZeroTier network.
 

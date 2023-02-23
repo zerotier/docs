@@ -501,12 +501,14 @@ fully up to date.**
 A special kind of public network called an ad-hoc network may be
 accessed by joining a network ID with the format:
 
+```text
     ffSSSSEEEE000000
     | |   |   |
     | |   |   Reserved for future use, must be 0
     | |   End of port range (hex)
     | Start of port range (hex)
     Reserved ZeroTier address prefix indicating a controller-less network
+```
 
 Ad-hoc networks are public (no access control) networks that have no
 network controller. Instead their configuration and other credentials
@@ -514,7 +516,7 @@ are generated locally. Ad-hoc networks permit only IPv6 UDP and TCP
 unicast traffic (no multicast or broadcast) using 6plane format
 NDP-emulated IPv6 addresses. In addition an ad-hoc network ID encodes an
 IP port range. UDP packets and TCP SYN (connection open) packets are
-only allowed to desintation ports within the encoded range.
+only allowed to destination ports within the encoded range.
 
 For example `ff00160016000000` is an ad-hoc network allowing only SSH,
 while `ff0000ffff000000` is an ad-hoc network allowing any UDP or TCP

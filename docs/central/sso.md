@@ -22,7 +22,7 @@ SSO is currently only supported on desktop operating systems such as macOS and W
     
 
 ### Configure SSO in ZeroTier Central 
-Visit https://my.zerotier.com/account and complete the SSO configuration toward the bottom of the page. You will need your sso provider's Isssuer URL as well as a Client ID.
+Visit https://my.zerotier.com/account and complete the SSO configuration toward the bottom of the page. You will need your sso provider's Issuer URL as well as a Client ID.
 
 ![SSO-Account-Setup](/img/sso-account-setup.png)
 
@@ -85,6 +85,7 @@ Use of Authelia requires ZeroTierOne version 1.10.1 or greater.  There is an inc
 
 Example client configuration:
 
+```yaml
     clients:
         ## The ID is the OpenID Connect ClientID which is used to link an application to a configuration.
       - id: authelia-sso-client
@@ -148,6 +149,7 @@ Example client configuration:
 
         ## The algorithm used to sign userinfo endpoint responses for this client, either none or RS256.
         userinfo_signing_algorithm: none
+```
 
 ### Azure AD
 
@@ -170,7 +172,7 @@ Google OAuth2/OIDC is not supported as Google does not support PKCE clients at t
 
 Log into your Keycloak administration console, go to the Client configuration and create a new client. Configuration is fairly straightforward, with the following requirements:
 
-- Client Protocol: openid-conect
+- Client Protocol: openid-connect
 - Access Type: public
 - Standard Flow Enabled: ON
 - Root URL: https://my.zerotier.com
@@ -209,7 +211,7 @@ Once the above steps are complete, go to the SSO tab for your new OneLogin Appli
 If you wish, you can customize the final view of the sso login process. 
 Create the file `$ZEROTIER_HOME/sso-auth.template.html`. 
 
-Note: Any CSS or images must be hosted externaly, or placed within the single HTML page itself.
+Note: Any CSS or images must be hosted externally, or placed within the single HTML page itself.
 
 You may customize the page to look however you wish. At this time there
 are only two template values set by zerotier:

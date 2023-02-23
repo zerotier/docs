@@ -65,6 +65,8 @@ definition to *stdout*, so we redirect it to `moon.json`.
 
 Examine this file. It will contain something like:
 
+```json
+
     {
       "id": "deadbeef00",
       "objtype": "world",
@@ -79,6 +81,7 @@ Examine this file. It will contain something like:
       "updatesMustBeSignedBy": "b324d84cec708d1b51d5ac03e75afba501a12e2124705ec34a614bf8f9b2c800f44d9824ad3ab2e3da1ac52ecb39ac052ce3f54e58d8944b52632eb6d671d0e0",
       "worldType": "moon"
     }
+```
 
 The world ID is technically arbitrary and could be any random 64-bit
 value. By convention we use the address of one of the roots.
@@ -90,6 +93,7 @@ you to update your world definition automatically in the future.
 Now add your other root(s) and define their stable endpoints. You’ll end
 up with something that looks like:
 
+```json
     {
       "id": "deadbeef00",
       "objtype": "world",
@@ -108,6 +112,7 @@ up with something that looks like:
       "updatesMustBeSignedBy": "b324d84cec708d1b51d5ac03e75afba501a12e2124705ec34a614bf8f9b2c800f44d9824ad3ab2e3da1ac52ecb39ac052ce3f54e58d8944b52632eb6d671d0e0",
       "worldType": "moon"
     }
+```
 
 The static IP addresses you use must be reachable from all the places
 you want these roots to serve. If you’re deploying these for use at a

@@ -12,7 +12,7 @@ ZeroTier connects _your_ devices with _each other_.
 
 Let's connect two devices over ZeroTier. We'll use `ping` to test the connection. Any two devices that can run ZeroTier will do: laptop, phone, virtual machine, etc… 
 
-Both devices can be at the same location, on the same physcial network. If you move one to a cafe or to your office, it should still just work.
+Both devices can be at the same location, on the same physical network. If you move one to a cafe or to your office, it should still just work.
 
 The rough outline is:
 
@@ -29,7 +29,7 @@ Here is a summary of the results of this tutorial, if you're a networking person
 
 If this doesn't mean anything to you, that's OK. We'll get there.
 
-Each zerotier network you join creates a network interface on your device. It's like adding another ethernet port to your computer.
+Each zerotier network you join creates a network interface on your device. It's like adding another Ethernet port to your computer.
 
 ```
 node1# ip -o a
@@ -436,4 +436,4 @@ You can have a `home` network, a `friends` network, and a `work` network, for ex
 They don't all need to be networks that you've created. You can join other people's networks.
 
 ### Check out the Whitepaper
-For more info on the cryptogrophy and protocol, see the: [Manual](/zerotier/manual)
+For more info on the cryptography and protocol, see the: [Manual](/zerotier/manual)
