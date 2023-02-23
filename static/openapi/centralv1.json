@@ -1458,6 +1458,28 @@
       "SsoConfig": {
         "type": "object",
         "properties": {
+          "enabled": {
+            "type": "boolean",
+            "example": true,
+            "description": "Enabled flag for SSO"
+          },
+          "issuers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SsoIssuer",
+              "description": "list of configured OIDC issuers"
+            }
+          }
+        }
+      },
+      "SsoIssuer": {
+        "type": "object",
+        "properties": {
+          "provider": {
+            "type": "string",
+            "example": "keycloak",
+            "description": "OIDC Provider (one of: default, authelia, auth0, azure, keycloak, okta, onelogin)"
+          },
           "clientId": {
             "type": "string",
             "example": "oidc-client-id",
@@ -1468,10 +1490,11 @@
             "example": "https://example.com/oidc/auth",
             "description": "OIDC Issuer URL"
           },
-          "enabled": {
-            "type": "boolean",
-            "example": true,
-            "description": "Enabled flag for SSO"
+          "authorization_endpoint": {
+            "type": "string",
+            "example": "https://example.com/oidc/auth/endpoint",
+            "description": "authorization endpoint",
+            "readOnly": true
           }
         }
       },
