@@ -1115,6 +1115,10 @@
             },
             "nullable": true
           },
+          "ssoConfig": {
+            "$ref": "#/components/schemas/NetworkSSOConfig",
+            "nullable": true
+          },
           "tags": {
             "type": "array",
             "items": {
@@ -1129,6 +1133,55 @@
           "v6AssignMode": {
             "$ref": "#/components/schemas/IPV6AssignMode",
             "nullable": true
+          }
+        }
+      },
+      "NetworkSSOConfig": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "example": true,
+            "readOnly": false,
+            "description": "SSO enabled/disabled on network"
+          },
+          "mode": {
+            "type": "string",
+            "example": "default",
+            "description": "SSO mode.  One of: `default`, `email`, `group`",
+            "readOnly": false
+          },
+          "clientId": {
+            "type": "string",
+            "example": "some-client-id",
+            "description": "SSO client ID.  Client ID must be already configured in the Org",
+            "readOnly": false
+          },
+          "issuer": {
+            "type": "string",
+            "example": "https://example.com/oidc",
+            "description": "URL of the OIDC issuer",
+            "readOnly": true
+          },
+          "provider": {
+            "type": "string",
+            "example": "keycloak",
+            "description": "Provider type",
+            "readOnly": true
+          },
+          "authorizationEndpoint": {
+            "type": "string",
+            "description": "Authorization URL endpoint",
+            "readOnly": true
+          },
+          "allowList": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "description": "List of email addresses or group memberships that may SSO auth onto the network",
+            "readOnly": false
           }
         }
       },
@@ -1450,12 +1503,12 @@
           },
           "ssoConfig": {
             "type": "object",
-            "$ref": "#/components/schemas/SsoConfig",
+            "$ref": "#/components/schemas/OrgSsoConfig",
             "description": "Organization wide SSO configuration"
           }
         }
       },
-      "SsoConfig": {
+      "OrgSsoConfig": {
         "type": "object",
         "properties": {
           "enabled": {
