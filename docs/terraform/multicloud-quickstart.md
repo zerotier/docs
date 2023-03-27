@@ -415,7 +415,7 @@ resource "zerotier_network" "demolab" {
 We will use these to gain visibility into our network with tshark. You
 can see them reflected in the Central WebUI under the "Flow Rules"
 section for the `demo.lab` network. They are documented in in-depth in
-chapter 3 of the [ZeroTier Manual](https://www.zerotier.com/manual/#3).
+chapter 3 of the [Design Whitepaper](https://www.zerotier.com/manual/#3).
 
 Edit `flow_rules.tpl`, uncommenting the `tee` rule.
 
