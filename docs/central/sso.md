@@ -165,6 +165,8 @@ Platform: Public client/native (mobile & desktop)
 
 Set the Redirect URI to `http://localhost:9993/sso`
 
+Do not use a trailing `/` when you enter the "issuer" url in Central.
+
 ### Google Workspace
 Google OAuth2/OIDC is not supported as Google does not support PKCE clients at this time. You can, however, use [Keycloak as a SAML Identity Broker](http://localhost:3000/central/sso#keycloak-as-a-saml-identity-broker) with Google Workspace.
 
