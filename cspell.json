@@ -1,0 +1,32 @@
+{
+  "caseSensitive": false,
+  "ignorePaths": [
+    "docs/zerotier/ztintro.md"
+  ],
+  "dictionaryDefinitions": [
+    {
+      "name": "custom-words",
+      "path": "./custom-words.txt",
+      "addWords": true
+    }
+  ],
+  "dictionaries": [
+    "companies",
+    "custom-words",
+    "networkingTerms",
+    "publicLicensese",
+    "softwareTerms"
+  ],
+  "languageSettings": [
+    {
+      "languageId": "markdown",
+      "ignoreRegExpList": [
+        "/^\\s*```(.|\\n)+?^\\s*```/gm",
+        "/`(\\S| )+`/",
+        "/\\[(\\S| )+\\]/",
+        "/\\{\\#.*\\}/gm",
+        "/\\{\\*\\}/gm"
+      ]
+    }
+  ]
+}
