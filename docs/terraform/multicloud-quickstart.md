@@ -1,3 +1,7 @@
+---
+[//]: # cSpell:words Hinojosa Gizienski
+---
+
 # Terraform Multicloud Quickstart
 
 <p align="center">
@@ -351,7 +355,7 @@ vul.demo.lab (10.0.7.1) at 5e:3c:36:a8:9f:9d [ether] on ztyqb6mebi
 ```
 
 As you can see, the ARP table now contains an entry for each node on
-our network, just as it would on a local ethernet network.
+our network, just as it would on a local Ethernet network.
 
 ## Examine the interfaces
 
@@ -363,7 +367,7 @@ alice@do:~$ ip link | grep -A1 zt
     link/ether 5e:56:14:d3:25:ed brd ff:ff:ff:ff:ff:ff
 ```
 
-You'll see a virtual ethernet interface for each ZeroTier network the node is joined to. (in this case, one)
+You'll see a virtual Ethernet interface for each ZeroTier network the node is joined to. (in this case, one)
 
 ```bash
 alice@aws:~$ ip link | grep  -A1 zt
@@ -411,7 +415,7 @@ resource "zerotier_network" "demolab" {
 We will use these to gain visibility into our network with tshark. You
 can see them reflected in the Central WebUI under the "Flow Rules"
 section for the `demo.lab` network. They are documented in in-depth in
-chapter 3 of the [ZeroTier Manual](https://www.zerotier.com/manual/#3).
+chapter 3 of the [Design Whitepaper](https://www.zerotier.com/manual/#3).
 
 Edit `flow_rules.tpl`, uncommenting the `tee` rule.
 
@@ -503,7 +507,7 @@ observe the traffic in your Digital Ocean terminal.
 
 ## Manually manipulate IP addresses
 
-Because ZeroTier behaves like ethernet, we can assign multiple IP addresses to an interface, just like on a physical network.
+Because ZeroTier behaves like Ethernet, we can assign multiple IP addresses to an interface, just like on a physical network.
 
 ```bash
 alice@aws:~$ ip -4 addr show ztyqb6mebi
@@ -653,7 +657,7 @@ alice@eqx:~$ ip route | grep 42
 
 At the bottom of the lab [boot script](https://github.com/zerotier/zerotier-terraform-quickstart/blob/main/init-demolab.tpl)
 we've installed a [routing daemon](https://bird.network.cz/) and
-gave it a simple OSPF configuration. This propigates the routes
+gave it a simple OSPF configuration. This propagates the routes
 of the Docker networks among all the instances so they can talk over
 the ZeroTier network.
 

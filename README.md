@@ -31,3 +31,33 @@ GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
 ```
 
 If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+
+## Spelling / Typos
+
+``` console
+yarn run lint
+```
+
+This is currently configured to not stop the build in CI. `|| true`
+
+You can add more words to ignore in the file `custom-words.txt`
+
+You can ignore words in an individual markdown file like this:
+Make sure it's inside the front matter 
+
+
+
+``` console
+---
+[//]: # cSpell:words Hinojosa Gizienski
+---
+```
+
+or 
+
+``` console
+[//]: # cSpell:disable-next-line
+```
+
+or add to the regexes in cspell.json. Have fun!
+

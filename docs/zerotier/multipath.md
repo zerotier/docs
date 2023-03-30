@@ -15,10 +15,6 @@ code_clipboard: true
 custom_edit_url: null
 ---
 
-:::info
-This page refers to new features currently only available in the [dev](https://github.com/zerotier/ZeroTierOne/tree/dev) branch. These features will be included in the next major release.
-:::
-
 Multipath allows the simultaneous (or conditional) aggregation of multiple physical links into a *bond* for increased total throughput, load balancing, redundancy, and fault tolerance. There is a set of standard bonding policies available that can be used right out of the box with no configuration. These policies are inspired by [the policies offered by the Linux kernel](https://www.kernel.org/doc/Documentation/networking/bonding.txt). A bonding policy can be used easily without specifying any additional parameters. For example:
 
 ```json title="Example local.conf"

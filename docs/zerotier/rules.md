@@ -21,7 +21,10 @@ search: true
 
 code_clipboard: true
 custom_edit_url: null
+
+[//]: # cSpell:words udpserver
 ---
+
 
 The Network Rules Engine {#3thenetworkrulesengineaname3a}
 -------------------------------
@@ -82,32 +85,34 @@ used by ZeroTier One’s built-in network controller implementation.
 human-friendly way of writing rule sets, but before we introduce it it’s
 important to understand what is really happening.)
 
-    [
-      {
-        "etherType": 2048,
-        "not": true,
-        "or": false,
-        "type": "MATCH_ETHERTYPE"
-      },
-      {
-        "etherType": 2054,
-        "not": true,
-        "or": false,
-        "type": "MATCH_ETHERTYPE"
-      },
-      {
-        "etherType": 34525,
-        "not": true,
-        "or": false,
-        "type": "MATCH_ETHERTYPE"
-      },
-      {
-        "type": "ACTION_DROP"
-      },
-      {
-        "type": "ACTION_ACCEPT"
-      }
-    ]
+```json
+[
+  {
+    "etherType": 2048,
+    "not": true,
+    "or": false,
+    "type": "MATCH_ETHERTYPE"
+  },
+  {
+    "etherType": 2054,
+    "not": true,
+    "or": false,
+    "type": "MATCH_ETHERTYPE"
+  },
+  {
+    "etherType": 34525,
+    "not": true,
+    "or": false,
+    "type": "MATCH_ETHERTYPE"
+  },
+  {
+    "type": "ACTION_DROP"
+  },
+  {
+    "type": "ACTION_ACCEPT"
+  }
+]
+```
 
 This checks whether an Ethernet level packet is *not* IPv4 (ethertype
 2048) *and not* IPv4 ARP (ethertype 2054) *and not* IPv6 (ethertype
@@ -198,22 +203,24 @@ be used unless certain traffic must be absolutely prohibited under any
 circumstance.
 
 In the simple base rule set example in section 3.1 the drop action is
-taken in the unapproved case. This means that ethernet whitelisting
+taken in the unapproved case. This means that Ethernet whitelisting
 cannot be overridden by a capability. If we change `ACTION_DROP` in our
 example to `ACTION_BREAK`, then it becomes possible to issue the
 following capability:
 
-    [
-      {
-        "etherType": 2114,
-        "not": false,
-        "or": false,
-        "type": "MATCH_ETHERTYPE"
-      },
-      {
-        "type": "ACTION_ACCEPT"
-      }
-    ]
+```json
+[
+  {
+    "etherType": 2114,
+    "not": false,
+    "or": false,
+    "type": "MATCH_ETHERTYPE"
+  },
+  {
+    "type": "ACTION_ACCEPT"
+  }
+]
+```
 
 Ethertype 2114 is [wake-on-LAN](https://wiki.wireshark.org/WakeOnLAN), a
 special packet that can cause some systems to wake from sleep mode. If
@@ -252,38 +259,40 @@ First a tag is created to represent the department. Let’s give it tag ID
 indicating which department it belongs to. We can then add the following
 rules to our network’s base rule set (or to a capability if so desired):
 
-    [
-      {
-        "type": "MATCH_IP_DEST_PORT_RANGE",
-        "not": false,
-        "or": false,
-        "start": 139,
-        "end": 139
-      },
-      {
-        "type": "MATCH_IP_DEST_PORT_RANGE",
-        "not": false,
-        "or": true,
-        "start": 445,
-        "end": 445
-      },
-      {
-        "type": "MATCH_IP_PROTOCOL",
-        "not": false,
-        "or": false,
-        "ipProtocol": 6
-      },
-      {
-        "type": "MATCH_TAGS_DIFFERENCE",
-        "not": false,
-        "or": false,
-        "id": 100,
-        "value": 0
-      },
-      {
-        "type": "ACTION_ACCEPT"
-      }
-    ]
+```json
+[
+  {
+    "type": "MATCH_IP_DEST_PORT_RANGE",
+    "not": false,
+    "or": false,
+    "start": 139,
+    "end": 139
+  },
+  {
+    "type": "MATCH_IP_DEST_PORT_RANGE",
+    "not": false,
+    "or": true,
+    "start": 445,
+    "end": 445
+  },
+  {
+    "type": "MATCH_IP_PROTOCOL",
+    "not": false,
+    "or": false,
+    "ipProtocol": 6
+  },
+  {
+    "type": "MATCH_TAGS_DIFFERENCE",
+    "not": false,
+    "or": false,
+    "id": 100,
+    "value": 0
+  },
+  {
+    "type": "ACTION_ACCEPT"
+  }
+]
+```
 
 This tells members in our network to accept TCP packets on ports 139 or
 445 if the difference between tags with tag ID 10 is zero, meaning they
@@ -301,7 +310,7 @@ classification to be implemented.
 ### Rule Definition Language {#34ruledefinitionlanguageaname3_4a}
 
 Raw rule sets are verbose and difficult to write, so we created a
-minimal rule definition langugage that’s easier for human beings.
+minimal rule definition language that’s easier for human beings.
 
 The parser for this language can be found in the [rule-compiler
 subfolder of the ZeroTierOne
@@ -313,50 +322,52 @@ in-browser editor in ZeroTier Central.
 
 ### An Introductory Example {#341anintroductoryexampleaname3_4_1a}
 
-    # Whitelist only IPv4 (/ARP) and IPv6 traffic and allow only ZeroTier-assigned IP addresses
-    drop                      # drop cannot be overridden by capabilities
-      not ethertype ipv4      # frame is not ipv4
-      and not ethertype arp   # AND is not ARP
-      and not ethertype ipv6  # AND is not ipv6
-      or not chr ipauth       # OR IP addresses are not authenticated (1.2.0+ only!)
-    ;
+```text
+# Whitelist only IPv4 (/ARP) and IPv6 traffic and allow only ZeroTier-assigned IP addresses
+drop                      # drop cannot be overridden by capabilities
+  not ethertype ipv4      # frame is not ipv4
+  and not ethertype arp   # AND is not ARP
+  and not ethertype ipv6  # AND is not ipv6
+  or not chr ipauth       # OR IP addresses are not authenticated (1.2.0+ only!)
+;
 
-    # Allow SSH, HTTP, and HTTPS by allowing all TCP packets (including SYN/!ACK) to these ports
-    accept
-      dport 22 or dport 80 or dport 443
-      and ipprotocol tcp
-    ;
+# Allow SSH, HTTP, and HTTPS by allowing all TCP packets (including SYN/!ACK) to these ports
+accept
+  dport 22 or dport 80 or dport 443
+  and ipprotocol tcp
+;
 
-    # Create a tag for which department someone is in
-    tag department
-      id 1000                 # arbitrary, but must be unique
-      enum 100 sales          # has no meaning to filter, but used in UI to offer a selection
-      enum 200 engineering
-      enum 300 support
-      enum 400 manufacturing
-    ;
+# Create a tag for which department someone is in
+tag department
+  id 1000                 # arbitrary, but must be unique
+  enum 100 sales          # has no meaning to filter, but used in UI to offer a selection
+  enum 200 engineering
+  enum 300 support
+  enum 400 manufacturing
+;
 
-    # Allow Windows CIFS and netbios between computers in the same department using a tag
-    accept
-      dport 139 or dport 445
-      and ipprotocol tcp
-      and tdiff department 0  # difference between department tags is 0, meaning they match
-    ;
+# Allow Windows CIFS and netbios between computers in the same department using a tag
+accept
+  dport 139 or dport 445
+  and ipprotocol tcp
+  and tdiff department 0  # difference between department tags is 0, meaning they match
+;
 
-    # Drop TCP SYN,!ACK packets (new connections) not explicitly whitelisted above
-    break                     # break can be overridden by a capability
-      chr tcp_syn             # TCP SYN (TCP flags will never match non-TCP packets)
-      and not chr tcp_ack     # AND not TCP ACK
-    ;
+# Drop TCP SYN,!ACK packets (new connections) not explicitly whitelisted above
+break                     # break can be overridden by a capability
+  chr tcp_syn             # TCP SYN (TCP flags will never match non-TCP packets)
+  and not chr tcp_ack     # AND not TCP ACK
+;
 
-    # Create a capability called "superuser" that lets its holders override all but the initial "drop"
-    cap superuser
-      id 1000 # arbitrary, but must be unique
-      accept; # allow with no match conditions means allow anything and everything
-    ;
+# Create a capability called "superuser" that lets its holders override all but the initial "drop"
+cap superuser
+  id 1000 # arbitrary, but must be unique
+  accept; # allow with no match conditions means allow anything and everything
+;
 
-    # Accept other packets
-    accept;
+# Accept other packets
+accept;
+```
 
 This creates a network that can pass IPv4 (and ARP) and IPv6 traffic but
 no other Ethernet frame types. In addition the `not chr ipauth`
@@ -378,36 +389,38 @@ discussion of how we accomplish TCP whitelisting here.
 
 ### Rule Definition Language Syntax {#342ruledefinitionlanguagesyntaxaname3_4_2a}
 
-    # The remainder of this line is a comment.
+```text
+# The remainder of this line is a comment.
 
-    action [ ... args ... ]
-      [and|or] [not] match [... args ...]
-      [ ... additional matches ... ]
-    ;
+action [ ... args ... ]
+  [and|or] [not] match [... args ...]
+  [ ... additional matches ... ]
+;
 
-    tag <name>
-      id <id>                 # arbitrary unique 32-bit ID
-      [default <value>]       # default tag value to assign to members
-      [enum <value> <name>]   # value can be any 32-bit unsigned integer
-      [flag <bit> <name>]     # bit can be 0 to 31
-      [ ... additional enums or flags ... ]
-    ;
+tag <name>
+  id <id>                 # arbitrary unique 32-bit ID
+  [default <value>]       # default tag value to assign to members
+  [enum <value> <name>]   # value can be any 32-bit unsigned integer
+  [flag <bit> <name>]     # bit can be 0 to 31
+  [ ... additional enums or flags ... ]
+;
 
-    cap <name>
-      id <id>                 # arbitrary unique 32-bit ID
-      action [ ... args ... ]
-        [ ... ]
-      ;
-      [ ... additional action blocks ... ]
-    ;
+cap <name>
+  id <id>                 # arbitrary unique 32-bit ID
+  action [ ... args ... ]
+    [ ... ]
+  ;
+  [ ... additional action blocks ... ]
+;
 
-    macro <name[($var1,...)]>
-      action [ ... args ... ]
-        [ ... ]
-      ;
-    ;
+macro <name[($var1,...)]>
+  action [ ... args ... ]
+    [ ... ]
+  ;
+;
 
-    include <name(value,...)>
+include <name(value,...)>
+```
 
 Each action, tag, capability, or macro block ends with a semicolon.
 White space separates things. Indentation is not significant. Hash
@@ -425,19 +438,23 @@ nodes to allow rules to be selectively applied.
 Macros are just a convenient way of defining more complex actions that
 can then be applied in multiple places. An example of a macro might be:
 
-    macro allowtcp($port)
-      accept
-        ipprotocol tcp
-        and dport $port
-      ;
-    ;
+```text
+macro allowtcp($port)
+  accept
+    ipprotocol tcp
+    and dport $port
+  ;
+;
+```
 
 You could then allow TCP ports in a standard TCP whitelisting scheme by
 just saying:
 
-    include allowtcp(80)
-    include allowtcp(443)
-    include allowtcp(8080)
+```text
+include allowtcp(80)
+include allowtcp(443)
+include allowtcp(8080)
+```
 
 Tag `enum` and `flag` directives have no meaning to the actual ZeroTier
 rules engine, but they can be used by user interfaces like ZeroTier
@@ -480,7 +497,7 @@ Match conditions may be joined by **and** (default if none specified) or
 **or** and may be modified by **not**.
 
 Match conditions are evaluated from left to right; `a and b or c` is a different rule than `b or c and a`.
-The rules language doesn't support parens, but for example purposes the above would evaluate as: `(a and b) or c` vs `(b or c) and a`
+The rules language doesn't support parentheses, but for example purposes the above would evaluate as: `(a and b) or c` vs `(b or c) and a`
 
 Traffic won't be `tee`d if it is blocked by a `break` or `drop`.
 
@@ -549,18 +566,20 @@ so there is no way to specifically select a new session vs. an existing
 session. The best way to lock down UDP on a network is to use tags to
 allow it to and from things like DNS servers that need to speak it.
 
-    tag udpserver
-      id 1000
-      default 0
-    ;
+```text
+tag udpserver
+  id 1000
+  default 0
+;
 
-    accept
-      ipprotocol udp
-      and tor udpserver 1
-      or chr multicast
-    ;
+accept
+  ipprotocol udp
+  and tor udpserver 1
+  or chr multicast
+;
 
-    break ipprotocol udp;
+break ipprotocol udp;
+```
 
 First we define a tag called `udpserver` with a default value of 0. We
 don’t set any enums or flags for this tag since it will be used as a
