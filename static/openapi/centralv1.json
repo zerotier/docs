@@ -1251,14 +1251,14 @@
             "type": "integer",
             "format": "int64",
             "readOnly": true,
-            "description": "Last seen time of the member.  Note: This data is considered ephemeral and may be reset to 0 at any time without warning.",
+            "description": "Last seen time of the member (milliseconds since epoch).  Note: This data is considered ephemeral and may be reset to 0 at any time without warning.",
             "example": 1612993673254,
             "nullable": true
           },
           "physicalAddress": {
             "type": "string",
             "readOnly": true,
-            "description": "IP address the member last spoke to the controller via.  Note: This data is considered ephemeral and may be reset to 0 at any time without warning.",
+            "description": "IP address the member last spoke to the controller via (milliseconds since epoch).  Note: This data is considered ephemeral and may be reset to 0 at any time without warning.",
             "example": "8.8.8.8",
             "nullable": true
           },
