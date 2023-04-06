@@ -1253,6 +1253,15 @@
             "readOnly": true,
             "description": "Last seen time of the member (milliseconds since epoch).  Note: This data is considered ephemeral and may be reset to 0 at any time without warning.",
             "example": 1612993673254,
+            "nullable": true,
+            "deprecated": true
+          },
+          "lastSeen": {
+            "type": "integer",
+            "format": "int64",
+            "readOnly": true,
+            "description": "Time the member last checked in with the network controller in milliseconds since epoch. Note: This data is considered ephemeral and may be reset to 0 at any time without warning.",
+            "example": 1612993673254,
             "nullable": true
           },
           "physicalAddress": {
