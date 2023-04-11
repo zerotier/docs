@@ -60,3 +60,25 @@ Some more settings you may find helpful for your firewall rules:
 ```
 
 This prevents ZeroTier from binding to multiple ports. 
+
+## ZeroTier clients behind OPNsense 
+If you have computers behind an OPNsense router, they probably won't be able to make make direct, peer to peer ZeroTier connections. 
+`pf` based routers use Symmetric NAT otherwise known as Endpoint Dependent NAT. This is unfriendly to any peer to peer protocol.
+
+
+Here are some options:
+
+### Run ZeroTier on the Router
+Described above
+
+### UPnP/NAT-PMP
+ZeroTier will use UPnP or NAT-PMP if they are available. 
+
+### Static Port
+If you have a small number of ZeroTier clients (and a small number of UDP services in general), enabling Static Port can help.
+
+Firewall -> NAT -> Outbound -> Static Port option. See also the Source Address setting. Each instance of ZeroTier binds to a random source port (in addition to 9993.)
+
+https://docs.opnsense.org/manual/nat.html#outbound
+
+If you have many computers on your network, two services will choose the same port eventually. Then there will be a conflict in the Static NAT and something won't work and you won't remember why.
