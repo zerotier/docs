@@ -16,6 +16,12 @@ import TabItem from '@theme/TabItem';
 Ubiquiti
 =====
 
+### Create directory to persist across firmware upgrades
+
+```
+mkdir -p /config/data/firstboot/install-packages/
+```
+
 ### Download
 
 <Tabs
