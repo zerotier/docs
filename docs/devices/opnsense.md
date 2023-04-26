@@ -10,7 +10,7 @@ OPNsense
 [OPNsense](https://opnsense.org/) is an open source, easy-to-use and easy-to-build HardenedBSD based firewall and routing platform.
 They maintain a ZeroTier [package](https://docs.opnsense.org/manual/how-tos/zerotier.html).
 
-If you're using more than one OPNsense router with ZeroTier for a site-to-site style VPN. 
+If you're using more than one OPNsense router with ZeroTier for a site-to-site style VPN, you will run in to a "ZeroTier over ZeroTier" issue. This causes high CPU usage and dropped packets.
 The work-around is to paste this into the local.conf text box in the opnsense UI: 
 
 ```json
