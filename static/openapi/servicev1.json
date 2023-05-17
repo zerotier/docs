@@ -84,7 +84,7 @@
       "get": {
         "tags": ["controller"],
         "summary": "Get Network by ID.",
-        "description": "Get details of a network by it's ID.",
+        "description": "Get details of a network by its ID.",
         "operationId": "getControllerNetwork",
         "parameters": [
           {
@@ -364,7 +364,7 @@
       },
       "post": {
         "tags": ["network"],
-        "summary": "Join a network or update it's configuration by Network ID.",
+        "summary": "Join a network or update its configuration by Network ID.",
         "operationId": "updateNetwork",
         "parameters": [
           {

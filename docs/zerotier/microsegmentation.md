@@ -3,7 +3,7 @@
 ## Multiple ZeroTier Networks
 
 Create a network for each role. Devices can join multiple networks at once. Networks are free on my.zerotier.com.
-Each network can have it's own [Network Flow Rules](/zerotier/rules). "Network A allows only RDP traffic." for example.
+Each network can have its own [Network Flow Rules](/zerotier/rules). "Network A allows only RDP traffic." for example.
 
 ### Pros
 

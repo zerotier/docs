@@ -77,7 +77,7 @@ TOKEN=$(sudo cat "/Library/Application Support/ZeroTier/One/authtoken.secret")
 
 ### Get your Node ID
 :::note
-Network IDs are based on the Node ID of the Controller. Controllers are nodes! When you join a network, your node finds the controller like it does with other nodes: by it's Node ID. 
+Network IDs are based on the Node ID of the Controller. Controllers are nodes! When you join a network, your node finds the controller like it does with other nodes: by its Node ID. 
 :::
 
 #### with zerotier-cli
@@ -136,7 +136,7 @@ You can use a phone, or another PC, or a VM, or a VPS...
 
     curl "http://localhost:9993/controller/network/${NWID}/member" -H "X-ZT1-AUTH: ${TOKEN}" 
 
-I guess you could join the controller node to it's own network, for demonstration purposes.
+I guess you could join the controller node to its own network, for demonstration purposes.
 
 Save the Node ID of one of your Network _Members_ in an env var
 
