@@ -13,13 +13,8 @@ First, make sure your device is authorized on the network and you're using the Z
 
 ### Windows
 
-Windows does block pings by default. To enable pings on Windows, follow the following steps
+ZeroTier versions 1.10.3 and greater automatically enable ping on ZeroTier adapters. 
 
-1. Click the search bar on your taskbar and search for "Windows Firewall" then click it to open
-2. Click "Advanced Settings" on the left.
-3. From the left pane of the resulting window, click "Inbound Rules"
-4. In the right pane, find the rules titled "File and Printer Sharing (Echo Request - ICMPv4-In).
-5. Right click each rule and choose "Enable Rule"
 
 ### macOS
 
