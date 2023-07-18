@@ -204,7 +204,7 @@ OneLogin requires ZeroTier One v1.10.3+
 
 :::
 
-Log in to your OneLogin admin console.  Select "Custom Connectors" from the "Applications" menu.  Hit the "New Connector" button.  Name your connector, set Sign on method to OpenID Connect, and set the Redirect URI to `https://localhost:9993/sso`. Finally, back on the on Custom Connectors page, hit the "Add App to Connector" link. Adjust the descriptioin & logo settings as you see fit, and then save.
+Log in to your OneLogin admin console.  Select "Custom Connectors" from the "Applications" menu.  Hit the "New Connector" button.  Name your connector, set Sign on method to OpenID Connect, and set the Redirect URI to `https://localhost:9993/sso`. Finally, back on the on Custom Connectors page, hit the "Add App to Connector" link. Adjust the description & logo settings as you see fit, and then save.
 
 Once the above steps are complete, go to the SSO tab for your new OneLogin Application. Set "Application Type" to "Native", and "Token Endpoint" to "None (PKCE)".  You'll also find the required Client ID and Issuer URLs to enter into https://my.zerotier.com/account.
 
@@ -243,11 +243,11 @@ With Email based network access, a network administrator can limit access to the
 
 Configuring Role Based Access controls is different across all of the different OIDC providers available.  We'll give examples for many of the large ones. 
 
-Role/group names are up to the network administrator.  Simply add one or more role name to your network configuration, and users will be required to have at least one of those roles assigned in order to acess the network.
+Role/group names are up to the network administrator.  Simply add one or more role name to your network configuration, and users will be required to have at least one of those roles assigned in order to access the network.
 
 ### Auth0
 
-Auth0 requires multple steps to configure.
+Auth0 requires multiple steps to configure.
 
 #### Step 1: Create a Role and Assign Users
 
@@ -273,7 +273,7 @@ Next you will get a screen with a code editor.  Delete everything in the buffer 
     
 :::note
 
-Auth0 requires roles to be in a namespaced name. To properly intergrate with ZeroTier Central, the final claim name set on the token via the script above **must** be `https://my.zerotier.com/roles`. Please enter the login script exactly as shown above to reduce the chances of errors.
+Auth0 requires roles to be in a namespaced name. To properly integrate with ZeroTier Central, the final claim name set on the token via the script above **must** be `https://my.zerotier.com/roles`. Please enter the login script exactly as shown above to reduce the chances of errors.
 
 :::
 
@@ -299,7 +299,7 @@ The `Value` field is what you use as the role name in the network configuration 
 
 ### Step 2: Assign App Role
 
-Go back to Azure Active Directory in the Azure portal. Select Enterprise Applications from the list of optoins on the side of the screen.  Select the app to be used for ZeroTier Central intergraiton.
+Go back to Azure Active Directory in the Azure portal. Select Enterprise Applications from the list of options on the side of the screen.  Select the app to be used for ZeroTier Central integration.
 
 Select `Users and Groups` from the Manage menu. Select all of the users you want to assign the App Role and select `Edit Assignment`.  Click on the area of the screen that says "Select a Role", then find your newly created app role from step 1, click it and hit the `Select` button.
 
@@ -319,7 +319,7 @@ From your Okta administrator dashboard, go to Directory and select Groups. Creat
 
 #### Step 2: Attach Groups to Tokens
 
-In the Okta administrator dashboard, go to Applications and opne the configuration for the Okta Application you've configured for use with ZeroTier.  Click the 'Edit' button in the "OpenID Connect ID Token" box.  Set "Group claim type" to "Filter", and set the three fields for "Group claim filter" to `roles`, `Matches regex`, and `.*`.
+In the Okta administrator dashboard, go to Applications and open the configuration for the Okta Application you've configured for use with ZeroTier.  Click the 'Edit' button in the "OpenID Connect ID Token" box.  Set "Group claim type" to "Filter", and set the three fields for "Group claim filter" to `roles`, `Matches regex`, and `.*`.
 
 ![okta token config](/img/sso-okta-setup.png)
 
