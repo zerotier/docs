@@ -53,11 +53,6 @@ Make sure it's inside the front matter
 ---
 ```
 
-or 
-
-``` console
-[//]: # cSpell:disable-next-line
-```
 
 or add to the regexes in cspell.json. Have fun!
 
