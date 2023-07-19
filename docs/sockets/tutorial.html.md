@@ -510,7 +510,7 @@ The transport readiness check above essentially just makes sure we have been aut
 
 :::note
 
-As of current, only one address of each family type may be assigned (per network) to a libzt node at any time. That means one `IPv4` and one `IPv6` address. This is a technical limitation that will be removed in future versions.
+Currently, only one address of each family type may be assigned (per network) to a libzt node at any time. That means one `IPv4` and one `IPv6` address. This is a technical limitation that will be removed in future versions.
 
 :::
 
@@ -1387,7 +1387,7 @@ In the event of a failure from a socket call `zts_errno` will be set to a value 
 
 ## Central API
 
-This section will show you how to use the built-in Central API to make calls to our hosted endpoints using your language of choice. It is not necessary to use these built in features but they are provided as a convenience.
+This section will show you how to use the built-in Central API to make calls to our hosted endpoints using your language of choice. It is not necessary to use these built-in features but they are provided as a convenience.
 
 :::note BETA
 
