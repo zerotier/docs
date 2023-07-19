@@ -1381,7 +1381,59 @@ ZTS_ERR_NO_RESULT = -4, // No result (not necessarily an error)
 ZTS_ERR_GENERAL   = -5  // Consider filing a bug report
 ```
 
-In the event of a failure from a socket call `zts_errno` will be set to a value that offers additional context. These values are defined as `zts_errno_t` in [include/ZeroTierSockets.h](https://github.com/zerotier/libzt/blob/master/include/ZeroTierSockets.h). This is accessible via the following:
+In the event of a failure from a socket call `zts_errno` will be set to a value that offers additional context. These values are defined as `zts_errno_t` in [include/ZeroTierSockets.h](https://github.com/zerotier/libzt/blob/main/include/ZeroTierSockets.h). This is accessible via the following:
+
+<Tabs
+  defaultValue="c"
+  groupId="language-examples"
+  values={[
+    { label: "C/C++", value: "c", },
+    { label: "Rust", value: "rust" },
+    { label: "Python", value: "python" },
+    { label: "C#", value: "csharp" },
+    { label: "Java", value: "java" }
+    ]}>
+
+<TabItem value="c">
+
+```c
+zts_errno
+```
+
+</TabItem>
+
+<TabItem value="python">
+
+```python
+socket.errno()
+```
+</TabItem>
+
+<TabItem value="rust">
+
+```
+returns io::Result<usize>
+```
+
+</TabItem>
+
+<TabItem value="csharp">
+
+```csharp
+socket.ErrNo
+```
+
+</TabItem>
+
+<TabItem value="java">
+
+```
+throws IOException and SocketException with error codes included in the exception message
+```
+
+</TabItem>
+
+</Tabs>
 
 
 
