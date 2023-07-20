@@ -1126,6 +1126,212 @@ node.stop();
 
 
 
+## Android Examples
+
+In this section we will:
+  - Set up Android Studio projects to use a local copy of the libzt .aar
+  - Set up and join ZeroTier networks
+  - Stream video with ExoPlayer using libzt.
+  - Use `HttpURLConnection` to talk to an HTTP server using libzt.
+  - Use `OkHttp` to talk to an HTTP server using libzt.
+
+To see full source code of the following examples, see [libzt Android Examples](https://github.com/zerotier/libzt-android-examples).
+
+Create a `zerotier.properties` file at the root of your project with the content:
+```
+libzt.aar=/path/to/libzt-debug.aar
+```
+
+This assumes that you have built libzt.aar locally.
+
+Add the following to your app's build.gradle file:
+```gradle
+// Creates a variable called zerotierPropertiesFile, and initializes it to the
+// zerotier.properties file.
+def zerotierPropertiesFile = rootProject.file("zerotier.properties")
+
+// Initializes a new Properties() object called zerotierProperties.
+def zerotierProperties = new Properties()
+
+// Loads the zerotier.properties file into the zerotierProperties object.
+zerotierProperties.load(new FileInputStream(zerotierPropertiesFile))
+
+android {
+  ...
+}
+
+dependencies {
+  ...
+  implementation files(zerotierProperties['libzt.aar'])
+}
+```
+
+Setup your network and join:
+```java
+Context ctxt = this.getApplicationContext();
+
+String storagePath = ctxt.getFilesDir().getAbsolutePath();
+
+long nwid = Long.parseLong("0123456789abcdef", 16);
+String remoteAddr = "10.147.19.37";
+int port = 8090;
+
+
+// ZeroTier setup
+
+ZeroTierNode node = new ZeroTierNode();
+node.initFromStorage(storagePath);
+node.start();
+
+Log.d(TAG, "Waiting for node to come online...");
+while (! node.isOnline()) {
+    ZeroTierNative.zts_util_delay(50);
+}
+Log.d(TAG, "Node ID: " + String.format("%010x", node.getId()));
+Log.d(TAG, "Joining network...");
+node.join(nwid);
+Log.d(TAG, "Waiting for network...");
+while (! node.isNetworkTransportReady(nwid)) {
+    ZeroTierNative.zts_util_delay(50);
+}
+Log.d(TAG, "Joined");
+```
+
+:::note
+
+This is demo code and waiting on the main thread is not recommended.
+
+:::
+
+
+### ExoPlayer client
+
+Below is a simple example to stream video with ExoPlayer using libzt.
+
+```java
+// Socket logic
+
+OkHttpClient client = new OkHttpClient.Builder()
+  .socketFactory(new ZeroTierSocketsSocketFactory(remoteAddr, port))
+  .build();
+
+assert client instanceof Call.Factory;
+Call.Factory callFactory = (Call.Factory) client;
+
+OkHttpDataSource.Factory okhttpDataSourceFactory =
+  new OkHttpDataSource.Factory(callFactory);
+
+DefaultDataSource.Factory dataSourceFactory =
+  new DefaultDataSource.Factory(ctxt, okhttpDataSourceFactory);
+
+ExoPlayer player = new ExoPlayer.Builder(ctxt)
+  .setMediaSourceFactory(
+    new DefaultMediaSourceFactory(ctxt).setDataSourceFactory(dataSourceFactory))
+  .build();
+```
+
+For the server:
+```
+sudo apt install vlc
+```
+```
+vlc mst3k.mp4 --loop --sout="#std{access=http, mux=ts, dst=:8090/sample}"
+```
+
+
+### HttpURLConnection client
+
+Below is an example of using `HttpURLConnection` to talk to an HTTP server using libzt.
+
+```kotlin
+// Socket logic
+
+val url = URL(remoteUrl)
+val urlConnection: HttpURLConnection = url.openConnection() as HttpURLConnection
+
+
+// prevent NetworkOnMainThreadException in demo code
+StrictMode.setThreadPolicy(ThreadPolicy.LAX)
+
+
+try{
+    urlConnection.requestMethod = "GET"
+    val responseCode: Int = urlConnection.responseCode
+
+    Log.d(TAG, "response: $responseCode")
+    if (responseCode == HttpURLConnection.HTTP_OK) {
+        val inn = BufferedReader(InputStreamReader(urlConnection.inputStream))
+        var inputLine: String?
+        val response = StringBuffer()
+        while (inn.readLine().also { inputLine = it } != null) {
+            response.append(inputLine)
+        }
+        inn.close()
+
+        // print result
+        println(response.toString())
+    }
+}
+finally {
+    urlConnection.disconnect()
+}
+```
+
+
+### OkHttp client
+
+Below is an example to use `OkHttp` to talk to an HTTP server using libzt.
+
+```kotlin
+// Socket logic
+val plain: MediaType = parse.parse("text/plain; charset=utf-8")
+val client: OkHttpClient = Builder()
+    .socketFactory(ZeroTierSocketsSocketFactory(remoteAddr, port))
+    .build()
+val postBody = "Hello from OkHttp!"
+val request: Request = Builder()
+    .url("http://www.example.com")
+    .post(RequestBody.create(plain, postBody))
+    .build()
+client.newCall(request).enqueue(object : Callback {
+    override fun onFailure(call: Call, e: IOException) {
+        Log.d(TAG, "FAILURE!!")
+        Log.d(TAG, e.message, e)
+    }
+
+    @Throws(IOException::class)
+    override fun onResponse(call: Call, response: Response) {
+        Log.d(TAG, "RESPONSE!!")
+        Log.d(TAG, response.toString())
+    }
+})
+```
+
+
+### Questions
+
+I get this error when building:
+```
+A problem occurred evaluating project ':app'.
+> exoplayerclient/zerotier.properties (No such file or directory)
+```
+
+You must create a zerotier.properties file at the root of the project with this content:
+```
+libzt.aar=/path/to/libzt.aar
+```
+
+I get this error when building:
+```
+error: cannot find symbol
+import com.zerotier.sockets.ZeroTierNative;
+```
+
+The path to the libzt AAR in zerotier.properties is not correct.
+
+
+
+
 ## Identities
 
 Every node needs an identity, it's a cryptographic address that you'll use when authorizing the node on your private network. Don't worry though, you'll still use an IP address to talk to your node once joined to a network. You have a few mutually exclusive options to choose from in order to generate or load an identity:
