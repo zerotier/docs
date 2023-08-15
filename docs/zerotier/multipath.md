@@ -257,7 +257,7 @@ Traffic is categorized into *flows* based on *source port*, *destination port*, 
 
 This mode operates similarly to `balance-xor` in that it hashes flows onto specific links. However, it may reassign flows mid-conversation and perform other types of optimizations. This mode may surprise you more often than `balance-xor` by causing re-ordering delays for certain flows but it should lead to a better total experience when all flows are considered. This policy allows you to specify not only [relative link capacities](#asymmetric-links) but also a [notion of quality](#link-quality) expressed as a weighted vector with a sum of `1.0`. See below:
 
-```json title="Example local.conf: A maximum acceptable value for latency, packet delay variance, loss ratio and error ratio are given along with weights that tell ZeroTier how important that limit is. Additionally, link capacities are given as hints to enable proportional traffic allocation."
+```json title="Example local.conf: A maximum acceptable value for latency and  packet delay variance are given along with weights that tell ZeroTier how important that limit is. Additionally, link capacities are given as hints to enable proportional traffic allocation."
 {
   "settings":
   {
@@ -271,12 +271,8 @@ This mode operates similarly to `balance-xor` in that it hashes flows onto speci
         "linkQuality": {
           "lat_max" : 400.0,
           "pdv_max" : 20.0,
-          "plr_max" : 0.0001,
-          "per_max" : 0.0001,
           "lat_weight" : 0.5,
-          "pdv_weight" : 0.5,
-          "plr_weight" : 0.0,
-          "per_weight" : 0.0
+          "pdv_weight" : 0.5
         },
         "links": {
           "wlan0": { "capacity": 250 },
@@ -296,8 +292,6 @@ As seen in the [balance-aware](#balance-aware) example configuration, you can pr
 
  - `lat_max`: Maximum (mean) latency observed over many samples
  - `pdv_max`: Maximum packet delay variance (similar to jitter)
- - `plr_max`: Maximum packet loss ratio
- - `per_max`: Maximum packet error ratio
 
 Then, weights must also be provided to tell ZeroTier how important your limits are (as a reminder, the weights must sum to `1.0`):
 
@@ -305,12 +299,8 @@ Then, weights must also be provided to tell ZeroTier how important your limits a
 "linkQuality": {
   "lat_max" : 80.0,
   "pdv_max" : 20.0,
-  "plr_max" : 0.0001,
-  "per_max" : 0.0001,
   "lat_weight" : 0.5,
-  "pdv_weight" : 0.5,
-  "plr_weight" : 0.0,
-  "per_weight" : 0.0
+  "pdv_weight" : 0.5
 }
 ```
 
@@ -421,5 +411,10 @@ To forcibly rotate to a different link in an `active-backup` bond:
 
 ```json title="zerotier-cli bond 77dcbe7120 rotate"
 active link rotated from 000055c8aa8392f0-enp5s0/104.175.36.67/9993 to 000055c8aa838210-enp5s0/104.175.36.67/9993
+```
 
+To set a custom MTU for a bonded link:
+
+```json title="zerotier-cli bond setmtu 1300 enp5s0 192.168.88.155"
+200 setmtu OK
 ```
