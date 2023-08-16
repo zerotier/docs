@@ -525,32 +525,3 @@ port.
 Keep in mind that these networks are public and anyone in the entire
 world can join them. Care must be taken to avoid exposing vulnerable
 services or sharing unwanted files or other resources.
-
-### Quality of Service (QoS) {#227qualityofserviceqosaname2_2_7a}
-
-In a near future release (not yet implemented as of 1.4.2), ZeroTier
-will support new traffic prioritization rules that build on the link
-measuring features described in [Section
-2.1.5](https://www.zerotier.com/manual.shtml#2_1_5). Nine buckets will
-be available for traffic classification:
-`[0, 1, 2, 3, (4), 5, 6, 7, 8]`, each geometrically-increasing in
-priority where bucket `4` is the default in the absence of a
-classification rule for a given type of traffic.
-
-For instance, say you’d like to prioritize your VoIP traffic over
-standard web traffic:
-
-    priority 6
-      ipprotocol udp
-      and dport 5060-5065
-      and sport 5060-5065
-    ;
-
-    priority 3
-       ipprotocol tcp
-       and dport 80
-       and sport 80
-    ;
-
-This would place VoIP traffic on ports `5060` to `5065` at a higher
-priority `6` than the standard port `80` web traffic in bucket `3`.
