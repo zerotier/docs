@@ -12,6 +12,10 @@ module.exports = {
   organizationName: "zerotier", // Usually your GitHub org/user name.
   projectName: "docs", // Usually your repo name.
   plugins: [path.resolve(__dirname, "matomo-plugin")],
+  markdown: {
+    mermaid: true,
+  },
+  themes: ['@docusaurus/theme-mermaid'],
   themeConfig: {
     // for some reason if python or java are enabled here, the OpenAPI docs go boom :(
     prism: {
@@ -42,12 +46,6 @@ module.exports = {
       defaultMode: "light",
       disableSwitch: false,
       respectPrefersColorScheme: true,
-      switchConfig: {
-        darkIcon: "🌜",
-        darkIconStyle: {},
-        lightIcon: "🌞",
-        lightIconStyle: {},
-      },
     },
 
     separateCss: true,
@@ -166,11 +164,11 @@ module.exports = {
       {
         specs: [
           {
-            routePath: "/central/v1",
+            route: "/central/v1",
             spec: "./static/openapi/centralv1.json",
           },
           {
-            routePath: "/service/v1",
+            route: "/service/v1",
             spec: "./static/openapi/servicev1.json",
           },
         ],
