@@ -120,13 +120,13 @@ Let's save the new Network ID to an environment variable
 
 ### List Networks
 
-    curl "http://localhost:9993/controller/network/" -H "X-ZT1-AUTH: ${TOKEN}" 
+    curl "http://localhost:9993/controller/network" -H "X-ZT1-AUTH: ${TOKEN}" 
     
 This returns a list of Network IDs. It should include the ID returned by the create command we did in the previous step.
 
 ### Get Network Info
 
-    curl "http://localhost:9993/controller/network/${NWID}/" -H "X-ZT1-AUTH: ${TOKEN}" 
+    curl "http://localhost:9993/controller/network/${NWID}" -H "X-ZT1-AUTH: ${TOKEN}" 
 
 
 ### List Network Members
@@ -151,7 +151,7 @@ Save the Node ID of one of your Network _Members_ in an env var
 For Nodes can talk, we need to add a Managed Route and IP Auto-Assign Range on the network.
 Let's make it a Private network too. Prefer Private networks.
 
-    curl -X POST "http://localhost:9993/controller/network/${NWID}/" -H "X-ZT1-AUTH: ${TOKEN}" \
+    curl -X POST "http://localhost:9993/controller/network/${NWID}" -H "X-ZT1-AUTH: ${TOKEN}" \
     -d '{"ipAssignmentPools": [{"ipRangeStart": "192.168.192.1", "ipRangeEnd": "192.168.192.254"}], "routes": [{"target": "192.168.192.0/24", "via": null}], "v4AssignMode": "zt", "private": true }'
 
 
@@ -162,7 +162,7 @@ Let's make it a Private network too. Prefer Private networks.
 
 ### Network Info Again
 
-    curl "http://localhost:9993/controller/network/${NWID}/" -H "X-ZT1-AUTH: ${TOKEN}" 
+    curl "http://localhost:9993/controller/network/${NWID}" -H "X-ZT1-AUTH: ${TOKEN}" 
 
 
 ### Member Info Again
