@@ -53,14 +53,3 @@ Make sure it's inside the front matter
 ```
 
 or add to the regexes in cspell.json. Have fun!
-
-## Managing your node version
-
-I chose to use [fnm](https://github.com/Schniz/fnm). As of this update Docusaurus `2.4.1` requires node `16.14`:
-
-```
-echo "16.14" > .node-version
-curl -fsSL https://fnm.vercel.app/install | bash
-fnm install
-fnm use
-```

@@ -23,9 +23,6 @@ start:
 docker: buildx all
 	docker build -t registry.zerotier.com/zerotier/docs.zerotier.com:drone-$(DRONE_BUILD_NUMBER) .
 
-clean:
-	rm -rf docs/autogen/*
-
 docker-builder-build:
 	docker build -f ${BUILD_DOCKERFILE} -t ${BUILD_IMAGE} .
 
