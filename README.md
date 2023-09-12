@@ -1,4 +1,4 @@
-# Website
+# docs.zerotier.com
 
 This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
@@ -43,8 +43,7 @@ This is currently configured to not stop the build in CI. `|| true`
 You can add more words to ignore in the file `custom-words.txt`
 
 You can ignore words in an individual markdown file like this:
-Make sure it's inside the front matter 
-
+Make sure it's inside the front matter
 
 
 ``` console
@@ -53,6 +52,4 @@ Make sure it's inside the front matter
 ---
 ```
 
-
 or add to the regexes in cspell.json. Have fun!
-

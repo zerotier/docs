@@ -12,7 +12,6 @@ buildx:
 
 all:
 	yarn install
-	./build.sh all
 	NODE_OPTIONS=--openssl-legacy-provider yarn lint || true
 	NODE_OPTIONS=--openssl-legacy-provider yarn build
 
@@ -22,9 +21,6 @@ start:
 
 docker: buildx all
 	docker build -t registry.zerotier.com/zerotier/docs.zerotier.com:drone-$(DRONE_BUILD_NUMBER) .
-
-clean:
-	rm -rf docs/autogen/*
 
 docker-builder-build:
 	docker build -f ${BUILD_DOCKERFILE} -t ${BUILD_IMAGE} .
