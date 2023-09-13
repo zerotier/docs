@@ -32,6 +32,10 @@ html[data-theme='dark'] {
   --ifm-color-primary-lightest: #ffe0ba;
 }
 
+.pagination-nav {
+  display: none;
+}
+
 .docusaurus-highlight-code-line {
   background-color: rgb(72, 77, 91);
   display: block;

@@ -17,6 +17,38 @@ module.exports = {
   },
   themes: ['@docusaurus/theme-mermaid'],
   themeConfig: {
+    algolia: {
+      // The application ID provided by Algolia
+      appId: 'YOUR_APP_ID',
+
+      // Public API key: it is safe to commit it
+      apiKey: 'YOUR_SEARCH_API_KEY',
+
+      indexName: 'YOUR_INDEX_NAME',
+
+      // Optional: see doc section below
+      contextualSearch: true,
+
+      // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
+      externalUrlRegex: 'external\\.com|domain\\.com',
+
+      // Optional: Replace parts of the item URLs from Algolia. Useful when using the same search index for multiple deployments using a different baseUrl. You can use regexp or string in the `from` param. For example: localhost:3000 vs myCompany.com/docs
+      replaceSearchResultPathname: {
+        from: '/docs/', // or as RegExp: /\/docs\//
+        to: '/',
+      },
+
+      // Optional: Algolia search parameters
+      searchParameters: {},
+
+      // Optional: path for search page that enabled by default (`false` to disable it)
+      searchPagePath: 'search',
+
+      //... other Algolia params
+    },
+    mermaid: {
+      theme: {light: 'neutral', dark: 'dark'},
+    },
     // for some reason if python or java are enabled here, the OpenAPI docs go boom :(
     prism: {
       additionalLanguages: [
@@ -52,7 +84,7 @@ module.exports = {
     navbar: {
       title: "ZeroTier Documentation",
       logo: {
-        alt: "My Site Logo",
+        alt: "ZeroTier Logo",
         src: "img/ZeroTierIcon.png",
       },
       items: [
@@ -103,11 +135,11 @@ module.exports = {
           items: [
             {
               label: "ZeroTier",
-              to: "/zerotier/ztintro",
+              to: "https://docs.zerotier.com",
             },
             {
               label: "SDK",
-              to: "/sockets/tutorial.html",
+              to: "sockets",
             },
             {
               label: "Central REST API",
@@ -118,8 +150,8 @@ module.exports = {
               to: "/service/v1",
             },
             {
-              label: "ZeroNSD (DNS Service) Quickstart",
-              to: "/zeronsd/quickstart",
+              label: "DNS",
+              to: "dns",
             },
           ],
         },
@@ -127,7 +159,7 @@ module.exports = {
           title: "Community",
           items: [
             {
-              label: "ZeroTier Discussions",
+              label: "Forum",
               href: "https://discuss.zerotier.com",
             },
             {
@@ -136,7 +168,7 @@ module.exports = {
             },
             {
               label: "GitHub",
-              href: "https://github.com/zerotier/ZeroTierOne",
+              href: "https://github.com/zerotier",
             },
           ],
         },
@@ -151,7 +183,7 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
-          editUrl: "https://github.com/zerotier/docs",
+          editUrl: "https://github.com/zerotier/docs/edit/main/",
           routeBasePath: "/",
         },
         theme: {
