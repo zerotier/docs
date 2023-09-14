@@ -12,9 +12,9 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "lint": "run-s lint:*",
+    "lint": "run-s -c lint:*",
     "lint:config": "jsonlint cspell.json > /dev/null",
-    "lint:markdown": "markdownlint-cli2 docs/**/*.md --fix",
+    "lint:markdown": "markdownlint-cli2 docs/**/*.md",
     "lint:spelling": "cspell docs/**/*.md"
   },
   "dependencies": {
