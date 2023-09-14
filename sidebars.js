@@ -24,14 +24,14 @@
     },
     {
       type: 'category',
-      label: 'my.zerotier.com',
+      label: 'Central',
       link: {
         type: 'generated-index',
         title: 'Central',
         description: 'Our hosted offering for managing your networks.',
         slug: '/central',
       },
-      items: ['my', 'sso'],
+      items: ['start', 'sso'],
     },
     {
       type: 'category',
