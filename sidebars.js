@@ -24,7 +24,7 @@
     },
     {
       type: 'category',
-      label: 'Central | my.zerotier.com',
+      label: 'my.zerotier.com',
       link: {
         type: 'generated-index',
         title: 'Central',
