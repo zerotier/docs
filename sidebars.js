@@ -9,7 +9,7 @@
         description: 'ZeroTier securely connects all of your devices and services with each other, anywhere.',
         slug: '/',
       },
-      items: ['wat', 'start', 'faq'],
+      items: ['wat', 'start', 'faq', 'troubleshooting'],
     },
     {
       type: 'category',
@@ -53,7 +53,7 @@
         description: 'If it has a chip, you can probably install ZeroTier on it.',
         slug: '/devices',
       },
-      items: ['teltonika-networks', 'mikrotik', 'asustor', 'freenas', 'qnap', 'synology', 'ubiquiti', 'wd'],
+      items: ['teltonika-networks', 'mikrotik', 'openwrt', 'opnsense', 'freenas', 'asustor', 'freenas', 'qnap', 'synology', 'ubiquiti', 'wd'],
     },
     {
       type: 'category',
@@ -87,6 +87,17 @@
         slug: '/guides',
       },
       items: ['dns', 'multipath', 'terraform', 'exitnode', 'bridging', 'proxy', 'sockets', 'microsegmentation', 'selfhosting'],
+    },
+    {
+      type: 'category',
+      label: 'Draft',
+      link: {
+        type: 'generated-index',
+        title: 'Draft',
+        description: 'Draft',
+        slug: '/draft',
+      },
+      items: ['faq', 'routertips', 'cli', 'edge', 'whitelist'],
     },
     {
     type: "category",
