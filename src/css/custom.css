@@ -32,6 +32,21 @@ html[data-theme='dark'] {
   --ifm-color-primary-lightest: #ffe0ba;
 }
 
+.markdown > h1,
+.markdown h1:first-child {
+  --ifm-h1-font-size: 2.25rem;
+}
+
+.markdown > h2,
+.markdown h2:first-child {
+  --ifm-h2-font-size: 1.7rem;
+}
+
+.markdown > h3,
+.markdown h3:first-child {
+  --ifm-h3-font-size: 1.3rem;
+}
+
 .docusaurus-highlight-code-line {
   background-color: rgb(72, 77, 91);
   display: block;
@@ -64,10 +79,7 @@ div[class^='announcementBarContent'] a:hover {
 
 @media screen and (max-width: 996px) {
   :root {
-    --ifm-font-size-base: 18px;
-  }
-  article header h1 {
-    font-size: 1.5rem !important;
+    --ifm-font-size-base: 1.125rem;
   }
   .hero .hero__title {
     font-size: 2.5rem;
@@ -76,10 +88,7 @@ div[class^='announcementBarContent'] a:hover {
 
 @media screen and (min-width: 997px) {
   :root {
-    --ifm-font-size-base: 18px;
-  }
-  article header h1 {
-    font-size: 2rem !important;
+    --ifm-font-size-base: 1.125rem;
   }
 }
 
