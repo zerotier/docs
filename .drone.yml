@@ -86,6 +86,7 @@ steps:
 trigger:
   event:
     - push
+    - pull_request
     - tag
 ---
 kind: pipeline
