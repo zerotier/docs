@@ -55,7 +55,7 @@ If you see `missing authentication token and authtoken.secret not found (or read
 
 More advanced commands can be found using `zerotier-cli -h`
 
-### Collect debug info for support
+### Collect debug info for support {#zerotier-cli-dump} 
 
 ```
 zerotier-cli dump
