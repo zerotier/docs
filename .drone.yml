@@ -83,6 +83,11 @@ steps:
     when:
       status:
         - failure
+trigger:
+  event:
+    - push
+    - pull_request
+    - tag
 ---
 kind: pipeline
 type: docker
