@@ -5,9 +5,15 @@ code_clipboard: true
 
 Answers to commonly asked questions.
 
-:::tip Can't find an answer?
-[Ask our community for help](https://discuss.zerotier.com)
-:::
+### What happens if a ZeroTier, Inc root goes down?
+
+Our roots are globally distributed and redundant, if one fails requests will seamlessly fail-over to other roots.
+
+If you are running your own roots the effect would be that no new connections can be established between nodes but existing connections would still work.
+
+### Can ZeroTier, Inc. See my traffic? {#can-we-see-your-traffic}
+
+No. Your traffic is end-to-end encrypted and your device's private identity keys are never transmitted off of your device. Learn more about our [cryptograph protocol](protocol#crypto).
 
 ### Why does my peers list have nodes I don't recognize? {#unknown-peers}
 
@@ -139,6 +145,10 @@ sudo service zerotier-one start
 ```
 
 When started without identities ZeroTier will generate new ones. You will need to authorize this new identity on any networks.
+
+:::tip Can't find an answer?
+[Ask our community for help](https://discuss.zerotier.com)
+:::
 
 :::info Next steps
 Click [here](/start/) to create your network and start adding devices.

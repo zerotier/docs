@@ -1,5 +1,5 @@
 ---
-title: The ZeroTier Protocol
+title: The Protocol
 sidebar_position: 4
 language_tabs: # must be one of https://git.io/vQNgJ
   - c
@@ -19,31 +19,10 @@ code_clipboard: true
 
 ZeroTier is a smart programmable Ethernet switch for planet Earth. It allows all networked devices, VMs, containers, and applications to communicate as if they all reside in the same physical data center or cloud region.
 
-:::note Advanced
-This manual describes the design and operation of ZeroTier and its
-associated services, apps, and libraries. Its intended audience includes
-IT professionals, network administrators, information security experts,
-and developers.
-
-The first section of this guide explains ZeroTier’s design and
-operation at a high level and is written for those with at least an
-intermediate knowledge of topics like TCP/IP and Ethernet networking.
-It’s not required reading for most users, but understanding how things
-work in detail helps clarify everything else and helps tremendously with
-troubleshooting should anything go wrong.
-:::
-
-### Origin and Design Philosophy {#philosophy}
-
-The goals and design principles of ZeroTier are inspired by among other things the original [Google BeyondCorp](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/43231.pdf) paper and the [Jericho Forum](https://en.wikipedia.org/wiki/Jericho_Forum) with its notion of "deperimeterization."
-
 ### Overview {#overview}
 
-ZeroTier is a distributed network hypervisor built atop a cryptographically
-secure global peer to peer network. It provides advanced network
-virtualization and management capabilities on par with an enterprise SDN
-switch, but across both local and wide area networks and connecting
-almost any kind of app or device.
+ZeroTier is a distributed network hypervisor built atop a cryptographically secure global peer to peer network. It provides advanced network
+virtualization and management capabilities on par with an enterprise SDN switch, but across both local and wide area networks and connecting almost any kind of app or device.
 
 This is accomplished by combining a cryptographically addressed and secure peer to peer network (termed VL1) with an Ethernet emulation layer somewhat similar to VXLAN (termed VL2). Our VL2 Ethernet virtualization layer includes advanced enterprise SDN features like fine grained access control rules for network micro-segmentation and security monitoring.
 
@@ -60,16 +39,13 @@ ZeroTier addresses can be thought of as port numbers on an enormous planet-wide 
 
 A ZeroTier address looks like `8056c2e21c` and a network ID looks like `8056c2e21c000001`. Network IDs are composed of the ZeroTier address of that network's primary controller and an arbitrary 24-bit ID that identifies the network on this controller. Network controllers are roughly analogous to SDN controllers in SDN protocols like [OpenFlow](https://en.wikipedia.org/wiki/OpenFlow), though as with the analogy between VXLAN and VL2 this should not be read to imply that the protocols or design are the same. You can use our convenient and inexpensive SaaS hosted controllers at [my.zerotier.com](https://my.zerotier.com/) or [run your own controller](https://github.com/zerotier/ZeroTierOne/controller/) if you don't mind messing around with JSON configuration files or writing scripts to do so.
 
-
-
 :::info
 Visit [ZeroTier's site](https://www.zerotier.com/) for more information and [pre-built binary packages](https://www.zerotier.com/download/). Apps for Android and iOS are available for free in the Google Play and Apple app stores.
 :::
 
+### Origin and Design Philosophy {#philosophy}
 
-
-
-
+The goals and design principles of ZeroTier are inspired by among other things the original [Google BeyondCorp](https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/43231.pdf) paper and the [Jericho Forum](https://en.wikipedia.org/wiki/Jericho_Forum) with its notion of "deperimeterization."
 
 ### Network Hypervisor {#hypervisor}
 
@@ -88,7 +64,7 @@ layer, the “virtual wire,” while VL2 is an emulated Ethernet layer that
 provides operating systems and apps with a familiar communication
 medium.
 
-### VL1: The ZeroTier Peer to Peer Network {#vl1}
+### The ZeroTier Peer to Peer Network (VL1) {#vl1}
 
 A global data center requires a global wire closet.
 
@@ -288,7 +264,7 @@ Multipath allows the simultaneous (or conditional) aggregation of multiple physi
  - See [here](multipath) for more info and examples.
 :::
 
-### VL2: The Ethernet Virtualization Layer {#vl2}
+### Ethernet Virtualization Layer (VL2) {#vl2}
 
 **VL2** is a
 [VXLAN](https://en.wikipedia.org/wiki/Virtual_Extensible_LAN)-like

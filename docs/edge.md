@@ -12,7 +12,7 @@ The information below applies to any devices still in the field.
 
 Each ZeroTier Edge is initialized with a factory default ZeroTier identity. This identity (which doubles as a serial number) is printed above the power connector. Coupled with ZeroTier’s ad-hoc networking capability this provides an easy way to reach the device for initial configuration.
 
-Each Edge device joins the IPv6-unicast-only “ad-hoc” ZeroTier network ff001601bb000000 and can be reached through this network by joining it from any PC or mobile device and then navigating to your device’s unique IPv6 virtual address.
+Each Edge device joins the IPv6-unicast-only “ad-hoc” ZeroTier network `ff001601bb000000` and can be reached through this network by joining it from any PC or mobile device and then navigating to your device’s unique IPv6 virtual address.
 
 #### Your device can be reached at:
 
@@ -26,15 +26,11 @@ These addresses will not work if the device cannot reach the Internet. In this c
 
 ### Quick Start Guide
 
-Plug the Edge’s first Ethernet port (`phy0`) into an Ethernet network with IPv4 (DHCP) or IPv6 connectivity.
-
-Connect the device to power and wait 20-30 seconds.
-
-Join the ad-hoc ZeroTier network `ff001601bb000000` from a PC, mobile, or other devices (see www.zerotier.com to download clients).
-
-Once your PC or other device is online, navigate to the http address shown in the green box above.
-
-Create an account on the Edge and begin configuring it for bridge operation.
+- Plug the Edge’s first Ethernet port (`phy0`) into an Ethernet network with IPv4 (DHCP) or IPv6 connectivity.
+- Connect the device to power and wait 20-30 seconds.
+- Join the ad-hoc ZeroTier network `ff001601bb000000` from a PC, mobile, or other devices (see www.zerotier.com to download clients).
+- Once your PC or other device is online, navigate to the http address shown in the green box above.
+- Create an account on the Edge and begin configuring it for bridge operation.
 
 ### Example Configurations
 
