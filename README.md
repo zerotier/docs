@@ -26,11 +26,15 @@ This command generates static content into the `build` directory and can be serv
 
 ## Deployment
 
+Commits to main are automatically deployed to https://docs-dev.zerotier.com
+
+To promote to production:
+
 ```console
-GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
+drone build promote zerotier/docs $DRONE_BUILD_NUMBER production
 ```
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+Note:  You'll need the `drone` CLI installed and in the PATH, as well as a couple of environment variables set in order to run the drone CLI.  ZeroTier employees can check out http://drone.ci.lab/account for details.
 
 ## Spelling / Typos
 
