@@ -83,6 +83,12 @@ steps:
     when:
       status:
         - failure
+trigger:
+  branch:
+    - main
+  event:
+    - push
+    - tag
 ---
 kind: pipeline
 type: docker
