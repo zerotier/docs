@@ -71,7 +71,7 @@ steps:
     pull: always
     image: 084037375216.dkr.ecr.us-east-2.amazonaws.com/mattermost-notify
     depends_on:
-      - deploy
+      - deploy-to-docs-dev
     environment:
       token:
         from_secret: mattermost-token
