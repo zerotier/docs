@@ -296,6 +296,9 @@ Tags can be compared on numeric value or as bit fields via several
 different bit mask operations allowing many different systems of member
 classification to be implemented.
 
+Tags without a default value may behave confusingly. As a best 
+practice, use `default 0` in your tag definitions. 
+
 ### Rule Definition Language {#34ruledefinitionlanguageaname3_4a}
 
 Raw rule sets are verbose and difficult to write, so we created a
@@ -333,6 +336,7 @@ tag department
   enum 200 engineering
   enum 300 support
   enum 400 manufacturing
+  default 0
 ;
 
 # Allow Windows CIFS and netbios between computers in the same department using a tag
