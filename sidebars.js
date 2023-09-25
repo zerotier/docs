@@ -46,14 +46,25 @@
     },
     {
       type: 'category',
-      label: 'Devices',
+      label: 'Routers',
       link: {
         type: 'generated-index',
-        title: 'Devices',
+        title: 'Routers',
         description: 'If it has a chip, you can probably install ZeroTier on it.',
-        slug: '/devices',
+        slug: '/routers',
       },
-      items: ['teltonika-networks', 'mikrotik', 'openwrt', 'opnsense', 'freenas', 'asustor', 'freenas', 'qnap', 'synology', 'ubiquiti', 'wd'],
+      items: ['teltonika-networks', 'mikrotik', 'openwrt', 'opnsense', 'ubiquiti'],
+    },
+    {
+      type: 'category',
+      label: 'NAS',
+      link: {
+        type: 'generated-index',
+        title: 'Network Attached Storage',
+        description: 'If it has a chip, you can probably install ZeroTier on it.',
+        slug: '/nas',
+      },
+      items: ['freenas', 'asustor', 'qnap', 'synology', 'wd'],
     },
     {
       type: 'category',
