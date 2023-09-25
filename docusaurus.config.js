@@ -11,12 +11,16 @@ module.exports = {
   favicon: "img/favicon-32x32.png",
   organizationName: "zerotier", // Usually your GitHub org/user name.
   projectName: "docs", // Usually your repo name.
-  plugins: [path.resolve(__dirname, "matomo-plugin")],
+  plugins: [path.resolve(__dirname, "matomo-plugin"), require.resolve('docusaurus-lunr-search')],
   markdown: {
     mermaid: true,
   },
   themes: ['@docusaurus/theme-mermaid'],
   themeConfig: {
+
+    mermaid: {
+      theme: {light: 'neutral', dark: 'dark'},
+    },
     // for some reason if python or java are enabled here, the OpenAPI docs go boom :(
     prism: {
       additionalLanguages: [
@@ -52,7 +56,7 @@ module.exports = {
     navbar: {
       title: "ZeroTier Documentation",
       logo: {
-        alt: "My Site Logo",
+        alt: "ZeroTier Logo",
         src: "img/ZeroTierIcon.png",
       },
       items: [
@@ -103,11 +107,11 @@ module.exports = {
           items: [
             {
               label: "ZeroTier",
-              to: "/zerotier/ztintro",
+              to: "https://docs.zerotier.com",
             },
             {
               label: "SDK",
-              to: "/sockets/tutorial.html",
+              to: "sockets",
             },
             {
               label: "Central REST API",
@@ -118,8 +122,8 @@ module.exports = {
               to: "/service/v1",
             },
             {
-              label: "ZeroNSD (DNS Service) Quickstart",
-              to: "/zeronsd/quickstart",
+              label: "DNS",
+              to: "dns",
             },
           ],
         },
@@ -127,7 +131,7 @@ module.exports = {
           title: "Community",
           items: [
             {
-              label: "ZeroTier Discussions",
+              label: "Forum",
               href: "https://discuss.zerotier.com",
             },
             {
@@ -136,7 +140,7 @@ module.exports = {
             },
             {
               label: "GitHub",
-              href: "https://github.com/zerotier/ZeroTierOne",
+              href: "https://github.com/zerotier",
             },
           ],
         },
@@ -151,7 +155,7 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
-          editUrl: "https://github.com/zerotier/docs",
+          editUrl: "https://github.com/zerotier/docs/edit/main/",
           routeBasePath: "/",
         },
         theme: {

@@ -47,18 +47,15 @@ html[data-theme='dark'] {
   --ifm-h3-font-size: 1.3rem;
 }
 
+.pagination-nav {
+  display: none;
+}
+
 .docusaurus-highlight-code-line {
   background-color: rgb(72, 77, 91);
   display: block;
   margin: 0 calc(-1 * var(--ifm-pre-padding));
   padding: 0 var(--ifm-pre-padding);
-}
-
-
-article {
-  max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 /* Announcement Bar */
@@ -82,7 +79,7 @@ div[class^='announcementBarContent'] a:hover {
     --ifm-font-size-base: 1.125rem;
   }
   .hero .hero__title {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
   }
 }
 
