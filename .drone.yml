@@ -84,8 +84,6 @@ steps:
       status:
         - failure
 trigger:
-  branch:
-    - main
   event:
     - push
     - tag
