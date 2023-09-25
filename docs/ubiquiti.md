@@ -1,9 +1,5 @@
 ---
 title: Ubiquiti
-includes:
-  - errors
-search: true
-code_clipboard: true
 ---
 
 import Tabs from '@theme/Tabs';

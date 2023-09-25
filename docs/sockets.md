@@ -1,6 +1,5 @@
 ---
 title: Sockets
-[//]: # cSpell:words apidocs
 ---
 
 import Tabs from '@theme/Tabs';

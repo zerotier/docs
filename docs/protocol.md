@@ -1,20 +1,5 @@
 ---
 title: The Protocol
-sidebar_position: 4
-language_tabs: # must be one of https://git.io/vQNgJ
-  - c
-  - rust
-  - python
-  - csharp
-  - java
-toc_footers:
-  - <a href='https://www.zerotier.com'>ZeroTier Homepage</a>
-  - <a href='#'>Sign Up for Central API Key</a>
-  - <a href='https://github.com/zerotier/libzt'>GitHub</a>
-includes:
-  - errors
-search: true
-code_clipboard: true
 ---
 
 ZeroTier is a smart programmable Ethernet switch for planet Earth. It allows all networked devices, VMs, containers, and applications to communicate as if they all reside in the same physical data center or cloud region.

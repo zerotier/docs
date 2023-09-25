@@ -1,13 +1,5 @@
 ---
 title: Network Microsegmentation
-toc_footers:
-  - <a href='https://www.zerotier.com'>ZeroTier Homepage</a>
-  - <a href='#'>Sign Up for Central API Key</a>
-  - <a href='https://github.com/zerotier/zerotierone'>GitHub</a>
-includes:
-  - errors
-search: true
-code_clipboard: true
 ---
 
 Create a network for each role. Devices can join multiple networks at once. Networks are free on my.zerotier.com. Each network can have its own [Network Flow Rules](rules). "Network A allows only RDP traffic." for example.

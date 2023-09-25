@@ -1,9 +1,5 @@
 ---
 title: Western Digital
-includes:
-  - errors
-search: true
-code_clipboard: true
 ---
 
 ## Install

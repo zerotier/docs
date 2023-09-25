@@ -1,9 +1,5 @@
 ---
 title: Synology
-includes:
-  - errors
-search: true
-code_clipboard: true
 ---
 
 :::tip DSM 6

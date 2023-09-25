@@ -1,9 +1,5 @@
 ---
 title: Router Config Tips
-includes:
-  - errors
-search: true
-code_clipboard: true
 ---
 
 ZeroTier is designed to work in as many environments as possible. We provide multiple layers of fallback so that some level of connectivity can be achieved through even the most restrictive or broken physical networks. But "some level of connectivity" does not mean "optimal connectivity." This page details the physical network configuration that we recommend for best results.

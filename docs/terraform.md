@@ -1,8 +1,6 @@
 ---
-[//]: # cSpell:words bridgenet
+title: Terraform
 ---
-
-# Terraform
 
 :::info Advanced
 For the multi-cloud edition of this guide, click [here](terraform-multicloud)

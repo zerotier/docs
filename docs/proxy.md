@@ -1,13 +1,5 @@
 ---
 title: Layer 5 Proxy
-toc_footers:
-  - <a href='https://www.zerotier.com'>ZeroTier Homepage</a>
-  - <a href='#'>Sign Up for Central API Key</a>
-  - <a href='https://github.com/zerotier/zerotierone'>GitHub</a>
-includes:
-  - errors
-search: true
-code_clipboard: true
 ---
 
 Proxy layer 5 traffic from your apps to and from your ZeroTier virtual network without installing ZeroTier and without bringing up any new network interfaces.

@@ -1,6 +1,5 @@
 ---
 title: FAQ
-code_clipboard: true
 ---
 
 Answers to commonly asked questions.

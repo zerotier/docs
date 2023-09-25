@@ -1,6 +1,5 @@
 ---
 title: Troubleshooting
-code_clipboard: true
 ---
 
 Tips and suggestions for troubleshooting.

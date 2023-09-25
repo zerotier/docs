@@ -1,9 +1,5 @@
 ---
 title: QNAP
-includes:
-  - errors
-search: true
-code_clipboard: true
 ---
 
 ## Install QVPN (recommended)

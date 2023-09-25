@@ -1,6 +1,5 @@
 ---
 title: OS and Device Compatibility
-sidebar_position: 1
 ---
 
 ZeroTier can run on Linux, macOS, iOS, FreeBSD, OpenBSD, Android, and Windows. It is designed to operate in under 16 megabytes of memory in most cases. It can run on Intel x86, x64, ARM, and MIPS chips. If there is a device you'd like us to support [please let us know.](https://github.com/zerotier/ZeroTierOne)

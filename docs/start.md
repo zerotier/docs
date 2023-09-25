@@ -1,7 +1,5 @@
 ---
-slug: /start
 title: Create Network
-id: start
 ---
 
 import Tabs from '@theme/Tabs';

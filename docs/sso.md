@@ -9,12 +9,14 @@ SSO is currently only supported on desktop operating systems such as macOS and W
 :::
 
 ### Update clients
+
 - Download and install ZeroTier 1.10.3 or greater on clients that will use SSO.
 
     https://www.zerotier.com/download/
 
 
 ### Configure SSO in ZeroTier Central
+
 Visit https://my.zerotier.com/account and complete the SSO configuration toward the bottom of the page. You will need your sso provider's Issuer URL as well as a Client ID.
 
 ![SSO-Account-Setup](/img/sso-account-setup.png)
@@ -22,6 +24,7 @@ Visit https://my.zerotier.com/account and complete the SSO configuration toward 
 You can configure multiple OIDC clients for your organization, but only one may be used at a time on an individual network.
 
 ### Configure SSO on individual networks.
+
 If you enable this on an existing network, you may accidentally block existing users. Please practice on a test network.
 ![SSO-Network-Enable](/img/sso-network-enable.png)
 
@@ -31,8 +34,8 @@ There are three login modes for SSO enabled networks:
 2. [Email Based Access](sso#email-based-network-access) - The user is allowed to access the network if and only if their email address is in the email list provided by the network administrator.
 3. [Group/Role Based Access](sso#role-based-network-access) - The user is allowed to access the network if and only if they are assigned one of the  proper roles by the OIDC server.
 
-
 ### Exclude specific devices from SSO requirements
+
 This is useful for routers, servers, embedded devices, etc…
 You can do this from the wrench icon in the Members list.
 
@@ -52,6 +55,7 @@ You can do this from the wrench icon in the Members list.
 ## Provider Specific Configuration Notes
 
 ### Auth0
+
 Please ensure the following fields are set on your Auth0 application config:
 - Application Type:  Native
 - Token Endpoint Authentication Method: None

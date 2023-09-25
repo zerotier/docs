@@ -1,13 +1,5 @@
 ---
 title: Multipath
-toc_footers:
-  - <a href='https://www.zerotier.com'>ZeroTier Homepage</a>
-  - <a href='#'>Sign Up for Central API Key</a>
-  - <a href='https://github.com/zerotier/zerotierone'>GitHub</a>
-includes:
-  - errors
-search: true
-code_clipboard: true
 ---
 
 Combine multiple network links into one.

@@ -1,21 +1,5 @@
 ---
 title: Rules Engine
-sidebar_position: 5
-language_tabs: # must be one of https://git.io/vQNgJ
-  - c
-  - rust
-  - python
-  - csharp
-  - java
-toc_footers:
-  - <a href='https://www.zerotier.com'>ZeroTier Homepage</a>
-  - <a href='#'>Sign Up for Central API Key</a>
-  - <a href='https://github.com/zerotier/libzt'>GitHub</a>
-includes:
-  - errors
-search: true
-code_clipboard: true
-[//]: # cSpell:words udpserver
 ---
 
 Traffic on ZeroTier networks can be observed and controlled with a
@@ -296,8 +280,8 @@ Tags can be compared on numeric value or as bit fields via several
 different bit mask operations allowing many different systems of member
 classification to be implemented.
 
-Tags without a default value may behave confusingly. As a best 
-practice, use `default 0` in your tag definitions. 
+Tags without a default value may behave confusingly. As a best
+practice, use `default 0` in your tag definitions.
 
 ### Rule Definition Language {#34ruledefinitionlanguageaname3_4a}
 
