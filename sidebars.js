@@ -108,7 +108,62 @@
         description: 'Draft',
         slug: '/draft',
       },
-      items: ['faq', 'routertips', 'cli', 'edge', 'whitelist'],
+      items: ['faq', 'routertips', 'cli', 'edge', 'whitelist', 'docker', 'nat', 'what-is-a-controller', 'route-between-phys-and-virt', 'cloud-init'],
+    },
+    {
+      type: 'category',
+      label: 'Linux',
+      link: {
+        type: 'generated-index',
+        title: 'Linux',
+        description: 'ZeroTier on Linux',
+        slug: '/linux',
+      },
+      items: ['faq-linux'],
+    },
+    {
+      type: 'category',
+      label: 'macOS',
+      link: {
+        type: 'generated-index',
+        title: 'macOS',
+        description: 'ZeroTier on macOS',
+        slug: '/macos',
+      },
+      items: ['faq-macos'],
+    },
+    {
+      type: 'category',
+      label: 'Windows',
+      link: {
+        type: 'generated-index',
+        title: 'Windows',
+        description: 'ZeroTier on Windows',
+        slug: '/windows',
+      },
+      items: ['faq-windows'],
+    },
+    {
+      type: 'category',
+      label: 'FreeBSD',
+      link: {
+        type: 'generated-index',
+        title: 'FreeBSD',
+        description: 'ZeroTier on FreeBSD',
+        slug: '/freebsd',
+      },
+      items: ['faq-freebsd'],
+    },
+    {
+      type: 'category',
+      label: 'Community Articles',
+      link: {
+        type: 'generated-index',
+        title: 'Community Articles',
+        description: 'Articles written by fans and users of ZeroTier',
+        slug: '/community',
+      },
+      items: ['awesome', 'faq-community'],
     },
     {
     type: "category",
