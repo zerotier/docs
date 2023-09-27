@@ -1,5 +1,6 @@
 ---
 title: Private Root Servers
+description: How to host your own root servers
 ---
 
 ### Creating Your Own Roots (a.k.a. Moons)

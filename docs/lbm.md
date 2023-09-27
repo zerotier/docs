@@ -1,5 +1,6 @@
 ---
 title: Low Bandwidth Mode
+description: Reduce ambient traffic over expensive links
 ---
 
 This mode is designed for devices connected over expensive links where ambient protocol traffic needs to be at a minimum. This timer adjustment reduces ZeroTier's ambient network data usage by doing the following:
@@ -15,7 +16,7 @@ This mode is designed for devices connected over expensive links where ambient p
 
 Currently this new mode can be enabled by adding the following to `local.conf`
 
-```
+```json
 {
   "settings":
   {

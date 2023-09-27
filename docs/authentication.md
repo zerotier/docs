@@ -1,16 +1,17 @@
 ---
 title: Authentication, Login, and Email issues
+description: Did you check your spam folder?
 ---
 
 ### Not receiving emails from us?
 
 If you are not receiving password reset emails, first check your Spam/Junk Mail folder.
 
-If it’s not in your Spam/Junk Mail folder, contact your email administrator to ensure emails from my@zerotier.com are not being blocked at the server level.
+If it’s not in your Spam/Junk Mail folder, contact your email administrator to ensure emails from <my@zerotier.com> are not being blocked at the server level.
 
 ### Changing Your Email Address
 
-Log into ZeroTier Central at https://my.zerotier.com. Once logged in, there's a "Manage Account" link on the Account page.  Click that and then “Personal Info” and you'll be taken to a form where you can change your email address.
+Log into ZeroTier Central at <https://my.zerotier.com>. Once logged in, there's a "Manage Account" link on the Account page.  Click that and then “Personal Info” and you'll be taken to a form where you can change your email address.
 
 ### Invalid Authenticator Code
 

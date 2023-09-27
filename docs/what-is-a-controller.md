@@ -1,5 +1,6 @@
 ---
 title: What is a Network Controller?
+description: Yes this is different than a root server
 ---
 
 :::info

@@ -1,5 +1,6 @@
 ---
 title: Self Hosting
+description: Host your own ZeroTier infrastructure
 ---
 
 Hosting your own ZeroTier infrastructure is easy. There are 2 types of ZeroTier infrastructure and each serves a different role:
@@ -9,7 +10,6 @@ Hosting your own ZeroTier infrastructure is easy. There are 2 types of ZeroTier 
 Controllers handle [Virtual Layer 2](protocol#vl2). No traffic is handled by controllers. ZeroTier Inc runs controllers with a web UI and API at [ZeroTier Central](https://my.zerotier.com). You can [self-host controllers](controller), but we don't currently offer the web UI for self-hosting. You'll have to use the json api.
 
 The controller is open-source. Please check the [license](https://github.com/zerotier/ZeroTierOne/blob/master/LICENSE.txt). It's built in to the zerotier-one binary.
-
 
 ### Roots
 

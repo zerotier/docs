@@ -1,5 +1,6 @@
 ---
 title: The Protocol
+description: Detailed explanation of the ZeroTier wire protocol
 ---
 
 ZeroTier is a smart programmable Ethernet switch for planet Earth. It allows all networked devices, VMs, containers, and applications to communicate as if they all reside in the same physical data center or cloud region.
@@ -12,11 +13,6 @@ virtualization and management capabilities on par with an enterprise SDN switch,
 This is accomplished by combining a cryptographically addressed and secure peer to peer network (termed VL1) with an Ethernet emulation layer somewhat similar to VXLAN (termed VL2). Our VL2 Ethernet virtualization layer includes advanced enterprise SDN features like fine grained access control rules for network micro-segmentation and security monitoring.
 
 All ZeroTier traffic is encrypted end-to-end using secret keys that only you control. Most traffic flows peer to peer, though we offer free (but slow) relaying for users who cannot establish peer to peer connections.
-
-
-
-
-
 
 Everything in the ZeroTier world is controlled by two types of identifier: 40-bit/10-digit *ZeroTier addresses* and 64-bit/16-digit *network IDs*. These identifiers are easily distinguished by their length. A ZeroTier address identifies a node or "device" (laptop, phone, server, VM, app, etc.) while a network ID identifies a virtual Ethernet network that can be joined by devices.
 
@@ -104,16 +100,16 @@ to optimize itself to the pattern of traffic it is carrying.
 
 Peer to peer connection setup goes like this:
 
-1.  A wants to send a packet to B, but since it has no direct path it
+1. A wants to send a packet to B, but since it has no direct path it
     sends it upstream to R (a root).
-2.  If R has a direct link to B, it forwards the packet there. Otherwise
+2. If R has a direct link to B, it forwards the packet there. Otherwise
     it sends the packet upstream until planetary roots are reached.
     Planetary roots know about all nodes, so eventually the packet will
     reach B if B is online.
-3.  R also sends a message called *rendezvous* to A containing hints
+3. R also sends a message called *rendezvous* to A containing hints
     about how it might reach B. Meanwhile the root that forwards the
     packet to B sends *rendezvous* informing B how it might reach A.
-4.  A and B get their *rendezvous* messages and attempt to send test
+4. A and B get their *rendezvous* messages and attempt to send test
     messages to each other, possibly accomplishing [hole
     punching](https://en.wikipedia.org/wiki/UDP_hole_punching) of any
     NATs or stateful firewalls that happen to be in the way. If this
@@ -176,7 +172,7 @@ When a node attempts to send a message to another node whose identity is
 not cached, it sends a *whois* query upstream to a root. Roots provide
 an authoritative identity cache.
 
-### Cryptography {#crypto}
+### Cryptography {#cryptography}
 
 If you don’t know much about cryptography you can safely skip this
 section. **TL;DR: packets are end-to-end encrypted and can’t be read by
@@ -246,7 +242,8 @@ open Internet.
 Multipath allows the simultaneous (or conditional) aggregation of multiple physical links into a bond for increased total throughput, load balancing, redundancy, and fault tolerance. There is a set of standard bonding policies available that can be used right out of the box with no configuration. These policies are inspired by the policies offered by the Linux kernel. A bonding policy can be used easily without specifying any additional parameters.
 
 :::info Multipath Guide
- - See [here](multipath) for more info and examples.
+
+- See [here](multipath) for more info and examples.
 :::
 
 ### Ethernet Virtualization Layer (VL2) {#vl2}
@@ -328,7 +325,7 @@ controller.
 
 #### Credential Types {#credentials}
 
--   **Certificates of Membership**: a certificate that a node presents
+- **Certificates of Membership**: a certificate that a node presents
     to obtain the right to communicate on a given network. Certificates
     of membership are accepted if they *agree*, meaning that the
     submitting member’s certificate’s timestamp differs from the
@@ -337,22 +334,22 @@ controller.
     decentralized moving-window scheme for certificate expiration
     without requiring node clock synchronization or constant checking
     with the controller.
--   **Revocations**: a revocation instantaneously revokes a given
+- **Revocations**: a revocation instantaneously revokes a given
     credential by setting a hard timestamp limit before which it will
     not be accepted. Revocations are rapidly propagated peer to peer
     among members of a network using a rumor mill algorithm, allowing a
     controller to revoke a member credential across the entire network
     even if its connection to some members is unreliable.
--   **Capabilities**: a capability is a bundle of network rules that is
+- **Capabilities**: a capability is a bundle of network rules that is
     signed by the controller and can be presented to other members of a
     network to grant the presenter elevated privileges within the
     framework of the network’s base rule set. More on this in the
     section on rules.
--   **Tags**: a tag is a key/value pair signed by the controller that is
+- **Tags**: a tag is a key/value pair signed by the controller that is
     automatically presented by members to one another and can be matched
     on in base or capability network rules. Tags can be used to
     categorize members by role, department, classification, etc.
--   **Certificates of Ownership**: these certify that a given network
+- **Certificates of Ownership**: these certify that a given network
     member owns something, such as an IP address. These are currently
     only used to lock down networks against IP address spoofing but
     could be used in the future to certify ownership of other
@@ -493,12 +490,12 @@ A special kind of public network called an ad-hoc network may be
 accessed by joining a network ID with the format:
 
 ```text
-    ffSSSSEEEE000000
-    | |   |   |
-    | |   |   Reserved for future use, must be 0
-    | |   End of port range (hex)
-    | Start of port range (hex)
-    Reserved ZeroTier address prefix indicating a controller-less network
+ffSSSSEEEE000000
+| |   |   |
+| |   |   Reserved for future use, must be 0
+| |   End of port range (hex)
+| Start of port range (hex)
+Reserved ZeroTier address prefix indicating a controller-less network
 ```
 
 Ad-hoc networks are public (no access control) networks that have no

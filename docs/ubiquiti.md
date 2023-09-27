@@ -1,5 +1,6 @@
 ---
 title: Ubiquiti
+description: How to install ZeroTier on your Ubiquiti router
 ---
 
 import Tabs from '@theme/Tabs';
@@ -7,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ### Create directory to persist across firmware upgrades
 
-```
+```sh
 mkdir -p /config/data/firstboot/install-packages/
 ```
 
@@ -32,7 +33,6 @@ curl https://download.zerotier.com/dist/ubiquiti/zerotier-one_mips64.deb \
 ```
 
 </TabItem>
-
 
 <TabItem value="arm64">
 
@@ -62,7 +62,7 @@ curl https://download.zerotier.com/dist/ubiquiti/zerotier-one_armhf.deb \
 
 ### Install
 
-```
+```sh
 sudo dpkg -i /config/data/firstboot/install-packages/zerotier-one.deb
 ```
 
@@ -83,11 +83,9 @@ sudo rm -rf /config/zerotier-one
 ```
 
 :::tip
-
 Please report bugs or compatibility issues [here](https://github.com/zerotier/ZeroTierOne/issues).
 
 More information about routing between physical and virtual ZeroTier networks can be found [here](https://zerotier.atlassian.net/wiki/spaces/SD/pages/224395274/Route+between+ZeroTier+and+Physical+Networks)
-
 :::
 
 :::info Next steps

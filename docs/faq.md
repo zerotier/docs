@@ -1,8 +1,7 @@
 ---
 title: FAQ
+description: Answers to commonly asked questions
 ---
-
-Answers to commonly asked questions.
 
 ### What happens if a ZeroTier, Inc root goes down?
 
@@ -87,32 +86,32 @@ Use the respective app stores.
 
 If you would like to clear or reset ZeroTier's address on a device (the 10-digit address node ID) or you have cloned a device and you want to prevent it from using the same address, follow these steps in order:
 
-#### Step 1. Stop the service.
+#### Step 1. Stop the service
 
 ##### On Windows
 
- - On Windows this is done with the service manager. (Open the Start Menu and start typing "service")
+- On Windows this is done with the service manager. (Open the Start Menu and start typing "service")
 
 On Mac you can open a terminal and use
 Stop Mac Service
 
-```
+```sh
 sudo launchctl unload /Library/LaunchDaemons/com.zerotier.one.plist
 ```
 
 ##### On Linux this is usually
 
-```
+```sh
 sudo systemctl stop zerotier-one
 ```
 
 or
 
-```
+```sh
 sudo service zerotier-one stop
 ```
 
-#### Step 2. Delete the files identity.public and identity.secret from ZeroTier's working directory.
+#### Step 2. Delete the files identity.public and identity.secret from ZeroTier's working directory
 
 - On Windows this is usually `\ProgramData\ZeroTier\One`
 - On Mac this is `/Library/Application Support/ZeroTier/One`
@@ -127,19 +126,19 @@ Starting via the service manager on Windows
 
 ##### On Mac
 
-```
+```sh
 sudo launchctl load /Library/LaunchDaemons/com.zerotier.one.plist
 ```
 
 ##### On Linux
 
-```
+```sh
 sudo systemctl start zerotier-one
 ```
 
 or
 
-```
+```sh
 sudo service zerotier-one start
 ```
 

@@ -1,8 +1,7 @@
 ---
 title: Multipath
+description: Combine multiple network links into one
 ---
-
-Combine multiple network links into one.
 
 Multipath allows the simultaneous (or conditional) aggregation of multiple physical links into a *bond* for increased total throughput, load balancing, redundancy, and fault tolerance. There is a set of standard bonding policies available that can be used right out of the box with no configuration. These policies are inspired by [the policies offered by the Linux kernel](https://www.kernel.org/doc/Documentation/networking/bonding.txt). A bonding policy can be used easily without specifying any additional parameters. For example:
 
@@ -185,13 +184,13 @@ It is possible to use a policy for one peer and another policy for a different p
 
 Traffic is sent on only *one* link at any time. A different link becomes active if the current link fails. This mode provides fault tolerance with a nearly immediate failover depending on the `failoverInterval` you set. This mode *does not* increase total throughput. If no `primary` and `spare` links are defined ZeroTier will attempt to pick the best one.
 
- - `mode`: `primary|spare` Link option which specifies which link is the primary device. The specified device is intended to always be the active link while it is available. There are exceptions to this behavior when using different `linkSelectMethod` modes. There can only be one `primary` link in this bonding policy.
+- `mode`: `primary|spare` Link option which specifies which link is the primary device. The specified device is intended to always be the active link while it is available. There are exceptions to this behavior when using different `linkSelectMethod` modes. There can only be one `primary` link in this bonding policy.
 
- - `linkSelectMethod`: Specifies the selection policy for the active link during failure and/or recovery events. This is similar to the Linux Kernel's `primary_reselect` option but with a minor extension:
-     - `optimize`: **(default if user provides no failover guidance)** The primary link can change periodically if a superior link is detected.
-     - `always`: **(default when links are explicitly specified)**: Primary link regains status as active link whenever it comes back up.
-     - `better`: Primary link regains status as active link when it comes back up and (if) it is better than the currently-active link.
-     - `failure`: Primary link regains status as active link only if the currently-active link fails.
+- `linkSelectMethod`: Specifies the selection policy for the active link during failure and/or recovery events. This is similar to the Linux Kernel's `primary_reselect` option but with a minor extension:
+  - `optimize`: **(default if user provides no failover guidance)** The primary link can change periodically if a superior link is detected.
+  - `always`: **(default when links are explicitly specified)**: Primary link regains status as active link whenever it comes back up.
+  - `better`: Primary link regains status as active link when it comes back up and (if) it is better than the currently-active link.
+  - `failure`: Primary link regains status as active link only if the currently-active link fails.
 
 ```json title="Example local.conf"
 {
@@ -279,12 +278,12 @@ In the above example if any links begin to show signs of saturation (for instanc
 
 As seen in the [balance-aware](#balance-aware) example configuration, you can provide hints to ZeroTier as to when a link is no longer suitable for use. You can set limits on the following:
 
- - `lat_max`: Maximum (mean) latency observed over many samples
- - `pdv_max`: Maximum packet delay variance (similar to jitter)
+- `lat_max`: Maximum (mean) latency observed over many samples
+- `pdv_max`: Maximum packet delay variance (similar to jitter)
 
 Then, weights must also be provided to tell ZeroTier how important your limits are (as a reminder, the weights must sum to `1.0`):
 
-```
+```json
 "linkQuality": {
   "lat_max" : 80.0,
   "pdv_max" : 20.0,
@@ -337,7 +336,7 @@ Providing [quality](#link-quality) hints to ZeroTier can be done in conjunction 
 
 The above configuration will *roughly* result in the following allocation:
 
-```
+```sh
 10000 + 1000 + 100 = 11100 total "capacity units" across all links
 
 eth0 10000 / 11100 = ~0.900 %

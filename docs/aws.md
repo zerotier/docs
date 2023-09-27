@@ -1,5 +1,6 @@
 ---
 title: AWS
+description: Guidance for using ZeroTier with AWS
 ---
 
 ### Slow/Low Speed Connectivity with EC2
@@ -10,12 +11,10 @@ ZeroTier must be able to accept direct connections from any host on at least UDP
 
 Group configuration for inbound traffic:
 
-![AWS outbound rules](aws-outbound-rules.png)
-
+![AWS outbound rules](./images/aws-outbound-rules.png)
 
 You may need something similar to this in your outbound rules as well if it is anything other than allow all traffic.
 
 ### AWS Nat Gateway
 
-AWS Nat Gateways put up a Symmetric NAT in front of your EC2 instances.  Unfortunately, Symmetric NAT is non-conducive to peer-to-peer traffic of any kind, and will not work well with ZeroTier.
-
+AWS Nat Gateways put up a Symmetric NAT in front of your EC2 instances. Unfortunately, Symmetric NAT is non-conducive to peer-to-peer traffic of any kind, and will not work well with ZeroTier.

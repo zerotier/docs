@@ -1,5 +1,6 @@
 ---
 title: Amazon VPC Gateway
+description: Make your Amazon VPC accessible via ZeroTier
 ---
 
 This guide assumes that you've already created an Amazon VPC and you want to make it accessible from a ZeroTier virtual network and vice-versa.
@@ -42,6 +43,6 @@ Devices in your VPC will now need a route to your ZeroTier network by way of you
 
 For our test we added a route to `10.6.4.0/22` via `i-92f96a4f`.
 
-### Step 7: Test It!
+### Step 7: Test It
 
 On a ZeroTier network connected host try pinging some internal IPs in your VPC, and vice versa. If everything above worked you should be able to do so. Try a traceroute and you should see a one-hop route via your gateway.

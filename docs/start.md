@@ -1,5 +1,6 @@
 ---
 title: Create Network
+description: Get Started
 ---
 
 import Tabs from '@theme/Tabs';
@@ -19,7 +20,6 @@ The rough outline is:
 
 This should take about 5 minutes.
 
-
 <details>
 <summary>Results Preview</summary>
 Here is a summary of the results of this tutorial, if you're a networking person.
@@ -28,21 +28,21 @@ If this doesn't mean anything to you, that's OK. We'll get there.
 
 Each zerotier network you join creates a network interface on your device. It's like adding another Ethernet port to your computer.
 
-```
+```sh
 node1# ip -o a
 1: lo    inet 127.0.0.1/8 scope host lo\       valid_lft forever preferred_lft forever
 2: eth0    inet 192.168.182.201/24 brd 192.168.182.255 scope global dynamic noprefixroute eth0\       valid_lft 3277sec preferred_lft 2827sec
 9: zt3jn2z57r    inet 10.2.0.11/23 brd 10.2.1.255 scope global zt3jn2z57r\       valid_lft forever preferred_lft forever
 ```
 
-```
+```sh
 node2# ip -o a
 1: lo    inet 127.0.0.1/8 scope host lo\       valid_lft forever preferred_lft forever
 2: eth0    inet 192.168.182.202/24 brd 192.168.182.255 scope global dynamic noprefixroute eth0\       valid_lft 3277sec preferred_lft 2827sec
 9: zt3jn2z57r    inet 10.2.0.12/23 brd 10.2.1.255 scope global zt3jn2z57r\       valid_lft forever preferred_lft forever
 ```
 
-```
+```sh
 node1# ping -c 3 10.2.0.12
 PING 10.2.0.2 (10.2.0.12) 56(84) bytes of data.
 64 bytes from 10.2.0.12: icmp_seq=1 ttl=64 time=5.66 ms
@@ -52,8 +52,8 @@ PING 10.2.0.2 (10.2.0.12) 56(84) bytes of data.
 --- 10.2.0.12 ping statistics ---
 3 packets transmitted, 3 received, 0% packet loss, time 2004ms
 ```
-</details>
 
+</details>
 
 ## Create your first ZeroTier network
 
@@ -147,7 +147,7 @@ On linux, you need to be root, or use `sudo` in front of the commands
 On macOS, `sudo` is not required.
 On Windows, you need to use an Admin Prompt. Type "powershell" into the start menu, then right click and "Open as Admin"
 
-```
+```sh
 % zerotier-cli info
 200 info 8af72edda7 1.10.2 ONLINE
 
@@ -208,7 +208,7 @@ A device can't talk on your network unless you allow it, even if someone discove
 
 <TabItem value="linux">
 
-```
+```sh
 # zerotier-cli listnetworks
 200 listnetworks d5e04297a16fa690  92:61:0e:25:b1:8d ACCESS_DENIED PRIVATE ztijas2mjr -
 ```
@@ -216,7 +216,6 @@ A device can't talk on your network unless you allow it, even if someone discove
 </TabItem>
 
 </Tabs>
-
 
 ### Authorize your device
 
@@ -228,11 +227,9 @@ A device can't talk on your network unless you allow it, even if someone discove
 
 ![image](./images/05-network-members-1.png)
 
-
 ### Confirm authorization
 
 Back on your computer, your client should now say "OK" instead of "ACCESS DENIED" and it should show your custom "my cool network" name.
-
 
 <Tabs
   defaultValue="mac"
@@ -259,7 +256,7 @@ Back on your computer, your client should now say "OK" instead of "ACCESS DENIED
 
 <TabItem value="linux">
 
-```
+```sh
 % zerotier-cli listnetworks
 200 listnetworks <nwid> <name> <mac> <status> <type> <dev> <ZT assigned ips>
 200 listnetworks d5e04297a16fa690 my cool network 92:2c:98:8f:4a:e5 OK PRIVATE feth3903 172.22.195.59/16```
@@ -279,6 +276,7 @@ Now you have 1 member on your network. A network with 1 member can't do much.
 ## Repeat with another device
 
 We need to have 2 devices connected to the same ZeroTier network.
+
 - Repeat the join and authorize steps with your second device.
 
 ## Test connectivity
@@ -294,7 +292,6 @@ The "Managed IPs" will be different on your network.
 We're going to test with `ping`. It's the only program that we can think of that exists by default on every operating system.
 
 This is a command line program, but don't worry: You can do it.
-
 
 ### Gotcha: Windows blocks ping
 
@@ -360,7 +357,6 @@ Try switching your phone from wifi to cell and back. It may take about a minute,
 
 </Tabs>
 
-
 ### Find the ZeroTier IP Addresses of your devices
 
 ![image](./images/05-network-members-2.png)
@@ -368,10 +364,12 @@ Try switching your phone from wifi to cell and back. It may take about a minute,
 ### Try the ping command
 
 Back in the Command Line / Terminal that you just opened:
+
 - type `ping -c 5 $ZEROTIER_IP_ADDRESS` `<enter>` into your command line.
 
 A successful `ping`:
-```
+
+```sh
 % ping -c 5 172.22.217.93
 PING 172.22.217.93 (172.22.217.93): 56 data bytes
 64 bytes from 172.22.217.93: icmp_seq=0 ttl=64 time=22.362 ms
@@ -392,7 +390,7 @@ One of them is the same device you're on, so you're pinging yourself. Pinging th
 :::info
 If something goes wrong you might see something like:
 
-```
+```sh
 % ping -c 5 172.22.217.92
 PING 172.22.217.92 (172.22.217.92): 56 data bytes
 Request timeout for icmp_seq 0
@@ -406,7 +404,7 @@ Request timeout for icmp_seq 3
 
 or
 
-```
+```sh
 ping -c 5 192.168.123.234
 PING 192.168.123.234 (192.168.123.234): 56 data bytes
 92 bytes from 192.168.82.1: Destination Port Unreachable
@@ -419,13 +417,11 @@ There may just be a typo in the IP address. Double check that your device is aut
 Contact us on the [discussion forum](https://discuss.zerotier.com/) and see the [troubleshooting section](faq) if you get stuck.
 :::
 
-
 ## Conclusion
 
 `ping` doesn't accomplish anything, but it does tell us ZeroTier is working. It's useful to know about for troubleshooting networks, not just ZeroTier networks.
 
 Visit the [discussion forum](https://discuss.zerotier.com/) to talk about your use-cases or if you get stuck.
-
 
 ### Now, use ZeroTier to do something you want to do
 

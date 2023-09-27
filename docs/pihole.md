@@ -1,5 +1,6 @@
 ---
 title: Pi-Hole
+description: Block Ads with a Pi-Hole on your ZeroTier network
 ---
 
 Block Ads with a Pi-Hole on your ZeroTier network
@@ -8,12 +9,12 @@ Block Ads with a Pi-Hole on your ZeroTier network
 
 ### Install Pi-Hole
 
-```
+```sh
 curl -sSL https://install.pi-hole.net | bash
 ```
 
 :::info
-Go here for more installation instructions: https://docs.pi-hole.net/main/basic-install/
+Go here for more installation instructions: <https://docs.pi-hole.net/main/basic-install/>
 :::
 
 When prompted, select the ZeroTier interface
@@ -27,4 +28,3 @@ If you are running your Pi-Hole in the cloud there are important additional step
 #### Make web interface only reachable over ZeroTier
 
 #### Handle DNS requests only from the ZeroTier network
-

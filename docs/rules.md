@@ -1,5 +1,6 @@
 ---
 title: Rules Engine
+description: Traffic Flow Rules / ACLs
 ---
 
 Traffic on ZeroTier networks can be observed and controlled with a
@@ -107,7 +108,6 @@ These are the available matches and actions in raw form. The rule
 definition language outlined in [section
 3.4](https://www.zerotier.com/manual.shtml#3_4) provides a friendlier
 way for human beings to specify rules.
-
 
 | Action | Argument(s) | Description |
 | :---| :--- | :--- |
@@ -481,31 +481,31 @@ Traffic won't be `tee`d if it is blocked by a `break` or `drop`.
 For convenience the following symbols can be used when matching on
 certain packet attributes:
 
--   IP protocols (`ipprotocol`): **icmp** (for IPv4), **igmp**, **ipip**, **tcp**,
+- IP protocols (`ipprotocol`): **icmp** (for IPv4), **igmp**, **ipip**, **tcp**,
     **egp**, **igp**, **udp**, **rdp**, **esp**, **ah**, **icmp6** (for
     IPv6), **l2tp**, **sctp**, and **udplite**.
--   Ethernet frame types (`ethertype`): **ipv4**, **arp**, **ipv6**, **wol** (wake on
+- Ethernet frame types (`ethertype`): **ipv4**, **arp**, **ipv6**, **wol** (wake on
     LAN), **rarp**, **atalk**, **aarp**, **ipx_a**, **ipx_b**.
 
--   Packet characteristics (bit masks for `chr`):
-    -   **inbound**: packet is being filtered on the receiving side (use
+- Packet characteristics (bit masks for `chr`):
+  - **inbound**: packet is being filtered on the receiving side (use
         `not inbound` for sending side)
-    -   **multicast**: destination is a multicast or broadcast MAC
-    -   **broadcast**: destination is the broadcast MAC
-    -   **ipauth**: sender IP is assigned by ZeroTier to the sending
+  - **multicast**: destination is a multicast or broadcast MAC
+  - **broadcast**: destination is the broadcast MAC
+  - **ipauth**: sender IP is assigned by ZeroTier to the sending
         node
-    -   **tcp\_fin**: packet is TCP with FIN flag set
-    -   **tcp\_syn**: packet is TCP with SYN flag set
-    -   **tcp\_rst**: packet is TCP with RST flag set
-    -   **tcp\_psh**: packet is TCP with PSH flag set
-    -   **tcp\_ack**: packet is TCP with ACK flag set
-    -   **tcp\_urg**: packet is TCP with URG flag set
-    -   **tcp\_ece**: packet is TCP with ECE flag set
-    -   **tcp\_cwr**: packet is TCP with CWR flag set
-    -   **tcp\_ns**: packet is TCP with NS flag set
-    -   **tcp\_rs2**: packet is TCP with RS2 (reserved bit 2) flag set
-    -   **tcp\_rs1**: packet is TCP with RS1 (reserved bit 1) flag set
-    -   **tcp\_rs0**: packet is TCP with RS0 (reserved bit 0) flag set
+  - **tcp\_fin**: packet is TCP with FIN flag set
+  - **tcp\_syn**: packet is TCP with SYN flag set
+  - **tcp\_rst**: packet is TCP with RST flag set
+  - **tcp\_psh**: packet is TCP with PSH flag set
+  - **tcp\_ack**: packet is TCP with ACK flag set
+  - **tcp\_urg**: packet is TCP with URG flag set
+  - **tcp\_ece**: packet is TCP with ECE flag set
+  - **tcp\_cwr**: packet is TCP with CWR flag set
+  - **tcp\_ns**: packet is TCP with NS flag set
+  - **tcp\_rs2**: packet is TCP with RS2 (reserved bit 2) flag set
+  - **tcp\_rs1**: packet is TCP with RS1 (reserved bit 1) flag set
+  - **tcp\_rs0**: packet is TCP with RS0 (reserved bit 0) flag set
 
 ### Useful Design Patterns {#35usefuldesignpatternsaname3_5a}
 

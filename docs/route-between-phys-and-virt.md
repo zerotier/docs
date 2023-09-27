@@ -1,5 +1,6 @@
 ---
 title: Route between ZeroTier and Physical Networks
+description: Get remote access to your LAN
 ---
 
 This seems to be the simplest pattern for getting remote access to your LAN. It doesn't require access to the LAN's router or have some of the pitfalls of bridging. This requires a Linux PC or VM, something that runs iptables, on your LAN. A Raspberry Pi works. This is a NAT/Masquerade setup.
@@ -35,13 +36,14 @@ For Example:
 
 ### Install ZeroTier
 
-https://www.zerotier.com/download/
+<https://www.zerotier.com/download/>
 
-```
+```sh
 sudo zerotier-cli join $NETWORK_ID
 sudo zerotier-cli listnetworks
 ```
-Authorize it at my.zerotier.com/network/$NETWORK_ID
+
+Authorize it at `my.zerotier.com/network/$NETWORK_ID`
 
 The listnetworks output has the ZeroTier Interface name under `<dev>`
 
@@ -71,7 +73,7 @@ Edit `/etc/sysctl.conf` to uncomment `net.ipv4.ip_forward`. This enables forward
 
 To enable it now
 
-```
+```sh
 sudo sysctl -w net.ipv4.ip_forward=1
 ```
 
@@ -79,13 +81,13 @@ sudo sysctl -w net.ipv4.ip_forward=1
 
 Assign some shell variables (personalize these)
 
-```
+```sh
 PHY_IFACE=eth0; ZT_IFACE=zt7nnig26
 ```
 
 Add rules to iptables
 
-```
+```sh
 sudo iptables -t nat -A POSTROUTING -o $PHY_IFACE -j MASQUERADE
 sudo iptables -A FORWARD -i $PHY_IFACE -o $ZT_IFACE -m state --state RELATED,ESTABLISHED -j ACCEPT
 sudo iptables -A FORWARD -i $ZT_IFACE -o $PHY_IFACE -j ACCEPT
@@ -93,12 +95,12 @@ sudo iptables -A FORWARD -i $ZT_IFACE -o $PHY_IFACE -j ACCEPT
 
 Save iptables rules for next boot
 
-```
+```sh
 sudo apt install iptables-persistent
 sudo bash -c iptables-save > /etc/iptables/rules.v4
 ```
 
-### Test!
+### Test
 
 - Turn off wifi on your phone
 - Join it to the zerotier network, authorize it

@@ -1,8 +1,9 @@
 ---
 title: cloud-init
+description: Easily start ZeroTier in your cloud instances
 ---
 
-## Set up ZeroTier using `cloud-init`.
+## Set up ZeroTier using `cloud-init`
 
 ### What is `cloud-init`? {#whatisit}
 
@@ -14,7 +15,7 @@ Typically a cloud-init file can be uploaded to a cloud provider or added as an a
 
 ### Example {#example}
 
-```
+```yaml
 #cloud-config
 
 hostname: "devbox"
@@ -53,14 +54,14 @@ It's usually recommended that you disable the `root` account and disable passwor
 
 To make getting into your cloud instance as easy as possible you can add entries to `authorized_keys`:
 
-```
+```yaml
 ssh-authorized-keys:
     - ssh-rsa AAAAB38fwi3756q238if75dh6awd476r3bg78f56ghfaa7fdh63qf5dq378f5632gha3875j3f498da7hfhjkfawejtfsktfr89ew4jftsjrf8t9rhg7tjser8tsre7yjgvased89rfdcsh67rewhg8tq7tsge546w4
 ```
 
 To make getting into other instances *from this instance* easier, you can add a pre-generated private key to `ssh_keys`:
 
-```
+```yaml
 ssh_deletekeys: false
 ssh_keys:
     ed25519_private: |

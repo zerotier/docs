@@ -1,5 +1,6 @@
 ---
 title: Teltonika Networks
+description: How to install ZeroTier on your Teltonika router
 ---
 
 > From now on you can use ZeroTier VPN on your Teltonika Networks RUT!
@@ -11,4 +12,3 @@ title: Teltonika Networks
 :::info Next steps
 Click [here](/start/) to create your network and start adding devices.
 :::
-

@@ -1,5 +1,6 @@
 ---
 title: Pricing
+description: Common pricing questions
 ---
 
 ### Do my networks still work properly if I’m out of compliance?
@@ -17,6 +18,5 @@ If you are over the limit, your networks and the nodes already authorized on the
 
 Node packs are only $5.00/month for packs of 25 nodes. You can purchase them on your account page in ZeroTier Central.
 
-For more information about the pricing plan, please read:  https://www.zerotier.com/2022/06/09/zerotier-business-sso-is-here-and-so-is-our-new-pricing/
+For more information about the pricing plan, please read:  <https://www.zerotier.com/2022/06/09/zerotier-business-sso-is-here-and-so-is-our-new-pricing/>
 :::
-
