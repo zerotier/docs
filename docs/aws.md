@@ -10,7 +10,7 @@ ZeroTier must be able to accept direct connections from any host on at least UDP
 
 Group configuration for inbound traffic:
 
-![AWS outbound rules](aws-outbound-rules.png)
+![AWS outbound rules](./images/aws-outbound-rules.png)
 
 
 You may need something similar to this in your outbound rules as well if it is anything other than allow all traffic.

@@ -8,21 +8,21 @@ Go to the Account page
 
 Click Modify Plan
 
-![Modify plan](sso-add-seat-0.png)
+![Modify plan](./images/sso-add-seat-00.png)
 
 You will see your current subscription level
 
-![Subscription level](sso-add-seat-1.png)
+![Subscription level](./images/sso-add-seat-01.png)
 
 Adjust the levels to your new needs
 
-![Adjust number of seats](sso-add-seat-2.png)
+![Adjust number of seats](./images/sso-add-seat-02.png)
 
 Click checkout
 
 The system will figure out any needed credits or proration.
 
-![Receipt](sso-add-seat-3.png)
+![Receipt](./images/sso-add-seat-03.png)
 
 Click Update Subscription to finish to accept the changes
 

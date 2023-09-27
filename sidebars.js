@@ -31,7 +31,7 @@
         description: 'Our hosted offering for managing your networks.',
         slug: '/central',
       },
-      items: ['start', 'sso'],
+      items: ['start', 'sso', 'faq-central'],
     },
     {
       type: 'category',

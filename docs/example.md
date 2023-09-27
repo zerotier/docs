@@ -1,8 +1,7 @@
 ---
 title: My New Article
+description: Intro sentence that conveys meaning in first 60 or so characters, this is truncated and displayed in thumbnails.
 ---
-
-Intro sentence that conveys meaning in first 60 or so characters, this is truncated and displayed in thumbnails.
 
 ### Example section {#example}
 
@@ -33,6 +32,12 @@ import something
 
 print("ok")
 ```
+
+### An Image
+
+Images are stored in `/images` and should be numbered with two-digits if there are multiple that must be in order.
+
+![Join Mac Dialog](./images/join-mac-02.png)
 
 ### Architectural Diagram {#diagram}
 

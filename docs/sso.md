@@ -19,14 +19,14 @@ SSO is currently only supported on desktop operating systems such as macOS and W
 
 Visit https://my.zerotier.com/account and complete the SSO configuration toward the bottom of the page. You will need your sso provider's Issuer URL as well as a Client ID.
 
-![SSO-Account-Setup](/img/sso-account-setup.png)
+![SSO-Account-Setup](./images/sso-account-setup-00.png)
 
 You can configure multiple OIDC clients for your organization, but only one may be used at a time on an individual network.
 
 ### Configure SSO on individual networks.
 
 If you enable this on an existing network, you may accidentally block existing users. Please practice on a test network.
-![SSO-Network-Enable](/img/sso-network-enable.png)
+![SSO-Network-Enable](./images/sso-network-enable-01.png)
 
 There are three login modes for SSO enabled networks:
 
@@ -39,7 +39,7 @@ There are three login modes for SSO enabled networks:
 This is useful for routers, servers, embedded devices, etc…
 You can do this from the wrench icon in the Members list.
 
-![SSO-Member-Exclude](/img/sso-member-exclude.png)
+![SSO-Member-Exclude](./images/sso-member-exclude-02.png)
 
 ## SSO provider configuration
 
@@ -234,7 +234,7 @@ You may react to errors via the `isError` variable:
 
 With Email based network access, a network administrator can limit access to the network to only users whose email addresses are present in the list specified by the network administrator.
 
-![sso email list](/img/sso-email-access.png)
+![sso email list](./images/sso-email-access-03.png)
 
 ## Role Based Network Access
 
@@ -250,7 +250,7 @@ Auth0 requires multiple steps to configure.
 
 Log into your auth0.com management console.  Go to User Management and select roles.  Hit the `+ Create Role` button in the upper right corner.  Give your new role a name & description of your choosing.
 
-![auth0 create role](/img/sso-auth0-create-role.png)
+![auth0 create role](./images/sso-auth0-create-role-04.png)
 
 Once the new role is created, go to the Users tab.  There you will be able to add the users you wish to have access to the role.
 
@@ -278,7 +278,7 @@ Once it is entered, hit `Deploy` on the upper right hand side of the screen.
 
 Hit the `<- Back to flow` link, which will take you back to the Login Flow graph.  Under Add Action, select Custom.  You'll find your new action listed there.  Drag it between `Start` and `Complete` in the login flow and click Apply. When finished, your flow will look something like this:
 
-![auth0 login flow](/img/sso-auth0-login-flow.png)
+![auth0 login flow](./images/sso-auth0-login-flow-05.png)
 
 Your users' assigned roles will now be attached to the tokens required to authorize a user on your ZeroTier networks.
 
@@ -290,7 +290,7 @@ https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-add-app-r
 
 In the Azure portal, go to Azure Active Directory and select App Registrations. Select the app you've created for integration with ZeroTier Central.  In the Manage menu, select App Roles, and then create a new app role and hit Apply
 
-![azure app role](/img/sso-azure-app-role.png)
+![azure app role](./images/sso-azure-app-role-06.png)
 
 The `Value` field is what you use as the role name in the network configuration on https://my.zerotier.com
 
@@ -318,7 +318,7 @@ From your Okta administrator dashboard, go to Directory and select Groups. Creat
 
 In the Okta administrator dashboard, go to Applications and open the configuration for the Okta Application you've configured for use with ZeroTier.  Click the 'Edit' button in the "OpenID Connect ID Token" box.  Set "Group claim type" to "Filter", and set the three fields for "Group claim filter" to `roles`, `Matches regex`, and `.*`.
 
-![okta token config](/img/sso-okta-setup.png)
+![okta token config](./images/sso-okta-setup-07.png)
 
 It is possible to limit the groups to only certain groups.  See Okta's [group filter documentation](https://developer.okta.com/docs/reference/okta-expression-language/#group-functions) for more information.
 
