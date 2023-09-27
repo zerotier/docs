@@ -1,6 +1,6 @@
 ---
-title: Awesome ZeroTier
-description: This description will override the default.
+title: What can I do with ZeroTier?
+description: List of things you can do with ZeroTier
 ---
 
 A List of Awesome ZeroTier Things
@@ -48,6 +48,10 @@ found on The Internet. Feel free to add yours!
 - [ZeroTier Everything Else](#zerotier-everything-else)
 - [ZeroTier Reddit](#zerotier-reddit)
 - [ZeroTier YouTube](#zerotier-youtube)
+
+:::info Next steps
+Click [here](/start/) to create your network and start adding devices.
+:::
 
 ## ZeroTier Self-Hosting
 
@@ -506,3 +510,7 @@ found on The Internet. Feel free to add yours!
 
 - [ZeroTierOffficial YouTube Channel](https://www.youtube.com/channel/UCCN_ehU18m2MXqocbItxTUQ/featured)
 - [Most Recent Community-Created ZeroTier Videos](https://www.youtube.com/results?search_query=zerotier&sp=CAI%253D)
+
+:::info Next steps
+Click [here](/start/) to create your network and start adding devices.
+:::

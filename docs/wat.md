@@ -1,5 +1,6 @@
 ---
 title: What is ZeroTier?
+description: A warm snuggly blanket for your network
 custom_edit_url: null
 ---
 

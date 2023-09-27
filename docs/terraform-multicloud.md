@@ -1,5 +1,6 @@
 ---
 title: Terraform (Multicloud)
+description: Use ZeroTier in combination with multiple Terraform cloud providers
 ---
 
 # Terraform Multicloud

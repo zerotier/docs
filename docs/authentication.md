@@ -1,5 +1,6 @@
 ---
 title: Authentication, Login, and Email issues
+description: Did you check your spam folder?
 ---
 
 ### Not receiving emails from us?

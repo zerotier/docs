@@ -1,5 +1,6 @@
 ---
 title: SSO / OIDC
+description: SSO
 ---
 
 ## ZeroTier Central configuration

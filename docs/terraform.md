@@ -1,5 +1,6 @@
 ---
 title: Terraform
+description: Describe your ZeroTier networks as code using Terraform
 ---
 
 :::info Advanced

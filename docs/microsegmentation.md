@@ -1,5 +1,6 @@
 ---
 title: Network Microsegmentation
+description: Use flow rules to prevent devices on the same network from communicating
 ---
 
 Create a network for each role. Devices can join multiple networks at once. Networks are free on my.zerotier.com. Each network can have its own [Network Flow Rules](rules). "Network A allows only RDP traffic." for example.

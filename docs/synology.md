@@ -1,5 +1,6 @@
 ---
 title: Synology
+description: How to install ZeroTier on your Synology NAS
 ---
 
 :::tip DSM 6

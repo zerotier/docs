@@ -1,5 +1,6 @@
 ---
 title: OPNsense
+description: How to install ZeroTier on your OPNSense router
 ---
 
 # OPNSense

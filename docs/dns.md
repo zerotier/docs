@@ -1,8 +1,7 @@
 ---
 title: DNS
+description: DNS on your ZeroTier network
 ---
-
-DNS on your ZeroTier network.
 
 :::info BETA
 This feature is still in beta. This will soon be integrated into ZeroTier 2.0, but for now, it is segregated to allow us to iterate quickly.

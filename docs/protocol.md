@@ -1,5 +1,6 @@
 ---
 title: The Protocol
+description: Detailed explanation of the ZeroTier wire protocol
 ---
 
 ZeroTier is a smart programmable Ethernet switch for planet Earth. It allows all networked devices, VMs, containers, and applications to communicate as if they all reside in the same physical data center or cloud region.
@@ -171,7 +172,7 @@ When a node attempts to send a message to another node whose identity is
 not cached, it sends a *whois* query upstream to a root. Roots provide
 an authoritative identity cache.
 
-### Cryptography {#crypto}
+### Cryptography {#cryptography}
 
 If you don’t know much about cryptography you can safely skip this
 section. **TL;DR: packets are end-to-end encrypted and can’t be read by

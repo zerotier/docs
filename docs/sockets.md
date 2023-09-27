@@ -1,5 +1,6 @@
 ---
 title: Sockets
+description: Link ZeroTier into your app or service
 ---
 
 import Tabs from '@theme/Tabs';

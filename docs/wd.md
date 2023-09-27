@@ -1,5 +1,6 @@
 ---
 title: Western Digital
+description: How to install ZeroTier on your Western Digital NAS
 ---
 
 ## Install

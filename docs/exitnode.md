@@ -1,5 +1,6 @@
 ---
 title: VPN Exit Node
+description: Route all your Internet traffic through a ZeroTier node
 ---
 
 Route all your Internet traffic through a ZeroTier node.

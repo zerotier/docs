@@ -1,5 +1,6 @@
 ---
 title: QNAP
+description: How to install ZeroTier on your QNAP NAS
 ---
 
 ## Install QVPN (recommended)

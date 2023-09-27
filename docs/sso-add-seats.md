@@ -1,5 +1,6 @@
 ---
 title: Add new SSO Seats
+description: Add new SSO Seats
 ---
 
 If you are already on the Pro plan, to increase your Node, Admin, or SSO entitlements:

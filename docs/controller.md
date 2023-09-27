@@ -1,8 +1,7 @@
 ---
 title: Network Controller
+description: Host your own network controllers
 ---
-
-Host your own network controllers.
 
 :::info
 [Network Controller Reference Documentation](what-is-a-controller)

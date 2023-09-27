@@ -1,5 +1,6 @@
 ---
 title: Pricing
+description: Common pricing questions
 ---
 
 ### Do my networks still work properly if I’m out of compliance?

@@ -1,8 +1,7 @@
 ---
 title: Troubleshooting
+description: Tips and suggestions for troubleshooting
 ---
-
-Tips and suggestions for troubleshooting.
 
 :::tip Can't find an answer?
 [Ask our community for help](https://discuss.zerotier.com)

@@ -1,5 +1,6 @@
 ---
 title: CLI
+description: How to use the Command Line Interface
 ---
 
 *Mac and Windows platforms have graphical interfaces that provide tray or task bar icons. All platforms have the zerotier-cli command line interface which can be used to join and leave networks and check the status of the zerotier-one service.*

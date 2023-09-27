@@ -1,8 +1,7 @@
 ---
 title: FAQ
+description: Answers to commonly asked questions
 ---
-
-Answers to commonly asked questions.
 
 ### What happens if a ZeroTier, Inc root goes down?
 

@@ -1,5 +1,6 @@
 ---
 title: Layer 5 Proxy
+description: Make a SOCKS5 Proxy with ZeroTier
 ---
 
 Proxy layer 5 traffic from your apps to and from your ZeroTier virtual network without installing ZeroTier and without bringing up any new network interfaces.

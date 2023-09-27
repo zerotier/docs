@@ -1,5 +1,6 @@
 ---
 title: Ubiquiti
+description: How to install ZeroTier on your Ubiquiti router
 ---
 
 import Tabs from '@theme/Tabs';

@@ -9,7 +9,7 @@
         description: 'ZeroTier securely connects all of your devices and services with each other, anywhere.',
         slug: '/',
       },
-      items: ['wat', 'start', 'faq', 'troubleshooting'],
+      items: ['wat', 'start', 'faq', 'troubleshooting', 'awesome'],
     },
     {
       type: 'category',
@@ -75,7 +75,7 @@
         description: 'ZeroTier is designed to operate on resource constrained devices and under 16MB of memory.',
         slug: '/iot',
       },
-      items: ['lbm', 'compatibility', 'bridging', 'proxy', 'audit'],
+      items: ['lbm', 'compatibility', 'bridging', 'proxy', 'faq-security'],
     },
     {
       type: 'category',
@@ -86,7 +86,7 @@
         description: 'ZeroTier uses state of the art cryptographic methods.',
         slug: '/security',
       },
-      items: ['audit'],
+      items: ['faq-security'],
     },
     {
       type: 'category',
@@ -163,7 +163,7 @@
         description: 'Articles written by fans and users of ZeroTier',
         slug: '/community',
       },
-      items: ['awesome', 'faq-community'],
+      items: ['awesome'],
     },
     {
     type: "category",

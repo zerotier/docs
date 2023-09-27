@@ -1,5 +1,6 @@
 ---
 title: cloud-init
+description: Easily start ZeroTier in your cloud instances
 ---
 
 ## Set up ZeroTier using `cloud-init`

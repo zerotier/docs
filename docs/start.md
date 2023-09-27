@@ -1,5 +1,6 @@
 ---
 title: Create Network
+description: Get Started
 ---
 
 import Tabs from '@theme/Tabs';

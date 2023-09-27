@@ -1,5 +1,6 @@
 ---
 title: OpenWRT
+description: How to install ZeroTier on your OpenWRT router
 ---
 
 [The OpenWRT Project](https://openwrt.org/) is a Linux operating system targeting embedded devices.

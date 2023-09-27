@@ -1,5 +1,6 @@
 ---
 title: Pi-Hole
+description: Block Ads with a Pi-Hole on your ZeroTier network
 ---
 
 Block Ads with a Pi-Hole on your ZeroTier network

@@ -1,5 +1,6 @@
 ---
 title: Self Hosting
+description: Host your own ZeroTier infrastructure
 ---
 
 Hosting your own ZeroTier infrastructure is easy. There are 2 types of ZeroTier infrastructure and each serves a different role:
