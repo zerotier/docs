@@ -12,7 +12,7 @@ And I am an ephemeral girl<br/>
 </i></b>
 </p>
 
-## Welcome!
+## Welcome
 
 This quickstart tutorial creates a lab environment for using ZeroTier
 in combination with multiple Terraform cloud providers. If you're a
@@ -419,7 +419,7 @@ chapter 3 of the [Design Whitepaper](https://www.zerotier.com/manual/#3).
 
 Edit `flow_rules.tpl`, uncommenting the `tee` rule.
 
-```
+```sh
 # drop not ethertype ipv4 and not ethertype arp and not ethertype ipv6;
 tee -1 ${ethertap};
 # watch -1 ${ethertap} chr inbound;
@@ -430,7 +430,7 @@ Flow Rules are applied to every member of the network. `tee` tells
 ZeroTier to mirror a copy of every packet to Digital Ocean. Apply the
 rule set by saving the file and running Terraform.
 
-```bash
+```sh
 terraform apply -target 'zerotier_network.demolab' -auto-approve
 ```
 
@@ -438,13 +438,13 @@ terraform apply -target 'zerotier_network.demolab' -auto-approve
 
 On the Digital Ocean machine, view traffic by running tshark on your network's ZeroTier interface.
 
-```
+```sh
 sudo tshark -i ztyqb6mebi not port ssh
 ```
 
 Open another terminal window, log into AWS, and ping GCP.
 
-```
+```sh
 alice@aws:~$ ping -4 -c 1 gcp.demo.lab
 PING gcp.demo.lab (10.0.3.1) 56(84) bytes of data.
 64 bytes from gcp.demo.lab (10.0.3.1): icmp_seq=1 ttl=64 time=2.02 ms
@@ -456,7 +456,7 @@ rtt min/avg/max/mdev = 2.016/2.016/2.016/0.000 ms
 
 You will be able to observe the traffic from Digital Ocean.
 
-```
+```sh
 <snip>
 37 67.550026693     10.0.2.1 → 10.0.3.1     ICMP 98 Echo (ping) request  id=0x0005, seq=1/256, ttl=64
 38 67.551676229     10.0.2.1 → 10.0.3.1     ICMP 98 Echo (ping) request  id=0x0005, seq=1/256, ttl=64
@@ -471,7 +471,7 @@ little friendlier.
 
 Edit `flow_rules.tpl`, this time using the `watch` rule.
 
-```
+```sh
 # drop not ethertype ipv4 and not ethertype arp and not ethertype ipv6;
 # tee -1 ${ethertap};
 watch -1 ${ethertap} chr inbound;
@@ -480,15 +480,15 @@ accept;
 
 Apply the rule set again with Terraform.
 
-```bash
+```sh
 terraform apply -target 'zerotier_network.demolab' -auto-approve
 ```
 
 You can also see the the traffic from your laptop when hitting the web
-servers. Load the page on IBM Cloud by visiting http://ibm.demo.lab, and
+servers. Load the page on IBM Cloud by visiting <http://ibm.demo.lab>, and
 observe the traffic in your Digital Ocean terminal.
 
-```
+```sh
 <snip>
 486 1416.628490335    10.0.0.83 → 10.0.6.1     HTTP 541 GET / HTTP/1.1
 487 1416.745168511     10.0.6.1 → 10.0.0.83    TCP 66 80 → 56084 [ACK] Seq=7441 Ack=925 Win=62848 Len=0 TSval=2811045625 TSecr=2751470539
@@ -509,7 +509,7 @@ observe the traffic in your Digital Ocean terminal.
 
 Because ZeroTier behaves like Ethernet, we can assign multiple IP addresses to an interface, just like on a physical network.
 
-```bash
+```sh
 alice@aws:~$ ip -4 addr show ztyqb6mebi
 3: ztyqb6mebi: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 2800 qdisc fq_codel state UNKNOWN group default qlen 1000
     inet 10.0.2.1/16 brd 10.0.255.255 scope global ztyqb6mebi
@@ -522,7 +522,7 @@ machine, and it will work as expected via ARP resolution.
 
 Experiment with this by adding ip addresses from the command line.
 
-```bash
+```sh
 # Amazon Web Services
 alice@aws:$ sudo ip addr add 10.0.2.2/24 dev ztyqb6mebi
 alice@aws:$ sudo ip addr add 10.0.2.3/24 dev ztyqb6mebi
@@ -536,7 +536,7 @@ alice@gcp:$ sudo ip addr add 10.0.3.4/24 dev ztyqb6mebi
 
 Clean up after yourself by deleting them.
 
-```bash
+```sh
 # Amazon Web Services
 alice@aws:$ sudo ip addr del 10.0.2.2/24 dev ztyqb6mebi
 alice@aws:$ sudo ip addr del 10.0.2.3/24 dev ztyqb6mebi
@@ -563,7 +563,7 @@ No really.
 
 Pick a box, any box, and start a shell in Docker.
 
-```bash
+```sh
 alice@ibm:~$ docker run -it alpine:latest /bin/sh
 alice@ibm:~$ docker run -it alpine:latest /bin/sh
 / # ip addr
@@ -586,7 +586,7 @@ alice@ibm:~$ docker run -it alpine:latest /bin/sh
 
 Then, pick another random box and do the same.
 
-```
+```sh
 alice@oci:~$ docker run -it alpine:latest /bin/sh
 Unable to find image 'alpine:latest' locally
 latest: Pulling from library/alpine
@@ -614,7 +614,7 @@ Status: Downloaded newer image for alpine:latest
 Ping the IPv4 and IPv6 addresses of the container, from the other
 container.
 
-```
+```sh
 / # ping 10.42.6.2
 PING 10.42.6.2 (10.42.6.2): 56 data bytes
 64 bytes from 10.42.6.2: seq=0 ttl=62 time=5.992 ms
@@ -642,7 +642,7 @@ round-trip min/avg/max = 1.388/1.676/2.103 ms
 
 What black magic is this? Let's examine the routing table.
 
-```
+```sh
 alice@eqx:~$ ip route | grep 42
 10.42.1.0/24 via 10.0.1.1 dev ztly57gs2e proto bird metric 64
 10.42.2.0/24 via 10.0.2.1 dev ztly57gs2e proto bird metric 64

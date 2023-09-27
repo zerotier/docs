@@ -42,6 +42,6 @@ Devices in your VPC will now need a route to your ZeroTier network by way of you
 
 For our test we added a route to `10.6.4.0/22` via `i-92f96a4f`.
 
-### Step 7: Test It!
+### Step 7: Test It
 
 On a ZeroTier network connected host try pinging some internal IPs in your VPC, and vice versa. If everything above worked you should be able to do so. Try a traceroute and you should see a one-hop route via your gateway.

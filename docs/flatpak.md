@@ -1,10 +1,7 @@
 # Flatpak
 
-
 ## Installation
 
-
 ## Channels
-
 
 ## Troubleshooting

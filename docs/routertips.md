@@ -45,20 +45,18 @@ Some systems may also have security software present that only allows select app
 
 Finally, it's important to note that ZeroTier One's virtual network ports appear to your system just like normal LAN or WiFi ports and are subject to local firewall rules. If everything appears okay but you can't reach a local service like SSH or HTTP, check local firewall rules to ensure that desired traffic over the virtual network itself is allowed.
 
-
 ### Is My Device Relaying?
 
 Look at the Network's Member List at ZeroTier Central. If a Member doesn't have a Physical IP listed, it may be relaying.
 If you're comfortable with the command line, try these Command Line Interface: zerotier-cli commands: (admin/sudo privileges may be required):
 
-```
+```sh
 zerotier-cli info -j
 ```
 
 is "tcpFallbackActive" true? TCP fallback is the slowest form of relaying. It's a last resort.
 
-
-```
+```sh
 zerotier-cli listpeers
 ```
 
@@ -66,8 +64,7 @@ Look for the Node ID `<ztaddr>` of the device you're trying to communicate with 
 
 There's a second form of relaying where packets bounce off ZeroTier's infrastructure. This is better than TCP relaying, but can still be subject to packet loss and high latency.
 
-
-```
+```sh
 zerotier-cli peers
 ```
 

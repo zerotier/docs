@@ -29,6 +29,6 @@ You can click the “remove” button next to their name in the list of admins. 
 
 ### Change the Organization owner
 
-Consider using a general email address like “billing@example.com” when you sign up.
+Consider using a general email address like “<billing@example.com>” when you sign up.
 
 Can I move or transfer my network(s) to another user?

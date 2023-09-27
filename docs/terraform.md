@@ -6,7 +6,7 @@ title: Terraform
 For the multi-cloud edition of this guide, click [here](terraform-multicloud)
 :::
 
-## Welcome!
+## Welcome
 
 Managing large numbers of setting in a webUI can be a total
 bummer. It'd be much nicer if we could describe our ZeroTier networks
@@ -29,7 +29,7 @@ To follow along step by step, you will need:
 It should take you about 10 minutes to through this tutorial. It will
 be done *in browser* without touching the command line at all.
 
-## Import the Quickstart repo.
+## Import the Quickstart repo
 
 Use Github's [Import]( https://github.com/new/import) feature to
 create a private copy of the
@@ -176,6 +176,7 @@ resource "zerotier_member" "router2" {
   network_id              = module.bridgenet.id
 }
 ```
+
 <p align="center"><img src="https://i.imgur.com/EWfgCDW.png" width="75%" alt="observe planned" /></p>
 <p align="center"><img src="https://i.imgur.com/RPnMMRt.png" width="75%" alt="queue the plan" /></p>
 
@@ -343,7 +344,7 @@ When you're done experimenting with ZeroTier and Terraform, tear everything down
 <p align="center"><img src="https://i.imgur.com/QxF7CO1.png" alt="import repo" width="75%"/></p>
 <p align="center"><img src="https://i.imgur.com/IP06LeW.png" alt="import repo" width="75%"/></p>
 
-## That's all folks!
+## That's all folks
 
 If you like this tutorial, check out the [ZeroTier Multicloud Terraform Quickstart](https://docs.zerotier.com/terraform/multicloud-quickstart) next!
 

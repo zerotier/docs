@@ -15,7 +15,7 @@ This mode is designed for devices connected over expensive links where ambient p
 
 Currently this new mode can be enabled by adding the following to `local.conf`
 
-```
+```json
 {
   "settings":
   {

@@ -74,7 +74,6 @@ Install-Package ZeroTier.Sockets
 
 </Tabs>
 
-
 Alternatively, build from source: [github.com/zerotier/libzt](https://www.github.com/zerotier/libzt)
 
 :::info
@@ -131,6 +130,7 @@ client.connect((remote_ip, remote_port))
 
 
 ```
+
 </TabItem>
 
 <TabItem value="rust">
@@ -196,10 +196,10 @@ ZeroTierSocket socket = new ZeroTierSocket(remoteAddr, port);
 
 To start things off we will:
 
-  - Set up a node
-  - Join it to your network
-  - Assign it a globally-available static IPv4 and/or IPv6 address
-  - Ping it
+- Set up a node
+- Join it to your network
+- Assign it a globally-available static IPv4 and/or IPv6 address
+- Ping it
 
 We'll be skipping over a lot of details in this first example, but we'll cover those in the [next example](#client-and-server-part-2). It's also worth noting that in this first example we will be using the sequential API for simplicity but there is an [event](#events) notification system that can be used as well.
 
@@ -232,6 +232,7 @@ zts_node_start();
 node = libzt.ZeroTierNode()
 node.start()
 ```
+
 </TabItem>
 
 <TabItem value="rust">
@@ -292,6 +293,7 @@ while not node.is_online():
   time.sleep(1)
 
 ```
+
 </TabItem>
 
 <TabItem value="rust">
@@ -326,7 +328,6 @@ while (! node.isOnline()) {
 
 </Tabs>
 
-
 Once we've broken from this loop we can be confident that the node has a valid identity and has made contact with at least one root server. At this point let's print our node's identity. This is the `public short form` of your identity that you can share with people, we will discuss how to get the `secret` portion later on:
 
 <Tabs
@@ -352,6 +353,7 @@ printf("%llx\n", (long long int)zts_node_get_id());
 ```python
 print(node.get_id())
 ```
+
 </TabItem>
 
 <TabItem value="rust">
@@ -379,7 +381,6 @@ System.out.println(Long.toHexString(node.getId()));
 </TabItem>
 
 </Tabs>
-
 
 ### Join a network
 
@@ -409,6 +410,7 @@ zts_net_join(0x1234567890abcdef)
 ```python
 node.net_join(0x1234567890abcdef)
 ```
+
 </TabItem>
 
 <TabItem value="rust">
@@ -479,6 +481,7 @@ while not node.net_transport_is_ready(net_id):
   time.sleep(1)
 
 ```
+
 </TabItem>
 
 <TabItem value="csharp">
@@ -529,6 +532,7 @@ char ipstr[ZTS_IP_MAX_STR_LEN] = { 0 };
 zts_addr_get_str(net_id, ZTS_AF_INET, ipstr, ZTS_IP_MAX_STR_LEN)
 printf("%s\n", ipstr);
 ```
+
 </TabItem>
 
 <TabItem value="rust">
@@ -548,6 +552,7 @@ print(node.addr_get_ipv4(net_id))
 print(node.addr_get_ipv6(net_id))
 
 ```
+
 </TabItem>
 
 <TabItem value="csharp">
@@ -571,13 +576,6 @@ System.out.println(node.getIPv6Address(networkId).getHostAddress());
 </TabItem>
 
 </Tabs>
-
-
-
-
-
-
-
 
 From another machine (or the same machine, whatever you're into), use our regular client [zerotier-one](https://www.zerotier.com/download/) (or another libzt instance) to join the same network and ping the address displayed by your new node above. You should see some jittery initial responses as our transport-triggered link is established and then once a VL2 P2P link is established the response time will stabilize.
 
@@ -608,6 +606,7 @@ zts_node_stop();
 ```python
 node.stop()
 ```
+
 </TabItem>
 
 <TabItem value="rust">
@@ -638,28 +637,10 @@ node.stop()
 
 Full example source code can be found here: <a href="https://github.com/zerotier/libzt/tree/main/examples">libzt/examples</a>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Sockets
 
 :::tip
-
 If you're new to socket programming I *highly* recommend at least perusing [Beej's Guide to Network Programming](https://beej.us/guide/bgnet/). This is the best reference material you'll find on the subject. It greatly helped in my own personal understanding. A portion of our C API is merely redirected calls to [lwIP's C API](https://savannah.nongnu.org/projects/lwip/) and is thus directly compatible with what you'll learn in his guide.
-
 :::
 
 Before we move onto the next section we need to quickly discuss how the socket API is structured. For each supported language ZeroTier provides a socket interface that *attempts* to be as idiomatic as possible. If you are using one of these non-C bindings the following text about the `C API` may not apply to you, but it's still good to know. [I don't care about this](#client-and-server-part-2)
@@ -668,32 +649,25 @@ ZeroTier sockets can be controlled via `zts_bsd_` functions that operate nearly 
 
 For instance:
 
- - `zts_bsd_connect()` will behave in the same way as an ordinary `connect()` call (but over ZeroTier of course)
- - `zts_connect()` will perform a little magic behind the scenes to deal with transport-triggered link provisioning. (i.e. re-attempting for you)
- - `zts_tcp_client()` will wrap all of the common socket calls (including a `zts_connect()`) into a single call.
+- `zts_bsd_connect()` will behave in the same way as an ordinary `connect()` call (but over ZeroTier of course)
+- `zts_connect()` will perform a little magic behind the scenes to deal with transport-triggered link provisioning. (i.e. re-attempting for you)
+- `zts_tcp_client()` will wrap all of the common socket calls (including a `zts_connect()`) into a single call.
 
 You are allowed to use each type of call and mix their usage among sockets as you please, as long as what you're doing makes sense at the protocol level. For instance the following is legal:
 
-```
+```c
 int sock = zts_bsd_socket(ZTS_AF_INET, ZTS_SOCK_STREAM, 0);
 zts_connect(sock, addr, addrlen);
 zts_bsd_write(sock, buf, buflen);
 ```
 
-
-
-
-
-
-
-
 ## Client and Server (Part 2)
 
 In this section we will:
 
-  - Use most of the same setup code as the [Pingable Node](#pingable-node-part-1) example
-  - Set up a TCP server and client
-  - Send a short message between the two
+- Use most of the same setup code as the [Pingable Node](#pingable-node-part-1) example
+- Set up a TCP server and client
+- Send a short message between the two
 
 To see full source code of the following with proper error and exception handling, see [libzt/examples](https://github.com/zerotier/libzt/tree/main/examples) and [libzt/test](https://github.com/zerotier/libzt/tree/main/test).
 
@@ -1120,30 +1094,28 @@ node.stop();
 
 </Tabs>
 
-
-
-
-
-
 ## Android Examples
 
 In this section we will:
-  - Set up Android Studio projects to use a local copy of the libzt .aar
-  - Set up and join ZeroTier networks
-  - Stream video with ExoPlayer using libzt.
-  - Use `HttpURLConnection` to talk to an HTTP server using libzt.
-  - Use `OkHttp` to talk to an HTTP server using libzt.
+
+- Set up Android Studio projects to use a local copy of the libzt .aar
+- Set up and join ZeroTier networks
+- Stream video with ExoPlayer using libzt.
+- Use `HttpURLConnection` to talk to an HTTP server using libzt.
+- Use `OkHttp` to talk to an HTTP server using libzt.
 
 To see full source code of the following examples, see [libzt Android Examples](https://github.com/zerotier/libzt-android-examples).
 
 Create a `zerotier.properties` file at the root of your project with the content:
-```
+
+```sh
 libzt.aar=/path/to/libzt-debug.aar
 ```
 
 This assumes that you have built libzt.aar locally.
 
 Add the following to your app's build.gradle file:
+
 ```gradle
 // Creates a variable called zerotierPropertiesFile, and initializes it to the
 // zerotier.properties file.
@@ -1166,6 +1138,7 @@ dependencies {
 ```
 
 Setup your network and join:
+
 ```java
 Context ctxt = this.getApplicationContext();
 
@@ -1202,7 +1175,6 @@ This is demo code and waiting on the main thread is not recommended.
 
 :::
 
-
 ### ExoPlayer client
 
 Below is a simple example to stream video with ExoPlayer using libzt.
@@ -1230,13 +1202,14 @@ ExoPlayer player = new ExoPlayer.Builder(ctxt)
 ```
 
 For the server:
-```
+
+```sh
 sudo apt install vlc
 ```
-```
+
+```sh
 vlc mst3k.mp4 --loop --sout="#std{access=http, mux=ts, dst=:8090/sample}"
 ```
-
 
 ### HttpURLConnection client
 
@@ -1276,7 +1249,6 @@ finally {
 }
 ```
 
-
 ### OkHttp client
 
 Below is an example to use `OkHttp` to talk to an HTTP server using libzt.
@@ -1306,35 +1278,33 @@ client.newCall(request).enqueue(object : Callback {
 })
 ```
 
-
 ### Questions
 
 I get this error when building:
-```
+
+```sh
 A problem occurred evaluating project ':app'.
 > exoplayerclient/zerotier.properties (No such file or directory)
 ```
 
 You must create a zerotier.properties file at the root of the project with this content:
-```
+
+```sh
 libzt.aar=/path/to/libzt.aar
 ```
 
 I get this error when building:
-```
+
+```sh
 error: cannot find symbol
 import com.zerotier.sockets.ZeroTierNative;
 ```
 
 The path to the libzt AAR in zerotier.properties is not correct.
 
-
-
-
 ## Identities
 
 Every node needs an identity, it's a cryptographic address that you'll use when authorizing the node on your private network. Don't worry though, you'll still use an IP address to talk to your node once joined to a network. You have a few mutually exclusive options to choose from in order to generate or load an identity:
-
 
 <Tabs
   defaultValue="c"
@@ -1369,6 +1339,7 @@ node.init_from_storage("./node_path")
 # (or) Load from memory
 node.init_from_memory(key, len)
 ```
+
 </TabItem>
 
 <TabItem value="rust">
@@ -1412,21 +1383,9 @@ node.initFromMemory() // Not available yet
 
 </Tabs>
 
-
 :::caution
-
 You should keep your identity files safe and unique! If anyone gets a copy of these files they can impersonate your node. And if you run two nodes with the same identity simultaneously you will have a bad day.
-
 :::
-
-
-
-
-
-
-
-
-
 
 ## Events
 
@@ -1488,6 +1447,7 @@ def main():
 
 
 ```
+
 </TabItem>
 
 <TabItem value="rust">
@@ -1571,8 +1531,6 @@ In each message a pointer to a `zts_event_msg_t` object is provided. This struct
 This additional information is not available in all language bindings and you may need to use the sequential-style functions to get the information you need.
 :::
 
-
-
 ## Errors
 
 **On success** a function typically will return `ZTS_ERR_OK` or a positive value (possibly indicating the number of bytes sent or received.) **On failure** a function typically will return a negative number or possibly a `NULL` pointer, though this may vary somewhat depending on the language binding you're using.
@@ -1612,11 +1570,12 @@ zts_errno
 ```python
 socket.errno()
 ```
+
 </TabItem>
 
 <TabItem value="rust">
 
-```
+```rust
 returns io::Result<usize>
 ```
 
@@ -1632,15 +1591,13 @@ socket.ErrNo
 
 <TabItem value="java">
 
-```
+```java
 throws IOException and SocketException with error codes included in the exception message
 ```
 
 </TabItem>
 
 </Tabs>
-
-
 
 ## Central API
 
@@ -1652,11 +1609,6 @@ The Central API built into libzt is still `beta` and is not included in most bui
 
 You should try to use our API exposed here instead: <a href="https://apidocs.zerotier.com/">apidocs.zerotier.com</a>.
 :::
-
-
-
-
-
 
 ## Common issues
 
@@ -1670,16 +1622,12 @@ You should try to use our API exposed here instead: <a href="https://apidocs.zer
 - If you are unable to reliably connect to peers:
   - Review the knowledge base article [Router Config Tips](https://zerotier.atlassian.net/wiki/spaces/SD/pages/6815768/Router+Configuration+Tips). Sometimes this can be a transport-triggered link issue, and sometimes it can be a firewall/NAT issue.
 
-
-
-
-
 ## Debugging
 
 If you're experiencing odd behavior or something that looks like a bug I would suggest first reading and understanding the following sections:
 
-* [Common issues](#common-issues)
-* [Thread model](#thread-model)
+- [Common issues](#common-issues)
+- [Thread model](#thread-model)
 
 If the information in those sections hasn't helped, there are a couple of ways to get debug traces out of various parts of the library.
 
@@ -1691,12 +1639,9 @@ If the information in those sections hasn't helped, there are a couple of ways t
 
 4) There are a series of additional events which can signal whether the network stack or its virtual network interfaces have been set up properly. See `ZTS_EVENT_STACK_*` and `ZTS_EVENT_NETIF_*`.
 
-
-
 ## Self-hosting
 
 We expend considerable effort designing and maintaining a robust and globally available constellation of root servers and redundant network controllers but we understand that security practices may require you to function independently from our infrastructure. For this reason we try to make it as easy as possible to set up your own infrastructure: See [here](https://github.com/zerotier/ZeroTierOne/tree/main/controller) to learn more about how to set up your own network controller, and [here](https://docs.zerotier.com/zerotier/moons) to learn more about setting up your own roots.
-
 
 ## Technical notes
 
@@ -1722,4 +1667,4 @@ The [ZeroTier](https://github.com/zerotier/zerotierone) core, the libzt service,
 
 For instance:
 
- - When released, libzt `1.4.0` will be based on ZeroTier `1.4.X`, all language wrappers would also be brought to version `1.4.0`. If a language wrapper requires an update to fix some issue we may bump the wrapper version to `1.4.1` but both libzt and ZeroTier will remain at their respective current versions. Likewise for the dependency between libzt and ZeroTier. This method was chosen over using version suffixes like `1.4.0-r1` because some semantic versioning clients may handle that version as a pre-release and prefer to use `1.4.0`.
+- When released, libzt `1.4.0` will be based on ZeroTier `1.4.X`, all language wrappers would also be brought to version `1.4.0`. If a language wrapper requires an update to fix some issue we may bump the wrapper version to `1.4.1` but both libzt and ZeroTier will remain at their respective current versions. Likewise for the dependency between libzt and ZeroTier. This method was chosen over using version suffixes like `1.4.0-r1` because some semantic versioning clients may handle that version as a pre-release and prefer to use `1.4.0`.

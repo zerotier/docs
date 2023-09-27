@@ -10,7 +10,6 @@ Controllers handle [Virtual Layer 2](protocol#vl2). No traffic is handled by con
 
 The controller is open-source. Please check the [license](https://github.com/zerotier/ZeroTierOne/blob/master/LICENSE.txt). It's built in to the zerotier-one binary.
 
-
 ### Roots
 
 Roots handle [Virtual Layer 1](protocol#peerdiscovery).

@@ -3,7 +3,7 @@ title: Edge
 ---
 
 :::caution End-of-Life
-The ZeroTier Edge was sold as a pre-configured self-contained device, that allowed you to plug physical devices into virtual networks and bridge physical networks at multiple sites with ease. As of 2020, it is End-of-Life. A source code repository of the code running on it can be found here: https://github.com/zerotier/edge; it ran on ESPRESSObin v5 hardware.
+The ZeroTier Edge was sold as a pre-configured self-contained device, that allowed you to plug physical devices into virtual networks and bridge physical networks at multiple sites with ease. As of 2020, it is End-of-Life. A source code repository of the code running on it can be found here: <https://github.com/zerotier/edge>; it ran on ESPRESSObin v5 hardware.
 
 The information below applies to any devices still in the field.
 :::
@@ -14,13 +14,13 @@ Each ZeroTier Edge is initialized with a factory default ZeroTier identity. This
 
 Each Edge device joins the IPv6-unicast-only “ad-hoc” ZeroTier network `ff001601bb000000` and can be reached through this network by joining it from any PC or mobile device and then navigating to your device’s unique IPv6 virtual address.
 
-#### Your device can be reached at:
+#### Your device can be reached at
 
 |Protocol|Location|
 |-|-|
 |ZeroTier Address|########## (10-digit hex address printed on box)|
-|HTTP|http://[fc44:16:1##:####:####::1]/|
-|SSH|loginid@fc44:16:1##:####:####::1|
+|HTTP|`http://[fc44:16:1##:####:####::1]/`|
+|SSH|`loginid@fc44:16:1##:####:####::1`|
 
 These addresses will not work if the device cannot reach the Internet. In this case, it can still be accessed by directly connecting a PC or other device to the third (`phy2`) Ethernet port and configuring your system to use the static IP address `100.64.99.94` with netmask `255.255.255.252` (`/30`). The Edge can now be reached via http and ssh at `100.64.99.93`. This IP is always available on the `phy2` port for emergency recovery if you become locked out of the device or it’s configured in a way that breaks Internet connectivity.
 
@@ -28,7 +28,7 @@ These addresses will not work if the device cannot reach the Internet. In this c
 
 - Plug the Edge’s first Ethernet port (`phy0`) into an Ethernet network with IPv4 (DHCP) or IPv6 connectivity.
 - Connect the device to power and wait 20-30 seconds.
-- Join the ad-hoc ZeroTier network `ff001601bb000000` from a PC, mobile, or other devices (see www.zerotier.com to download clients).
+- Join the ad-hoc ZeroTier network `ff001601bb000000` from a PC, mobile, or other devices. See <https://www.zerotier.com> to download clients.
 - Once your PC or other device is online, navigate to the http address shown in the green box above.
 - Create an account on the Edge and begin configuring it for bridge operation.
 
@@ -57,7 +57,7 @@ This configuration is common when users want to provide remote access (replacing
 
 #### 3. Using Multiple Internet Connections
 
-Multiple Internet connections can be used by simply connecting secondary connections to the Edge’s other Ethernet ports and configuring these ports to obtain addresses via DHCP, DHCP6, etc. Multiple connections can be used with either configuration scenario above. For the second  "magic bridge” scenario, configure the first port as instructed and then connect secondary or “back-up” Internet connections to the remaining ports. These would only be used for ZeroTier bridge traffic in this case. 
+Multiple Internet connections can be used by simply connecting secondary connections to the Edge’s other Ethernet ports and configuring these ports to obtain addresses via DHCP, DHCP6, etc. Multiple connections can be used with either configuration scenario above. For the second  "magic bridge” scenario, configure the first port as instructed and then connect secondary or “back-up” Internet connections to the remaining ports. These would only be used for ZeroTier bridge traffic in this case.
 
 #### 4. Multiple Internet Connections on One Port (Advanced)
 

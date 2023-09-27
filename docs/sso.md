@@ -12,18 +12,17 @@ SSO is currently only supported on desktop operating systems such as macOS and W
 
 - Download and install ZeroTier 1.10.3 or greater on clients that will use SSO.
 
-    https://www.zerotier.com/download/
-
+    <https://www.zerotier.com/download/>
 
 ### Configure SSO in ZeroTier Central
 
-Visit https://my.zerotier.com/account and complete the SSO configuration toward the bottom of the page. You will need your sso provider's Issuer URL as well as a Client ID.
+Visit <https://my.zerotier.com/account> and complete the SSO configuration toward the bottom of the page. You will need your sso provider's Issuer URL as well as a Client ID.
 
 ![SSO-Account-Setup](./images/sso-account-setup-00.png)
 
 You can configure multiple OIDC clients for your organization, but only one may be used at a time on an individual network.
 
-### Configure SSO on individual networks.
+### Configure SSO on individual networks
 
 If you enable this on an existing network, you may accidentally block existing users. Please practice on a test network.
 ![SSO-Network-Enable](./images/sso-network-enable-01.png)
@@ -43,23 +42,23 @@ You can do this from the wrench icon in the Members list.
 
 ## SSO provider configuration
 
-* SSO Provider **must** support [PKCE](https://oauth.net/2/pkce/)
-* Requires the following scopes:
-  * `openid`
-  * `profile`
-  * `email`
-  * `offline_access`
-* Configure the callback URL to `http://localhost:9993/sso`
-
+- SSO Provider **must** support [PKCE](https://oauth.net/2/pkce/)
+- Requires the following scopes:
+  - `openid`
+  - `profile`
+  - `email`
+  - `offline_access`
+- Configure the callback URL to `http://localhost:9993/sso`
 
 ## Provider Specific Configuration Notes
 
 ### Auth0
 
 Please ensure the following fields are set on your Auth0 application config:
+
 - Application Type:  Native
 - Token Endpoint Authentication Method: None
-- Allowed Callback URL: http://localhost:9993/sso
+- Allowed Callback URL: <http://localhost:9993/sso>
 - Under Advanced Settings -> Grant Types, ensure Authorization Code, and Refresh Token are selected.
 
 :::note
@@ -165,6 +164,7 @@ Set the Redirect URI to `http://localhost:9993/sso`
 Do not use a trailing `/` when you enter the "issuer" url in Central.
 
 ### Google Workspace
+
 Google OAuth2/OIDC is not supported as Google does not support PKCE clients at this time. You can, however, use [Keycloak as a SAML Identity Broker](http://localhost:3000/central/sso#keycloak-as-a-saml-identity-broker) with Google Workspace.
 
 ### Keycloak
@@ -174,11 +174,11 @@ Log into your Keycloak administration console, go to the Client configuration an
 - Client Protocol: openid-connect
 - Access Type: public
 - Standard Flow Enabled: ON
-- Root URL: https://my.zerotier.com
+- Root URL: <https://my.zerotier.com>
 - Valid Redirect URLS
-  - https://my.zerotier.com/*
-  - http://localhost/sso
-- Admin URL: https://my.zerotier.com
+  - <https://my.zerotier.com/>*
+  - <http://localhost/sso>
+- Admin URL: <https://my.zerotier.com>
 - Web Origins: *
 
 See [here](https://www.keycloak.org/docs/latest/server_admin/index.html#assembly-managing-clients_server_administration_guide) for full documentation for configuring OpenID Connect clients with Keycloak.
@@ -188,9 +188,10 @@ See [here](https://www.keycloak.org/docs/latest/server_admin/index.html#assembly
 If you have a SAML provider, but not an OpenID Connect provider, [Keycloak](https://www.keycloak.org) can also be used to bridge the gap. On your keycloak Admin page, go to Identity Providers. From the dropdown, select `SAML v2.0` and create the connection to your SAML provider. Combined with the general Keycloak OIDC client settings above, you now have an OIDC server that authenticates against your SAML provider.
 
 ### Okta
+
 - Application Type:  Native
 - Token Endpoint Authentication Method: None
-- Allowed Callback URL: http://localhost:9993/sso
+- Allowed Callback URL: <http://localhost:9993/sso>
 - Under Advanced Settings -> Grant Types, ensure Implicit, Authorization Code, and Refresh Token are selected.
 
 ### OneLogin
@@ -203,7 +204,7 @@ OneLogin requires ZeroTier One v1.10.3+
 
 Log in to your OneLogin admin console.  Select "Custom Connectors" from the "Applications" menu.  Hit the "New Connector" button.  Name your connector, set Sign on method to OpenID Connect, and set the Redirect URI to `https://localhost:9993/sso`. Finally, back on the on Custom Connectors page, hit the "Add App to Connector" link. Adjust the description & logo settings as you see fit, and then save.
 
-Once the above steps are complete, go to the SSO tab for your new OneLogin Application. Set "Application Type" to "Native", and "Token Endpoint" to "None (PKCE)".  You'll also find the required Client ID and Issuer URLs to enter into https://my.zerotier.com/account.
+Once the above steps are complete, go to the SSO tab for your new OneLogin Application. Set "Application Type" to "Native", and "Token Endpoint" to "None (PKCE)".  You'll also find the required Client ID and Issuer URLs to enter into <https://my.zerotier.com/account>.
 
 ## Customizing the Final SSO Flow Page
 
@@ -214,21 +215,26 @@ Note: Any CSS or images must be hosted externally, or placed within the single H
 
 You may customize the page to look however you wish. At this time there
 are only two template values set by zerotier:
+
 - `networkId`
 - `messageText`
 
-Templates must be valid HTML, and the template values must be placed inside ``{{ ...  }}` blocks like so:
+Templates must be valid HTML, and the template values must be placed inside `{{ ...  }}` blocks like so:
 
-    {{ networkId }}
-    {{ messageText }}
+```text
+{{ networkId }}
+{{ messageText }}
+```
 
 You may react to errors via the `isError` variable:
 
-    {% if isError %}
-    <span style="color: red;">{{ messageText }}</span>
-    {% else %}
-    {{ messageText }}
-    {% endif %}
+```text
+{% if isError %}
+<span style="color: red;">{{ messageText }}</span>
+{% else %}
+{{ messageText }}
+{% endif %}
+```
 
 ## Email Based Network Access
 
@@ -260,18 +266,18 @@ In order for ZeroTier to be able to read the roles a user has been assigned, the
 
 Next you will get a screen with a code editor.  Delete everything in the buffer and add the following:
 
-    exports.onExecutePostLogin = async (event, api) => {
-        const namespace = "https://my.zerotier.com";
-        if (event.authorization) {
-            api.idToken.setCustomClaim(`${namespace}/roles`, event.authorization.roles);
-            api.accessToken.setCustomClaim(`${namespace}/roles`, event.authorization.roles);
-        }
+```js
+exports.onExecutePostLogin = async (event, api) => {
+    const namespace = "https://my.zerotier.com";
+    if (event.authorization) {
+        api.idToken.setCustomClaim(`${namespace}/roles`, event.authorization.roles);
+        api.accessToken.setCustomClaim(`${namespace}/roles`, event.authorization.roles);
     }
+}
+```
 
 :::note
-
 Auth0 requires roles to be in a namespaced name. To properly integrate with ZeroTier Central, the final claim name set on the token via the script above **must** be `https://my.zerotier.com/roles`. Please enter the login script exactly as shown above to reduce the chances of errors.
-
 :::
 
 Once it is entered, hit `Deploy` on the upper right hand side of the screen.
@@ -284,7 +290,7 @@ Your users' assigned roles will now be attached to the tokens required to author
 
 ### Azure AD
 
-https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps
+<https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps>
 
 ### Step 1: Create an App Role
 
@@ -292,7 +298,7 @@ In the Azure portal, go to Azure Active Directory and select App Registrations. 
 
 ![azure app role](./images/sso-azure-app-role-06.png)
 
-The `Value` field is what you use as the role name in the network configuration on https://my.zerotier.com
+The `Value` field is what you use as the role name in the network configuration on <https://my.zerotier.com>
 
 ### Step 2: Assign App Role
 
@@ -310,7 +316,7 @@ Okta role/group based access requires ZeroTier One version 1.10.3+
 
 :::
 
-#### Step 1: Create a Group and Assign Users.
+#### Step 1: Create a Group and Assign Users
 
 From your Okta administrator dashboard, go to Directory and select Groups. Create a group with the name of your choice.  Once created, assign people to the group that you want to have access to your ZeroTier network.
 

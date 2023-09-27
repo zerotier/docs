@@ -29,20 +29,22 @@ If the user running the UI app can't access the token, it can't talk the service
 During install, the token is copied to a location that the installing user can access.
 
 ## Configuration Files
+
 ### System
 
 The ZeroTier One service keeps its configuration and state information
 in its working directory. The working directory location is:
 
--   Windows: `C:\ProgramData\ZeroTier\One`
--   Macintosh: `/Library/Application Support/ZeroTier/One`
--   Linux: `/var/lib/zerotier-one`
--   FreeBSD/OpenBSD: `/var/db/zerotier-one`
+- Windows: `C:\ProgramData\ZeroTier\One`
+- Macintosh: `/Library/Application Support/ZeroTier/One`
+- Linux: `/var/lib/zerotier-one`
+- FreeBSD/OpenBSD: `/var/db/zerotier-one`
 
 #### Network Specific Configuration
 
 See `$WORKING/networks.d` in the working directory
-#### `<network-id>.conf` is a binary file. You can't edit it by hand.
+
+#### `<network-id>.conf` is a binary file. You can't edit it by hand
 
 If you place an empty file named `<network-id>.conf` in `networks.d`, ZeroTier will join that network when it starts.
 
@@ -50,7 +52,7 @@ If you place an empty file named `<network-id>.conf` in `networks.d`, ZeroTier w
 
 The contents look like this:
 
-```
+```sh
 allowManaged=1
 allowGlobal=0
 allowDefault=0
@@ -69,6 +71,7 @@ Here is a summary of their meanings:
 ZeroTier will use these settings when it starts. If you change these settings from the UI or zerotier-cli, the file will update. If you edit the file directly, you need to restart the service.
 
 ### User
+
 Some user specific settings may be stored in the user's path:
 
 - `C:\Users\<User>\AppData\Local\ZeroTier` (windows)
@@ -92,32 +95,34 @@ by ZeroTier One itself, so ensure that proper JSON formatting is used. Paste you
 Settings available in `local.conf` (this is not valid JSON, and JSON
 does not allow comments):
 
-    {
-        "physical": { /* Settings that apply to physical L2/L3 network paths. */
-            "NETWORK/bits": { /* Network e.g. 10.0.0.0/24 or fd00::/32 */
-                "blacklist": true|false, /* If true, blacklist this path for all ZeroTier traffic */
-                "trustedPathId": 0|!0 /* If present and nonzero, define this as a trusted path (see below) */
-            } /* ,... additional networks */
-        },
-        "virtual": { /* Settings applied to ZeroTier virtual network devices (VL1) */
-            "##########": { /* 10-digit ZeroTier address */
-                "try": [ "IP/port"/*,...*/ ], /* Hints on where to reach this peer if no upstream/roots are online */
-                "blacklist": [ "NETWORK/bits"/*,...*/ ] /* Blacklist a physical path for only this peer. */
-            }
-        },
-        "settings": { /* Other global settings */
-            "primaryPort": 0-65535, /* If set, override default port of 9993 and any command line port */
-            "portMappingEnabled": true|false, /* If true (the default), try to use uPnP or NAT-PMP to map ports */
-            "softwareUpdate": "apply"|"download"|"disable", /* Automatically apply updates, just download, or disable built-in software updates */
-            "softwareUpdateChannel": "release"|"beta", /* Software update channel */
-            "softwareUpdateDist": true|false, /* If true, distribute software updates (only really useful to ZeroTier, Inc. itself, default is false) */
-            "interfacePrefixBlacklist": [ "XXX",... ], /* Array of interface name prefixes (e.g. eth for eth#) to blacklist for ZT traffic */
-            "allowManagementFrom": "NETWORK/bits"|null, /* If non-NULL, allow JSON/HTTP management from this IP network. Default is 127.0.0.1 only. */
-            "allowTcpFallbackRelay": true|false /* Allow or disallow establishment of TCP relay connections (true by default) */
+```json
+{
+    "physical": { /* Settings that apply to physical L2/L3 network paths. */
+        "NETWORK/bits": { /* Network e.g. 10.0.0.0/24 or fd00::/32 */
+            "blacklist": true|false, /* If true, blacklist this path for all ZeroTier traffic */
+            "trustedPathId": 0|!0 /* If present and nonzero, define this as a trusted path (see below) */
+        } /* ,... additional networks */
+    },
+    "virtual": { /* Settings applied to ZeroTier virtual network devices (VL1) */
+        "##########": { /* 10-digit ZeroTier address */
+            "try": [ "IP/port"/*,...*/ ], /* Hints on where to reach this peer if no upstream/roots are online */
+            "blacklist": [ "NETWORK/bits"/*,...*/ ] /* Blacklist a physical path for only this peer. */
         }
+    },
+    "settings": { /* Other global settings */
+        "primaryPort": 0-65535, /* If set, override default port of 9993 and any command line port */
+        "portMappingEnabled": true|false, /* If true (the default), try to use uPnP or NAT-PMP to map ports */
+        "softwareUpdate": "apply"|"download"|"disable", /* Automatically apply updates, just download, or disable built-in software updates */
+        "softwareUpdateChannel": "release"|"beta", /* Software update channel */
+        "softwareUpdateDist": true|false, /* If true, distribute software updates (only really useful to ZeroTier, Inc. itself, default is false) */
+        "interfacePrefixBlacklist": [ "XXX",... ], /* Array of interface name prefixes (e.g. eth for eth#) to blacklist for ZT traffic */
+        "allowManagementFrom": "NETWORK/bits"|null, /* If non-NULL, allow JSON/HTTP management from this IP network. Default is 127.0.0.1 only. */
+        "allowTcpFallbackRelay": true|false /* Allow or disallow establishment of TCP relay connections (true by default) */
     }
+}
+```
 
--   **trustedPathId**: A trusted path is a physical network over which
+- **trustedPathId**: A trusted path is a physical network over which
     encryption and authentication are not required. This provides a
     performance boost but sacrifices all ZeroTier’s security features
     when communicating over this path. *Only use this feature if you
@@ -131,28 +136,29 @@ does not allow comments):
 
 An example `local.conf`:
 
-    {
-        "physical": {
-            "10.0.0.0/24": {
-                "blacklist": true
-            },
-            "10.10.10.0/24": {
-                "trustedPathId": 101010024
-            },
+```json
+{
+    "physical": {
+        "10.0.0.0/24": {
+            "blacklist": true
         },
-        "virtual": {
-            "feedbeef12": {
-                "role": "UPSTREAM",
-                "try": [ "10.10.20.1/9993" ],
-                "blacklist": [ "192.168.0.0/24" ]
-            }
+        "10.10.10.0/24": {
+            "trustedPathId": 101010024
         },
-        "settings": {
-            "softwareUpdate": "apply",
-            "softwareUpdateChannel": "release"
+    },
+    "virtual": {
+        "feedbeef12": {
+            "role": "UPSTREAM",
+            "try": [ "10.10.20.1/9993" ],
+            "blacklist": [ "192.168.0.0/24" ]
         }
+    },
+    "settings": {
+        "softwareUpdate": "apply",
+        "softwareUpdateChannel": "release"
     }
-
+}
+```
 
 ## `authtoken` location
 

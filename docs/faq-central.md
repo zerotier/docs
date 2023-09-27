@@ -9,7 +9,7 @@ When you join an [Organization](./organizations.md), all of your networks are tr
 
 Other than that, there is no way to transfer individual networks between accounts.
 
-#### To change your Organization Owner:
+#### To change your Organization Owner
 
 What you can do is change the email address of your account to a different address. From the account page, select “Manage Account” then “Personal Info”.  From there you can change the email address. After changing, please log out and log back in.
 

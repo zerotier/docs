@@ -21,14 +21,15 @@ In many cases a single `refract` instance is enough to bridge devices onto your 
 
 Set environment variable to hold your ZeroTier secret identity:
 
-```
+```sh
 export ZT_PYLON_SECRET_KEY=$(sudo cat identity.secret)
 ```
 
 ### Specify an (optional) UDP port for ZeroTier to use
 
 By default Pylon will chose a random port to send ZeroTier traffic over, but If you need it to only send traffic over a whitelisted port you can specify one like so:
-```
+
+```sh
 export ZT_PYLON_WHITELISTED_PORT=4545
 ```
 
@@ -36,7 +37,7 @@ export ZT_PYLON_WHITELISTED_PORT=4545
 
 Run proxy service to listen for app traffic locally on `127.0.0.1:1080`:
 
-```
+```sh
 ./pylon refract b84ac5c40a2339c9 --listen-addr 0.0.0.0 --listen-port 1080
 ```
 
@@ -46,13 +47,13 @@ You can also listen on `0.0.0.0`.
 
 If you have a tricky NAT situation and can allow `TCP/443`, you can specify a relay on a machine with a static IP like so:
 
-```
+```sh
 ./pylon reflect
 ```
 
 Then tell your pylon instances to use that to proxy traffic:
 
-```
+```sh
 ./pylon refract b84ac5c40a2339c9 --listen-addr 0.0.0.0 --listen-port 1080 --relay-addr 0.0.0.0 --relay-port 443
 ```
 
@@ -60,13 +61,13 @@ Then tell your pylon instances to use that to proxy traffic:
 
 Set up remote resource:
 
-```
+```sh
 mkdir serveme && cd serveme && echo "served data" > served.txt && \
 python -m http.server -b 0.0.0.0 8000
 ```
 
 Attempt a proxied HTTP GET:
 
-```
+```sh
 curl --verbose --output output.txt 172.28.128.86:8000 --proxy socks5://127.0.0.1:1080
 ```

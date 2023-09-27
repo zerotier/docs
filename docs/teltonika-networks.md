@@ -11,4 +11,3 @@ title: Teltonika Networks
 :::info Next steps
 Click [here](/start/) to create your network and start adding devices.
 :::
-

@@ -42,7 +42,7 @@ The following should work from the CLI on most platforms. Windows users
 may download the MSI from the [ZeroTier Downloads](https://www.zerotier.com/download/) page. For
 the remainder of this document, please replace the example network `af78bf94364e2035` with a network ID your own.
 
-```
+```sh
 notroot@ubuntu:~$ curl -s https://install.zerotier.com | sudo bash
 notroot@ubuntu:~$ sudo zerotier-cli join af78bf94364e2035
 notroot@ubuntu:~$ sudo zerotier-cli  set af78bf94364e2035 allowDNS=1
@@ -67,7 +67,7 @@ generate records, as well as update DNS settings.
 
 You will need to stash this in a file for ZeroNSD to read.
 
-```
+```sh
 sudo bash -c "echo ZEROTIER_CENTRAL_TOKEN > /var/lib/zerotier-one/token"
 sudo chown zerotier-one:zerotier-one /var/lib/zerotier-one/token
 sudo chmod 600 /var/lib/zerotier-one/token
@@ -75,16 +75,16 @@ sudo chmod 600 /var/lib/zerotier-one/token
 
 ## ZeroTier Systemd Manager
 
-zerotier-systemd-manager publishes rpm and deb packages available at https://github.com/zerotier/zerotier-systemd-manager/releases
+zerotier-systemd-manager publishes rpm and deb packages available at <https://github.com/zerotier/zerotier-systemd-manager/releases>
 
-```
+```sh
 wget https://github.com/zerotier/zerotier-systemd-manager/releases/download/v0.1.9/zerotier-systemd-manager_0.1.9_linux_amd64.deb
 sudo dpkg -i zerotier-systemd-manager_0.1.9_linux_amd64.deb
 ```
 
 Finally, restart all the ZeroTier services.
 
-```
+```sh
 sudo systemctl daemon-reload
 sudo systemctl restart zerotier-one
 sudo systemctl enable zerotier-systemd-manager.timer
@@ -103,7 +103,7 @@ ZeroNSD publishes rpm, deb, and msi packages, available **[here](https://github.
 
 _The latest release is **not** reflected below. Go to the link above to get a link!_
 
-```
+```sh
 wget https://github.com/zerotier/zeronsd/releases/download/v0.1.7/zeronsd_0.1.7_amd64.deb
 sudo dpkg -i zeronsd_0.1.7_amd64.deb
 ```
@@ -112,7 +112,7 @@ sudo dpkg -i zeronsd_0.1.7_amd64.deb
 
 If we don't have packages for your platform, you can still install it with cargo.
 
-```
+```sh
 sudo /usr/bin/apt-get -y install net-tools librust-openssl-dev pkg-config cargo
 sudo /usr/bin/cargo install zeronsd --root /usr/local
 ```
@@ -121,7 +121,7 @@ sudo /usr/bin/cargo install zeronsd --root /usr/local
 
 For each network you want to serve DNS to, do the following (replace `af78bf94364e2035` with _your_ network ID)
 
-```
+```sh
 sudo zeronsd supervise -t /var/lib/zerotier-one/token -w -d beyond.corp af78bf94364e2035
 sudo systemctl start zeronsd-af78bf94364e2035
 sudo systemctl enable zeronsd-af78bf94364e2035
@@ -131,7 +131,7 @@ sudo systemctl enable zeronsd-af78bf94364e2035
 
 You should be able to ping the laptop via it's DNS name (or any preceding subdomain, since we've set the wildcard flag)
 
-```
+```sh
 notroot@ubuntu:~$ ping laptop.beyond.corp
 PING laptop.beyond.corp (172.22.192.177) 56(84) bytes of data.
 64 bytes from 172.22.192.177 (172.22.192.177): icmp_seq=1 ttl=64 time=50.1 ms
@@ -141,7 +141,7 @@ PING laptop.beyond.corp (172.22.192.177) 56(84) bytes of data.
 
 or
 
-```
+```sh
 notroot@ubuntu:~$ ping laptop.beyond.corp
 PING travel.laptop.beyond.corp (172.22.192.177) 56(84) bytes of data.
 64 bytes from 172.22.192.177 (172.22.192.177): icmp_seq=1 ttl=64 time=50.1 ms
@@ -153,7 +153,7 @@ PING travel.laptop.beyond.corp (172.22.192.177) 56(84) bytes of data.
 
 In order to change the settings (such as the TLD), do the following (replace `af78bf94364e2035` with _your_ network ID)
 
-```
+```sh
 sudo zeronsd supervise -t /var/lib/zerotier-one/token -w -d beyond.corp af78bf94364e2035
 sudo systemctl daemon-reload
 sudo systemctl enable zeronsd-af78bf94364e2035
@@ -164,7 +164,7 @@ resolution out of the box. To test DNS queries against ZeroNSD without
 `zerotier-systemd-manager`, find the IP address that ZeroNSD has bound
 itself to, and run queries against it explicitly.
 
-```
+```sh
 sudo lsof -i -n | grep ^zeronsd | grep UDP | awk '{ print $9 }' | cut -f1 -d:
 172.22.245.70
 ```
@@ -173,7 +173,7 @@ Query the DNS server directly with the dig command
 
 The Ubuntu machine can be queried with:
 
-```
+```sh
 dig +short @172.22.245.70 zt-3513e8b98d.beyond.corp
 172.22.245.70
 dig +short @172.22.245.70 server.beyond.corp
@@ -182,7 +182,7 @@ dig +short @172.22.245.70 server.beyond.corp
 
 The OSX laptop can be queried with:
 
-```
+```sh
 dig +short @172.22.245.70 zt-eff05def90.beyond.corp
 172.22.245.70
 dig +short @172.22.245.70 laptop.beyond.corp
@@ -191,7 +191,7 @@ dig +short @172.22.245.70 laptop.beyond.corp
 
 Add a line to `/etc/hosts` and query again.
 
-```
+```sh
 bash -c 'echo "1.2.3.4 test" >> /etc/hosts'
 dig +short @172.22.245.70 test.beyond.corp
 1.2.3.4
@@ -199,7 +199,7 @@ dig +short @172.22.245.70 test.beyond.corp
 
 Query a domain on the public DNS to verify fall through
 
-```
+```sh
 dig +short @172.22.245.70 example.com
 93.184.216.34
 ```
@@ -209,7 +209,7 @@ dig +short @172.22.245.70 example.com
 OSX uses `dns-sd` for DNS resolution. Unfortunately, `nslookup`,`host`, and `dig` are broken on OSX.
 `ping` works.
 
-```
+```sh
 user@osx:~$ ping server.beyond.corp
 PING server.beyond.corp (172.22.245.70): 56 data bytes
 64 bytes from 172.22.245.70: icmp_seq=0 ttl=64 time=37.361 ms
@@ -248,13 +248,13 @@ Additionally, to serve custom records you can supply the `-f` flag with a file i
 
 Make a file called `hosts` and put this in it:
 
-```
+```sh
 1.1.1.1 cloudflare-dns
 ```
 
 Then, let's start a temporary server for now. We'll just use the `start` subcommand of `zeronsd`. This will run in the foreground, so start a new terminal or `&` it.
 
-```
+```sh
 $ zeronsd start -t /var/lib/zerotier-one/token -f ./hosts -d beyond.corp <network id>
 Welcome to ZeroNS!
 Your IP is 1.2.3.4
@@ -262,7 +262,7 @@ Your IP is 1.2.3.4
 
 Finally, we can lookup `cloudflare-dns.beyond.corp` to find CloudFlare's DNS server really really fast!
 
-```
+```sh
 $ host cloudflare-dns.beyond.corp 1.2.3.4
 cloudflare-dns.beyond.corp has address 1.1.1.1
 ```

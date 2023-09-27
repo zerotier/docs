@@ -5,18 +5,18 @@ title: ASUSTOR
 ### Install
 
 :::info Download
-Latest ZeroTier package: http://download.zerotier.com/dist/asustor
+Latest ZeroTier package: <https://download.zerotier.com/dist/asustor>
 :::
 
 Manually install:
 
- - `App Central` -> `Management (bottom left)` -> `Manual Install`.
+- `App Central` -> `Management (bottom left)` -> `Manual Install`.
 
 ### Enable SSH
 
 Enable remote access via SSH:
 
- - `Services` -> `Terminal`
+- `Services` -> `Terminal`
 
 ```sh
 ssh admin@local-ip
@@ -26,7 +26,7 @@ ssh admin@local-ip
 
 There is no GUI for NAS packages, only a CLI:
 
-```
+```sh
 Usage: zerotier-cli [-switches] <command/path> [<args>]
 
 Available switches:

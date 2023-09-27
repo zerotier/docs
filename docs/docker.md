@@ -8,7 +8,7 @@ ZeroTier One makes ZeroTier virtual networks available as 'tap' virtual network 
 
 Fortunately this is easy:
 
-```
+```sh
 docker run -it --rm \
 --cap-add=NET_ADMIN \
 --cap-add=SYS_ADMIN \
@@ -25,7 +25,7 @@ Here's a transcript of an example session where we start a command prompt in a t
 
 Starting a container with an interactive shell:
 
-```
+```sh
 docker run -it --rm \
 --cap-add=NET_ADMIN \
 --cap-add=SYS_ADMIN \
@@ -34,7 +34,7 @@ docker run -it --rm \
 
 Then, while inside the container we install ZeroTier:
 
-```
+```sh
 [root@5b88595860bc /]# curl https://install.zerotier.com/ | bash
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -70,7 +70,7 @@ Failed to get D-Bus connection: Operation not permitted
 
 Start ZeroTier and join a network:
 
-```
+```sh
 [root@5b88595860bc /]# /usr/sbin/zerotier-one -d
 [root@5b88595860bc /]# /usr/sbin/zerotier-cli join 8056c2e21c000001
 200 join OK
@@ -84,12 +84,12 @@ Start ZeroTier and join a network:
 
 Try pinging something:
 
-```
+```sh
 [root@5b88595860bc /]# ping <some_other_zerotier_nodes_ip>
 ```
 
 Exit
 
-```
+```sh
 [root@5b88595860bc /]# exit
 ```

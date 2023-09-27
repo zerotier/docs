@@ -6,13 +6,13 @@ Create a network for each role. Devices can join multiple networks at once. Netw
 
 ### Pros
 
--   Easy
--   Automatic authorization of nodes with SSO/OIDC
+- Easy
+- Automatic authorization of nodes with SSO/OIDC
 
 ### Cons
 
--  Multiple sets of subnets, IP addresses, etc… to maintain. Can be [automated with Terraform.](terraform#network-segmentation)
--  Mobile devices can connect to only 1 network at a time
+- Multiple sets of subnets, IP addresses, etc… to maintain. Can be [automated with Terraform.](terraform#network-segmentation)
+- Mobile devices can connect to only 1 network at a time
 
 ### Summary
 
@@ -26,18 +26,15 @@ Create a network for each role. Devices can join multiple networks at once. Netw
 
 Tag network members with roles.
 
-
 ### Pros
 
--  Fine grained, low-level access control
--  One network config and set of members to maintain
-
+- Fine grained, low-level access control
+- One network config and set of members to maintain
 
 ### Cons
 
--  Tricky to build rule sets
--  Rules not integrated with OIDC yet
-
+- Tricky to build rule sets
+- Rules not integrated with OIDC yet
 
 ### Summary
 
@@ -49,17 +46,18 @@ More complex rules can be mixed in with these. See the docs or contact us for he
 
 Replace the default rules with:
 
-    tag role id 1
-        default 0
-        flag 0 red
-        flag 1 green
-        flag 2 blue
-    ;
+```sh
+tag role id 1
+    default 0
+    flag 0 red
+    flag 1 green
+    flag 2 blue
+;
 
-    drop tand role 0;
+drop tand role 0;
 
-    accept;
-
+accept;
+```
 
 Devices will be able to talk only if they have at least one overlapping role. The tagging system is based on bitwise math, which we won't try to explain here.
 Basically: Rename "red" "green" and "blue" with your real role names. Add more roles by adding flags in increasing order: _flag 3 yellow, flag 4 indigo_
