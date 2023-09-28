@@ -1,6 +1,6 @@
 ---
 title: DNS
-description: DNS on your ZeroTier network
+description: ZeroNSD - DNS on your ZeroTier network
 ---
 
 :::info BETA
