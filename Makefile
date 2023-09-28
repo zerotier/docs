@@ -35,3 +35,7 @@ docker-build: docker-builder-build
 	docker run -it -u $$(id -u):$$(id -g) -v ${PWD}:/code ${BUILD_IMAGE}
 
 .PHONY: docker-build docker-builder-build
+
+drone:
+	@echo "signing drone.yml"
+	drone sign --save zerotier/docs
