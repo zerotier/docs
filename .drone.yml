@@ -14,7 +14,6 @@ steps:
   - name: build
     image: 084037375216.dkr.ecr.us-east-2.amazonaws.com/central-builder
     commands:
-      - aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 084037375216.dkr.ecr.us-east-2.amazonaws.com
       - echo $${DOCKER_PASSWORD} | docker login --username $${DOCKER_LOGIN} --password-stdin registry.zerotier.com
       - make docker
       - docker push $${DOCKER_REGISTRY}/zerotier/docs.zerotier.com:drone-${DRONE_BUILD_NUMBER}
@@ -123,3 +122,8 @@ trigger:
     - promote
   target:
     - production
+---
+kind: signature
+hmac: 2d5dd34d302fc510c14de0b8579bdd8bb7456a3faa6954ec7fad13642a1818eb
+
+...
