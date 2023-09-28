@@ -38,4 +38,4 @@ docker-build: docker-builder-build
 
 drone:
 	@echo "signing drone.yml"
-	drone sign --save zerotier/zerotier-marketing-site
+	drone sign --save zerotier/docs
