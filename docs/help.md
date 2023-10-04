@@ -1,0 +1,24 @@
+---
+title: Help
+description: Where to get help with ZeroTier
+custom_edit_url: null
+---
+
+### General questions and guidance
+
+- [discuss.zerotier.com](https://discuss.zerotier.com)
+
+### To report a bug
+
+- [github.com/zerotier/ZeroTierOne/issues](https://github.com/zerotier/ZeroTierOne/issues)
+
+### Social Media
+
+:::tip
+We are more active on our [Forum](https://discuss.zerotier.com)
+:::
+
+- [reddit.com/r/zerotier](https://old.reddit.com/zerotier)
+- [twitter.com/zerotier](https://twitter.com/zerotier)
+
+

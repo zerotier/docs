@@ -123,7 +123,21 @@ trigger:
   target:
     - production
 ---
+kind: pipeline
+type: docker
+name: link-checker
+trigger:
+  event:
+  - cron
+  cron:
+    - link-checker
+steps:
+  - name: link-checker
+    image: tennox/linkcheck
+    commands:
+      - linkcheck --external --no-show-redirects https://docs.zerotier.com --skip-file <(echo "example.com\nlocalhost")
+---
 kind: signature
-hmac: 2d5dd34d302fc510c14de0b8579bdd8bb7456a3faa6954ec7fad13642a1818eb
+hmac: 51d3fed16fed56c761eabade1684402c724111c3e5ea02b92751716069832405
 
 ...

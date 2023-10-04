@@ -60,7 +60,7 @@ We do not throttle any of these packets, nor can we read the contents of the pac
 
 ### Where can I find old versions of ZeroTier? {#old-versions}
 
-[download.zerotier.com/RELEASES/](http://download.zerotier.com/RELEASES/)
+See [Releases](./releases.md#old)
 
 ### What is Earth?
 

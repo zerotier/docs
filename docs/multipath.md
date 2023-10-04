@@ -19,7 +19,7 @@ Multipath allows the simultaneous (or conditional) aggregation of multiple physi
 
 ### Custom policies
 
-To customize a bonding policy simply specify a standard policy as `basePolicy` and override its parameters. Note that a custom policy *cannot* have the same name as a standard policy. For example, to create a more rapid `active-backup` policy that will failover `1 second` after it detects a link failure:
+To customize a bonding policy simply specify a standard policy as `basePolicy` and override its parameters. Note that a modified custom policy *cannot* have the same name as a standard policy. (Note how we renamed the following example to `rapid-active-backup`). For example, to create a more rapid `active-backup` policy that will failover `1 second` after it detects a link failure:
 
 ```json title="local.conf"
 {
