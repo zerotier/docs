@@ -9,7 +9,7 @@
         description: 'ZeroTier securely connects all of your devices and services with each other, anywhere.',
         slug: '/',
       },
-      items: ['wat', 'start', 'faq', 'troubleshooting', 'awesome'],
+      items: ['wat', 'start', 'faq', 'troubleshooting', 'awesome', 'source', 'releases'],
     },
     {
       type: 'category',
@@ -24,6 +24,17 @@
     },
     {
       type: 'category',
+      label: 'Packages',
+      link: {
+        type: 'generated-index',
+        title: 'Packages',
+        description: 'Ways to get ZeroTier',
+        slug: '/packages',
+      },
+      items: ['snap', 'flatpak'],
+    },
+    {
+      type: 'category',
       label: 'Central',
       link: {
         type: 'generated-index',
@@ -32,6 +43,40 @@
         slug: '/central',
       },
       items: ['start', 'sso', 'faq-central'],
+    },
+    {
+      type: "category",
+      label: "API",
+      items: [
+        {
+          type: "category",
+          label: "REST APIs",
+          items: [
+            {
+              type: "category",
+              label: "Central",
+              items: [
+                {
+                  type: "link",
+                  label: "V1",
+                  href: "/central/v1",
+                },
+              ],
+            },
+            {
+              type: "category",
+              label: "Service",
+              items: [
+                {
+                  type: "link",
+                  label: "V1",
+                  href: "/service/v1",
+                },
+              ],
+            },
+          ],
+        }
+      ]
     },
     {
       type: 'category',
@@ -101,17 +146,6 @@
     },
     {
       type: 'category',
-      label: 'Draft',
-      link: {
-        type: 'generated-index',
-        title: 'Draft',
-        description: 'Draft',
-        slug: '/draft',
-      },
-      items: ['faq', 'routertips', 'cli', 'edge', 'whitelist', 'docker', 'nat', 'what-is-a-controller', 'route-between-phys-and-virt', 'cloud-init'],
-    },
-    {
-      type: 'category',
       label: 'Linux',
       link: {
         type: 'generated-index',
@@ -156,6 +190,17 @@
     },
     {
       type: 'category',
+      label: 'Service Providers',
+      link: {
+        type: 'generated-index',
+        title: 'Service Providers',
+        description: 'Guides for Managed Service Providers',
+        slug: '/service-providers',
+      },
+      items: ['faq-rules', 'faq-security', 'sso'],
+    },
+    {
+      type: 'category',
       label: 'Community Articles',
       link: {
         type: 'generated-index',
@@ -166,38 +211,15 @@
       items: ['awesome'],
     },
     {
-    type: "category",
-    label: "API",
-    items: [
-      {
-        type: "category",
-        label: "REST APIs",
-        items: [
-          {
-            type: "category",
-            label: "Central",
-            items: [
-              {
-                type: "link",
-                label: "V1",
-                href: "/central/v1",
-              },
-            ],
-          },
-          {
-            type: "category",
-            label: "Service",
-            items: [
-              {
-                type: "link",
-                label: "V1",
-                href: "/service/v1",
-              },
-            ],
-          },
-        ],
-      }
-    ]
-  }
+      type: 'category',
+      label: 'Draft',
+      link: {
+        type: 'generated-index',
+        title: 'Draft',
+        description: 'Draft',
+        slug: '/draft',
+      },
+      items: ['faq', 'routertips', 'cli', 'edge', 'whitelist', 'docker', 'nat', 'what-is-a-controller', 'route-between-phys-and-virt', 'cloud-init'],
+    }
   ]
 };
