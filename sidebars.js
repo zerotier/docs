@@ -24,17 +24,6 @@
     },
     {
       type: 'category',
-      label: 'Packages',
-      link: {
-        type: 'generated-index',
-        title: 'Packages',
-        description: 'Ways to get ZeroTier',
-        slug: '/packages',
-      },
-      items: ['snap', 'flatpak'],
-    },
-    {
-      type: 'category',
       label: 'Central',
       link: {
         type: 'generated-index',
@@ -43,6 +32,17 @@
         slug: '/central',
       },
       items: ['start', 'sso', 'faq-central'],
+    },
+    {
+      type: 'category',
+      label: 'Guides',
+      link: {
+        type: 'generated-index',
+        title: 'Guides',
+        description: 'How-to guides for common ZeroTier use cases.',
+        slug: '/guides',
+      },
+      items: ['dns', 'multipath', 'terraform', 'exitnode', 'bridging', 'proxy', 'sockets', 'microsegmentation', 'selfhosting'],
     },
     {
       type: "category",
@@ -124,80 +124,29 @@
     },
     {
       type: 'category',
-      label: 'Security',
+      label: 'OS / Platforms',
       link: {
         type: 'generated-index',
-        title: 'Security',
-        description: 'ZeroTier uses state of the art cryptographic methods.',
-        slug: '/security',
+        title: 'OS / Platforms',
+        description: 'ZeroTier on your operating system of choice',
+        slug: '/platforms',
       },
-      items: ['faq-security'],
-    },
-    {
-      type: 'category',
-      label: 'Guides',
-      link: {
-        type: 'generated-index',
-        title: 'Guides',
-        description: 'How-to guides for common ZeroTier use cases.',
-        slug: '/guides',
-      },
-      items: ['dns', 'multipath', 'terraform', 'exitnode', 'bridging', 'proxy', 'sockets', 'microsegmentation', 'selfhosting'],
-    },
-    {
-      type: 'category',
-      label: 'Linux',
-      link: {
-        type: 'generated-index',
-        title: 'Linux',
-        description: 'ZeroTier on Linux',
-        slug: '/linux',
-      },
-      items: ['faq-linux'],
-    },
-    {
-      type: 'category',
-      label: 'macOS',
-      link: {
-        type: 'generated-index',
-        title: 'macOS',
-        description: 'ZeroTier on macOS',
-        slug: '/macos',
-      },
-      items: ['faq-macos'],
-    },
-    {
-      type: 'category',
-      label: 'Windows',
-      link: {
-        type: 'generated-index',
-        title: 'Windows',
-        description: 'ZeroTier on Windows',
-        slug: '/windows',
-      },
-      items: ['faq-windows'],
-    },
-    {
-      type: 'category',
-      label: 'FreeBSD',
-      link: {
-        type: 'generated-index',
-        title: 'FreeBSD',
-        description: 'ZeroTier on FreeBSD',
-        slug: '/freebsd',
-      },
-      items: ['faq-freebsd'],
-    },
-    {
-      type: 'category',
-      label: 'Service Providers',
-      link: {
-        type: 'generated-index',
-        title: 'Service Providers',
-        description: 'Guides for Managed Service Providers',
-        slug: '/service-providers',
-      },
-      items: ['faq-rules', 'faq-security', 'sso'],
+      items: [
+        {
+          type: 'category',
+          label: 'Linux',
+          link: {
+            type: 'generated-index',
+            title: 'ZeroTier',
+            description: 'ZeroTier on Linux',
+            slug: '/linux',
+          },
+          items: ['faq-linux', 'snap', 'flatpak', 'docker', 'bridging', 'aws-vpc-gateway', 'nat', 'docker-6plane']
+        },
+        'faq-macos',
+        'faq-freebsd',
+        'faq-windows',
+      ],
     },
     {
       type: 'category',
@@ -209,6 +158,39 @@
         slug: '/community',
       },
       items: ['awesome'],
+    },
+    {
+      type: 'category',
+      label: 'Security',
+      link: {
+        type: 'generated-index',
+        title: 'Security',
+        description: 'ZeroTier uses state of the art cryptographic methods.',
+        slug: '/security',
+      },
+      items: ['faq-security'],
+    },
+    {
+      type: 'category',
+      label: 'Packages',
+      link: {
+        type: 'generated-index',
+        title: 'Packages',
+        description: 'Ways to get ZeroTier',
+        slug: '/packages',
+      },
+      items: ['snap', 'flatpak'],
+    },
+    {
+      type: 'category',
+      label: 'Service Providers',
+      link: {
+        type: 'generated-index',
+        title: 'Service Providers',
+        description: 'Guides for Managed Service Providers',
+        slug: '/service-providers',
+      },
+      items: ['faq-rules', 'faq-security', 'sso'],
     },
     {
       type: 'category',

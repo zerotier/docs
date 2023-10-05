@@ -30,7 +30,7 @@ If you enable this on an existing network, you may accidentally block existing u
 
 There are three login modes for SSO enabled networks:
 
-1. Standard - If the user can successfully authenticate to your OIDC provider, they weill be allowed access to the ZeroTier network
+1. Standard - If the user can successfully authenticate to your OIDC provider, they will be allowed access to the ZeroTier network
 2. [Email Based Access](sso#email-based-network-access) - The user is allowed to access the network if and only if their email address is in the email list provided by the network administrator.
 3. [Group/Role Based Access](sso#role-based-network-access) - The user is allowed to access the network if and only if they are assigned one of the  proper roles by the OIDC server.
 

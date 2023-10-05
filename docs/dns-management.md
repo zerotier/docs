@@ -42,5 +42,5 @@ ping and curl should work too.
 It’s also possible to put your ZeroTier Managed IP Addresses in public DNS. That is, purchase a domain name from a registrar and create A and/or AAAA records that point to your virtual IP addresses.
 
 :::tip
-Community threads on this topic: https://discuss.zerotier.com/search?q=dns
+[See community threads about DNS](https://discuss.zerotier.com/search?q=dns)
 :::

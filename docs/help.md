@@ -21,4 +21,7 @@ We are more active on our [Forum](https://discuss.zerotier.com)
 - [reddit.com/r/zerotier](https://old.reddit.com/zerotier)
 - [twitter.com/zerotier](https://twitter.com/zerotier)
 
+### Report a vulnerability
+
+If you believe you've found a vulnerability please follow the instructions here to [report it to our team](https://github.com/zerotier/ZeroTierOne/blob/dev/SECURITY.md)
 
