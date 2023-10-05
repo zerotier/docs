@@ -265,3 +265,7 @@ Finally, we can lookup `cloudflare-dns.beyond.corp` to find CloudFlare's DNS ser
 $ host cloudflare-dns.beyond.corp 1.2.3.4
 cloudflare-dns.beyond.corp has address 1.1.1.1
 ```
+
+:::tip
+[See community threads about DNS](https://discuss.zerotier.com/search?q=dns)
+:::

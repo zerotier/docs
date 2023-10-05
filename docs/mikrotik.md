@@ -17,3 +17,7 @@ For best performance it is recommended that you choose an `ARM64` device. `ARM32
 :::info Next steps
 Click [here](/start/) to create your network and start adding devices.
 :::
+
+:::tip
+[See community threads about MikroTik](https://discuss.zerotier.com/search?q=mikrotik)
+:::
