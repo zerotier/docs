@@ -678,5 +678,5 @@ To restrict access to a member, set its *classified* tag to *secret* or
 included in case you want to implement some kind of more detailed
 segmentation based on these.) Now the first match
 (`not tor classified 0`) will be true and the packet will be dropped
-unless the two communicating members have at least once *clearance* bit
+unless the two communicating members have at least one *clearance* bit
 in common (`tand clearance 0`).
