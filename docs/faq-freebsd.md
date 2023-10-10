@@ -1,5 +1,5 @@
 ---
-title: FreeBSD
+title: FreeBSD FAQ
 description: Guidance for running ZeroTier on FreeBSD
 ---
 

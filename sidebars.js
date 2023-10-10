@@ -31,7 +31,7 @@
         description: 'Our hosted offering for managing your networks.',
         slug: '/central',
       },
-      items: ['start', 'sso', 'faq-central'],
+      items: ['start', 'faq-central', 'sso', 'sso-add-seats', 'authentication', 'organizations', 'central-admins', 'pricing', 'central-billing', 'central-hide-nodes'],
     },
     {
       type: 'category',
@@ -132,6 +132,7 @@
         slug: '/platforms',
       },
       items: [
+        /* LINUX */
         {
           type: 'category',
           label: 'Linux',
@@ -143,9 +144,42 @@
           },
           items: ['faq-linux', 'snap', 'flatpak', 'docker', 'bridging', 'aws-vpc-gateway', 'nat', 'docker-6plane']
         },
-        'faq-macos',
-        'faq-freebsd',
-        'faq-windows',
+        /* MAC */
+        {
+          type: 'category',
+          label: 'macOS',
+          link: {
+            type: 'generated-index',
+            title: 'macOS',
+            description: 'ZeroTier on macOS',
+            slug: '/macos',
+          },
+          items: ['faq-macos']
+        },
+        /* FreeBSD */
+        {
+          type: 'category',
+          label: 'FreeBSD',
+          link: {
+            type: 'generated-index',
+            title: 'freebsd',
+            description: 'ZeroTier on freeBSD',
+            slug: '/freebsd',
+          },
+          items: ['faq-freebsd']
+        },
+        /* WINDOWS */
+        {
+          type: 'category',
+          label: 'Windows',
+          link: {
+            type: 'generated-index',
+            title: 'Windows',
+            description: 'ZeroTier on Windows',
+            slug: '/windows',
+          },
+          items: ['faq-windows', 'windows-lan-game', 'windows-unknown-node-id']
+        }
       ],
     },
     {

@@ -10,8 +10,7 @@ Click [here](/start/) to create your network and then start adding devices.
 
 ### Downloads Page
 
-http://www.zerotier.com/download
-
+<http://www.zerotier.com/download>
 
 ### Past versions of ZeroTier {#old-versions}
 

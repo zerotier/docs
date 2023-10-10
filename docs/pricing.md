@@ -3,6 +3,10 @@ title: Pricing
 description: Common pricing questions
 ---
 
+:::info
+See our [pricing page](https://www.zerotier.com/pricing/) for current plans.
+:::
+
 ### Do my networks still work properly if I’m out of compliance?
 
 Yes, everything works fine for the old network members you’ve set up. Many people use ZeroTier for critical infrastructure and we make it our highest priority to ensure your service isn't interrupted in relation to the new pricing plan. Our enforcement just blocks your ability to add new members to your network until you’re in compliance with the new plan.

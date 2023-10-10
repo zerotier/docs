@@ -15,9 +15,7 @@ No. Your traffic is end-to-end encrypted and your device's private identity keys
 
 ### Why does my peers list have nodes I don't recognize? {#unknown-peers}
 
-The nodes are usually our infrastructure that your node needs to talk to in order to function. This includes things like: [Root servers](roots) and [Controllers](controller). Or possibly nodes from a previously joined network.
-
-The command `zerotier-cli peers` shows a list of nodes that your node knows about. Nodes can not talk to each other unless they are joined and authorized on the same network.
+The nodes are usually our infrastructure that your node needs to talk to in order to function. This includes things like: [Root servers](roots) and [Controllers](controller). Or possibly nodes from a previously joined network. The command `zerotier-cli peers` shows a list of nodes that your node knows about. Nodes can not talk to each other unless they are joined and authorized on the same network. Our root servers and controllers do not have access to you nodes' encryption keys and thus cannot decrypt your traffic.
 
 :::info How to identify a controller
 A controller is a ZeroTier node. The first 10 digits of a Network ID is the controller’s address.
@@ -57,6 +55,37 @@ In the best case scenario, and in most cases, ZeroTier connects peer-to-peer and
 There are some cases, such as hostile NATs & firewalls in which your encrypted packets do indeed get relayed through our root servers.  Relaying through our root adds latency. The packets must travel farther physically than they would for a direct, peer to peer connection.
 
 We do not throttle any of these packets, nor can we read the contents of the packets due to encryption.  We also, however, cannot guarantee connection reliability when this happens.  We do our best effort to get your packets where they need to go, but this is not always possible.
+
+:::tip
+If you are experiencing slow network speeds or difficulty making direct connections see See [Router Configuration Tips](./routertips.md) or [Corporate Firewalls](./corporate-firewalls.md)
+:::
+
+### Error: Cannot connect to Zerotier service {#cannot-connect-to-service}
+
+This error means that the ZeroTier background service on your computer is either not running, or your local firewall is preventing the UI or CLI from talking to it.
+
+### Windows 10
+
+Open Task Manager and go to the “Services” tab. Scroll down until you see `ZeroTierOneService`. The status column should say `Running`. If it does not, right click on the line and click `Start`
+
+### macOS
+
+Open Terminal.app and execute the following commands
+
+```sh
+sudo launchctl unload /Library/LaunchDaemons/com.zerotier.one.plist
+sudo launchctl load /Library/LaunchDaemons/com.zerotier.one.plist
+```
+
+### Linux
+
+If your Linux distribution uses systemd, execute `sudo service zerotier-one start`
+
+If not, execute `sudo /etc/init.d/zerotier-one start`
+
+### Still doesn’t work?
+
+Your system firewall is likely blocking communication with the ZeroTier service. Look up instructions for how to unblock an application from the firewall for your OS.  ZeroTier will need to be accessible via TCP port 9993 for the UI and CLI to interact with it.
 
 ### Where can I find old versions of ZeroTier? {#old-versions}
 
