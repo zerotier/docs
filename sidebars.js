@@ -178,7 +178,7 @@
             description: 'ZeroTier on Windows',
             slug: '/windows',
           },
-          items: ['faq-windows', 'windows-lan-game', 'windows-unknown-node-id']
+          items: ['faq-windows', 'chocolatey', 'winget', 'windows-lan-game', 'windows-unknown-node-id']
         }
       ],
     },
@@ -213,7 +213,7 @@
         description: 'Ways to get ZeroTier',
         slug: '/packages',
       },
-      items: ['snap', 'flatpak'],
+      items: ['snap', 'flatpak', 'chocolatey', 'winget'],
     },
     {
       type: 'category',

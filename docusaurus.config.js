@@ -135,6 +135,10 @@ module.exports = {
               href: "https://discuss.zerotier.com",
             },
             {
+              label: "Mastodon",
+              href: "https://social.zerotier.com/@zerotier",
+            },
+            {
               label: "Twitter",
               href: "https://twitter.com/zerotier",
             },
