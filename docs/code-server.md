@@ -1,6 +1,6 @@
 ---
 title: code-server + ZeroTier
-description: Run VS Code on any machine and access it securely with ZeroTier
+description: Edit code remotely with VS Code and ZeroTier
 ---
 
 ![VS Code in the browser](./images/code-server-02.png)

@@ -42,7 +42,7 @@
         description: 'How-to guides for common ZeroTier use cases.',
         slug: '/guides',
       },
-      items: ['dns', 'multipath', 'terraform', 'exitnode', 'bridging', 'proxy', 'sockets', 'microsegmentation', 'selfhosting'],
+      items: ['dns', 'multipath', 'terraform', 'exitnode', 'bridging', 'proxy', 'sockets', 'code-server', 'microsegmentation', 'selfhosting'],
     },
     {
       type: "category",
@@ -142,7 +142,7 @@
             description: 'ZeroTier on Linux',
             slug: '/linux',
           },
-          items: ['faq-linux', 'snap', 'flatpak', 'docker', 'bridging', 'aws-vpc-gateway', 'nat', 'docker-6plane']
+          items: ['faq-linux', 'snap', 'flatpak', 'docker', 'bridging', 'aws-vpc-gateway', 'nat', 'docker-6plane', 'code-server']
         },
         /* MAC */
         {
@@ -192,6 +192,17 @@
         slug: '/community',
       },
       items: ['awesome'],
+    },
+    {
+      type: 'category',
+      label: 'Remote Access',
+      link: {
+        type: 'generated-index',
+        title: 'Remote Access',
+        description: 'Ways to use ZeroTier to remotely access your resources',
+        slug: '/remote',
+      },
+      items: ['code-server'],
     },
     {
       type: 'category',
