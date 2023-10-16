@@ -20,7 +20,7 @@
         description: 'Our installable client service.',
         slug: '/zerotier',
       },
-      items: ['protocol', 'rules', 'config'],
+      items: ['protocol', 'rules', 'config', 'what-is-a-controller'],
     },
     {
       type: 'category',
@@ -42,7 +42,7 @@
         description: 'How-to guides for common ZeroTier use cases.',
         slug: '/guides',
       },
-      items: ['dns', 'multipath', 'terraform', 'exitnode', 'bridging', 'proxy', 'sockets', 'code-server', 'microsegmentation', 'selfhosting'],
+      items: ['dns', 'multipath', 'terraform', 'docker', 'exitnode', 'bridging', 'proxy', 'sockets', 'code-server', 'route-between-phys-and-virt', 'microsegmentation', 'selfhosting', 'cloud-init', 'cli', 'nat'],
     },
     {
       type: "category",
@@ -98,7 +98,7 @@
         description: 'If it has a chip, you can probably install ZeroTier on it.',
         slug: '/routers',
       },
-      items: ['teltonika-networks', 'mikrotik', 'openwrt', 'opnsense', 'ubiquiti'],
+      items: ['routertips', 'teltonika-networks', 'mikrotik', 'openwrt', 'opnsense', 'ubiquiti', 'route-between-phys-and-virt'],
     },
     {
       type: 'category',
@@ -120,7 +120,7 @@
         description: 'ZeroTier is designed to operate on resource constrained devices and under 16MB of memory.',
         slug: '/iot',
       },
-      items: ['lbm', 'compatibility', 'bridging', 'proxy', 'faq-security'],
+      items: ['lbm', 'compatibility', 'bridging', 'proxy', 'faq-security', 'route-between-phys-and-virt'],
     },
     {
       type: 'category',
@@ -142,7 +142,7 @@
             description: 'ZeroTier on Linux',
             slug: '/linux',
           },
-          items: ['faq-linux', 'snap', 'flatpak', 'docker', 'bridging', 'aws-vpc-gateway', 'nat', 'docker-6plane', 'code-server']
+          items: ['faq-linux', 'snap', 'flatpak', 'docker', 'bridging', 'aws-vpc-gateway', 'nat', 'docker-6plane', 'code-server', 'cloud-init', 'route-between-phys-and-virt']
         },
         /* MAC */
         {
@@ -236,17 +236,6 @@
         slug: '/service-providers',
       },
       items: ['faq-rules', 'faq-security', 'sso'],
-    },
-    {
-      type: 'category',
-      label: 'Draft',
-      link: {
-        type: 'generated-index',
-        title: 'Draft',
-        description: 'Draft',
-        slug: '/draft',
-      },
-      items: ['faq', 'routertips', 'cli', 'edge', 'whitelist', 'docker', 'nat', 'what-is-a-controller', 'route-between-phys-and-virt', 'cloud-init'],
     }
   ]
 };
