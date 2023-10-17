@@ -179,6 +179,30 @@
             slug: '/windows',
           },
           items: ['faq-windows', 'chocolatey', 'winget', 'windows-lan-game', 'windows-unknown-node-id']
+        },
+        /* ANDROID */
+        {
+          type: 'category',
+          label: 'Android',
+          link: {
+            type: 'generated-index',
+            title: 'Android',
+            description: 'ZeroTier on Android',
+            slug: '/android',
+          },
+          items: ['faq-android']
+        },
+        /* iOS */
+        {
+          type: 'category',
+          label: 'iOS / iPadOS',
+          link: {
+            type: 'generated-index',
+            title: 'iOS / iPadOS',
+            description: 'ZeroTier on iOS or iPadOS',
+            slug: '/ios',
+          },
+          items: ['faq-ios']
         }
       ],
     },
