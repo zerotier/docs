@@ -3,7 +3,7 @@ title: Organizations
 description: How to use ZeroTier Organizations
 ---
 
-You’ve subscribed to my.zerotier.com and want your coworkers to also have the benefits of a Pro account.
+You've subscribed to my.zerotier.com and want your coworkers to also have the benefits of a Pro account.
 
 Add them to your Organization by going to my.zerotier.com/account
 
@@ -25,10 +25,10 @@ The invited User will see:
 
 ### Removing Admins from the Organization
 
-You can click the “remove” button next to their name in the list of admins. They will lose Admin access to the organizations networks.
+You can click the "remove" button next to their name in the list of admins. They will lose Admin access to the organizations networks.
 
 ### Change the Organization owner
 
-Consider using a general email address like “<billing@example.com>” when you sign up.
+Consider using a general email address like "<billing@example.com>" when you sign up.
 
 Can I move or transfer my network(s) to another user?

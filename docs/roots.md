@@ -10,21 +10,21 @@ on a planet effectively inhabit a single data center. This makes it easy
 to directly connect devices anywhere, but it has the disadvantage of not
 working without an Internet connection. Network connections are far from
 perfectly reliable, and sometimes for security reasons a user may wish
-to “air gap” a set of nodes from the rest of the Internet entirely.
+to "air gap" a set of nodes from the rest of the Internet entirely.
 
 In 1.2.0 we introduced the ability to add your own user-defined roots.
 Since the data center we inhabit is the planet, a user-defined set of
-roots is called a **moon**. When a node “orbits” a moon, it adds the
-moon’s roots to its root server set. Nodes orbiting moons will still use
-planetary roots, but they’ll use the moon’s roots if they look faster or
+roots is called a **moon**. When a node "orbits" a moon, it adds the
+moon's roots to its root server set. Nodes orbiting moons will still use
+planetary roots, but they'll use the moon's roots if they look faster or
 if nothing else is available.
 
 The first step in creating a moon is to deploy a set of root servers. In
 most cases we recommend two. These are regular ZeroTier nodes, but ones
 that are always on and have static (physical) IP addresses. These static
 IPs could be global Internet IPs or physical intranet IPs that are only
-reachable internally. In the latter case your moon’s roots won’t work
-outside your office, but that doesn’t matter. Roaming nodes will just
+reachable internally. In the latter case your moon's roots won't work
+outside your office, but that doesn't matter. Roaming nodes will just
 use planetary roots instead.
 
 We recommend that root servers do not act as network controllers, join
@@ -38,7 +38,7 @@ two.
 
 The next step is to create a world definition using `zerotier-idtool`.
 You will need the `identity.public` files from each of your root
-servers. Pick one root (doesn’t matter which) and run
+servers. Pick one root (doesn't matter which) and run
 `zerotier-idtool initmoon <identity.public of one root> >>moon.json`.
 The `zerotier-idtool`command will output a JSON version of your world
 definition to *stdout*, so we redirect it to `moon.json`.
@@ -66,11 +66,11 @@ Examine this file. It will contain something like:
 The world ID is technically arbitrary and could be any random 64-bit
 value. By convention we use the address of one of the roots.
 
-The world definition JSON file **contains secrets**, so it’s important
+The world definition JSON file **contains secrets**, so it's important
 to keep it in a safe place. The `signingKey_SECRET` is what will allow
 you to update your world definition automatically in the future.
 
-Now add your other root(s) and define their stable endpoints. You’ll end
+Now add your other root(s) and define their stable endpoints. You'll end
 up with something that looks like:
 
 ```json
@@ -95,7 +95,7 @@ up with something that looks like:
 ```
 
 The static IP addresses you use must be reachable from all the places
-you want these roots to serve. If you’re deploying these for use at a
+you want these roots to serve. If you're deploying these for use at a
 physical location, use internal IPs. If you want them to be usable
 off-site, use public IPs from your DMZ or host them at a cloud provider
 with a data center presence close to you. Low-cost cloud hosts that
@@ -121,9 +121,9 @@ using the `zerotier-cli orbit` command:
 `zerotier-cli orbit deadbeef00 deadbeef00`. The first argument is the
 world ID (which we can shorten by removing the two leading zeroes) and
 the second is the address of any of its roots. This will contact the
-root and obtain the full world definition from it if it’s online and
+root and obtain the full world definition from it if it's online and
 reachable.
 
-Once you’ve “orbited” your moon, try `zerotier-cli listpeers`. You
-should see the roots you’ve created listed as `MOON` instead of `LEAF`.
+Once you've "orbited" your moon, try `zerotier-cli listpeers`. You
+should see the roots you've created listed as `MOON` instead of `LEAF`.
 They will now be used as alternative root servers.

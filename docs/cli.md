@@ -37,7 +37,7 @@ zerotier-cli listnetworks
 ```
 
 :::info
-If you see `missing authentication token and authtoken.secret not found (or readable)` you’re likely trying to run `zerotier-cli` from a non-administrative account. On macOS, Linux, or other Unix based systems, use sudo `zerotier-cli`. On Windows, use an Administrator Command Prompt.
+If you see `missing authentication token and authtoken.secret not found (or readable)` you're likely trying to run `zerotier-cli` from a non-administrative account. On macOS, Linux, or other Unix based systems, use sudo `zerotier-cli`. On Windows, use an Administrator Command Prompt.
 :::
 
 ### Network Join Status Codes

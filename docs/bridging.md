@@ -3,7 +3,7 @@ title: Layer 2 Bridge
 description: Bridge your physical LAN to ZeroTier using a Raspberry Pi
 ---
 
-Do you have devices that can’t run ZeroTier that you want to access remotely? You can use a small linux PC as a bridge between ZeroTier and physical networks.
+Do you have devices that can't run ZeroTier that you want to access remotely? You can use a small linux PC as a bridge between ZeroTier and physical networks.
 
 :::info Note
 This topic is related to but different from using ZeroTier as a Layer 5 [Service Proxy](proxy).
@@ -11,11 +11,11 @@ This topic is related to but different from using ZeroTier as a Layer 5 [Service
 
 ### Assumptions
 
-- You’re doing this on your home network and can log in to your router and find the DHCP settings.
-- You have a keyboard, monitor, and ethernet cable plugged into your Pi. Chances are high we’ll break networking and lose access to the Pi.
-- You’re somewhat familiar with the command line, ssh.
-- We’re going to use systemd networking for this. You could probably adapt the concepts to a different linux network configuration system if you have opinions about systemd.
-- We used a raspberry Pi 2 while writing this, but a Pi 3 or 4 should work fine. Anything running a Debian 10+ based distro should be fine. It doesn’t have a be a Raspberry Pi, but some of these instructions might be raspbian specific.
+- You're doing this on your home network and can log in to your router and find the DHCP settings.
+- You have a keyboard, monitor, and ethernet cable plugged into your Pi. Chances are high we'll break networking and lose access to the Pi.
+- You're somewhat familiar with the command line, ssh.
+- We're going to use systemd networking for this. You could probably adapt the concepts to a different linux network configuration system if you have opinions about systemd.
+- We used a raspberry Pi 2 while writing this, but a Pi 3 or 4 should work fine. Anything running a Debian 10+ based distro should be fine. It doesn't have a be a Raspberry Pi, but some of these instructions might be raspbian specific.
 
 ### What you'll need
 
@@ -25,7 +25,7 @@ This topic is related to but different from using ZeroTier as a Layer 5 [Service
 - Default Gateway IP Address (the router)
 - Bridge IP Address (will be statically assigned)
 - Create a new ZeroTier network and get the ID. Keep an old network around for secondary way to connect any devices already using ZeroTier.
-- The DHCP range and ZeroTier Auto-Assign range should be in the same subnet, but not overlap. You’d probably base this off what is already configured on your router.
+- The DHCP range and ZeroTier Auto-Assign range should be in the same subnet, but not overlap. You'd probably base this off what is already configured on your router.
 
 #### An example plan
 
@@ -49,7 +49,7 @@ This topic is related to but different from using ZeroTier as a Layer 5 [Service
 
 ### SSH into the Pi
 
-It’s easier to login via ssh now and copy/paste commands from the comfort of your own PC.
+It's easier to login via ssh now and copy/paste commands from the comfort of your own PC.
 
 The DNS name might just work for you:
 
@@ -61,7 +61,7 @@ The DNS name might just work for you:
 sudo apt update && sudo apt -y full-upgrade && sudo reboot
 ```
 
-Log back in after it’s done
+Log back in after it's done
 
 ### Install ZeroTier
 
@@ -69,7 +69,7 @@ Log back in after it’s done
 curl -s https://install.zerotier.com | sudo bash
 ```
 
-### Let’s set some shell variables now
+### Let's set some shell variables now
 
 ```sh
 NETWORK_ID=<your-network-id>
@@ -84,7 +84,7 @@ GW_ADDR=<your-gateway-address>
 sudo zerotier-cli join $NETWORK_ID
 ```
 
-We don’t want ZeroTier to manage addresses or routes on `$ZT_IF`. We’re doing it statically below, on the bridge interface.
+We don't want ZeroTier to manage addresses or routes on `$ZT_IF`. We're doing it statically below, on the bridge interface.
 
 ```sh
 sudo zerotier-cli set $NETWORK_ID allowManaged=0
@@ -183,7 +183,7 @@ You should be able to, from the physical LAN, connect to the Pi via `$BR_ADDR`
 
 ### If it takes a long time waiting for the network during boot
 
-Sometimes the physical interface turns out to be a long “predicatable interface name” like: “enb827eb0d4176”, sometimes it’s just `eth0`, depending on raspbian version(???).
+Sometimes the physical interface turns out to be a long "predicatable interface name" like: "enb827eb0d4176", sometimes it's just `eth0`, depending on raspbian version(???).
 
 <https://wiki.debian.org/NetworkConfiguration#Network_Interface_Names>
 
@@ -200,7 +200,7 @@ At `my.zerotier.com/network/$NETWORK_ID`->`Settings`->`Advanced`
 
 ### It should be working now. Next steps
 
-Either it worked, and you can ssh back in to `$BR_ADDR` after a minute, or it didn’t work and the Pi isn’t on the network anymore and you need to use the keyboard and monitor to figure out what went wrong.
+Either it worked, and you can ssh back in to `$BR_ADDR` after a minute, or it didn't work and the Pi isn't on the network anymore and you need to use the keyboard and monitor to figure out what went wrong.
 
 :::tip
 Make a backup of the sd card so you don't have to repeat these steps
@@ -230,11 +230,11 @@ See: <https://serverfault.com/questions/162366/iptables-bridge-and-forward-chain
 
 #### Why is the Managed Route /23 and the LAN subnet /24?
 
-Say you have a laptop that is on the ZeroTier network and you bring it home. Now it’s WiFi address and ZeroTier address are in the same subnet. Which interface/address should your laptop use for internet access? <https://en.wikipedia.org/wiki/Longest_prefix_match>
+Say you have a laptop that is on the ZeroTier network and you bring it home. Now it's WiFi address and ZeroTier address are in the same subnet. Which interface/address should your laptop use for internet access? <https://en.wikipedia.org/wiki/Longest_prefix_match>
 
 ### Why is an app on my phone not working over ZeroTier?
 
-Unfortunately the iOS and Android VPN APIs won’t let ZeroTier use multicast/broadcast. These are typically how apps auto-discover services on the LAN. 😭 Stay tuned for an article on bridging a ZeroTier network and a WiFi access point.
+Unfortunately the iOS and Android VPN APIs won't let ZeroTier use multicast/broadcast. These are typically how apps auto-discover services on the LAN. 😭 Stay tuned for an article on bridging a ZeroTier network and a WiFi access point.
 
 ### References
 

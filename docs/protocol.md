@@ -41,7 +41,7 @@ The ZeroTier protocol is original, though aspects of it are similar to
 VXLAN and IPSec. It has two conceptually separate but closely coupled
 layers [in the OSI model](https://en.wikipedia.org/wiki/OSI_model)
 sense: **VL1** and **VL2**. VL1 is the underlying peer to peer transport
-layer, the “virtual wire,” while VL2 is an emulated Ethernet layer that
+layer, the "virtual wire," while VL2 is an emulated Ethernet layer that
 provides operating systems and apps with a familiar communication
 medium.
 
@@ -60,7 +60,7 @@ on a dynamic as-needed basis.
 
 VL1 is designed to be zero-configuration. A user can start a new
 ZeroTier node without having to write configuration files or provide the
-IP addresses of other nodes. It’s also designed to be fast. Any two
+IP addresses of other nodes. It's also designed to be fast. Any two
 devices in the world should be able to locate each other and communicate
 almost instantly.
 
@@ -72,16 +72,16 @@ same software as regular endpoints but reside at fast stable locations
 on the network and are designated as such by a **world definition**.
 World definitions come in two forms: the **planet** and one or more
 **moons**. The protocol includes a secure mechanism allowing world
-definitions to be updated in-band if root servers’ IP addresses or
+definitions to be updated in-band if root servers' IP addresses or
 ZeroTier addresses change.
 
-There is only one planet. Earth’s root servers are operated by ZeroTier,
+There is only one planet. Earth's root servers are operated by ZeroTier,
 Inc. as a free service. There are currently twelve root servers
 organized into two six-member clusters distributed across every major
 continent and multiple network providers. Almost everyone in the world
 has one within less than 100ms network latency from their location.
 
-A node can “orbit” any number of moons. A moon is just a convenient way
+A node can "orbit" any number of moons. A moon is just a convenient way
 to add user-defined root servers to the pool. Users can create moons to
 reduce dependency on ZeroTier, Inc. infrastructure or to locate root
 servers closer for better performance. For on-premise SDN use a cluster
@@ -93,9 +93,9 @@ Nodes start with no direct links to one another, only upstream to roots
 (planet and moons). Every peer on VL1 possesses a globally unique 40-bit
 (10 hex digit) **ZeroTier address**, but unlike IP addresses these are
 opaque cryptographic identifiers that encode no routing information. To
-communicate peers first send packets “up” the tree, and as these packets
+communicate peers first send packets "up" the tree, and as these packets
 traverse the network they trigger the opportunistic creation of direct
-links along the way. The tree is constantly trying to “collapse itself”
+links along the way. The tree is constantly trying to "collapse itself"
 to optimize itself to the pattern of traffic it is carrying.
 
 Peer to peer connection setup goes like this:
@@ -119,11 +119,11 @@ Peer to peer connection setup goes like this:
 Since roots forward packets, A and B can reach each other instantly. A
 and B then begin attempting to make a direct peer to peer connection. If
 this succeeds it results in a faster lower latency link. We call this
-*transport triggered link provisioning* since it’s the forwarding of the
+*transport triggered link provisioning* since it's the forwarding of the
 packet itself that triggers the peer to peer network to attempt direct
 connection.
 
-VL1 never gives up. If a direct path can’t be established, communication
+VL1 never gives up. If a direct path can't be established, communication
 can continue through (slower) relaying. Direct connection attempts
 continue forever on a periodic basis. VL1 also has other features for
 establishing direct connectivity including LAN peer discovery, port
@@ -131,24 +131,24 @@ prediction for traversal of symmetric IPv4 NATs, and explicit port
 mapping using uPnP and/or NAT-PMP if these are available on the local
 physical LAN.
 
-*[A blog post from 2014 by ZeroTier’s original author explains some of
-the reasoning behind VL1’s
+*[A blog post from 2014 by ZeroTier's original author explains some of
+the reasoning behind VL1's
 design.](http://adamierymenko.com/decentralization.html)*
 
 ### Addressing {#addressing}
 
 Every node is uniquely identified on VL1 by a 40-bit (10 hex digit)
 **ZeroTier address**. This address is computed from the public portion
-of a public/private key pair. A node’s address, public key, and private
+of a public/private key pair. A node's address, public key, and private
 key together form its **identity**.
 
 *On devices running ZeroTier One the node identity is stored in
-`identity.public` and `identity.secret` in the service’s home
+`identity.public` and `identity.secret` in the service's home
 directory.*
 
 When ZeroTier starts for the first time it generates a new identity. It
 then attempts to advertise it upstream to the network. In the very
-unlikely event that the identity’s 40-bit unique address is taken, it
+unlikely event that the identity's 40-bit unique address is taken, it
 discards it and generates another.
 
 Identities are claimed on a first come first serve basis and currently
@@ -160,7 +160,7 @@ The address derivation algorithm used to compute addresses from public
 keys imposes a computational cost barrier against the intentional
 generation of a collision. Currently it would take approximately 10,000
 CPU-years to do so (assuming e.g. a 3ghz Intel core). This is expensive
-but not impossible, but it’s only the first line of defense. After
+but not impossible, but it's only the first line of defense. After
 generating a collision an attacker would then have to compromise all
 upstream nodes, network controllers, and anything else that has recently
 communicated with the target node and replace their cached identities.
@@ -174,8 +174,8 @@ an authoritative identity cache.
 
 ### Cryptography {#cryptography}
 
-If you don’t know much about cryptography you can safely skip this
-section. **TL;DR: packets are end-to-end encrypted and can’t be read by
+If you don't know much about cryptography you can safely skip this
+section. **TL;DR: packets are end-to-end encrypted and can't be read by
 roots or anyone else, and we use modern 256-bit crypto in ways
 recommended by the professional cryptographers that created it.**
 
@@ -195,7 +195,7 @@ implementation](https://nacl.cr.yp.to/).
 
 As of today we do not implement [forward
 secrecy](https://en.wikipedia.org/wiki/Forward_secrecy) or other
-stateful cryptographic features in VL1. We don’t do this for the sake of
+stateful cryptographic features in VL1. We don't do this for the sake of
 simplicity, reliability, and code footprint, and because frequently
 changing state makes features like clustering and fail-over much harder
 to implement. See [our discussion on
@@ -207,7 +207,7 @@ protocols such as SSL or SSH over ZeroTier. These protocols typically
 implement forward secrecy, but using them over ZeroTier also provides
 the secondary benefit of defense in depth. Most cryptography is
 compromised not by a flaw in encryption but through bugs in the
-implementation. If you’re using two secure transports, the odds of a
+implementation. If you're using two secure transports, the odds of a
 critical bug being discovered in both at the same time is very low. The
 CPU overhead of double-encryption is not significant for most work
 loads.
@@ -229,12 +229,12 @@ security.
 Trusted paths do not prevent communication with devices elsewhere, since
 traffic over other paths will be encrypted and authenticated normally.
 
-We don’t recommend the use of this feature unless you really need the
-performance and you know what you’re doing. We also recommend thinking
+We don't recommend the use of this feature unless you really need the
+performance and you know what you're doing. We also recommend thinking
 carefully before disabling transport security on a cloud private
 network. Larger cloud providers such as Amazon and Azure tend to provide
 good network segregation but many less costly providers offer private
-networks that are “party lines” and are not much more secure than the
+networks that are "party lines" and are not much more secure than the
 open Internet.
 
 ### Multipath {#multipath}
@@ -254,11 +254,11 @@ network virtualization protocol with SDN management features. It
 implements secure VLAN boundaries, multicast, rules, capability based
 security, and certificate based access control.
 
-VL2 is built atop and carried by VL1, and in so doing it inherits VL1’s
+VL2 is built atop and carried by VL1, and in so doing it inherits VL1's
 encryption and endpoint authentication and can use VL1 asymmetric keys
 to sign and verify credentials. VL1 also allows us to implement VL2
 entirely free of concern for underlying physical network topology.
-Connectivity and routing efficiency issues are VL1 concerns. It’s
+Connectivity and routing efficiency issues are VL1 concerns. It's
 important to understand that there is no relationship between VL2
 virtual networks and VL1 paths. Much like VLAN multiplexing on a wired
 LAN, two nodes that share multiple network memberships in common will
@@ -268,7 +268,7 @@ still only have one VL1 path (virtual wire) between them.
 
 Each VL2 network (VLAN) is identified by a 64-bit (16 hex digit)
 **ZeroTier network ID** that contains the 40-bit ZeroTier address of the
-network’s **controller** and a 24-bit number identifying the network on
+network's **controller** and a 24-bit number identifying the network on
 the controller.
 
     Network ID: 8056c2e21c123456
@@ -278,8 +278,8 @@ the controller.
                 ZeroTier address of controller
 
 When a node joins a network or requests a network configuration update,
-it sends a network config query message (via VL1) to the network’s
-controller. The controller can then use the node’s VL1 address to look
+it sends a network config query message (via VL1) to the network's
+controller. The controller can then use the node's VL1 address to look
 it up on the network and send it the appropriate certificates,
 credentials, and configuration information. From the perspective of VL2
 virtual networks, VL1 ZeroTier addresses can be thought of as port
@@ -289,21 +289,21 @@ A common misunderstanding is to conflate network controllers with root
 servers (planet and moons). Root servers are connection facilitators
 that operate at the VL1 level. Network controllers are configuration
 managers and certificate authorities that belong to VL2. Generally root
-servers don’t join or control virtual networks and network controllers
+servers don't join or control virtual networks and network controllers
 are not root servers, though it is possible to have a node do both.
 
 #### Controller Security Considerations {#controllersecurityconsiderations}
 
 Network controllers serve as certificate authorities for ZeroTier
 virtual networks. As such, their `identity.secret` files should be
-guarded closely and backed up securely. Compromise of a controller’s
+guarded closely and backed up securely. Compromise of a controller's
 secret key would allow an attacker to issue fraudulent network
 configurations or admit unauthorized members, while loss of the secret
 key results in loss of ability to control the network in any way or
 issue configuration updates and effectively renders the network
 unusable.
 
-It is important that controllers’ system clocks remain relatively
+It is important that controllers' system clocks remain relatively
 accurate (to within 30-60 seconds) and that they are secure against
 remote tampering. Many cloud providers provide secure time sources
 either directly via the hypervisor or via NTP servers within their
@@ -312,10 +312,10 @@ networks.
 ### Certificates and Other Credentials {#certificates}
 
 All credentials issued by network controllers to member nodes in a given
-network are signed by the controller’s secret key to allow all network
+network are signed by the controller's secret key to allow all network
 members to verify them. Credentials have timestamp fields populated by
 the controller, allowing relative comparison without the need to trust
-the node’s local system clock.
+the node's local system clock.
 
 Credentials are issued only to their owners and are then pushed peer to
 peer by nodes that wish to communicate with other nodes on the network.
@@ -328,9 +328,9 @@ controller.
 - **Certificates of Membership**: a certificate that a node presents
     to obtain the right to communicate on a given network. Certificates
     of membership are accepted if they *agree*, meaning that the
-    submitting member’s certificate’s timestamp differs from the
-    recipient’s certificate’s timestamp by no more than the recipient
-    certificate’s maximum timestamp delta value. This creates a
+    submitting member's certificate's timestamp differs from the
+    recipient's certificate's timestamp by no more than the recipient
+    certificate's maximum timestamp delta value. This creates a
     decentralized moving-window scheme for certificate expiration
     without requiring node clock synchronization or constant checking
     with the controller.
@@ -343,7 +343,7 @@ controller.
 - **Capabilities**: a capability is a bundle of network rules that is
     signed by the controller and can be presented to other members of a
     network to grant the presenter elevated privileges within the
-    framework of the network’s base rule set. More on this in the
+    framework of the network's base rule set. More on this in the
     section on rules.
 - **Tags**: a tag is a key/value pair signed by the controller that is
     automatically presented by members to one another and can be matched
@@ -388,7 +388,7 @@ significant bandwidth overhead.
 
 IPv4 [ARP](https://en.wikipedia.org/wiki/Address_Resolution_Protocol) is
 built on simple Ethernet broadcast and scales poorly on large or
-distributed networks. To improve ARP’s scalability ZeroTier generates a
+distributed networks. To improve ARP's scalability ZeroTier generates a
 unique multicast group for each IPv4 address detected on its system and
 then transparently intercepts ARP queries and sends them only to the
 correct group. This converts ARP into effectively a unicast or narrow
@@ -413,9 +413,9 @@ hundreds of milliseconds over a wide area network, or more if latencies
 associated with pub/sub recipient lookup are significant.
 
 IPv6 addresses are large enough to easily encode ZeroTier addresses. For
-faster operation and better scaling we’ve implemented several special
+faster operation and better scaling we've implemented several special
 IPv6 addressing modes that allow the local node to emulate NDP. These
-are ZeroTier’s **rfc4193** and **6plane** IPv6 address assignment
+are ZeroTier's **rfc4193** and **6plane** IPv6 address assignment
 schemes. If these addressing schemes are enabled on a network, nodes
 locally intercept outbound NDP queries for matching addresses and then
 locally generate spoofed NDP replies.
@@ -467,17 +467,17 @@ See our [bridging tutorial](bridging)
 ### Public Networks {#public}
 
 It is possible to disable access control on a ZeroTier network. A public
-network’s members do not check certificates of membership, and new
+network's members do not check certificates of membership, and new
 members to a public network are automatically marked as authorized by
 their host controller. It is not possible to de-authorize a member from
 a public network.
 
-Rules on the other hand *are* enforced, so it’s possible to implement a
+Rules on the other hand *are* enforced, so it's possible to implement a
 special purpose public network that only allows access to a few things
 or that only allows a restricted subset of traffic.
 
-Public networks are useful for testing and for peer to peer “party
-lines” for gaming, chat, and other applications. **Participants in public
+Public networks are useful for testing and for peer to peer "party
+lines" for gaming, chat, and other applications. **Participants in public
 networks are warned to pay special attention to security. If joining a
 public network be careful not to expose vulnerable services or
 accidentally share private files via open network shares or HTTP

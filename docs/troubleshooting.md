@@ -33,7 +33,7 @@ This error means that the ZeroTier background service on your computer is either
 
 ### Windows 10
 
-Open Task Manager and go to the “Services” tab.  Scroll down until you see “ZeroTierOneService”. The status column should say “Running”.  If it does not, right click on the line and click “Start”
+Open Task Manager and go to the "Services" tab.  Scroll down until you see "ZeroTierOneService". The status column should say "Running".  If it does not, right click on the line and click "Start"
 
 ### macOS
 
