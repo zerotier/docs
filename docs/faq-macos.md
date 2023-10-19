@@ -5,7 +5,7 @@ description: Guidance for running ZeroTier on macOS
 
 ### Start and Stop ZeroTier on your Mac
 
-The ZeroTier menubar app is a separate process from the system service that makes ZeroTier work. You can quit the menubar app from it’s menu and the system service will continue to run.
+The ZeroTier menubar app is a separate process from the system service that makes ZeroTier work. You can quit the menubar app from it's menu and the system service will continue to run.
 
 To stop/start the ZeroTier system service, open Terminal.app and paste these commands:
 
@@ -32,7 +32,7 @@ If you're [already up and running](./start.md), here's how to share files from y
 Joining a ZeroTier network is like connecting the same WiFi or plugging in to the same Ethernet switch as your other devices, so things mostly "Just Work".
 Many virtual network products do not have this convenient property. ZeroTier works at Layer 2.
 
-#### Look at the Network section of Finder’s sidebar
+#### Look at the Network section of Finder's sidebar
 
 It seems to take a while for Macs to notice each other the first time. Then they start showing up in the Network tab of the Finder.
 

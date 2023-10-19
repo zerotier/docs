@@ -13,7 +13,7 @@ site](https://www.zerotier.com/download.shtml) and source code is found
 on [GitHub](https://github.com/zerotier/ZeroTierOne).
 
 After the service is installed and started, networks can be joined using
-their 16-digit network IDs. Each network appears as a virtual “tap”
+their 16-digit network IDs. Each network appears as a virtual "tap"
 network port on your system that behaves just like an ordinary Ethernet
 port.
 
@@ -125,7 +125,7 @@ does not allow comments):
 
 - **trustedPathId**: A trusted path is a physical network over which
     encryption and authentication are not required. This provides a
-    performance boost but sacrifices all ZeroTier’s security features
+    performance boost but sacrifices all ZeroTier's security features
     when communicating over this path. *Only use this feature if you
     know what you are doing and really need the performance!* To set up
     a trusted path, all devices on the same trusted physical network

@@ -12,7 +12,7 @@ compromise both sides of any conversation.
 The ZeroTier VL2 rules engine differs from most other firewalls and SDN
 rules engines in several ways. The most immediately relevant of these is
 that the ZeroTier rules engine is stateless, meaning it lacks connection
-tracking. This means that bidirectional whitelisting can’t be
+tracking. This means that bidirectional whitelisting can't be
 accomplished by simply whitelisting reply packets to established
 connections. Instead some thought must be put into how to allow both
 sides of a desired flow. Rule patterns to achieve the most common
@@ -38,8 +38,8 @@ conceptual way that is both easier for human beings to understand and
 more efficient for machines to handle.
 
 This section assumes some level of familiarity with network rules as
-they’re commonly used on firewalls and routers, etc. While the rules
-engine is part of VL2, it’s been given its own section in this manual
+they're commonly used on firewalls and routers, etc. While the rules
+engine is part of VL2, it's been given its own section in this manual
 due to the depth and cross-cutting nature of the topic.
 
 ### Rule Sets and Rule Evaluation
@@ -54,9 +54,9 @@ permissive actions are taken by any rule set the packet is discarded.
 
 Here is a simple rule set that constrains Ethernet traffic on a network
 to only IPv4, ARP, or IPv6 as it would appear in the raw JSON format
-used by ZeroTier One’s built-in network controller implementation.
-(Don’t worry if this seems verbose and difficult. We have a more
-human-friendly way of writing rule sets, but before we introduce it it’s
+used by ZeroTier One's built-in network controller implementation.
+(Don't worry if this seems verbose and difficult. We have a more
+human-friendly way of writing rule sets, but before we introduce it it's
 important to understand what is really happening.)
 
 ```json
@@ -97,9 +97,9 @@ none of these) then the **drop** action is taken. Otherwise the
 Networks have one base rule set that is applied to all traffic. Its size
 is constrained to 1024 entries (each match or action is an entry). It
 should be used to set the overall policies for all members of the
-network, and for most common use cases it’s all you’ll need. For more
+network, and for most common use cases it's all you'll need. For more
 complex scenarios, both capabilities and tags provide methods of both
-managing complexity and scaling the overall size of a network’s rule
+managing complexity and scaling the overall size of a network's rule
 system.
 
 ### Actions and Match Conditions {#311actionsandmatchconditionsaname3_1_1a}
@@ -139,8 +139,8 @@ way for human beings to specify rules.
 | MATCH\_TAGS\_BITWISE\_OR | id,value | Tags ORed together equal value. |
 | MATCH\_TAGS\_BITWISE\_XOR | id,value | Tags XORed together equal value. |
 | MATCH\_TAGS\_EQUAL | id,value | Both tags equal the same value. |
-| MATCH\_TAG\_SENDER | id,value | Sending side’s tag equals this value. |
-| MATCH\_TAG\_RECEIVER | id,value | Receiving side’s tag equals this value. |
+| MATCH\_TAG\_SENDER | id,value | Sending side's tag equals this value. |
+| MATCH\_TAG\_RECEIVER | id,value | Receiving side's tag equals this value. |
 
 ### Capabilities {#32capabilitiesaname3_2a}
 
@@ -156,8 +156,8 @@ match.
 When the recipient receives the capability it authenticates it by
 checking its signature and timestamp and, provided the capability is
 valid, adds it to the set of capabilities to apply to incoming traffic
-from the capability’s owner. The sender has effectively told the
-recipient “I can too send this packet! Teacher says so!”
+from the capability's owner. The sender has effectively told the
+recipient "I can too send this packet! Teacher says so!"
 
 Capabilities allow large systems of rules to be broken down into
 functional aspects and then distributed intelligently only to those
@@ -201,7 +201,7 @@ we place the above tiny rule set into a capability and issue it to a
 device, this device *but no others* will now be permitted to send
 wake-on-LAN magic packets. (Wake-on-LAN requires hardware support so it
 would only work to target devices plugged into a physical network
-bridged to a ZeroTier network, but don’t worry about that here. It’s
+bridged to a ZeroTier network, but don't worry about that here. It's
 just an example of special traffic.)
 
 Capability rule sets are limited to only 64 entries. The idea is to keep
@@ -221,16 +221,16 @@ members by member classification. They allow very detailed network
 micro-segmentation by member role, permission, function, etc. without
 resulting in a combinatorial explosion in rules table size.
 
-Let’s say we want to permit traffic on TCP ports 139 and 445
+Let's say we want to permit traffic on TCP ports 139 and 445
 (netbios/CIFS file sharing) only between systems that belong to the same
 department. Our company has 12,000 devices and 10 departments. Without
 tags this would require 144,000,000 rules, but with tags it can be
 accomplished by only a few.
 
-First a tag is created to represent the department. Let’s give it tag ID
+First a tag is created to represent the department. Let's give it tag ID
 100. Each member system receives the tag with a value from 1 to 10
 indicating which department it belongs to. We can then add the following
-rules to our network’s base rule set (or to a capability if so desired):
+rules to our network's base rule set (or to a capability if so desired):
 
 ```json
 [
@@ -286,14 +286,14 @@ practice, use `default 0` in your tag definitions.
 ### Rule Definition Language {#34ruledefinitionlanguageaname3_4a}
 
 Raw rule sets are verbose and difficult to write, so we created a
-minimal rule definition language that’s easier for human beings.
+minimal rule definition language that's easier for human beings.
 
 The parser for this language can be found in the [rule-compiler
 subfolder of the ZeroTierOne
 project](https://github.com/zerotier/ZeroTierOne/tree/master/rule-compiler)
 and as
 [zerotier-rule-compiler](https://www.npmjs.com/package/zerotier-rule-compiler)
-on NPM. It’s written in JavaScript and is the same code that powers the
+on NPM. It's written in JavaScript and is the same code that powers the
 in-browser editor in ZeroTier Central.
 
 ### An Introductory Example {#341anintroductoryexampleaname3_4_1a}
@@ -467,8 +467,8 @@ Central to make it easier to assign and search tags.
 | tor | <id\> <value\> | Tags ORed together equal value. |
 | txor | <id\> <value\> | Tags XORed together equal value. |
 | teq | <id\> <value\> | Both tags equal the same value. |
-| tseq | <id\> <value\> | Sending side’s tag equals this value. |
-| treq | <id\> <value\> | Receiving side’s tag equals this value. |
+| tseq | <id\> <value\> | Sending side's tag equals this value. |
+| treq | <id\> <value\> | Receiving side's tag equals this value. |
 
 Match conditions may be joined by **and** (default if none specified) or
 **or** and may be modified by **not**.
@@ -523,7 +523,7 @@ TCP packets with permitted destination ports:
     # Allow TCP port 80 (HTTP)
     accept ipprotocol tcp and dport 80;
 
-ZeroTier’s filter is stateless. If we block all TCP packets except those
+ZeroTier's filter is stateless. If we block all TCP packets except those
 with the correct destination port, this will prevent reply packets from
 returning to their senders.
 
@@ -538,7 +538,7 @@ connections cannot be opened unless they are permitted.
 
 ### Locking Down UDP {#352lockingdownudpaname3_5_2a}
 
-UDP is tougher to deal with in a stateless paradigm. It’s connectionless
+UDP is tougher to deal with in a stateless paradigm. It's connectionless
 so there is no way to specifically select a new session vs. an existing
 session. The best way to lock down UDP on a network is to use tags to
 allow it to and from things like DNS servers that need to speak it.
@@ -559,7 +559,7 @@ break ipprotocol udp;
 ```
 
 First we define a tag called `udpserver` with a default value of 0. We
-don’t set any enums or flags for this tag since it will be used as a
+don't set any enums or flags for this tag since it will be used as a
 boolean. For servers that need to respond to DNS queries, set the
 `udpserver` to `1`.
 
@@ -571,12 +571,12 @@ horizontal UDP traffic.
 
 ### Traffic Observation and Interception {#353trafficobservationandinterceptionaname3_5_3a}
 
-Here’s a simple rule to monitor everything:
+Here's a simple rule to monitor everything:
 
     # Send a copy of EVERY packet on both sender and receiver side to ZeroTier address "deadbeef11".
     tee -1 deadbeef11;
 
-That’s going to flood `deadbeef11` with two full copies of every single
+That's going to flood `deadbeef11` with two full copies of every single
 packet, since it will match on both the sender and the recipient side. A
 less bandwidth-intensive security monitor setup might look like this:
 
@@ -600,7 +600,7 @@ ten. The first 128 bytes of a packet will be enough to see the Ethernet
 and IP headers as well as layer 4+ information about many protocols.
 
 This would allow observers to watch every new TCP connection on the
-network and also passively monitor other traffic in a “fuzzy”
+network and also passively monitor other traffic in a "fuzzy"
 probabilistic fashion without using very much bandwidth. We split
 sending and receiving observers to prevent duplicate packets and also to
 allow us to detect cases where one side is failing to tee traffic more
@@ -668,7 +668,7 @@ follows:
       and tand clearance 0
     ;
 
-Initially members will be assigned a default classification of 0 (“no”).
+Initially members will be assigned a default classification of 0 ("no").
 These can freely communicate since the bitwise OR of their *classified*
 tags will be zero. Neither member possesses a classification
 requirement.

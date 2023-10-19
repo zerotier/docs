@@ -9,7 +9,7 @@ Check [the manual](./rules.md) for theory about how rules work.
 
 ### Client Isolation
 
-Do you have a couple server or admin nodes, but you don’t want members to be able to talk to each other?
+Do you have a couple server or admin nodes, but you don't want members to be able to talk to each other?
 
 ```sh
 tag server
@@ -23,7 +23,7 @@ break not tor server 1;
 
 # This is required because the default action is 'drop'.
 accept;
-See the "Tags Matrix" in the section below after saving the rules. Set your servers to “Yes”
+See the "Tags Matrix" in the section below after saving the rules. Set your servers to "Yes"
 ```
 
 ### Block all traffic on ZeroTier network
@@ -49,8 +49,8 @@ drop chr tcp_syn and not chr tcp_ack; # No new TCP connections (except RDP)
 accept; # Accept what's left, returning RDP traffic
 ```
 
-This is a common request, but we’re not sure this is best pattern for rules. See the manual and the other examples in the wiki.
+This is a common request, but we're not sure this is best pattern for rules. See the manual and the other examples in the wiki.
 
-In particular, this has the disadvantage of blocking RDP’s UDP mode.
+In particular, this has the disadvantage of blocking RDP's UDP mode.
 
 Locking down UDP

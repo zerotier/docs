@@ -34,7 +34,7 @@ No. Your traffic is end-to-end encrypted and your device's private identity keys
 The nodes are usually our infrastructure that your node needs to talk to in order to function. This includes things like: [Root servers](roots) and [Controllers](controller). Or possibly nodes from a previously joined network. The command `zerotier-cli peers` shows a list of nodes that your node knows about. Nodes can not talk to each other unless they are joined and authorized on the same network. Our root servers and controllers do not have access to you nodes' encryption keys and thus cannot decrypt your traffic.
 
 :::info How to identify a controller
-A controller is a ZeroTier node. The first 10 digits of a Network ID is the controller’s address.
+A controller is a ZeroTier node. The first 10 digits of a Network ID is the controller's address.
 :::
 
 ### What is error `NOT_FOUND`? {#notfound}
@@ -82,7 +82,7 @@ This error means that the ZeroTier background service on your computer is either
 
 ### Windows 10
 
-Open Task Manager and go to the “Services” tab. Scroll down until you see `ZeroTierOneService`. The status column should say `Running`. If it does not, right click on the line and click `Start`
+Open Task Manager and go to the "Services" tab. Scroll down until you see `ZeroTierOneService`. The status column should say `Running`. If it does not, right click on the line and click `Start`
 
 ### macOS
 
@@ -99,7 +99,7 @@ If your Linux distribution uses systemd, execute `sudo service zerotier-one star
 
 If not, execute `sudo /etc/init.d/zerotier-one start`
 
-### Still doesn’t work?
+### Still doesn't work?
 
 Your system firewall is likely blocking communication with the ZeroTier service. Look up instructions for how to unblock an application from the firewall for your OS.  ZeroTier will need to be accessible via TCP port 9993 for the UI and CLI to interact with it.
 

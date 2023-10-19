@@ -7,7 +7,7 @@ Professional subscriptions have a shared administration feature.
 
 ![Add User](./images/central-admin-01.png)
 
-Toward the bottom of a Network’s page. There is a section titled “Administrators”
+Toward the bottom of a Network's page. There is a section titled "Administrators"
 
 A user must be a member of your [Organization](./organizations.md) to become a Network Administrator.
 
