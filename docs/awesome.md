@@ -89,7 +89,7 @@ Click [here](/start/) to create your network and start adding devices.
 - [How To Connect Everything From Everywhere with ZeroTier](https://blog.fosketts.net/2022/01/14/how-to-connect-everything-from-everywhere-with-zerotier/)
 - [Multi-Cloud K3s, and also I got (temporarily) kicked off Google Cloud](https://www.danmanners.com/posts/2021-12-multi-cloud-k3s-and-booted-from-gcloud/)
 - [Network Modeling: Segmented Lab access with Containerlab and ZeroTier](https://stubarea51.net/2021/11/23/network-modeling-segmented-lab-access-with-containerlab-and-zerotier)
-- [Routing traffic to ZeroTier's subnet from all devices on the LAN](https://chrisatech.wordpress.com/2021/02/22/routing-traffic-to-zerotiers-subnet-from-all-devices-on-the-lan/)
+- [Routing traffic to ZeroTier's subnet from all devices on the LAN](https://chrisatech.wordpress.com/2021/02/22/routing-traffic-to-zerotiers-subnet-from-all-devices-on-the-lan/)
 
 #### Networking articles global
 
@@ -175,7 +175,7 @@ Click [here](/start/) to create your network and start adding devices.
 
 #### IoT videos global
 
-- [การเชื่อมต่อ VPN ให้กับ IOT2050 ด้วย ZeroTier](https://automation360blog.wordpress.com/2021/01/25/iot2050_zerotier/)
+- [การเชื่อมต่อ VPN ให้กับ IOT2050 ด้วย ZeroTier](https://automation360blog.wordpress.com/2021/01/25/iot2050_zerotier/)
 - [industry4.0 systems - ZeroTier para IoT](https://www.youtube.com/watch?v=xTaHqo5fUhU)
 - [Node-RED Cihazına ZeroTier ile Uzaktan Erişim](https://www.youtube.com/watch?v=T5iBesDyxCU)
 

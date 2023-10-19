@@ -12,7 +12,7 @@ sudo apt-get install stun
 sudo stun stun.callwithus.com 0
 ```
 
-This will perform the basic NAT characterization test from the STUN RFC. The STUN server can be any public STUN server.
+This will perform the basic NAT characterization test from the STUN RFC. The STUN server can be any public STUN server.
 
 It will generate output like:
 
