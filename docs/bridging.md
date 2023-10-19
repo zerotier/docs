@@ -13,7 +13,7 @@ This topic is related to but different from using ZeroTier as a Layer 5 [Service
 
 - You're doing this on your home network and can log in to your router and find the DHCP settings.
 - You have a keyboard, monitor, and ethernet cable plugged into your Pi. Chances are high we'll break networking and lose access to the Pi.
-- You're somewhat familiar with the command line, ssh.
+- You're somewhat familiar with the command line and ssh.
 - We're going to use systemd networking for this. You could probably adapt the concepts to a different Linux network configuration system if you have opinions about systemd.
 - We used a Raspberry Pi 2 while writing this, but a Pi 3 or 4 should work fine. Anything running a Debian 10+ based distro should be fine. It doesn't have to be a Raspberry Pi, but some of these instructions might be Raspbian specific.
 
@@ -129,7 +129,7 @@ Configure interfaces
 sudo zerotier-cli set $NETWORK_ID allowManaged=0
 ```
 
-Write Network Configuration files. Puts ethernet and zerotier into the bridge, configures the bridge with a static IP. See below for DHCP configuration on the bridge.
+Write Network Configuration files. Puts ethernet and zerotier into the bridge and configures the bridge with a static IP. See below for DHCP configuration on the bridge.
 
 ```sh
 cat << EOF | sudo tee /etc/systemd/network/25-bridge-br0.network
@@ -194,7 +194,7 @@ Hook up a keyboard and monitor and check with ip addr then edit `/etc/systemd/ne
 At `my.zerotier.com/network/$NETWORK_ID`->`Settings`->`Advanced`
 
 - Delete the default Managed Route. Add the new Managed Route `$ZT_ROUTE`
-- Change IPV4 Auto-Assign to Advanced,
+- Change IPV4 Auto-Assign to Advanced
 - Remove existing Pool. Create new Pool with start and end from `$ZT_POOL`
 - For documentation purposes, assign `$BR_ADDR` to the ZeroTier bridge member
 
