@@ -342,7 +342,7 @@ Here is a [tutorial by Microsoft](https://learn.microsoft.com/en-us/windows/secu
 
 <TabItem value="linux">
 
-- It's different on every flavor of linux. You'll have to search duckduckgo for "open terminal ubuntu" or similar.
+- It's different on every flavor of Linux. You'll have to search duckduckgo for "open terminal ubuntu" or similar.
 
 </TabItem>
 

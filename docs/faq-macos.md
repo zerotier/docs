@@ -48,7 +48,7 @@ If you're still having trouble, see: [Router Configuration Tips](./routertips.md
 
 ### Port Error {#port-error}
 
-On newer MacOS versions the user must explicitly authorize new extensions. PORT_ERROR on Mac is typically caused by the ZeroTier tun/tap driver failing to load.
+On newer macOS versions the user must explicitly authorize new extensions. PORT_ERROR on Mac is typically caused by the ZeroTier tun/tap driver failing to load.
 
 If you are having this problem (especially on High Sierra and newer) try visiting the "General" tab of the "Security & Privacy" system perferences dialog. There you will be able to approve new extensions. Approve any ZeroTier extensions and then try restarting the ZeroTier service by opening a terminal and typing:
 

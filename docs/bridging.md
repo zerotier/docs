@@ -3,7 +3,7 @@ title: Layer 2 Bridge
 description: Bridge your physical LAN to ZeroTier using a Raspberry Pi
 ---
 
-Do you have devices that can't run ZeroTier that you want to access remotely? You can use a small linux PC as a bridge between ZeroTier and physical networks.
+Do you have devices that can't run ZeroTier that you want to access remotely? You can use a small Linux PC as a bridge between ZeroTier and physical networks.
 
 :::info Note
 This topic is related to but different from using ZeroTier as a Layer 5 [Service Proxy](proxy).
@@ -14,8 +14,8 @@ This topic is related to but different from using ZeroTier as a Layer 5 [Service
 - You're doing this on your home network and can log in to your router and find the DHCP settings.
 - You have a keyboard, monitor, and ethernet cable plugged into your Pi. Chances are high we'll break networking and lose access to the Pi.
 - You're somewhat familiar with the command line, ssh.
-- We're going to use systemd networking for this. You could probably adapt the concepts to a different linux network configuration system if you have opinions about systemd.
-- We used a raspberry Pi 2 while writing this, but a Pi 3 or 4 should work fine. Anything running a Debian 10+ based distro should be fine. It doesn't have to be a Raspberry Pi, but some of these instructions might be raspbian specific.
+- We're going to use systemd networking for this. You could probably adapt the concepts to a different Linux network configuration system if you have opinions about systemd.
+- We used a Raspberry Pi 2 while writing this, but a Pi 3 or 4 should work fine. Anything running a Debian 10+ based distro should be fine. It doesn't have to be a Raspberry Pi, but some of these instructions might be Raspbian specific.
 
 ### What you'll need
 
@@ -183,7 +183,7 @@ You should be able to, from the physical LAN, connect to the Pi via `$BR_ADDR`
 
 ### If it takes a long time waiting for the network during boot
 
-Sometimes the physical interface turns out to be a long "predicatable interface name" like: "enb827eb0d4176", sometimes it's just `eth0`, depending on raspbian version(???).
+Sometimes the physical interface turns out to be a long "predicatable interface name" like: "enb827eb0d4176", sometimes it's just `eth0`, depending on Raspbian version(???).
 
 <https://wiki.debian.org/NetworkConfiguration#Network_Interface_Names>
 

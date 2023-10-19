@@ -21,7 +21,7 @@ The firewall is not enabled by default on macOS, and thus pings will not be bloc
 
 ### Linux
 
-There are far too many linux distributions out there to list instructions for all of them here.  Please refer to your distribution's documentation for how to unblock ICMP packets.
+There are far too many Linux distributions out there to list instructions for all of them here.  Please refer to your distribution's documentation for how to unblock ICMP packets.
 
 :::info Get Started
 Click [here](/start/) to create your network and start adding devices.

@@ -23,7 +23,7 @@ This means:
 ## Technical Prerequisites
 
 This Quickstart was written using two machines - one Ubuntu virtual
-machine on Digital Ocean, and one OSX laptop on a residential ISP. To
+machine on Digital Ocean, and one macOS laptop on a residential ISP. To
 follow along step by step, you'll need to provision equivalent
 infrastructure. If you use different platforms, you should be able to
 figure out what to do with minimal effort.
@@ -179,7 +179,7 @@ dig +short @172.22.245.70 server.beyond.corp
 172.22.245.70
 ```
 
-The OSX laptop can be queried with:
+The macOS laptop can be queried with:
 
 ```sh
 dig +short @172.22.245.70 zt-eff05def90.beyond.corp
@@ -203,9 +203,9 @@ dig +short @172.22.245.70 example.com
 93.184.216.34
 ```
 
-## OSX
+## macOS
 
-OSX uses `dns-sd` for DNS resolution. Unfortunately, `nslookup`,`host`, and `dig` are broken on OSX.
+macOS uses `dns-sd` for DNS resolution. Unfortunately, `nslookup`,`host`, and `dig` are broken on macOS.
 `ping` works.
 
 ```sh
@@ -223,7 +223,7 @@ The Ubuntu machine can be queried with
 `dns-sd -G v4 server.beyond.corp`
 `dns-sd -G v4 zt-3513e8b98d.beyond.corp`
 
-The OSX machine be queried with
+The macOS machine be queried with
 
 `dns-sd -G v4 laptop.beyond.corp`
 `dns-sd -G v4 zt-eff05def90.beyond.corp`

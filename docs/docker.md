@@ -44,7 +44,7 @@ Then, while inside the container we install ZeroTier:
 *** ZeroTier One Quick Install for Unix-like Systems
 
 *** Supported targets for this script:
-***    MacOS (10.7+) on x86_64 (just installs ZeroTier One.pkg)
+***    macOS (10.7+) on x86_64 (just installs ZeroTier One.pkg)
 ***    Linux / Debian (wheezy or newer) on i386, x86_64, and armhf (Raspbian/jessie only)
 ***    Linux / Ubuntu (trusty or newer) on i386 and x86_64
 ***    Linux / SuSE (12+) on i386 and x86_64
