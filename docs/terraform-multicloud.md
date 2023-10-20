@@ -19,7 +19,7 @@ This quickstart tutorial creates a lab environment for using ZeroTier
 in combination with multiple Terraform cloud providers. If you're a
 ZeroTier user that's new to Terraform, You might be looking for the [Terraform Quickstart](https://docs.zerotier.com/terraform/quickstart) instead.
 
-If you're a Terraform user that's new to ZeroTier, you're in the right place. Make yourself a coffee a and buckle up.
+If you're a Terraform user that's new to ZeroTier, you're in the right place. Make yourself a coffee and and buckle up.
 
 ## Prerequisites
 

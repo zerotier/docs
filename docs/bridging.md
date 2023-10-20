@@ -15,7 +15,7 @@ This topic is related to but different from using ZeroTier as a Layer 5 [Service
 - You have a keyboard, monitor, and ethernet cable plugged into your Pi. Chances are high we'll break networking and lose access to the Pi.
 - You're somewhat familiar with the command line, ssh.
 - We're going to use systemd networking for this. You could probably adapt the concepts to a different linux network configuration system if you have opinions about systemd.
-- We used a raspberry Pi 2 while writing this, but a Pi 3 or 4 should work fine. Anything running a Debian 10+ based distro should be fine. It doesn't have a be a Raspberry Pi, but some of these instructions might be raspbian specific.
+- We used a raspberry Pi 2 while writing this, but a Pi 3 or 4 should work fine. Anything running a Debian 10+ based distro should be fine. It doesn't have to be a Raspberry Pi, but some of these instructions might be raspbian specific.
 
 ### What you'll need
 
@@ -198,7 +198,9 @@ At `my.zerotier.com/network/$NETWORK_ID`->`Settings`->`Advanced`
 - Remove existing Pool. Create new Pool with start and end from `$ZT_POOL`
 - For documentation purposes, assign `$BR_ADDR` to the ZeroTier bridge member
 
-### It should be working now. Next steps
+It should be working now.
+
+### Next steps
 
 Either it worked, and you can ssh back in to `$BR_ADDR` after a minute, or it didn't work and the Pi isn't on the network anymore and you need to use the keyboard and monitor to figure out what went wrong.
 
@@ -230,7 +232,7 @@ See: <https://serverfault.com/questions/162366/iptables-bridge-and-forward-chain
 
 #### Why is the Managed Route /23 and the LAN subnet /24?
 
-Say you have a laptop that is on the ZeroTier network and you bring it home. Now it's WiFi address and ZeroTier address are in the same subnet. Which interface/address should your laptop use for internet access? <https://en.wikipedia.org/wiki/Longest_prefix_match>
+Say you have a laptop that is on the ZeroTier network and you bring it home. Now its WiFi address and ZeroTier address are in the same subnet. Which interface/address should your laptop use for internet access? <https://en.wikipedia.org/wiki/Longest_prefix_match>
 
 ### Why is an app on my phone not working over ZeroTier?
 
