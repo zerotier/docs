@@ -42,7 +42,7 @@ they're commonly used on firewalls and routers, etc. While the rules
 engine is part of VL2, it's been given its own section in this manual
 due to the depth and cross-cutting nature of the topic.
 
-### Rule Sets and Rule Evaluation
+### Rule Sets and Rule Evaluation {#31rulesetsandruleevaluationaname3_1a}
 
 Rule sets are ordered lists of one or more rules, with each rule
 consisting of one or more **match** conditions followed by one
@@ -105,8 +105,7 @@ system.
 ### Actions and Match Conditions {#311actionsandmatchconditionsaname3_1_1a}
 
 These are the available matches and actions in raw form. The rule
-definition language outlined in [section
-3.4](https://www.zerotier.com/manual.shtml#3_4) provides a friendlier
+definition language outlined in [Rule Definition Language](#34ruledefinitionlanguageaname3_4a) provides a friendlier
 way for human beings to specify rules.
 
 | Action | Argument(s) | Description |
@@ -361,7 +360,7 @@ allowed only between computers in the same department by way of a tag. A
 super-user capability that can be assigned to administrative nodes
 allows the sender to initiate any kind of connection.
 
-See [section 3.5.1](https://www.zerotier.com/manual.shtml#3_5_1) for a
+See [TCP Whitelisting](#351tcpwhitelistinganame3_5_1a) for a
 discussion of how we accomplish TCP whitelisting here.
 
 ### Rule Definition Language Syntax {#342ruledefinitionlanguagesyntaxaname3_4_2a}
@@ -404,8 +403,8 @@ White space separates things. Indentation is not significant. Hash
 symbols indicate that the remainder of a line is a comment.
 
 As described in sections
-[3.1](https://www.zerotier.com/manual.shtml#3_1) through
-[3.3](https://www.zerotier.com/manual.shtml#3_3), a rule set is composed
+[Rule Sets and Rule Evaluation](#31rulesetsandruleevaluationaname3_1a) through
+[Tags](#33tagsaname3_3a), a rule set is composed
 of one or more sequences of *match,[match],…,action* in which the action
 is taken if the chain of matches evaluates to *true*. Capabilities are
 small bundles of rules that can be assigned to nodes to give them
