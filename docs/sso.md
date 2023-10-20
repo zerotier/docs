@@ -26,6 +26,7 @@ You can configure multiple OIDC clients for your organization, but only one may 
 ### Configure SSO on individual networks
 
 If you enable this on an existing network, you may accidentally block existing users. Please practice on a test network.
+
 ![SSO-Network-Enable](./images/sso-network-enable-01.png)
 
 There are three login modes for SSO enabled networks:

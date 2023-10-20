@@ -137,7 +137,7 @@ curl "http://localhost:9993/controller/network/${NWID}" -H "X-ZT1-AUTH: ${TOKEN}
 
 ### List Network Members
 
-You'll need another node join your network first, or this will be empty.
+You'll need another node to join your network first, or this will be empty.
 You can use a phone, or another PC, or a VM, or a VPS...
 
 ```sh
@@ -160,7 +160,7 @@ curl "http://localhost:9993/controller/network/${NWID}/member/${MEMID}" -H "X-ZT
 
 ### Configure the Network
 
-For Nodes can talk, we need to add a Managed Route and IP Auto-Assign Range on the network.
+For Nodes to talk, we need to add a Managed Route and IP Auto-Assign Range on the network.
 Let's make it a Private network too. Prefer Private networks.
 
 ```sh

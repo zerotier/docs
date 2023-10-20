@@ -44,7 +44,7 @@ Open Terminal.app and execute the following commands
 
 ### Linux
 
-If your Linux distribution used systemd, execute:
+If your Linux distribution uses systemd, execute:
 
     sudo service zerotier-one start
 

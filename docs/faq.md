@@ -137,14 +137,17 @@ If you would like to clear or reset ZeroTier's address on a device (the 10-digit
 
 - On Windows this is done with the service manager. (Open the Start Menu and start typing "service")
 
+##### On Mac
+
 On Mac you can open a terminal and use
-Stop Mac Service
 
 ```sh
 sudo launchctl unload /Library/LaunchDaemons/com.zerotier.one.plist
 ```
 
-##### On Linux this is usually
+##### On Linux
+
+This is usually
 
 ```sh
 sudo systemctl stop zerotier-one

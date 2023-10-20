@@ -27,12 +27,11 @@ You've deleted a member from your network, possibly by accident, and you want to
 
 ![Manually add member](./images/central-hide-nodes-02.png)
 
-If you've lost Node ID, it can be viewed on the device -in the ZeroTier app.
+If you've lost your Node ID, it can be viewed on the device in the ZeroTier app.
 
 Delete should only be used if the node will never join again. Just de-authorize them instead if you don't want them counted against your node limits.
-If you don't see the Delete and Hide Buttons
 
-You have likely turned off your network's access control by setting it  to Public.
+If you don't see the Delete and Hide Buttons, you have likely turned off your network's access control by setting it to Public.
 
 Public networks have no access control. If you deleted or de-authorized a member it would reappear within a few seconds.
 

@@ -22,8 +22,8 @@ This can be caused by the time being wrong on your computer or phone.
 Use the Password Reset flow. Click "forgot password" on the login screen.
 
 :::info Historical
-If you have not logged in to your account since 2019
-Accounts were migrated to a new system in 2019. Your networks are still there!
+If you have not logged in to your account since 2019,
+accounts were migrated to a new system in 2019. Your networks are still there!
 
 Please try to create an account with the same email address you used before.
 :::
