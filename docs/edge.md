@@ -4,7 +4,7 @@ description: Run ZeroTier on the edge
 ---
 
 :::caution End-of-Life
-The ZeroTier Edge was sold as a pre-configured self-contained device, that allowed you to plug physical devices into virtual networks and bridge physical networks at multiple sites with ease. As of 2020, it is End-of-Life. A source code repository of the code running on it can be found here: <https://github.com/zerotier/edge>; it ran on ESPRESSObin v5 hardware.
+The ZeroTier Edge was sold as a pre-configured self-contained device, that allowed you to plug physical devices into virtual networks and bridge physical networks at multiple sites with ease. As of 2020, it is End-of-Life. A source code repository of the code running on it can be found here: <https://github.com/zerotier/edge>; it ran on ESPRESSObin v5 hardware.
 
 The information below applies to any devices still in the field.
 :::
@@ -13,7 +13,7 @@ The information below applies to any devices still in the field.
 
 Each ZeroTier Edge is initialized with a factory default ZeroTier identity. This identity (which doubles as a serial number) is printed above the power connector. Coupled with ZeroTier's ad-hoc networking capability this provides an easy way to reach the device for initial configuration.
 
-Each Edge device joins the IPv6-unicast-only "ad-hoc" ZeroTier network `ff001601bb000000` and can be reached through this network by joining it from any PC or mobile device and then navigating to your device's unique IPv6 virtual address.
+Each Edge device joins the IPv6-unicast-only "ad-hoc" ZeroTier network `ff001601bb000000` and can be reached through this network by joining it from any PC or mobile device and then navigating to your device's unique IPv6 virtual address.
 
 #### Your device can be reached at
 
@@ -23,7 +23,7 @@ Each Edge device joins the IPv6-unicast-only "ad-hoc" ZeroTier network `ff00160
 |HTTP|`http://[fc44:16:1##:####:####::1]/`|
 |SSH|`loginid@fc44:16:1##:####:####::1`|
 
-These addresses will not work if the device cannot reach the Internet. In this case, it can still be accessed by directly connecting a PC or other device to the third (`phy2`) Ethernet port and configuring your system to use the static IP address `100.64.99.94` with netmask `255.255.255.252` (`/30`). The Edge can now be reached via http and ssh at `100.64.99.93`. This IP is always available on the `phy2` port for emergency recovery if you become locked out of the device or it's configured in a way that breaks Internet connectivity.
+These addresses will not work if the device cannot reach the Internet. In this case, it can still be accessed by directly connecting a PC or other device to the third (`phy2`) Ethernet port and configuring your system to use the static IP address `100.64.99.94` with netmask `255.255.255.252` (`/30`). The Edge can now be reached via http and ssh at `100.64.99.93`. This IP is always available on the `phy2` port for emergency recovery if you become locked out of the device or it's configured in a way that breaks Internet connectivity.
 
 ### Quick Start Guide
 
@@ -37,7 +37,7 @@ These addresses will not work if the device cannot reach the Internet. In this c
 
 :::info IMPORTANT!
 
-The Edge device itself must be designated as an Ethernet bridge on all ZeroTier virtual networks you wish to bridge to physical ports. This must be done via ZeroTier Central, or if you are running your own network controller by setting the "activeBridge" field to "true" in the Edge's network member record. If the Edge is not authorized to act as a bridge it will not be permitted to forward Ethernet packets to and from devices other than itself.
+The Edge device itself must be designated as an Ethernet bridge on all ZeroTier virtual networks you wish to bridge to physical ports. This must be done via ZeroTier Central, or if you are running your own network controller by setting the "activeBridge" field to "true" in the Edge's network member record. If the Edge is not authorized to act as a bridge it will not be permitted to forward Ethernet packets to and from devices other than itself.
 
 It's also important to understand bridging. A virtual bridge is exactly like a physical Ethernet cable stretching from point A to point B. Devices on either side will only be able to see one another at the TCP/IP level if they occupy the same IP range(s) or are given routing table entries indicating that they should access bridged IP ranges via the local LAN. This can typically be done by configuring local DHCP servers at each site to hand out appropriate routing information.
 :::
@@ -46,7 +46,7 @@ It's also important to understand bridging. A virtual bridge is exactly like a p
 
 Connect the Edge's `phy0` port directly to the Internet (leave its configuration set to defaults) and enter a ZeroTier virtual network for port phy1. Ensure that the checkboxes instructing the Edge to block DHCP, etc., remain unchecked so that DHCP and other auto-configuration packets will be carried across the bridge. Also, ensure that the port is not configured to itself obtain DHCP addresses and act as an uplink port.
 
-Configure the wireless port for AP mode and enter the same ZeroTier virtual network ID there to allow direct wireless access to the virtual network.  This configuration is typically used in cases when you want to route all traffic through the bridge to a gateway in the cloud. It's common to set up a cloud node to act as an Internet router and provide DHCP, DHCP6, IPv6-RA, DNS, and other services in this case. Multiple locations, remote users, etc. could all share the same cloud gateway to simultaneously provide enhanced security, privacy, SDWAN, and VPN functionality.
+Configure the wireless port for AP mode and enter the same ZeroTier virtual network ID there to allow direct wireless access to the virtual network. This configuration is typically used in cases when you want to route all traffic through the bridge to a gateway in the cloud. It's common to set up a cloud node to act as an Internet router and provide DHCP, DHCP6, IPv6-RA, DNS, and other services in this case. Multiple locations, remote users, etc. could all share the same cloud gateway to simultaneously provide enhanced security, privacy, SDWAN, and VPN functionality.
 
 #### 2. Single Port "Magic Bridge"
 
@@ -58,7 +58,7 @@ This configuration is common when users want to provide remote access (replacing
 
 #### 3. Using Multiple Internet Connections
 
-Multiple Internet connections can be used by simply connecting secondary connections to the Edge's other Ethernet ports and configuring these ports to obtain addresses via DHCP, DHCP6, etc. Multiple connections can be used with either configuration scenario above. For the second  "magic bridge" scenario, configure the first port as instructed and then connect secondary or "back-up" Internet connections to the remaining ports. These would only be used for ZeroTier bridge traffic in this case.
+Multiple Internet connections can be used by simply connecting secondary connections to the Edge's other Ethernet ports and configuring these ports to obtain addresses via DHCP, DHCP6, etc. Multiple connections can be used with either configuration scenario above. For the second "magic bridge" scenario, configure the first port as instructed and then connect secondary or "back-up" Internet connections to the remaining ports. These would only be used for ZeroTier bridge traffic in this case.
 
 #### 4. Multiple Internet Connections on One Port (Advanced)
 
