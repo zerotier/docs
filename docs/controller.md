@@ -63,7 +63,7 @@ TOKEN=$(sudo cat "/Library/Application Support/ZeroTier/One/authtoken.secret")
     \ProgramData\ZeroTier\One\authtoken.secret
     </code>
     <div>
-    But I'm not sure how environment variables work in Windows. Maybe you can use the linux subsystem thing and just follow the linux instructions?
+    But I'm not sure how environment variables work in Windows. Maybe you can use the Linux subsystem thing and just follow the Linux instructions?
     </div>
 </TabItem>
 </Tabs>

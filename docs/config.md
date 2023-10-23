@@ -37,7 +37,7 @@ The ZeroTier One service keeps its configuration and state information
 in its working directory. The working directory location is:
 
 - Windows: `C:\ProgramData\ZeroTier\One`
-- Macintosh: `/Library/Application Support/ZeroTier/One`
+- macOS: `/Library/Application Support/ZeroTier/One`
 - Linux: `/var/lib/zerotier-one`
 - FreeBSD/OpenBSD: `/var/db/zerotier-one`
 
@@ -75,8 +75,8 @@ ZeroTier will use these settings when it starts. If you change these settings fr
 
 Some user specific settings may be stored in the user's path:
 
-- `C:\Users\<User>\AppData\Local\ZeroTier` (windows)
-- `~/Library/Application\ Support/ZeroTier` (mac)
+- `C:\Users\<User>\AppData\Local\ZeroTier` (Windows)
+- `~/Library/Application\ Support/ZeroTier` (macOS)
 
 ## Local Configuration Options
 
@@ -171,7 +171,7 @@ The token is called `authtoken.secret` and it is stored in the ZeroTier working 
 
 The user's copy of `authtoken.secret` is in:
 
-- `C:\Users\<User>\AppData\Local\ZeroTier` (windows)
-- `~/Library/Application\ Support/ZeroTier` (mac)
+- `C:\Users\<User>\AppData\Local\ZeroTier` (Windows)
+- `~/Library/Application\ Support/ZeroTier` (macOS)
 
 If you don't want a user to control ZeroTier, don't give them this file and don't give them access to the working directory.

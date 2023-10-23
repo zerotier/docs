@@ -7,7 +7,7 @@ When you leave a network, your device won't talk to devices on that network.
 
 ### macOS and Windows
 
-The MacOS and Windows UIs have two ways to leave networks:
+The macOS and Windows UIs have two ways to leave networks:
 
 - Opening the main menu shows all connected networks with a checkmark next to it. Simply click the network you wish to leave. (Clicking an unchecked network will re-join the network).
 - Click the Network Details menu item. This will bring up details of all networks known to the client. Uncheck the Connected checkbox of the network you wish to leave.

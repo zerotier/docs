@@ -11,7 +11,7 @@ This still doesn't let you simply address hosts by their name as configured at t
 In the mean time, have a look at [GitHub - zerotier/zeronsd: A DNS server for ZeroTier users](https://github.com/zerotier/zeronsd), a DNS server for your [ZeroTier Central](https://my.zerotier.com) networks.
 :::
 
-ZeroTier managed DNS is currently only supported on Windows, MacOS, Android, and iOS. Linux support is forthcoming but may be limited to common Linux DNS resolver configurations such as those found in Debian and CentOS/RHEL.
+ZeroTier managed DNS is currently only supported on Windows, macOS, Android, and iOS. Linux support is forthcoming but may be limited to common Linux DNS resolver configurations such as those found in Debian and CentOS/RHEL.
 
 Configuration is done at the [my.zerotier.com](https://my.zerotier.com) network settings:
 

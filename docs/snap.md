@@ -23,7 +23,7 @@ By default Snap will install packages from the `stable` channel. You can optiona
 snap install zerotier --channel=latest/beta
 ```
 
-- `edge`, `beta` and `candidate` will immediately track each new tagged version
+- `edge`, `beta`, and `candidate` will immediately track each new tagged version
 - `stable` will only track versions that have been out for some time without known issues.
 
 ## Troubleshooting
