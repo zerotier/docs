@@ -1,5 +1,5 @@
 ---
-title: Create Network
+title: Create a Network
 description: Get Started
 ---
 
