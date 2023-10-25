@@ -1,4 +1,4 @@
- module.exports = {
+module.exports = {
   docsSidebar: [
     {
       type: 'category',
@@ -31,7 +31,7 @@
         description: 'Our hosted offering for managing your networks.',
         slug: '/central',
       },
-      items: ['start', 'faq-central', 'sso', 'sso-add-seats', 'authentication', 'organizations', 'central-admins', 'pricing', 'central-billing', 'central-hide-nodes'],
+      items: ['start', 'faq-central', 'sso', 'sso-add-seats', 'authentication', 'organizations', 'central-admins', 'pricing', 'central-billing', 'central-hide-nodes', 'webhooks'],
     },
     {
       type: 'category',
