@@ -102,5 +102,7 @@ func main() {
 
 ```
 
+NOTE:  A more complete example of verification & processing hooks can be found [here](https://github.com/zerotier/ztchooks/blob/main/example/hook-catcher.go).
+
 It is possible to have multiple signing secrets.  Hooks will be signed with all secrets, and the verification method provided by the `ztchooks` library does take this into account automatically.
 
