@@ -60,7 +60,7 @@ The rest of the fields vary by `hook_type`.  Full definitions of all of the fiel
 
 ## Web Hook Security
 
-In order enhance security, and to prevent replay attacks, we have implemented a hook signing algorithm so you can verify each hook request as you receive it.  We have also provided a [Go Library](https://github.com/zerotier/ztchooks) and a [TypeScript Library](https://github.com/zerotier/ztchooks/tree/main/typescript) for your use in verifying incoming webhooks.
+In order enhance security, and to prevent replay attacks, we have implemented a hook signing algorithm so you can verify each hook request as you receive it.  We have also provided a [Go Library](https://github.com/zerotier/ztchooks) and a [TypeScript Library](https://github.com/zerotier/ztchooks-ts) for your use in verifying incoming webhooks.
 
 First you must create a Webhook Signing Secret from your [account page](https://my.zerotier.com/account).
 
