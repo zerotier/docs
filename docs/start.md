@@ -295,7 +295,9 @@ This is a command line program, but don't worry: You can do it.
 
 ### Gotcha: Windows blocks ping
 
-Windows by default doesn't respond to pings. If you try to ping a Windows computer from a different computer, it won't work. You can enable ping.
+~~Windows by default doesn't respond to pings. If you try to ping a Windows computer from a different computer, it won't work. You can enable ping.~~
+
+ZeroTier automatically enables ping on your ZeroTier network adapter now. You can probably skip this step!
 
 <details>
 <summary>How to enable ping on Windows</summary>
