@@ -1,108 +1,102 @@
 ---
-kind: pipeline
-type: docker
-name: docs.zerotier.com
+kind: secret
+name: aws_access_key_id
+get:
+  path: secret/data/docs-buildcache
+  name: aws_access_key_id
 
-platform:
-  arch: amd64
-  os: linux
+---
+kind: secret
+name: aws_secret_access_key
+get:
+  path: secret/data/docs-buildcache
+  name: aws_secret_access_key
 
-clone:
-  depth: 1
-
-steps:
-  - name: build
-    image: 084037375216.dkr.ecr.us-east-2.amazonaws.com/central-builder
-    commands:
-      - echo $${DOCKER_PASSWORD} | docker login --username $${DOCKER_LOGIN} --password-stdin registry.zerotier.com
-      - make docker
-      - docker push $${DOCKER_REGISTRY}/zerotier/docs.zerotier.com:drone-${DRONE_BUILD_NUMBER}
-    environment:
-      DOCKER_LOGIN:
-        from_secret: docker-registry-login
-      DOCKER_PASSWORD:
-        from_secret: docker-registry-password
-      DOCKER_REGISTRY:
-        from_secret: docker-registry-host
-  - name: deploy-to-docs-dev
-    image: 084037375216.dkr.ecr.us-east-2.amazonaws.com/central-builder
-    depends_on:
-      - build
-    commands:
-      - echo $${GCP_CREDENTIALS} > /tmp/gcp.json
-      - gcloud auth activate-service-account drone-ci@zerotier-central.iam.gserviceaccount.com --key-file /tmp/gcp.json --project $${GCP_PROJECT}
-      - gcloud --project $${GCP_PROJECT} container clusters get-credentials $${CLUSTER_NAME} --region $${GCP_REGION}
-      - kubectl -n dev set image deployment docs-dev-zerotier-com docs-zerotier-com=$${DOCKER_REGISTRY}/zerotier/docs.zerotier.com:drone-${DRONE_BUILD_NUMBER}
-    environment:
-      GCP_CREDENTIALS:
-        from_secret: gcp-k8s-creds
-      USE_GKE_GCLOUD_AUTH_PLUGIN: "True"
-      GCP_PROJECT:
-        from_secret: gcp-project
-      GCP_REGION:
-        from_secret: gcp-region
-      CLUSTER_NAME:
-        from_secret: cluster-name
-      GKE_DEPLOYMENT_NAME:
-        from_secret: gke-deployment-name
-      DOCKER_REGISTRY:
-        from_secret: docker-registry-host
-    when:
-      branch:
-        - main
-  - name: notify-mattermost-build-failure
-    pull: always
-    image: 084037375216.dkr.ecr.us-east-2.amazonaws.com/mattermost-notify
-    depends_on:
-      - build
-    environment:
-      token:
-        from_secret: mattermost-token
-      host:
-        from_secret: mattermost-host
-      channel:
-        from_secret: mattermost-channel
-      maxRetry: 3
-    when:
-      status:
-        - failure
-  - name: notify-mattermost-deploy-failure
-    pull: always
-    image: 084037375216.dkr.ecr.us-east-2.amazonaws.com/mattermost-notify
-    depends_on:
-      - deploy-to-docs-dev
-    environment:
-      token:
-        from_secret: mattermost-token
-      host:
-        from_secret: mattermost-host
-      channel:
-        from_secret: mattermost-channel
-      maxRetry: 3
-    when:
-      status:
-        - failure
-trigger:
-  event:
-    - push
-    - pull_request
-    - tag
 ---
 kind: pipeline
 type: docker
-name: deploy-docs
+name: build
 concurrency:
   limit: 1
+
 steps:
-  - name: deploy-to-production
-    image: 084037375216.dkr.ecr.us-east-2.amazonaws.com/central-builder
-    commands:
-      - echo $${GCP_CREDENTIALS} > /tmp/gcp.json
-      - gcloud auth activate-service-account drone-ci@zerotier-central.iam.gserviceaccount.com --key-file /tmp/gcp.json --project $${GCP_PROJECT}
-      - gcloud --project $${GCP_PROJECT} container clusters get-credentials $${CLUSTER_NAME} --region $${GCP_REGION}
-      - kubectl set image deployment docs-zerotier-com docs-zerotier-com=$${DOCKER_REGISTRY}/zerotier/docs.zerotier.com:drone-${DRONE_BUILD_PARENT}
+
+  - name: restore cache
+    image: meltwater/drone-cache
     environment:
-      GCP_CREDENTIALS:
+      AWS_ACCESS_KEY_ID:
+        from_secret: aws_access_key_id
+      AWS_SECRET_ACCESS_KEY:
+        from_secret: aws_secret_access_key
+    pull: always
+    settings:
+      restore: true
+      cache_key: 'yarn-{{ checksum "yarn.lock" }}'
+      bucket: docs-buildcache
+      endpoint: https://s3.amazonaws.com
+      region: us-east-2
+      mount:
+        - '.yarn'
+        - 'node_modules'
+        - '.cache'
+        - 'public'
+
+  - name: yarn build
+    pull: always
+    image: 084037375216.dkr.ecr.us-east-2.amazonaws.com/yarn-builder
+    environment:
+      STRAPI_API_URL:
+        from_secret: strapi-api-url
+      STRAPI_TOKEN:
+        from_secret: strapi-token
+      STRAPI_API_URL:
+        from_secret: strapi-api-url
+      STRAPI_TOKEN:
+        from_secret: strapi-token
+    commands:
+      - echo "STRAPI_API_URL = $${STRAPI_API_URL}\nSTRAPI_TOKEN = $${STRAPI_TOKEN}" > .env.production
+      - yarn config get cacheFolder
+      - yarn plugin import workspace-tools
+      - yarn workspaces focus --all --production
+      - yarn build
+
+  - name: rebuild cache
+    image: meltwater/drone-cache
+    pull: always
+    environment:
+      AWS_ACCESS_KEY_ID:
+        from_secret: aws_access_key_id
+      AWS_SECRET_ACCESS_KEY:
+        from_secret: aws_secret_access_key
+    settings:
+      rebuild: true
+      cache_key: 'yarn-{{ checksum "yarn.lock" }}'
+      bucket: docs-buildcache
+      endpoint: https://s3.amazonaws.com
+      region: us-east-2
+      mount:
+        - '.yarn'
+        - 'node_modules'
+        - '.cache'
+        - 'public'
+
+  - name: build container
+    pull: always
+    image: 084037375216.dkr.ecr.us-east-2.amazonaws.com/central-builder    
+    environment:
+    commands:
+      - |-
+        docker build -t registry.zerotier.com/zerotier/marketing-site:${DRONE_BUILD_NUMBER} --build-arg BUILD_NUM=${DRONE_BUILD_NUMBER} -f Dockerfile.ci .
+
+  - name: publish container
+    pull: always
+    image: 084037375216.dkr.ecr.us-east-2.amazonaws.com/yarn-builder
+    environment:
+      PRIVATE_REGISTRY_LOGIN:
+        from_secret: docker-registry-login
+      PRIVATE_REGISTRY_PASSWORD:
+        from_secret: docker-registry-password
+      GCP_CREDS:
         from_secret: gcp-k8s-creds
       USE_GKE_GCLOUD_AUTH_PLUGIN: "True"
       GCP_PROJECT:
@@ -111,10 +105,99 @@ steps:
         from_secret: gcp-region
       CLUSTER_NAME:
         from_secret: cluster-name
-      GKE_DEPLOYMENT_NAME:
-        from_secret: gke-deployment-name
-      DOCKER_REGISTRY:
-        from_secret: docker-registry-host
+    commands:
+      - |-
+        echo $${PRIVATE_REGISTRY_PASSWORD} | docker login --username $${PRIVATE_REGISTRY_LOGIN} --password-stdin registry.zerotier.com
+        docker push registry.zerotier.com/zerotier/marketing-site:${DRONE_BUILD_NUMBER}
+
+trigger:
+  event:
+    - custom
+    - push
+
+---
+kind: pipeline
+type: docker
+name: Deploy to dev
+concurrency:
+  limit: 1
+depends_on:
+- build
+
+platform:
+  arch: arm64
+  os: linux
+
+steps:
+  - name: kubectl
+    pull: always
+    image: 084037375216.dkr.ecr.us-east-2.amazonaws.com/central-builder
+    environment:
+      PRIVATE_REGISTRY_LOGIN:
+        from_secret: docker-registry-login
+      PRIVATE_REGISTRY_PASSWORD:
+        from_secret: docker-registry-password
+      GCP_CREDS:
+        from_secret: gcp-k8s-creds
+      USE_GKE_GCLOUD_AUTH_PLUGIN: "True"
+      GCP_PROJECT:
+        from_secret: gcp-project
+      GCP_REGION:
+        from_secret: gcp-region
+      CLUSTER_NAME:
+        from_secret: cluster-name
+    commands:
+      - |-
+        echo $${GCP_CREDS} > /tmp/gcp.json
+        gcloud auth activate-service-account drone-ci@zerotier-central.iam.gserviceaccount.com --key-file /tmp/gcp.json --project zerotier-central
+        gcloud --project zerotier-central container clusters get-credentials ztc-controller-us-central --region us-central1
+        kubectl -n dev set image deployment docs-dev-zerotier-com docs-zerotier-com=$${DOCKER_REGISTRY}/zerotier/docs.zerotier.com:drone-${DRONE_BUILD_NUMBER}
+
+trigger:
+  # branch:
+  #   - main
+  event:
+    - custom
+    - push
+
+---
+kind: pipeline
+type: docker
+name: Deploy to production
+concurrency:
+  limit: 1
+depends_on:
+- build
+
+platform:
+  arch: arm64
+  os: linux
+
+steps:
+  - name: kubectl
+    pull: always
+    image: 084037375216.dkr.ecr.us-east-2.amazonaws.com/central-builder
+    environment:
+      PRIVATE_REGISTRY_LOGIN:
+        from_secret: docker-registry-login
+      PRIVATE_REGISTRY_PASSWORD:
+        from_secret: docker-registry-password
+      GCP_CREDS:
+        from_secret: gcp-k8s-creds
+      USE_GKE_GCLOUD_AUTH_PLUGIN: "True"
+      GCP_PROJECT:
+        from_secret: gcp-project
+      GCP_REGION:
+        from_secret: gcp-region
+      CLUSTER_NAME:
+        from_secret: cluster-name
+    commands:
+      - |-
+        echo $${GCP_CREDS} > /tmp/gcp.json
+        gcloud auth activate-service-account drone-ci@zerotier-central.iam.gserviceaccount.com --key-file /tmp/gcp.json --project zerotier-central
+        gcloud --project zerotier-central container clusters get-credentials ztc-controller-us-central --region us-central1
+        # kubectl set image deployment docs-zerotier-com docs-zerotier-com=$${DOCKER_REGISTRY}/zerotier/docs.zerotier.com:drone-${DRONE_BUILD_PARENT}
+
 trigger:
   branch:
     - main
@@ -122,22 +205,9 @@ trigger:
     - promote
   target:
     - production
----
-kind: pipeline
-type: docker
-name: link-checker
-trigger:
-  event:
-  - cron
-  cron:
-    - link-checker
-steps:
-  - name: link-checker
-    image: tennox/linkcheck
-    commands:
-      - linkcheck --external --no-show-redirects https://docs.zerotier.com --skip-file <(echo "example.com\nlocalhost")
+
 ---
 kind: signature
-hmac: 51d3fed16fed56c761eabade1684402c724111c3e5ea02b92751716069832405
+hmac: 2f5865f5867a2842a540eda7e93487b8608befb54b084d7c9869b305768e9936
 
 ...
