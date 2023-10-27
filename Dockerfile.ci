@@ -1,0 +1,6 @@
+FROM nginx:alpine
+ARG BUILD_NUM
+LABEL buildnumber=$BUILD_NUM
+WORKDIR /app
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY public /app/public
