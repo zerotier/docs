@@ -3,7 +3,7 @@ title: Root Server IP Whitelist
 description: List of ZeroTier infrastructure endpoints
 ---
 
-For minimal operation, outbound UDP on port 9993 (and reply packets) should be allowed to ZeroTIer's root servers. Allowing other UDP is ideal since it allows peer to peer connectivity, but these IPs on 9993 are the minimal requirement for ZeroTier to work:
+For minimal operation, outbound UDP on port 9993 (and reply packets) should be allowed to ZeroTier's root servers. Allowing other UDP is ideal since it allows peer to peer connectivity, but these IPs on 9993 are the minimal requirement for ZeroTier to work:
 
 ```sh
 root-lax-01.zerotier.com has address 104.194.8.134

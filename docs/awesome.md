@@ -508,7 +508,7 @@ Click [here](/start/) to create your network and start adding devices.
 
 ## ZeroTier YouTube
 
-- [ZeroTierOffficial YouTube Channel](https://www.youtube.com/channel/UCCN_ehU18m2MXqocbItxTUQ/featured)
+- [ZeroTier Official YouTube Channel](https://www.youtube.com/channel/UCCN_ehU18m2MXqocbItxTUQ/featured)
 - [Most Recent Community-Created ZeroTier Videos](https://www.youtube.com/results?search_query=zerotier&sp=CAI%253D)
 
 :::info Next steps

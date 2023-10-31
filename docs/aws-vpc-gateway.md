@@ -33,7 +33,7 @@ See our download page for Linux installation instructions. After installing Zero
 
 In ZeroTier Central (or via your own controller's API) add a route to your VPC's IP address range via your gateway's ZeroTier-side IP address (not its VPC-side IP).
 
-Our VPC is `10.10.6.0/24`, our ZeroTier network is `10.6.4.0/22`, and our VPC gateway host is `10.6.6.115`, so we added a route to `10`.`10.6.0/24` via `10.6.6.115`.
+Our VPC is `10.10.6.0/24`, our ZeroTier network is `10.6.4.0/22`, and our VPC gateway host is `10.6.6.115`, so we added a route to `10.10.6.0/24` via `10.6.6.115`.
 
 It may take a minute or two for this route to become available on ZeroTier nodes.
 

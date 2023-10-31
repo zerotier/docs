@@ -100,7 +100,7 @@ credentials as Environment Variables.
 
 ## Create ZeroTier Central resources
 
-Examine `main.tf` At the top, you will see Terraform resources for
+Examine `main.tf`. At the top, you will see Terraform resources for
 creating [Identities](https://github.com/zerotier/terraform-provider-zerotier#identities),
 [Networks](https://github.com/zerotier/terraform-provider-zerotier#networks),
 and [Members](https://github.com/zerotier/terraform-provider-zerotier#members). There

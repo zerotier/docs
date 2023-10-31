@@ -40,7 +40,7 @@ The secure way to do this is to change the login of the organization owner:
 - Log out and back in
 - You may want to change the password as well
 
-Consider using a general email address like "<billing@example.com>" or "<zerotier@example.com" when you sign up, or when you change org owners. 
+Consider using a general email address like "billing@example.com" or "zerotier@example.com" when you sign up, or when you change org owners. 
 
 
 #### Can I move or transfer my network(s) to another user?

@@ -84,7 +84,7 @@ flowchart TB
 ```
 
 :::caution
-You should be using an uninterruptable power supply.
+You should be using an uninterruptible power supply.
 :::
 
 ### Some other section

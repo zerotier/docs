@@ -34,7 +34,7 @@ Add the following to the beginning of your rules code:
 drop;
 ```
 
-This will only block traffic on the ZeroTier overlay network, not your phyiscal network.
+This will only block traffic on the ZeroTier overlay network, not your physical network.
 
 ### Remote Desktop Only {#rdp-only}
 
