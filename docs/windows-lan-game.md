@@ -17,7 +17,7 @@ Make sure Broadcast is enabled on your ZeroTier network's settings.
 
 The solution that worked reliably for me was to lower the metric for the ENTIRE ZeroTier Virtual Interface [not just one route, as suggested by others]. This resulted in multicast and broadcast routes being preferred on the ZeroTier network which resolved many "cannot see others in LAN" problems when running games over ZeroTier. The only downside is, that this will break broadcasts/multicasts on the physical network or other networks (except ARP and DHCP, which seemed to work just fine).
 
-So apparently it's only possible to switch between interfaces and choose which one should be preferred. Therefore you should revert your changes when you're done - I found two ways to do this: Disable the zerotier service and start it up again. This seemed to "clear" the metrics and reset them to their default values, always preferring the physical wire. Other obvious solution is to manually set the metrics to it's previous value, using the same command.
+So apparently it's only possible to switch between interfaces and choose which one should be preferred. Therefore you should revert your changes when you're done - I found two ways to do this: Disable the zerotier service and start it up again. This seemed to "clear" the metrics and reset them to their default values, always preferring the physical wire. Another obvious solution is to manually set the metrics to it's previous value, using the same command.
 
 The following are code examples on how to to this, designed for the Windows bash (.bat files). These scripts usually need to be run as Administrator - there are ways to automatically elevate bash scripts, [see this link](https://stackoverflow.com/a/12264592)
 

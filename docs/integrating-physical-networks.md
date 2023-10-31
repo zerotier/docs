@@ -82,7 +82,7 @@ Some things that use broadcast:
 
 ### Wake on LAN
 Since ZeroTier is a program that runs on your computer, if the computer is off, it won't be able to receive ZeroTier packets. Wake on LAN packets need to be on the physical network. 
-You still might not need Bridging if this is your only requirment: Run ZeroTier on a different computer on your LAN, and send the WoL packet from that computer. 
+You still might not need Bridging if this is your only requirement: Run ZeroTier on a different computer on your LAN, and send the WoL packet from that computer. 
 
 ### Auto-discovery
 

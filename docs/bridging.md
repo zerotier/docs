@@ -183,7 +183,7 @@ You should be able to, from the physical LAN, connect to the Pi via `$BR_ADDR`
 
 ### If it takes a long time waiting for the network during boot
 
-Sometimes the physical interface turns out to be a long "predicatable interface name" like: "enb827eb0d4176", sometimes it's just `eth0`, depending on Raspbian version(???).
+Sometimes the physical interface turns out to be a long "predictable interface name" like: "enb827eb0d4176", sometimes it's just `eth0`, depending on Raspbian version(???).
 
 <https://wiki.debian.org/NetworkConfiguration#Network_Interface_Names>
 

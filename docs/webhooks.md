@@ -3,7 +3,7 @@ title: Web Hooks
 description: ZeroTier Central Webhooks
 ---
 
-Subscribers can receive notifications of changes to their networks, network member and organizations on [my.zerotier.com](https://my.zerotier.com) via Web Hooks.
+Subscribers can receive notifications of changes to their networks, network members, and organizations on [my.zerotier.com](https://my.zerotier.com) via Web Hooks.
 
 ## Configuring Web Hooks
 
@@ -48,7 +48,7 @@ The rest of the fields vary by `hook_type`.  Full definitions of all of the fiel
 
 * Member Configuration Change (`MEMBER_CONFIG_CHANGED`) - Fired when an administrator makes a configuration change to a network member.
 
-* Member Deleted (`MEMBER_DEL:ETED`) - Fired when an administrator deletes a network member.
+* Member Deleted (`MEMBER_DELETED`) - Fired when an administrator deletes a network member.
 
 * Organization Invite Sent (`ORG_INVITE_SENT`) - Fired when the account owner invites an administrator to the network.
 

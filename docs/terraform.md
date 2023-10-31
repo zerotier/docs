@@ -9,7 +9,7 @@ For the multi-cloud edition of this guide, click [here](terraform-multicloud)
 
 ## Welcome
 
-Managing large numbers of setting in a webUI can be a total
+Managing large numbers of settings in a webUI can be a total
 bummer. It'd be much nicer if we could describe our ZeroTier networks
 and membership settings as code. That would let us keep them in
 version control, and integrate them into our software delivery
