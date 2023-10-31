@@ -56,14 +56,15 @@ TOKEN=$(sudo cat "/Library/Application Support/ZeroTier/One/authtoken.secret")
 
 </TabItem>
 <TabItem value="windows">
-    <div>
-    The token file is located at:
-    </div>
-    <code>
-    \ProgramData\ZeroTier\One\authtoken.secret
-    </code>
-    <div>
-    But I'm not sure how environment variables work in Windows. Maybe you can use the Linux subsystem thing and just follow the Linux instructions?
+    The token file is located here by default:
+    `C:\ProgramData\ZeroTier\One\authtoken.secret`
+    
+    Set environment variable (need elevated powershell). Should probably rename it to something less generic:
+    ```powershell
+    [System.Environment]::SetEnvironmentVariable('TOKEN',[IO.File]::ReadAllText("C:\ProgramData\ZeroTier\One\authtoken.secret"));
+    ```
+
+    Access the variable using `$env:TOKEN`
     </div>
 </TabItem>
 </Tabs>
