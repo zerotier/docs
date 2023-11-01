@@ -58,6 +58,10 @@ The rest of the fields vary by `hook_type`.  Full definitions of all of the fiel
 
 * Organization Member Removed (`ORG_MEMBER_REMOVED`) - Fired when the account owner removes a member from the organization.
 
+## Retries
+
+If a hook fails to be sent for any reason, it will be retried up to a maximum of 10 times with an exponential backoff policy.  The 2nd attempt will be approximately 1 minute after the first.  The third approximately 2 minutes after the 2nd, and so on to a maximum of 1 hour between attempts.  If there is still a failure after 10 attempts, the call will be abandoned.
+
 ## Web Hook Security
 
 In order enhance security, and to prevent replay attacks, we have implemented a hook signing algorithm so you can verify each hook request as you receive it.  We have also provided a [Go Library](https://github.com/zerotier/ztchooks) and a [TypeScript Library](https://github.com/zerotier/ztchooks-ts) for your use in verifying incoming webhooks.
