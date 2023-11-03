@@ -1,18 +1,18 @@
 ---
-title: Integrating Physical and ZeroTier Networks
+title: Integrating with Physical Networks
 description: Remote access to your LAN
 ---
 
 ZeroTier creates networks interfaces, IP addresses, and routes on your computers. Because of this, you can use all the standard networking tools and techniques with your ZeroTier networks. 
 
-There are 2 main ways to connect your ZeroTier networks to your Physical networks: Routing and Bridging. Yeah, they are technically different things.  Bridging has its downsides, including that it's tricky to set up. 
+There are 2 main ways to connect your ZeroTier networks to your Physical networks: Routing and Bridging. Yes, they are technically different things. Bridging has its downsides, including that it's tricky to set up. 
 
 
 ## Routing or Bridging?
 
 Most of the time, choose routing. 
 
-Do you have devices that can't install zerotier, use broadcast or multicast, and need to talk to ZeroTier nodes? Then consider bridging. 
+Do you have devices that can't install zerotier, use broadcast or multicast, and needs to talk to ZeroTier nodes? Then consider bridging. 
 
 ```mermaid
 
@@ -92,9 +92,8 @@ If the app lets you type in an IP address in the settings instead of using auto-
 Mobile Operating Systems don't let you do broadcast over a "VPN" connection. You need run a bridge wherever the equipment is, _and_ where the phone or tablet is. 
 
 ### Embedded equipment
+
 - Industrial 
 - Audio / Video / Lighting equipment
 - Cameras
-
-_Sometimes_ these devices blast control traffic or actual data via broadcast.
 

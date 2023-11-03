@@ -42,7 +42,7 @@ module.exports = {
         description: 'How-to guides for common ZeroTier use cases.',
         slug: '/guides',
       },
-      items: ['dns', 'multipath', 'terraform', 'docker', 'exitnode', 'bridging', 'proxy', 'sockets', 'code-server', 'route-between-phys-and-virt', 'microsegmentation', 'selfhosting', 'cloud-init', 'cli', 'nat'],
+      items: ['dns', 'multipath', 'terraform', 'docker', 'exitnode', 'bridging', 'proxy', 'sockets', 'code-server', 'route-between-phys-and-virt', 'microsegmentation', 'selfhosting', 'cloud-init', 'cli', 'nat', 'integrating-physical-networks'],
     },
     {
       type: "category",
