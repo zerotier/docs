@@ -12,7 +12,7 @@ There are 2 main ways to connect your ZeroTier networks to your Physical network
 
 Most of the time, choose routing. 
 
-Do you have devices that can't install zerotier, use broadcast or multicast, and needs to talk to ZeroTier nodes? Then consider bridging. 
+Do you have devices that can't install zerotier, use broadcast or multicast, and need to talk to ZeroTier nodes? Then consider bridging. 
 
 ```mermaid
 
