@@ -21,3 +21,6 @@ Occasionally, the controller will become unreachable from the ZeroTier UI client
 5. Start IP Helper service again.
 
 ZeroTier should now be reachable by the UI client when you restart it.
+
+## Why does this happen?
+Not entirely sure. IP helper service is a windows service that provides tunneling for IPv6 over IPv4. IP helper grabs 9993 before ZeroTier can. The issue persists through reboots. In the resource monitor, you can see which ports are bound to which services. IP helper is the culprit.
