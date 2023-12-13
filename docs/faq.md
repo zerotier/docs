@@ -29,6 +29,14 @@ If you are running your own roots the effect would be that no new connections ca
 
 No. Your traffic is end-to-end encrypted and your device's private identity keys are never transmitted off of your device. Learn more about our [cryptograph protocol](protocol#crypto).
 
+### Metrics and Monitoring
+
+ZeroTier Inc doesn't have access to your traffic. We don't currently supply a monitoring "dashboard" for your networks and nodes. You can build your own! 
+
+- [Prometheus Metrics](https://github.com/zerotier/ZeroTierOne#prometheus-metrics) for the zerotier-one agent are available. Pipe these into the common prometheus/grafana setup.
+- Use your preferred monitoring tool _over_ your ZeroTier networks. Some examples: Prometheus Blackbox exporter, SmokePing, Uptime Kuma
+- [Traffic Observation and Interception](https://docs.zerotier.com/rules#353trafficobservationandinterceptionaname3_5_3a)
+
 ### Why does my peers list have nodes I don't recognize? {#unknown-peers}
 
 The nodes are usually our infrastructure that your node needs to talk to in order to function. This includes things like: [Root servers](roots) and [Controllers](controller). Or possibly nodes from a previously joined network. The command `zerotier-cli peers` shows a list of nodes that your node knows about. Nodes can not talk to each other unless they are joined and authorized on the same network. Our root servers and controllers do not have access to you nodes' encryption keys and thus cannot decrypt your traffic.
