@@ -117,7 +117,7 @@ does not allow comments):
         "softwareUpdateChannel": "release"|"beta", /* Software update channel */
         "softwareUpdateDist": true|false, /* If true, distribute software updates (only really useful to ZeroTier, Inc. itself, default is false) */
         "interfacePrefixBlacklist": [ "XXX",... ], /* Array of interface name prefixes (e.g. eth for eth#) to blacklist for ZT traffic */
-        "allowManagementFrom": "NETWORK/bits"|null, /* If non-NULL, allow JSON/HTTP management from this IP network. Default is 127.0.0.1 only. */
+        "allowManagementFrom": [ "NETWORK/bits" ]|null, /* If non-NULL, allow JSON/HTTP management from this IP network. Default is 127.0.0.1 only. */
         "allowTcpFallbackRelay": true|false /* Allow or disallow establishment of TCP relay connections (true by default) */
     }
 }
