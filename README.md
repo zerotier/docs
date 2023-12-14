@@ -52,8 +52,16 @@ Make sure it's inside the front matter
 
 ``` console
 ---
-[//]: # cSpell:words Hinojosa Gizienski
+title: Terraform (Multicloud)
+# cSpell:words Hinojosa Gizienski
 ---
+```
+
+or inline 
+
+```
+[//]: # (cspell:disable-next-line )
+
 ```
 
 or add to the regexes in cspell.json. Have fun!
