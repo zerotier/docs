@@ -66,6 +66,6 @@ You could also create a global IPv6 private address backplane for an organizatio
 
 ### ZeroTier and Docker
 
-With 6PLANE we are probably done with Docker, or at least with Docker integration in a host-based network backplane model. (Network Containers, which is about to become our SDK, addresses the self-contained in-container model.) For a while we've considered creating a Docker libnetwork integration, but we're optimistic at this point that it will not be necessary. The 6PLANE model is so simple and its integration with Docker so automatic and trouble-free that no Docker-specific integration is likely to be necessary.
+With 6PLANE we are probably done with Docker, or at least with Docker integration in a host-based network backplane model. (Network Containers, which is about to become our SDK, addresses the self-contained in-container model.) For a while we've considered creating a Docker `libnetwork` integration, but we're optimistic at this point that it will not be necessary. The 6PLANE model is so simple and its integration with Docker so automatic and trouble-free that no Docker-specific integration is likely to be necessary.
 
 What is worth exploring is integration of this scheme with provisioning and orchestration tools like Kubernetes, etc. An architecture may be possible that allows for instant automated zero-configuration deployment of container hosts anywhere (any cloud, any device, on or off premise). That's likely what we'll explore next in the Docker space.

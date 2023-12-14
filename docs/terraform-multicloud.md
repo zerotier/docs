@@ -1,6 +1,7 @@
 ---
 title: Terraform (Multicloud)
 description: Use ZeroTier in combination with multiple Terraform cloud providers
+# cSpell:words Gizienski Hinojosa
 ---
 
 # Terraform Multicloud
@@ -553,7 +554,7 @@ alice@gcp:$ sudo ip addr del 10.0.3.4/24 dev ztyqb6mebi
 
 <p align="center">
 <img src="https://i.imgur.com/QzuTXdA.jpg" width="75%" alt="https://www.flickr.com/photos/agizienski/3605131450" /><br/>
-Amy Gizienski - whale
+  * [ ] Amy Gizienski - whale
 </p>
 
 We would be remiss not to mention containers in the year 2021. A great

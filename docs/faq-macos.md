@@ -66,16 +66,17 @@ Restarting the system will also accomplish this.
 
 NOTE that authorization of kernel extensions will NOT work in remote desktop sessions. Apple requires it to be done directly on the system console. Via a remote session you can click the button but it will have no effect. We are not aware of any known work-around for this.
 
-ALSO if the mouse/trackpad is emulated by a 3rd party application (MagicPrefs, BetterTouchTool, Synergy, etc.), it won't work.
+[//]: # (cspell:disable-next-line )
+ALSO if the mouse/track-pad is emulated by a 3rd party application (MagicPrefs, BetterTouchTool, Synergy, etc.), it won't work.
 If it's still not working
 
-Via wanjochan on [github](https://github.com/zerotier/ZeroTierOne/issues/467#issuecomment-426852518):
+Via [wanjochan on github](https://github.com/zerotier/ZeroTierOne/issues/467#issuecomment-426852518):
 
 Here my steps for your fellows reference:
 
 - `sudo launchctl unload /Library/LaunchDaemons/com.zerotier.one.plist`
 - `sudo launchctl load /Library/LaunchDaemons/com.zerotier.one.plist`
-- open "Security and Privacy" and try click Allow ZeroTier /*maybe no effects....nevermind, just continue*/
+- open "Security and Privacy" and try click Allow ZeroTier /*maybe no effects....never mind, just continue*/
 - REBOOT the OSX /*VERY IMPORTANT*/
 - open "Security and Privacy" and try click Allow ZeroTier AGAIN /*if it still there*/
 - `sudo launchctl unload /Library/LaunchDaemons/com.zerotier.one.plist`

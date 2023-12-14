@@ -2,6 +2,7 @@
 title: What is ZeroTier?
 description: A warm snuggly blanket for your network
 custom_edit_url: null
+# cSpell:words snuggly
 ---
 
 ZeroTier is a way to connect devices over your own private network anywhere in the world. You do this by creating a network and then joining *two or more devices* to that network. You can use ZeroTier to play games, connect to remote business resources or even as a cloud backplane for your enterprise. [Create your network.](/start)

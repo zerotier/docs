@@ -9,7 +9,7 @@ Default zerotier-one listening ports are:
 
 - 9993
 - Secondary Port, randomized each start up and after being "offline" for too long.
-- Random Port for UPnP and NATPMP (UPnP or NATPMP is not required for ZeroTier hole punching to work)
+- Random Port for UPnP and NAT-PMP (UPnP or NAT-PMP is not required for ZeroTier hole punching to work)
 
 For best results, a device needs be able to send to any IP address, on any UDP port. If you allow outgoing source:9993 and incoming related return traffic, it'll probably work OK.
 

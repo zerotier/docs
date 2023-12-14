@@ -13,7 +13,7 @@ There is a command-line workaround, open a PowerShell with Administrative Privil
 msiexec /i "C:\Path\To\ZeroTier One.msi"
 ```
 
-Try the msiexec's silent install options too.
+Try the `msiexec` silent install options too.
 
 ### Windows Remote Desktop Disconnects
 
@@ -49,9 +49,9 @@ Note: The folder `C:\ProgramData` is hidden by default and requires Administrato
 
 If you have other VPN or similar apps that require network drivers, you may want to try uninstalling them, probably rebooting, and reinstalling ZeroTier.
 
-### Why is the ZeroTier Virtual Network Port Running at 100mbps? {#slowport}
+### Why is the ZeroTier Virtual Network Port Running at 100Mbps? {#slowport}
 
-Windows may show the ZeroTier virtual network port as a 100mbps or 10mbps port. This is incorrect. It's a software defined port with no intrinsic speed limit. Windows doesn't show accurate numbers for non-physical ports that have no actual interface device.
+Windows may show the ZeroTier virtual network port as a 100Mbps or 10Mbps port. This is incorrect. It's a software defined port with no intrinsic speed limit. Windows doesn't show accurate numbers for non-physical ports that have no actual interface device.
 
 ### General Troubleshooting
 
