@@ -57,11 +57,11 @@ Locking down UDP
 
 ### Gradual Permissions
 
-A network that gives limited access to Authorized members. 
+A network that gives limited access to Authorized members.
 
-More access can be gradually granted with the rules engine. 
+More access can be gradually granted with the rules engine.
 
-This could be used on a public or a private network. 
+This could be used on a public or a private network.
 
 ```sh
 tag admin # employee workstations

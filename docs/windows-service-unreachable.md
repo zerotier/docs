@@ -14,13 +14,15 @@ Occasionally, the system service will become unreachable from the ZeroTier UI cl
 5. If you see an error saying issue binding to port 9993, you've encountered this bug and this fix should work for you.
 
 ## Fix
+
 1. Stop manually running system service.
 2. Open services window and find "IP Helper" service. Stop it
-3. Retry starting the zerotier-one exe via CLI. If it works, this fix succeeded. 
+3. Retry starting the zerotier-one exe via CLI. If it works, this fix succeeded.
 4. Stop manual system service, start zerotier service in service menu
 5. Start IP Helper service again.
 
 ZeroTier should now be reachable by the UI client when you restart it.
 
 ## Why does this happen?
+
 Not entirely sure. IP helper service is a windows service that provides tunneling for IPv6 over IPv4. IP helper grabs 9993 before ZeroTier can. The issue persists through reboots. In the resource monitor, you can see which ports are bound to which services. IP helper is the culprit.

@@ -27,7 +27,6 @@ All hooks fired will contain the following three fields:
 
 The rest of the fields vary by `hook_type`.  Full definitions of all of the fields can be found [here](https://github.com/zerotier/ztchooks/blob/main/types.go).
 
-
 ## Hook Types
 
 * Network Join (`NETWORK_JOIN`) - Fired when a new member is requesting to join a network.  NOTE: This is only fired once when the network controller first receives the join request from the network member.
@@ -72,8 +71,8 @@ First you must create a Webhook Signing Secret from your [account page](https://
 
 The secret is a hexadecimal string.  You will need a copy in order to verify webhooks.  The signature will be placed in the HTTP header `X-ZTC-Signature`.
 
-
 ### Go Example
+
 ```go
 import (
     "net/http"
@@ -109,4 +108,3 @@ func main() {
 NOTE:  A more complete example of verification & processing hooks can be found [here](https://github.com/zerotier/ztchooks/blob/main/example/hook-catcher.go).
 
 It is possible to have multiple signing secrets.  Hooks will be signed with all secrets, and the verification method provided by the `ztchooks` library does take this into account automatically.
-
