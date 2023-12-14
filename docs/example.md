@@ -7,7 +7,7 @@ description: Intro sentence that conveys meaning in first 60 or so characters, t
 
 If you name your file `myarticle.md` it will be reachable via `docs.zerotier.com/myarticle`, sections are reachable via `docs.zerotier.com/myarticle#sectionName` so come up with short and memorable section "slugs". Docs structure is as flat as possible to prevent link-rot
 
-Here is some text. Oh, and a [Link to a diagram section](#diagram)
+Here is some text. Oh, and a [Link to a diagram section](example#diagram)
 
 ### Content can exist in two ways
 
@@ -39,6 +39,7 @@ Adding the correct language specifier to a code block (e.g. ` ```json `) can hel
 
 vs:
 
+<!-- markdownlint-disable MD040 -->
 ```
 "virtual": {
     "feedbeef12": {

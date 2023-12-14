@@ -11,15 +11,15 @@ description: Tips and suggestions for troubleshooting
 
 First, make sure your device is authorized on the network and you're using the ZeroTier assigned Managed IP address.  Aside from that, some OSes block pings in their local firewall by default.
 
-### Windows
+### Windows Firewall
 
 ZeroTier versions 1.10.3 and greater automatically enable ping on ZeroTier adapters.
 
-### macOS
+### macOS Firewall
 
 The firewall is not enabled by default on macOS, and thus pings will not be blocked by default.  If your firewall is enabled on macOS, go into System Preferences -> Security & Privacy.  Under Firewall Options, ensure "Enable stealth mode" is disabled. Stealth mode blocks pings.
 
-### Linux
+### Linux Firewalls
 
 There are far too many Linux distributions out there to list instructions for all of them here.  Please refer to your distribution's documentation for how to unblock ICMP packets.
 
@@ -31,26 +31,32 @@ Click [here](/start/) to create your network and start adding devices.
 
 This error means that the ZeroTier background service on your computer is either not running, or your local firewall is preventing the UI or CLI from talking to it.
 
-### Windows 10
+### Windows Service
 
 Open Task Manager and go to the "Services" tab.  Scroll down until you see "ZeroTierOneService". The status column should say "Running".  If it does not, right click on the line and click "Start"
 
-### macOS
+### macOS Service
 
 Open Terminal.app and execute the following commands
 
-    sudo launchctl unload /Library/LaunchDaemons/com.zerotier.one.plist
-    sudo launchctl load /Library/LaunchDaemons/com.zerotier.one.plist
+```sh
+sudo launchctl unload /Library/LaunchDaemons/com.zerotier.one.plist
+sudo launchctl load /Library/LaunchDaemons/com.zerotier.one.plist
+```
 
-### Linux
+### Linux Service
 
 If your Linux distribution uses systemd, execute:
 
-    sudo service zerotier-one start
+```sh
+sudo service zerotier-one start
+```
 
 If not, execute:
 
-    /etc/init.d/zerotier-one start
+```sh
+/etc/init.d/zerotier-one start
+```
 
 ### Still doesn't work?
 

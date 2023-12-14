@@ -271,11 +271,13 @@ Each VL2 network (VLAN) is identified by a 64-bit (16 hex digit)
 network's **controller** and a 24-bit number identifying the network on
 the controller.
 
-    Network ID: 8056c2e21c123456
-                |         |
-                |         Network number on controller
-                |
-                ZeroTier address of controller
+```text
+Network ID: 8056c2e21c123456
+            |         |
+            |         Network number on controller
+            |
+            ZeroTier address of controller
+```
 
 When a node joins a network or requests a network configuration update,
 it sends a network config query message (via VL1) to the network's

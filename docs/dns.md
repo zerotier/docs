@@ -62,7 +62,7 @@ token under the [Account](https://my.zerotier.com/account)
 section. ZeroNSD will use this token to read Network members so it can
 generate records, as well as update DNS settings.
 
-![](https://i.imgur.com/WYM2jKl.png)
+![token screenshot](https://i.imgur.com/WYM2jKl.png)
 
 You will need to stash this in a file for ZeroNSD to read.
 

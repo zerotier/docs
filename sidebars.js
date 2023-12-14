@@ -142,7 +142,7 @@ module.exports = {
             description: 'ZeroTier on Linux',
             slug: '/linux',
           },
-          items: ['faq-linux', 'snap', 'flatpak', 'docker', 'bridging', 'aws-vpc-gateway', 'nat', 'docker-6plane', 'code-server', 'cloud-init', 'route-between-phys-and-virt']
+          items: ['faq-linux', 'snap', 'docker', 'bridging', 'aws-vpc-gateway', 'nat', 'docker-6plane', 'code-server', 'cloud-init', 'route-between-phys-and-virt']
         },
         /* MAC */
         {
@@ -248,7 +248,7 @@ module.exports = {
         description: 'Ways to get ZeroTier',
         slug: '/packages',
       },
-      items: ['snap', 'flatpak', 'chocolatey', 'winget'],
+      items: ['snap', 'chocolatey', 'winget'],
     },
     {
       type: 'category',

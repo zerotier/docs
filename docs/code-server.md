@@ -33,7 +33,7 @@ sudo zerotier-cli listnetworks
 200 listnetworks 8156abe27c21623c intranet.joseph.com 31:26:27:43:19:fb OK PRIVATE ztcjyorbnc fd80:76c1:124c:2268:1da9:9bf1:14d:ab3e/88,10.241.208.61/16
 ```
 
-```
+```text
 bind-addr: 10.241.208.61:8080
 auth: password
 password: correcthorsebatterystaple
