@@ -7,11 +7,11 @@ description: Answers to commonly asked questions
 
 ZeroTier is lightweight, portable, and compatible across all major platforms and architectures. It typically consumes less than 16 MB of memory, only about 1 MB of storage, and even has a [low-bandwidth mode](./lbm.md) for IoT applications. It supports `32-bit ARM (arm32)`, `64-bit ARM (arm64)`, `32-bit Intel (x86)`, `64-bit Intel (x64/amd64)`, `MIPS`, and `s390x`. You can run it on [Linux](linux), [macOS](macos), [Windows](windows), [iOS/iPadOS](ios), [Android](android), and [FreeBSD](freebsd). You can run it on [Routers](routers), [Network Attached Storage](nas), and we [have solutions](./proxy.md) for when you can't install ZeroTier on a small IoT sensor.
 
- - Our most recent client can still be run on tiny single-board computers like the original Raspberry Pi made over a decade ago and all versions of ZeroTier are backwards compatible.
+- Our most recent client can still be run on tiny single-board computers like the original Raspberry Pi made over a decade ago and all versions of ZeroTier are backwards compatible.
 
- - ZeroTier is currently single-threaded so devices with more than two cores typically will not offer significant performance gains. Future versions of ZeroTier will introduce multithreading.
+- ZeroTier is currently single-threaded so devices with more than two cores typically will not offer significant performance gains. Future versions of ZeroTier will introduce multithreading.
 
- - [ ] While ZeroTier will operate on very low-power hardware (e.g. a single core 32-Bit ARM running at 600Mhz without AES hardware acceleration (AES-NI)), its performance will suffer.
+- [ ] While ZeroTier will operate on very low-power hardware (e.g. a single core 32-Bit ARM running at 600Mhz without AES hardware acceleration (AES-NI)), its performance will suffer.
 
 We recommend the following for a happy ZeroTier experience: `>=1GHz` CPU with at least `2` cores, and `AES-NI`.
 
@@ -31,7 +31,7 @@ No. Your traffic is end-to-end encrypted and your device's private identity keys
 
 ### Metrics and Monitoring
 
-ZeroTier Inc doesn't have access to your traffic. We don't currently supply a monitoring "dashboard" for your networks and nodes. You can build your own! 
+ZeroTier Inc doesn't have access to your traffic. We don't currently supply a monitoring "dashboard" for your networks and nodes. You can build your own!
 
 - [Prometheus Metrics](https://github.com/zerotier/ZeroTierOne#prometheus-metrics) for the zerotier-one agent are available. Pipe these into the common prometheus/grafana setup.
 - Use your preferred monitoring tool _over_ your ZeroTier networks. Some examples: Prometheus [Blackbox exporter](https://github.com/prometheus/blackbox_exporter), [SmokePing](https://oss.oetiker.ch/smokeping/), [UptimeKuma](https://uptime.kuma.pet/)
@@ -70,17 +70,19 @@ If you see the peer you're trying to contact in the RELAY state, that means pack
 If you experience high latency or packet jitter for more than four hours please contact your network admin as this may be a sign of a serious network condition.
 :::
 
-### Bandwidth considerations 
+### Bandwidth considerations
+
 In the best case scenario, and in most cases, ZeroTier connects peer-to-peer and none of your network traffic travels through our servers.  This means transfers go as fast as your CPU & network can compress, encrypt and send packets, and how fast the remote end can receive them.
 
 There are some cases, such as hostile NATs & firewalls in which your encrypted packets do indeed get relayed through our root servers.  Relaying through our root adds latency. The packets must travel farther physically than they would for a direct, peer to peer connection.
 
 We do not throttle any of these packets, nor can we read the contents of the packets due to encryption.  We also, however, cannot guarantee connection reliability when this happens.  We do our best effort to get your packets where they need to go, but this is not always possible.
 
-Considerations: 
-- CPU speed. The current version of zerotier-one is single threaded. Raw CPU speed is important in high bandwidth use cases. 
+Considerations:
+
+- CPU speed. The current version of zerotier-one is single threaded. Raw CPU speed is important in high bandwidth use cases.
 - Physical Internet connection. ZeroTier can only go as fast as the physical connection it's running over.
-- Hardware Encryption. ZeroTier uses hardware AES acceleration when available. Most current ARM and x86_64 platforms have AES acceleration. 
+- Hardware Encryption. ZeroTier uses hardware AES acceleration when available. Most current ARM and x86_64 platforms have AES acceleration.
 - Geographic distance. If your remote peer is on a different continent, there will be latency. We can't improve the speed of light.
 
 :::tip
@@ -88,8 +90,8 @@ If you are experiencing slow network speeds or difficulty making direct connecti
 :::
 
 #### Will transfers go faster on paid accounts? {#paymore}
-ZeroTier performance is not at all related to your account or subscription level. You may be able to change things on your end to enable faster connections between peers.
 
+ZeroTier performance is not at all related to your account or subscription level. You may be able to change things on your end to enable faster connections between peers.
 
 ### Error: Cannot connect to Zerotier service {#cannot-connect-to-service}
 
