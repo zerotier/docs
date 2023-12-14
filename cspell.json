@@ -17,10 +17,14 @@
     "publicLicensese",
     "softwareTerms"
   ],
+  "import": ["@cspell/dict-markdown/cspell-ext.json", "@cspell/dict-software-terms/cspell-ext.json"],
   "languageSettings": [
     {
       "languageId": "markdown",
       "ignoreRegExpList": [
+        "'s\\b",
+        "zt\\w+",
+        "\\$\\w+",
         "/^\\s*```(.|\\n)+?^\\s*```/gm",
         "/`(\\S| )+`/",
         "/\\[(\\S| )+\\]/",

@@ -47,6 +47,8 @@
     ]
   },
   "devDependencies": {
+    "@cspell/dict-markdown": "^2.0.1",
+    "@cspell/dict-software-terms": "^3.3.12",
     "markdownlint-cli2": "^0.8.1"
   }
 }
