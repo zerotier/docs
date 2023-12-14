@@ -1459,6 +1459,11 @@
   resolved "https://registry.yarnpkg.com/@cspell/dict-lua/-/dict-lua-4.0.1.tgz#4c31975646cb2d71f1216c7aeaa0c5ab6994ea25"
   integrity sha512-j0MFmeCouSoC6EdZTbvGe1sJ9V+ruwKSeF+zRkNNNload7R72Co5kX1haW2xLHGdlq0kqSy1ODRZKdVl0e+7hg==
 
+"@cspell/dict-markdown@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@cspell/dict-markdown/-/dict-markdown-2.0.1.tgz#3d31c1e1788768a60550577bd1460361625ed756"
+  integrity sha512-9j3t1UXsy3M1B8+LN8wPO73KzX7v94GBfefWKSMJDpBvDUnOjwxabnj9ICBOVErBPwURS+LkjJbgVXkvr1OiPQ==
+
 "@cspell/dict-node@^4.0.2":
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/@cspell/dict-node/-/dict-node-4.0.3.tgz#5ae0222d72871e82978049f8e11ea627ca42fca3"
@@ -1515,6 +1520,11 @@
   version "3.2.3"
   resolved "https://registry.yarnpkg.com/@cspell/dict-software-terms/-/dict-software-terms-3.2.3.tgz#cf69bc37466de9f9f25e002fb3fe680a7ab580c8"
   integrity sha512-L1Fjkt+Q5MnjEOGPXQxdT4+8ieDBcaHSjh1gHzxdqFXTOnnfvsLUa5ykuv/fG06b/G/yget1066ftKosMaPcXA==
+
+"@cspell/dict-software-terms@^3.3.12":
+  version "3.3.12"
+  resolved "https://registry.yarnpkg.com/@cspell/dict-software-terms/-/dict-software-terms-3.3.12.tgz#49db44c470925c759465b6fdbd078f2a831e09c8"
+  integrity sha512-6aa4T9VqOMc0SFNBt6gxp0CWjvRqMg/uxvgpRbil+ToHWcU+Q+As0WKhPLaOniuTdCM85WWzRouD0O1XUGqg5Q==
 
 "@cspell/dict-sql@^2.1.0":
   version "2.1.1"
