@@ -3,7 +3,7 @@ title: OPNsense
 description: How to install ZeroTier on your OPNSense router
 ---
 
-# OPNSense
+OPNSense
 
 [OPNsense](https://opnsense.org/) is an open source, easy-to-use and easy-to-build FreeBSD based firewall and routing platform.
 They maintain a ZeroTier [package](https://docs.opnsense.org/manual/how-tos/zerotier.html).

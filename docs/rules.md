@@ -42,7 +42,7 @@ they're commonly used on firewalls and routers, etc. While the rules
 engine is part of VL2, it's been given its own section in this manual
 due to the depth and cross-cutting nature of the topic.
 
-### Rule Sets and Rule Evaluation {#31rulesetsandruleevaluationaname3_1a}
+### Rule Sets and Rule Evaluation {#rulesets}
 
 Rule sets are ordered lists of one or more rules, with each rule
 consisting of one or more **match** conditions followed by one
@@ -102,10 +102,10 @@ complex scenarios, both capabilities and tags provide methods of both
 managing complexity and scaling the overall size of a network's rule
 system.
 
-### Actions and Match Conditions {#311actionsandmatchconditionsaname3_1_1a}
+### Actions and Match Conditions
 
 These are the available matches and actions in raw form. The rule
-definition language outlined in [Rule Definition Language](#34ruledefinitionlanguageaname3_4a) provides a friendlier
+definition language outlined in [Rule Definition Language](rules#rule-definition-language) provides a friendlier
 way for human beings to specify rules.
 
 | Action | Argument(s) | Description |
@@ -141,7 +141,7 @@ way for human beings to specify rules.
 | MATCH\_TAG\_SENDER | id,value | Sending side's tag equals this value. |
 | MATCH\_TAG\_RECEIVER | id,value | Receiving side's tag equals this value. |
 
-### Capabilities {#32capabilitiesaname3_2a}
+### Capabilities
 
 A capability is a small rule set that is bundled into a credential
 object, signed by the network controller, and issued to only those
@@ -207,7 +207,7 @@ Capability rule sets are limited to only 64 entries. The idea is to keep
 them small and simple. A capability should grant one thing or one small
 set of conceptually related things.
 
-### Tags {#33tagsaname3_3a}
+### Tags
 
 ZeroTier provides a second mechanism to control rule set complexity.
 Tags are 32-bit numeric key-value pair credentials that are issued to
@@ -282,7 +282,7 @@ classification to be implemented.
 Tags without a default value may behave confusingly. As a best
 practice, use `default 0` in your tag definitions.
 
-### Rule Definition Language {#34ruledefinitionlanguageaname3_4a}
+### Rule Definition Language {#rule-definition-language}
 
 Raw rule sets are verbose and difficult to write, so we created a
 minimal rule definition language that's easier for human beings.
@@ -295,7 +295,7 @@ and as
 on NPM. It's written in JavaScript and is the same code that powers the
 in-browser editor in ZeroTier Central.
 
-### An Introductory Example {#341anintroductoryexampleaname3_4_1a}
+### An Introductory Example
 
 ```text
 # Whitelist only IPv4 (/ARP) and IPv6 traffic and allow only ZeroTier-assigned IP addresses
@@ -360,10 +360,10 @@ allowed only between computers in the same department by way of a tag. A
 super-user capability that can be assigned to administrative nodes
 allows the sender to initiate any kind of connection.
 
-See [TCP Whitelisting](#351tcpwhitelistinganame3_5_1a) for a
+See [TCP Whitelisting](rules/#tcp-whitelisting) for a
 discussion of how we accomplish TCP whitelisting here.
 
-### Rule Definition Language Syntax {#342ruledefinitionlanguagesyntaxaname3_4_2a}
+### Rule Definition Language Syntax
 
 ```text
 # The remainder of this line is a comment.
@@ -403,8 +403,8 @@ White space separates things. Indentation is not significant. Hash
 symbols indicate that the remainder of a line is a comment.
 
 As described in sections
-[Rule Sets and Rule Evaluation](#31rulesetsandruleevaluationaname3_1a) through
-[Tags](#33tagsaname3_3a), a rule set is composed
+[Rule Sets and Rule Evaluation](rules#rulesets) through
+[Tags](rules#tags), a rule set is composed
 of one or more sequences of *match,[match],…,action* in which the action
 is taken if the chain of matches evaluates to *true*. Capabilities are
 small bundles of rules that can be assigned to nodes to give them
@@ -436,7 +436,7 @@ Tag `enum` and `flag` directives have no meaning to the actual ZeroTier
 rules engine, but they can be used by user interfaces like ZeroTier
 Central to make it easier to assign and search tags.
 
-### Actions, Matches, Operators, and Constants {#343actionsmatchesoperatorsandconstantsaname3_4_3a}
+### Actions, Matches, Operators, and Constants
 
 | Action | Argument(s) | Description |
 | :--- | :--- | :--- |
@@ -506,21 +506,25 @@ certain packet attributes:
   - **tcp\_rs1**: packet is TCP with RS1 (reserved bit 1) flag set
   - **tcp\_rs0**: packet is TCP with RS0 (reserved bit 0) flag set
 
-### Useful Design Patterns {#35usefuldesignpatternsaname3_5a}
+### Useful Design Patterns
 
-### TCP Whitelisting {#351tcpwhitelistinganame3_5_1a}
+### TCP Whitelisting {#tcp-whitelisting}
 
 First, add this at or near the bottom of your rules:
 
-    # Block TCP SYN,!ACK to prevent new non-whitelisted TCP connections from being initiated
-    # unless previously whitelisted or allowed by a capability.
-    break chr tcp_syn and not chr tcp_ack;
+```text
+# Block TCP SYN,!ACK to prevent new non-whitelisted TCP connections from being initiated
+# unless previously whitelisted or allowed by a capability.
+break chr tcp_syn and not chr tcp_ack;
+```
 
 Then above the SYN,!ACK break (or in a capability) add rules to allow
 TCP packets with permitted destination ports:
 
-    # Allow TCP port 80 (HTTP)
-    accept ipprotocol tcp and dport 80;
+```text
+# Allow TCP port 80 (HTTP)
+accept ipprotocol tcp and dport 80;
+```
 
 ZeroTier's filter is stateless. If we block all TCP packets except those
 with the correct destination port, this will prevent reply packets from
@@ -535,7 +539,7 @@ SYN,!ACK (SYN and not ACK) and and then whitelist desired destination
 ports. This way TCP replies and control traffic are allowed, but new
 connections cannot be opened unless they are permitted.
 
-### Locking Down UDP {#352lockingdownudpaname3_5_2a}
+### Locking Down UDP
 
 UDP is tougher to deal with in a stateless paradigm. It's connectionless
 so there is no way to specifically select a new session vs. an existing
@@ -568,28 +572,32 @@ is multicast. This allows multicast mDNS and Netbios announcements and
 allows UDP traffic to and from UDP servers, but prohibits other
 horizontal UDP traffic.
 
-### Traffic Observation and Interception {#353trafficobservationandinterceptionaname3_5_3a}
+### Traffic Observation and Interception
 
 Here's a simple rule to monitor everything:
 
-    # Send a copy of EVERY packet on both sender and receiver side to ZeroTier address "deadbeef11".
-    tee -1 deadbeef11;
+```text
+# Send a copy of EVERY packet on both sender and receiver side to ZeroTier address "deadbeef11".
+tee -1 deadbeef11;
+```
 
 That's going to flood `deadbeef11` with two full copies of every single
 packet, since it will match on both the sender and the recipient side. A
 less bandwidth-intensive security monitor setup might look like this:
 
-    tee 128 deadbeef11
-      chr inbound
-      and chr tcp_syn or chr tcp_rst or chr tcp_fin
-      or random 0.1
-    ;
+```text
+tee 128 deadbeef11
+  chr inbound
+  and chr tcp_syn or chr tcp_rst or chr tcp_fin
+  or random 0.1
+;
 
-    tee 128 deadbeef22
-      not chr inbound
-      and chr tcp_syn or chr tcp_rst or chr tcp_fin
-      or random 0.1
-    ;
+tee 128 deadbeef22
+  not chr inbound
+  and chr tcp_syn or chr tcp_rst or chr tcp_fin
+  or random 0.1
+;
+```
 
 This is a bit more clever. It sends the first 128 bytes of every TCP
 SYN, RST, or FIN packet (TCP connection open and close) to one observer
@@ -616,10 +624,12 @@ filter traffic in depth since the observer cannot directly intervene
 
 Active in-line monitoring can be achieved with **redirect**:
 
-    redirect deadbeef11
-      dport 80 or sport 80
-      and ipprotocol tcp
-    ;
+```text
+redirect deadbeef11
+  dport 80 or sport 80
+  and ipprotocol tcp
+;
+```
 
 This will pipe all HTTP traffic through `deadbeef11`. The target node
 will receive each Ethernet frame intact including its original Ethernet
@@ -631,7 +641,7 @@ participants this is completely invisible as it occurs at layer 2
 (Ethernet), though some performance degradation may be noticed
 especially if the link is running across WAN.
 
-### The Classified System Pattern {#354theclassifiedsystempatternaname3_5_4a}
+### The Classified System Pattern
 
 One useful pattern for access control resembles the way military
 organizations classify data. Information is deemed classified, and only
@@ -641,31 +651,33 @@ access it.
 A model resembling this can be implemented in ZeroTier network rules as
 follows:
 
-    # Is this member classified?
-    tag classified
-      id 2
-      enum 0 no
-      enum 1 secret
-      enum 2 top
-      default no
-    ;
+```text
+# Is this member classified?
+tag classified
+  id 2
+  enum 0 no
+  enum 1 secret
+  enum 2 top
+  default no
+;
 
-    # Clearance flags (a bit like groups)
-    tag clearance
-      id 1
-      default 0
-      flag 0 staging
-      flag 1 production
-      flag 2 financial
-      flag 3 security
-      flag 4 executive
-    ;
+# Clearance flags (a bit like groups)
+tag clearance
+  id 1
+  default 0
+  flag 0 staging
+  flag 1 production
+  flag 2 financial
+  flag 3 security
+  flag 4 executive
+;
 
-    # If one party is classified, require at least one overlapping clearance bit
-    break
-      not tor classified 0
-      and tand clearance 0
-    ;
+# If one party is classified, require at least one overlapping clearance bit
+break
+  not tor classified 0
+  and tand clearance 0
+;
+```
 
 Initially members will be assigned a default classification of 0 ("no").
 These can freely communicate since the bitwise OR of their *classified*

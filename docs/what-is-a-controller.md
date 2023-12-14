@@ -31,9 +31,11 @@ Older versions of this code used a SQLite database instead of in-filesystem JSON
 
 The migration tool is written in nodeJS and can be used like this:
 
-    cd migrate-sqlite
-    npm install
-    node migrate.js </path/to/controller.db> </path/to/controller.d>
+```sh
+cd migrate-sqlite
+npm install
+node migrate.js </path/to/controller.db> </path/to/controller.d>
+```
 
 ### Network Controller API
 
@@ -41,7 +43,7 @@ The controller API is hosted via the same JSON API endpoint that ZeroTier One us
 
 The controller microservice itself does not implement any fine-grained access control. Access control is via the ZeroTier control interface itself and `authtoken.secret`. This can be sent as the `X-ZT1-Auth` HTTP header field or appended to the URL as `?auth=<token>`. Take care when doing the latter that request URLs are not being logged.
 
-While networks with any valid ID can be added to the controller's database, it will only actually work to control networks whose first 10 hex digits correspond with the network controller's ZeroTier ID. See [Network Identifiers and Controllers](#nwid).
+While networks with any valid ID can be added to the controller's database, it will only actually work to control networks whose first 10 hex digits correspond with the network controller's ZeroTier ID. See [Network Identifiers and Controllers](protocol#nwid).
 
 The controller JSON API is *very* sensitive about types. Integers must be integers and strings strings, etc. Incorrect types may be ignored, set to default values, or set to undefined values.
 

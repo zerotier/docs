@@ -22,7 +22,7 @@ Please use the Update Information link. If possible, use Address Line 1 for your
 
 After changing the address, use the *download invoice* link. If too much time has passed since the invoice was finalized, it won't be updated. Sorry.
 
-### My invoices don't show my Tax ID #
+### My invoices don't show my Tax ID \#
 
 ZeroTier's US Tax ID is 47-3126707. We aren't incorporated outside of the US so we don't have a Tax ID for anywhere outside of the US. Our payment processor will not print your Tax ID on invoices for this reason.
 

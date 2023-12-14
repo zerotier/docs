@@ -21,7 +21,7 @@ So apparently it's only possible to switch between interfaces and choose which o
 
 The following are code examples on how to to this, designed for the Windows bash (.bat files). These scripts usually need to be run as Administrator - there are ways to automatically elevate bash scripts, [see this link](https://stackoverflow.com/a/12264592)
 
-```
+```powershell
 @echo off >NUL
 @SETLOCAL enableextensions enabledelayedexpansion
 set "NetConID="
