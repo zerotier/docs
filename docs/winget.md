@@ -1,6 +1,6 @@
 ---
-title: winget
-description: How to install the ZeroTier winget package
+title: WinGet
+description: How to install the ZeroTier WinGet package
 custom_edit_url: null
 ---
 

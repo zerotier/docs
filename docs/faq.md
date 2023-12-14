@@ -34,7 +34,7 @@ No. Your traffic is end-to-end encrypted and your device's private identity keys
 ZeroTier Inc doesn't have access to your traffic. We don't currently supply a monitoring "dashboard" for your networks and nodes. You can build your own! 
 
 - [Prometheus Metrics](https://github.com/zerotier/ZeroTierOne#prometheus-metrics) for the zerotier-one agent are available. Pipe these into the common prometheus/grafana setup.
-- Use your preferred monitoring tool _over_ your ZeroTier networks. Some examples: Prometheus Blackbox exporter, SmokePing, Uptime Kuma
+- Use your preferred monitoring tool _over_ your ZeroTier networks. Some examples: Prometheus [Blackbox exporter](https://github.com/prometheus/blackbox_exporter), [SmokePing](https://oss.oetiker.ch/smokeping/), [UptimeKuma](https://uptime.kuma.pet/)
 - [Traffic Observation and Interception](https://docs.zerotier.com/rules#353trafficobservationandinterceptionaname3_5_3a)
 
 ### Why does my peers list have nodes I don't recognize? {#unknown-peers}
@@ -80,7 +80,7 @@ We do not throttle any of these packets, nor can we read the contents of the pac
 Considerations: 
 - CPU speed. The current version of zerotier-one is single threaded. Raw CPU speed is important in high bandwidth use cases. 
 - Physical Internet connection. ZeroTier can only go as fast as the physical connection it's running over.
-- Hardware Encrpytion. ZeroTier uses hardware AES acceleration when available. Most current ARM and x86_64 platforms have AES acceleration. 
+- Hardware Encryption. ZeroTier uses hardware AES acceleration when available. Most current ARM and x86_64 platforms have AES acceleration. 
 - Geographic distance. If your remote peer is on a different continent, there will be latency. We can't improve the speed of light.
 
 :::tip
