@@ -15,7 +15,7 @@
     "lint": "run-s -c lint:*",
     "lint:config": "jsonlint cspell.json > /dev/null",
     "lint:markdown": "markdownlint-cli2 docs/**/*.md",
-    "lint:spelling": "cspell docs/**/*.md"
+    "lint:spelling": "cspell --validate-directives --no-progress docs/**/*.md"
   },
   "dependencies": {
     "@docusaurus/core": "2.4.1",
