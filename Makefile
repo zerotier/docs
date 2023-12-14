@@ -12,7 +12,7 @@ buildx:
 
 all:
 	yarn install
-	NODE_OPTIONS=--openssl-legacy-provider yarn lint || true
+	NODE_OPTIONS=--openssl-legacy-provider yarn lint
 	NODE_OPTIONS=--openssl-legacy-provider yarn build
 
 start:
