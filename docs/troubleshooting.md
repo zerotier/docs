@@ -3,6 +3,9 @@ title: Troubleshooting
 description: Tips and suggestions for troubleshooting
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 :::tip Can't find an answer?
 [Ask our community for help](https://discuss.zerotier.com)
 :::
@@ -61,3 +64,75 @@ If not, execute:
 ### Still doesn't work?
 
 Your system firewall is likely blocking communication with the ZeroTier service.  Look up instructions for how to unblock an application from the firewall for your OS.  ZeroTier will need to be accessible via TCP port 9993 for the UI and CLI to interact with it.
+
+## Emergency Instructions
+
+"It was working, but now it's not and I'm not sure why. And I need to get up and running quick."
+
+First, check with your friendly firewall admin that no configuration in the physical network connection has changed.
+
+See the [CLI](cli) article for help with the CLI.
+
+We're not aware of any bugs that require these steps, or we'd fix them, but sometimes people try the below.
+
+Listed in order of severity:
+
+### Restart the service
+
+<Tabs
+  defaultValue="mac"
+  groupId="client-restart"
+  values={[
+    { label: "macOS", value: "mac", },
+    { label: "Windows", value: "windows", },
+    { label: "Linux", value: "linux", }
+  ]}>
+
+<TabItem value="mac">
+
+Open Terminal.app, paste the below, and press enter:
+
+```sh
+sudo launchctl unload /Library/LaunchDaemons/com.zerotier.one.plist
+sudo launchctl load /Library/LaunchDaemons/com.zerotier.one.plist
+```
+
+It will ask you for your password. It's the password you use to log in to your mac.
+
+</TabItem>
+
+<TabItem value="linux">
+
+```sh
+systemctl restart zerotier-one
+```
+
+</TabItem>
+
+<TabItem value="windows">
+
+- Type "Services" into the Start Menu to open the Windows Services Manager
+- Start and Stop the zerotier-one service in the Windows Services Manager.
+
+</TabItem>
+</Tabs>
+
+### Leave all networks and rejoin them
+
+Use the UI, or
+
+`zerotier-cli leave <network-id>` and `zerotier-cli join <network-id>`
+
+### Stop service, Delete peers.d, Start service
+
+Find peers.d in the [zerotier system directory](http://localhost:3000/config#system)
+
+### Reset Node ID
+
+The new node ID will have be re-authorized on any networks, and the node's managed IP address manually re-assigned if needed.
+
+- Stop the service
+- Move or delete identity.secret and identity.public files in the [zerotier system directory](http://localhost:3000/config#system)
+
+- Delete peers.d too
+- Start the service
