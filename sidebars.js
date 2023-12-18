@@ -98,7 +98,7 @@ module.exports = {
         description: 'If it has a chip, you can probably install ZeroTier on it.',
         slug: '/routers',
       },
-      items: ['routertips', 'teltonika-networks', 'mikrotik', 'openwrt', 'opnsense', 'ubiquiti', 'route-between-phys-and-virt'],
+      items: ['routertips', 'corporate-firewalls', 'teltonika-networks', 'mikrotik', 'openwrt', 'opnsense', 'ubiquiti', 'route-between-phys-and-virt'],
     },
     {
       type: 'category',
