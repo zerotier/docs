@@ -41,3 +41,9 @@ If you change to a completely different, non-overlapping subnet, your network's 
 For example, if you change from `192.168.195.*` to `10.244.*.*`, then the member nodes will have IPs in both ranges, like: 192.16.195.1 and 10.244.1.1
 
 IPs don't actually get applied on the operating system unless the network has a matching managed route.
+
+## How are nodes counted against my subscription?
+
+If the same node is a member of multiple networks, it is counted only once.
+
+Only authorized nodes are counted. You don't need to hide or delete nodes for billing purposes. De-authorized nodes aren't counted.
