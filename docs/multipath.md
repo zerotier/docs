@@ -131,11 +131,11 @@ A warm spare is a link that is not actively used to process traffic until all ot
         {
           "eth0":
           {
-            "mode": "spare"
+            "mode": "primary"
           },
           "eth1":
           {
-            "mode": "spare"
+            "mode": "primary"
           },
           "expensive_lte0":
           {
