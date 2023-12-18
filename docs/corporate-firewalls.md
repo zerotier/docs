@@ -19,8 +19,6 @@ Look for Full Cone NAT, options related to VoIP, persistent NAT, Endpoint Indepe
 
 Ask your vendor. Let us know what works.
 
-If you are behind a Palo Alto, you will need some kind of ZeroTier bastion. As far as we know, there's no way to enable endpoint independent mapping. Contact us for help.
-
 Here's a table of the likeliness of a direct connection between two types of NAT:
 
 |NAT type|Hard|Easy|None (WAN)|
@@ -33,7 +31,7 @@ And a network diagram:
 
 ![Network diagram](./images/corporate-firewall-01.png)
 
-### How do I know if I'm behind a Difficult NAT?
+## How do I know if I'm behind a Difficult NAT?
 
 - Check zerotier-cli info -j and look at the surfaceAddresses. If that list is growing, you may be behind a difficult NAT.
 - Check zerotier-cli peers and see if connections to peers you care about are "relayed"
@@ -41,3 +39,22 @@ And a network diagram:
 :::tip
 See also: [Router Configuration Tips](./routertips.md)
 :::
+
+## Palo Alto
+
+If you are behind a Palo Alto, you will need some kind of ZeroTier bastion. As far as we know, there's no way to enable endpoint independent mapping. Contact us for help.
+
+One simple solution might be: statically port forward to one zerotier node, and use that node as a [route between zerotier and physical networks](./route-between-phys-and-virt).
+
+## OPNSense and pfSense
+
+Nodes behind these BSD based firewalls will probably have trouble making direct connections with the default settings.
+See [OPNsense article](opnsense#static-port)
+
+## Juniper
+
+Use persistent NAT. See [forum post](https://discuss.zerotier.com/t/srx-nat-configuration-for-a-zt-appliance/6115)
+
+## SonicWall
+
+Commonly cause of relaying. We haven't seen the SonicWall UI in quite some time. The setting may be be called "Consistent NAT."
