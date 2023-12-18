@@ -102,3 +102,4 @@ zerotier-cli
 zerotier-idtool
 ztdest
 ztsrc
+SonicWall
