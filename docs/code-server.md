@@ -25,7 +25,7 @@ nano /home/$USER/.config/code-server/config.yaml
 
 Change your `bind-addr` to the ip address of the ZeroTier network interface for the network you'd like to access code-server over.
 
-You can get this via [Central](my.zerotier.com) or from the `zerotier-cli`. For instance:
+You can get this via [Central](https://my.zerotier.com) or from the `zerotier-cli`. For instance:
 
 ```sh
 sudo zerotier-cli listnetworks

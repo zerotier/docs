@@ -18,7 +18,7 @@ Note: This email address must not already have a ZeroTier Central account.
 Many users prefer to use something like "billing" or "admin" `@example.com` for their organization owner email account and then invite `alice@example.com` and `bob@example.com` as network admins.
 
 :::tip
-[See our main FAQ for more topics](./faq.md)
+You can avoid this process by using a shared email address or distribution list (example: `zerotier@example.com`) instead of a personal address for the account that manages your organization.
 :::
 
 ## Can I make my subnet bigger?

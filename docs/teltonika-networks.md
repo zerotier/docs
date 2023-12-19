@@ -9,6 +9,6 @@ description: How to install ZeroTier on your Teltonika router
 
 [Teltonika Networks wiki](https://wiki.teltonika-networks.com/view/ZeroTier_Configuration)
 
-:::info Next steps
-Click [here](/start/) to create your network and start adding devices.
+:::info Package information
+Teltonika RutOS is based on [OpenWRT](https://openwrt.org), a Linux-based platform used by many router OEMs to build custom firmware images for their devices. See [our OpenWRT guide](./openwrt.md) for more information about configuring ZeroTierOne on this platform.
 :::
