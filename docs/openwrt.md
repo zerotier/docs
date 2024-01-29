@@ -21,4 +21,3 @@ However, some features require manual configuration:
 :::tip Next steps
 Click [here](/start/) to create your network and start adding devices.
 :::
-
