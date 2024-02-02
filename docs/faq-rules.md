@@ -12,6 +12,8 @@ Check [the manual](./rules.md) for theory about how rules work.
 Do you have a couple server or admin nodes, but you don't want members to be able to talk to each other?
 
 ```sh
+accept ethertype arp;
+
 tag server
   id 2
   enum 0 No
