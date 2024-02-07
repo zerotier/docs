@@ -401,7 +401,7 @@ Now we're ready to join a network:
 <TabItem value="c">
 
 ```c
-zts_net_join(0x1234567890abcdef)
+zts_net_join(0x1234567890abcdef);
 ```
 
 </TabItem>
@@ -530,7 +530,7 @@ Currently, only one address of each family type may be assigned (per network) to
 
 ```c
 char ipstr[ZTS_IP_MAX_STR_LEN] = { 0 };
-zts_addr_get_str(net_id, ZTS_AF_INET, ipstr, ZTS_IP_MAX_STR_LEN)
+zts_addr_get_str(net_id, ZTS_AF_INET, ipstr, ZTS_IP_MAX_STR_LEN);
 printf("%s\n", ipstr);
 ```
 
