@@ -179,6 +179,10 @@ module.exports = {
             route: "/service/v1",
             spec: "./static/openapi/servicev1.json",
           },
+          {
+            route: "/service/preview",
+            spec: "https://github.com/zerotier/zerotier-one-api-spec/releases/latest/download/openapi.yaml"
+          },
         ],
         theme: {
           primaryColor: "#FFB354",
