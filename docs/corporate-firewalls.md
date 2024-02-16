@@ -40,21 +40,36 @@ And a network diagram:
 See also: [Router Configuration Tips](./routertips.md)
 :::
 
-## Palo Alto
+## Vendor Specific Tips
+
+### Palo Alto
 
 If you are behind a Palo Alto, you will need some kind of ZeroTier bastion. As far as we know, there's no way to enable endpoint independent mapping. Contact us for help.
 
-One simple solution might be: statically port forward to one zerotier node, and use that node as a [route between zerotier and physical networks](./route-between-phys-and-virt).
+See [below](#i-cant-change-my-firewall-or-nat) for some ideas.
 
-## OPNSense and pfSense
+### OPNSense and pfSense
 
 Nodes behind these BSD based firewalls will probably have trouble making direct connections with the default settings.
 See [OPNsense article](opnsense#static-port)
 
-## Juniper
+### Juniper
 
 Use persistent NAT. See [forum post](https://discuss.zerotier.com/t/srx-nat-configuration-for-a-zt-appliance/6115)
 
-## SonicWall
+### SonicWall
 
 Commonly cause of relaying. We haven't seen the SonicWall UI in quite some time. The setting may be be called "Consistent NAT."
+
+## I can't change my Firewall or NAT
+
+Here are a few options:
+
+### ZeroTier Router
+
+One simple solution might be: statically port forward to one zerotier node, and use that node as a [route between zerotier and physical networks](./route-between-phys-and-virt).
+
+### TCP relay
+
+If your physical network won't let any UDP flow, host a TCP relay service somewhere physically close to your LAN. Maybe in a DMZ or in a datacenter in the same city.
+See the TCP Relay [guide](./relay)
