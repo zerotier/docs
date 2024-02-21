@@ -55,16 +55,9 @@ Authorize the node to the network by clicking the "Auth" button in the
 
 ![Authorize the Member](https://i.imgur.com/fQTai9l.png)
 
-## Provision an API Token from ZeroTier Central
+First, [create a Central API token](/api/tokens).
 
-Before we begin, we will need to log into [my.zerotier.com](https://my.zerotier.com) and create an API
-token under the [Account](https://my.zerotier.com/account)
-section. ZeroNSD will use this token to read Network members so it can
-generate records, as well as update DNS settings.
-
-![token screenshot](https://i.imgur.com/WYM2jKl.png)
-
-You will need to stash this in a file for ZeroNSD to read.
+Next, you will need to stash this in a file for ZeroNSD to read.
 
 ```sh
 sudo bash -c "echo ZEROTIER_CENTRAL_TOKEN > /var/lib/zerotier-one/token"

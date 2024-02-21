@@ -74,8 +74,22 @@ module.exports = {
                 },
               ],
             },
+            {
+              type: 'category',
+              label: 'API Usage',
+              link: {
+                type: 'generated-index',
+                title: 'API Usage',
+                description: 'How to use the Central and Service APIs',
+                slug: '/api/usage',
+              },
+              items: [
+                'api/tokens',
+                'api/examples/central',
+              ],
+            },
           ],
-        }
+        },
       ]
     },
     {
