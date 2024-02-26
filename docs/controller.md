@@ -7,11 +7,6 @@ description: Host your own network controllers
 [Network Controller Reference Documentation](what-is-a-controller)
 :::
 
-:::info OpenAPI
-There is an [OpenAPI](https://www.openapis.org/) spec at <https://docs.zerotier.com/openapi/servicev1.json>
-which can be used to [generate API clients](https://openapi-generator.tech/) in many languages. You can [browse](/service/v1#tag/controller) the docs here.
-:::
-
 ## Tutorial
 
 import Tabs from '@theme/Tabs';
@@ -21,52 +16,15 @@ First, skim the [README](https://github.com/zerotier/ZeroTierOne/tree/master/con
 
 We're going to use `curl` to set up an example ZeroTier network. An easy way to get `curl` in Windows is to install [the latest version of Git](https://git-scm.com/downloads), which comes with bash, curl, and other tools.
 
+:::info OpenAPI
+The setup described here uses the local [ZeroTierOne service API](/api/service) to provision and manage networks. You can [browse](/service/v1#tag/controller) the OpenAPI docs for the local controller API for more detail on this interface.
+:::
+
 This is a low tech way to setup a controller for example purposes. You'd likely build yourself something fancier around this API.
 
 ### Authtoken
 
-The authtoken.secret file in the ZeroTier home directory is required to make API calls to the controller service.
-
-:::note
-ZeroTier generates the token at random the first time it starts. You can change it if you want.
-:::
-
-Lets save the token to an environment variable. We need it in all the following commands.
-
-<Tabs
-    groupId="operating-systems"
-    defaultValue="linux"
-    values={[
-    {label: 'Linux', value: 'linux'},
-    {label: 'macOS', value: 'macos'},
-    {label: 'Windows', value: 'windows'},
-]}>
-<TabItem value="linux">
-
-```sh
-TOKEN=$(sudo cat /var/lib/zerotier-one/authtoken.secret)
-```
-
-</TabItem>
-<TabItem value="macos">
-
-```sh
-TOKEN=$(sudo cat "/Library/Application Support/ZeroTier/One/authtoken.secret")
-```
-
-</TabItem>
-<TabItem value="windows">
-    <div>
-    The token file is located at:
-    </div>
-    <code>
-    \ProgramData\ZeroTier\One\authtoken.secret
-    </code>
-    <div>
-    But I'm not sure how environment variables work in Windows. Maybe you can use the Linux subsystem thing and just follow the Linux instructions?
-    </div>
-</TabItem>
-</Tabs>
+You'll need to find the current local auth token on your system using the instructions in the [API Tokens](/api/tokens#zerotierone-service-token) guide.
 
 ### Get your Node ID
 

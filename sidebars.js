@@ -45,52 +45,39 @@ module.exports = {
       items: ['dns', 'multipath', 'terraform', 'docker', 'exitnode', 'bridging', 'proxy', 'sockets', 'code-server', 'route-between-phys-and-virt', 'microsegmentation', 'selfhosting', 'cloud-init', 'cli', 'nat', 'integrating-physical-networks'],
     },
     {
-      type: "category",
-      label: "API",
+      type: 'category',
+      label: 'API',
+      link: { type: 'doc', id: 'api/index', },
       items: [
+        'api/tokens',
+        //{ type: 'doc', id: 'api/tokens', },
         {
-          type: "category",
-          label: "REST APIs",
+          type: 'category',
+          label: 'Central API',
+          link: { type: 'doc', id: 'api/central/index' },
           items: [
             {
-              type: "category",
-              label: "Central",
-              items: [
-                {
-                  type: "link",
-                  label: "V1",
-                  href: "/central/v1",
-                },
-              ],
+              type: 'html',
+              value: '<a href="/api/central/v1" target="_new">API Docs</a>',
+              defaultStyle: true,
             },
-            {
-              type: "category",
-              label: "Service",
-              items: [
-                {
-                  type: "link",
-                  label: "V1",
-                  href: "/service/v1",
-                },
-              ],
-            },
-            {
-              type: 'category',
-              label: 'API Usage',
-              link: {
-                type: 'generated-index',
-                title: 'API Usage',
-                description: 'How to use the Central and Service APIs',
-                slug: '/api/usage',
-              },
-              items: [
-                'api/tokens',
-                'api/examples/central',
-              ],
-            },
+            'api/central/examples',
           ],
         },
-      ]
+        {
+          type: 'category',
+          label: 'Service API',
+          link: { type: 'doc', id: 'api/service/index' },
+          items: [
+            {
+              type: 'html',
+              value: '<a href="/api/service/v1" target="_new">API Docs</a>',
+              defaultStyle: true,
+            },
+            'api/service/examples',
+          ],
+        },
+      ],
     },
     {
       type: 'category',
