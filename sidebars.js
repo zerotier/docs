@@ -9,18 +9,18 @@ module.exports = {
         description: 'ZeroTier securely connects all of your devices and services with each other, anywhere.',
         slug: '/',
       },
-      items: ['wat', 'start', 'faq', 'troubleshooting', 'awesome', 'source', 'releases'],
+      items: ['wat', 'releases', 'start', 'cli', 'awesome', 'faq', 'troubleshooting'],
     },
     {
       type: 'category',
-      label: 'ZeroTier',
+      label: 'Architecture',
       link: {
         type: 'generated-index',
         title: 'How ZeroTier Works',
         description: 'Our installable client service.',
         slug: '/zerotier',
       },
-      items: ['protocol', 'rules', 'config', 'what-is-a-controller'],
+      items: ['protocol', 'faq-security', 'rules', 'config', 'what-is-a-controller'],
     },
     {
       type: 'category',
@@ -42,15 +42,43 @@ module.exports = {
         description: 'How-to guides for common ZeroTier use cases.',
         slug: '/guides',
       },
-      items: ['dns', 'multipath', 'terraform', 'docker', 'exitnode', 'bridging', 'proxy', 'sockets', 'code-server', 'route-between-phys-and-virt', 'microsegmentation', 'selfhosting', 'cloud-init', 'cli', 'nat', 'integrating-physical-networks'],
+      items: [
+        'docker',
+        'dns',
+        'exitnode',
+        {
+          type: 'category',
+          label: 'Cloud Deployments',
+          items: [
+            'terraform',
+            'cloud-init',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Advanced Networking',
+          items: [
+            'multipath', 'bridging', 'proxy', 'code-server', 'route-between-phys-and-virt', 'microsegmentation', 'nat', 'integrating-physical-networks',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Self-Hosting',
+          link: {
+            type: 'generated-index',
+            title: 'Self-Hosting',
+            description: 'Take control by self-hosting your own ZeroTier infrastructure.',
+            slug: '/selfhost',
+          },
+          items: ['controller', 'roots'],
+        },
+      ],
     },
     {
       type: 'category',
-      label: 'API',
+      label: 'Development',
       link: { type: 'doc', id: 'api/index', },
       items: [
-        'api/tokens',
-        //{ type: 'doc', id: 'api/tokens', },
         {
           type: 'category',
           label: 'Central API',
@@ -58,7 +86,7 @@ module.exports = {
           items: [
             {
               type: 'html',
-              value: '<a href="/api/central/v1" target="_new">API Docs</a>',
+              value: '<a href="/api/central/v1" target="_new">API Reference (V1)</a>',
               defaultStyle: true,
             },
             'api/central/examples',
@@ -71,61 +99,26 @@ module.exports = {
           items: [
             {
               type: 'html',
-              value: '<a href="/api/service/v1" target="_new">API Docs</a>',
+              value: '<a href="/api/service/v1" target="_new">API Reference (V1)</a>',
               defaultStyle: true,
             },
-            'api/service/examples',
           ],
+        },
+        {
+          type: 'doc',
+          id: 'api/tokens',
+          label: 'Using API Tokens',
+        },
+        {
+          type: 'doc',
+          id: 'sockets',
+          label: 'Sockets (libzt)'
         },
       ],
     },
     {
       type: 'category',
-      label: 'Self-Hosting',
-      link: {
-        type: 'generated-index',
-        title: 'Self-Hosting',
-        description: 'Take control by self-hosting your own ZeroTier infrastructure.',
-        slug: '/selfhost',
-      },
-      items: ['roots', 'controller'],
-    },
-    {
-      type: 'category',
-      label: 'Routers',
-      link: {
-        type: 'generated-index',
-        title: 'Routers',
-        description: 'If it has a chip, you can probably install ZeroTier on it.',
-        slug: '/routers',
-      },
-      items: ['routertips', 'corporate-firewalls', 'teltonika-networks', 'mikrotik', 'openwrt', 'opnsense', 'ubiquiti', 'route-between-phys-and-virt'],
-    },
-    {
-      type: 'category',
-      label: 'NAS',
-      link: {
-        type: 'generated-index',
-        title: 'Network Attached Storage',
-        description: 'If it has a chip, you can probably install ZeroTier on it.',
-        slug: '/nas',
-      },
-      items: ['freenas', 'asustor', 'qnap', 'synology', 'wd'],
-    },
-    {
-      type: 'category',
-      label: 'IoT',
-      link: {
-        type: 'generated-index',
-        title: 'IoT',
-        description: 'ZeroTier is designed to operate on resource constrained devices and under 16MB of memory.',
-        slug: '/iot',
-      },
-      items: ['lbm', 'compatibility', 'bridging', 'proxy', 'faq-security', 'route-between-phys-and-virt'],
-    },
-    {
-      type: 'category',
-      label: 'OS / Platforms',
+      label: 'OS / Platform Notes',
       link: {
         type: 'generated-index',
         title: 'OS / Platforms',
@@ -156,18 +149,6 @@ module.exports = {
             slug: '/macos',
           },
           items: ['faq-macos']
-        },
-        /* FreeBSD */
-        {
-          type: 'category',
-          label: 'FreeBSD',
-          link: {
-            type: 'generated-index',
-            title: 'freebsd',
-            description: 'ZeroTier on freeBSD',
-            slug: '/freebsd',
-          },
-          items: ['faq-freebsd']
         },
         /* WINDOWS */
         {
@@ -204,52 +185,53 @@ module.exports = {
             slug: '/ios',
           },
           items: ['faq-ios']
-        }
+        },
+        {
+          type: 'category',
+          label: 'Routers',
+          link: {
+            type: 'generated-index',
+            title: 'Routers',
+            description: 'If it has a chip, you can probably install ZeroTier on it.',
+            slug: '/routers',
+          },
+          items: ['routertips', 'corporate-firewalls', 'teltonika-networks', 'mikrotik', 'openwrt', 'opnsense', 'ubiquiti', 'route-between-phys-and-virt'],
+        },
+        {
+          type: 'category',
+          label: 'NAS',
+          link: {
+            type: 'generated-index',
+            title: 'Network Attached Storage',
+            description: 'If it has a chip, you can probably install ZeroTier on it.',
+            slug: '/nas',
+          },
+          items: ['freenas', 'asustor', 'qnap', 'synology', 'wd'],
+        },
+        {
+          type: 'category',
+          label: 'IoT',
+          link: {
+            type: 'generated-index',
+            title: 'IoT',
+            description: 'ZeroTier is designed to operate on resource constrained devices and under 16MB of memory.',
+            slug: '/iot',
+          },
+          items: ['lbm', 'compatibility', 'bridging', 'proxy', 'faq-security', 'route-between-phys-and-virt'],
+        },
+        /* FreeBSD */
+        {
+          type: 'category',
+          label: 'FreeBSD',
+          link: {
+            type: 'generated-index',
+            title: 'freebsd',
+            description: 'ZeroTier on freeBSD',
+            slug: '/freebsd',
+          },
+          items: ['faq-freebsd']
+        },
       ],
-    },
-    {
-      type: 'category',
-      label: 'Community Articles',
-      link: {
-        type: 'generated-index',
-        title: 'Community Articles',
-        description: 'Articles written by fans and users of ZeroTier',
-        slug: '/community',
-      },
-      items: ['awesome'],
-    },
-    {
-      type: 'category',
-      label: 'Remote Access',
-      link: {
-        type: 'generated-index',
-        title: 'Remote Access',
-        description: 'Ways to use ZeroTier to remotely access your resources',
-        slug: '/remote',
-      },
-      items: ['code-server'],
-    },
-    {
-      type: 'category',
-      label: 'Security',
-      link: {
-        type: 'generated-index',
-        title: 'Security',
-        description: 'ZeroTier uses state of the art cryptographic methods.',
-        slug: '/security',
-      },
-      items: ['faq-security'],
-    },
-    {
-      type: 'category',
-      label: 'Packages',
-      link: {
-        type: 'generated-index',
-        title: 'Packages',
-        description: 'Ways to get ZeroTier',
-        slug: '/packages',
-      },
-      items: ['snap', 'chocolatey', 'winget'],
     },
     {
       type: 'category',
@@ -263,4 +245,4 @@ module.exports = {
       items: ['faq-rules', 'faq-security', 'sso'],
     }
   ]
-};
+}
