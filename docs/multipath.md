@@ -199,6 +199,7 @@ Traffic is sent on only *one* link at any time. A different link becomes active 
     "defaultBondingPolicy": "custom-active-backup",
     "custom-active-backup":
     {
+      "basePolicy": "active-backup",
       "linkSelectMethod": "always",
       "failoverInterval": 5000,
       "links":
