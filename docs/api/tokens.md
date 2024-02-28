@@ -6,11 +6,11 @@ description: "Creating, managing, and using Central API tokens"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Using ZeroTier API Tokens
+## Using ZeroTier API Tokens
 
 Access to the ZeroTier APIs requires an authentication token. This guide describes the methods and tools needed to create and manage these tokens.
 
-## ZeroTier Central Token
+### ZeroTier Central Token
 
 To use the Central API, you need a token associated with your account. To create one, log into [my.zerotier.com](https://my.zerotier.com) and create a named token in the [Account](https://my.zerotier.com/account) tab. Pick a memorable name that shows the intended use of the token: for example, "Terraform automation token" or "internal dev key".
 
@@ -22,7 +22,7 @@ Each token you create is associated with your user account, so it will allow the
 The token is displayed only once at the time you create it, so you should save it somewhere safe before clicking 'Done'.
 :::
 
-## ZeroTierOne Service Token
+### ZeroTierOne Service Token
 
 The local service API token is store in the `authtoken.secret` file in the ZeroTier service state directory. You'll need it to make API calls to the local service.
 
