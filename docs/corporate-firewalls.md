@@ -48,6 +48,8 @@ If you are behind a Palo Alto, you will need some kind of ZeroTier bastion. As f
 
 See [below](#i-cant-change-my-firewall-or-nat) for some ideas.
 
+PAN-OS 10.1.7 and above have a [Persistent NAT feature](https://docs.paloaltonetworks.com/pan-os/10-1/pan-os-new-features/networking-features/persistent-nat-for-dipp). Please let us know if this improves your ZeroTier connections.
+
 ### OPNSense and pfSense
 
 Nodes behind these BSD based firewalls will probably have trouble making direct connections with the default settings.
