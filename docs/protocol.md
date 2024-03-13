@@ -213,7 +213,7 @@ CPU overhead of double-encryption is not significant for most work
 loads.
 
 :::info Security
-[More information on ZeroTier's security practices](security)
+[More information on ZeroTier's security practices](faq-security)
 :::
 
 ### Trusted Paths for Fast Local SDN {#trustedpaths}
