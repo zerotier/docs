@@ -62,5 +62,3 @@ $env.TOKEN = Get-Content C:\ProgramData\ZeroTier\One\authtoken.secret
 
 </TabItem>
 </Tabs>
-
-See our [sample code](service/examples) for examples of how to use this token for local administration tasks.

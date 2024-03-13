@@ -172,12 +172,12 @@ module.exports = {
       {
         specs: [
           {
-            route: "/api/central/v1",
+            route: "/central/v1",
             spec: "./static/openapi/centralv1.json",
           },
           {
-            route: "/api/service/v1",
-            spec: "./static/openapi/servicev1.json",
+            route: "/service/v1",
+            spec: "https://github.com/zerotier/zerotier-one-api-spec/releases/latest/download/openapi.yaml",
           },
         ],
         theme: {

@@ -86,7 +86,7 @@ module.exports = {
           items: [
             {
               type: 'html',
-              value: '<a href="/api/central/v1" target="_new">API Reference (V1)</a>',
+              value: '<a href="/central/v1" target="_new">API Reference (V1)</a>',
               defaultStyle: true,
             },
             'api/central/examples',
@@ -99,7 +99,7 @@ module.exports = {
           items: [
             {
               type: 'html',
-              value: '<a href="/api/service/v1" target="_new">API Reference (V1)</a>',
+              value: '<a href="/service/v1" target="_new">API Reference (V1)</a>',
               defaultStyle: true,
             },
           ],
