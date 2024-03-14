@@ -76,10 +76,10 @@ definitions to be updated in-band if root servers' IP addresses or
 ZeroTier addresses change.
 
 There is only one planet. Earth's root servers are operated by ZeroTier,
-Inc. as a free service. There are currently twelve root servers
-organized into two six-member clusters distributed across every major
-continent and multiple network providers. Almost everyone in the world
-has one within less than 100ms network latency from their location.
+Inc. as a free service. There are currently four root servers
+distributed across the globe and multiple network providers. Almost 
+everyone in the world has one within less than 100ms network latency from 
+their location.
 
 A node can "orbit" any number of moons. A moon is just a convenient way
 to add user-defined root servers to the pool. Users can create moons to
