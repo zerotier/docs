@@ -4,7 +4,7 @@ description: ZeroNSD - DNS on your ZeroTier network
 ---
 
 :::info BETA
-This feature is still in beta. This will soon be integrated into ZeroTier 2.0, but for now, it is segregated to allow us to iterate quickly.
+The configuration described below uses a beta release of our dedicated DNS service, [ZeroNSD](https://github.com/zerotier/zeronsd). You are not required to use ZeroNSD to provide DNS resolution for devices on your ZeroTier networks; any DNS server can be provided with the assigned IPs and names of your networks' members using the [Central API](/api/central).
 :::
 
 ## Conceptual Prerequisites
