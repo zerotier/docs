@@ -50,5 +50,6 @@
     "@cspell/dict-markdown": "^2.0.1",
     "@cspell/dict-software-terms": "^3.3.12",
     "markdownlint-cli2": "^0.8.1"
-  }
+  },
+  "packageManager": "yarn@4.1.1+sha256.f3cc0eda8e5560e529c7147565b30faa43b4e472d90e8634d7134a37c7f59781"
 }
