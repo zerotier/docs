@@ -125,14 +125,14 @@ Use the UI, or
 
 ### Stop service, Delete peers.d, Start service
 
-Find peers.d in the [zerotier system directory](http://localhost:3000/config#system)
+Find peers.d in the [zerotier system directory](/config#system)
 
 ### Reset Node ID
 
 The new node ID will have be re-authorized on any networks, and the node's managed IP address manually re-assigned if needed.
 
 - Stop the service
-- Move or delete identity.secret and identity.public files in the [zerotier system directory](http://localhost:3000/config#system)
+- Move or delete identity.secret and identity.public files in the [zerotier system directory](/config#system)
 
 - Delete peers.d too
 - Start the service
