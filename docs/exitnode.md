@@ -138,9 +138,13 @@ Your exit node is complete, now we need to configure your network.
 
 Now that your exit node is set up we need to configure your ZeroTier network to advertise a `Default Route` so that other nodes know that the exit node can route traffic to the internet.
 
-Central > Network >
+Central > Network > Settings > Managed Routes
 
-### Tell other nodes to use exit node
+`0.0.0.0/0` via `<zerotier-ip-of-router-node>`
+
+### Tell your local nodes to use exit node
+
+In the tray app, under each network, there is an "Allow Default" option. Check this to use your exit node. 
 
 :::tip ~/.bashrc
 
