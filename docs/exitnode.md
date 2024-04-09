@@ -3,6 +3,8 @@ title: VPN Exit Node
 description: Route all your Internet traffic through a ZeroTier node
 ---
 
+## Full Tunnel Mode or, Overriding Default Route
+
 Route all your Internet traffic through a ZeroTier node.
 
 :::info In this tutorial
@@ -163,3 +165,15 @@ notunnel()
 ```
 
 :::
+
+### A Linux Gotcha: rp_filter
+
+Linux's networking stack is complex and almost absurdly feature-rich. This is a good thing and a bad thing. You can do almost anything with it, probably including but not limited to IP over avian carrier. But it also has a lot of weird little edge cases that can bite.
+
+For a Linux host to route via a ZeroTier network, you may (depending on distribution) need to change a setting called rp_filter:
+
+`sudo sysctl -w net.ipv4.conf.all.rp_filter=2`
+
+RedHat has an article explaining the details of this. Put it in /etc/sysctl.conf to make it permanent.
+
+Oddly enough this is not required on the gateway/router, only participating members running Linux that want to enable allowDefault.
