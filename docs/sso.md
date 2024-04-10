@@ -163,7 +163,13 @@ Platform: Public client/native (mobile & desktop)
 
 Set the Redirect URI to `http://localhost:9993/sso`
 
-Do not use a trailing `/` when you enter the "issuer" url in Central.
+#### Getting your AzureAD Issuer URL
+
+Once your app registration is configured, open the "Endpoints" tab.  Look for "OpenID Connect Metadata Document".
+
+![OpenID Connect Metadata Document](./images/azure-issuer-url.png)
+
+The Issuer URL is everything up to `/.well-known/openid-configuration`.  For example `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/v2.0`.  Do not use a trailing `/` when you enter the "issuer" url in Central.
 
 ### Google Workspace
 
