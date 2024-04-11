@@ -90,7 +90,7 @@ curl -H "Authorization: token $ZT_TOKEN" \
 ## Authorize a network member
 
 ```sh
-curl -H "Authorization: token $ZT_TOKEN" \
+curl -H "Authorization: token $ZT_TOKEN" -X POST \
   "https://api.zerotier.com/api/v1/network/$NWID/member/$MEMBER_ID" \
   --data '{"config": {"authorized": true}}'
 ```
@@ -102,7 +102,7 @@ curl -H "Authorization: token $ZT_TOKEN" \
 ## Deauthorize a network member
 
 ```sh
-curl -H "Authorization: token $ZT_TOKEN" \
+curl -H "Authorization: token $ZT_TOKEN" -X POST \
   "https://api.zerotier.com/api/v1/network/$NWID/member/$MEMBER_ID" \
   --data '{"config": {"authorized": false}}'
 ```
