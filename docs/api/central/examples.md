@@ -73,3 +73,40 @@ curl -H "Authorization: token $ZT_TOKEN" \
 </TabItem>
 
 </Tabs>
+
+# Authorizing and Deauthorizing Network Members
+
+<Tabs
+  groupId="central-api-tasks-auth"
+  defaultValue="authorize-member"
+  values={[
+    {label: 'Authorize Member', value: 'authorize-member'},
+    {label: 'Deauthorize Member', value: 'deauthorize-member'}
+  ]}>
+
+
+<TabItem value="authorize-member">
+
+## Authorize a network member
+
+```sh
+curl -H "Authorization: token $ZT_TOKEN" \
+  "https://api.zerotier.com/api/v1/network/$NWID/member/$MEMBER_ID" \
+  --data '{"config": {"authorized": true}}'
+```
+
+</TabItem>
+
+<TabItem value="deauthorize-member">
+
+## Deauthorize a network member
+
+```sh
+curl -H "Authorization: token $ZT_TOKEN" \
+  "https://api.zerotier.com/api/v1/network/$NWID/member/$MEMBER_ID" \
+  --data '{"config": {"authorized": false}}'
+```
+
+</TabItem>
+
+</Tabs>
