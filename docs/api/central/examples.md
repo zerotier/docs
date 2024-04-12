@@ -15,7 +15,7 @@ In the examples below use the following placeholder variables to match commonly-
 See the [Central API Tokens](/api/tokens) guide for an explanation of how to create and manage API tokens.
 :::
 
-# Exporting Data from the Central API
+## Exporting Data from the Central API
 
 The examples below are intended to run in a system terminal, and require the following command-line tools:
 
@@ -34,7 +34,7 @@ Each of them will fetch network information and produce CSV as output. You can t
 
 <TabItem value="list-networks">
 
-## List current networks
+### List current networks
 
 ```sh
 curl -s -H "Authorization: token $ZT_TOKEN" \
@@ -55,7 +55,7 @@ curl -s -H "Authorization: token $ZT_TOKEN" \
 
 <TabItem value="list-members">
 
-## List network members
+### List network members
 
 ```sh
 curl -H "Authorization: token $ZT_TOKEN" \
@@ -74,7 +74,7 @@ curl -H "Authorization: token $ZT_TOKEN" \
 
 </Tabs>
 
-# Authorizing and Deauthorizing Network Members
+## Authorize and Deauthorize Network Members
 
 <Tabs
   groupId="central-api-tasks-auth"
@@ -84,10 +84,9 @@ curl -H "Authorization: token $ZT_TOKEN" \
     {label: 'Deauthorize Member', value: 'deauthorize-member'}
   ]}>
 
-
 <TabItem value="authorize-member">
 
-## Authorize a network member
+### Authorize a network member
 
 ```sh
 curl -H "Authorization: token $ZT_TOKEN" -X POST \
@@ -99,7 +98,7 @@ curl -H "Authorization: token $ZT_TOKEN" -X POST \
 
 <TabItem value="deauthorize-member">
 
-## Deauthorize a network member
+### Deauthorize a network member
 
 ```sh
 curl -H "Authorization: token $ZT_TOKEN" -X POST \
