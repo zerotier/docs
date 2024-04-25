@@ -74,4 +74,4 @@ One simple solution might be: statically port forward to one zerotier node, and 
 ### TCP relay
 
 If your physical network won't let any UDP flow, host a TCP relay service somewhere physically close to your LAN. Maybe in a DMZ or in a datacenter in the same city.
-See the TCP Relay [guide](./relay)
+See the [TCP Relay guide](https://github.com/zerotier/pylon?tab=readme-ov-file#reflect-dumb-tcp-relay)
