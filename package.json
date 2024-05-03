@@ -14,7 +14,7 @@
     "write-heading-ids": "docusaurus write-heading-ids",
     "lint": "run-s -c lint:config lint:markdown lint:spelling",
     "lint:config": "jsonlint cspell.json > /dev/null",
-    "lint:markdown": "markdownlint-cli2 docs/**/*.md",
+    "lint:markdown": "markdownlint-cli2 \"docs/**/*.md\"",
     "lint:spelling": "cspell --validate-directives --no-progress docs/**/*.md"
   },
   "dependencies": {
