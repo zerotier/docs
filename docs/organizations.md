@@ -42,6 +42,10 @@ The secure way to do this is to change the login of the organization owner:
 
 Consider using a general email address like "<billing@example.com>" or "<zerotier@example.com>" when you sign up, or when you change org owners.
 
+:::note
+If the target email address already has an account at https://my.zerotier.com, that account must first be deleted.
+:::
+
 #### Can I move or transfer my network(s) to another user?
 
 The only process that moves networks is joining an organization. When you join, the organization absorbs all your existing networks.
