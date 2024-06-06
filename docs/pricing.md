@@ -7,20 +7,13 @@ description: Common pricing questions
 See our [pricing page](https://www.zerotier.com/pricing/) for current plans.
 :::
 
-### Do my networks still work properly if I'm out of compliance?
+## How ZeroTier Pricing Works
 
-Yes, everything works fine for the old network members you've set up. Many people use ZeroTier for critical infrastructure and we make it our highest priority to ensure your service isn't interrupted in relation to the new pricing plan. Our enforcement just blocks your ability to add new members to your network until you're in compliance with the new plan.
+We offer a free tier to anyone who wants to try out ZeroTier to get remote access to a local network, host / join a gaming network, run a small homelab, or evaluate the platform. Our free option allows for a limited number of devices, and is intended for testing, non-commercial, and personal use.
 
-:::info Historical
-On Thursday, 9 June 2022 we updated our product plans and the Free Basic plan has changed. Here are some things to know:
+Once you're ready to use ZeroTier for your business, or need to deploy larger networks, we offer two main pricing options:
 
-We have changed the number of nodes available on the Free Basic plan from 50 to 25.
+- Professional allows you to add "device packs" that you can add and remove from your account at any time. It also includes business-centric features such as SSO. If you use Central, you can upgrade to a Professional plan at any time from your [account settings page](https://my.zerotier.com/account).
+- Commercial offers volume discounts for larger deployments, as well as annual pricing and other business-friendly payment options. To enroll in a Commercial plan, just [contact our sales team](mailto@sales@zerotier.com).
 
-We have also changed how we count them. We now count total nodes authorized across all the networks you have, not individual members on networks, so while the free limit is now 25, these nodes can now be authorized on multiple networks. Networks are free. For some users with multiple networks, this may amount to a limit increase.
-
-If you are over the limit, your networks and the nodes already authorized on them will still work, but you will need to purchase node packs to add new nodes.
-
-Node packs are only $5.00/month for packs of 25 nodes. You can purchase them on your account page in ZeroTier Central.
-
-For more information about the pricing plan, please read:  <https://www.zerotier.com/2022/06/09/zerotier-business-sso-is-here-and-so-is-our-new-pricing/>
-:::
+No matter which plan you choose, ZeroTier pricing is based on the number of devices authorized to access your networks. That means that if the same device is connected to multiple networks, it only counts once.
