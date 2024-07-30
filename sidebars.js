@@ -31,7 +31,7 @@ module.exports = {
         description: 'Our hosted offering for managing your networks.',
         slug: '/central',
       },
-      items: ['start', 'faq-central', 'sso', 'sso-add-seats', 'authentication', 'organizations', 'central-admins', 'pricing', 'central-billing', 'central-hide-nodes', 'webhooks'],
+      items: ['start', 'faq-central', 'sso', 'authentication', 'organizations', 'central-admins', 'audit-logs', 'pricing', 'central-billing', 'central-hide-nodes', 'sso-add-seats'],
     },
     {
       type: 'category',
@@ -114,7 +114,17 @@ module.exports = {
           id: 'sockets',
           label: 'Sockets (libzt)'
         },
+        {
+          type: 'doc',
+          id: 'webhooks',
+          label: 'Web Hooks',
+        }
       ],
+    },
+    {
+      type: 'category',
+      label: 'Security',
+      items: ['security', 'faq-security']
     },
     {
       type: 'category',
@@ -217,7 +227,7 @@ module.exports = {
             description: 'ZeroTier is designed to operate on resource constrained devices and under 16MB of memory.',
             slug: '/iot',
           },
-          items: ['lbm', 'compatibility', 'bridging', 'proxy', 'faq-security', 'route-between-phys-and-virt'],
+          items: ['lbm', 'compatibility', 'bridging', 'proxy', 'route-between-phys-and-virt'],
         },
         /* FreeBSD */
         {
@@ -242,7 +252,7 @@ module.exports = {
         description: 'Guides for Managed Service Providers',
         slug: '/service-providers',
       },
-      items: ['faq-rules', 'faq-security', 'sso'],
+      items: ['faq-rules', 'sso', 'central-admins', 'audit-logs'],
     }
   ]
 }
