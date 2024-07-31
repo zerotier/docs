@@ -25,9 +25,9 @@ Once you're ready to use ZeroTier for your business, or need to deploy larger ne
 
 ## Essential
 
-Essential subscriptions offer a pay-as-you-go model to add devices, admins, and SSO seats to your networks as your usage changes. You'll only be charged a flat montly feed for your subscription, plus a small incremental cost for each authorized device after the free limit. You can upgrade to Essential at any time from the [Account](https://my.zerotier.com/account) page on Central.
+Essential subscriptions offer a pay-as-you-go model to add devices, admins, and SSO seats to your networks as your usage changes. You'll only be charged a flat monthly feed for your subscription, plus a small incremental cost for each authorized device after the free limit. You can upgrade to Essential at any time from the [Account](https://my.zerotier.com/account) page on Central.
 
-For Essential subscribers, we charge per unique device authorized in a given month. That means you pay for the device you use in each billing cycle. Deauthorized devices still count in the current month, but will be removed in the following one.
+For Essential subscribers, we charge per unique device authorized in a given month. That means you pay for the device you use in each billing cycle. De-authorized devices still count in the current month, but will be removed in the following one.
 
 So for example if you begin your billing cycle with 15 authorized devices, then add five (5) more during the month, you'll be charged incrementally for remainder of the month for each device as you add it, then the full monthly charge for 20 at the start of the cycle. If you de-authorize devices, your billed amount will stay the same for the current month, then go down at the start of the next billing cycle.
 

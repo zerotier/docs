@@ -104,3 +104,8 @@ zerotier-idtool
 ztdest
 ztsrc
 SonicWall
+Deauthorized
+ndppd
+SNAT
+POSTROUTING
+dialup
