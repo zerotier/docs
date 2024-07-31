@@ -31,7 +31,7 @@ We also track and address security issues in any 3rd-party software dependencies
 
 ## Incident Response
 
-We take reports of any security issues in our product or services very seriously. We provide a direct reporting channel (security@zerotier.com) and use PGP encryption to ensure the integrity and privacy of messages.
+We take reports of any security issues in our product or services very seriously. We provide a direct reporting channel ([security@zerotier.com](mailto:security@zerotier.com)) and use PGP encryption to ensure the integrity and privacy of messages.
 
 Any incidents related to security issues within ZeroTier’s core service offerings will be assigned a public Common Vulnerability and Disclosure (CVE) code. We provide potentially-impacted customers time to assess and mitigate issues in their own deployments before publicly sharing details of any vulnerability.
 
@@ -43,11 +43,10 @@ ZeroTier reviews all vendors’ security policies and disclosures to ensure they
 
 ## Privacy
 
-Maintaining our users’ privacy is core to what we do and how we work at ZeroTier. Connecting to and using ZeroTier networks does not require account registration or any other personal information, and users can sign up for our managed platform (https://my.zerotier.com) using only an email address.
+Maintaining our users’ privacy is core to what we do and how we work at ZeroTier. Connecting to and using ZeroTier networks does not require account registration or any other personal information, and users can sign up for our hosted [network administration service](https://my.zerotier.com) using only an email address.
 
 We collect and log only the data needed to provide our services, such as the IP addresses of network members and usage logs for administrative access. No additional data or telemetry leaves a device without an explicit opt-in choice, and all collected telemetry is anonymized.
 
 ZeroTier does not share any user information with 3rd parties except when it is strictly required or for our business operations (billing and support). We do not sell any customer information, analytics, or usage data.
 
 See our full [Privacy Policy](https://www.zerotier.com/privacy-policy) for more details.
-
