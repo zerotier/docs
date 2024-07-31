@@ -35,6 +35,6 @@ We also provide a "grace period" on all device authorization to prevent accident
 
 ## Commercial
 
-[Commercial](#commercial) plans offers volume discounts for larger deployments, as well as annual pricing and other business-friendly payment options. To enroll in a Commercial plan, just [contact our sales team](mailto:sales@zerotier.com).
+[Commercial](#commercial) plans offers volume discounts for larger deployments, as well as annual pricing and other business-friendly payment options. To enroll in a Commercial plan, just [contact our sales team](https://www.zerotier.com/contact).
 
 As a Commercial subscriber, your precise terms and pricing are part of your contract.
