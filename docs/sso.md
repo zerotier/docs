@@ -3,10 +3,16 @@ title: SSO / OIDC
 description: SSO
 ---
 
+:::note
+Device SSO is a paid feature available to Essential and Commercial subscribers. Details about what we charge for and how to manage your subscription are available on the [pricing](/pricing) guide.
+
+For an overview of current pricing and terms including suggested use cases, please see the [Pricing](https://www.zerotier.com/pricing) page on our website.
+:::
+
 ## ZeroTier Central configuration
 
-:::note
-SSO is currently only supported on desktop operating systems such as macOS and Windows. Support for iOS and Android, and better support for authenticating via the command line is still to come.
+:::info
+SSO is currently only supported on desktop operating systems such as macOS and Windows.
 :::
 
 ### Update clients
