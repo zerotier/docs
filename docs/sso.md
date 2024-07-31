@@ -179,7 +179,7 @@ The Issuer URL is everything up to `/.well-known/openid-configuration`.  For exa
 
 ### Google Workspace
 
-Google OAuth2/OIDC is not supported as Google does not support PKCE clients at this time. You can, however, use [Keycloak as a SAML Identity Broker](http://localhost:3000/central/sso#keycloak-as-a-saml-identity-broker) with Google Workspace.
+Google OAuth2/OIDC is not supported as Google does not support PKCE clients at this time. You can, however, use [Keycloak as a SAML Identity Broker](/sso#keycloak-as-a-saml-identity-broker) with Google Workspace.
 
 ### Keycloak
 
