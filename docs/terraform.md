@@ -347,6 +347,6 @@ When you're done experimenting with ZeroTier and Terraform, tear everything down
 
 ## That's all folks
 
-If you like this tutorial, check out the [ZeroTier Multicloud Terraform Quickstart](/terraform/multicloud-quickstart) next!
+If you like this tutorial, check out the [ZeroTier Multicloud Terraform Quickstart](/terraform-multicloud) next!
 
 -s

@@ -137,11 +137,11 @@ module.exports = {
             },
             {
               label: "Central REST API",
-              to: "/central/v1",
+              to: "/api/central/ref-v1",
             },
             {
               label: "Service REST API",
-              to: "/service/v1",
+              to: "/api/service/ref-v1",
             },
             {
               label: "DNS",
@@ -194,11 +194,11 @@ module.exports = {
       {
         specs: [
           {
-            route: "/central/v1",
+            route: "/api/central/ref-v1",
             spec: "./static/openapi/centralv1.json",
           },
           {
-            route: "/service/v1",
+            route: "/api/service/ref-v1",
             spec: "https://github.com/zerotier/zerotier-one-api-spec/releases/latest/download/openapi.yaml",
           },
         ],
