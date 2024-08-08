@@ -11,6 +11,7 @@ buildx:
 	@echo docker buildx inspect --bootstrap
 
 all:
+	corepack enable && corepack prepare yarn@4.1.1
 	yarn install
 	NODE_OPTIONS=--openssl-legacy-provider yarn lint
 	NODE_OPTIONS=--openssl-legacy-provider yarn build
