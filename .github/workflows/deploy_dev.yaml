@@ -1,8 +1,8 @@
-name: CI
+name: Deploy to Dev
 on:
-  pull_request:
-    types: [opened, synchronize, reopened]
-      
+  push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -39,23 +39,23 @@ jobs:
       with:
         cmd: install --immutable
 
-    # - name: Save yarn cache
-    #   if: steps.yarn-cache.outputs.cache-hit != 'true'
-    #   uses: actions/cache/save@v4
-    #   with:
-    #     path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-    #     key: ${{ runner.os }}-${{ runner.arch }}-yarn-docs-${{ hashFiles('**/yarn.lock') }}
-
     - name: Build
       uses: borales/actions-yarn@v5
       with:
         cmd: build
       env:
         NODE_OPTIONS: --openssl-legacy-provider
-    
-    - name: Lint
-      uses: borales/actions-yarn@v5
+
+    - id: 'auth'
+      uses: 'google-github-actions/auth@v2'
       with:
-        cmd: lint
-      env:
-        NODE_OPTIONS: --openssl-legacy-provider
+        credentials_json: '${{ secrets.DOCKER_REGISTRY_WRITER }}'
+    
+    - name: 'Set up Cloud SDK'
+      uses: 'google-github-actions/setup-gcloud@v2'
+    
+    - name: Docker Build
+      run: |
+        gcloud auth configure-docker ${{ secrets.GCLOUD_DOCKER_HOST }}
+        docker build -t ${{ secrets.GCLOUD_DOCKER_HOST }}/${{ secrets.GCLOUD_PROJECT_ID }}/zt-docker/docs-zerotier-com:${{ github.sha }} . --push
+  
