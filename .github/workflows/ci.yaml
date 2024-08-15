@@ -1,5 +1,8 @@
 name: CI
-on: [push, pull_request]
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+      
 
 jobs:
   build:
@@ -21,7 +24,7 @@ jobs:
     - name: Install dependencies
       uses: borales/actions-yarn@v4.2.0
       with:
-        cmd: install --frozen-lockfile
+        cmd: install --immutable
 
     - name: Build
       uses: borales/actions-yarn@v4.2.0
@@ -49,7 +52,7 @@ jobs:
     - name: Install dependencies
       uses: borales/actions-yarn@v4.2.0
       with:
-        cmd: install --frozen-lockfile
+        cmd: install --immutable
 
     - name: Build
       uses: borales/actions-yarn@v4.2.0
