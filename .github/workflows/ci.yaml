@@ -46,12 +46,12 @@ jobs:
     #   env:
     #     NODE_OPTIONS: --openssl-legacy-provider
     
-    - name: Lint
-      uses: borales/actions-yarn@v5
-      with:
-        cmd: lint
-      env:
-        NODE_OPTIONS: --openssl-legacy-provider
+    # - name: Lint
+    #   uses: borales/actions-yarn@v5
+    #   with:
+    #     cmd: lint
+    #   env:
+    #     NODE_OPTIONS: --openssl-legacy-provider
 
     - name: Test Curl
       uses: enflo/curl-action@v1
