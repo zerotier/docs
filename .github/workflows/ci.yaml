@@ -1,0 +1,59 @@
+name: CI
+on: [push, pull_request]
+
+jobs:
+  build:
+    name: Build
+    runs-on: gha-runner-x64
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set Node.js 20.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: 20.x
+    
+    - name: yarn@4.1.1
+      run: |
+        corepack enable && corepack prepare yarn@4.1.1
+
+    - name: Install dependencies
+      uses: borales/actions-yarn@v4.2.0
+      with:
+        cmd: install --frozen-lockfile
+
+    - name: Build
+      uses: borales/actions-yarn@v4.2.0
+      with:
+        cmd: build
+      env:
+        NODE_OPTIONS: --openssl-legacy-provider
+
+  lint:
+    name: Linter
+    runs-on: gha-runner-x64
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set Node.js 20.x
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20.x
+
+    - name: yarn@4.1.1
+      run: |
+        corepack enable && corepack prepare yarn@4.1.1
+
+    - name: Install dependencies
+      uses: borales/actions-yarn@v4.2.0
+      with:
+        cmd: install --frozen-lockfile
+
+    - name: Build
+      uses: borales/actions-yarn@v4.2.0
+      with:
+        cmd: lint
+      env:
+        NODE_OPTIONS: --openssl-legacy-provider
