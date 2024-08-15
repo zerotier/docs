@@ -65,4 +65,4 @@ jobs:
     - name: Docker Build
       run: |
         gcloud auth configure-docker ${{ secrets.GCLOUD_DOCKER_HOST }}
-        docker build -t ${{ secrets.GCLOUD_DOCKER_HOST }}/${{ secrets.GCLOUD_PROJECT_ID }}}/zt-docker/docs-zerotier-com:${{ github.sha }} . --push
+        docker build -t ${{ secrets.GCLOUD_DOCKER_HOST }}/${{ secrets.GCLOUD_PROJECT_ID }}/zt-docker/docs-zerotier-com:${{ github.sha }} . --push
