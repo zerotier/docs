@@ -39,6 +39,13 @@ jobs:
       with:
         cmd: install --immutable
 
+    # - name: Save yarn cache
+    #   if: steps.yarn-cache.outputs.cache-hit != 'true'
+    #   uses: actions/cache/save@v4
+    #   with:
+    #     path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+    #     key: ${{ runner.os }}-${{ runner.arch }}-yarn-docs-${{ hashFiles('**/yarn.lock') }}
+
     - name: Build
       uses: borales/actions-yarn@v5
       with:
