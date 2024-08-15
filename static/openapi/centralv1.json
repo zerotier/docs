@@ -1379,6 +1379,13 @@
             "example": 123,
             "nullable": true
           },
+          "ssoExempt": {
+            "type": "boolean",
+            "readOnly": false,
+            "description": "Allow the member to be authorized without OIDC/SSO",
+            "example": false,
+            "nullable": true
+          },
           "tags": {
             "type": "array",
             "items": {
