@@ -61,4 +61,4 @@ jobs:
         NODE_OPTIONS: --openssl-legacy-provider
 
     - name: Docker Build
-      run: build -t us-central1-docker.pkg.dev/zerotier-d648c7/zt-docker/docs-zerotier-com:${{ github.sha }} . --push
+      run: docker build -t us-central1-docker.pkg.dev/zerotier-d648c7/zt-docker/docs-zerotier-com:${{ github.sha }} . --push
