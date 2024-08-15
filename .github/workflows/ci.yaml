@@ -60,5 +60,7 @@ jobs:
       env:
         NODE_OPTIONS: --openssl-legacy-provider
 
+    - name: 'Set up Cloud SDK'
+      uses: 'google-github-actions/setup-gcloud@v2'
     - name: Docker Build
       run: docker build -t us-central1-docker.pkg.dev/zerotier-d648c7/zt-docker/docs-zerotier-com:${{ github.sha }} . --push
