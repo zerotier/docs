@@ -28,13 +28,8 @@ This command generates static content into the `build` directory and can be serv
 
 Commits to main are automatically deployed to https://docs-dev.zerotier.com
 
-To promote to production:
+To promote to production, create a tag & release on GitHub.  Tag/Release names should follow this format: `YYYY-MM-DD-RELEASE_NUMBER`. For example, the 2nd release on August 16, 204 would be `2024-08-16-2`.
 
-```console
-drone build promote zerotier/docs $DRONE_BUILD_NUMBER production
-```
-
-Note:  You'll need the `drone` CLI installed and in the PATH, as well as a couple of environment variables set in order to run the drone CLI.  ZeroTier employees can check out http://drone.ci.lab/account for details.
 
 ## Spelling / Typos
 
