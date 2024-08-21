@@ -7,17 +7,17 @@ description: Use flow rules to prevent devices on the same network from communic
 
 Devices can join multiple networks at once. Networks are free on my.zerotier.com. Each network can have its own [Network Flow Rules](rules). "Network A allows only RDP traffic." for example.
 
-### Pros
+### Pros {#network-pros}
 
 - Easy
 - Automatic authorization of nodes with SSO/OIDC
 
-### Cons
+### Cons {#network-cons}
 
 - Multiple sets of subnets, IP addresses, etc… to maintain. Can be [automated with Terraform.](terraform#network-segmentation)
 - Mobile devices can connect to only 1 network at a time
 
-### Summary
+### Summary {#network-summary}
 
 - Create a ZeroTier network for each role: _Red, Green, and Blue. Or: Sales, HR, IT. Or: Dev, Prod, Staging_. Or: _Customer A_, _Customer B_
 - Join shared resources to multiple networks
@@ -29,17 +29,17 @@ Devices can join multiple networks at once. Networks are free on my.zerotier.com
 
 Tag network members with roles.
 
-### Pros
+### Pros {#rules-pros}
 
 - Fine grained, low-level access control
 - One network config and set of members to maintain
 
-### Cons
+### Cons {#rules-cons}
 
 - Tricky to build rule sets
 - Rules not integrated with OIDC yet
 
-### Summary
+### Summary {#rules-summary}
 
 - Create a network
 - Use the Flow Rules to segment the network
