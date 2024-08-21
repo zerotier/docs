@@ -3,6 +3,8 @@ title: VPN Exit Node
 description: Route all your Internet traffic through a ZeroTier node
 ---
 
+## Full Tunnel Mode or, Overriding Default Route
+
 Route all your Internet traffic through a ZeroTier node.
 
 :::info In this tutorial
@@ -138,9 +140,13 @@ Your exit node is complete, now we need to configure your network.
 
 Now that your exit node is set up we need to configure your ZeroTier network to advertise a `Default Route` so that other nodes know that the exit node can route traffic to the internet.
 
-Central > Network >
+Central > Network > Settings > Managed Routes
 
-### Tell other nodes to use exit node
+`0.0.0.0/0` via `<zerotier-ip-of-router-node>`
+
+### Tell your local nodes to use exit node
+
+In the tray app, under each network, there is an "Allow Default" option. Check this to use your exit node.
 
 :::tip ~/.bashrc
 
@@ -159,3 +165,166 @@ notunnel()
 ```
 
 :::
+
+### A Linux Gotcha: rp_filter
+
+Linux's networking stack is complex and almost absurdly feature-rich. This is a good thing and a bad thing. You can do almost anything with it, probably including but not limited to IP over avian carrier. But it also has a lot of weird little edge cases that can bite.
+
+For a Linux host to route via a ZeroTier network, you may (depending on distribution) need to change a setting called rp_filter:
+
+`sudo sysctl -w net.ipv4.conf.all.rp_filter=2`
+
+RedHat has an article explaining the details of this. Put it in /etc/sysctl.conf to make it permanent.
+
+Oddly enough this is not required on the gateway/router, only participating members running Linux that want to enable allowDefault.
+
+## IPv6 (optional)
+
+With IPv6 you don't need NAT, which makes setup at this step a lot simpler! Our ip6tables looks like:
+
+```sh
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD DROP [0:0]
+-A FORWARD -i zt+ -s 2001:19f0:6001:01a6::/64 -j ACCEPT
+-A FORWARD -i eth0 -d 2001:19f0:6001:01a6::/64 -j ACCEPT
+:OUTPUT ACCEPT [0:0]
+COMMIT
+```
+
+Change `2001:19f0:6001:01a6::/64` to the IPv6 /64 address prefix of your gateway.
+
+:::tip Digital Ocean
+It's been a while since we checked, but Digital Ocean does not give you a real /64 and this causes some confusing issues.
+:::
+
+### IPv6 Addressing
+
+For our configuration we enabled both IPv6 auto-assign from range and IPv6 auto-assign based on ZeroTier's RFC4193 IPv6 addressing scheme. It should also work to assign the gateway an IPv6 address from the same global prefix as everyone else and then use that for your default route, but we like the use of an NDP-emulated RFC4193 address since it makes initially reaching the gateway faster.
+
+Our example gateway has the internal RFC4193 IPv6 address `fd80:56c2:e21c:2467:3d99:9322:c55a:1da6`, so we set that as our IPv6 default route (the IPv6 equivalent of `0.0.0.0` is `::0/0`). We also added a /80 route to the subset of our gateway's global IPv6 /64 from which we are going to assign addresses to our member devices. As with IPv4, ZeroTier will not push managed IP addresses that do not fall within an assigned local LAN route.
+
+Our network's IPv6 routing config looks like this:
+
+```text
+::0/0 via fd80:56c2:e21c:2467:3d99:9322:c55a:1da6
+2001:19f0:6001:01a6:00ff::/80 (LAN)
+
+```
+
+Then we will want to configure ZeroTier Central's controller to automatically assign public IPv6 addresses to our devices by defining an IPv6 auto-assign range.
+
+Ours looks like:
+
+```text
+Auto-Assign from Range
+2001:19f0:6001:01a6:00ff:0000:0000:0000
+2001:19f0:6001:01a6:00ff:0fff:ffff:ffff
+```
+
+### allowGlobal and allowDefault
+
+For IPv6 you must enable both `allowGlobal` and `allowDefault` on your member devices, or at least on those that you want to participate. Allowing default route override is required to allow the override of `::0/0`, while `allowGlobal` is required to allow your network's controller to assign global IPv6 addresses. Without `allowGlobal` ZeroTier networks are only allowed to assign addresses and routes within private IP space.
+
+### Set Up Gateway NDP Proxying (not always needed)
+
+At this point you should stop and make sure that (1) your devices are getting assigned IPv6 addresses, (2) your member device(s) can ping your gateway's private RFC4193 IPv6 address, and (3) member devices can also ping your gateway's global external IPv6 address. The latter verifies that the gateway is in fact forwarding IPv6 traffic.
+
+If the above tests work, try pinging a global IPv6 address like ping6 ipv6.google.com. If that doesn't work you probably need to proxy NDP requests for the hosts behind your gateway.
+
+While providers like will happily hand you a wildcard /64, they do not necessarily set a route to your entire IPv6 /64 in their own routers. They probably do this to prevent routing table bloat on their side. Instead they rely upon IPv6 neighbor lookup (NDP) to find out what IP address(es) your VM has assigned to itself.
+
+The problem is that now your VM is a router and wants to get traffic for a whole bunch of IPs in its /64, not just the one it's got assigned to its primary network interface. To do this, it's going to have to answer IPv6 NDP queries for those IPs.
+
+The Linux kernel can't do this, or at least can't for every IP in your /64 without manually specifying each. Luckily there is a nice little project on GitHub called ndppd that can do this for you.
+
+Your distribution may have a package.
+
+```text
+apt install ndppd
+```
+
+Now you'll want to copy ndppd.conf-dist from the ndppd source tree to /etc/ndppd.conf and edit it. We just had to edit the prefix under their example rule entry:
+
+```text
+rule 2001:19f0:6001:01a6:00ff:0000:0000:0000/80 {
+```
+
+That tells ndppd to answer NDP requests for the entire /80 from which we'll be assigning IPv6 addresses to our devices. Obviously you will need to change that IP prefix to your own.
+
+There is a handy program to help you with ip subnetting: `apt install ipcalc`
+
+The rule should use the `static` or `iface` option. We saw some flakiness with `auto`.
+
+Then you'll want to start ndppd and tell it to start on boot.
+
+```sh
+systemctl start ndppd
+systemctl enable ndppd
+```
+
+Once ndppd is running try ping6 ipv6.google.com again from one of your devices. For us it worked right away!
+
+Congratulations! You now have a global IPv6 address for every device on your virtual network.
+
+```sh
+curl -4 ifconfig.co
+curl -6 ifconfig.co
+```
+
+Should return your ZeroTier gateway addresses.
+
+### IPv6 Security
+
+This configuration gives every device on your ZeroTier network a real globally reachable IPv6 address. This is wonderful but also possibly a little bit dangerous.
+
+If you don't want everything to be wide open like that you can use ip6tables rules to implement a stateful firewall that allows all outbound IPv6 traffic but limits inbound traffic to packets that are replies to outbound ones.
+
+This can be done by using an alternative configuration like:
+
+```sh
+*filter
+:INPUT DROP [0:0]
+:FORWARD DROP [0:0]
+-A FORWARD -i zt+ -s 2001:19f0:6001:01a6::/64 -j ACCEPT
+-A FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT
+:OUTPUT ACCEPT [0:0]
+COMMIT
+```
+
+This allows outgoing IPv6 from the ZeroTier side but only allows incoming IPv6 if it's related to an existing connection or association.
+
+Much more sophisticated configurations are possible. For example you could insert specific rules allowing specific kinds of inbound traffic like ssh (22), http (80), or https (443) by adding these rules ahead of the stateful one.
+
+## Appendix
+
+### SNAT
+
+If you have a public static IP, you can use SNAT instead of MASQUERADE.
+
+```sh
+*nat
+:PREROUTING ACCEPT [0:0]
+:INPUT ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+:POSTROUTING ACCEPT [0:0]
+-A POSTROUTING -o eth0 -s 10.6.4.0/22 -j SNAT --to-source <public-ip>
+COMMIT
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD DROP [0:0]
+-A FORWARD -i zt+ -s 10.6.4.0/22 -d 0.0.0.0/0 -j ACCEPT
+-A FORWARD -i eth0 -s 0.0.0.0/0 -d 10.6.4.0/0 -j ACCEPT
+:OUTPUT ACCEPT [0:0]
+COMMIT
+```
+
+The iptables manual explains:
+
+"This target (masquerade) is only valid in the nat table, in the POSTROUTING chain. It should only be used with dynamically assigned IP (dialup) connections: if you have a static IP address, you should use the SNAT target. Masquerading is equivalent to specifying a mapping to the IP address of the interface the packet is going out, but also has the effect that connections are forgotten when the interface goes down. This is the correct behavior when the next dialup is unlikely to have the same interface address (and hence any established connections are lost anyway)."
+
+### FreeBSD
+
+The allowDefault=1 setting on FreeBSD clients can't work. See this github issue for a work-around <https://github.com/zerotier/ZeroTierOne/issues/580>.
+
+We've disable the Allow Default setting on FreeBSD starting on versions newer than 1.10.6 until we can find a solution.

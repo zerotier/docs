@@ -35,7 +35,7 @@ ZeroTier Inc doesn't have access to your traffic. We don't currently supply a mo
 
 - [Prometheus Metrics](https://github.com/zerotier/ZeroTierOne#prometheus-metrics) for the zerotier-one agent are available. Pipe these into the common prometheus/grafana setup.
 - Use your preferred monitoring tool _over_ your ZeroTier networks. Some examples: Prometheus [Blackbox exporter](https://github.com/prometheus/blackbox_exporter), [SmokePing](https://oss.oetiker.ch/smokeping/), [UptimeKuma](https://uptime.kuma.pet/)
-- [Traffic Observation and Interception](https://docs.zerotier.com/rules#353trafficobservationandinterceptionaname3_5_3a)
+- [Traffic Observation and Interception](/rules#353trafficobservationandinterceptionaname3_5_3a)
 
 ### Why does my peers list have nodes I don't recognize? {#unknown-peers}
 
@@ -97,11 +97,11 @@ ZeroTier performance is not at all related to your account or subscription level
 
 This error means that the ZeroTier background service on your computer is either not running, or your local firewall is preventing the UI or CLI from talking to it.
 
-### Windows 10
+#### Windows {#service-windows}
 
 Open Task Manager and go to the "Services" tab. Scroll down until you see `ZeroTierOneService`. The status column should say `Running`. If it does not, right click on the line and click `Start`
 
-### macOS
+#### macOS {#service-mac}
 
 Open Terminal.app and execute the following commands
 
@@ -110,7 +110,7 @@ sudo launchctl unload /Library/LaunchDaemons/com.zerotier.one.plist
 sudo launchctl load /Library/LaunchDaemons/com.zerotier.one.plist
 ```
 
-### Linux
+#### Linux {#service-linux}
 
 If your Linux distribution uses systemd, execute `sudo service zerotier-one start`
 
@@ -185,17 +185,17 @@ in your terminal, type open `/Library/Application Support/ZeroTier/One` to open 
 
 #### Step 3. Restart the service
 
-##### On Windows
+##### On Windows {#restart-windows}
 
 Starting via the service manager on Windows
 
-##### On Mac
+##### On Mac {#restart-mac}
 
 ```sh
 sudo launchctl load /Library/LaunchDaemons/com.zerotier.one.plist
 ```
 
-##### On Linux
+##### On Linux {#restart-linux}
 
 ```sh
 sudo systemctl start zerotier-one

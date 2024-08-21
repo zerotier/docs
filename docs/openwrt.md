@@ -16,7 +16,7 @@ As noted in the wiki article above, you can set a number of basic ZeroTierOne se
 However, some features require manual configuration:
 
 - Hosting a ZeroTier controller on your OpenWRT device requires a writable filesystem location to store controller state (such as authorized members) using the `config_path` option
-- Overriding options in [local.conf](https://docs.zerotier.com/config#local-configuration-options) such as [`lowBandwidthMode`](https://docs.zerotier.com/lbm) requires creating a valid local config file and then setting `local_conf` in the UCI configuration to point to it.
+- Overriding options in [local.conf](/config#local-configuration-options) such as [`lowBandwidthMode`](/lbm) requires creating a valid local config file and then setting `local_conf` in the UCI configuration to point to it.
 
 :::tip Next steps
 Click [here](/start/) to create your network and start adding devices.
