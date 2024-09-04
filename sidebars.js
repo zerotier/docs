@@ -170,7 +170,7 @@ module.exports = {
             description: 'ZeroTier on Windows',
             slug: '/windows',
           },
-          items: ['faq-windows', 'chocolatey', 'winget', 'windows-lan-game', 'windows-unknown-node-id']
+          items: ['faq-windows', 'chocolatey', 'winget', 'windows-lan-game', 'windows-unknown-node-id', 'windows-service-unreachable']
         },
         /* ANDROID */
         {
