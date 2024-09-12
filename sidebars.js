@@ -227,7 +227,7 @@ module.exports = {
             description: 'ZeroTier is designed to operate on resource constrained devices and under 16MB of memory.',
             slug: '/iot',
           },
-          items: ['lbm', 'compatibility', 'bridging', 'proxy', 'route-between-phys-and-virt'],
+          items: ['lbm', 'multithreading', 'compatibility', 'bridging', 'proxy', 'route-between-phys-and-virt'],
         },
         /* FreeBSD */
         {
