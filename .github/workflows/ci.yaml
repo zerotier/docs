@@ -1,0 +1,56 @@
+name: CI
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+      
+
+jobs:
+  build:
+    name: Build
+    runs-on: gha-runner-x64
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set Node.js 20.x
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20.x
+    
+    - name: yarn@4.1.1
+      run: |
+        corepack enable && corepack prepare yarn@4.1.1
+
+    - name: Get yarn cache directory path
+      id: yarn-cache-dir-path
+      run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
+
+    - name: Get yarn cache
+      uses: actions/cache@v4
+      id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+      with:
+        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+        key: ${{ runner.os }}-${{ runner.arch }}-yarn-docs-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-${{ runner.arch }}-yarn-docs-
+
+    - name: Install dependencies
+      uses: borales/actions-yarn@v5
+      with:
+        cmd: install --immutable
+
+    - name: Build
+      uses: borales/actions-yarn@v5
+      with:
+        cmd: build
+      env:
+        NODE_OPTIONS: --openssl-legacy-provider
+    
+    - name: Lint
+      uses: borales/actions-yarn@v5
+      with:
+        cmd: lint
+      env:
+        NODE_OPTIONS: --openssl-legacy-provider
+
+          

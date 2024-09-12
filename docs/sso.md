@@ -3,10 +3,16 @@ title: SSO / OIDC
 description: SSO
 ---
 
+:::note
+Device SSO is a paid feature available to Essential and Commercial subscribers. Details about what we charge for and how to manage your subscription are available on the [pricing](/pricing) guide.
+
+For an overview of current pricing and terms including suggested use cases, please see the [Pricing](https://www.zerotier.com/pricing) page on our website.
+:::
+
 ## ZeroTier Central configuration
 
-:::note
-SSO is currently only supported on desktop operating systems such as macOS and Windows. Support for iOS and Android, and better support for authenticating via the command line is still to come.
+:::info
+SSO is currently only supported on desktop operating systems such as macOS and Windows.
 :::
 
 ### Update clients
@@ -54,7 +60,7 @@ You can do this from the wrench icon in the Members list.
 
 ## Provider Specific Configuration Notes
 
-### Auth0
+### Auth0 {#auth0-config}
 
 Please ensure the following fields are set on your Auth0 application config:
 
@@ -149,7 +155,7 @@ Example client configuration:
         userinfo_signing_algorithm: none
 ```
 
-### Azure AD
+### Azure AD {#azure-config}
 
 Navigate to your directory in the Azure portal, and select "App Registrations" in the Manage column.
 
@@ -173,7 +179,7 @@ The Issuer URL is everything up to `/.well-known/openid-configuration`.  For exa
 
 ### Google Workspace
 
-Google OAuth2/OIDC is not supported as Google does not support PKCE clients at this time. You can, however, use [Keycloak as a SAML Identity Broker](http://localhost:3000/central/sso#keycloak-as-a-saml-identity-broker) with Google Workspace.
+Google OAuth2/OIDC is not supported as Google does not support PKCE clients at this time. You can, however, use [Keycloak as a SAML Identity Broker](/sso#keycloak-as-a-saml-identity-broker) with Google Workspace.
 
 ### Keycloak
 
@@ -195,7 +201,7 @@ See [here](https://www.keycloak.org/docs/latest/server_admin/index.html#assembly
 
 If you have a SAML provider, but not an OpenID Connect provider, [Keycloak](https://www.keycloak.org) can also be used to bridge the gap. On your keycloak Admin page, go to Identity Providers. From the dropdown, select `SAML v2.0` and create the connection to your SAML provider. Combined with the general Keycloak OIDC client settings above, you now have an OIDC server that authenticates against your SAML provider.
 
-### Okta
+### Okta {#okta-config}
 
 - Application Type:  Native
 - Token Endpoint Authentication Method: None
@@ -256,7 +262,7 @@ Configuring Role Based Access controls is different across all of the different 
 
 Role/group names are up to the network administrator.  Simply add one or more role name to your network configuration, and users will be required to have at least one of those roles assigned in order to access the network.
 
-### Auth0
+### Auth0 {#auth0-rbac}
 
 Auth0 requires multiple steps to configure.
 
@@ -296,7 +302,7 @@ Hit the `<- Back to flow` link, which will take you back to the Login Flow graph
 
 Your users' assigned roles will now be attached to the tokens required to authorize a user on your ZeroTier networks.
 
-### Azure AD
+### Azure AD {#azure-rbac}
 
 <https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps>
 
@@ -314,7 +320,7 @@ Go back to Azure Active Directory in the Azure portal. Select Enterprise Applica
 
 Select `Users and Groups` from the Manage menu. Select all of the users you want to assign the App Role and select `Edit Assignment`.  Click on the area of the screen that says "Select a Role", then find your newly created app role from step 1, click it and hit the `Select` button.
 
-### Okta
+### Okta {#okta-rbac}
 
 Okta doesn't have the concept of Roles, but it does have Groups that can be used for the same purpose when authenticating to a ZeroTier network.
 

@@ -10,8 +10,8 @@ root-lax-01.zerotier.com has address 104.194.8.134
 root-lax-01.zerotier.com has IPv6 address 2605:9880:200:1200:30:571:e34:51
 root-mia-01.zerotier.com has address 103.195.103.66
 root-mia-01.zerotier.com has IPv6 address 2605:9880:400:c3:254:f2bc:a1f7:19
-root-sgp-01.zerotier.com has address 50.7.252.138
-root-sgp-01.zerotier.com has IPv6 address 2001:49f0:d0db:2::2
+root-sgp-01.zerotier.com has address 66.90.98.98
+root-sgp-01.zerotier.com has IPv6 address 2001:49f0:d0db:4::9993
 root-zrh-01.zerotier.com has address 84.17.53.155
 root-zrh-01.zerotier.com has IPv6 address 2a02:6ea0:d405::9993
 root-alice-sfo-01.zerotier.com has address 107.170.197.14

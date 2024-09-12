@@ -47,7 +47,7 @@ While networks with any valid ID can be added to the controller's database, it w
 
 The controller JSON API is *very* sensitive about types. Integers must be integers and strings strings, etc. Incorrect types may be ignored, set to default values, or set to undefined values.
 
-Full documentation of the Controller API can be found on our [documentation site](https://docs.zerotier.com/service/v1#tag/controller)
+Full documentation of the Controller API can be found on our [documentation site](/api/service/ref-v1#tag/controller)
 
 ### Prometheus Metrics
 

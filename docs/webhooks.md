@@ -3,6 +3,12 @@ title: Web Hooks
 description: ZeroTier Central Webhooks
 ---
 
+:::note
+Web Hooks are a paid feature available to Essential and Commercial subscribers. Details about what we charge for and how to manage your subscription are available on the [pricing](/pricing) guide.
+
+For an overview of current pricing and terms including suggested use cases, please see the [Pricing](https://www.zerotier.com/pricing) page on our website.
+:::
+
 Subscribers can receive notifications of changes to their networks, network members, and organizations on [my.zerotier.com](https://my.zerotier.com) via Web Hooks.
 
 ## Configuring Web Hooks

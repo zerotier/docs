@@ -244,26 +244,26 @@ Your distribution may have a package.
 apt install ndppd
 ```
 
-Now you'll want to copy ndpd.conf-dist from the ndppd source tree to /etc/ndppd.conf and edit it. We just had to edit the prefix under their example rule entry:
+Now you'll want to copy ndppd.conf-dist from the ndppd source tree to /etc/ndppd.conf and edit it. We just had to edit the prefix under their example rule entry:
 
 ```text
 rule 2001:19f0:6001:01a6:00ff:0000:0000:0000/80 {
 ```
 
-That tells nndpd to answer NDP requests for the entire /80 from which we'll be assigning IPv6 addresses to our devices. Obviously you will need to change that IP prefix to your own.
+That tells ndppd to answer NDP requests for the entire /80 from which we'll be assigning IPv6 addresses to our devices. Obviously you will need to change that IP prefix to your own.
 
 There is a handy program to help you with ip subnetting: `apt install ipcalc`
 
 The rule should use the `static` or `iface` option. We saw some flakiness with `auto`.
 
-Then you'll want to start nndpd and tell it to start on boot.
+Then you'll want to start ndppd and tell it to start on boot.
 
 ```sh
 systemctl start ndppd
 systemctl enable ndppd
 ```
 
-Once nndpd is running try ping6 ipv6.google.com again from one of your devices. For us it worked right away!
+Once ndppd is running try ping6 ipv6.google.com again from one of your devices. For us it worked right away!
 
 Congratulations! You now have a global IPv6 address for every device on your virtual network.
 

@@ -37,6 +37,10 @@ If the purpose of your ZeroTier network is solely remoting into office workstati
 [Client Isolation Rules](./faq-rules.md#client-isolation) and [RDP Only Rules](./faq-rules.md#remote-desktop-only-rdp-only)
 :::
 
+### System Service Not Reachable by UI
+
+[System Service Not Reachable by UI](./windows-service-unreachable)
+
 ### Resolving `Port Error` {#port-error}
 
 If you're seeing `PORT ERROR` on Windows, it's likely that the driver did not get installed correctly for some reason.  To fix this, navigate to
