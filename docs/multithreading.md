@@ -26,7 +26,7 @@ The feature requires manual activation using the `local.conf` file in the same h
 
 *[See here](https://docs.zerotier.com/config) for more info on how to configure the client using `local.conf`*
 
-### Tip for success:
+### Tip for success
 
 It is recommended that you choose a concurrency level that is reflective of the actual number of physical (not virtual) cores on your machine. For instance, if `nproc` reports `4`, set a concurrency level of `2`. Additionally, enabling [pinning](https://en.wikipedia.org/wiki/Processor_affinity) seems to improve performance in more cases than not.
 
