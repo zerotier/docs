@@ -31,7 +31,7 @@ module.exports = {
         description: 'Our hosted offering for managing your networks.',
         slug: '/central',
       },
-      items: ['start', 'faq-central', 'sso', 'authentication', 'organizations', 'central-admins', 'audit-logs', 'pricing', 'central-billing', 'central-hide-nodes', 'sso-add-seats'],
+      items: ['start', 'faq-central', 'sso', 'authentication', 'organizations', 'central-admins', 'audit-logs', 'pricing', 'central-billing', 'central-hide-nodes', 'sso-add-seats', 'dns-management'],
     },
     {
       type: 'category',

@@ -23,7 +23,11 @@ Each client must click the "Allow DNS" button.
 
 ### Windows Active Directory
 
-Some group policies can prevent managed DNS from working. See fix here [New DNS Features don't appear to work](https://discuss.zerotier.com/t/new-dns-features-dont-appear-to-work/982/7)
+Some group policies can prevent managed DNS from working.
+
+If your machines are all domain joined, you can push a `NRPT` rule via GPO. Go to Computer Config → Policies → Windows Settings → Name Resolution Policy.
+
+See here [New DNS Features don't appear to work](https://discuss.zerotier.com/t/new-dns-features-dont-appear-to-work/982/7) for more discussion.
 
 ### macOS DNS resolution
 
