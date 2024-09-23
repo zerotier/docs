@@ -26,3 +26,21 @@ ZeroTier should now be reachable by the UI client when you restart it.
 ## Why does this happen?
 
 Not entirely sure. IP helper service is a windows service that provides tunneling for IPv6 over IPv4. IP helper grabs 9993 before ZeroTier can. The issue persists through reboots. In the resource monitor, you can see which ports are bound to which services. IP helper is the culprit.
+
+Do you use Docker or WSL and ZeroTier? One of those might be reserving the port in IP Helper.
+
+Try this in a Admin Powershell
+
+```sh
+netsh interface portproxy show all
+```
+
+is 9993 in the results?
+
+Try to delete the entry
+
+```sh
+netsh interface portproxy delete help
+```
+
+Or try killing Docker or WSL and see if the problem goes away. [Let us know](https://discuss.zerotier.com/c/community-support/8) what you find out.
