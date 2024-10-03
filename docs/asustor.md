@@ -6,7 +6,7 @@ description: How to install ZeroTier on your Asustor NAS
 ### Install
 
 :::info Download
-Latest ZeroTier package: <https://download.zerotier.com/dist/asustor>
+Latest ZeroTier package: https://download.zerotier.com/dist/asustor
 :::
 
 Manually install:

@@ -185,7 +185,7 @@ You should be able to, from the physical LAN, connect to the Pi via `$BR_ADDR`
 
 Sometimes the physical interface turns out to be a long "predictable interface name" like: "enb827eb0d4176", sometimes it's just `eth0`, depending on Raspbian version(???).
 
-<https://wiki.debian.org/NetworkConfiguration#Network_Interface_Names>
+https://wiki.debian.org/NetworkConfiguration#Network_Interface_Names
 
 Hook up a keyboard and monitor and check with ip addr then edit `/etc/systemd/network/25-bridge-br0-en.network` to match.
 
@@ -228,11 +228,11 @@ EOF
 
 Sometimes, iptables rules apply: `echo "0" > /proc/sys/net/bridge/bridge-nf-call-iptables` or `iptables -A FORWARD -p all -i br0 -j ACCEPT`
 
-See: <https://serverfault.com/questions/162366/iptables-bridge-and-forward-chain>
+See: https://serverfault.com/questions/162366/iptables-bridge-and-forward-chain
 
 #### Why is the Managed Route /23 and the LAN subnet /24?
 
-Say you have a laptop that is on the ZeroTier network and you bring it home. Now its WiFi address and ZeroTier address are in the same subnet. Which interface/address should your laptop use for internet access? <https://en.wikipedia.org/wiki/Longest_prefix_match>
+Say you have a laptop that is on the ZeroTier network and you bring it home. Now its WiFi address and ZeroTier address are in the same subnet. Which interface/address should your laptop use for internet access? https://en.wikipedia.org/wiki/Longest_prefix_match
 
 ### Why is an app on my phone not working over ZeroTier?
 
@@ -240,5 +240,5 @@ Unfortunately the iOS and Android VPN APIs won't let ZeroTier use multicast/broa
 
 ### References
 
-- <https://systemd.network/systemd.network.html>
-- <https://hackaday.io/project/162164/instructions>
+- https://systemd.network/systemd.network.html
+- https://hackaday.io/project/162164/instructions

@@ -78,7 +78,7 @@ If you have a small number of ZeroTier clients (and a small number of UDP servic
 
 Firewall -> NAT -> Outbound -> Static Port option. See also the Source Address setting. Each instance of ZeroTier binds to a random source port (in addition to 9993.)
 
-<https://docs.opnsense.org/manual/nat.html#outbound>
+https://docs.opnsense.org/manual/nat.html#outbound
 
 If you have many computers on your network, two services will choose the same port eventually. Then there will be a conflict in the Static NAT and something won't work and you won't remember why.
 

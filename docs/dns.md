@@ -67,7 +67,7 @@ sudo chmod 600 /var/lib/zerotier-one/token
 
 ## ZeroTier Systemd Manager
 
-zerotier-systemd-manager publishes rpm and deb packages available at <https://github.com/zerotier/zerotier-systemd-manager/releases>
+zerotier-systemd-manager publishes rpm and deb packages available at https://github.com/zerotier/zerotier-systemd-manager/releases
 
 ```sh
 wget https://github.com/zerotier/zerotier-systemd-manager/releases/download/v0.1.9/zerotier-systemd-manager_0.1.9_linux_amd64.deb
