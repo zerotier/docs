@@ -1,7 +1,6 @@
 name: CI screenshots
 on:
-  push:
-    branches: main
+  workflow_dispatch
 
 jobs:
   screenshots:
