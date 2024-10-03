@@ -19,11 +19,11 @@ SSO is currently only supported on desktop operating systems such as macOS and W
 
 - Download and install ZeroTier 1.10.3 or greater on clients that will use SSO.
 
-    <https://www.zerotier.com/download/>
+    https://www.zerotier.com/download/
 
 ### Configure SSO in ZeroTier Central
 
-Visit <https://my.zerotier.com/account> and complete the SSO configuration toward the bottom of the page. You will need your sso provider's Issuer URL as well as a Client ID.
+Visit https://my.zerotier.com/account and complete the SSO configuration toward the bottom of the page. You will need your sso provider's Issuer URL as well as a Client ID.
 
 ![SSO-Account-Setup](./images/sso-account-setup-00.png)
 
@@ -66,7 +66,7 @@ Please ensure the following fields are set on your Auth0 application config:
 
 - Application Type:  Native
 - Token Endpoint Authentication Method: None
-- Allowed Callback URL: <http://localhost:9993/sso>
+- Allowed Callback URL: http://localhost:9993/sso
 - Under Advanced Settings -> Grant Types, ensure Authorization Code, and Refresh Token are selected.
 
 :::note
@@ -188,11 +188,11 @@ Log into your Keycloak administration console, go to the Client configuration an
 - Client Protocol: openid-connect
 - Access Type: public
 - Standard Flow Enabled: ON
-- Root URL: <https://my.zerotier.com>
+- Root URL: https://my.zerotier.com
 - Valid Redirect URLS
-  - <https://my.zerotier.com/>*
-  - <http://localhost/sso>
-- Admin URL: <https://my.zerotier.com>
+  - https://my.zerotier.com/*
+  - http://localhost/sso
+- Admin URL: https://my.zerotier.com
 - Web Origins: *
 
 See [here](https://www.keycloak.org/docs/latest/server_admin/index.html#assembly-managing-clients_server_administration_guide) for full documentation for configuring OpenID Connect clients with Keycloak.
@@ -205,7 +205,7 @@ If you have a SAML provider, but not an OpenID Connect provider, [Keycloak](http
 
 - Application Type:  Native
 - Token Endpoint Authentication Method: None
-- Allowed Callback URL: <http://localhost:9993/sso>
+- Allowed Callback URL: http://localhost:9993/sso
 - Under Advanced Settings -> Grant Types, ensure Implicit, Authorization Code, and Refresh Token are selected.
 
 ### OneLogin
@@ -218,7 +218,7 @@ OneLogin requires ZeroTier One v1.10.3+
 
 Log in to your OneLogin admin console.  Select "Custom Connectors" from the "Applications" menu.  Hit the "New Connector" button.  Name your connector, set Sign on method to OpenID Connect, and set the Redirect URI to `https://localhost:9993/sso`. Finally, back on the on Custom Connectors page, hit the "Add App to Connector" link. Adjust the description & logo settings as you see fit, and then save.
 
-Once the above steps are complete, go to the SSO tab for your new OneLogin Application. Set "Application Type" to "Native", and "Token Endpoint" to "None (PKCE)".  You'll also find the required Client ID and Issuer URLs to enter into <https://my.zerotier.com/account>.
+Once the above steps are complete, go to the SSO tab for your new OneLogin Application. Set "Application Type" to "Native", and "Token Endpoint" to "None (PKCE)".  You'll also find the required Client ID and Issuer URLs to enter into https://my.zerotier.com/account.
 
 ## Customizing the Final SSO Flow Page
 
@@ -304,7 +304,7 @@ Your users' assigned roles will now be attached to the tokens required to author
 
 ### Azure AD {#azure-rbac}
 
-<https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps>
+https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps
 
 ### Step 1: Create an App Role
 
@@ -312,7 +312,7 @@ In the Azure portal, go to Azure Active Directory and select App Registrations. 
 
 ![azure app role](./images/sso-azure-app-role-06.png)
 
-The `Value` field is what you use as the role name in the network configuration on <https://my.zerotier.com>
+The `Value` field is what you use as the role name in the network configuration on https://my.zerotier.com
 
 ### Step 2: Assign App Role
 

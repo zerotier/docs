@@ -244,9 +244,9 @@ Click [here](/start/) to create your network and start adding devices.
 
 ## ZeroTier Terraform
 
-- <https://registry.terraform.io/providers/zerotier/zerotier/latest>
-- <https://registry.terraform.io/modules/zerotier/network/zerotier/latest>
-- <https://registry.terraform.io/modules/zerotier/member/zerotier/latest>
+- https://registry.terraform.io/providers/zerotier/zerotier/latest
+- https://registry.terraform.io/modules/zerotier/network/zerotier/latest
+- https://registry.terraform.io/modules/zerotier/member/zerotier/latest
 
 ## ZeroTier Kubernetes
 

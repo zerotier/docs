@@ -10,16 +10,16 @@ ZeroTierOne is freely available to download for most popular desktop and embedde
 
 ### Downloads Page
 
-<http://www.zerotier.com/download>
+http://www.zerotier.com/download
 
 ### ZeroTierOne Source Code
 
-<https://github.com/zerotier/ZeroTierOne>
+https://github.com/zerotier/ZeroTierOne
 
 ### Past versions of ZeroTier {#old-versions}
 
-<http://download.zerotier.com/RELEASES/>
+http://download.zerotier.com/RELEASES/
 
 ### Release Notes
 
-<https://github.com/zerotier/ZeroTierOne/blob/dev/RELEASE-NOTES.md>
+https://github.com/zerotier/ZeroTierOne/blob/dev/RELEASE-NOTES.md

@@ -487,7 +487,7 @@ terraform apply -target 'zerotier_network.demolab' -auto-approve
 ```
 
 You can also see the the traffic from your laptop when hitting the web
-servers. Load the page on IBM Cloud by visiting <http://ibm.demo.lab>, and
+servers. Load the page on IBM Cloud by visiting http://ibm.demo.lab, and
 observe the traffic in your Digital Ocean terminal.
 
 ```sh

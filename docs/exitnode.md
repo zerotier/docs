@@ -325,6 +325,6 @@ The iptables manual explains:
 
 ### FreeBSD
 
-The allowDefault=1 setting on FreeBSD clients can't work. See this github issue for a work-around <https://github.com/zerotier/ZeroTierOne/issues/580>.
+The allowDefault=1 setting on FreeBSD clients can't work. See this github issue for a work-around https://github.com/zerotier/ZeroTierOne/issues/580.
 
 We've disable the Allow Default setting on FreeBSD starting on versions newer than 1.10.6 until we can find a solution.

@@ -4,7 +4,7 @@ description: Run ZeroTier on the edge
 ---
 
 :::caution End-of-Life
-The ZeroTier Edge was sold as a pre-configured self-contained device, that allowed you to plug physical devices into virtual networks and bridge physical networks at multiple sites with ease. As of 2020, it is End-of-Life. A source code repository of the code running on it can be found here: <https://github.com/zerotier/edge>; it ran on ESPRESSObin v5 hardware.
+The ZeroTier Edge was sold as a pre-configured self-contained device, that allowed you to plug physical devices into virtual networks and bridge physical networks at multiple sites with ease. As of 2020, it is End-of-Life. A source code repository of the code running on it can be found here: https://github.com/zerotier/edge; it ran on ESPRESSObin v5 hardware.
 
 The information below applies to any devices still in the field.
 :::
@@ -29,7 +29,7 @@ These addresses will not work if the device cannot reach the Internet. In this c
 
 - Plug the Edge's first Ethernet port (`phy0`) into an Ethernet network with IPv4 (DHCP) or IPv6 connectivity.
 - Connect the device to power and wait 20-30 seconds.
-- Join the ad-hoc ZeroTier network `ff001601bb000000` from a PC, mobile, or other devices. See <https://www.zerotier.com> to download clients.
+- Join the ad-hoc ZeroTier network `ff001601bb000000` from a PC, mobile, or other devices. See https://www.zerotier.com to download clients.
 - Once your PC or other device is online, navigate to the http address shown in the green box above.
 - Create an account on the Edge and begin configuring it for bridge operation.
 
