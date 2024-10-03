@@ -2321,7 +2321,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/core@npm:2.4.3, @docusaurus/core@npm:^2.4.2":
+"@docusaurus/core@npm:2.4.3, @docusaurus/core@npm:^2.4.3":
   version: 2.4.3
   resolution: "@docusaurus/core@npm:2.4.3"
   dependencies:
@@ -2629,7 +2629,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/preset-classic@npm:^2.4.2":
+"@docusaurus/preset-classic@npm:^2.4.3":
   version: 2.4.3
   resolution: "@docusaurus/preset-classic@npm:2.4.3"
   dependencies:
@@ -2728,7 +2728,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/theme-mermaid@npm:^2.4.2":
+"@docusaurus/theme-mermaid@npm:^2.4.3":
   version: 2.4.3
   resolution: "@docusaurus/theme-mermaid@npm:2.4.3"
   dependencies:
@@ -3173,24 +3173,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@redocly/openapi-core@npm:1.10.3":
-  version: 1.10.3
-  resolution: "@redocly/openapi-core@npm:1.10.3"
-  dependencies:
-    "@redocly/ajv": "npm:^8.11.0"
-    colorette: "npm:^1.2.0"
-    js-levenshtein: "npm:^1.1.6"
-    js-yaml: "npm:^4.1.0"
-    lodash.isequal: "npm:^4.5.0"
-    minimatch: "npm:^5.0.1"
-    node-fetch: "npm:^2.6.1"
-    pluralize: "npm:^8.0.0"
-    yaml-ast-parser: "npm:0.0.43"
-  checksum: 10c0/5119d120243661bde095314d3537cd66200acbf44b2924c31916be0fc62464b575d4e7ee98177279f20de5f4110240d16b31dafde0a464ca6ef6adc7b896239f
-  languageName: node
-  linkType: hard
-
-"@redocly/openapi-core@npm:^1.0.0-rc.2, @redocly/openapi-core@npm:^1.4.0":
+"@redocly/openapi-core@npm:1.16.0, @redocly/openapi-core@npm:^1.4.0":
   version: 1.16.0
   resolution: "@redocly/openapi-core@npm:1.16.0"
   dependencies:
@@ -5184,7 +5167,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"classnames@npm:^2.3.1, classnames@npm:^2.3.2":
+"classnames@npm:^2.3.2":
   version: 2.5.1
   resolution: "classnames@npm:2.5.1"
   checksum: 10c0/afff4f77e62cea2d79c39962980bf316bacb0d7c49e13a21adaadb9221e1c6b9d3cdb829d8bb1b23c406f4e740507f37e1dcf506f7e3b7113d17c5bab787aa69
@@ -5313,7 +5296,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"clsx@npm:^1.1.0, clsx@npm:^1.1.1, clsx@npm:^1.2.1":
+"clsx@npm:^1.1.1, clsx@npm:^1.2.1":
   version: 1.2.1
   resolution: "clsx@npm:1.2.1"
   checksum: 10c0/34dead8bee24f5e96f6e7937d711978380647e936a22e76380290e35486afd8634966ce300fc4b74a32f3762c7d4c0303f442c3e259f4ce02374eb0c82834f27
@@ -6985,36 +6968,38 @@ __metadata:
   languageName: node
   linkType: hard
 
-"docusaurus-plugin-redoc@npm:2.0.2":
-  version: 2.0.2
-  resolution: "docusaurus-plugin-redoc@npm:2.0.2"
+"docusaurus-plugin-redoc@npm:2.1.1":
+  version: 2.1.1
+  resolution: "docusaurus-plugin-redoc@npm:2.1.1"
   dependencies:
-    "@redocly/openapi-core": "npm:1.10.3"
-    redoc: "npm:2.1.3"
+    "@redocly/openapi-core": "npm:1.16.0"
+    redoc: "npm:2.1.5"
   peerDependencies:
     "@docusaurus/utils": ^3.0.0
-  checksum: 10c0/68487b0cc08265d6bf7ab51c11b55684b91ec33a5123258b0129ce6a51b00f12bec65561d6dcbf10cc9b68a1b339e1784fb9f9188d4e725813634dfc1ac568f8
+  checksum: 10c0/1edca6dc09474b4639e557c6e4fb32e4f9e2e8c96a6e55f1b42e8f0fbf472919692b636bdb9ad1dd8d8d1f8d8c01e665a542e6bf5b85911361ffad4cac1f6548
   languageName: node
   linkType: hard
 
-"docusaurus-theme-redoc@npm:2.0.2":
-  version: 2.0.2
-  resolution: "docusaurus-theme-redoc@npm:2.0.2"
+"docusaurus-theme-redoc@npm:2.1.2":
+  version: 2.1.2
+  resolution: "docusaurus-theme-redoc@npm:2.1.2"
   dependencies:
-    "@redocly/openapi-core": "npm:1.10.3"
+    "@redocly/openapi-core": "npm:1.16.0"
     clsx: "npm:^1.2.1"
     lodash: "npm:^4.17.21"
-    mobx: "npm:^6.0.4"
-    redoc: "npm:2.1.3"
-    styled-components: "npm:^6.0.5"
+    mobx: "npm:^6.12.4"
+    postcss: "npm:^8.4.45"
+    postcss-prefix-selector: "npm:^1.16.1"
+    redoc: "npm:2.1.5"
+    styled-components: "npm:^6.1.11"
   peerDependencies:
     "@docusaurus/theme-common": ^3.0.0
     webpack: ^5.0.0
-  checksum: 10c0/33e125f56204dc1d5f9e1a41bfc1cb021b4ffef25413eb425def6acd736d13fd97391010b5f7d74580b4e6063d2ed3b5cbb21593ba1ff757abf6ec76cc65a5d2
+  checksum: 10c0/403f72e515501b2e45c7cf2faa2777452cba20da7596c1babd1827ab320c125ef4bb46475510ecfe63fbf2b1dbb3856d0b51fed231e9d7ac61fb059a7937cbbd
   languageName: node
   linkType: hard
 
-"docusaurus-theme-redoc@npm:^0.4.2":
+"docusaurus-theme-redoc@npm:^0.4.6":
   version: 0.4.6
   resolution: "docusaurus-theme-redoc@npm:0.4.6"
   dependencies:
@@ -7124,13 +7109,6 @@ __metadata:
   version: 2.4.3
   resolution: "dompurify@npm:2.4.3"
   checksum: 10c0/4c93f5bc8855bbe7dcb33487c0b252a00309fbd8a6d0ec280abbc3af695b43d1bf7f526c2f323fa697314b0b3de3511c756005dddc6ed90d1a1440a3d6ff89d9
-  languageName: node
-  linkType: hard
-
-"dompurify@npm:^2.2.8":
-  version: 2.5.5
-  resolution: "dompurify@npm:2.5.5"
-  checksum: 10c0/2e280e88c632bcee232b9be07fbe4f910f0d28278c79bfdb93c873e9c3418008123cb28b4ca6ada1d25efac7f632f85c3c59ba6b3cff3b89410aedf58dc16173
   languageName: node
   linkType: hard
 
@@ -7614,7 +7592,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eventemitter3@npm:^4.0.0, eventemitter3@npm:^4.0.7":
+"eventemitter3@npm:^4.0.0":
   version: 4.0.7
   resolution: "eventemitter3@npm:4.0.7"
   checksum: 10c0/5f6d97cbcbac47be798e6355e3a7639a84ee1f7d9b199a07017f1d2f1e2fe236004d14fa5dfaeba661f94ea57805385e326236a6debbc7145c8877fbc0297c6b
@@ -10719,7 +10697,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"marked@npm:^4.0.15, marked@npm:^4.3.0":
+"marked@npm:^4.3.0":
   version: 4.3.0
   resolution: "marked@npm:4.3.0"
   bin:
@@ -11182,21 +11160,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mobx-react-lite@npm:^3.4.0":
-  version: 3.4.3
-  resolution: "mobx-react-lite@npm:3.4.3"
-  peerDependencies:
-    mobx: ^6.1.0
-    react: ^16.8.0 || ^17 || ^18
-  peerDependenciesMeta:
-    react-dom:
-      optional: true
-    react-native:
-      optional: true
-  checksum: 10c0/c58692751ac69b4e9fcf840c43b3aac99869b0268aa8ba06189de5737a8ad27b1d3a2ec20699554e7e5a670e6957d22e3cb0f451448491a640240d7b9e98325a
-  languageName: node
-  linkType: hard
-
 "mobx-react-lite@npm:^4.0.7":
   version: 4.0.7
   resolution: "mobx-react-lite@npm:4.0.7"
@@ -11211,23 +11174,6 @@ __metadata:
     react-native:
       optional: true
   checksum: 10c0/175e190c5e6c35136ce2b8ef7e9ddeae68b180b585a907a891cd1781038c97eaad195ce9846b0f8e6fe87ac8bc005e31310003d1f7b402f81e460b9411d801d8
-  languageName: node
-  linkType: hard
-
-"mobx-react@npm:^7.2.0":
-  version: 7.6.0
-  resolution: "mobx-react@npm:7.6.0"
-  dependencies:
-    mobx-react-lite: "npm:^3.4.0"
-  peerDependencies:
-    mobx: ^6.1.0
-    react: ^16.8.0 || ^17 || ^18
-  peerDependenciesMeta:
-    react-dom:
-      optional: true
-    react-native:
-      optional: true
-  checksum: 10c0/60f619edb999b9c66a86baa7ab5cf8b1f3651c85c16f2aa8adf3c0c553d52bc0ec083bbd42e8fe0c785f2435a7b1afdf20f103553b80bbf6d28616f160baa144
   languageName: node
   linkType: hard
 
@@ -11248,7 +11194,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mobx@npm:^6.0.4, mobx@npm:^6.3.0":
+"mobx@npm:^6.12.4":
+  version: 6.13.3
+  resolution: "mobx@npm:6.13.3"
+  checksum: 10c0/33dade0ceca4ba7291a36147ee4d26880dcd408efd97adbb6d05365bce014fa6d21c1bdd1ca782ac045da470ac632446917d366df9b84911071626db43ed032f
+  languageName: node
+  linkType: hard
+
+"mobx@npm:^6.3.0":
   version: 6.12.4
   resolution: "mobx@npm:6.12.4"
   checksum: 10c0/611917cb5c8bd2ab6368d69e550b68f444d269bee1e2fb3aa6a0dc868100d19aa7970d1f573a483392f3c317a5bcb3e4c642e212b750fd08f57ecbb38bbc0071
@@ -11783,7 +11736,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"openapi-sampler@npm:^1.3.1, openapi-sampler@npm:^1.5.0":
+"openapi-sampler@npm:^1.5.0":
   version: 1.5.1
   resolution: "openapi-sampler@npm:1.5.1"
   dependencies:
@@ -12246,6 +12199,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"picocolors@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "picocolors@npm:1.1.0"
+  checksum: 10c0/86946f6032148801ef09c051c6fb13b5cf942eaf147e30ea79edb91dd32d700934edebe782a1078ff859fb2b816792e97ef4dab03d7f0b804f6b01a0df35e023
+  languageName: node
+  linkType: hard
+
 "picomatch@npm:^2.0.4, picomatch@npm:^2.2.1, picomatch@npm:^2.2.3, picomatch@npm:^2.3.1":
   version: 2.3.1
   resolution: "picomatch@npm:2.3.1"
@@ -12341,7 +12301,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"polished@npm:^4.1.3, polished@npm:^4.2.2":
+"polished@npm:^4.2.2":
   version: 4.3.1
   resolution: "polished@npm:4.3.1"
   dependencies:
@@ -12697,6 +12657,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"postcss-prefix-selector@npm:^1.16.1":
+  version: 1.16.1
+  resolution: "postcss-prefix-selector@npm:1.16.1"
+  peerDependencies:
+    postcss: ">4 <9"
+  checksum: 10c0/e72d3fc000252ce22d000e7de5b74b718fe794a191e79598634ba73bbff3f1493a877d04e7fbf649b79f7d47428741324c5b157cf946bb63328d5e9883cea14c
+  languageName: node
+  linkType: hard
+
 "postcss-reduce-idents@npm:^5.2.0":
   version: 5.2.0
   resolution: "postcss-reduce-idents@npm:5.2.0"
@@ -12809,6 +12778,17 @@ __metadata:
     picocolors: "npm:^0.2.1"
     source-map: "npm:^0.6.1"
   checksum: 10c0/fd27ee808c0d02407582cccfad4729033e2b439d56cd45534fb39aaad308bb35a290f3b7db5f2394980e8756f9381b458a625618550808c5ff01a125f51efc53
+  languageName: node
+  linkType: hard
+
+"postcss@npm:^8.4.45":
+  version: 8.4.47
+  resolution: "postcss@npm:8.4.47"
+  dependencies:
+    nanoid: "npm:^3.3.7"
+    picocolors: "npm:^1.1.0"
+    source-map-js: "npm:^1.2.1"
+  checksum: 10c0/929f68b5081b7202709456532cee2a145c1843d391508c5a09de2517e8c4791638f71dd63b1898dba6712f8839d7a6da046c72a5e44c162e908f5911f57b5f44
   languageName: node
   linkType: hard
 
@@ -12936,7 +12916,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prismjs@npm:^1.27.0, prismjs@npm:^1.28.0, prismjs@npm:^1.29.0":
+"prismjs@npm:^1.28.0, prismjs@npm:^1.29.0":
   version: 1.29.0
   resolution: "prismjs@npm:1.29.0"
   checksum: 10c0/d906c4c4d01b446db549b4f57f72d5d7e6ccaca04ecc670fb85cea4d4b1acc1283e945a9cbc3d81819084a699b382f970e02f9d1378e14af9808d366d9ed7ec6
@@ -13399,18 +13379,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-tabs@npm:^4.3.0":
-  version: 4.3.0
-  resolution: "react-tabs@npm:4.3.0"
-  dependencies:
-    clsx: "npm:^1.1.0"
-    prop-types: "npm:^15.5.0"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0-0 || ^18.0.0
-  checksum: 10c0/2a23533bcd2f8d7d58c836d0c6c41cd3d957010497f1f0454369e1d111ccb450ef1ff0d2cd34d02cfd9d027cf21058aa09bbc6595ac78267f84322e38bedf70d
-  languageName: node
-  linkType: hard
-
 "react-tabs@npm:^6.0.2":
   version: 6.0.2
   resolution: "react-tabs@npm:6.0.2"
@@ -13529,42 +13497,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"redoc@npm:2.1.3":
-  version: 2.1.3
-  resolution: "redoc@npm:2.1.3"
-  dependencies:
-    "@redocly/openapi-core": "npm:^1.0.0-rc.2"
-    classnames: "npm:^2.3.1"
-    decko: "npm:^1.2.0"
-    dompurify: "npm:^2.2.8"
-    eventemitter3: "npm:^4.0.7"
-    json-pointer: "npm:^0.6.2"
-    lunr: "npm:^2.3.9"
-    mark.js: "npm:^8.11.1"
-    marked: "npm:^4.0.15"
-    mobx-react: "npm:^7.2.0"
-    openapi-sampler: "npm:^1.3.1"
-    path-browserify: "npm:^1.0.1"
-    perfect-scrollbar: "npm:^1.5.5"
-    polished: "npm:^4.1.3"
-    prismjs: "npm:^1.27.0"
-    prop-types: "npm:^15.7.2"
-    react-tabs: "npm:^4.3.0"
-    slugify: "npm:~1.4.7"
-    stickyfill: "npm:^1.1.1"
-    swagger2openapi: "npm:^7.0.6"
-    url-template: "npm:^2.0.8"
-  peerDependencies:
-    core-js: ^3.1.4
-    mobx: ^6.0.4
-    react: ^16.8.4 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.4 || ^17.0.0 || ^18.0.0
-    styled-components: ^4.1.1 || ^5.1.1 || ^6.0.5
-  checksum: 10c0/5a240b52635f6ce3bc3a631ca837ac69bea5cb537941182ce723cb2f109022ffd14b01ab8152757c77fdf2afdcd4612aee5594b9870446d4cffd5b0904e725d7
-  languageName: node
-  linkType: hard
-
-"redoc@npm:^2.0.0-rc.56":
+"redoc@npm:2.1.5, redoc@npm:^2.0.0-rc.56":
   version: 2.1.5
   resolution: "redoc@npm:2.1.5"
   dependencies:
@@ -13600,16 +13533,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"redocusaurus@npm:^2.0.2":
-  version: 2.0.2
-  resolution: "redocusaurus@npm:2.0.2"
+"redocusaurus@npm:^2.1.2":
+  version: 2.1.2
+  resolution: "redocusaurus@npm:2.1.2"
   dependencies:
-    docusaurus-plugin-redoc: "npm:2.0.2"
-    docusaurus-theme-redoc: "npm:2.0.2"
+    docusaurus-plugin-redoc: "npm:2.1.1"
+    docusaurus-theme-redoc: "npm:2.1.2"
   peerDependencies:
     "@docusaurus/theme-common": ^3.0.0
     "@docusaurus/utils": ^3.0.0
-  checksum: 10c0/9e0114106ee2c8aebaa83c8a587bb9ac2ed4eb19b012b7a245864c0a41dcc14d46658a5bc0424d5ee5ccfd391b4a6a3675ca085ded48c9ef5bdf3761e1a4916e
+  checksum: 10c0/9b339151e783d8bc6576b30fc548d2abde3d311931bd3005d8d3ab8bf3e878f4a214bd54d3d4969e28c4da9261a88d21be5b546f32e8136dca01b9ecbe66e8ba
   languageName: node
   linkType: hard
 
@@ -14675,6 +14608,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"source-map-js@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "source-map-js@npm:1.2.1"
+  checksum: 10c0/7bda1fc4c197e3c6ff17de1b8b2c20e60af81b63a52cb32ec5a5d67a20a7d42651e2cb34ebe93833c5a2a084377e17455854fee3e21e7925c64a51b6a52b0faf
+  languageName: node
+  linkType: hard
+
 "source-map-support@npm:~0.5.20":
   version: 0.5.21
   resolution: "source-map-support@npm:0.5.21"
@@ -15082,9 +15022,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"styled-components@npm:^6.0.5":
-  version: 6.1.11
-  resolution: "styled-components@npm:6.1.11"
+"styled-components@npm:^6.1.11":
+  version: 6.1.13
+  resolution: "styled-components@npm:6.1.13"
   dependencies:
     "@emotion/is-prop-valid": "npm:1.2.2"
     "@emotion/unitless": "npm:0.8.1"
@@ -15098,7 +15038,7 @@ __metadata:
   peerDependencies:
     react: ">= 16.8.0"
     react-dom: ">= 16.8.0"
-  checksum: 10c0/1d149a51d24f779bba700c8c23ec0538b2d2b57745ccd49d1cfdc2dfce8bcea21e8ff81fed1143d1b35d127cc591717a398da72ea6671abbf705432b13e59e56
+  checksum: 10c0/dd0379179c6ce9655c97285e9f6475b533d4cc4cad72e8f16824c5454803a9d12126877d8b2837cd5b54520250c55cde97a183e813eed720d2575362d9646663
   languageName: node
   linkType: hard
 
@@ -15205,7 +15145,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"swagger2openapi@npm:^7.0.6, swagger2openapi@npm:^7.0.8":
+"swagger2openapi@npm:^7.0.8":
   version: 7.0.8
   resolution: "swagger2openapi@npm:7.0.8"
   dependencies:
@@ -16711,9 +16651,9 @@ __metadata:
   dependencies:
     "@cspell/dict-markdown": "npm:^2.0.1"
     "@cspell/dict-software-terms": "npm:^3.3.12"
-    "@docusaurus/core": "npm:^2.4.2"
-    "@docusaurus/preset-classic": "npm:^2.4.2"
-    "@docusaurus/theme-mermaid": "npm:^2.4.2"
+    "@docusaurus/core": "npm:^2.4.3"
+    "@docusaurus/preset-classic": "npm:^2.4.3"
+    "@docusaurus/theme-mermaid": "npm:^2.4.3"
     "@mdx-js/react": "npm:^1.6.22"
     "@playwright/test": "npm:^1.47.2"
     "@prantlf/jsonlint": "npm:^14.0.3"
@@ -16722,13 +16662,13 @@ __metadata:
     cspell: "npm:^8.9.1"
     docusaurus-lunr-search: "npm:^2.4.2"
     docusaurus-plugin-openapi: "npm:0.6.4"
-    docusaurus-theme-redoc: "npm:^0.4.2"
+    docusaurus-theme-redoc: "npm:^0.4.6"
     markdown-spellcheck: "npm:^1.3.1"
     markdownlint-cli2: "npm:^0.13.0"
     npm-run-all: "npm:^4.1.5"
     react: "npm:^17.0.2"
     react-dom: "npm:^17.0.2"
-    redocusaurus: "npm:^2.0.2"
+    redocusaurus: "npm:^2.1.2"
   languageName: unknown
   linkType: soft
 
