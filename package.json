@@ -38,7 +38,6 @@
     "clsx": "^2.1.1",
     "cspell": "^8.14.4",
     "docusaurus-lunr-search": "^3.5.0",
-    "docusaurus-theme-redoc": "^2.1.2",
     "markdownlint-cli2": "^0.14.0",
     "npm-run-all2": "^6.2.3",
     "pixelmatch": "^6.0.0",
