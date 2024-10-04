@@ -6929,7 +6929,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"docusaurus-theme-redoc@npm:2.1.2, docusaurus-theme-redoc@npm:^2.1.2":
+"docusaurus-theme-redoc@npm:2.1.2":
   version: 2.1.2
   resolution: "docusaurus-theme-redoc@npm:2.1.2"
   dependencies:
@@ -16192,7 +16192,6 @@ __metadata:
     clsx: "npm:^2.1.1"
     cspell: "npm:^8.14.4"
     docusaurus-lunr-search: "npm:^3.5.0"
-    docusaurus-theme-redoc: "npm:^2.1.2"
     markdownlint-cli2: "npm:^0.14.0"
     npm-run-all2: "npm:^6.2.3"
     pixelmatch: "npm:^6.0.0"
