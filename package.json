@@ -18,6 +18,9 @@
     "lint:markdown": "markdownlint-cli2 \"docs/**/*.md\"",
     "lint:spelling": "cspell --validate-directives --no-progress docs/**/*.md"
   },
+  "resolutions": {
+    "@babel/traverse": "^7.23.3"
+  },
   "dependencies": {
     "@docusaurus/core": "^3.5.2",
     "@docusaurus/plugin-content-docs": "^3.5.2",
