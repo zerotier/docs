@@ -4919,6 +4919,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"async-folder-walker@npm:^3.0.5":
+  version: 3.0.5
+  resolution: "async-folder-walker@npm:3.0.5"
+  dependencies:
+    ignore: "npm:^5.1.8"
+  peerDependencies:
+    "@types/node": "*"
+  checksum: 10c0/13c298057b63bb7f5feaa3fbc7bccf85bcd1ebea4801fb7e7778dd36bd190d2e35c1a89ace3854dc84cd48546d0d46604fdfff08dddb3d55cb3ce791dfe96ce6
+  languageName: node
+  linkType: hard
+
 "async@npm:3.2.0":
   version: 3.2.0
   resolution: "async@npm:3.2.0"
@@ -9577,6 +9588,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ignore@npm:^5.1.8":
+  version: 5.3.2
+  resolution: "ignore@npm:5.3.2"
+  checksum: 10c0/f9f652c957983634ded1e7f02da3b559a0d4cc210fca3792cb67f1b153623c9c42efdc1c4121af171e295444459fc4a9201101fb041b1104a3c000bccb188337
+  languageName: node
+  linkType: hard
+
 "ignore@npm:^5.2.0, ignore@npm:^5.2.4":
   version: 5.3.1
   resolution: "ignore@npm:5.3.1"
@@ -13404,6 +13422,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pixelmatch@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "pixelmatch@npm:6.0.0"
+  dependencies:
+    pngjs: "npm:^7.0.0"
+  bin:
+    pixelmatch: bin/pixelmatch
+  checksum: 10c0/036b2ce0e5a2824d8da1a7f726d36f53fa7619d3e5bca662c955182f8dedafd69b8c7deb986f8d01143518bacef7d599f9154a9163f1e7af882fea5cf7182359
+  languageName: node
+  linkType: hard
+
 "pkg-dir@npm:^7.0.0":
   version: 7.0.0
   resolution: "pkg-dir@npm:7.0.0"
@@ -13450,6 +13479,13 @@ __metadata:
   version: 8.0.0
   resolution: "pluralize@npm:8.0.0"
   checksum: 10c0/2044cfc34b2e8c88b73379ea4a36fc577db04f651c2909041b054c981cd863dd5373ebd030123ab058d194ae615d3a97cfdac653991e499d10caf592e8b3dc33
+  languageName: node
+  linkType: hard
+
+"pngjs@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "pngjs@npm:7.0.0"
+  checksum: 10c0/0d4c7a0fd476a9c33df7d0a2a73e1d56537628a668841f6995c2bca070cf30819f9254a64363266bc14ef2fee47659dd3b4f2b18eec7ab65143015139f497b38
   languageName: node
   linkType: hard
 
@@ -17664,6 +17700,7 @@ __metadata:
     "@playwright/test": "npm:^1.47.2"
     "@prantlf/jsonlint": "npm:^14.1.0"
     "@types/react": "npm:^18.3.11"
+    async-folder-walker: "npm:^3.0.5"
     clsx: "npm:^1.2.1"
     cspell: "npm:^8.14.4"
     docusaurus-lunr-search: "npm:^3.5.0"
@@ -17672,6 +17709,8 @@ __metadata:
     markdown-spellcheck: "npm:^1.3.1"
     markdownlint-cli2: "npm:^0.13.0"
     npm-run-all: "npm:^4.1.5"
+    pixelmatch: "npm:^6.0.0"
+    pngjs: "npm:^7.0.0"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
     redocusaurus: "npm:^2.1.2"
