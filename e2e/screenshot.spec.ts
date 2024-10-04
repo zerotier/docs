@@ -22,7 +22,7 @@ function screenshotPathname(pathname: string) {
     await page.waitForFunction(waitForDocusaurusHydration);
     await page.addStyleTag({content: stylesheet});
     const spath = `./screenshots/${pathnameToArgosName(pathname)}.png`
-    await page.screenshot({ path: spath, fullPage: true });
+    await page.screenshot({ path: spath });
   });
 }
 
