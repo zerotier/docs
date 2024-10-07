@@ -203,10 +203,15 @@ If you have a SAML provider, but not an OpenID Connect provider, [Keycloak](http
 
 ### Okta {#okta-config}
 
-- Application Type:  Native
-- Token Endpoint Authentication Method: None
-- Allowed Callback URL: http://localhost:9993/sso
-- Under Advanced Settings -> Grant Types, ensure Implicit, Authorization Code, and Refresh Token are selected.
+- Application Type: Native
+- Client authentication: None
+- Sign-in redirect URL: http://localhost:9993/sso
+- Grant type: Implicit, Authorization Code, and Refresh Token are selected.
+
+#### Central config
+
+- Client ID is in General -> Client ID
+- Issuer URL is in the menubar. Add "https://" to the beginning when adding to Central.
 
 ### OneLogin
 
