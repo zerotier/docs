@@ -11,7 +11,7 @@ To install and configure ZeroTierOne on OpenWRT, please see the [main project wi
 
 ## Advanced Configuration
 
-As noted in the wiki article above, you can set a number of basic ZeroTierOne settings via UCI configuration values, either by editing the file `/etc/config/network/zerotier` or using the LuCU web interface.
+As noted in the wiki article above, you can set a number of basic ZeroTierOne settings via UCI configuration values, either by editing the file `/etc/config/network/zerotier` or using the LuCI web interface.
 
 However, some features require manual configuration:
 
