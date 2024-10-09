@@ -64,10 +64,8 @@ You can do this from the wrench icon in the Members list.
 
 Please ensure the following fields are set on your Auth0 application config:
 
-- Application Type:  Native
-- Token Endpoint Authentication Method: None
+- Application Type: Native
 - Allowed Callback URL: http://localhost:9993/sso
-- Under Advanced Settings -> Grant Types, ensure Authorization Code, and Refresh Token are selected.
 
 :::note
 
@@ -76,6 +74,15 @@ The OIDC spec is picky about the Issuer URL you enter.  It must match what the s
 In the case of Auth0 specifically, Your Issuer URL *MUST* end with a `/`.  For example, in Auth0's application configuration, show's just the fully qualified domain name.  What must be entered in the Issuer field in ZeroTier Central is: `https://your-domain-id.auth0.com/`
 
 :::
+
+#### Advanced Settings
+
+These grants are required but are set correctly by default
+
+Under Advanced Settings -> Grant Types:
+
+- Authorization Code
+- Refresh Token are selected.
 
 ### Authelia
 
