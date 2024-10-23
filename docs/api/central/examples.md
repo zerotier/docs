@@ -98,13 +98,38 @@ curl -H "Authorization: token $ZT_TOKEN" -X POST \
 
 <TabItem value="deauthorize-member">
 
-### Deauthorize a network member
+### Deauthorize a network member ( shell )
+
+curl on Unix
 
 ```sh
 curl -H "Authorization: token $ZT_TOKEN" -X POST \
   "https://api.zerotier.com/api/v1/network/$NWID/member/$MEMBER_ID" \
   --data '{"config": {"authorized": false}}'
 ```
+
+### Deauthorize a network member ( Powershell Invoke-WebRequest )
+
+```code
+$ZT_TOKEN = ""
+$NWID = ""
+$MEMBER_ID = ""
+
+$headers = @{
+    "Authorization" = "token $ZT_TOKEN"
+}
+
+$body = @{
+    config = @{
+        authorized = $false
+    }
+} | ConvertTo-Json
+
+Invoke-WebRequest -Uri "https://api.zerotier.com/api/v1/network/$NWID/member/$MEMBER_ID" `
+    -Method Post -Headers $headers -Body $body -ContentType "application/json"
+```
+
+Please note, if you encounter an error, System.String and System.Collections.IDictionary when using curl within Powershell, be advised this is an _alias_ which can lead to confusion because it is a wrapper for Invoke-WebRequest which has different parameter syntax than curl on non-windows operating systems.   As an alternative solution, curl.exe can be used, however may not be available on your system.  Caveat emptor.
 
 </TabItem>
 
