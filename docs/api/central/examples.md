@@ -206,6 +206,7 @@ $body = @{
 Invoke-WebRequest -Uri "https://api.zerotier.com/api/v1/network/$NWID/member/$MEMBER_ID" `
     -Method Post -Headers $headers -Body $body -ContentType "application/json"
 ```
+
 </TabItem>
 
 </Tabs>
