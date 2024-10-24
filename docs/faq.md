@@ -120,6 +120,14 @@ If not, execute `sudo /etc/init.d/zerotier-one start`
 
 Your system firewall is likely blocking communication with the ZeroTier service. Look up instructions for how to unblock an application from the firewall for your OS.  ZeroTier will need to be accessible via TCP port 9993 for the UI and CLI to interact with it.
 
+### Tray / Menubar App crashes
+
+- go into your [user config](https://docs.zerotier.com/config#user) directory
+- delete authtoken.secret
+- go into the "One" directory from there
+- delete the authtoken.secret in the "One" directory
+- restart the app
+
 ### Where can I find old versions of ZeroTier? {#old-versions}
 
 See [Releases](./releases.md#old)
