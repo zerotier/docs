@@ -113,9 +113,6 @@ does not allow comments):
     "settings": { /* Other global settings */
         "primaryPort": 0-65535, /* If set, override default port of 9993 and any command line port */
         "portMappingEnabled": true|false, /* If true (the default), try to use uPnP or NAT-PMP to map ports */
-        "softwareUpdate": "apply"|"download"|"disable", /* Automatically apply updates, just download, or disable built-in software updates */
-        "softwareUpdateChannel": "release"|"beta", /* Software update channel */
-        "softwareUpdateDist": true|false, /* If true, distribute software updates (only really useful to ZeroTier, Inc. itself, default is false) */
         "interfacePrefixBlacklist": [ "XXX",... ], /* Array of interface name prefixes (e.g. eth for eth#) to blacklist for ZT traffic */
         "allowManagementFrom": [ "NETWORK/bits" ]|null, /* If non-NULL, allow JSON/HTTP management from this IP network. Default is 127.0.0.1 only. */
         "allowTcpFallbackRelay": true|false /* Allow or disallow establishment of TCP relay connections (true by default) */
@@ -142,10 +139,7 @@ An example `local.conf`:
     "physical": {
         "10.0.0.0/24": {
             "blacklist": true
-        },
-        "10.10.10.0/24": {
-            "trustedPathId": 101010024
-        },
+        }
     },
     "virtual": {
         "feedbeef12": {
@@ -155,8 +149,6 @@ An example `local.conf`:
         }
     },
     "settings": {
-        "softwareUpdate": "apply",
-        "softwareUpdateChannel": "release"
     }
 }
 ```
