@@ -111,11 +111,14 @@ does not allow comments):
         }
     },
     "settings": { /* Other global settings */
-        "primaryPort": 0-65535, /* If set, override default port of 9993 and any command line port */
+        "primaryPort": 0-65535, /* If set, override default port of 9993 and any command line port. It's better to leave this alone, and modify the secondaryPort */
+        "secondaryPort": 0-65535, /* If set, override default random secondary port (UDP) */
+        "tertiaryPort": 0-65535, /* If set, override default random tertiary port. Used for port mapping. */
         "portMappingEnabled": true|false, /* If true (the default), try to use uPnP or NAT-PMP to map ports */
         "interfacePrefixBlacklist": [ "XXX",... ], /* Array of interface name prefixes (e.g. eth for eth#) to blacklist for ZT traffic */
         "allowManagementFrom": [ "NETWORK/bits" ]|null, /* If non-NULL, allow JSON/HTTP management from this IP network. Default is 127.0.0.1 only. */
         "allowTcpFallbackRelay": true|false /* Allow or disallow establishment of TCP relay connections (true by default) */
+        "bind": [ "ip",... ], /* If present and non-null, bind to these IPs instead of to each interface (wildcard IP allowed) */
     }
 }
 ```
@@ -149,6 +152,7 @@ An example `local.conf`:
         }
     },
     "settings": {
+        "secondaryPort": 12345
     }
 }
 ```
