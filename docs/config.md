@@ -93,6 +93,10 @@ systems.
 `local.conf` is a JSON format file that can also be edited and rewritten
 by ZeroTier One itself, so ensure that proper JSON formatting is used. Paste your JSON into a JSON tool before saving your configuration file.
 
+You can confirm your settings with `zerotier-cli info -j`
+
+In many cases you need to restart the zerotier system service after making changes to local.conf
+
 Settings available in `local.conf` (this is not valid JSON, and JSON
 does not allow comments):
 
