@@ -101,7 +101,6 @@ does not allow comments):
     "physical": { /* Settings that apply to physical L2/L3 network paths. */
         "NETWORK/bits": { /* Network e.g. 10.0.0.0/24 or fd00::/32 */
             "blacklist": true|false, /* If true, blacklist this path for all ZeroTier traffic */
-            "trustedPathId": 0|!0 /* If present and nonzero, define this as a trusted path (see below) */
         } /* ,... additional networks */
     },
     "virtual": { /* Settings applied to ZeroTier virtual network devices (VL1) */
@@ -122,18 +121,6 @@ does not allow comments):
     }
 }
 ```
-
-- **trustedPathId**: A trusted path is a physical network over which
-    encryption and authentication are not required. This provides a
-    performance boost but sacrifices all ZeroTier's security features
-    when communicating over this path. *Only use this feature if you
-    know what you are doing and really need the performance!* To set up
-    a trusted path, all devices on the same trusted physical network
-    must have the same trusted path ID. Trusted path IDs are arbitrary
-    unsigned 64-bit integers. These are not secrets. The security of a
-    trusted path depends on its physical configuration. Take special
-    care that any firewalls at its boundaries do not allow traffic in
-    our out with IPs overlapping the trusted network range.
 
 An example `local.conf`:
 
@@ -156,6 +143,19 @@ An example `local.conf`:
     }
 }
 ```
+
+- **trustedPathId**: This is an old feature that we do not suggest or support anymore.
+    A trusted path is a physical network over which
+    encryption and authentication are not required. This provides a
+    performance boost but sacrifices all ZeroTier's security features
+    when communicating over this path. *Only use this feature if you
+    know what you are doing and really need the performance!* To set up
+    a trusted path, all devices on the same trusted physical network
+    must have the same trusted path ID. Trusted path IDs are arbitrary
+    unsigned 64-bit integers. These are not secrets. The security of a
+    trusted path depends on its physical configuration. Take special
+    care that any firewalls at its boundaries do not allow traffic in
+    our out with IPs overlapping the trusted network range.
 
 ## `authtoken` location
 
