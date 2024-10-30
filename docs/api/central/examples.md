@@ -31,7 +31,7 @@ Each of them will fetch network information and produce CSV as output. You can t
   defaultValue="list-networks"
   values={[
     {label: 'Networks', value: 'list-networks'},
-    {label: 'Network Members', value: 'list-members'},
+    {label: 'Network Members', value: 'list-members'}
   ]}>
 
 <TabItem value="list-networks">
@@ -140,7 +140,7 @@ If you want to save the output to a file, you can add `| Out-File -FilePath "out
   defaultValue="authorize-member"
   values={[
     {label: 'Authorize Member', value: 'authorize-member'},
-    {label: 'Deauthorize Member', value: 'deauthorize-member'},
+    {label: 'Deauthorize Member', value: 'deauthorize-member'}
   ]}>
 
 <TabItem value="authorize-member">
