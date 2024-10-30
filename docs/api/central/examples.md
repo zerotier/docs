@@ -141,7 +141,6 @@ If you want to save the output to a file, you can add `| Out-File -FilePath "out
   values={[
     {label: 'Authorize Member', value: 'authorize-member'},
     {label: 'Deauthorize Member', value: 'deauthorize-member'},
-    {label: 'Logout', value: 'logout'}
   ]}>
 
 <TabItem value="authorize-member">
@@ -187,8 +186,6 @@ curl -H "Authorization: token $ZT_TOKEN" -X POST \
   --data '{"config": {"authorized": false}}'
 ```
 
-In addition to notifying Central with this API call, and in order to not require waiting until the current credentials expire, the ZeroTierOne service needs to be stopped and the authtoken.secret needs to be removed.   The API call in addition to the removal of the local secret file prevents incremental billing to increase unbounded in cases of repeat auth/deauth use cases.   Also note, the deauthorize is required per individual network within an organization the node is present.
-
 ### Deauthorize a network member ( Powershell Invoke-WebRequest )
 
 ```code
@@ -212,9 +209,18 @@ Invoke-WebRequest -Uri "https://api.zerotier.com/api/v1/network/$NWID/member/$ME
 
 </TabItem>
 
+</Tabs>
+
+<Tabs
+  groupId="central-api-tasks-auth"
+  defaultValue="logout"
+  values={[
+    {label: 'Logout', value: 'logout'}
+  ]}>
+
 <TabItem value="logout">
 
-In addition to notifying Central with an API call, and in order to not require waiting until the current credentials expire, the ZeroTierOne service can to be stopped, authtoken.secret removed, and service restarted.   For example, on a device which is shared and requires each user to provide separate SSO credentials to access the network.  
+In addition to notifying Central with an API call, and in order to not require waiting until the current credentials expire, the ZeroTierOne service can to be stopped, identity.secret file removed, and service restarted.   For example, on a device which is shared and requires each user to provide separate SSO credentials to access the network.  
 This also prevents unbounded incremental billing in repeat auth/deauth use cases.   
 
 NB: the deauthorize is required per individual network within an organization the node is present.
