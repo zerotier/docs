@@ -225,6 +225,8 @@ Here be dragons.
 
 Below are additional steps which will cause a node to immediately no longer be on a network.  This is _only_ required when calling the Central API and waiting to let the change propagate to all nodes is not fast enough.   This is only required when network access needs to be halted immediately.
 
+For more information, see Troubleshooting [reset-node-id](/troubleshooting#reset-node-id).
+
 ```code
 import os
 import requests
