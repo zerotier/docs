@@ -141,7 +141,7 @@ If you want to save the output to a file, you can add `| Out-File -FilePath "out
   values={[
     {label: 'Authorize Member', value: 'authorize-member'},
     {label: 'Deauthorize Member', value: 'deauthorize-member'},
-    {label: 'Clean up a node', value: 'clean-up-a-node'}
+    {label: 'Logout', value: 'logout'}
   ]}>
 
 <TabItem value="authorize-member">
@@ -212,7 +212,7 @@ Invoke-WebRequest -Uri "https://api.zerotier.com/api/v1/network/$NWID/member/$ME
 
 </TabItem>
 
-<TabItem value="clean-up-a-node">
+<TabItem value="logout">
 
 In addition to notifying Central with an API call, and in order to not require waiting until the current credentials expire, the ZeroTierOne service can to be stopped, authtoken.secret removed, and service restarted.   For example, on a device which is shared and requires each user to provide separate SSO credentials to access the network.  
 This also prevents unbounded incremental billing in repeat auth/deauth use cases.   
