@@ -210,13 +210,20 @@ Invoke-WebRequest -Uri "https://api.zerotier.com/api/v1/network/$NWID/member/$ME
     -Method Post -Headers $headers -Body $body -ContentType "application/json"
 ```
 
-In addition to notifying Central with this API call, and in order to not require waiting until the current credentials expire, the ZeroTierOne service needs to be stopped and the authtoken.secret needs to be removed.   The API call in addition to the removal of the local secret file prevents incremental billing to increase unbounded in cases of repeat auth/deauth use cases.   Also note, the deauthorize is required per individual network within an organization the node is present.
-
 </TabItem>
 
 <TabItem value="clean-up-a-node">
 
-### Cleanup a node ( Python )
+In addition to notifying Central with an API call, and in order to not require waiting until the current credentials expire, the ZeroTierOne service can to be stopped, authtoken.secret removed, and service restarted.   For example, on a device which is shared and requires each user to provide separate SSO credentials to access the network.  
+This also prevents unbounded incremental billing in repeat auth/deauth use cases.   
+
+NB: the deauthorize is required per individual network within an organization the node is present.
+
+### logout immediately ( Python )
+
+Here be dragons.
+
+Below are additional steps which will cause a node to immediately no longer be on a network.  This is _only_ required when calling the Central API and waiting to let the change propagate to all nodes is not fast enough.   This is only required when network access needs to be halted immediately.
 
 ```code
 import os
@@ -261,9 +268,9 @@ def cleanup_zerotier_node(api_token, node_id, network_ids):
     # 3. Remove authtoken.secret
     try:
         if os.name == 'nt':
-            token_path = r'C:\ProgramData\ZeroTier\One\authtoken.secret'
+            token_path = r'C:\ProgramData\ZeroTier\One\identity.secret'
         else:
-            token_path = '/var/lib/zerotier-one/authtoken.secret'
+            token_path = '/var/lib/zerotier-one/identity.secret'
         
         if os.path.exists(token_path):
             os.remove(token_path)
