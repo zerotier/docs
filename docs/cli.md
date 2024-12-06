@@ -48,7 +48,7 @@ If you see `missing authentication token and authtoken.secret not found (or read
 | REQUESTING_CONFIGURATION  | Negotiating with the network Controller. This could take about a minute. If it takes much longer, see [Router Configuration Tips.](routertips)     |
 | NOT_FOUND                 | Typo in the Network ID?   |
 | ACCESS_DENIED             | You node needs to be Authorized on this network (via [my.zerotier.com](https://my.zerotier.com)).   |
-| PORT_ERROR                | See [Port Error](troubleshooting#porterror)    |
+| PORT_ERROR                | See [Port Error](/troubleshooting#porterror)    |
 
 ### Advanced CLI usage
 
