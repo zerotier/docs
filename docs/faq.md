@@ -27,7 +27,7 @@ If you are running your own roots the effect would be that no new connections ca
 
 ### Can ZeroTier, Inc. See my traffic? {#can-we-see-your-traffic}
 
-No. Your traffic is end-to-end encrypted and your device's private identity keys are never transmitted off of your device. Learn more about our [cryptograph protocol](protocol#crypto).
+No. Your traffic is end-to-end encrypted and your device's private identity keys are never transmitted off of your device. Learn more about our [cryptograph protocol](/protocol#cryptography).
 
 ### Metrics and Monitoring
 
@@ -130,7 +130,7 @@ Your system firewall is likely blocking communication with the ZeroTier service.
 
 ### Where can I find old versions of ZeroTier? {#old-versions}
 
-See [Releases](./releases.md#old)
+See [Releases](/releases#old-versions)
 
 ### What is Earth?
 
