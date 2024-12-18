@@ -5,7 +5,7 @@ description: Common pricing questions
 
 ## How ZeroTier Pricing Works
 
-ZeroTier is available under a variety of subscription plans, from our [Basic](#basic) tier to customer-specific [commercial](#commercial) agreements. Our standard plan ([Essential](#essential)) provides flexible usage-based pricing and bundled features that support most professional use cases.
+ZeroTier is available under a variety of subscription plans, from our [Basic](#basic) tier to customer-specific [commercial](#commercial) agreements. Our standard plan ([Essential](#essential)) provides flexible usage-based pricing and bundled features that support most professional use cases. The [Premium](#premium) subscription tier supports our customers with larger IoT or SD-WAN deployments, as well as service providers.
 
 No matter which plan you choose, ZeroTier pricing is based on the number of devices authorized to access your networks. That means that if the same device is connected to multiple networks, it only counts once.
 
@@ -32,6 +32,12 @@ For Essential subscribers, we charge per unique device authorized in a given mon
 So for example if you begin your billing cycle with 15 authorized devices, then add five (5) more during the month, you'll be charged incrementally for remainder of the month for each device as you add it, then the full monthly charge for 20 at the start of the cycle. If you de-authorize devices, your billed amount will stay the same for the current month, then go down at the start of the next billing cycle.
 
 We also provide a "grace period" on all device authorization to prevent accidental spikes based on runaway automation or very brief testing.
+
+## Premium
+
+Premium subscriptions offer discounted pricing for larger deployments, with pricing starting at 125 devices. You can upgrade to Premium at any time to take advantage of bulk discounts and additional business-centric features, as well as priority support.
+
+Billing for Premium works very much like Essential. With your base subscription you can grow and shrink your deployments up to 125 simultaneous devices; after that, progressive discounts apply to successive quantities. See our [pricing page](https://zerotier.com/pricing) for details on tiers, additional features, and support commitments.
 
 ## Commercial
 
