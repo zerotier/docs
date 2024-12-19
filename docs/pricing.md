@@ -39,6 +39,22 @@ Premium subscriptions offer discounted pricing for larger deployments, with pric
 
 Billing for Premium works very much like Essential. With your base subscription you can grow and shrink your deployments up to 125 simultaneous devices; after that, progressive discounts apply to successive quantities. See our [pricing page](https://www.zerotier.com/pricing/) for details on tiers, additional features, and support commitments.
 
+### Cost Breakdown
+
+The base subscription for Premium is $250/mo. with the first 125 devices included. After that, the price per device decreases according to the total size of your deployment.
+
+| Device Count | Additional Cost per Device |
+| --- | --- |
+| 0-125 | Included in subscription |
+| 126-250 | $1.85 |
+| 251-750 | $1.70 |
+| 751-1500 | $1.50 |
+| >1500 | Call Sales |
+
+:::note
+Example: if you authorize 300 devices on your Premium subscription, you'll pay the base fee (which covers the first 125 devices) plus the incremental fee for your 175 additional devices at $1.85 each, for a total of $573.75 per month.
+:::
+
 ## Commercial
 
 [Commercial](#commercial) plans offers volume discounts for larger deployments, as well as annual pricing and other business-friendly payment options. To enroll in a Commercial plan, just [contact our sales team](https://www.zerotier.com/contact).
