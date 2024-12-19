@@ -37,7 +37,7 @@ We also provide a "grace period" on all device authorization to prevent accident
 
 Premium subscriptions offer discounted pricing for larger deployments, with pricing starting at 125 devices. You can upgrade to Premium at any time to take advantage of bulk discounts and additional business-centric features, as well as priority support.
 
-Billing for Premium works very much like Essential. With your base subscription you can grow and shrink your deployments up to 125 simultaneous devices; after that, progressive discounts apply to successive quantities. See our [pricing page](https://zerotier.com/pricing) for details on tiers, additional features, and support commitments.
+Billing for Premium works very much like Essential. With your base subscription you can grow and shrink your deployments up to 125 simultaneous devices; after that, progressive discounts apply to successive quantities. See our [pricing page](https://www.zerotier.com/pricing/) for details on tiers, additional features, and support commitments.
 
 ## Commercial
 
