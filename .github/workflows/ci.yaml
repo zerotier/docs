@@ -27,7 +27,7 @@ jobs:
 
     - name: Get yarn cache
       uses: actions/cache@v4
-      id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+      id: yarn-cache
       with:
         path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
         key: ${{ runner.os }}-${{ runner.arch }}-yarn-docs-${{ hashFiles('**/yarn.lock') }}
@@ -36,6 +36,7 @@ jobs:
 
     - name: Install dependencies
       uses: borales/actions-yarn@v5
+      if: steps.yarn-cache.outputs.cache-hit != 'true'
       with:
         cmd: install --immutable
 
@@ -52,5 +53,4 @@ jobs:
         cmd: lint
       env:
         NODE_OPTIONS: --openssl-legacy-provider
-
-          
+         

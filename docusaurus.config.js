@@ -1,6 +1,6 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
+
 const path = require("path");
-const webpack = require("webpack");
 
 module.exports = {
   title: "ZeroTier Documentation",
@@ -13,27 +13,11 @@ module.exports = {
   organizationName: "zerotier", // Usually your GitHub org/user name.
   projectName: "docs", // Usually your repo name.
   plugins: [
-    path.resolve(__dirname, "matomo-plugin"), require.resolve('docusaurus-lunr-search'),
-    async function customPlugin(context, opts) {
-      return {
-        name: 'custom-plugin',
-        configureWebpack(config, isServer, utils, content) {
-          // Modify internal webpack config. If returned value is an Object, it
-          // will be merged into the final config using webpack-merge;
-          // If the returned value is a function, it will receive the config as the 1st argument and an isServer flag as the 2nd argument.
-          return {
-            plugins: [
-              new webpack.DefinePlugin({
-                // IMPORTANT: To fix debug library‘s bug
-                // {}.DEBUG = namespaces; // SyntaxError: Unexpected token '.'
-                'process.env.DEBUG': 'process.env.DEBUG',
-              })
-            ]
-          }
-        },
-      }
-    }
+    require.resolve('docusaurus-lunr-search'),
   ],
+  future: {
+    experimental_faster: true,
+  },
   markdown: {
     mermaid: true,
   },
@@ -53,10 +37,6 @@ module.exports = {
         "java",
         "scala",
       ],
-    },
-    matomo: {
-      matomoUrl: "https://matomo.zerotier.com/",
-      siteId: "4",
     },
 
     // announcementBar: {
