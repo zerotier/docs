@@ -25,6 +25,7 @@
     "@cspell/dict-markdown": "^2.0.2",
     "@cspell/dict-software-terms": "^4.1.5",
     "@docusaurus/core": "^3.6.3",
+    "@docusaurus/faster": "^3.6.3",
     "@docusaurus/plugin-content-docs": "^3.6.3",
     "@docusaurus/preset-classic": "^3.6.3",
     "@docusaurus/theme-common": "^3.6.3",
