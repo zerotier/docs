@@ -36,7 +36,7 @@ jobs:
 
     - name: Install dependencies
       uses: borales/actions-yarn@v5
-      if: steps.yarn-cache.outputs.cache-hit != 'true'
+      # if: steps.yarn-cache.outputs.cache-hit != 'true'
       with:
         cmd: install --immutable
 
