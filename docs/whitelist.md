@@ -18,7 +18,7 @@ root-alice-sfo-01.zerotier.com has address 107.170.197.14
 root-alice-sfo-01.zerotier.com has IPv6 address 2604:a880:1:20::200:e001
 ```
 
-These are Amsterdam, Seattle, Miami, and Singapore. SFO still exists to point very old nodes to the newer roots.
+These are Los Angeles, Miami, Singapore and Zurich. SFO still exists to point very old nodes to the newer roots.
 
 We've also created a DNS record: `host root.zerotier.com`
 
