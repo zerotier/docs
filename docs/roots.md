@@ -5,6 +5,10 @@ description: How to host your own root servers
 
 ### Creating Your Own Roots (a.k.a. Moons)
 
+:::warning
+Using moons is now discouraged. Please contact us for advice and alternatives.
+:::
+
 All ZeroTier nodes
 on a planet effectively inhabit a single data center. This makes it easy
 to directly connect devices anywhere, but it has the disadvantage of not
