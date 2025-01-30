@@ -197,17 +197,20 @@ Traffic is sent on only *one* link at any time. A different link becomes active 
   "settings":
   {
     "defaultBondingPolicy": "custom-active-backup",
-    "custom-active-backup":
+    "policies":
     {
-      "basePolicy": "active-backup",
-      "linkSelectMethod": "always",
-      "failoverInterval": 5000,
-      "links":
+      "custom-active-backup":
       {
-        "eth0": { "failoverTo": "eth1", "mode": "primary" },
-        "eth1": { "mode": "spare" },
-        "eth2": { "mode": "spare" },
-        "eth3": { "mode": "spare" }
+        "basePolicy": "active-backup",
+        "linkSelectMethod": "always",
+        "failoverInterval": 5000,
+        "links":
+        {
+          "eth0": { "failoverTo": "eth1", "mode": "primary" },
+          "eth1": { "mode": "spare" },
+          "eth2": { "mode": "spare" },
+          "eth3": { "mode": "spare" }
+        }
       }
     }
   }
