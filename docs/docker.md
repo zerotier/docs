@@ -18,6 +18,8 @@ docker run -it --rm \
 
 Where `[... command ...]` is an optional command, in the example below we'll provide `/bin/bash` to get an interactive shell.
 
+You may want to also add ```--volume <volume-name>:/var/lib/zerotier-one``` to preserve container's configuration (such as Node's address) during the image upgrade.
+
 :::info
 `SYS_ADMIN` is needed because `NET_ADMIN` does not include the `ioctl()` required to put `/dev/net/tun` in tap mode. This appears to be a bug in Linux's capability model but it would have to be fixed upstream.
 :::

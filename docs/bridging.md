@@ -108,6 +108,17 @@ Copy the `dev` name from the `listnetworks` output for `$ZT_IF`. It will be some
 
 ### Switch to systemd networking
 
+:::info Note
+With Raspbian/Debian 12.0 Bookworm or later, `systemd-resolved` is not included and must be installed manually.
+https://www.debian.org/releases/bookworm/arm64/release-notes/ch-information.en.html#systemd-resolved
+
+Ensure this package is installed before removing `openresolv`, otherwise DNS resolution will likely be broken.
+:::
+
+```sh
+sudo apt install systemd-resolved
+```
+
 Remove existing network stuff
 
 ```sh
