@@ -416,7 +416,7 @@ Vr HL TOS  Len   ID Flg  off TTL Pro  cks      Src      Dst
  4  5  00 5400 56e7   0 0000  3f  01 d4ad 192.168.82.217  192.168.123.234
 ```
 
-For Windows users, the `-c` parameter is explianed as something else. If you want to send 5 packages, you will do the following.
+For Windows users, the `-c` parameter is explained as something else. If you want to send 5 packages, you will do the following.
 
 - type `ping -n 5 $ZEROTIER_IP_ADDRESS` `<enter>` into your command line.
 
