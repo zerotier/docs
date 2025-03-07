@@ -58,7 +58,7 @@ module.exports = {
           type: 'category',
           label: 'Advanced Networking',
           items: [
-            'multipath', 'bridging', 'proxy', 'code-server', 'route-between-phys-and-virt', 'microsegmentation', 'nat', 'integrating-physical-networks',
+            'multipath', 'bridging', 'proxy', 'code-server', 'route-between-phys-and-virt', 'microsegmentation', 'nat', 'integrating-physical-networks', 'connecting-non-zerotier-devices',
           ],
         },
         {
@@ -216,7 +216,7 @@ module.exports = {
             description: 'If it has a chip, you can probably install ZeroTier on it.',
             slug: '/nas',
           },
-          items: ['freenas', 'asustor', 'qnap', 'synology', 'synology-direct-install', 'wd'],
+          items: ['freenas', 'asustor', 'qnap', 'synology', 'wd'],
         },
         {
           type: 'category',
