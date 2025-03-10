@@ -228,7 +228,7 @@ OneLogin requires ZeroTier One v1.10.3+
 
 :::
 
-Log in to your OneLogin admin console.  Select "Custom Connectors" from the "Applications" menu.  Hit the "New Connector" button.  Name your connector, set Sign on method to OpenID Connect, and set the Redirect URI to `https://localhost:9993/sso`. Finally, back on the on Custom Connectors page, hit the "Add App to Connector" link. Adjust the description & logo settings as you see fit, and then save.
+Log in to your OneLogin admin console.  Select "Custom Connectors" from the "Applications" menu.  Hit the "New Connector" button.  Name your connector, set Sign on method to OpenID Connect, and set the Redirect URI to `http://localhost:9993/sso`. Finally, back on the on Custom Connectors page, hit the "Add App to Connector" link. Adjust the description & logo settings as you see fit, and then save.
 
 Once the above steps are complete, go to the SSO tab for your new OneLogin Application. Set "Application Type" to "Native", and "Token Endpoint" to "None (PKCE)".  You'll also find the required Client ID and Issuer URLs to enter into https://my.zerotier.com/account.
 
