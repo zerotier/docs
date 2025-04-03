@@ -68,7 +68,7 @@ For example:
 ### Masquerade
 
 This is the same method that your home router uses to route between Internet and your home LAN.
-See the [Masquerade Tutorial](route-between-phys-and-virt)
+See the [Masquerade Tutorial](./route-between-phys-and-virt.md)
 
 ![default gateway](./images/integrating-masquerade.png)
 

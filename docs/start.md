@@ -471,4 +471,4 @@ They don't all need to be networks that you've created. You can join other peopl
 
 ### Check out the Whitepaper
 
-For more info on the cryptography and protocol, see the: [Design Whitepaper](protocol)
+For more info on the cryptography and protocol, see the: [Design Whitepaper](./protocol.md)
