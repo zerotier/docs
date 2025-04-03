@@ -3,6 +3,7 @@
 const path = require("path");
 
 module.exports = {
+  trailingSlash: true,
   title: "ZeroTier Documentation",
   tagline: "Because documentation makes things more good",
   url: "https://docs.zerotier.com",
