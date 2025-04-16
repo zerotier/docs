@@ -2,6 +2,9 @@
 
 const path = require("path");
 
+const appUrl = process.env.POSTHOG_API_HOST  || "-"
+const apiKey = process.env.POSTHOG_PROJECT_KEY  || "-"
+
 module.exports = {
   trailingSlash: true,
   title: "ZeroTier Documentation",
@@ -15,6 +18,14 @@ module.exports = {
   projectName: "docs", // Usually your repo name.
   plugins: [
     require.resolve('docusaurus-lunr-search'),
+    [
+      "posthog-docusaurus",
+      {
+        apiKey: apiKey,
+        appUrl: appUrl,
+        enableInDevelopment: false,
+      },
+    ],
   ],
   future: {
     experimental_faster: true,
