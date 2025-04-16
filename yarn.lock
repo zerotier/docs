@@ -13901,6 +13901,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"posthog-docusaurus@npm:^2.0.4":
+  version: 2.0.4
+  resolution: "posthog-docusaurus@npm:2.0.4"
+  checksum: 10c0/94ee96eecc76be6f311c8f39b82adec8c123ed4af9c505bb56fe78ddad9b26347db5501a4c21e7b793e93709dbc96ae61936c7fa161b87941e36d2f3be8f0527
+  languageName: node
+  linkType: hard
+
 "pretty-error@npm:^4.0.0":
   version: 4.0.0
   resolution: "pretty-error@npm:4.0.0"
@@ -17063,6 +17070,7 @@ __metadata:
     npm-run-all2: "npm:^6.2.3"
     pixelmatch: "npm:^6.0.0"
     pngjs: "npm:^7.0.0"
+    posthog-docusaurus: "npm:^2.0.4"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
     redocusaurus: "npm:^2.2.2"

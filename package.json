@@ -45,6 +45,7 @@
     "npm-run-all2": "^6.2.3",
     "pixelmatch": "^6.0.0",
     "pngjs": "^7.0.0",
+    "posthog-docusaurus": "^2.0.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "redocusaurus": "^2.2.2"
