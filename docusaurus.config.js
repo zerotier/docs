@@ -2,7 +2,7 @@
 
 const path = require("path");
 
-const appUrl = process.env.POSTHOG_API_HOST  || "-"
+const appUrl = process.env.POSTHOG_API_HOST
 const apiKey = process.env.POSTHOG_PROJECT_KEY  || "-"
 
 module.exports = {
