@@ -216,7 +216,7 @@ module.exports = {
             description: 'If it has a chip, you can probably install ZeroTier on it.',
             slug: '/nas',
           },
-          items: ['freenas', 'asustor', 'qnap', 'synology', 'wd'],
+          items: ['freenas', 'asustor', 'qnap', 'synology', 'synology-direct-install', 'wd'],
         },
         {
           type: 'category',
