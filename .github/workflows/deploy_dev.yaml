@@ -45,6 +45,8 @@ jobs:
         cmd: build
       env:
         NODE_OPTIONS: --openssl-legacy-provider
+        POSTHOG_API_HOST: ${{ secrets.POSTHOG_API_HOST }}
+        POSTHOG_PROJECT_KEY: ${{ secrets.POSTHOG_PROJECT_KEY }}
 
     - id: 'auth'
       uses: 'google-github-actions/auth@v2'
