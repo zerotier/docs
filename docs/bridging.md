@@ -6,7 +6,7 @@ description: Bridge your physical LAN to ZeroTier using a Raspberry Pi
 Do you have devices that can't run ZeroTier that you want to access remotely? You can use a small Linux PC as a bridge between ZeroTier and physical networks.
 
 :::info Note
-This topic is related to but different from using ZeroTier as a Layer 5 [Service Proxy](proxy).
+This topic is related to but different from using ZeroTier as a Layer 5 [Service Proxy](/proxy).
 :::
 
 ### Assumptions
@@ -29,16 +29,16 @@ This topic is related to but different from using ZeroTier as a Layer 5 [Service
 
 #### An example plan
 
-|Name|Value|Referred to below as|
-|----|-|-|
-|Physical LAN Subnet|192.168.192.0/24||
-|Physical LAN DHCP RANGE|192.168.192.65 through 192.168.192.126||
-|ZeroTier Auto-Assign Range|192.168.192.129 through 192.168.192.190|$ZT_POOL|
-|ZeroTier Managed Route|192.168.192.0/23|$ZT_ROUTE|
-|Default Gateway IP Address|192.168.192.1|$GW_ADDR|
-|Bridge IP Address|192.168.192.2/24 (or use DHCP)|$BR_ADDR|
-|ZeroTier Network ID|d5e04297a19bbd70|$NETWORK_ID|
-|ZeroTier Network Interface Name|zt3jnwghuq|$ZT_IF|
+| Name                            | Value                                   | Referred to below as |
+| ------------------------------- | --------------------------------------- | -------------------- |
+| Physical LAN Subnet             | 192.168.192.0/24                        |                      |
+| Physical LAN DHCP RANGE         | 192.168.192.65 through 192.168.192.126  |                      |
+| ZeroTier Auto-Assign Range      | 192.168.192.129 through 192.168.192.190 | $ZT_POOL             |
+| ZeroTier Managed Route          | 192.168.192.0/23                        | $ZT_ROUTE            |
+| Default Gateway IP Address      | 192.168.192.1                           | $GW_ADDR             |
+| Bridge IP Address               | 192.168.192.2/24 (or use DHCP)          | $BR_ADDR             |
+| ZeroTier Network ID             | d5e04297a19bbd70                        | $NETWORK_ID          |
+| ZeroTier Network Interface Name | zt3jnwghuq                              | $ZT_IF               |
 
 ### Get your bridge device up and running
 

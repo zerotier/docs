@@ -439,7 +439,7 @@ Approximate round trip times in milli-seconds:
 
 There may just be a typo in the IP address. Double check that your device is authorized at my.zerotier.com
 
-Contact us on the [discussion forum](https://discuss.zerotier.com/) and see the [troubleshooting section](faq) if you get stuck.
+Contact us on the [discussion forum](https://discuss.zerotier.com/) and see the [troubleshooting section](/faq.md) if you get stuck.
 :::
 
 ## Conclusion
@@ -459,7 +459,7 @@ Visit the [discussion forum](https://discuss.zerotier.com/) to talk about your u
 - Build your own [VPN](https://zerotier.atlassian.net/wiki/spaces/SD/pages/7110693/Overriding+Default+Route+Full+Tunnel+Mode)
 - Route to a [remote subnet](https://zerotier.atlassian.net/wiki/spaces/SD/pages/224395274/Route+between+ZeroTier+and+Physical+Networks)
 - Route to a [Docker network](https://zerotier.atlassian.net/wiki/spaces/SD/pages/7274520/Using+NDP+Emulated+6PLANE+Addressing+With+Docker)
-- Add [dns](dns) to your network
+- Add [dns](/dns.md) to your network
 
 ### Join multiple networks
 

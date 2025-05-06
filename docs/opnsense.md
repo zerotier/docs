@@ -72,7 +72,7 @@ Described above
 
 ZeroTier will use UPnP or NAT-PMP if they are available.
 
-### Static Port
+### Static Port {#static-port}
 
 If you have a small number of ZeroTier clients (and a small number of UDP services in general), enabling Static Port can help.
 

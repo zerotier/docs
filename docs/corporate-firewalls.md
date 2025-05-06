@@ -17,7 +17,7 @@ If the NAT type is "symmetric" or "strict" or "endpoint dependent mapping" (each
 
 Look for Full Cone NAT, options related to VoIP, persistent NAT, Endpoint Independent Mapping, etc…
 
-Ask your vendor. Let us know what works.
+Ask your vendor. Let us know what works
 
 Here's a table of the likeliness of a direct connection between two types of NAT:
 
@@ -37,7 +37,7 @@ And a network diagram:
 - Check zerotier-cli peers and see if connections to peers you care about are "relayed"
 
 :::tip
-See also: [Router Configuration Tips](./routertips.md)
+See also: [Router Configuration Tips](/routertips.md)
 :::
 
 ## Vendor Specific Tips
@@ -53,7 +53,7 @@ PAN-OS 10.1.7 and above have a [Persistent NAT feature](https://docs.paloaltonet
 ### OPNSense and pfSense
 
 Nodes behind these BSD based firewalls will probably have trouble making direct connections with the default settings.
-See [OPNsense article](opnsense#static-port)
+See [OPNsense article](/opnsense.md#static-port)
 
 ### Juniper
 
@@ -69,7 +69,7 @@ Here are a few options:
 
 ### ZeroTier Router
 
-One simple solution might be: statically port forward to one zerotier node, and use that node as a [route between zerotier and physical networks](./route-between-phys-and-virt).
+One simple solution might be: statically port forward to one zerotier node, and use that node as a [route between zerotier and physical networks](/route-between-phys-and-virt.md).
 
 ### TCP relay
 

@@ -9,8 +9,8 @@ Route all your Internet traffic through a ZeroTier node.
 
 :::info In this tutorial
 
-- [Create a ZeroTier Network](./start.md)
-- [Set up an `exit node`](exitnode#setup) that handles all your internet traffic
+- [Create a ZeroTier Network](/start.md)
+- [Set up an `exit node`](/exitnode.md#setup) that handles all your internet traffic
 - Join the `exit node` and a personal node to your ZeroTier network
 - Tell your personal node to use your `exit node`
 :::

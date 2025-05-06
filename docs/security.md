@@ -11,7 +11,7 @@ ZeroTier networks are designed to be secure by default. We use strong, modern cr
 
 ### Our Product
 
-All traffic on ZeroTier networks is encrypted using asymmetric encryption, utilizing private keys that never leave the device. That keeps device data private, and ensures the integrity of all traffic.
+All traffic on ZeroTier networks is encrypted using state of the art asymmetric encryption, utilizing private keys that never leave the device. That keeps device data private, and ensures the integrity of all traffic. [Read more about our cryptography here](./protocol.md#cryptography)
 
 We also collect very minimal metadata about active networks and devices. Because ZeroTier routes traffic directly between peers, our infrastructure cannot observe or modify packets on user/organizational networks.
 
@@ -50,3 +50,8 @@ We collect and log only the data needed to provide our services, such as the IP 
 ZeroTier does not share any user information with 3rd parties except when it is strictly required or for our business operations (billing and support). We do not sell any customer information, analytics, or usage data.
 
 See our full [Privacy Policy](https://www.zerotier.com/privacy-policy) for more details.
+
+## Audit
+
+In March 2020 we worked with `@trailofbits` to audit our protocol and cryptographic designs for ZeroTier 2.0. As one of its subjects is in our just-released beta, we are ready to make our first preliminary audit public [here](https://storage.googleapis.com/zt-web-large-files/ZeroTier%20Protocol%20Review%20Summary.pdf). A full code audit is coming after 2.0.
+

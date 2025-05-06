@@ -11,7 +11,7 @@ But sometimes your on a network that doesn't allow NAT hole punching or UDP at a
 ZeroTier Inc. runs a TCP relay service that the ZeroTierOne agent will fall back to if it can't make UDP connections.
 This relay service is slow for various reasons. You can host your own TCP relay service for better results.
 
-It's generally better to adjust your router if at all possible. The second choice is [route between zerotier and physical networks](./route-between-phys-and-virt).
+It's generally better to adjust your router if at all possible. The second choice is [route between zerotier and physical networks](/route-between-phys-and-virt.md).
 If neither of those is possible, consider TCP relay.
 
 This will be a rough, test set up. Once it's verified working, your Ops and Firewall teams can set it up for production.
