@@ -29,7 +29,7 @@ A part of ZeroTier infrastructure. A root server (sometimes just called a root) 
 
 ## Planet file
 
-A signed configuration file that ZeroTier uses to know which [root servers](#root-server) to use. By default ZeroTier uses our root servers and gets a copy of the most current planet file automatically. Sometimes this may be refered to as a world file.
+A signed configuration file that ZeroTier uses to know which [root servers](#root-server) to use. By default ZeroTier uses our root servers and gets a copy of the most current planet file automatically. Sometimes this may be referred to as a world file.
 
 ## Network Controller
 
