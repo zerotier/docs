@@ -213,7 +213,7 @@ CPU overhead of double-encryption is not significant for most work
 loads.
 
 :::info Security
-[More information on ZeroTier's security practices](faq-security)
+[More information on ZeroTier's security practices](/security.md)
 :::
 
 ### Trusted Paths for Fast Local SDN {#trustedpaths}
@@ -236,15 +236,6 @@ network. Larger cloud providers such as Amazon and Azure tend to provide
 good network segregation but many less costly providers offer private
 networks that are "party lines" and are not much more secure than the
 open Internet.
-
-### Multipath {#multipath}
-
-Multipath allows the simultaneous (or conditional) aggregation of multiple physical links into a bond for increased total throughput, load balancing, redundancy, and fault tolerance. There is a set of standard bonding policies available that can be used right out of the box with no configuration. These policies are inspired by the policies offered by the Linux kernel. A bonding policy can be used easily without specifying any additional parameters.
-
-:::info Multipath Guide
-
-- See [here](multipath) for more info and examples.
-:::
 
 ### Ethernet Virtualization Layer (VL2) {#vl2}
 
@@ -463,7 +454,7 @@ DHCP that may not be wanted across the bridge, are beyond the scope of
 this manual.
 
 :::info Guide
-See our [bridging tutorial](bridging)
+See our [bridging tutorial](/bridging.md)
 :::
 
 ### Public Networks {#public}

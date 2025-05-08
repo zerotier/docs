@@ -9,7 +9,7 @@ module.exports = {
         description: 'ZeroTier securely connects all of your devices and services with each other, anywhere.',
         slug: '/',
       },
-      items: ['wat', 'releases', 'start', 'cli', 'awesome', 'faq', 'troubleshooting'],
+      items: ['what', 'releases', 'start', 'cli', 'awesome', 'faq', 'troubleshooting'],
     },
     {
       type: 'category',
@@ -20,7 +20,7 @@ module.exports = {
         description: 'Our installable client service.',
         slug: '/zerotier',
       },
-      items: ['protocol', 'faq-security', 'rules', 'config', 'what-is-a-controller'],
+      items: ['protocol', 'security', 'rules', 'config', 'what-is-a-controller'],
     },
     {
       type: 'category',
@@ -124,7 +124,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Security',
-      items: ['security', 'faq-security']
+      items: ['security']
     },
     {
       type: 'category',
@@ -135,7 +135,7 @@ module.exports = {
         description: 'ZeroTier on your operating system of choice',
         slug: '/platforms',
       },
-      items: [
+      items: ['releases', 
         /* LINUX */
         {
           type: 'category',
@@ -146,7 +146,7 @@ module.exports = {
             description: 'ZeroTier on Linux',
             slug: '/linux',
           },
-          items: ['faq-linux', 'snap', 'docker', 'bridging', 'aws-vpc-gateway', 'nat', 'docker-6plane', 'code-server', 'cloud-init', 'route-between-phys-and-virt']
+          items: ['releases', 'faq-linux', 'snap', 'docker', 'bridging', 'aws-vpc-gateway', 'nat', 'docker-6plane', 'code-server', 'cloud-init', 'route-between-phys-and-virt']
         },
         /* MAC */
         {
@@ -158,7 +158,7 @@ module.exports = {
             description: 'ZeroTier on macOS',
             slug: '/macos',
           },
-          items: ['faq-macos']
+          items: ['releases', 'faq-macos']
         },
         /* WINDOWS */
         {
@@ -170,7 +170,7 @@ module.exports = {
             description: 'ZeroTier on Windows',
             slug: '/windows',
           },
-          items: ['faq-windows', 'chocolatey', 'winget', 'windows-lan-game', 'windows-unknown-node-id', 'windows-service-unreachable']
+          items: ['releases', 'faq-windows', 'chocolatey', 'winget', 'windows-lan-game', 'windows-unknown-node-id', 'windows-service-unreachable']
         },
         /* ANDROID */
         {
@@ -182,7 +182,7 @@ module.exports = {
             description: 'ZeroTier on Android',
             slug: '/android',
           },
-          items: ['faq-android']
+          items: ['releases', 'faq-android']
         },
         /* iOS */
         {
@@ -194,7 +194,7 @@ module.exports = {
             description: 'ZeroTier on iOS or iPadOS',
             slug: '/ios',
           },
-          items: ['faq-ios']
+          items: ['releases', 'faq-ios']
         },
         {
           type: 'category',
@@ -205,7 +205,7 @@ module.exports = {
             description: 'If it has a chip, you can probably install ZeroTier on it.',
             slug: '/routers',
           },
-          items: ['routertips', 'corporate-firewalls', 'teltonika-networks', 'mikrotik', 'openwrt', 'opnsense', 'ubiquiti', 'route-between-phys-and-virt'],
+          items: ['releases', 'routertips', 'corporate-firewalls', 'teltonika-networks', 'mikrotik', 'openwrt', 'opnsense', 'ubiquiti', 'route-between-phys-and-virt'],
         },
         {
           type: 'category',
@@ -216,7 +216,7 @@ module.exports = {
             description: 'If it has a chip, you can probably install ZeroTier on it.',
             slug: '/nas',
           },
-          items: ['freenas', 'asustor', 'qnap', 'synology', 'wd'],
+          items: ['releases', 'freenas', 'asustor', 'qnap', 'synology', 'wd'],
         },
         {
           type: 'category',

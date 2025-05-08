@@ -105,7 +105,7 @@ system.
 ### Actions and Match Conditions
 
 These are the available matches and actions in raw form. The rule
-definition language outlined in [Rule Definition Language](rules#rule-definition-language) provides a friendlier
+definition language outlined in [Rule Definition Language](#rule-definition-language) provides a friendlier
 way for human beings to specify rules.
 
 | Action | Argument(s) | Description |
@@ -360,7 +360,7 @@ allowed only between computers in the same department by way of a tag. A
 super-user capability that can be assigned to administrative nodes
 allows the sender to initiate any kind of connection.
 
-See [TCP Whitelisting](rules/#tcp-whitelisting) for a
+See [TCP Whitelisting](#tcp-whitelisting) for a
 discussion of how we accomplish TCP whitelisting here.
 
 ### Rule Definition Language Syntax
@@ -403,8 +403,8 @@ White space separates things. Indentation is not significant. Hash
 symbols indicate that the remainder of a line is a comment.
 
 As described in sections
-[Rule Sets and Rule Evaluation](rules#rulesets) through
-[Tags](rules#tags), a rule set is composed
+[Rule Sets and Rule Evaluation](#rulesets) through
+[Tags](#tags), a rule set is composed
 of one or more sequences of *match,[match],…,action* in which the action
 is taken if the chain of matches evaluates to *true*. Capabilities are
 small bundles of rules that can be assigned to nodes to give them
