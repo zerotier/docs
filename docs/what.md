@@ -19,12 +19,13 @@ ZeroTier empowers IoT and edge computing providers with secure, low-latency comm
 
 Easily connect store locations, campuses, branch offices, construction sites, and more with a straightforward software-defined network. The vendor-agnostic platform eliminates the need for expensive hardware and contracts, while a central dashboard provides unified monitoring and control for all your networks. Additionally, ZeroTier is available out of the box on many routers and gateways. See our guides portal for [more info](/guides).
 
-## VPN 
+## VPN
+
 ZeroTier allows employees to securely access centralized resources without the complexity and overhead of traditional VPNs. With end-to-end encryption ensuring data security and unique cryptographic IDs simplifying trusted device management, ZeroTier eliminates the need for cloud routing. Its lightweight agent can be deployed in minutes, providing seamless connectivity without introducing latency or overhead. See our guides portal for [more info](/guides).
 
 ## Auto & Transport
 
-ZeroTier enables auto and transportation companies to securely connect vehicles, employees, factories, and hybrid/multi-cloud environments with a vendor-agnostic, software-defined network solution. It eliminates the need for expensive hardware, empowers manufacturers to control their network stack with reduced telco reliance, and provides advanced network segmentation and flow rules for granular control, supporting unlimited scalability for any market growth trajectory. 
+ZeroTier enables auto and transportation companies to securely connect vehicles, employees, factories, and hybrid/multi-cloud environments with a vendor-agnostic, software-defined network solution. It eliminates the need for expensive hardware, empowers manufacturers to control their network stack with reduced telco reliance, and provides advanced network segmentation and flow rules for granular control, supporting unlimited scalability for any market growth trajectory.
 
 ## Defense
 

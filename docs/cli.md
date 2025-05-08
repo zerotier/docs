@@ -3,8 +3,6 @@ title: CLI
 description: How to use the Command Line Interface
 ---
 
-# ZeroTier CLI Guide
-
 This guide provides examples of how to use the ZeroTier client-side CLI. The client CLI is currently only responsible for managing a specific node and its network membership. To control and configure networks you'll need to use the [Central UI](/start) or the [Central API](/api/central).
 
 :::info Permissions
@@ -20,7 +18,7 @@ For each command you can use the `-j` flag to get formatted JSON as an output.
 Displays the status of the ZeroTier service, including version, node ID, and online status.
 
 ```shell title="zerotier-cli status"
-$ zerotier-cli status
+zerotier-cli status
 ```
 
 | Node Status | Explanation                                                                                                                                                                    |
@@ -43,7 +41,8 @@ $ zerotier-cli status
 Lists all [peers](/glossary#peer) in a more human-readable format. Alternatively you can use `listpeers` for a parser-friendly output.
 
 ```shell title="zerotier-cli peers"
-$ zerotier-cli peers
+zerotier-cli peers
+
 ```
 
 <details>
@@ -85,7 +84,6 @@ $ sudo zerotier-cli join 8056c2e21c000001
 | ACCESS_DENIED            | You node needs to be Authorized on this network (via [my.zerotier.com](https://my.zerotier.com)).                                              |
 | PORT_ERROR               | See [Port Error](/troubleshooting#port-error)                                                                                                  |
 
-
 ## Leave a Network
 
 Leaves the specified ZeroTier network.
@@ -99,7 +97,7 @@ zerotier-cli leave 8056c2e21c000001
 Lists all networks that the node is currently a member of.
 
 ```shell title="zerotier-cli listnetworks"
-$ zerotier-cli listnetworks
+zerotier-cli listnetworks
 ```
 
 <details>

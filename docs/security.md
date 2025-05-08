@@ -54,4 +54,3 @@ See our full [Privacy Policy](https://www.zerotier.com/privacy-policy) for more 
 ## Audit
 
 In March 2020 we worked with `@trailofbits` to audit our protocol and cryptographic designs for ZeroTier 2.0. As one of its subjects is in our just-released beta, we are ready to make our first preliminary audit public [here](https://storage.googleapis.com/zt-web-large-files/ZeroTier%20Protocol%20Review%20Summary.pdf). A full code audit is coming after 2.0.
-
