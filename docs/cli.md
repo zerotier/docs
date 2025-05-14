@@ -62,7 +62,7 @@ b65799c8f6 1.14.2 LEAF      86 DIRECT   9590     9521     35.208.213.194/54311
 
 </details>
 
-_A peer with the role `LEAF` is another device like a user's laptop, a server, or a [network controller](/glossary#network-controller), a peer with the role `PLANET` is a root server that is part of our infrastructure. Seeing unknown peers is not typically a security concern because they are usually part of our infrastructure._
+_A peer with the role `LEAF` is another device like a user's laptop, a server, or a [network controller](/glossary#network-controller), a peer with the role `PLANET` is a root server that is part of our infrastructure. Seeing unknown peers is not typically a security concern because they are usually part of our infrastructure. If seeing an unknown peer with the role `LEAF` ztaddr: `b6079f73c6` , You’re likely joined to a network beginning with `b6079f73c6`_
 
 ## Join a Network
 
