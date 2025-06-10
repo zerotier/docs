@@ -8,23 +8,40 @@ Using moons is an advanced configuration for ZeroTier One. In addition, any
 commercial use of self-hosted infrastructure is subject to our 
 [license terms](https://github.com/zerotier/ZeroTierOne/blob/dev/LICENSE.txt).
 
-If you expect to depend on custom moons for production usage, we highly
+If you expect to use custom moons for production usage, we highly
 recommend that you reach out to our [support team](mailto:support@zerotier.com)
 help planning your deployment.
 :::
 
-All ZeroTier nodes effectively inhabit a single data center. This makes it easy
-to directly connect devices anywhere, but it has the disadvantage of not
-working without an Internet connection. Network connections are far from
-perfectly reliable, and sometimes for security reasons a user may wish
-to "air gap" a set of nodes from the rest of the Internet entirely.
+Devices connected to a ZeroTier One network need to be able to locate and
+authenticate each other by using a shared set of root servers. By default,
+clients use a default pool of global root servers deployed and maintained
+by ZeroTier, Inc.
 
-In 1.2.0 we introduced the ability to add your own user-defined roots.
-Since the data center we inhabit is the planet, a user-defined set of
-roots is called a **moon**. When a node "orbits" a moon, it adds the
-moon's roots to its root server set. Nodes orbiting moons will still use
-planetary roots, but they'll use the moons if they look faster or
-if nothing else is available.
+However, because roots are occasionally overloaded, and may not be located
+close (in terms of network hops) to your workload, you may be able to gain
+more reliable performance, especially when traffic is being relayed, by
+deploying your own servers to augment our roots. We call these supplementary
+root servers "moons".
+
+:::info
+The roots and moons a collection of nodes connect to effectively defines the
+"global datacenter" they're located in. You can actually deploy an entirely
+separate set of roots and disconnect your clients from the default pool,
+forming an "airgapped" deployment. This requires customization of the 
+clients themselves, as well as running high-available root infrastructure.
+
+The instructons below instead focus on adding "moon" servers which can
+improve the performance and reliability of your deployment while still taking
+advantage of the shared infrastructure we support.
+:::
+
+In ZeroTier One version 1.2.0 we introduced the ability to add your own
+user-defined roots. The logical data center we inhabit is known as a
+"planet", a user-defined set of roots is called a **moon**. When a node
+"orbits" a moon, it adds the moon's roots to its root server set. Nodes
+orbiting moons will still use planetary roots, but they'll use the moons
+if they look faster or if nothing else is available.
 
 ## Planning Your Deployment
 
