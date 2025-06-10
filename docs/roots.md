@@ -5,8 +5,7 @@ description: How to host your own root servers
 
 :::warning
 Using moons is an advanced configuration for ZeroTier One. In addition, any
-commercial use of self-hosted infrastructure is subject to our 
-[license terms](https://github.com/zerotier/ZeroTierOne/blob/dev/LICENSE.txt).
+commercial use of self-hosted infrastructure is subject to our [license terms](https://github.com/zerotier/ZeroTierOne/blob/dev/LICENSE.txt).
 
 If you expect to use custom moons for production usage, we highly
 recommend that you reach out to our [support team](mailto:support@zerotier.com)
@@ -28,10 +27,9 @@ root servers "moons".
 The roots and moons a collection of nodes connect to effectively defines the
 "global datacenter" they're located in. You can actually deploy an entirely
 separate set of roots and disconnect your clients from the default pool,
-forming an "airgapped" deployment. This requires customization of the 
+forming an "air-gapped" deployment. This requires customization of the
 clients themselves, as well as running high-available root infrastructure.
-
-The instructons below instead focus on adding "moon" servers which can
+The instructions below instead focus on adding "moon" servers which can
 improve the performance and reliability of your deployment while still taking
 advantage of the shared infrastructure we support.
 :::
@@ -161,7 +159,7 @@ the service data directory. See the full list of
 [config file paths](/config.md#system) for the appropriate location on
 your system.
 
-As with the moon servers themseves, after you add the signed planet file
+As with the moon servers themselves, after you add the signed planet file
 to the `moons.d` directory you should restart the service.
 
 #### Option 2: Use the `zerotier-cli orbit` command
@@ -190,7 +188,7 @@ this for use in one of the cases below.
 #### Option 1: Create and send a "custom moon" URL
 
 Starting in version 1.16.0, ZeroTier One mobile clients provide support for loading
-planet files via custom URLs. This reliest on the same custom link mechanism
+planet files via custom URLs. This relies on the same custom link mechanism
 that allows for network invite sharing via QR code. Use the following URL template
 to pass along a QR code to clients:
 
@@ -200,11 +198,7 @@ to pass along a QR code to clients:
 ![custom-roots-from-url](./images/custom-roots-from-url.jpg)
 </div>
 
-If you load a URL of the above form in a desktop web browser, it will display a
-static page with a scannable QR code. On a mobile device with the ZeroTier One
-client installed, it should open a prompt asking if you want to save and use 
-the new planet configuration.
-
+If you load a URL of the above form in a desktop web browser, it will display a static page with a scannable QR code. On a mobile device with the ZeroTier One client installed, it should open a prompt asking if you want to save and use the new planet configuration.
 ![custom-roots-qr](./images/custom-roots-qr.png)
 
 #### Option 2: Transfer the planet file to the device directly
@@ -213,13 +207,10 @@ You can also pass along the base64-encoded planet file as text via email, shared
 note, or file sync. Whatever method you choose, you'll need to copy the full file
 to the system clipboard.
 
-After that, open the in-app "Settings" UI and select "Add Planet File" 
-per the screenshots below and then confirm.
-
+After that, open the in-app "Settings" UI and select "Add Planet File" per the screenshots below and then confirm.
 <div style={{ float: "left", width: "48%" }}>
 ![custom-roots-settings](./images/custom-roots-settings.jpg)
 </div>
-
 <div style={{ float: "right", width: "48%" }}>
 ![custom-roots-paste](./images/custom-roots-paste.jpg)
 </div>
