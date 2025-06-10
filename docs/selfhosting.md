@@ -9,7 +9,7 @@ There are 2 types of ZeroTier infrastructure that can be self-hosted.
 
 Controllers handle [Virtual Layer 2](/protocol.md#vl2). No traffic is handled by controllers.
 
-ZeroTier Inc runs controllers with a web UI and API at [ZeroTier Central](https://my.zerotier.com). You can [self-host controllers](/controller.md), but we don't currently offer the web UI for self-hosting. You'll have to use the [json api](https://docs.zerotier.com/api/service/ref-v1/#tag/Controller) to manage your networks.
+ZeroTier Inc runs controllers with a web UI and API at [ZeroTier Central](https://my.zerotier.com). You can [self-host controllers](/controller.md), but we don't currently offer the web UI for self-hosting. You'll have to use the [json api](https://docs.zerotier.com/api/service/#tag/Controller) to manage your networks.
 
 The controller is open-source. Please check the [license](https://github.com/zerotier/ZeroTierOne/blob/master/LICENSE.txt). The controller service is built in to the zerotier-one binary if you use our [downloads](https://www.zerotier.com/download).
 

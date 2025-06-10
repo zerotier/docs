@@ -60,9 +60,7 @@ PING 10.2.0.2 (10.2.0.12) 56(84) bytes of data.
 ### Create an account
 
 :::note
-
 It's free, no credit card is required.
-
 :::
 
 - Go to <a href="https://my.zerotier.com/" target="_blank">my.zerotier.com</a> and create an account.
@@ -114,7 +112,6 @@ We need to tell the client to "join" the virtual network we just created.
 
 - Copy the Network ID of the network from my.zerotier.com
 This is the long number that looks like like: `d5e04297a16fa690`
-
 - Paste the Network ID into the "join" command on your device
 
 On macOS and Windows, there is a menubar/tray app. Select "join" from the menu.
@@ -166,11 +163,9 @@ On Windows, you need to use an Admin Prompt. Type "powershell" into the start me
 </Tabs>
 
 :::note
-
 Every running instance of ZeroTier has a unique address. It's the 10 digit "Address" in the app, or `zerotier-cli info` command.
 
 ZeroTier addresses are a very secure method of unique identification.
-
 :::
 
 ## Authorize your device on your network
