@@ -130,7 +130,7 @@ Your system firewall is likely blocking communication with the ZeroTier service.
 
 ### Where can I find old versions of ZeroTier? {#old-versions}
 
-See [Releases](/releases#old-versions)
+See [Releases](/releases/#version-history)
 
 ### How do I Update Zerotier? {#update}
 

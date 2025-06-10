@@ -1642,7 +1642,7 @@ If the information in those sections hasn't helped, there are a couple of ways t
 
 ## Self-hosting
 
-We expend considerable effort designing and maintaining a robust and globally available constellation of root servers and redundant network controllers but we understand that security practices may require you to function independently from our infrastructure. For this reason we try to make it as easy as possible to set up your own infrastructure: See [here](https://github.com/zerotier/ZeroTierOne/tree/main/controller) to learn more about how to set up your own network controller, and [here](/roots#creating-your-own-roots-aka-moons) to learn more about setting up your own roots.
+We expend considerable effort designing and maintaining a robust and globally available constellation of root servers and redundant network controllers but we understand that security practices may require you to function independently from our infrastructure. For this reason we try to make it as easy as possible to set up your own infrastructure: See [here](https://github.com/zerotier/ZeroTierOne/tree/main/controller) to learn more about how to set up your own network controller, and [here](/roots.md) to learn more about setting up your own roots.
 
 ## Technical notes
 
