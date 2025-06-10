@@ -3,14 +3,17 @@ title: Private Root Servers
 description: How to host your own root servers
 ---
 
-### Creating Your Own Roots (a.k.a. Moons)
-
 :::warning
-Using moons is now discouraged. Please contact us for advice and alternatives.
+Using moons is an advanced configuration for ZeroTier One. In addition, any
+commercial use of self-hosted infrastructure is subject to our 
+[license terms](https://github.com/zerotier/ZeroTierOne/blob/dev/LICENSE.txt).
+
+If you expect to depend on custom moons for production usage, we highly
+recommend that you reach out to our [support team](mailto:support@zerotier.com)
+help planning your deployment.
 :::
 
-All ZeroTier nodes
-on a planet effectively inhabit a single data center. This makes it easy
+All ZeroTier nodes effectively inhabit a single data center. This makes it easy
 to directly connect devices anywhere, but it has the disadvantage of not
 working without an Internet connection. Network connections are far from
 perfectly reliable, and sometimes for security reasons a user may wish
@@ -20,14 +23,16 @@ In 1.2.0 we introduced the ability to add your own user-defined roots.
 Since the data center we inhabit is the planet, a user-defined set of
 roots is called a **moon**. When a node "orbits" a moon, it adds the
 moon's roots to its root server set. Nodes orbiting moons will still use
-planetary roots, but they'll use the moon's roots if they look faster or
+planetary roots, but they'll use the moons if they look faster or
 if nothing else is available.
+
+## Planning Your Deployment
 
 The first step in creating a moon is to deploy a set of root servers. In
 most cases we recommend two. These are regular ZeroTier nodes, but ones
 that are always on and have static (physical) IP addresses. These static
 IPs could be global Internet IPs or physical intranet IPs that are only
-reachable internally. In the latter case your moon's roots won't work
+reachable internally. In the latter case your moons won't work
 outside your office, but that doesn't matter. Roaming nodes will just
 use planetary roots instead.
 
@@ -36,12 +41,14 @@ networks, or perform any other overlapping functions. They need good
 reliable network connections but otherwise require very little RAM,
 storage, or CPU. A root could be a small VM, VPS, or cloud instance, or
 a small device like a [Raspberry Pi](https://www.raspberrypi.org/). If
-you provision your roots as VMs, take care that they do not all reside
+you provision your moons as VMs, take care that they do not all reside
 on the same physical hardware. This would defeat the purpose of having
 two.
 
+## Creating a Moon Configuration
+
 The next step is to create a world definition using `zerotier-idtool`.
-You will need the `identity.public` files from each of your root
+You will need the `identity.public` files from each of your moon
 servers. Pick one root (doesn't matter which) and run
 `zerotier-idtool initmoon <identity.public of one root> >>moon.json`.
 The `zerotier-idtool`command will output a JSON version of your world
@@ -68,13 +75,13 @@ Examine this file. It will contain something like:
 ```
 
 The world ID is technically arbitrary and could be any random 64-bit
-value. By convention we use the address of one of the roots.
+value. By convention we use the ZeroTier One identity of one of the moon servers.
 
 The world definition JSON file **contains secrets**, so it's important
 to keep it in a safe place. The `signingKey_SECRET` is what will allow
 you to update your world definition automatically in the future.
 
-Now add your other root(s) and define their stable endpoints. You'll end
+Now add your other moons(s) and define their stable endpoints. You'll end
 up with something that looks like:
 
 ```json
@@ -99,35 +106,103 @@ up with something that looks like:
 ```
 
 The static IP addresses you use must be reachable from all the places
-you want these roots to serve. If you're deploying these for use at a
+you want these moons to serve. If you're deploying these for use at a
 physical location, use internal IPs. If you want them to be usable
 off-site, use public IPs from your DMZ or host them at a cloud provider
 with a data center presence close to you. Low-cost cloud hosts that
 provide simple static direct IP addressing and dual-stack IPv4/IPv6
 support like [Digital Ocean](https://digitalocean.com/),
 [Vultr](https://vultr.com/), and [Linode](https://linode.com/) make
-ideal places to host roots. The lowest priced instances at these
+effective places to host moons. The lowest priced instances at these
 providers are more than sufficient in most cases.
 
-The third step is to generate the actual signed world with
+## Configuring Your Moon Servers
+
+The final step in configuring your moons is to generate a signed "world" with
 `zerotier-idtool genmoon moon.json`. In this case this will generate a
 file called `000000deadbeef00.moon`. This does not contain secret keys
 but is signed by the secret from the JSON file.
 
-Now go to your roots, create (if it does not exist) a subdirectory of
+Now go to your moons, create (if it does not exist) a subdirectory of
 their working directories (usually `/var/lib/zerotier-one` on Linux)
 called `moons.d`, and copy the signed moon file there. Now restart the
-roots and they should be ready.
+ZeroTier One service on each moon; after that, they should be ready!
 
-You can add these roots to regular nodes in one of two ways: by placing
-the same world definition file in their `moons.d` directories or by
-using the `zerotier-cli orbit` command:
-`zerotier-cli orbit deadbeef00 deadbeef00`. The first argument is the
+## Configuring Your Clients
+
+Each ZeroTier One peer that uses these moons will need to be configured to
+use them in addition to the default, global roots.
+
+### Desktop / Server
+
+For systems running the full ZeroTier One agent, you can proceed in either of two ways:
+
+#### Option 1: Copy the same world definition file to the service data directory
+
+Custom world definitions are loaded from the `moons.d` subdirectory of
+the service data directory. See the full list of
+[config file paths](/config.md#system) for the appropriate location on
+your system.
+
+As with the moon servers themseves, after you add the signed planet file
+to the `moons.d` directory you should restart the service.
+
+#### Option 2: Use the `zerotier-cli orbit` command
+
+You can directly add the new moon via the `orbit` CLI subcommand:
+`zerotier-cli orbit deadbeef00 deadbeef00`.
+
+The first argument is the
 world ID (which we can shorten by removing the two leading zeroes) and
-the second is the address of any of its roots. This will contact the
-root and obtain the full world definition from it if it's online and
+the second is the address of any of its moons.
+
+After that, restart the client. It will attempt to contact your moon(s)
+and obtain the full world definition from it if it's online and
 reachable.
 
 Once you've "orbited" your moon, try `zerotier-cli listpeers`. You
-should see the roots you've created listed as `MOON` instead of `LEAF`.
+should see the moons you've created listed as `MOON` instead of `LEAF`.
 They will now be used as alternative root servers.
+
+### Mobile
+
+Mobile clients must be configured through the UI or opening a specially-formatted
+URL. In either case, you'll need to base64-encode the binary planet file; save
+this for use in one of the cases below.
+
+#### Option 1: Create and send a "custom moon" URL
+
+Starting in version 1.16.0, ZeroTier One mobile clients provide support for loading
+planet files via custom URLs. This reliest on the same custom link mechanism
+that allows for network invite sharing via QR code. Use the following URL template
+to pass along a QR code to clients:
+
+`https://joinzt.com/addplanet?v=1&planet=$base64_planet_file`
+
+<div style={{ width: "48%" }}>
+![custom-roots-from-url](./images/custom-roots-from-url.jpg)
+</div>
+
+If you load a URL of the above form in a desktop web browser, it will display a
+static page with a scannable QR code. On a mobile device with the ZeroTier One
+client installed, it should open a prompt asking if you want to save and use 
+the new planet configuration.
+
+![custom-roots-qr](./images/custom-roots-qr.png)
+
+#### Option 2: Transfer the planet file to the device directly
+
+You can also pass along the base64-encoded planet file as text via email, shared
+note, or file sync. Whatever method you choose, you'll need to copy the full file
+to the system clipboard.
+
+After that, open the in-app "Settings" UI and select "Add Planet File" 
+per the screenshots below and then confirm.
+
+<div style={{ float: "left", width: "48%" }}>
+![custom-roots-settings](./images/custom-roots-settings.jpg)
+</div>
+
+<div style={{ float: "right", width: "48%" }}>
+![custom-roots-paste](./images/custom-roots-paste.jpg)
+</div>
