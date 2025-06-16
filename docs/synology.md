@@ -14,6 +14,8 @@ The GUI for the Synology Docker package is unreliable at best so it is suggested
 
 If your NAS does not support Docker or if you wish to [downgrade to DSM 6](https://www.blackvoid.club/dsm-7-to-dsm-6-downgrade/
 ) you can still use the [older DSM 6 packages](http://download.zerotier.com/dist/synology/) or follow our [bridging tutorial](https://zerotier.atlassian.net/wiki/spaces/SD/pages/193134593/Bridge+your+ZeroTier+and+local+network+with+a+RaspberryPi).
+
+For ARM64-based Synology models where Docker cannot be installed, we now provide a [direct installation method](/synology-direct-install) that doesn't require Docker.
 :::
 
 To install via Docker there are four steps that need to be performed only once:

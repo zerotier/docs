@@ -58,7 +58,7 @@ module.exports = {
           type: 'category',
           label: 'Advanced Networking',
           items: [
-            'multipath', 'bridging', 'proxy', 'code-server', 'route-between-phys-and-virt', 'microsegmentation', 'nat', 'integrating-physical-networks',
+            'multipath', 'bridging', 'proxy', 'code-server', 'route-between-phys-and-virt', 'microsegmentation', 'nat', 'integrating-physical-networks', 'connecting-non-zerotier-devices',
           ],
         },
         {
