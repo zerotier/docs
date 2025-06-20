@@ -146,7 +146,7 @@ Central > Network > Settings > Managed Routes
 
 ### Tell your local nodes to use exit node
 
-In the tray app, under each network, there is an "Allow Default" option. Check this to use your exit node.
+In the tray app, under each network, there is an "Allow Default Route Override" option. Check this to use your exit node.
 
 :::tip ~/.bashrc
 
