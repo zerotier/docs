@@ -24,6 +24,7 @@ module.exports = {
         apiKey: apiKey,
         appUrl: appUrl,
         enableInDevelopment: false,
+        disable_session_recording: true,
       },
     ],
   ],
