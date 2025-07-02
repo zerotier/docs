@@ -1,25 +1,19 @@
 ---
-title: Getting ZeroTier
+title: Get ZeroTier
 description: Downloads and release notes
 custom_edit_url: null
 ---
 
-ZeroTierOne is freely available to download for most popular desktop and embedded platforms at our [download page](https://www.zerotier.com/download). For mobile users, [Android](https://play.google.com/store/apps/details?id=com.zerotier.one) and [iOS](https://apps.apple.com/us/app/zerotier-one/id1084101492) clients are available directly from their respective app stores.
+## Current Release &amp; Installers
 
-## Links
+- [Download](http://www.zerotier.com/download)
 
-### Downloads Page
+## Source Code
 
-http://www.zerotier.com/download
+- [Source Code](https://github.com/zerotier/ZeroTierOne)
+- [License](https://github.com/zerotier/ZeroTierOne/blob/dev/LICENSE.txt)
 
-### ZeroTierOne Source Code
+## Version History
 
-https://github.com/zerotier/ZeroTierOne
-
-### Past versions of ZeroTier {#old-versions}
-
-http://download.zerotier.com/RELEASES/
-
-### Release Notes
-
-https://github.com/zerotier/ZeroTierOne/blob/dev/RELEASE-NOTES.md
+- [Old Versions](http://download.zerotier.com/RELEASES/)
+- [Release Notes](https://github.com/zerotier/ZeroTierOne/blob/dev/RELEASE-NOTES.md)

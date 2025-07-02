@@ -2,7 +2,11 @@
 
 const path = require("path");
 
+const appUrl = process.env.POSTHOG_API_HOST
+const apiKey = process.env.POSTHOG_PROJECT_KEY  || "-"
+
 module.exports = {
+  trailingSlash: true,
   title: "ZeroTier Documentation",
   tagline: "Because documentation makes things more good",
   url: "https://docs.zerotier.com",
@@ -14,9 +18,21 @@ module.exports = {
   projectName: "docs", // Usually your repo name.
   plugins: [
     require.resolve('docusaurus-lunr-search'),
+    [
+      "posthog-docusaurus",
+      {
+        apiKey: apiKey,
+        appUrl: appUrl,
+        enableInDevelopment: false,
+        disable_session_recording: true,
+      },
+    ],
   ],
   future: {
-    experimental_faster: true,
+    experimental_faster: {
+      rspackBundler: true,
+      rspackPersistentCache: true,
+    }
   },
   markdown: {
     mermaid: true,
@@ -117,11 +133,11 @@ module.exports = {
             },
             {
               label: "Central REST API",
-              to: "/api/central/ref-v1",
+              to: "/api/central/",
             },
             {
               label: "Service REST API",
-              to: "/api/service/ref-v1",
+              to: "/api/service/",
             },
             {
               label: "DNS",
@@ -161,7 +177,7 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
-          editUrl: "https://github.com/zerotier/docs/edit/main/",
+          //editUrl: "https://github.com/zerotier/docs/edit/main/",
           routeBasePath: "/",
         },
         theme: {
@@ -172,14 +188,17 @@ module.exports = {
     [
       "redocusaurus",
       {
+        openapi: {
+          path: "openapi",
+        },
         specs: [
           {
-            route: "/api/central/ref-v1",
-            spec: "./static/openapi/centralv1.json",
+            spec: "./static/openapi/central/v1.json",
+            route: "/api/central/v1/",
           },
           {
-            route: "/api/service/ref-v1",
-            spec: "https://github.com/zerotier/zerotier-one-api-spec/releases/latest/download/openapi.yaml",
+            spec: "./static/openapi/service/v1.json",
+            route: "/api/service/v1/",
           },
         ],
         theme: {
@@ -190,5 +209,20 @@ module.exports = {
         },
       },
     ],
+    [
+      "@docusaurus/plugin-client-redirects",
+      {
+        redirects: [
+          {
+            from: "/api/central/ref-v1",
+            to: "/api/central/v1/",
+          },
+          {
+            from: "/api/service/ref-v1",
+            to: "/api/service/v1/",
+          },
+        ],
+      },
+    ]
   ],
 };

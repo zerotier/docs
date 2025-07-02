@@ -4,16 +4,6 @@ description: Use ZeroTier in combination with multiple Terraform cloud providers
 # cSpell:words Gizienski Hinojosa
 ---
 
-Terraform Multicloud
-
-<p align="center">
-<img src="https://avatars.githubusercontent.com/u/4173285?s=150&v=4" alt="ZeroNSD" /><br/>
-<b><i>
-We are living in an ephemeral world<br/>
-And I am an ephemeral girl<br/>
-</i></b>
-</p>
-
 ## Welcome
 
 This quickstart tutorial creates a lab environment for using ZeroTier

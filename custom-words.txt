@@ -109,3 +109,8 @@ ndppd
 SNAT
 POSTROUTING
 dialup
+Telco
+Telcos
+FIPS
+telco
+Inhand

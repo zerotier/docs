@@ -4,7 +4,7 @@ description: Host your own network controllers
 ---
 
 :::info
-[Network Controller Reference Documentation](what-is-a-controller)
+[Network Controller Reference Documentation](/what-is-a-controller.md)
 :::
 
 ## Tutorial
@@ -17,7 +17,7 @@ First, skim the [README](https://github.com/zerotier/ZeroTierOne/tree/master/con
 We're going to use `curl` to set up an example ZeroTier network. An easy way to get `curl` in Windows is to install [the latest version of Git](https://git-scm.com/downloads), which comes with bash, curl, and other tools.
 
 :::info OpenAPI
-The setup described here uses the local [ZeroTierOne service API](/api/service) to provision and manage networks. You can [browse](/api/service/ref-v1#tag/controller) the OpenAPI docs for the local controller API for more detail on this interface.
+The setup described here uses the local [ZeroTierOne service API](/api/service) to provision and manage networks. You can [browse](/api/service/v1/#tag/Controller) the OpenAPI docs for the local controller API for more detail on this interface.
 :::
 
 This is a low tech way to setup a controller for example purposes. You'd likely build yourself something fancier around this API.
@@ -181,11 +181,11 @@ You could use the API to delete every network.
 Or you can delete the controller.d directory.
 
 <Tabs
-    groupId="operating-systems"
-    defaultValue="linux"
-    values={[
-    {label: 'Linux', value: 'linux'},
-    {label: 'macOS', value: 'macos'},
+groupId="operating-systems"
+defaultValue="linux"
+values={[
+{label: 'Linux', value: 'linux'},
+{label: 'macOS', value: 'macos'},
 ]}>
 <TabItem value="linux">
 

@@ -30,7 +30,7 @@ flowchart TD
 
 There are many ways to set up routing.
 
-We have only a [Masquerade Tutorial](route-between-phys-and-virt) so far, but the steps are the same for any of these set ups; just skip the IPTables Masquerade step.
+We have only a [Masquerade Tutorial](./route-between-phys-and-virt.md) so far, but the steps are the same for any of these set ups; just skip the IPTables Masquerade step.
 
 Here are some of the common examples:
 
@@ -68,13 +68,13 @@ For example:
 ### Masquerade
 
 This is the same method that your home router uses to route between Internet and your home LAN.
-See the [Masquerade Tutorial](route-between-phys-and-virt)
+See the [Masquerade Tutorial](./route-between-phys-and-virt.md)
 
 ![default gateway](./images/integrating-masquerade.png)
 
 ## Bridging
 
-See the [Bridging Tutorial](bridging)
+See the [Bridging Tutorial](./bridging.md)
 
 ![default gateway](./images/integrating-bridging.png)
 

@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 ## Ping is not working {#ping}
 
-First, make sure your device is authorized on the network and you're using the ZeroTier assigned Managed IP address.  Aside from that, some OSes block pings in their local firewall by default.
+First, make sure your device is authorized on the network and you're using the ZeroTier assigned Managed IP address. Aside from that, some OSes block pings in their local firewall by default.
 
 ### Windows Firewall
 
@@ -20,11 +20,11 @@ ZeroTier versions 1.10.3 and greater automatically enable ping on ZeroTier adapt
 
 ### macOS Firewall
 
-The firewall is not enabled by default on macOS, and thus pings will not be blocked by default.  If your firewall is enabled on macOS, go into System Preferences -> Security & Privacy.  Under Firewall Options, ensure "Enable stealth mode" is disabled. Stealth mode blocks pings.
+The firewall is not enabled by default on macOS, and thus pings will not be blocked by default. If your firewall is enabled on macOS, go into System Preferences -> Security & Privacy. Under Firewall Options, ensure "Enable stealth mode" is disabled. Stealth mode blocks pings.
 
 ### Linux Firewalls
 
-There are far too many Linux distributions out there to list instructions for all of them here.  Please refer to your distribution's documentation for how to unblock ICMP packets.
+There are far too many Linux distributions out there to list instructions for all of them here. Please refer to your distribution's documentation for how to unblock ICMP packets.
 
 :::info Get Started
 Click [here](/start/) to create your network and start adding devices.
@@ -36,7 +36,7 @@ This error means that the ZeroTier background service on your computer is either
 
 ### Windows Service
 
-Open Task Manager and go to the "Services" tab.  Scroll down until you see "ZeroTierOneService". The status column should say "Running".  If it does not, right click on the line and click "Start"
+Open Task Manager and go to the "Services" tab. Scroll down until you see "ZeroTierOneService". The status column should say "Running". If it does not, right click on the line and click "Start"
 
 ### macOS Service
 
@@ -63,7 +63,7 @@ If not, execute:
 
 ### Still doesn't work?
 
-Your system firewall is likely blocking communication with the ZeroTier service.  Look up instructions for how to unblock an application from the firewall for your OS.  ZeroTier will need to be accessible via TCP port 9993 for the UI and CLI to interact with it.
+Your system firewall is likely blocking communication with the ZeroTier service. Look up instructions for how to unblock an application from the firewall for your OS. ZeroTier will need to be accessible via TCP port 9993 for the UI and CLI to interact with it.
 
 ## Emergency Instructions
 
@@ -71,7 +71,7 @@ Your system firewall is likely blocking communication with the ZeroTier service.
 
 First, check with your friendly firewall admin that no configuration in the physical network connection has changed.
 
-See the [CLI](cli) article for help with the CLI.
+See the [CLI](cli.md) article for help with the CLI.
 
 We're not aware of any bugs that require these steps, or we'd fix them, but sometimes people try the below.
 
@@ -80,13 +80,13 @@ Listed in order of severity:
 ### Restart the service
 
 <Tabs
-  defaultValue="mac"
-  groupId="client-restart"
-  values={[
-    { label: "macOS", value: "mac", },
-    { label: "Windows", value: "windows", },
-    { label: "Linux", value: "linux", }
-  ]}>
+defaultValue="mac"
+groupId="client-restart"
+values={[
+{ label: "macOS", value: "mac", },
+{ label: "Windows", value: "windows", },
+{ label: "Linux", value: "linux", }
+]}>
 
 <TabItem value="mac">
 
@@ -125,25 +125,29 @@ Use the UI, or
 
 ### Stop service, Delete peers.d, Start service
 
-Find peers.d in the [zerotier system directory](/config#system)
+Find peers.d in the [zerotier system directory](config.md#system)
 
 ### Reset Node ID
 
 The new node ID will have be re-authorized on any networks, and the node's managed IP address manually re-assigned if needed.
 
 - Stop the service
-- Move or delete identity.secret and identity.public files in the [zerotier system directory](/config#system)
+- Move or delete identity.secret and identity.public files in the [zerotier system directory](config.md#system)
 
 - Delete peers.d too
 - Start the service
 
+### What is PORT_ERROR {#port-error}
+
+A `PORT_ERROR` can happen when the [Virtual Network Port](glossary.md#virtual-network-port) cannot be brought online for some reason. See specific instructions for resolving this on [macOS](faq-macos.md#port-error).
+
 ## Troubleshooting Connection Issues
 
-It can be a little tricky to figure out why something isn't working. We'll try to improve this. Unfortunately you need to use the [CLI](cli) to troubleshoot.
+It can be a little tricky to figure out why something isn't working. We'll try to improve this. Unfortunately you need to use the [CLI](cli.md) to troubleshoot.
 
 It's a peer to peer system, so we might need to check 2 or more nodes to deduce where the problem is.
 
-Go through these steps and see [corporate firewalls](corporate-firewalls) and [Router Tips](routertips) for more explanation.
+Go through these steps and see [corporate firewalls](corporate-firewalls.md) and [Router Tips](routertips.md) for more explanation.
 
 ### Peers List
 
@@ -164,7 +168,7 @@ If the connections to the PLANETs are RELAY, the node is having a very hard time
 `zerotier-cli info -j`
 
 Look at the "listeningOn" and "surfaceAddresses". If the surfaceAddress list large is constantly growing for each node you `ping`, this node may be behind Symmetric NAT. Other devices will have a hard time connecting with it.
-See [corporate firewalls](corporate-firewalls) for more info on Symmetric NAT.
+See [corporate firewalls](corporate-firewalls.md) for more info on Symmetric NAT.
 
 Ideally there is 1 surface address for each listening address/port.
 
