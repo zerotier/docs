@@ -1,0 +1,64 @@
+on:
+  release:
+    types: [published]
+    
+jobs:
+  build:
+    name: Deploy Release
+    runs-on: gha-runner-x64
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set Node.js 20.x
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20.x
+    
+    - name: yarn@4.1.1
+      run: |
+        corepack enable && corepack prepare yarn@4.1.1
+
+    - name: Get yarn cache directory path
+      id: yarn-cache-dir-path
+      run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
+
+    - name: Get yarn cache
+      uses: actions/cache@v4
+      id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+      with:
+        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+        key: ${{ runner.os }}-${{ runner.arch }}-yarn-docs-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-${{ runner.arch }}-yarn-docs-
+
+    - name: Install dependencies
+      uses: borales/actions-yarn@v5
+      with:
+        cmd: install --immutable
+
+    - name: Build
+      uses: borales/actions-yarn@v5
+      with:
+        cmd: build
+      env:
+        NODE_OPTIONS: --openssl-legacy-provider
+        POSTHOG_API_HOST: ${{ secrets.POSTHOG_API_HOST }}
+        POSTHOG_PROJECT_KEY: ${{ secrets.POSTHOG_PROJECT_KEY }}
+
+    - id: 'auth'
+      uses: 'google-github-actions/auth@v2'
+      with:
+        credentials_json: '${{ secrets.DOCKER_REGISTRY_WRITER }}'
+    
+    - name: 'Set up Cloud SDK'
+      uses: 'google-github-actions/setup-gcloud@v2'
+    
+    - name: Docker Build
+      run: |
+        gcloud auth configure-docker ${{ secrets.GCLOUD_DOCKER_HOST }}
+        docker build -t ${{ secrets.GCLOUD_DOCKER_HOST }}/${{ secrets.GCLOUD_PROJECT_ID }}/zt-docker/docs-zerotier-com:${{ github.ref_name }} . --push
+    
+    - name: Deploy docs to prod
+      run: |
+        curl -s -L -X POST -H 'Accept: application/vnd.github+json' -H 'Authorization: Bearer ${{ secrets.DEPLOY_TOKEN }}' -H 'X-GitHub-Api-Version: 2022-11-28' https://api.github.com/repos/zerotier/${{ secrets.INFRA_REPO_NAME }}/dispatches -d '{"event_type": "deploy_docs_prod", "client_payload": {"docker_tag": "${{ github.ref_name }}", "actor": "${{ github.actor }}"}}'

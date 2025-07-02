@@ -4,7 +4,7 @@ description: Describe your ZeroTier networks as code using Terraform
 ---
 
 :::info Advanced
-For the multi-cloud edition of this guide, click [here](terraform-multicloud)
+For the multi-cloud edition of this guide, click [here](terraform-multicloud.md)
 :::
 
 ## Welcome
@@ -186,7 +186,7 @@ to confirm it was created.
 
 <p align="center"><img src="https://i.imgur.com/ZwviLen.png" width="75%" alt="hello bridgenet" /></p>
 
-## Network Segmentation
+## Network Segmentation {#network-segmentation}
 
 The next example creates the networks, `red`, `green`, and
 `yellow`. We define two groups. The red team gets access to the `red`
@@ -347,6 +347,6 @@ When you're done experimenting with ZeroTier and Terraform, tear everything down
 
 ## That's all folks
 
-If you like this tutorial, check out the [ZeroTier Multicloud Terraform Quickstart](https://docs.zerotier.com/terraform/multicloud-quickstart) next!
+If you like this tutorial, check out the [ZeroTier Multicloud Terraform Quickstart](terraform-multicloud.md) next!
 
 -s

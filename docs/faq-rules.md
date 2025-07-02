@@ -7,6 +7,10 @@ description: Rules for common use cases
 Check [the manual](./rules.md) for theory about how rules work.
 :::
 
+### Setting tags and capabilities on network members
+
+Once you have saved a rule set that includes capabilities or tags, the capabilities or tags matrix will appear at the bottom of the Flow Rules section.
+
 ### Client Isolation
 
 Do you have a couple server or admin nodes, but you don't want members to be able to talk to each other?

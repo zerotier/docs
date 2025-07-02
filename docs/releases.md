@@ -1,21 +1,19 @@
 ---
-title: Releases
+title: Get ZeroTier
 description: Downloads and release notes
 custom_edit_url: null
 ---
 
-:::info Before Downloading
-Click [here](/start/) to create your network and then start adding devices.
-:::
+## Current Release &amp; Installers
 
-### Downloads Page
+- [Download](http://www.zerotier.com/download)
 
-<http://www.zerotier.com/download>
+## Source Code
 
-### Past versions of ZeroTier {#old-versions}
+- [Source Code](https://github.com/zerotier/ZeroTierOne)
+- [License](https://github.com/zerotier/ZeroTierOne/blob/dev/LICENSE.txt)
 
-[download.zerotier.com/RELEASES/](http://download.zerotier.com/RELEASES/)
+## Version History
 
-### Release Notes
-
-[github.com/zerotier/zerotierone](https://github.com/zerotier/ZeroTierOne/blob/dev/RELEASE-NOTES.md)
+- [Old Versions](http://download.zerotier.com/RELEASES/)
+- [Release Notes](https://github.com/zerotier/ZeroTierOne/blob/dev/RELEASE-NOTES.md)

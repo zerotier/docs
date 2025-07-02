@@ -14,7 +14,7 @@ curl -sSL https://install.pi-hole.net | bash
 ```
 
 :::info
-Go here for more installation instructions: <https://docs.pi-hole.net/main/basic-install/>
+Go here for more installation instructions: https://docs.pi-hole.net/main/basic-install/
 :::
 
 When prompted, select the ZeroTier interface

@@ -4,7 +4,7 @@ description: ZeroNSD - DNS on your ZeroTier network
 ---
 
 :::info BETA
-This feature is still in beta. This will soon be integrated into ZeroTier 2.0, but for now, it is segregated to allow us to iterate quickly.
+The configuration described below uses a beta release of our dedicated DNS service, [ZeroNSD](https://github.com/zerotier/zeronsd). You are not required to use ZeroNSD to provide DNS resolution for devices on your ZeroTier networks; any DNS server can be provided with the assigned IPs and names of your networks' members using the [Central API](/api/central).
 :::
 
 ## Conceptual Prerequisites
@@ -55,16 +55,9 @@ Authorize the node to the network by clicking the "Auth" button in the
 
 ![Authorize the Member](https://i.imgur.com/fQTai9l.png)
 
-## Provision an API Token from ZeroTier Central
+First, [create a Central API token](/api/tokens).
 
-Before we begin, we will need to log into [my.zerotier.com](https://my.zerotier.com) and create an API
-token under the [Account](https://my.zerotier.com/account)
-section. ZeroNSD will use this token to read Network members so it can
-generate records, as well as update DNS settings.
-
-![token screenshot](https://i.imgur.com/WYM2jKl.png)
-
-You will need to stash this in a file for ZeroNSD to read.
+Next, you will need to stash this in a file for ZeroNSD to read.
 
 ```sh
 sudo bash -c "echo ZEROTIER_CENTRAL_TOKEN > /var/lib/zerotier-one/token"
@@ -74,7 +67,7 @@ sudo chmod 600 /var/lib/zerotier-one/token
 
 ## ZeroTier Systemd Manager
 
-zerotier-systemd-manager publishes rpm and deb packages available at <https://github.com/zerotier/zerotier-systemd-manager/releases>
+zerotier-systemd-manager publishes rpm and deb packages available at https://github.com/zerotier/zerotier-systemd-manager/releases
 
 ```sh
 wget https://github.com/zerotier/zerotier-systemd-manager/releases/download/v0.1.9/zerotier-systemd-manager_0.1.9_linux_amd64.deb

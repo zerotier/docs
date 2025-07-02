@@ -4,21 +4,11 @@ description: Use ZeroTier in combination with multiple Terraform cloud providers
 # cSpell:words Gizienski Hinojosa
 ---
 
-Terraform Multicloud
-
-<p align="center">
-<img src="https://avatars.githubusercontent.com/u/4173285?s=150&v=4" alt="ZeroNSD" /><br/>
-<b><i>
-We are living in an ephemeral world<br/>
-And I am an ephemeral girl<br/>
-</i></b>
-</p>
-
 ## Welcome
 
 This quickstart tutorial creates a lab environment for using ZeroTier
 in combination with multiple Terraform cloud providers. If you're a
-ZeroTier user that's new to Terraform, You might be looking for the [Terraform Quickstart](https://docs.zerotier.com/terraform/quickstart) instead.
+ZeroTier user that's new to Terraform, You might be looking for the [Terraform Quickstart](/terraform) instead.
 
 If you're a Terraform user that's new to ZeroTier, you're in the right place. Make yourself a coffee and and buckle up.
 
@@ -487,7 +477,7 @@ terraform apply -target 'zerotier_network.demolab' -auto-approve
 ```
 
 You can also see the the traffic from your laptop when hitting the web
-servers. Load the page on IBM Cloud by visiting <http://ibm.demo.lab>, and
+servers. Load the page on IBM Cloud by visiting http://ibm.demo.lab, and
 observe the traffic in your Digital Ocean terminal.
 
 ```sh

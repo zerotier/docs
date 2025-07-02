@@ -46,7 +46,7 @@ You can share files from your [Mac to Windows](https://support.apple.com/guide/m
 If you're still having trouble, see: [Router Configuration Tips](./routertips.md)
 :::
 
-### Port Error {#port-error}
+### Resolving PORT_ERROR on macOS {#port-error}
 
 On newer macOS versions the user must explicitly authorize new extensions. PORT_ERROR on Mac is typically caused by the ZeroTier tun/tap driver failing to load.
 
@@ -66,7 +66,8 @@ Restarting the system will also accomplish this.
 
 NOTE that authorization of kernel extensions will NOT work in remote desktop sessions. Apple requires it to be done directly on the system console. Via a remote session you can click the button but it will have no effect. We are not aware of any known work-around for this.
 
-[//]: # (cspell:disable-next-line )
+[//]: # "cspell:disable-next-line "
+
 ALSO if the mouse/track-pad is emulated by a 3rd party application (MagicPrefs, BetterTouchTool, Synergy, etc.), it won't work.
 If it's still not working
 
@@ -76,12 +77,12 @@ Here my steps for your fellows reference:
 
 - `sudo launchctl unload /Library/LaunchDaemons/com.zerotier.one.plist`
 - `sudo launchctl load /Library/LaunchDaemons/com.zerotier.one.plist`
-- open "Security and Privacy" and try click Allow ZeroTier /*maybe no effects....never mind, just continue*/
-- REBOOT the OSX /*VERY IMPORTANT*/
-- open "Security and Privacy" and try click Allow ZeroTier AGAIN /*if it still there*/
+- open "Security and Privacy" and try click Allow ZeroTier /_maybe no effects....never mind, just continue_/
+- REBOOT the OSX /_VERY IMPORTANT_/
+- open "Security and Privacy" and try click Allow ZeroTier AGAIN /_if it still there_/
 - `sudo launchctl unload /Library/LaunchDaemons/com.zerotier.one.plist`
 - `sudo launchctl load /Library/LaunchDaemons/com.zerotier.one.plist`
-- `zerotier-cli listnetworks` /*now the PORT_ERROR should be gone*/
+- `zerotier-cli listnetworks` /_now the PORT_ERROR should be gone_/
 - ping your nodes on the network should now being OK
 
 ### Uninstall ZeroTier from your Mac {#uninstall}

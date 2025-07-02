@@ -22,6 +22,7 @@ bridgenet
 cifs
 connectionless
 containerised
+datacenter
 deauth
 deauthorize
 deauths
@@ -103,3 +104,13 @@ zerotier-idtool
 ztdest
 ztsrc
 SonicWall
+Deauthorized
+ndppd
+SNAT
+POSTROUTING
+dialup
+Telco
+Telcos
+FIPS
+telco
+Inhand

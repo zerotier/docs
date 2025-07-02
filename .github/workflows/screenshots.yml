@@ -1,0 +1,38 @@
+name: CI screenshots
+on:
+  workflow_dispatch
+
+jobs:
+  screenshots:
+    runs-on: gha-runner-x64
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: current
+
+      - name: yarn@4.1.1
+        run: |
+          corepack enable && corepack prepare yarn@4.1.1
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Install Playwright browsers
+        run: yarn playwright install --with-deps chromium
+
+      - name: Build the website
+        run: yarn docusaurus build
+
+      - name: Take screenshots with Playwright
+        run: yarn playwright test
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: screenshots
+          path: ./screenshots
+          retention-days: 7

@@ -36,7 +36,7 @@ For Example:
 
 ### Install ZeroTier
 
-<https://www.zerotier.com/download/>
+https://www.zerotier.com/download/
 
 ```sh
 sudo zerotier-cli join $NETWORK_ID

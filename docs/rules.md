@@ -105,7 +105,7 @@ system.
 ### Actions and Match Conditions
 
 These are the available matches and actions in raw form. The rule
-definition language outlined in [Rule Definition Language](rules#rule-definition-language) provides a friendlier
+definition language outlined in [Rule Definition Language](#rule-definition-language) provides a friendlier
 way for human beings to specify rules.
 
 | Action | Argument(s) | Description |
@@ -360,7 +360,7 @@ allowed only between computers in the same department by way of a tag. A
 super-user capability that can be assigned to administrative nodes
 allows the sender to initiate any kind of connection.
 
-See [TCP Whitelisting](rules/#tcp-whitelisting) for a
+See [TCP Whitelisting](#tcp-whitelisting) for a
 discussion of how we accomplish TCP whitelisting here.
 
 ### Rule Definition Language Syntax
@@ -403,8 +403,8 @@ White space separates things. Indentation is not significant. Hash
 symbols indicate that the remainder of a line is a comment.
 
 As described in sections
-[Rule Sets and Rule Evaluation](rules#rulesets) through
-[Tags](rules#tags), a rule set is composed
+[Rule Sets and Rule Evaluation](#rulesets) through
+[Tags](#tags), a rule set is composed
 of one or more sequences of *match,[match],…,action* in which the action
 is taken if the chain of matches evaluates to *true*. Capabilities are
 small bundles of rules that can be assigned to nodes to give them
@@ -443,31 +443,31 @@ Central to make it easier to assign and search tags.
 | drop | | Drop packet and terminate all rule evaluation, including capabilities. |
 | break | | Terminate evaluation of this rule set but continue evaluating capabilities. |
 | accept | | Accept packet and terminate further evaluation. |
-| tee | <length\> <address\> | Send a copy of up to the first *length* bytes (-1 for all) to a ZeroTier address. |
-| redirect | <address\> | Transparently redirect this packet to a ZeroTier address without changing its headers. |
+| tee | \<length\>; \<address\> | Send a copy of up to the first *length* bytes (-1 for all) to a ZeroTier address. |
+| redirect | \<address\> | Transparently redirect this packet to a ZeroTier address without changing its headers. |
 | **Match Condition** | **Argument(s)** | **Description** |
-| ztsrc  | <address\> | VL1 source address. |
-| ztdest | <address\> | VL1 destination address. |
-| macsrc | <address\> | Ethernet source address. |
-| macdest | <address\> | Ethernet destination address. |
-| ipsrc | <address/prefix\> | Source IP address or network (V4 or V6 auto-detected). |
-| ipdest | <address/prefix\> | Destination IP address or network (V4 or V6 auto-detected). |
-| iptos | <mask\> <start[-end]\> | IP TOS field bitwise-ANDed with mask is within range. |
-| ipprotocol | <protocol\> | IP protocol number. |
-| ethertype | <type\> | Ethernet frame type. |
-| icmp | <type\> <code\> | ICMP type (V4 or V6) and code. Use -1 for code if not applicable. |
-| sport | <start[-end]\> | IP (V4 or V6) source port range (inclusive). |
-| dport | <start[-end]\> | IP (V4 or V6) destination port range (inclusive). |
-| chr | <mask/name\> | Bitwise AND characteristic bits with mask, true if result is nonzero. |
-| framesize | <start[-end]\> | Ethernet frame size range (inclusive). |
-| random | <probability\> | Match randomly with probability 0.0 (0%) to 1.0 (100%). |
-| tdiff | <id\> <value\> | Difference between tags (absolute value) with this ID is less than or equal to the value. |
-| tand | <id\> <value\> | Tags ANDed together equal value. |
-| tor | <id\> <value\> | Tags ORed together equal value. |
-| txor | <id\> <value\> | Tags XORed together equal value. |
-| teq | <id\> <value\> | Both tags equal the same value. |
-| tseq | <id\> <value\> | Sending side's tag equals this value. |
-| treq | <id\> <value\> | Receiving side's tag equals this value. |
+| ztsrc  | \<address\> | VL1 source address. |
+| ztdest | \<address\> | VL1 destination address. |
+| macsrc | \<address\> | Ethernet source address. |
+| macdest | \<address\> | Ethernet destination address. |
+| ipsrc | \<address/prefix\> | Source IP address or network (V4 or V6 auto-detected). |
+| ipdest | \<address/prefix\> | Destination IP address or network (V4 or V6 auto-detected). |
+| iptos | \<mask\> \<start[-end]\> | IP TOS field bitwise-ANDed with mask is within range. |
+| ipprotocol | \<protocol\> | IP protocol number. |
+| ethertype | \<type\> | Ethernet frame type. |
+| icmp | \<type\> \<code\> | ICMP type (V4 or V6) and code. Use -1 for code if not applicable. |
+| sport | \<start[-end]\> | IP (V4 or V6) source port range (inclusive). |
+| dport | \<start[-end]\> | IP (V4 or V6) destination port range (inclusive). |
+| chr | \<mask/name\> | Bitwise AND characteristic bits with mask, true if result is nonzero. |
+| framesize | \<start[-end]\> | Ethernet frame size range (inclusive). |
+| random | \<probability\> | Match randomly with probability 0.0 (0%) to 1.0 (100%). |
+| tdiff | \<id\> \<value\> | Difference between tags (absolute value) with this ID is less than or equal to the value. |
+| tand | \<id\> \<value\> | Tags ANDed together equal value. |
+| tor | \<id\> \<value\> | Tags ORed together equal value. |
+| txor | \<id\> \<value\> | Tags XORed together equal value. |
+| teq | \<id\> \<value\> | Both tags equal the same value. |
+| tseq | \<id\> \<value\> | Sending side's tag equals this value. |
+| treq | \<id\> \<value\> | Receiving side's tag equals this value. |
 
 Match conditions may be joined by **and** (default if none specified) or
 **or** and may be modified by **not**.

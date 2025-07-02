@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 Encrypted P2P connections for your app or service.
 
-This guide explains how to use the ZeroTier SDK Socket API. It is meant to be read linearly and progresses from beginner topics to advanced topics. We will start by creating a simple [pingable node](#pingable-node-part-1) while skipping over most of the gritty details. Then we'll move on to a full [client-server socket application](#client-and-server-part-2) where we will take the occasional tangent to learn more about how all of this works. Source code for the examples can be found here: <a href="https://github.com/zerotier/libzt/tree/main/examples">libzt/examples</a>. For API reference documentation see the sidebar to the left. To read more more about how ZeroTier works in general, see our [Design Whitepaper](https://docs.zerotier.com/zerotier/manual). If you find an error on this page or you just need help getting something to work please open a [GitHub issue](https://github.com/zerotier/libzt/issues).
+This guide explains how to use the ZeroTier SDK Socket API. It is meant to be read linearly and progresses from beginner topics to advanced topics. We will start by creating a simple [pingable node](#pingable-node-part-1) while skipping over most of the gritty details. Then we'll move on to a full [client-server socket application](#client-and-server-part-2) where we will take the occasional tangent to learn more about how all of this works. Source code for the examples can be found here: <a href="https://github.com/zerotier/libzt/tree/main/examples">libzt/examples</a>. For API reference documentation see the sidebar to the left. To read more more about how ZeroTier works in general, see our [Design Whitepaper](/protocol). If you find an error on this page or you just need help getting something to work please open a [GitHub issue](https://github.com/zerotier/libzt/issues).
 
 ## Install
 
@@ -1606,9 +1606,9 @@ This section will show you how to use the built-in Central API to make calls to 
 
 :::note BETA
 
-The Central API built into libzt is still `beta` and is not included in most builds by default. It is currently only available in `C` and can be enabled by commenting out `#define ZTS_DISABLE_CENTRAL_API 1` in `ZeroTierSockets.h`. You will need your system's edition of the `libcurl` development headers and libraries. This exercise is left to the reader for the time being.
+The Central API built into libzt is still `beta` and is not included in most builds by default. It is currently only available in `C` and can be enabled by commenting out `#define ZTS_DISABLE_CENTRAL_API 1` in `ZeroTierSockets.h`. You will need your system's edition of the `libcurl` development headers and libraries.
 
-You should try to use our API exposed here instead: <a href="https://apidocs.zerotier.com/">apidocs.zerotier.com</a>.
+You can read more about the [Central API spec](/api/central) to learn more about the capabilities is exposes.
 :::
 
 ## Common issues
@@ -1642,7 +1642,7 @@ If the information in those sections hasn't helped, there are a couple of ways t
 
 ## Self-hosting
 
-We expend considerable effort designing and maintaining a robust and globally available constellation of root servers and redundant network controllers but we understand that security practices may require you to function independently from our infrastructure. For this reason we try to make it as easy as possible to set up your own infrastructure: See [here](https://github.com/zerotier/ZeroTierOne/tree/main/controller) to learn more about how to set up your own network controller, and [here](https://docs.zerotier.com/zerotier/moons) to learn more about setting up your own roots.
+We expend considerable effort designing and maintaining a robust and globally available constellation of root servers and redundant network controllers but we understand that security practices may require you to function independently from our infrastructure. For this reason we try to make it as easy as possible to set up your own infrastructure: See [here](https://github.com/zerotier/ZeroTierOne/tree/main/controller) to learn more about how to set up your own network controller, and [here](/roots.md) to learn more about setting up your own roots.
 
 ## Technical notes
 

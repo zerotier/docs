@@ -60,9 +60,7 @@ PING 10.2.0.2 (10.2.0.12) 56(84) bytes of data.
 ### Create an account
 
 :::note
-
 It's free, no credit card is required.
-
 :::
 
 - Go to <a href="https://my.zerotier.com/" target="_blank">my.zerotier.com</a> and create an account.
@@ -114,7 +112,6 @@ We need to tell the client to "join" the virtual network we just created.
 
 - Copy the Network ID of the network from my.zerotier.com
 This is the long number that looks like like: `d5e04297a16fa690`
-
 - Paste the Network ID into the "join" command on your device
 
 On macOS and Windows, there is a menubar/tray app. Select "join" from the menu.
@@ -166,11 +163,9 @@ On Windows, you need to use an Admin Prompt. Type "powershell" into the start me
 </Tabs>
 
 :::note
-
 Every running instance of ZeroTier has a unique address. It's the 10 digit "Address" in the app, or `zerotier-cli info` command.
 
 ZeroTier addresses are a very secure method of unique identification.
-
 :::
 
 ## Authorize your device on your network
@@ -365,6 +360,8 @@ Try switching your phone from wifi to cell and back. It may take about a minute,
 
 ### Try the ping command
 
+For macOS and Linux users, you are going to do the following.
+
 Back in the Command Line / Terminal that you just opened:
 
 - type `ping -c 5 $ZEROTIER_IP_ADDRESS` `<enter>` into your command line.
@@ -414,9 +411,30 @@ Vr HL TOS  Len   ID Flg  off TTL Pro  cks      Src      Dst
  4  5  00 5400 56e7   0 0000  3f  01 d4ad 192.168.82.217  192.168.123.234
 ```
 
+For Windows users, the `-c` parameter is explained as something else. If you want to send 5 packages, you will do the following.
+
+- type `ping -n 5 $ZEROTIER_IP_ADDRESS` `<enter>` into your command line.
+
+A successful `ping`:
+
+```sh
+C:\> ping -n 5 172.22.217.93
+Pinging 172.22.217.93 with 32 bytes of data
+Reply from 172.22.217.93: bytes=32 time=22ms TTL=64 
+Reply from 172.22.217.93: bytes=32 time=10ms TTL=64 
+Reply from 172.22.217.93: bytes=32 time=9ms TTL=64 
+Reply from 172.22.217.93: bytes=32 time=7ms TTL=64 
+Reply from 172.22.217.93: bytes=32 time=9ms TTL=64 
+
+Ping statistics for 172.22.217.93:
+    Packets: Sent = 5, Received = 5, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 5ms, Maximum = 7ms, Average = 6ms
+```
+
 There may just be a typo in the IP address. Double check that your device is authorized at my.zerotier.com
 
-Contact us on the [discussion forum](https://discuss.zerotier.com/) and see the [troubleshooting section](faq) if you get stuck.
+Contact us on the [discussion forum](https://discuss.zerotier.com/) and see the [troubleshooting section](/faq.md) if you get stuck.
 :::
 
 ## Conclusion
@@ -436,7 +454,7 @@ Visit the [discussion forum](https://discuss.zerotier.com/) to talk about your u
 - Build your own [VPN](https://zerotier.atlassian.net/wiki/spaces/SD/pages/7110693/Overriding+Default+Route+Full+Tunnel+Mode)
 - Route to a [remote subnet](https://zerotier.atlassian.net/wiki/spaces/SD/pages/224395274/Route+between+ZeroTier+and+Physical+Networks)
 - Route to a [Docker network](https://zerotier.atlassian.net/wiki/spaces/SD/pages/7274520/Using+NDP+Emulated+6PLANE+Addressing+With+Docker)
-- Add [dns](dns) to your network
+- Add [dns](/dns.md) to your network
 
 ### Join multiple networks
 
@@ -448,4 +466,4 @@ They don't all need to be networks that you've created. You can join other peopl
 
 ### Check out the Whitepaper
 
-For more info on the cryptography and protocol, see the: [Design Whitepaper](protocol)
+For more info on the cryptography and protocol, see the: [Design Whitepaper](./protocol.md)

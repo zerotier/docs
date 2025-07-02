@@ -3,21 +3,27 @@ title: SSO / OIDC
 description: SSO
 ---
 
+:::note
+Device SSO is a paid feature available to Essential and Commercial subscribers. Details about what we charge for and how to manage your subscription are available on the [pricing](/pricing) guide.
+
+For an overview of current pricing and terms including suggested use cases, please see the [Pricing](https://www.zerotier.com/pricing) page on our website.
+:::
+
 ## ZeroTier Central configuration
 
-:::note
-SSO is currently only supported on desktop operating systems such as macOS and Windows. Support for iOS and Android, and better support for authenticating via the command line is still to come.
+:::info
+SSO is currently only supported on desktop operating systems such as macOS and Windows.
 :::
 
 ### Update clients
 
 - Download and install ZeroTier 1.10.3 or greater on clients that will use SSO.
 
-    <https://www.zerotier.com/download/>
+    https://www.zerotier.com/download/
 
 ### Configure SSO in ZeroTier Central
 
-Visit <https://my.zerotier.com/account> and complete the SSO configuration toward the bottom of the page. You will need your sso provider's Issuer URL as well as a Client ID.
+Visit https://my.zerotier.com/account and complete the SSO configuration toward the bottom of the page. You will need your sso provider's Issuer URL as well as a Client ID.
 
 ![SSO-Account-Setup](./images/sso-account-setup-00.png)
 
@@ -32,8 +38,8 @@ If you enable this on an existing network, you may accidentally block existing u
 There are three login modes for SSO enabled networks:
 
 1. Standard - If the user can successfully authenticate to your OIDC provider, they will be allowed access to the ZeroTier network
-2. [Email Based Access](sso#email-based-network-access) - The user is allowed to access the network if and only if their email address is in the email list provided by the network administrator.
-3. [Group/Role Based Access](sso#role-based-network-access) - The user is allowed to access the network if and only if they are assigned one of the  proper roles by the OIDC server.
+2. [Email Based Access](#email-based-network-access) - The user is allowed to access the network if and only if their email address is in the email list provided by the network administrator.
+3. [Group/Role Based Access](#role-based-network-access) - The user is allowed to access the network if and only if they are assigned one of the  proper roles by the OIDC server.
 
 ### Exclude specific devices from SSO requirements
 
@@ -54,14 +60,12 @@ You can do this from the wrench icon in the Members list.
 
 ## Provider Specific Configuration Notes
 
-### Auth0
+### Auth0 {#auth0-config}
 
 Please ensure the following fields are set on your Auth0 application config:
 
-- Application Type:  Native
-- Token Endpoint Authentication Method: None
-- Allowed Callback URL: <http://localhost:9993/sso>
-- Under Advanced Settings -> Grant Types, ensure Authorization Code, and Refresh Token are selected.
+- Application Type: Native
+- Allowed Callback URL: http://localhost:9993/sso
 
 :::note
 
@@ -70,6 +74,15 @@ The OIDC spec is picky about the Issuer URL you enter.  It must match what the s
 In the case of Auth0 specifically, Your Issuer URL *MUST* end with a `/`.  For example, in Auth0's application configuration, show's just the fully qualified domain name.  What must be entered in the Issuer field in ZeroTier Central is: `https://your-domain-id.auth0.com/`
 
 :::
+
+#### Advanced Settings
+
+These grants are required but are set correctly by default
+
+Under Advanced Settings -> Grant Types:
+
+- Authorization Code
+- Refresh Token are selected.
 
 ### Authelia
 
@@ -149,7 +162,7 @@ Example client configuration:
         userinfo_signing_algorithm: none
 ```
 
-### Azure AD
+### Azure AD {#azure-config}
 
 Navigate to your directory in the Azure portal, and select "App Registrations" in the Manage column.
 
@@ -163,11 +176,17 @@ Platform: Public client/native (mobile & desktop)
 
 Set the Redirect URI to `http://localhost:9993/sso`
 
-Do not use a trailing `/` when you enter the "issuer" url in Central.
+#### Getting your AzureAD Issuer URL
+
+Once your app registration is configured, open the "Endpoints" tab.  Look for "OpenID Connect Metadata Document".
+
+![OpenID Connect Metadata Document](./images/azure-issuer-url.png)
+
+The Issuer URL is everything up to `/.well-known/openid-configuration`.  For example `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/v2.0`.  Do not use a trailing `/` when you enter the "issuer" url in Central.
 
 ### Google Workspace
 
-Google OAuth2/OIDC is not supported as Google does not support PKCE clients at this time. You can, however, use [Keycloak as a SAML Identity Broker](http://localhost:3000/central/sso#keycloak-as-a-saml-identity-broker) with Google Workspace.
+Google OAuth2/OIDC is not supported as Google does not support PKCE clients at this time. You can, however, use [Keycloak as a SAML Identity Broker](/sso#keycloak-as-a-saml-identity-broker) with Google Workspace.
 
 ### Keycloak
 
@@ -176,11 +195,11 @@ Log into your Keycloak administration console, go to the Client configuration an
 - Client Protocol: openid-connect
 - Access Type: public
 - Standard Flow Enabled: ON
-- Root URL: <https://my.zerotier.com>
+- Root URL: https://my.zerotier.com
 - Valid Redirect URLS
-  - <https://my.zerotier.com/>*
-  - <http://localhost/sso>
-- Admin URL: <https://my.zerotier.com>
+  - https://my.zerotier.com/*
+  - http://localhost/sso
+- Admin URL: https://my.zerotier.com
 - Web Origins: *
 
 See [here](https://www.keycloak.org/docs/latest/server_admin/index.html#assembly-managing-clients_server_administration_guide) for full documentation for configuring OpenID Connect clients with Keycloak.
@@ -189,12 +208,17 @@ See [here](https://www.keycloak.org/docs/latest/server_admin/index.html#assembly
 
 If you have a SAML provider, but not an OpenID Connect provider, [Keycloak](https://www.keycloak.org) can also be used to bridge the gap. On your keycloak Admin page, go to Identity Providers. From the dropdown, select `SAML v2.0` and create the connection to your SAML provider. Combined with the general Keycloak OIDC client settings above, you now have an OIDC server that authenticates against your SAML provider.
 
-### Okta
+### Okta {#okta-config}
 
-- Application Type:  Native
-- Token Endpoint Authentication Method: None
-- Allowed Callback URL: <http://localhost:9993/sso>
-- Under Advanced Settings -> Grant Types, ensure Implicit, Authorization Code, and Refresh Token are selected.
+- Application Type: Native
+- Client authentication: None
+- Sign-in redirect URL: http://localhost:9993/sso
+- Grant type: Implicit, Authorization Code, and Refresh Token are selected.
+
+#### Central config
+
+- Client ID is in General -> Client ID
+- Issuer URL is in the menubar. Add "https://" to the beginning when adding to Central.
 
 ### OneLogin
 
@@ -204,9 +228,9 @@ OneLogin requires ZeroTier One v1.10.3+
 
 :::
 
-Log in to your OneLogin admin console.  Select "Custom Connectors" from the "Applications" menu.  Hit the "New Connector" button.  Name your connector, set Sign on method to OpenID Connect, and set the Redirect URI to `https://localhost:9993/sso`. Finally, back on the on Custom Connectors page, hit the "Add App to Connector" link. Adjust the description & logo settings as you see fit, and then save.
+Log in to your OneLogin admin console.  Select "Custom Connectors" from the "Applications" menu.  Hit the "New Connector" button.  Name your connector, set Sign on method to OpenID Connect, and set the Redirect URI to `http://localhost:9993/sso`. Finally, back on the on Custom Connectors page, hit the "Add App to Connector" link. Adjust the description & logo settings as you see fit, and then save.
 
-Once the above steps are complete, go to the SSO tab for your new OneLogin Application. Set "Application Type" to "Native", and "Token Endpoint" to "None (PKCE)".  You'll also find the required Client ID and Issuer URLs to enter into <https://my.zerotier.com/account>.
+Once the above steps are complete, go to the SSO tab for your new OneLogin Application. Set "Application Type" to "Native", and "Token Endpoint" to "None (PKCE)".  You'll also find the required Client ID and Issuer URLs to enter into https://my.zerotier.com/account.
 
 ## Customizing the Final SSO Flow Page
 
@@ -250,7 +274,7 @@ Configuring Role Based Access controls is different across all of the different 
 
 Role/group names are up to the network administrator.  Simply add one or more role name to your network configuration, and users will be required to have at least one of those roles assigned in order to access the network.
 
-### Auth0
+### Auth0 {#auth0-rbac}
 
 Auth0 requires multiple steps to configure.
 
@@ -290,9 +314,9 @@ Hit the `<- Back to flow` link, which will take you back to the Login Flow graph
 
 Your users' assigned roles will now be attached to the tokens required to authorize a user on your ZeroTier networks.
 
-### Azure AD
+### Azure AD {#azure-rbac}
 
-<https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps>
+https://learn.microsoft.com/en-us/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps
 
 ### Step 1: Create an App Role
 
@@ -300,7 +324,7 @@ In the Azure portal, go to Azure Active Directory and select App Registrations. 
 
 ![azure app role](./images/sso-azure-app-role-06.png)
 
-The `Value` field is what you use as the role name in the network configuration on <https://my.zerotier.com>
+The `Value` field is what you use as the role name in the network configuration on https://my.zerotier.com
 
 ### Step 2: Assign App Role
 
@@ -308,7 +332,7 @@ Go back to Azure Active Directory in the Azure portal. Select Enterprise Applica
 
 Select `Users and Groups` from the Manage menu. Select all of the users you want to assign the App Role and select `Edit Assignment`.  Click on the area of the screen that says "Select a Role", then find your newly created app role from step 1, click it and hit the `Select` button.
 
-### Okta
+### Okta {#okta-rbac}
 
 Okta doesn't have the concept of Roles, but it does have Groups that can be used for the same purpose when authenticating to a ZeroTier network.
 

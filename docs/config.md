@@ -93,6 +93,10 @@ systems.
 `local.conf` is a JSON format file that can also be edited and rewritten
 by ZeroTier One itself, so ensure that proper JSON formatting is used. Paste your JSON into a JSON tool before saving your configuration file.
 
+You can confirm your settings with `zerotier-cli info -j`
+
+In many cases you need to restart the zerotier system service after making changes to local.conf
+
 Settings available in `local.conf` (this is not valid JSON, and JSON
 does not allow comments):
 
@@ -101,7 +105,6 @@ does not allow comments):
     "physical": { /* Settings that apply to physical L2/L3 network paths. */
         "NETWORK/bits": { /* Network e.g. 10.0.0.0/24 or fd00::/32 */
             "blacklist": true|false, /* If true, blacklist this path for all ZeroTier traffic */
-            "trustedPathId": 0|!0 /* If present and nonzero, define this as a trusted path (see below) */
         } /* ,... additional networks */
     },
     "virtual": { /* Settings applied to ZeroTier virtual network devices (VL1) */
@@ -111,55 +114,68 @@ does not allow comments):
         }
     },
     "settings": { /* Other global settings */
-        "primaryPort": 0-65535, /* If set, override default port of 9993 and any command line port */
+        "primaryPort": 0-65535, /* If set, override default port of 9993 and any command line port. It's better to leave this alone, and modify the secondaryPort */
+        "secondaryPort": 0-65535, /* If set, override default random secondary port (UDP) */
+        "tertiaryPort": 0-65535, /* If set, override default random tertiary port. Used for port mapping. */
         "portMappingEnabled": true|false, /* If true (the default), try to use uPnP or NAT-PMP to map ports */
-        "softwareUpdate": "apply"|"download"|"disable", /* Automatically apply updates, just download, or disable built-in software updates */
-        "softwareUpdateChannel": "release"|"beta", /* Software update channel */
-        "softwareUpdateDist": true|false, /* If true, distribute software updates (only really useful to ZeroTier, Inc. itself, default is false) */
+        "forceTcpRelay": true|false, /* Not typically recommended */
         "interfacePrefixBlacklist": [ "XXX",... ], /* Array of interface name prefixes (e.g. eth for eth#) to blacklist for ZT traffic */
         "allowManagementFrom": [ "NETWORK/bits" ]|null, /* If non-NULL, allow JSON/HTTP management from this IP network. Default is 127.0.0.1 only. */
         "allowTcpFallbackRelay": true|false /* Allow or disallow establishment of TCP relay connections (true by default) */
+        "bind": [ "ip",... ], /* If present and non-null, bind to these IPs instead of to each interface (wildcard IP allowed) */
     }
 }
 ```
 
-- **trustedPathId**: A trusted path is a physical network over which
-    encryption and authentication are not required. This provides a
-    performance boost but sacrifices all ZeroTier's security features
-    when communicating over this path. *Only use this feature if you
-    know what you are doing and really need the performance!* To set up
-    a trusted path, all devices on the same trusted physical network
-    must have the same trusted path ID. Trusted path IDs are arbitrary
-    unsigned 64-bit integers. These are not secrets. The security of a
-    trusted path depends on its physical configuration. Take special
-    care that any firewalls at its boundaries do not allow traffic in
-    our out with IPs overlapping the trusted network range.
+### Examples
 
-An example `local.conf`:
+#### Set a static secondary port
 
 ```json
-{
-    "physical": {
-        "10.0.0.0/24": {
-            "blacklist": true
-        },
-        "10.10.10.0/24": {
-            "trustedPathId": 101010024
-        },
-    },
-    "virtual": {
-        "feedbeef12": {
-            "role": "UPSTREAM",
-            "try": [ "10.10.20.1/9993" ],
-            "blacklist": [ "192.168.0.0/24" ]
-        }
-    },
-    "settings": {
-        "softwareUpdate": "apply",
-        "softwareUpdateChannel": "release"
-    }
-}
+{ "settings": { "secondaryPort": 19991 }}
 ```
+
+#### Disable UPnP and NAT-PMP
+
+```json
+{ "settings": { "portMappingEnabled": false }}
+```
+
+#### Disable second and third listening ports
+
+Listen on only one port (9993)
+
+```json
+{ "settings": { "allowSecondaryPort": false, "portMappingEnabled": false }}
+```
+
+#### Bind to a specific IP
+
+```json
+{ "settings": { "bind": ["198.51.100.17"] }}
+```
+
+#### Blacklist a subnet for physical connections
+
+```json
+{"physical": {"10.0.0.0/24": {"blacklist": true}}}
+```
+
+### trustedPathId
+
+This is an old feature that we do not suggest or support anymore.
+
+A trusted path is a physical network over which
+encryption and authentication are not required. This provides a
+performance boost but sacrifices all ZeroTier's security features
+when communicating over this path. *Only use this feature if you
+know what you are doing and really need the performance!* To set up
+a trusted path, all devices on the same trusted physical network
+must have the same trusted path ID. Trusted path IDs are arbitrary
+unsigned 64-bit integers. These are not secrets. The security of a
+trusted path depends on its physical configuration. Take special
+care that any firewalls at its boundaries do not allow traffic in
+our out with IPs overlapping the trusted network range.
 
 ## `authtoken` location
 

@@ -17,7 +17,7 @@ If the NAT type is "symmetric" or "strict" or "endpoint dependent mapping" (each
 
 Look for Full Cone NAT, options related to VoIP, persistent NAT, Endpoint Independent Mapping, etc…
 
-Ask your vendor. Let us know what works.
+Ask your vendor. Let us know what works
 
 Here's a table of the likeliness of a direct connection between two types of NAT:
 
@@ -37,24 +37,41 @@ And a network diagram:
 - Check zerotier-cli peers and see if connections to peers you care about are "relayed"
 
 :::tip
-See also: [Router Configuration Tips](./routertips.md)
+See also: [Router Configuration Tips](/routertips.md)
 :::
 
-## Palo Alto
+## Vendor Specific Tips
+
+### Palo Alto
 
 If you are behind a Palo Alto, you will need some kind of ZeroTier bastion. As far as we know, there's no way to enable endpoint independent mapping. Contact us for help.
 
-One simple solution might be: statically port forward to one zerotier node, and use that node as a [route between zerotier and physical networks](./route-between-phys-and-virt).
+See [below](#i-cant-change-my-firewall-or-nat) for some ideas.
 
-## OPNSense and pfSense
+PAN-OS 10.1.7 and above have a [Persistent NAT feature](https://docs.paloaltonetworks.com/pan-os/10-1/pan-os-new-features/networking-features/persistent-nat-for-dipp). Please let us know if this improves your ZeroTier connections.
+
+### OPNSense and pfSense
 
 Nodes behind these BSD based firewalls will probably have trouble making direct connections with the default settings.
-See [OPNsense article](opnsense#static-port)
+See [OPNsense article](/opnsense.md#static-port)
 
-## Juniper
+### Juniper
 
 Use persistent NAT. See [forum post](https://discuss.zerotier.com/t/srx-nat-configuration-for-a-zt-appliance/6115)
 
-## SonicWall
+### SonicWall
 
 Commonly cause of relaying. We haven't seen the SonicWall UI in quite some time. The setting may be be called "Consistent NAT."
+
+## I can't change my Firewall or NAT
+
+Here are a few options:
+
+### ZeroTier Router
+
+One simple solution might be: statically port forward to one zerotier node, and use that node as a [route between zerotier and physical networks](/route-between-phys-and-virt.md).
+
+### TCP relay
+
+If your physical network won't let any UDP flow, host a TCP relay service somewhere physically close to your LAN. Maybe in a DMZ or in a datacenter in the same city.
+See the [TCP Relay guide](https://github.com/zerotier/pylon?tab=readme-ov-file#reflect-dumb-tcp-relay)

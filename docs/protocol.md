@@ -76,10 +76,10 @@ definitions to be updated in-band if root servers' IP addresses or
 ZeroTier addresses change.
 
 There is only one planet. Earth's root servers are operated by ZeroTier,
-Inc. as a free service. There are currently twelve root servers
-organized into two six-member clusters distributed across every major
-continent and multiple network providers. Almost everyone in the world
-has one within less than 100ms network latency from their location.
+Inc. as a free service. There are currently four root servers
+distributed across the globe and multiple network providers. Almost
+everyone in the world has one within less than 100ms network latency from
+their location.
 
 A node can "orbit" any number of moons. A moon is just a convenient way
 to add user-defined root servers to the pool. Users can create moons to
@@ -213,7 +213,7 @@ CPU overhead of double-encryption is not significant for most work
 loads.
 
 :::info Security
-[More information on ZeroTier's security practices](security)
+[More information on ZeroTier's security practices](/security.md)
 :::
 
 ### Trusted Paths for Fast Local SDN {#trustedpaths}
@@ -236,15 +236,6 @@ network. Larger cloud providers such as Amazon and Azure tend to provide
 good network segregation but many less costly providers offer private
 networks that are "party lines" and are not much more secure than the
 open Internet.
-
-### Multipath {#multipath}
-
-Multipath allows the simultaneous (or conditional) aggregation of multiple physical links into a bond for increased total throughput, load balancing, redundancy, and fault tolerance. There is a set of standard bonding policies available that can be used right out of the box with no configuration. These policies are inspired by the policies offered by the Linux kernel. A bonding policy can be used easily without specifying any additional parameters.
-
-:::info Multipath Guide
-
-- See [here](multipath) for more info and examples.
-:::
 
 ### Ethernet Virtualization Layer (VL2) {#vl2}
 
@@ -463,7 +454,7 @@ DHCP that may not be wanted across the bridge, are beyond the scope of
 this manual.
 
 :::info Guide
-See our [bridging tutorial](bridging)
+See our [bridging tutorial](/bridging.md)
 :::
 
 ### Public Networks {#public}

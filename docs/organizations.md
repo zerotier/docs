@@ -3,7 +3,13 @@ title: Organizations
 description: How to use ZeroTier Organizations
 ---
 
-You've subscribed to my.zerotier.com and want your coworkers to also have the benefits of a Pro account.
+:::note
+Multiple Admins are a paid feature available to Essential and Commercial subscribers. Details about what we charge for and how to manage your subscription are available on the [pricing](/pricing) guide.
+
+For an overview of current pricing and terms including suggested use cases, please see the [Pricing](https://www.zerotier.com/pricing) page on our website.
+:::
+
+You can invite your teammates to help manage your ZeroTier network deployments on the [Central Account Page](https://my.zerotier.com/account).
 
 Add them to your Organization by going to my.zerotier.com/account
 
@@ -33,14 +39,18 @@ There is currently no straight-forward way to do this, and ZeroTier support can'
 
 The secure way to do this is to change the login of the organization owner:
 
-- Go to <https://my.zerotier.com/account>
+- Go to https://my.zerotier.com/account
 - click Manage Account
 - Click Personal Info
 - Change the email address to the new organization owner's email
 - Log out and back in
 - You may want to change the password as well
 
-Consider using a general email address like "<billing@example.com>" or "<zerotier@example.com>" when you sign up, or when you change org owners.
+Consider using a general email address like billing@example.com or zerotier@example.com when you sign up, or when you change org owners.
+
+:::note
+If the target email address already has an account at https://my.zerotier.com, that account must first be deleted.
+:::
 
 #### Can I move or transfer my network(s) to another user?
 
