@@ -1,6 +1,8 @@
 ---
 title: My New Article Style Guide
 description: Intro sentence that conveys meaning in first 60 or so characters, this is truncated and displayed in thumbnails.
+tags: [tutorial, example, meta]
+category: 
 ---
 
 ### Example section {#example}

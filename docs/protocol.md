@@ -1,6 +1,8 @@
 ---
 title: The Protocol
 description: Detailed explanation of the ZeroTier wire protocol
+tags: []
+category: 
 ---
 
 ZeroTier is a smart programmable Ethernet switch for planet Earth. It allows all networked devices, VMs, containers, and applications to communicate as if they all reside in the same physical data center or cloud region.

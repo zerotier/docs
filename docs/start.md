@@ -1,6 +1,8 @@
 ---
 title: Create a Network
 description: Get Started
+tags: [tutorial, newcomer, installation, client, central, admin]
+category: 
 ---
 
 import Tabs from '@theme/Tabs';

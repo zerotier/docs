@@ -1,6 +1,8 @@
 ---
 title: Rules FAQ
 description: Rules for common use cases
+tags: [rules, faq, examples, platform-specific]
+category: Advanced Networking
 ---
 
 :::info

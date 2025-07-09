@@ -1,6 +1,8 @@
 ---
 title: Amazon VPC Gateway
 description: Make your Amazon VPC accessible via ZeroTier
+tags: [aws, tutorial, platform-specific]
+category: Guide
 ---
 
 This guide assumes that you've already created an Amazon VPC and you want to make it accessible from a ZeroTier virtual network and vice-versa.

@@ -1,6 +1,8 @@
 ---
 title: Windows FAQ
 description: Guidance for running ZeroTier on Windows
+tags: [windows, faq, troubleshooting, platform-specific]
+category: Platform-Specific
 ---
 
 ### Installing ZeroTier over Windows Remote Desktop

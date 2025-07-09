@@ -1,11 +1,10 @@
 ---
 title: Linux FAQ
 description: Guidance for running ZeroTier on Linux
+tags: [linux, faq, troubleshooting, client, platform-specific]
+category: Platform-Specific
 ---
 
-:::tip
-[See community threads about ZeroTier on Linux](https://discuss.zerotier.com/search?q=linux)
-:::
 
 ### Why is the virtual interface limited to 10Mb/s?
 

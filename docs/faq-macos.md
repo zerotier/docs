@@ -1,6 +1,8 @@
 ---
 title: macOS FAQ
 description: Guidance for running ZeroTier on macOS
+tags: [macos, faq, troubleshooting, client, platform-specific]
+category: Platform-Specific
 ---
 
 ### Start and Stop ZeroTier on your Mac

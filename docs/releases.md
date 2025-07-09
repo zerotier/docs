@@ -1,6 +1,8 @@
 ---
 title: Get ZeroTier
 description: Downloads and release notes
+tags: [installation, meta]
+category: 
 custom_edit_url: null
 ---
 

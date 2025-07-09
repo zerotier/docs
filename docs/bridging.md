@@ -1,6 +1,8 @@
 ---
 title: Layer 2 Bridge
 description: Bridge your physical LAN to ZeroTier using a Raspberry Pi
+tags: [bridging, tutorial, pi]
+category: Advanced Networking
 ---
 
 Do you have devices that can't run ZeroTier that you want to access remotely? You can use a small Linux PC as a bridge between ZeroTier and physical networks.

@@ -2,6 +2,8 @@
 title: ZeroTier API
 description: >
   Overview of the ZeroTier Service and Central APIs
+tags: [development, hub, api, service, central, controller]
+category: Development
 ---
 
 import DocCardList from '@theme/DocCardList';

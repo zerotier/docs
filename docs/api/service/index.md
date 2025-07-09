@@ -2,6 +2,8 @@
 title: ZeroTierOne Service API
 description: >
   Overview of the ZeroTierOne Service API
+tags: [development, hub, api, service, controller]
+category: Development
 ---
 
 The ZeroTierOne service provides an API which is used by the [ZeroTierOne CLI](/cli) and other clients to manage settings on your local instance of ZeroTier. This administration API is restricted to `localhost` by default, and requires authentication using an [API token](/api/tokens#zerotierone-service-token).

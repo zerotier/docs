@@ -1,6 +1,8 @@
 ---
 title: Unknown Node ID
 description: Unknown Node ID
+tags: [tutorial, troubleshooting, subpage]
+category: 
 ---
 
 Is the Windows ZeroTier tray app saying "Unknown" for the Node ID? That means the ZeroTier One system service isn't running for some reason. Here's how to turn it back on.

@@ -1,6 +1,8 @@
 ---
 title: Synology
 description: How to install ZeroTier on your Synology NAS
+tags: [synology, nas, installation, setup, docker, platform-specific]
+category: Platform-Specific
 ---
 
 :::tip DSM 6

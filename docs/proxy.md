@@ -1,6 +1,8 @@
 ---
 title: Layer 5 Proxy (Pylon)
 description: Make a SOCKS5 Proxy with ZeroTier
+tags: [tutorial, bridging]
+category: 
 ---
 
 [zerotier/pylon](https://github.com/zerotier/pylon) is a tool built using [libzt](https://github.com/zerotier/libzt) that allows you to run a SOCKS5 Proxy that connects services and apps to and from your secure ZeroTier network without installing ZeroTier and without bringing up any new network interfaces. Pylon can be run as one of two personalities that can work alone or together depending on your needs:

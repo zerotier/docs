@@ -1,6 +1,8 @@
 ---
 title: Corporate Firewalls
 description: How to make direct connections through a corporate firewall
+tags: [platform-specific, troubleshooting, controller, admin]
+category: 
 ---
 
 There are 3 classes of nodes in a working ZeroTier system: The roots, a controller, and your devices. Your devices need to be able to communicate directly with each other. ZeroTier uses UDP hole punching to do this. It's a similar process to VoIP STUN/TURN. The difficulty for strict firewall configurations is: the my.zerotier.com controllers and your devices are on dynamic IP addresses and are listening on random UDP ports.

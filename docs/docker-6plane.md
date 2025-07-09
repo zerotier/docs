@@ -1,6 +1,8 @@
 ---
 title: 6PLANE with Docker
 description: NDP Emulated 6PLANE with Docker
+tags: [docker, platform-specific]
+category: 
 ---
 
 6PLANE provides a convenient way to assign private IPv6 backplane addresses to Docker containers, virtual machines, and any other case where you have M hosts hosting N "things." In 6PLANE mode each device gets a fully routable IPv6 `/80`, allowing it to assign up to `2^48` addresses to things it hosts. Routing is accomplished by way of the NDP emulation "magic" described below.

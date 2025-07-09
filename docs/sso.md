@@ -1,6 +1,8 @@
 ---
 title: SSO / OIDC
 description: SSO
+tags: [admin, central, subscriber, tutorial, security]
+category: 
 ---
 
 :::note

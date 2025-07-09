@@ -1,6 +1,8 @@
 ---
 title: Audit Logs
 description: Audit logs provide visibility into use of the Central dashboard and API.
+tags: [subscriber, api, central]
+category: Service Providers
 ---
 
 :::note

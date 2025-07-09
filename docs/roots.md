@@ -1,6 +1,8 @@
 ---
 title: Private Root Servers
 description: How to host your own root servers
+tags: [tutorial, admin]
+category: 
 ---
 
 :::warning

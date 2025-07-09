@@ -1,6 +1,8 @@
 ---
 title: FAQ
 description: Answers to commonly asked questions
+tags: [faq, troubleshooting, hub]
+category: Getting Started
 ---
 
 ### Minimum System Requirements {#system-requirements}

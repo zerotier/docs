@@ -1,14 +1,12 @@
 ---
 title: Troubleshooting
 description: Tips and suggestions for troubleshooting
+tags: [troubleshooting, faq, hub]
+category: 
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
-:::tip Can't find an answer?
-[Ask our community for help](https://discuss.zerotier.com)
-:::
 
 ## Ping is not working {#ping}
 

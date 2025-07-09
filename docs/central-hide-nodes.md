@@ -1,6 +1,8 @@
 ---
 title: Hide or Delete Nodes
 description: How to hide or delete nodes on your ZeroTier network
+tags: [central, admin, customer-support]
+category: 
 ---
 
 There are delete and hide buttons on the right side of the list nodes in the Members section of a ZeroTier network.

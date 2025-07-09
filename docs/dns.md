@@ -1,6 +1,8 @@
 ---
 title: DNS
 description: ZeroNSD - DNS on your ZeroTier network
+tags: [admin, tutorial]
+category: 
 ---
 
 :::info BETA

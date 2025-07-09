@@ -1,6 +1,8 @@
 ---
 title: Web Hooks
 description: ZeroTier Central Webhooks
+tags: [subscriber, tutorial, developer, admin]
+category: 
 ---
 
 :::note

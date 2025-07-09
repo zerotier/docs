@@ -1,6 +1,8 @@
 ---
 title: Invoices, Billing, Unsubscribe
 description: How to download invoices, update billing info, or unsubscribe
+tags: [central, admin, billing, subscriber, customer-support]
+category: 
 ---
 
 - Go to your [account page](https://my.zerotier.com/account)

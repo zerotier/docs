@@ -1,6 +1,8 @@
 ---
 title: Snap Package
 description: How to install the ZeroTier Snap package
+tags: [linux, installation, platform-specific]
+category: Platform-Specific
 ---
 
 *"Snaps are containerised software packages that are simple to create and install. They auto-update and are safe to run. And because they bundle their dependencies, they work on all major Linux systems without modification."* - snapcraft.io

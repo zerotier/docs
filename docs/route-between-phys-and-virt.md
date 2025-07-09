@@ -1,6 +1,8 @@
 ---
 title: Route between ZeroTier and Physical Networks
 description: Get remote access to your LAN
+tags: [tutorial, example]
+category: 
 ---
 
 This seems to be the simplest pattern for getting remote access to your LAN. It doesn't require access to the LAN's router or have some of the pitfalls of bridging. This requires a Linux PC or VM, something that runs iptables, on your LAN. A Raspberry Pi works. This is a NAT/Masquerade setup.
