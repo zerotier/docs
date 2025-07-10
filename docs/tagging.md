@@ -35,4 +35,3 @@ All pages on this site should be appropriately tagged.
 ### Meta Tags
 
 - `flag`, `meta`, `deprecated`
-
