@@ -2,7 +2,6 @@
 title: Add new SSO Seats
 description: Add new SSO Seats
 tags: [admin, central, subscriber]
-category: 
 ---
 
 :::info

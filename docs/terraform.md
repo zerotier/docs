@@ -2,7 +2,6 @@
 title: Terraform
 description: Describe your ZeroTier networks as code using Terraform
 tags: [terraform, api, tutorial, developer]
-category: Development
 ---
 
 :::info Advanced

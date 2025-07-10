@@ -2,7 +2,6 @@
 title: FreeNAS
 description: How to run ZeroTier on your FreeNAS box
 tags: [freenas, installation, platform-specific]
-category: Platform-Specific
 ---
 
 ZeroTier comes pre-installed on FreeNAS as of `FreeNAS-11.0-RC2` released May 23, 2017.

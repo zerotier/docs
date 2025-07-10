@@ -253,6 +253,8 @@ module.exports = {
         slug: '/service-providers',
       },
       items: ['faq-rules', 'sso', 'central-admins', 'audit-logs'],
-    }
+    },
+    'tagging',
+    'glossary'
   ]
 }

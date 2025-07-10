@@ -2,7 +2,6 @@
 title: CLI
 description: How to use the Command Line Interface
 tags: [client, administration, tutorial, examples]
-category: Getting Started
 ---
 
 This guide provides examples of how to use the ZeroTier client-side CLI. The client CLI is currently only responsible for managing a specific node and its network membership. To control and configure networks you'll need to use the [Central UI](/start) or the [Central API](/api/central).

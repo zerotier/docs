@@ -1,8 +1,7 @@
 ---
 title: LAN Game Announcements
 description: Problems With LAN Game Announcements and Broadcasts on Windows
-tags: [faq, troubleshooting, flag]
-category: 
+tags: [windows, faq, troubleshooting, flag]
 ---
 
 On Windows, users trying to use LAN games, Bonjour/mDNS, or other broadcast or multicast protocols may have problems with those protocols announcing over ZeroTier networks. This is a [known Windows issue, and a work-around is documented on Microsoft Technet](https://social.technet.microsoft.com/Forums/windows/en-US/72e7387a-9f2c-4bf4-a004-c89ddde1c8aa/how-to-fix-the-global-broadcast-address-255255255255-behavior-on-windows?forum=w7itpronetworking).

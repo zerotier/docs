@@ -2,7 +2,6 @@
 title: AWS
 description: Guidance for using ZeroTier with AWS
 tags: [aws, troubleshooting, platform-specific]
-category: Guide
 ---
 
 ### Slow/Low Speed Connectivity with EC2

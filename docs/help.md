@@ -2,7 +2,6 @@
 title: Help
 description: Where to get help with ZeroTier
 tags: [meta, faq, customer-support]
-category: 
 custom_edit_url: null
 ---
 

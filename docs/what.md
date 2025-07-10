@@ -1,8 +1,7 @@
 ---
 title: What is ZeroTier?
 description: A warm snuggly blanket for your network
-tags: [meta]
-category: 
+tags: [ZeroTier explanation, beginner]
 custom_edit_url: null
 # cSpell:words snuggly
 ---

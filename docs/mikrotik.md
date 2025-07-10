@@ -2,7 +2,6 @@
 title: MikroTik
 description: How to install ZeroTier on your MikroTik router
 tags: [mikrotik, installation, platform-specific]
-category: Platform-Specific
 ---
 
 MikroTik maintains a [ZeroTier package](https://help.mikrotik.com/docs/display/ROS/ZeroTier) for their line of networking products.

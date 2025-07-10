@@ -2,7 +2,6 @@
 title: Glossary
 description: Common terms and concepts
 tags: [meta, examples, hub, faq]
-category: 
 ---
 
 ## ZeroTier

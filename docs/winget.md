@@ -3,7 +3,6 @@ title: WinGet
 description: How to install the ZeroTier WinGet package
 custom_edit_url: null
 tags: [windows, installation, platform-specific]
-category: Platform-Specific
 ---
 
 ### Install

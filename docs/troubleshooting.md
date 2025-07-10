@@ -2,7 +2,6 @@
 title: Troubleshooting
 description: Tips and suggestions for troubleshooting
 tags: [troubleshooting, faq, hub]
-category: 
 ---
 
 import Tabs from '@theme/Tabs';

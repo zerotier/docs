@@ -3,7 +3,6 @@ title: Terraform (Multicloud)
 description: Use ZeroTier in combination with multiple Terraform cloud providers
 # cSpell:words Gizienski Hinojosa
 tags: [terraform, tutorial, developer, api]
-category: Development
 ---
 
 ## Welcome

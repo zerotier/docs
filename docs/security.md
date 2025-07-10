@@ -2,7 +2,6 @@
 title: ZeroTier Security
 description: Security is central to what we do at ZeroTier
 tags: [security, meta]
-category: 
 ---
 
 ZeroTier is trusted by millions of users across thousands of organizations to provide secure, private networking. Our product and platform are designed to keep data confidential, minimize the user/organizational data collected, and preserve user privacy.

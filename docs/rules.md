@@ -2,7 +2,6 @@
 title: Rules Engine
 description: Traffic Flow Rules / ACLs
 tags: [rules, tutorial, admin]
-category: 
 ---
 
 Traffic on ZeroTier networks can be observed and controlled with a

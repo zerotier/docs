@@ -2,7 +2,6 @@
 title: DNS Management
 description: DNS Management
 tags: [admin]
-category: 
 ---
 
 :::info

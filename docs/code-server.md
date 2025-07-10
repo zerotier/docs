@@ -1,8 +1,7 @@
 ---
 title: code-server + ZeroTier
 description: Edit code remotely with VS Code and ZeroTier
-tags: [tutorial, example, newcomer]
-category: 
+tags: [tutorial, example, beginner]
 ---
 
 ![VS Code in the browser](./images/code-server-02.png)

@@ -2,7 +2,6 @@
 title: ASUSTOR
 description: How to install ZeroTier on your Asustor NAS
 tags: [platform-specific, asustor, nas, installation]
-category: Platform-Specific
 ---
 
 ### Install

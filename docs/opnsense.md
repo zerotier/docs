@@ -2,7 +2,6 @@
 title: OPNsense
 description: How to install ZeroTier on your OPNSense router
 tags: [opnsense, router, installation, freebsd, tutorial]
-category: Platform-Specific
 ---
 
 OPNSense

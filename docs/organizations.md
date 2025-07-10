@@ -2,7 +2,6 @@
 title: Organizations
 description: How to use ZeroTier Organizations
 tags: [central, admin, tutorial, subscriber]
-category: 
 ---
 
 :::note

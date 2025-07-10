@@ -2,7 +2,6 @@
 title: Integrating with Physical Networks
 description: Remote access to your LAN
 tags: [bridging, tutorial, hub]
-category: 
 ---
 
 ZeroTier creates networks interfaces, IP addresses, and routes on your computers. Because of this, you can use all the standard networking tools and techniques with your ZeroTier networks.

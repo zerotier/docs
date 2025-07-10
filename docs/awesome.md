@@ -1,8 +1,7 @@
 ---
 title: What can I do with ZeroTier?
 description: List of things you can do with ZeroTier
-tags: [hub, examples, newcomer]
-category: 
+tags: [hub, examples, beginner]
 toc_max_heading_level: 2
 ---
 

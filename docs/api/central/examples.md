@@ -2,7 +2,6 @@
 title: Central API Examples
 description: "Code snippets and usage examples for the ZeroTier Central API"
 tags: [development, api, central, examples, tutorial]
-category: Development
 ---
 
 import Tabs from '@theme/Tabs';

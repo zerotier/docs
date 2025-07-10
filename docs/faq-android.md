@@ -2,7 +2,6 @@
 title: Android FAQ
 description: Guidance for running ZeroTier on Android
 tags: [android, faq, troubleshooting, mobile-app, installation, client, platform-specific]
-category: Platform-Specific
 ---
 
 ### Where do I get the ZeroTier Android app?

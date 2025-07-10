@@ -2,7 +2,6 @@
 title: VPN Exit Node
 description: Route all your Internet traffic through a ZeroTier node
 tags: [tutorial, example]
-category: 
 ---
 
 ## Full Tunnel Mode or, Overriding Default Route

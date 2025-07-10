@@ -2,7 +2,6 @@
 title: iOS or iPadOS FAQ
 description: Guidance for running ZeroTier on iOS or iPadOS
 tags: [ios, mobile-app, faq, installation, client, platform-specific]
-category: Platform-Specific
 ---
 
 ### Where do I get the ZeroTier iOS app?

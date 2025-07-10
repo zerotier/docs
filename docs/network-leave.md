@@ -2,7 +2,6 @@
 title: Leave Network
 description: Removing your node from a ZeroTier virtual network
 tags: [tutorial, client]
-category: 
 ---
 
 When you leave a network, your device won't talk to devices on that network.
