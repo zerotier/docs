@@ -4,11 +4,9 @@ description: Tags Description and Usage
 tags: [meta]
 ---
 
-
 ## Tagging
 
 All pages on this site should be appropriately tagged.
-
 
 ### Platform Tags
 
