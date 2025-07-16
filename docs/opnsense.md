@@ -1,6 +1,7 @@
 ---
 title: OPNsense
 description: How to install ZeroTier on your OPNSense router
+tags: [opnsense, router, installation, freebsd, tutorial]
 ---
 
 OPNSense
@@ -27,7 +28,7 @@ The work-around is to paste this into the local.conf text box in the opnsense UI
 }
 ```
 
-This prevents zerotier from sending zerotier traffic over zerotier.
+This prevents ZeroTier from sending ZeroTier traffic over ZeroTier.
 
 See this [discussion](https://github.com/zerotier/ZeroTierOne/issues/779#issuecomment-767198156) for more information.
 

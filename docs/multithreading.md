@@ -1,6 +1,7 @@
 ---
 title: Multithreading
 description: Enable ZeroTier to use multiple physical cores
+tags: [tutorial, troubleshooting, local-config]
 ---
 
 As of version `1.14.1` ZeroTier is capable of utilizing more than one CPU core for traffic processing. This enables greater total throughput and more efficient use of machines handling large amounts of traffic.

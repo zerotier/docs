@@ -1,6 +1,7 @@
 ---
 title: What is a Network Controller?
 description: Yes this is different than a root server
+tags: [controller, examples, api, beginner]
 ---
 
 :::info

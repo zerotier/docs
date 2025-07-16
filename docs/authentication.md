@@ -1,6 +1,7 @@
 ---
 title: Authentication, Login, and Email issues
 description: Did you check your spam folder?
+tags: [central, customer-support]
 ---
 
 ### Not receiving emails from us?

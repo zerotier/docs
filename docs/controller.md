@@ -1,6 +1,7 @@
 ---
 title: Network Controller
 description: Host your own network controllers
+tags: [controller, tutorial, api, admin]
 ---
 
 :::info

@@ -1,6 +1,7 @@
 ---
 title: Pi-Hole
 description: Block Ads with a Pi-Hole on your ZeroTier network
+tags: [raspberry-pi, tutorial, installation]
 ---
 
 Block Ads with a Pi-Hole on your ZeroTier network

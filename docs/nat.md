@@ -1,6 +1,7 @@
 ---
 title: NAT
 description: How to figure out what kind of NAT you have
+tags: [tutorial, troubleshooting]
 ---
 
 ### How to characterize NAT {#stun}

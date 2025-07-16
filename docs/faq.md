@@ -1,6 +1,7 @@
 ---
 title: FAQ
 description: Answers to commonly asked questions
+tags: [faq, troubleshooting, hub]
 ---
 
 ### Minimum System Requirements {#system-requirements}

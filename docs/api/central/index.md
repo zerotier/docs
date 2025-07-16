@@ -2,6 +2,7 @@
 title: ZeroTier Central API
 description: >
   Overview of the ZeroTier Central API
+tags: [development, hub, api, central]
 ---
 
 [Central](/central) is our hosted control plane for ZeroTierOne networks.

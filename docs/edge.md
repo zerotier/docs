@@ -1,6 +1,7 @@
 ---
 title: Edge
 description: Run ZeroTier on the edge
+tags: [tutorial, deprecated]
 ---
 
 :::caution End-of-Life

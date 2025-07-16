@@ -1,6 +1,7 @@
 ---
 title: Help
 description: Where to get help with ZeroTier
+tags: [meta, faq, customer-support]
 custom_edit_url: null
 ---
 
@@ -13,10 +14,6 @@ custom_edit_url: null
 - [github.com/zerotier/ZeroTierOne/issues](https://github.com/zerotier/ZeroTierOne/issues)
 
 ### Social Media
-
-:::tip
-We are more active on our [Forum](https://discuss.zerotier.com)
-:::
 
 - [Mastodon as @zerotier](https://social.zerotier.com/@zerotier)
 - [reddit.com/r/zerotier](https://old.reddit.com/zerotier)

@@ -1,6 +1,7 @@
 ---
 title: Join Network
 description: Adding your node to a ZeroTier virtual network
+tags: [tutorial, client]
 ---
 
 Joining happens from a device, after installing ZeroTier One. You can join your own networks and other people's networks.

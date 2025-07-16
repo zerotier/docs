@@ -1,6 +1,7 @@
 ---
 title: Docker
 description: Running ZeroTier in a Docker Container
+tags: [docker, tutorial]
 ---
 
 Simple example using an interactive shell.

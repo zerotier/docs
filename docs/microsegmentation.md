@@ -1,6 +1,7 @@
 ---
 title: Network Microsegmentation
 description: Use flow rules to prevent devices on the same network from communicating
+tags: [tutorial, example, admin, central]
 ---
 
 ## Create a network for each role

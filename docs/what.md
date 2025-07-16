@@ -1,6 +1,7 @@
 ---
 title: What is ZeroTier?
-description: A warm snuggly blanket for your network
+description: ZeroTier lets you instantly create secure, private networks that connect devices directly - no matter where they are or what network they’re on.
+tags: [beginner]
 custom_edit_url: null
 # cSpell:words snuggly
 ---

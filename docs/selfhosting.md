@@ -1,6 +1,7 @@
 ---
 title: Self Hosting
 description: Host your own ZeroTier infrastructure
+tags: [controller, tutorial, admin]
 ---
 
 There are 2 types of ZeroTier infrastructure that can be self-hosted.

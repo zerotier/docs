@@ -9,7 +9,7 @@ module.exports = {
         description: 'ZeroTier securely connects all of your devices and services with each other, anywhere.',
         slug: '/',
       },
-      items: ['what', 'releases', 'start', 'cli', 'awesome', 'faq', 'troubleshooting'],
+      items: ['what', 'compatibility', 'releases', 'start', 'cli', 'awesome', 'faq', 'troubleshooting'],
     },
     {
       type: 'category',
@@ -227,7 +227,7 @@ module.exports = {
             description: 'ZeroTier is designed to operate on resource constrained devices and under 16MB of memory.',
             slug: '/iot',
           },
-          items: ['lbm', 'multithreading', 'compatibility', 'bridging', 'proxy', 'route-between-phys-and-virt'],
+          items: ['lbm', 'multithreading', 'bridging', 'proxy', 'route-between-phys-and-virt'],
         },
         /* FreeBSD */
         {
@@ -253,6 +253,7 @@ module.exports = {
         slug: '/service-providers',
       },
       items: ['faq-rules', 'sso', 'central-admins', 'audit-logs'],
-    }
+    },
+    'glossary',
   ]
 }

@@ -1,6 +1,7 @@
 ---
 title: Central FAQ
 description: Commonly asked questions about Central
+tags: [central, faq, troubleshooting, admin, platform-specific]
 ---
 
 ### Can I move or transfer my network(s) to another user? {#transfer-network}

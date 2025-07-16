@@ -1,6 +1,7 @@
 ---
 title: Add Network Admin
 description: Allow others to control your ZeroTier Network
+tags: [central, subscriber, admin, customer-support]
 ---
 
 :::note

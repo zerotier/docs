@@ -1,6 +1,7 @@
 ---
 title: ZeroTier  API Tokens
 description: "Creating, managing, and using Central API tokens"
+tags: [development, api, central, service]
 ---
 
 import Tabs from '@theme/Tabs';
