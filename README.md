@@ -73,7 +73,7 @@ All pages on this site should be appropriately tagged.
 
 ### Technical/Feature Tags
 
-- `api`, `controller`,  `rules`, `bridge`, `router`, `local config`, `dns`, `cloud`, `devops`
+- `api`, `controller`,  `rules`, `bridge`, `router`, `local-config`, `dns`, `cloud`, `devops`
 - `client`, `central`
 
 ### Content Type Tags
