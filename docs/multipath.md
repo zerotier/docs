@@ -1,7 +1,7 @@
 ---
 title: Multipath
 description: Combine multiple network links into one
-tags: [tutorial, local.conf]
+tags: [tutorial, local config]
 ---
 
 Multipath allows the simultaneous (or conditional) aggregation of multiple physical links into a *bond* for increased total throughput, load balancing, redundancy, and fault tolerance. There is a set of standard bonding policies available that can be used right out of the box with no configuration. These policies are inspired by [the policies offered by the Linux kernel](https://www.kernel.org/doc/Documentation/networking/bonding.txt). A bonding policy can be used easily without specifying any additional parameters. For example:

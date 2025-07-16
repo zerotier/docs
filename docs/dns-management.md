@@ -1,7 +1,7 @@
 ---
 title: DNS Management
 description: DNS Management
-tags: [admin]
+tags: [admin, dns, flag]
 ---
 
 :::info

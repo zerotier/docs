@@ -1,7 +1,7 @@
 ---
 title: Client Configuration
 description: How to configure the desktop client
-tags: [client, examples, beginner, ZeroTier explanation]
+tags: [client, examples, beginner]
 ---
 
 ZeroTier One is a service that can run on laptops, desktops, servers,

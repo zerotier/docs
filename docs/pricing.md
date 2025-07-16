@@ -1,7 +1,7 @@
 ---
 title: Pricing
 description: Common pricing questions
-tags: [billing, customer-support, admin]
+tags: [billing, customer-support, admin, flag]
 ---
 
 ## How ZeroTier Pricing Works
