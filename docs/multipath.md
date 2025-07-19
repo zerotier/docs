@@ -185,9 +185,9 @@ It is possible to use a policy for one peer and another policy for a different p
 
 Traffic is sent on only *one* link at any time. A different link becomes active if the current link fails. This mode provides fault tolerance with a nearly immediate failover depending on the `failoverInterval` you set. This mode *does not* increase total throughput. If no `primary` and `spare` links are defined ZeroTier will attempt to pick the best one.
 
-- `mode`: `primary|spare` Link option which specifies which link is the primary device. The specified device is intended to always be the active link while it is available. There are exceptions to this behavior when using different `linkSelectMethod` modes. There can only be one `primary` link in this bonding policy.
+- `mode`: `primary|spare` Link option which specifies which link is the primary device. The specified device is intended to always be the active link while it is available. There are exceptions to this behavior when using different `activeReselect` modes. There can only be one `primary` link in this bonding policy.
 
-- `linkSelectMethod`: Specifies the selection policy for the active link during failure and/or recovery events. This is similar to the Linux Kernel's `primary_reselect` option but with a minor extension:
+- `activeReselect`: Specifies the selection policy for the active link during failure and/or recovery events. This is similar to the Linux Kernel's `primary_reselect` option but with a minor extension:
   - `optimize`: **(default if user provides no failover guidance)** The primary link can change periodically if a superior link is detected.
   - `always`: **(default when links are explicitly specified)**: Primary link regains status as active link whenever it comes back up.
   - `better`: Primary link regains status as active link when it comes back up and (if) it is better than the currently-active link.
@@ -203,7 +203,7 @@ Traffic is sent on only *one* link at any time. A different link becomes active 
       "custom-active-backup":
       {
         "basePolicy": "active-backup",
-        "linkSelectMethod": "always",
+        "activeReselect": "always",
         "failoverInterval": 5000,
         "links":
         {
