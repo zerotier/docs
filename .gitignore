@@ -26,8 +26,12 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# NPM detritus
 node_modules/
+package-lock.json
+
+# Local dev artifacts
 build/
 .docusaurus/
 .yarn/
-package-lock.json
+.env
