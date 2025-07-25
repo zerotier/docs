@@ -31,6 +31,7 @@ Follow the [recommended instructions from Microsoft](https://learn.microsoft.com
 Make sure to mark down your account credentials (username/password), or add an additional user as detailed. If you are logged in with your Microsoft account, the credentials for remote access will be identical to your account. Otherwise, it will be identical to your local user account in Windows.
 
 Connect using the Managed IP address of your peers, which can be found via Central or in Administrator Powershell/CLI:
+
 ```bash
 zerotier-cli peers
 ```
@@ -46,18 +47,24 @@ There are several options for remote access on Linux, depending on whether you n
 ### Option 1: SSH (Terminal/CLI Access)
 
 1. **Install SSH** (if not already installed):
+
 ```bash
 sudo apt install openssh-server
 ```
+
 2. Start and enable the SSH service - this is on the device that will be connected to, called the "server".
+
 ```bash
 sudo systemctl enable --now ssh
 ```
+
 3. Note down your server's credentials (user name/password)
 4. Connect from either Windows Powershell or MacOS Terminal (SSH installed by default) or another Linux machine with SSH
+
 ```bash
 ssh <username>@<ZeroTier-IP>
 ```
+
 5. Enter password when prompted. Leave blank if no password.
 6. You should now be securely connected via SSH!
 

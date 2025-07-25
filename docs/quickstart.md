@@ -21,15 +21,16 @@ Visit our [downloads page](https://www.zerotier.com/download) and install ZeroTi
 
 ## 3. Join Your Network
 
-### On PC/MacOS:
+### On PC/MacOS
 
 1. Locate the ZeroTier icon in your menu bar (if MacOS) or system tray (if Windows)
 2. Click the icon -> **Join New Network...**
 3. Paste your Network ID and click **Join**
 
-### Using CLI:
+### Using CLI
 
 ZeroTier's command line interface (CLI) works on any device with an accessible terminal.
+
 ```bash
 sudo zerotier-cli join NETWORK_ID
 ```
@@ -44,11 +45,11 @@ sudo zerotier-cli join NETWORK_ID
 
 ## 5. Test Your Connection
 
-### Find Your IP Addresses:
+### Find Your IP Addresses
 
 In the **Members** section on the website, note the **Managed IP** addresses (like `192.168.191.242`)
 
-### Test the Connection:
+### Test the Connection
 
 Type this command in any terminal, replacing `MANAGED_IP` with one of your device's IP addresses (be sure to ping a device separate from the one you are using!):
 
@@ -58,7 +59,7 @@ ping -n 3 MANAGED_IP
 
 **Success looks like this:**
 
-```
+```bash
 PING 10.147.17.101 (10.147.17.101): 56 data bytes
 64 bytes from 10.147.17.101: icmp_seq=0 ttl=64 time=15.2 ms
 64 bytes from 10.147.17.101: icmp_seq=1 ttl=64 time=12.1 ms
