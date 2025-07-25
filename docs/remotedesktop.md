@@ -11,7 +11,7 @@ ZeroTier doesn't care whether your connected device is next to you or away at th
 
 ## Establish a ZeroTier Network
 
-If you don't already have a network, follow the [Quickstart Guide](/quickstart) to create an establish a ZeroTier network. Ensure your devices can connect to eachother by testing via `ping`.
+If you don't already have a network, follow the [Quickstart Guide](/quickstart) to create an establish a ZeroTier network. Ensure your devices can connect to each other by testing via `ping`.
 
 ## Enable and Connect to Remote Desktop
 
@@ -49,21 +49,16 @@ There are several options for remote access on Linux, depending on whether you n
 ```bash
 sudo apt install openssh-server
 ```
-
 2. Start and enable the SSH service - this is on the device that will be connected to, called the "server".
 ```bash
 sudo systemctl enable --now ssh
 ```
-
 3. Note down your server's credentials (user name/password)
-
 4. Connect from either Windows Powershell or MacOS Terminal (SSH installed by default) or another Linux machine with SSH
 ```bash
 ssh <username>@<ZeroTier-IP>
 ```
-
 5. Enter password when prompted. Leave blank if no password.
-
 6. You should now be securely connected via SSH!
 
 </TabItem>

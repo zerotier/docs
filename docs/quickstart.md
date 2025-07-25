@@ -5,15 +5,13 @@ tags: [tutorial, newcomer, installation, client, central, admin]
 category: Getting Started
 ---
 
-# ZeroTier Quickstart
-
 Connect two devices and ping your first server in under 5 minutes.
 
 ## 1. Create Network
 
 1. Visit [my.zerotier.com](https://my.zerotier.com/) in your web browser and log in
-3. Click the **Create A Network** button
-4. **Copy the Network ID** - this is a 16-character code like `d5e04297a16fa690`
+2. Click the **Create A Network** button
+3. **Copy the Network ID** - this is a 16-character code like `d5e04297a16fa690`
 
 *Keep this browser tab open - you'll need it in step 4.*
 
@@ -24,11 +22,13 @@ Visit our [downloads page](https://www.zerotier.com/download) and install ZeroTi
 ## 3. Join Your Network
 
 ### On PC/MacOS:
+
 1. Locate the ZeroTier icon in your menu bar (if MacOS) or system tray (if Windows)
 2. Click the icon -> **Join New Network...**
 3. Paste your Network ID and click **Join**
 
 ### Using CLI:
+
 ZeroTier's command line interface (CLI) works on any device with an accessible terminal.
 ```bash
 sudo zerotier-cli join NETWORK_ID
@@ -45,9 +45,11 @@ sudo zerotier-cli join NETWORK_ID
 ## 5. Test Your Connection
 
 ### Find Your IP Addresses:
+
 In the **Members** section on the website, note the **Managed IP** addresses (like `192.168.191.242`)
 
 ### Test the Connection:
+
 Type this command in any terminal, replacing `MANAGED_IP` with one of your device's IP addresses (be sure to ping a device separate from the one you are using!):
 
 ```bash
@@ -55,6 +57,7 @@ ping -n 3 MANAGED_IP
 ```
 
 **Success looks like this:**
+
 ```
 PING 10.147.17.101 (10.147.17.101): 56 data bytes
 64 bytes from 10.147.17.101: icmp_seq=0 ttl=64 time=15.2 ms
