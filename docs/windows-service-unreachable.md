@@ -6,6 +6,8 @@ tags: [windows, troubleshooting, flag]
 
 Occasionally, the system service will become unreachable from the ZeroTier UI client. Most often this happens when the ZeroTier service has been restarted, and also if there is a custom local.conf file in the ZeroTier/One folder. The problem is a windows service claiming the 9993 port before the ZeroTier system service can.
 
+ZeroTier on your device is split into the UI/CLI which connect to a separate system service. Occasionally, 
+
 ## Confirm you have this specific issue
 
 1. Quit ZeroTier UI client
@@ -44,4 +46,4 @@ Try to delete the entry
 netsh interface portproxy delete help
 ```
 
-Or try killing Docker or WSL and see if the problem goes away. [Let us know](https://discuss.zerotier.com/c/community-support/8) what you find out.
+Or try killing Docker or WSL and see if the problem goes away.

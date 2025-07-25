@@ -1,0 +1,96 @@
+---
+title: Host a Website with ZeroTier
+description: Serve a local website to anyone on your ZeroTier network.
+tags: [beginner, tutorial]
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+ZeroTier enables private networking between devices, allowing you to host a website locally and serve it securely to peers on the same ZeroTier network.
+
+## Step 1: Host and Connect to a ZeroTier Network
+
+Follow the [ZeroTier Quickstart Guide](/quickstart) to get up and running quickly.
+
+## Step 2: Run a Local Web Server
+
+Choose your platform and follow the steps to start a simple web server:
+
+<Tabs
+  defaultValue="win"
+  groupId="hostwebsite"
+  values={[
+    { label: "Windows", value: "win" },
+    { label: "MacOS", value: "mac" },
+    { label: "Linux", value: "linux" }
+  ]}>
+
+<TabItem value="win">
+
+:::note Python
+[This step requires Python](https://www.python.org/downloads/). 
+:::
+
+
+1. Open PowerShell in your website folder.
+2. Start the built-in server (Python required):
+
+```powershell
+python -m http.server 8080
+```
+
+3. Ensure Windows Firewall allows inbound traffic on port `8080`.
+
+</TabItem>
+
+<TabItem value="mac">
+
+1. Open Terminal in your site directory.
+2. Run:
+
+```bash
+python3 -m http.server 8080
+```
+
+3. If prompted, allow the connection through the firewall.
+
+</TabItem>
+
+<TabItem value="linux">
+
+1. Open a terminal in your website folder.
+2. Use Python or any other HTTP server (e.g., Nginx, Apache):
+
+```bash
+python3 -m http.server 8080
+```
+
+3. Ensure `ufw` or your firewall allows port `8080`:
+
+```bash
+sudo ufw allow 8080
+```
+
+</TabItem>
+</Tabs>
+
+## Step 3: Access the Website
+
+On another device in your ZeroTier network:
+
+- Open a browser.
+- Navigate to:  
+  `http://<ZeroTier IP of host>:8080`
+
+## Next Steps
+
+By default, Python searches for a file `index.html` in the directory you are running the website from to act as a homepage. To customize your site, create and modify this file. Find out more about [Python HTTP Servers](https://docs.python.org/3/library/http.server.html).
+
+Other options for self-hosted HTTP sites include:
+
+- [Apache HTTP](https://httpd.apache.org/) (`sudo apt install apache2`)
+- [Nginx](https://nginx.org/en/docs/beginners_guide.html) (`sudo apt install nginx`)
+- Node.js-based servers
+
+Just configure them to listen on your ZeroTier IP or all interfaces (`0.0.0.0`).

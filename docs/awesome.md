@@ -1,5 +1,5 @@
 ---
-title: What can I do with ZeroTier?
+title: Awesome ZeroTier Things
 description: List of things you can do with ZeroTier
 tags: [hub, examples, beginner, flag]
 toc_max_heading_level: 2

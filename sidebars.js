@@ -9,7 +9,7 @@ module.exports = {
         description: 'ZeroTier securely connects all of your devices and services with each other, anywhere.',
         slug: '/',
       },
-      items: ['what', 'compatibility', 'releases', 'start', 'cli', 'awesome', 'faq', 'troubleshooting'],
+      items: ['quickstart', 'what', 'examples', 'releases', 'cli', 'awesome',  'compatibility', 'faq', 'troubleshooting'],
     },
     {
       type: 'category',
@@ -31,7 +31,7 @@ module.exports = {
         description: 'Our hosted offering for managing your networks.',
         slug: '/central',
       },
-      items: ['start', 'faq-central', 'sso', 'authentication', 'organizations', 'central-admins', 'audit-logs', 'pricing', 'central-billing', 'central-hide-nodes', 'sso-add-seats', 'dns-management'],
+      items: ['start', 'faq-central', 'sso', 'authentication', 'organizations', 'central-admins', 'audit-logs', 'pricing', 'central-billing', 'central-hide-nodes', 'dns-management'],
     },
     {
       type: 'category',
@@ -43,6 +43,9 @@ module.exports = {
         slug: '/guides',
       },
       items: [
+        'remotedesktop',
+        'filesharing',
+        'website',
         'docker',
         'dns',
         'exitnode',
@@ -170,7 +173,7 @@ module.exports = {
             description: 'ZeroTier on Windows',
             slug: '/windows',
           },
-          items: ['releases', 'faq-windows', 'chocolatey', 'winget', 'windows-lan-game', 'windows-unknown-node-id', 'windows-service-unreachable']
+          items: ['releases', 'faq-windows', 'chocolatey', 'winget', 'windows-unknown-node-id', 'windows-service-unreachable']
         },
         /* ANDROID */
         {
