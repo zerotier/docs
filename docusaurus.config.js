@@ -10,7 +10,7 @@ module.exports = {
   title: "ZeroTier Documentation",
   tagline: "Because documentation makes things more good",
   url: "https://docs.zerotier.com",
-  baseUrl: "/",
+  baseUrl: "",
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon-32x32.png",

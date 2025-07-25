@@ -1,7 +1,7 @@
 ---
 title: macOS FAQ
 description: Guidance for running ZeroTier on macOS
-tags: [macos, faq, troubleshooting, client, platform-specific]
+tags: [macos, faq, troubleshooting, client, platform-specific, flag]
 ---
 
 ### Start and Stop ZeroTier on your Mac
@@ -95,7 +95,3 @@ sudo "/Library/Application Support/ZeroTier/One/uninstall.sh"
 ```
 
 This will cleanly uninstall ZeroTier One, preserving only your secret identity.
-
-:::tip
-[See community threads about ZeroTier on macOS](https://discuss.zerotier.com/search?q=macos)
-:::
