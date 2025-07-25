@@ -6,7 +6,7 @@ tags: [windows, troubleshooting, flag]
 
 Occasionally, the system service will become unreachable from the ZeroTier UI client. Most often this happens when the ZeroTier service has been restarted, and also if there is a custom local.conf file in the ZeroTier/One folder. The problem is a windows service claiming the 9993 port before the ZeroTier system service can.
 
-ZeroTier on your device is split into the UI/CLI which connect to a separate system service. Occasionally, 
+ZeroTier on your device is split into the UI/CLI which connect to a separate system service. Occasionally, the frontend UI and/or CLI will lose connection to the ZeroTier system service.
 
 ## Confirm you have this specific issue
 
