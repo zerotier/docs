@@ -9,7 +9,7 @@ module.exports = {
         description: 'ZeroTier securely connects all of your devices and services with each other, anywhere.',
         slug: '/',
       },
-      items: ['quickstart', 'what', 'examples', 'releases', 'cli', 'awesome',  'compatibility', 'faq', 'troubleshooting'],
+      items: ['quickstart', 'what', 'releases', 'cli', 'awesome',  'compatibility', 'faq', 'troubleshooting'],
     },
     {
       type: 'category',
