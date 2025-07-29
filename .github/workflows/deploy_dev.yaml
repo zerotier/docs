@@ -8,7 +8,7 @@ jobs:
   build:
     name: Build
     runs-on: gha-runner-x64
-    environment: tinacms-cloud
+    environment: development
 
     steps:
     - uses: actions/checkout@v4
@@ -58,16 +58,12 @@ jobs:
       uses: 'google-github-actions/setup-gcloud@v2'
     
     - name: Build Tina Admin
-      run: npx tinacms build
       env:
-        NEXT_PUBLIC_TINA_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_TINA_CLIENT_ID }}
+        CLIENT_ID: ${{ secrets.PUBLIC_TINA_CLIENT_ID }}
         TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
         TINA_PUBLIC_IS_LOCAL: ${{ secrets.TINA_PUBLIC_IS_LOCAL }}
+      run: yarn tinacms build
 
-    - name: Copy Tina
-      uses: borales/actions-yarn@v5
-      with: 
-        cmd: copy-tina
 
     - name: Docker Build
       run: |
