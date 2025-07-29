@@ -64,15 +64,13 @@ jobs:
         TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
         TINA_PUBLIC_IS_LOCAL: ${{ secrets.TINA_PUBLIC_IS_LOCAL }}
 
+    - name: Copy Tina
+      run: copy-tina
+
     - name: Docker Build
       run: |
         gcloud auth configure-docker ${{ secrets.GCLOUD_DOCKER_HOST }}
         docker build -t ${{ secrets.GCLOUD_DOCKER_HOST }}/${{ secrets.GCLOUD_PROJECT_ID }}/zt-docker/docs-zerotier-com:${{ github.sha }} . --push
-
-    - name: Debug: Check Tina Admin Exists
-      run: |
-        ls -la docs/static/admin
-        cat docs/static/admin/index.html | head -n 20
 
     - name: Deploy docs-dev
       run: |
