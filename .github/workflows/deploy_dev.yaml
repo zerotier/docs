@@ -65,6 +65,7 @@ jobs:
         TINA_PUBLIC_IS_LOCAL: ${{ secrets.TINA_PUBLIC_IS_LOCAL }}
 
     - name: Copy Tina
+      uses: borales/actions-yarn@v5
       run: copy-tina
 
     - name: Docker Build
