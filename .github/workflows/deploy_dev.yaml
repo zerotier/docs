@@ -8,6 +8,7 @@ jobs:
   build:
     name: Build
     runs-on: gha-runner-x64
+    environment: tinacms-cloud
 
     steps:
     - uses: actions/checkout@v4
@@ -59,9 +60,9 @@ jobs:
     - name: Build Tina Admin
       run: npx tinacms build
       env:
-        NEXT_PUBLIC_TINA_CLIENT_ID: ${{ environments.NEXT_PUBLIC_TINA_CLIENT_ID }}
-        TINA_TOKEN: ${{ environments.TINA_TOKEN }}
-        TINA_PUBLIC_IS_LOCAL: ${{ environments.TINA_PUBLIC_IS_LOCAL }}
+        NEXT_PUBLIC_TINA_CLIENT_ID: ${{ secrets.NEXT_PUBLIC_TINA_CLIENT_ID }}
+        TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
+        TINA_PUBLIC_IS_LOCAL: ${{ secrets.TINA_PUBLIC_IS_LOCAL }}
 
     - name: Docker Build
       run: |
