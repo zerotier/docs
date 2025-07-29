@@ -69,6 +69,11 @@ jobs:
         gcloud auth configure-docker ${{ secrets.GCLOUD_DOCKER_HOST }}
         docker build -t ${{ secrets.GCLOUD_DOCKER_HOST }}/${{ secrets.GCLOUD_PROJECT_ID }}/zt-docker/docs-zerotier-com:${{ github.sha }} . --push
 
+    - name: Debug: Check Tina Admin Exists
+      run: |
+        ls -la docs/static/admin
+        cat docs/static/admin/index.html | head -n 20
+
     - name: Deploy docs-dev
       run: |
         curl -s -L -X POST -H 'Accept: application/vnd.github+json' -H 'Authorization: Bearer ${{ secrets.DEPLOY_TOKEN }}' -H 'X-GitHub-Api-Version: 2022-11-28' https://api.github.com/repos/zerotier/${{ secrets.INFRA_REPO_NAME }}/dispatches -d '{"event_type": "deploy_docs_dev", "client_payload": {"docker_tag": "${{ github.sha }}", "actor": "${{ github.actor }}"}}'
