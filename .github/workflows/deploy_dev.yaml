@@ -64,11 +64,6 @@ jobs:
         TINA_TOKEN: ${{ secrets.TINA_TOKEN }}
         TINA_PUBLIC_IS_LOCAL: ${{ secrets.TINA_PUBLIC_IS_LOCAL }}
 
-    - name: Copy Tina
-      uses: borales/actions-yarn@v5
-      with: 
-        cmd: copy-tina
-
     - name: Docker Build
       run: |
         gcloud auth configure-docker ${{ secrets.GCLOUD_DOCKER_HOST }}
