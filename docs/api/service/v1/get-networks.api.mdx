@@ -1,0 +1,64 @@
+---
+id: get-networks
+title: "Get all network memberships."
+description: "Get all network memberships."
+sidebar_label: "Get all network memberships."
+hide_title: true
+hide_table_of_contents: true
+api: eJzNV21v2zYQ/ivEfekGqLLsJG6sb0YbFEG7JGiyYWgQDDR1sthQpHo8OXUN/feBtJw5SeNk6LrtQ+CYvJfn7h7enVfAcu4hvwSLfOPoGq4ScA2SZO3scQE5zJFP1nceEiD0jbMePeQrGGVZ+CjQK9JN0IAcIAHlLKPlcCebxmgVrQ0++SCwAq8qrGX4j5cNQg6SSC4hAc1YR8PSmNMS8stbCTf7hIohgYYCOta4kXM3b07Ot2zNnDMobYQqi1NrlpCX0nhM7uF8jyw+IrkLjSRqV+hyKbhC4ZeesX7hxZuTc+GRWdu5TyEB/CLrxmBvrkt671jK1vAPQVCsbQtyLePjEN4aN5Pm+xFIK+cojs+ELApC79ELaYu1dyG913Nbo2UvuJIsJKF9wUJb0ZBeSEZB0s7Ri5+oVMPJ8PDnxxH/El0VPwzyh/uQ70BharHruuR/xK7/gE3/EnselOL57Pmn2cLu7xAmeI/fsZhuZHf1rP7cM2k736YbDLN0uP8qHWXpcJJB1yUwI13M8RsBxTsnCyU9H1k5M98Mu0ugsNtOHyFw4Wqp7W5wXzntv6TK1cG0R1ogfXese9CFRwa62K1xMD54NZkUh+V4lKkDdRAg1FLtVsJxXozy0SzHcT4+zF/twf3K/zJ9vamxKB0JrrQX/ZB74YW2jFRKtX4INbdb/sLdHGnb4egwy4Jca1iH2py3s1tnz8nUYx2m0N/0WzqqJa+PxvvbQLLnZGdvP9/bz8syL2Q+xrws+1JYWeNuTWVwgfTHNbWRChZZOVt+wIX22tndORqO9roEGkf8Bhda4cmT3r6ytRWxrhvoNY+IHO12EzIQW9jOvN/Nc2nilvOU2RqZtHpajiXNkZ/7ELLBaD/Et9DyCZXJKB2OD+PfQV8yz5LbJ97c6btgfn2/S+7sw/Fv04ujYPkqAdYcT/vlLvrrEtjPhg93umnLlSP9Ne5xgvBzqwmLNPayu5JvkYU0ZvPSRI31DMlXuokzuEauXL9VhtcguYIcBpvlc6v5XK6gJQM5VMxNPhgYp6SpnOd8Mpk8fO5n5IpWRXjn0QSEGD2qljQvo7lpo9/hMoQC+eXV9vV5WEjXTNkW+otd8TDQK7iqUBaRE+vnBL+//HgxfBlVYr+zpYu6fX434+fUYoSmFYrp2TEkEAJdo8/SYZo9iOkitKzp2bEI+zQ54+M8vx1nvjcW5ym1NjS1KDGT6npOrrWFcFYsXUtCubppGSnUwGiF1keu9BFMG6kqFKOI4U7Wb25uUhlvU0fzQa/qB++PXx+dnB+9HKVZWnFtYuSN81xLu2X4CTbcCfc224xfeNCYMLm6Hs6qZ8qdnymBDOFotZpJj7+S6bpw/LlFCgW/SmAhSYcZGuudbAoXuHCNyxC3UtgEHi6kadeFvvdrJbDklrNvjy6g6/4EIxl+JA==
+sidebar_class_name: "get api-method"
+info_path: api/service/v1/zerotierone-service-api
+custom_edit_url: null
+hide_send_button: true
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get all network memberships."}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/network"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Get all network memberships.
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"","content":{"application/json":{"schema":{"type":"array","items":{"allOf":[{"type":"object","properties":{"allowDNS":{"type":"boolean","readOnly":false,"description":"Let ZeroTier modify the system's DNS settings.","example":false},"allowDefault":{"type":"boolean","readOnly":false,"description":"Let ZeroTier modify the system's default route.","example":false},"allowGlobal":{"type":"boolean","readOnly":false,"description":"Let ZeroTier manage IP addresses and route assignments that aren't in private ranges (rfc1918).","example":false},"allowManaged":{"type":"boolean","readOnly":false,"description":"Let ZeroTier manage IP addresses and Route assignments.","example":true}}},{"type":"object","properties":{"allowDNS":{"type":"boolean","readOnly":false,"description":"Let ZeroTier modify the system's DNS settings."},"allowDefault":{"type":"boolean","readOnly":false,"description":"Let ZeroTier modify the system's default route."},"allowGlobal":{"type":"boolean","readOnly":false,"description":"Let ZeroTier manage IP addresses and Route assignments that aren't in private ranges (rfc1918)."},"allowManaged":{"type":"boolean","readOnly":false,"description":"Let ZeroTier to manage IP addresses and Route assignments."},"assignedAddresses":{"type":"array","items":{"type":"string","example":"10.147.20.190"}},"bridge":{"type":"boolean"},"broadcastEnabled":{"type":"boolean"},"dns":{"type":"object","properties":{"domain":{"type":"string","example":"zt.example.com"},"servers":{"type":"array","items":{"type":"string","example":"10.147.20.3"}}}},"id":{"type":"string","example":"565799d8f620c5c5"},"mac":{"type":"string","example":"e6:d2:2b:e6:68:73","description":"MAC address for this network's interface."},"mtu":{"type":"integer","example":2800},"multicastSubscriptions":{"type":"array","items":{"type":"object","properties":{"adi":{"type":"integer","format":"int64","example":0},"mac":{"type":"string","example":"34:34:ff:da:6e:ff"}}}},"name":{"type":"string","example":"clever_krum"},"netconfRevision":{"type":"integer","example":123},"portDeviceName":{"type":"string","example":"ztnnhrtimp"},"portError":{"type":"integer","example":0},"routes":{"type":"array","items":{"properties":{"flags":{"type":"integer","example":0},"metric":{"type":"integer","example":0},"target":{"type":"string","example":"10.147.20.0/24"},"via":{"type":"string","example":"192.168.168.5"}}}},"status":{"type":"string","example":"OK"},"type":{"type":"string","example":"PRIVATE"}}}],"title":"Network"}}}}},"401":{"description":"Authorization required."}}}
+>
+  
+</StatusCodes>
+
+
+      

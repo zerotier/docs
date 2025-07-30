@@ -1,6 +1,8 @@
 # docs.zerotier.com
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+This repository contains both the Markdown source files and the JS project (based on the [Docusaurus](https://docusaurus.io) static website builder) for the public [ZeroTier](https://docs.zerotier.com/) documentation site.
+
+You'll need a recent (20+) version of NodeJS, with Yarn enabled (`corepack enable`).
 
 ## Installation
 
@@ -11,10 +13,18 @@ yarn install
 ## Local Development
 
 ```console
-make start
+yarn start
 ```
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+
+## Generated Pages
+
+The OpenAPI specifications for the Central and ZeroTierOne Service APIs are processed via a plugin to generate MDX pages which can then be included in the built site. Those specs change very infrequently, so the processing isn't done on every change. If the OpenAPI spec _does_ change, you'll need to regenerate the source text:
+
+```console
+yarn generate:api
+```
 
 ## Build
 

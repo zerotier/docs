@@ -1,49 +1,83 @@
-/** @type {import('@docusaurus/types').DocusaurusConfig} */
+/** @type {import("@docusaurus/types").DocusaurusConfig} */ 
 
 const path = require("path");
 
-const appUrl = process.env.POSTHOG_API_HOST
-const apiKey = process.env.POSTHOG_PROJECT_KEY  || "-"
+const POSTHOG = {
+  appUrl: process.env.POSTHOG_API_HOST,
+  apiKey: process.env.POSTHOG_PROJECT_KEY,
+};
+
+const ALGOLIA = {
+  apiKey: process.env.ALGOLIA_API_KEY,
+  appId: process.env.ALGOLIA_APP_ID,
+  indexName: process.env.ALGOLIA_INDEX_NAME,
+};
 
 module.exports = {
   trailingSlash: true,
   title: "ZeroTier Documentation",
-  tagline: "Because documentation makes things more good",
+  tagline:
+    "Instantly create secure, private networks that connect your devices directly to each other.",
   url: "https://docs.zerotier.com",
   baseUrl: "/",
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon-32x32.png",
-  organizationName: "zerotier", // Usually your GitHub org/user name.
-  projectName: "docs", // Usually your repo name.
+  organizationName: "zerotier",
+  projectName: "docs",
   plugins: [
-    require.resolve('docusaurus-lunr-search'),
     [
       "posthog-docusaurus",
       {
-        apiKey: apiKey,
-        appUrl: appUrl,
+        apiKey: POSTHOG.apiKey,
+        appUrl: POSTHOG.appUrl,
         enableInDevelopment: false,
         disable_session_recording: true,
       },
     ],
+    [
+      'docusaurus-plugin-openapi-docs',
+      {
+        id: "api",
+        docsPluginId: "classic",
+        config: {
+          central: {
+            specPath: "static/openapi/central/v1.json",
+            outputDir: "docs/api/central/v1",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+            },
+            hideSendButton: true,
+          },
+          service: {
+            specPath: "static/openapi/service/v1.json",
+            outputDir: "docs/api/service/v1",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+            },
+            hideSendButton: true,
+          },
+        }
+      },
+    ]
   ],
   future: {
     experimental_faster: {
       rspackBundler: true,
       rspackPersistentCache: true,
-    }
+    },
   },
   markdown: {
     mermaid: true,
   },
-  themes: ['@docusaurus/theme-mermaid'],
+  themes: [
+    "@docusaurus/theme-mermaid",
+    "docusaurus-theme-openapi-docs"
+  ],
   themeConfig: {
-
     mermaid: {
-      theme: { light: 'neutral', dark: 'dark' },
+      theme: { light: "neutral", dark: "dark" },
     },
-    // for some reason if python or java are enabled here, the OpenAPI docs go boom :(
     prism: {
       additionalLanguages: [
         "rust",
@@ -55,22 +89,19 @@ module.exports = {
       ],
     },
 
-    // announcementBar: {
-    //   id: 'support_us', // Any value that will identify this message.
-    //   content:
-    //     'This banner is here to inform you that we have a new banner',
-    //   backgroundColor: '#fafbfc', // Defaults to `#fff`.
-    //   textColor: '#091E42', // Defaults to `#000`.
-    //   isCloseable: false, // Defaults to `true`.
-    // },
-
     colorMode: {
       defaultMode: "light",
       disableSwitch: false,
       respectPrefersColorScheme: true,
     },
 
+    algolia: {
+      ...ALGOLIA,
+      contextualSearch: true,
+    },
+
     separateCss: true,
+
     navbar: {
       title: "ZeroTier Documentation",
       logo: {
@@ -93,7 +124,7 @@ module.exports = {
         {
           to: "https://discuss.zerotier.com/",
           label: "Community",
-        }
+        },
       ],
     },
     footer: {
@@ -172,40 +203,17 @@ module.exports = {
   },
   presets: [
     [
-      "@docusaurus/preset-classic",
+      "classic",
       {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
           // Please change this to your repo.
           //editUrl: "https://github.com/zerotier/docs/edit/main/",
           routeBasePath: "/",
+          docItemComponent: "@theme/ApiItem",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
-        },
-      },
-    ],
-    [
-      "redocusaurus",
-      {
-        openapi: {
-          path: "openapi",
-        },
-        specs: [
-          {
-            spec: "./static/openapi/central/v1.json",
-            route: "/api/central/v1/",
-          },
-          {
-            spec: "./static/openapi/service/v1.json",
-            route: "/api/service/v1/",
-          },
-        ],
-        theme: {
-          primaryColor: "#FFB354",
-          redocOptions: {
-            hideDownloadButton: false,
-          },
         },
       },
     ],
@@ -223,6 +231,6 @@ module.exports = {
           },
         ],
       },
-    ]
+    ],
   ],
 };

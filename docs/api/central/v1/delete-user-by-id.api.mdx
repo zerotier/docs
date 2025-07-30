@@ -1,0 +1,72 @@
+---
+id: delete-user-by-id
+title: "Delete user"
+description: "Deletes the user and all associated networks.  This is not reversible. Delete at your own risk."
+sidebar_label: "Delete user"
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VVFv4zYM/isEnzbAtdP2noxcgOya2wJ0t+KaA7a1eVBlJtYiSzqJTi4X+L8PUtw2abLtbXmJJVLUx++jyB2yWAYsH7AN5HGeoXXkBStrphWWWJEmpi+B/E/b6Q1mWFGQXrnogCXeJHMArgliABCmAqE1iBCsVIKpAkO8sX4VcoBZrQKoAMYyeFqTD+pJUw77MCAYtrb1YDcGvAqrHDN0wouGmHwEuUMjGsIygT0DJ+KEtK/i0gmuMUNPX1vlqcKSfUsZBllTI7DcIW9djBbYK7PErptH5+CsCRSi/WowiH/Hl6Q897xU2GX4bnB56jRuubZefU9MwguC5H59xl1KCgEqMurZ692p15SpSdwtbGsq7LoMG+LavgqVCOMaSywizGK3J6rDDAP59TOLrddYYs3sQlkUwqn8O3nLinwubRM3ivXlCbt33latTAndp2AYCQskW694mwKzXZGJuWP5MD+03kfO96Qe+LwoEKFgr0xcJ5+UoDILe8rEn+TtTJGHD2TYCw2f9kUGvwojltSQYbiznoWG8d00H7rRWKfPJAUFDtC0gaEWawJhkiXdCTWJijwER1ItFFWgTKruobQVjY5kLfsj3+JvWCQHWFjfCM4B/rAtSGFgSSY+KNqXdrxoRVt42oK2y6UyS1CGLQwF1J4W7x9fVGm2R6I84uht0sNCjNKDk54Ex1CiR2T3mMdS2tYwOLGkfFi40dCNaJn3ucjWa7j4HX6ezODiF3jEf07uEeE/iqXoX3lPQ3/ZsL4efY6536pGRYTDor5+Ns5qghMdIz+qcTpJGCARp/vDOcCdUFVqNAGE7y1UAVu4HAxetXVRQZLWVDnAR090/szV+SMRHwzd6EBCTnz+5shEgLE4oCZPIAJsSOuyp/SZpMrKcMySdWQiU3Kf5/oy/ytYc8AWZpj6YSrv9PhYsaZztT6+m2KG0hoWkuPb6Jvii+N965z1DDcqyDbEmPDR+rbB7M3Lr/YOR1Bj99FKkgl0EHvshKwJrvLBUZCyKDabTS6SNbd+WfRHQ3E7/TD5dD+5uMoHec2NTq/Z2cCNMAeB+9afps+bhrNLOZLh/2XQ9J2I6RsXTgtlIhEp013fU/sZmWHZj595hrUNHC273ZMI9MXrrovbX1vysSPOM1wLr8RTVPJhh5UK8bvCciF0oH9J+IfP/cz4EV6n2lmM/aYw21hDQrdxhRmuaPs6Kbv54bC4mdxOZhPsur8BLb3AZA==
+sidebar_class_name: "delete api-method"
+info_path: api/central/v1/zerotier-central-api
+custom_edit_url: null
+hide_send_button: true
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/user/{userID}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Deletes the user and all associated networks.  This is not reversible. Delete at your own risk.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"userID","description":"User ID","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"user deleted"},"401":{"description":"Authorization required"},"403":{"description":"Access denied"},"404":{"description":"Item not found"}}}
+>
+  
+</StatusCodes>
+
+
+      

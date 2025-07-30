@@ -1,0 +1,72 @@
+---
+id: invite-user-by-email
+title: "Invite a user to your organization by email"
+description: "Invite a user to your organization by email"
+sidebar_label: "Invite a user to your organization by email"
+hide_title: true
+hide_table_of_contents: true
+api: eJztV21v2zYQ/iuH+6xIzss6TPCMpm26ZeiaoE6BbYkxMNRZYiORLEnFdQ3/9+EoOZFnry/Dvq36YMji3fG55+4eUSsMovSYX6NxpdDqowjKaI+zBI0lF/+dF5ij0vcq0FtP7tnyrBGqxgQdvW/Jh2emWGK+woK8dMqyC+Z4MYgH5+zd3f4yvXgN5vYdydCHUI4KzINrKUFpdCAdOJywtlYyOmXvPMdcoZcVNYLvwtIS5vgQyDrGGxR5XjWuZNQPZj44pUtMPonxBSZIH0Rja3YZ9dfBnp/NFRMQxYWul10C6wQpkvPZrSOHIIrCkfdg5tARTFsY3hl62npyqTQNrhNUX5DTgOr/KCPpKMb7M6iGBgCUDlSSwwTnxjUidI+enOxAet4HAA7AuYaK+nyHAA+fHB6Pnnz/w9Ho5LuTPTh8EKGN5d1e+gQDvcuQBUu66HgTdX0xx/x6l1HSbcMzMbCVkmygAhOUQkuqqeAZCSrEoHFLmna7rWfrBFtbiED/mrJXwgfoYhS7tMXkvoY6s9Dkzr6sM7eGIjoCDZt1i03uzqf939ilO5uvH1kaRn4sEq7XbOTIW6N9N79Ho9GuorD49G1TQDAwVCz8Jh3fpOObdPw/peNkdLirFqdtqIzbgHk4Z0Tz4z3mUvI0FaTVxupk1+o8UAPaBJibVhfIm+9pIAIBnB2L1NK0bkup4HbZkYIJNhQqw6cra3xUIhEqzDEzrjzYqpYnd0/Ox45rXY05ViFYn2eZsCr9SM4E1c06P8juD3dKc+lM0coIYBqD4XrGcWXrVFh2rWzuSDNtmF/PhqtTls5OHQc2D83AUBhjtMK8s4ncsPa+eTwknm1qv9pI3a5M6bnZpf0PcuZKkYPnpIMTNbymsDDuDn4VWpTUkA5waVwQNZxenqdjOzmt4y30R1QPTesDVOKeQOi4ElFCRaIgB96SVHNFBSgdZ2UsTUGTrR7Ke5cPfI2zaADdLKYAv5sWpNBQkuZjM3WF543uaMk1r01ZKl2C0sHAWEDlaP7jzUMdm+VWGW9w8vekx5mYgNAFdKKqSxA9ItNhPpXStDqAFSWl48xOxnZCZdrnIltXw8Fv8NPZFRz8DDf4z8ndIHymvTLdFaCnod9sXB1P3nDur1SjGOE4q443i1cVwU4dmR/FPcEl9BCJq3vnFOBSqCJOkgfh+pXu3X84Gj3W1nIFSRpdpAAvHdF+n6P9LowPxnYyKGGIfF5Y0gyQmwMqcgTCw4LqOu8p3ZBUGOm3WTKWNDMluzzvD1MehQFbmCAPdNfecVw3SrePo/50I2Q83WjRbBlOW2uNC/BCedl6jgkvjWtZULe1ougMtqDy0NVKkvY0iH1qhawIjtLRVpA8yxaLRSriampcmfWuPnt1/vzs9fTs4CgdpVVo6jj/LGuN0IPAX6ePWyrwoDeBPoTM1kJpBh/RrXrpjJ+xQ+mcJVixtubXuFrdCk9vXb1e8+P3LTnWvVmC98IpccvsX/P7t9OEKIl3tORDSHeyPLji/dm8bhnHzilznWw8TuM7/5O2s4H8X15MrzDB2/5DujEF+zix4HeiWGCOyN/j3ac5H2L42QproctWlPG45/u34fovvu1hiw==
+sidebar_class_name: "post api-method"
+info_path: api/central/v1/zerotier-central-api
+custom_edit_url: null
+hide_send_button: true
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Invite a user to your organization by email"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/org-invitation"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Invite a user to your organization by email
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"description":"Organization Invitation JSON object","required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"orgId":{"type":"string","description":"Organization ID","example":"00000000-0000-0000-0000-000000000000","readOnly":true},"email":{"type":"string","description":"Email address of invitee","example":"joe@user.com"},"id":{"type":"string","description":"Invitation ID","example":"00000000-0000-0000-0000-000000000000","readOnly":true},"creation_time":{"type":"integer","format":"int64","description":"Creation time of the invite","example":1613067920454,"readOnly":true},"status":{"readOnly":true,"description":"Invitation status","example":"pending","allOf":[{"type":"string","enum":["pending","accepted","canceled"],"title":"InviteStatus"}]},"update_time":{"type":"integer","format":"int64","description":"Last updated time of the invitation","example":1613067920454,"readOnly":true},"ownerEmail":{"type":"string","description":"Organization owner email address","example":"user@example.com","readOnly":true}},"title":"OrganizationInvitation"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"User invited to organization","content":{"application/json":{"schema":{"type":"object","properties":{"orgId":{"type":"string","description":"Organization ID","example":"00000000-0000-0000-0000-000000000000","readOnly":true},"email":{"type":"string","description":"Email address of invitee","example":"joe@user.com"},"id":{"type":"string","description":"Invitation ID","example":"00000000-0000-0000-0000-000000000000","readOnly":true},"creation_time":{"type":"integer","format":"int64","description":"Creation time of the invite","example":1613067920454,"readOnly":true},"status":{"readOnly":true,"description":"Invitation status","example":"pending","allOf":[{"type":"string","enum":["pending","accepted","canceled"],"title":"InviteStatus"}]},"update_time":{"type":"integer","format":"int64","description":"Last updated time of the invitation","example":1613067920454,"readOnly":true},"ownerEmail":{"type":"string","description":"Organization owner email address","example":"user@example.com","readOnly":true}},"title":"OrganizationInvitation"}}}},"401":{"description":"Authorization required"},"403":{"description":"Access denied"},"404":{"description":"Item not found"}}}
+>
+  
+</StatusCodes>
+
+
+      

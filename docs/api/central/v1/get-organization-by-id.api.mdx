@@ -1,0 +1,72 @@
+---
+id: get-organization-by-id
+title: "Get organization by ID"
+description: "Get organization by ID"
+sidebar_label: "Get organization by ID"
+hide_title: true
+hide_table_of_contents: true
+api: eJylV21v2zYQ/isHflkLKJKT9pPgGcuStPOQNUGdAtuaYGCks8SGIlmSiusa+u/DUbIrxUqNdfpgS+LdPQ/vTccN87xwLP3ItC24El+5F1o5dhcxbdCGp3nOUlagv+pJ/Lqen7OIGW55hR4tmdgwxStkKZkKqzm6zApD8ixlfXUI64JeG+5LFjGLn2thMWeptzVGzGUlVpylG+bXhow6b4UqWNPckbAzWjl0tH4ymdDf82AsYplWHpUnOW6MFFlYSD45Et7sg+n7T5h52qAlN3jRQol8n1DE8AuvjKRXk+46GvnZXgf90kRMrxTa+SjYUPeDQwvzc9BL8CVCP4YQjPwIPYs8v1Jy3YZiS+ei4kIeZnS1R+EnB0i6wPPconMDSrVD+0v3GGe6GoOvsLoPGbbD5tbyNSWQx8odDhvl46gzh1CHE/Y/urKJwv4OYS+5dHvgXWR/CLQtw8PbVbWU/J5MH9x+GwPIhTOSryEg9Kn9rhGIMsHjc5ny//GHidQ0EfPCBwJ96T+CMFEZWrwUzlOp6H3LjqSd02daLUUxllLfIbcSOcJicQVZ0K7ttu0M0xAVbbafDPdaS+Sq78kxT1y0irCUvICltoRFfIVz9YHCGBqSnQO2PDGHq/n5GWwNRQcKyVj9KHK03++CD7jOpOYP+04jrOvOBrzQCkEvU8hxyWvpI+C1L1EK3t5NIuBfa4sRbA1GoB88j0ArlLoQ6iU5IZMClR+vsW+ctMizo1b0SOTjzM7CcteCW5d832jpvXFpkvT6V0JACdEfx5gHs/Dh/SWBkJy2XRr9gyo3WrRfqR8ETXY2nqIPoKAn9qTd9kpq4XRLlzVPKm2xK5TnSpBUmoi9nhzvZ+HpgMruwx/EX42IZxk6BzkqsZV6vS8191iB0h6WulZ54DUUeIt+WPj367a/VuhL3Y04YaTxJUtZom2RbMIk07CIObSP2ymntrIXB25E/BWt9gJtCAY3Ink83gvAtdV5nQXkRTDGaJJxmNVW+HUw7PUDKvIOSz/e9VcXNJ+0JdiT2WUJUWHdyETPQSa4QKil3vfV32j1jUALZ6i85RLeoV9p+wB/cMULrKgKrrX1XMLp9TyemtmpDLchWOi8g6p2Hkr+iMBVWAmYUCKn0nYGM7EUmINQYTCZZjrH2SDwaafyha5pEgSouVXcxwB/6RoyrqBARVMowlrXNgA94JpCJ3VRCFWAUF7DlENpcfnz7S4q1XoQlFs2e7rpacJnwFUOmUXuyRTvGOmW82mW6Vp5MLzAeJqY2dTMsIi7vWS1lXD0J7y9uIGj3+CWPb+5WwYHkiVRbQA6N3Rg0/LV7D3t/VJUghhOk/LVdvGmRNiLI/lHUFegEDoIjpOdcgxwzUUONJE44LZbwRy8huPJ5FtsDUUQM63yGOCNRRzXORlXIX4wNbNeCH3w55VBRQQpOaBEi8AdrFDKtHPp1km5ztzQS9qgIk9l7T4fj2Oa3HveYhGj8mzTOxTftimN+ag7EPAstNru0LITXNTGaOvhXLisdmQT3mhb02g6rPy8FRhQpf4kRYbKYc/2qeFZiXASTwZG0iRZrVYxD6sxNZxO1SWX87OLd4uLo5N4Epe+kqGajXa+4qpn+NmmNij4XaPw+MUnRnKhwmxqw5TWNrxwAGQRS9vD213ESu08vd9s7rnDD1Y2Db3+XKOldnUXsUduRTu/fdywXLhuvBmbZzffjmDsxfuu5b+E/RF7lOl2ulE02zxyWdMTi2jS2B03m7smYm3/CXzaNfp4GN/T2jv+UZ/dfQLeXtywpvkX1zQhVA==
+sidebar_class_name: "get api-method"
+info_path: api/central/v1/zerotier-central-api
+custom_edit_url: null
+hide_send_button: true
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get organization by ID"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/org/{orgID}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Get organization by ID
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"orgID","description":"Organization ID","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Organization","content":{"application/json":{"schema":{"type":"object","properties":{"id":{"type":"string","example":"00000000-0000-0000-0000-000000000000","description":"Organization ID"},"ownerId":{"type":"string","description":"User ID of the organization owner","example":"00000000-0000-0000-0000-000000000000","readOnly":true},"ownerEmail":{"type":"string","description":"Organization owner's email address","example":"user@example.com","readOnly":true},"members":{"type":"array","items":{"type":"object","properties":{"orgId":{"type":"string","readOnly":true,"description":"Organization ID","example":"00000000-0000-0000-0000-000000000000"},"userId":{"type":"string","readOnly":false,"description":"User ID","example":"00000000-0000-0000-0000-000000000000"},"name":{"type":"string","readOnly":true,"nullable":true,"description":"Organization member display name","example":"Joe User"},"email":{"type":"string","readOnly":true,"nullable":true,"description":"Organization member email address"}},"title":"OrganizationMember"},"description":"List of organization members"},"ssoConfig":{"type":"object","description":"Organization wide SSO configuration","properties":{"enabled":{"type":"boolean","example":true,"description":"Enabled flag for SSO"},"issuers":{"type":"array","items":{"description":"list of configured OIDC issuers","type":"object","properties":{"provider":{"type":"string","example":"keycloak","description":"OIDC Provider (one of: default, authelia, auth0, azure, keycloak, okta, onelogin)"},"clientId":{"type":"string","example":"oidc-client-id","description":"OIDC Client ID"},"issuer":{"type":"string","example":"https://example.com/oidc/auth","description":"OIDC Issuer URL"},"authorization_endpoint":{"type":"string","example":"https://example.com/oidc/auth/endpoint","description":"authorization endpoint","readOnly":true}},"title":"SsoIssuer"}}},"title":"OrgSsoConfig"}},"title":"Organization"}}}},"401":{"description":"Authorization required"},"403":{"description":"Access denied"},"404":{"description":"Item not found"}}}
+>
+  
+</StatusCodes>
+
+
+      
