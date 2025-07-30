@@ -1,0 +1,72 @@
+---
+id: get-organization-members
+title: "Get list of organization members"
+description: "Get list of organization members"
+sidebar_label: "Get list of organization members"
+hide_title: true
+hide_table_of_contents: true
+api: eJy1Vltv2zYU/isH52kDFMlJ+iS4BoI2zTL0EjQpsC3xA0MdS2wkkiWpJK6h/z4cSnblykOGAdODLercvnPnBoMoPea3aFwptPougjLa4zJBY8nF02WBOZYUPo04PlBzT85jglY40VDgQ367QS0awpy1Xb7FBAvy0inLIpjjWANEuuLPVoQKE3T0rVWOCsyDaylBLytqBOYbDGvLSn1wSpfYdUtm9tZoT57pJ7MZ/+0bu6AAY6eg6TGDb6Ukz9il0YF0YFlhba1kZMy+elawmQIw919JBnbacXSC6s2zs8UUJ4MUxSddr7cevRQNehaNrVnFbHiODvxsH+wSbD25l2yvRO0nxr94cv/VaJ/jl93VbV2Le1b9ovt9bqBQ3tZiDdHCGNrvhoAhs3lqhKr/H/tRNYiicFwgXZdgUCECmBY/dh0zvJodT2vvrA2VcVvlu8KO7KcH2GNBQkFabbleTbkuAzWgTYCVaXUR0U0rvlY+gFkdrHxMsKFQmaGfY/OGCnPMjCuzTezZLuOSwgQ9ucdtU7euxhyrEKzPs0xYlX4nZ4Iil0rT8Ifs8XjS7VfOFK2MAK6jMuTG9SRbp8I6Kg7mgTQHC/Pb5Zh6za3Xd9eIZ5dyhoLDhOBz5IkRUXplpqH7i5y5UeTgDengRA0fKTwZ9wAfhBYlNaQDXBkXRA1nV5fp3C7O6vgac0c+eGhaH6ASjwRCR0q0CRWJghx4S1KtFBWgNISKYC5NQYu9OsgHkWd+5llkgJVxjQgpwJ+mBSk0lKR57hKsTeuioQdaw/0aalOWSpegdDAwF1A5Wr2+22WlWe8l5Q4XPzs9z8QChC5AOhKBVYkBkekxn0lpWh3AipLSeWYXc7ugMh18ka2r4egPuDi/gaPf4A7/2bk7hBeKJdN9AoYwDMbm1eniM/v+XjWKEc6z6nRLvKkIJnnk+CieEZxCDzFw9SCcAlwJVQAXtAfhBgoVEAwcz2Y/cms5gySNLlKAd47osMzJYRHGB3O7GKUwxHh+sqQZIBcHVOQIhIcnqut8COk2SIWRfj9KxpLmSMnez8fjlJfSKFqYILdnX96x+baT6lCMhl0nZNx1w47eMV631hoX4K3ysvWsE94Z1zaY/NT5Rc+wB5XHVa0kaU8j3WdWyIrgJJ3tKcmz7OnpKRWRmvLUGUR99v7yzfnH6/Ojk3SWVqGpYzdb40Mj9Ejxv5hxe62/GxmBnkNma6F03JsubpB+/sXLDyaYb28tcQQuE6yMD0zebO6Fpy+u7jr+/K0lx/NrmeCjcKpfMbcbLJTn9+Lwyt38uG7gL5+HlfArTG8BBwEPH4Vec+ZF3fIJE3yg9e661S27BPuBFPH0NF4uNoykJlcdHry7xXBxfoNd9zcjoHH2
+sidebar_class_name: "get api-method"
+info_path: api/central/v1/zerotier-central-api
+custom_edit_url: null
+hide_send_button: true
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get list of organization members"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/org/{orgID}/user"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Get list of organization members
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"orgID","description":"Organization ID","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Get organization members success","content":{"application/json":{"schema":{"type":"object","properties":{"orgId":{"type":"string","readOnly":true,"description":"Organization ID","example":"00000000-0000-0000-0000-000000000000"},"userId":{"type":"string","readOnly":false,"description":"User ID","example":"00000000-0000-0000-0000-000000000000"},"name":{"type":"string","readOnly":true,"nullable":true,"description":"Organization member display name","example":"Joe User"},"email":{"type":"string","readOnly":true,"nullable":true,"description":"Organization member email address"}},"title":"OrganizationMember"}}}},"401":{"description":"Authorization required"},"403":{"description":"Access denied"},"404":{"description":"Item not found"}}}
+>
+  
+</StatusCodes>
+
+
+      

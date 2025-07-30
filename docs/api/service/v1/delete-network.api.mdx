@@ -1,0 +1,72 @@
+---
+id: delete-network
+title: "Leave a network."
+description: "Leave a network."
+sidebar_label: "Leave a network."
+hide_title: true
+hide_table_of_contents: true
+api: eJxtU8Fu2zAM/RWBpw1Q7bTbpboFSw7Biq5YM2BokYNqM5FQW3IlOllm+N8HKnaaLD05NsmX9x4fOyC9iaCewSHtfHiFlQTfYNBkvVuUoKDECgnvh7KERgddI2HgsQ6crhHUOL6YgYQSYxFswwigYDETfi3IoHBHDMuFRpMBCQHfWhuwBEWhRQmxMFhrUB3QvmHoSMG6DfT9iptj413EyPWbyYQf5383EBUH2mUGvYSvk+vLxmlLxgf7NykVI4sM+v5/BXeotyj0yD8DCTWS8e/uJFvIgIJ8aMq7oyM9SIgYtqNjbahAgSFqVJ5XvtCV8ZHU7e3tlwvzHoIv2yIxfEwQwC5ELNpgaZ/gpo39jntWA+p5dVp+ZCcPVp02HY3V6eO4DoO6xABy3Ojvq6fl9VUaYUusW/s0a6ni8hMGv7QYfjhM1GyBYvqwAAks9MB+kl1nkwtNS2Mjt4rCOwq+iikcI56IAxgZTSK0LgrrUseLLl43wbeuFN6JvW+DKHzdtISBV1LZAl1E5jgomDa6MChuEocz13e7XaZTNfNhkw+jMb9bfJvfP86vbrJJZqiukvLGR6q1OwH+IBBnEo8OE/6hvKm0dRzDRKEbkvJ+cRLU+/WsJHAauN51Lzrir1D1PX9+azHwxlcStjpY/cJreO6gtJF/l6DWuop4QYVdRkeg4NPPIeSfxUdH+SHnMSqOc7LVVctvIOEV92dX36/6k6uYze/myzn0/T8ARHyC
+sidebar_class_name: "delete api-method"
+info_path: api/service/v1/zerotierone-service-api
+custom_edit_url: null
+hide_send_button: true
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Leave a network."}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/network/{networkID}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Leave a network.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"networkID","description":"ID of the network","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Network deleted."},"401":{"description":"Authorization required."}}}
+>
+  
+</StatusCodes>
+
+
+      

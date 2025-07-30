@@ -1,0 +1,72 @@
+---
+id: delete-network-member
+title: "Delete a network member"
+description: "Delete a network member"
+sidebar_label: "Delete a network member"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVVFv2zYQ/iuHe9oARXKSPgmuAaN2NwNpFzQZ0C7xA0OdLS4SyZKnpK6h/z6QkhU7djeg84sl8bu7j9935G2Rxdpjfoea+Nm4x7Oa6gdyuEzQWHKCldGLAnMsqCKmjx3qQwdK0AonamJyIccWtagJ812uxQwTLMhLp2zIgzkuZmBWwCVBj8EEVViwgktM0NHXRjkqMGfXUIJellQLzLfIGxtSe3ZKr7Ftk6Fax/hfi9U7vj9XaxnA3hrtyYf1i9Eo/B1W62pAp1OBbYJvRufHsGnDpXHqe1QWBg4RfnkCLiV5DwVptUO9OUYtmGrQhmFlGl0EdV4BZpEViJ3sL4rUxKV5MTh6yiXmmPXQbDvY2WZdWLbdad5igp7c064BGldhjiWz9XmWCavS7+QMK3KpNHX4kD2dHxl17UzRyCjITUyGQXJPsnGKNzExm0fSQTvM75b7qzfBtc6WPczgYaCCvbfhPWKiQEqvzLGSf5Ezt4ocvCPNTlTQdzx8EFqsqSbNcG0ciwqm14t0bCfTKj5GK8mzh7rxDKV4IhA6rsSaUJIoyIG3JNVKUQFKx94cS1PQ5KAt8j7kW/iNswiAlXG14BTgi2lACg1r0uGAEmxM42KhR9rAwwYqs14rvQal2cBYQOlo9fZ+cKXeHJhyj5PXmx5nYgJCFyAdCQ6pRM/IdJynUppGM1ixpnSc2cnYTmid9nuRjavg7DP8Nr+Fs9/hHn+8uXuE/2iWXRv2MvTFxuXl5FPY+5WqVWA4zsrL3eJtSXDkY9BH1baKFnqIwlV9cApwLVQBjSfnQbh+hQpgA+ej0Yu3NjhI0ugiBXjviE7HXJwOCfxgbCd7FnLU8w9LOhAMzQElOQLh4ZmqKu8l3YlUGOkPVTKWdFBKdvt8Ok//9kbvqYUJhuPZtXc8fKy4olO9Pr1eYILSaBaSw9nob9gBeNNYaxzDTHnZ+JAT3hvX1Ji8OvlFBzigGm6vSknSnvZyT62QJcFFOjpIkmfZ8/NzKuJqatw660N9drV4N/94Mz+7SEdpyXUVT7M1nmuh9xL/+Mo7OPHDTcH0jTNbCaUD0chk29+Fw3TEBPP94TakzIchtEywNJ5D0Hb7IDz96aq2DZ+/NuTCZbZM8Ek4JR6CCXdbLJQPzwXmK1F5OuIX/CDNmOMvn/px8SucGqQnN9J/FHoTGkFUTXjDBB9pczCpw0D9n0wGNX6CyKBfu2z3htJsfjW/nWPb/gO79fmN
+sidebar_class_name: "delete api-method"
+info_path: api/central/v1/zerotier-central-api
+custom_edit_url: null
+hide_send_button: true
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete a network member"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/network/{networkID}/member/{memberID}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Delete a network member
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"networkID","description":"ID of the network","in":"path","required":true,"schema":{"type":"string"}},{"name":"memberID","description":"ID of the member","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"member deleted"},"401":{"description":"Authorization required"},"403":{"description":"Access denied"},"404":{"description":"Item not found"}}}
+>
+  
+</StatusCodes>
+
+
+      
