@@ -24,6 +24,9 @@
   "resolutions": {
     "postman-code-generators": "1.10.0"
   },
+  "overrides": {
+    "dompurify": "^2.5.8"
+  },
   "dependencies": {
     "@cspell/dict-markdown": "^2.0.2",
     "@cspell/dict-software-terms": "^4.1.5",
