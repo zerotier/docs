@@ -3,14 +3,14 @@
 const path = require("path");
 
 const POSTHOG = {
-  appUrl: process.env.POSTHOG_API_HOST,
-  apiKey: process.env.POSTHOG_PROJECT_KEY,
+  appUrl: process.env.POSTHOG_API_HOST || "https://us.i.posthog.com",
+  apiKey: process.env.POSTHOG_PROJECT_KEY || "",
 };
 
 const ALGOLIA = {
-  apiKey: process.env.ALGOLIA_API_KEY,
-  appId: process.env.ALGOLIA_APP_ID,
-  indexName: process.env.ALGOLIA_INDEX_NAME,
+  apiKey: process.env.ALGOLIA_API_KEY || "",
+  appId: process.env.ALGOLIA_APP_ID || "",
+  indexName: process.env.ALGOLIA_INDEX_NAME || "",
 };
 
 module.exports = {
