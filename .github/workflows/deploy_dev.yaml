@@ -49,7 +49,7 @@ jobs:
         POSTHOG_API_HOST: ${{ secrets.POSTHOG_API_HOST }}
         POSTHOG_PROJECT_KEY: ${{ secrets.POSTHOG_PROJECT_KEY }}
         ALGOLIA_API_KEY: ${{ vars.ALGOLIA_API_KEY }}
-        ALGOLIA_APP_ID: ${{ vars.ALGOLIA_API_KEY }}
+        ALGOLIA_APP_ID: ${{ vars.ALGOLIA_APP_ID }}
         ALGOLIA_INDEX_NAME: ${{ env.ALGOLIA_INDEX_NAME }}
     - id: 'auth'
       uses: 'google-github-actions/auth@v2'
