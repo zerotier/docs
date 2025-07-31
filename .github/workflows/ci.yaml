@@ -8,7 +8,7 @@ jobs:
   build:
     name: Build
     runs-on: gha-runner-x64
-    environment: test
+    environment: development
 
     steps:
     - uses: actions/checkout@v4
