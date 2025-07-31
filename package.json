@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "preview": "env-cmd tinacms dev -c 'docusaurus start --host 0.0.0.0'",
-    "start": "env-cmd docusaurus start --host 0.0.0.0",
-    "build": "env-cmd docusaurus build",
+    "preview": "env-cmd --silent tinacms dev -c 'docusaurus start --host 0.0.0.0'",
+    "start": "env-cmd --silent docusaurus start --host 0.0.0.0",
+    "build": "env-cmd --silent docusaurus build",
     "copy-tina": "cp -r tina/__generated__ build/",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
