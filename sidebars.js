@@ -46,6 +46,8 @@ module.exports = {
         'remotedesktop',
         'filesharing',
         'website',
+        'screenstreaming',
+        'usbsharing',
         'docker',
         'dns',
         'exitnode',

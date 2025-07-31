@@ -9,14 +9,9 @@ import TabItem from '@theme/TabItem';
 
 ZeroTier creates a secure virtual network between devices, allowing seamless file sharing whether you're on Windows, macOS, or Linux. Here’s how to share files step-by-step.
 
-## Step 1: Join the Same ZeroTier Network
+## Prerequisites
 
-Follow the [ZeroTier Quickstart Guide](/quickstart) to:
-
-- Install ZeroTier on each device.
-- Join all devices to the same network.
-- Authorize them from the ZeroTier Central web UI.
-- Verify connectivity with a `ping` to the other device’s ZeroTier IP.
+- A working ZeroTier network with 2 or more devices, per the [ZeroTier Quickstart Guide](/quickstart)
 
 ## Step 2: Enable File Sharing
 
@@ -37,10 +32,8 @@ Choose your platform and follow the OS-specific file sharing setup instructions:
 
 1. Open `Control Panel > Network and Sharing Center`.
 2. Click `Change advanced sharing settings`.
-3. Enable:
-   - Network discovery  
-   - File and printer sharing
-4. Right-click the folder to share → `Properties` → `Sharing` tab → `Share…` or `Advanced Sharing…`.
+3. Enable: `Network discovery` and `File and printer sharing`
+4. Right-click the folder to share -> `Properties` -> `Sharing` tab -> `Share…` or `Advanced Sharing…`.
 
 </TabItem>
 
@@ -48,7 +41,7 @@ Choose your platform and follow the OS-specific file sharing setup instructions:
 
 ### macOS
 
-1. Open `System Settings > General > Sharing`.
+1. Open `System Settings -> General -> Sharing`.
 2. Enable **File Sharing**.
 3. Add folders and configure user permissions.
 

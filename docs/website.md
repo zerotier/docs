@@ -29,44 +29,46 @@ Choose your platform and follow the steps to start a simple web server:
 <TabItem value="win">
 
 :::note Python
-[This step requires Python](https://www.python.org/downloads/). 
+[This step requires Python](https://www.python.org/downloads/).
 :::
 
-
-1. Open PowerShell in your website folder.
-2. Start the built-in server (Python required):
+Open PowerShell in your website folder and start the built-in server (Python required):
 
 ```powershell
 python -m http.server 8080
 ```
 
-3. Ensure Windows Firewall allows inbound traffic on port `8080`.
+Ensure Windows Firewall allows inbound traffic on port `8080`. To check, you can use Powershell in administrator mode:
+
+```powershell
+netstat -a -n -o | findstr :8080
+```
+
+If you see an address `LISTENIING`, a service is bound to it.
 
 </TabItem>
 
 <TabItem value="mac">
 
-1. Open Terminal in your site directory.
-2. Run:
+Open Terminal in your site directory and run:
 
 ```bash
 python3 -m http.server 8080
 ```
 
-3. If prompted, allow the connection through the firewall.
+If prompted, allow the connection through the firewall.
 
 </TabItem>
 
 <TabItem value="linux">
 
-1. Open a terminal in your website folder.
-2. Use Python or any other HTTP server (e.g., Nginx, Apache):
+Open a terminal in your website folder. Then, use Python or any other HTTP server (e.g., NGINX, Apache):
 
 ```bash
 python3 -m http.server 8080
 ```
 
-3. Ensure `ufw` or your firewall allows port `8080`:
+Ensure `ufw` or your firewall allows port `8080`:
 
 ```bash
 sudo ufw allow 8080
