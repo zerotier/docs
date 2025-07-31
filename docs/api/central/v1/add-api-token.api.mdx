@@ -1,0 +1,72 @@
+---
+id: add-api-token
+title: "Add an API token"
+description: "Add an API token"
+sidebar_label: "Add an API token"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVm1v2zYQ/iuHwz5sgCLlpRhawTOQtumWoU2CxgW2Jf7AkGeLiUSyJBXXNfzfi6Nkx47d7vOA+ZNF3vtz9xwXGMU0YHmDbSCP4wytIy+ituZcYYlCqdOr85F9IIMZOuFFQ5E8ayzQiIawTJrnbzFDRUF67VgZS/wUyEM61/zpRKwwQ0+fW+1JYRl9SxkGWVEjsFxgnDu2FqLXZorL5bgTphBfWzVniW37q7jgz+vLC7B39yTjHgfSmkgmsr5wrtYyJVfcBzay2PW/NuQ8lyJqCumWXV2khJ+HmiF9EY2r+aiZH4TWkT8IJD3Fg9hXbjt0rhgER1JPNClIQpCqyfELdWnqOZYTUQdaZp3rH7sVKkxevRShUg/31cmvL1/xgbk/+en07a7306tzSJXLAT5oo5u2gZNjkJXwQjK4OYwqHfqwdAAy0s9dJAXaQKwIlIjiTgQCYRRIYcDYCHcEnqLX9EgKrJEEgeJuQhnOvI7UnTBES05Rx5THuteWSz72FJw1oUPg+PBwbxN0uYBQihT+j/d/Ge8X+yB+LRT0RIBJ5mhPG7Sxsl5/TVjDmgKS+MkecSkpBFBk9Erqxa7UeaQmZTqxrVHIAT4zoxQIA1zfFe4NxcoycTobUlMx65VYcAcUi44pl8VKOpB/XJFp62sssYrRhbIohNP5V/I2avK5tA0fFI9HO9heeatambK+TsaQeTOQbL2O82Q4OeMCYXkz3ry95lHY6PZOZt12HAr2BM3fsQcqQ56lj0/UfLZqy62p+e5o9O394x5e8taY2F1Q/iFvR5o8vCETvajhguLM+gf4IIyYUkMmwpX1UdSMSz5ww9M6/V31UICmDREq8Uhb4EFFQm2Nad/8A2kVDbc6rOxVvvBvUCQBmFjfiJgD/G3bNCRTMrxKCea29cnRA83hbg61nU61mYI20cJAQOVp8tvtGvtmvgX9LQ6fJz0oxLCbRU8isinRR2S7mE+ltK2J4MSU8kHhhgM3pGne5yJbX8PBX/D72QgO/oBb/H5ytwj/0pKF6QDoy9A7G1Qnw4+c+3vdaI5wUFQnq8tRRbCDI9dHcx8xhAFS4epeOQe4EloBz08A4fubRKVwdHj4hK1jBElao3KAd55ov87xfhWODwZuuAFhTPW8dGQ4QG4OqMgTiAAzquuyL+mqSMrKsF0l68hwpWSX5+NRzuOzUS3MkEmga+804it23FejfsMJmTZc/wJbC163zlkf4a0Osg1sE95Z3zaYPeMX1QlshcpDV2tJJtCG7VMnZEVwnB9uGSmLYjab5SLd5tZPi141FO/P35xdXJ8dHOeHeRWbOnEG82EjzKbhXfbcGvU1EUX6EgtXC51oIYWw6Im1f7ZmWK4foZ2tcYYVM3B5g4sFr65Pvl4u+fhzS56JcZzho/Ba3HGpbxaodOD/ar22ngWzflfgzx/7/fILPL1x98baHwozZ5BF3fIXZvhA86d383K8zLAjnxRId/mmc3cwYhNPyjtPmmW20uCl5uIPZccbC+rq8nqEGd71b+vGKtbxYsYrXMy6QG1KP62IdLbAWphpK6Ys29nk3zcBMjhG
+sidebar_class_name: "post api-method"
+info_path: api/central/v1/zerotier-central-api
+custom_edit_url: null
+hide_send_button: true
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Add an API token"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/user/{userID}/token"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Add an API token
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"userID","description":"User ID","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"description":"APIToken JSON object","required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"tokenName":{"type":"string","example":"my-super-secret-token","description":"user specified token name","readOnly":false},"token":{"type":"string","example":"adsf98ashdkjh3689adsfnj3$ADn","description":"API Token.  Minimum 32 characters. This token is encrypted in the database and can not be retrieved once set","readOnly":false,"writeOnly":true}},"title":"APIToken"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"API Token added","content":{"application/json":{"schema":{"type":"object","properties":{"tokenName":{"type":"string","example":"my-super-secret-token","description":"user specified token name","readOnly":false},"token":{"type":"string","example":"adsf98ashdkjh3689adsfnj3$ADn","description":"API Token.  Minimum 32 characters. This token is encrypted in the database and can not be retrieved once set","readOnly":false,"writeOnly":true}},"title":"APIToken"}}}},"400":{"description":"Bad request"},"401":{"description":"Authorization required"},"403":{"description":"Access denied"},"404":{"description":"Item not found"}}}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,64 @@
+---
+id: get-peers
+title: "Get all peers."
+description: "Get all peers."
+sidebar_label: "Get all peers."
+hide_title: true
+hide_table_of_contents: true
+api: eJylVU1v20YQ/SvEnGmKdCTF5E0N3MBo2hqxCxQxdFgtR+I65O5mdihbEfjfi1kpNp0YdpCeRC3fe/vmk3tgtQlQ3YBHJFim4DySYuPsRQ0VbJAvESlACoTBOxswQLWH0zyXnxqDJuMFDhUsiNQucetEKIlb3aJmYWpnGS0LQXnfGh31J7dBWHsIusFOyRPvPEIFSnQgBcPYhdH5QRFS8CQu2Ry8qLomDGNgYDJ2Ayngvep8K0dlebrW66JevYUhBRN+c7bGesRZOdeismPSWrUBhxRaxWj1bgQ2lnGDNAZP8yEFr7gJ/yMSzWaLz5ga0p+LsihnWXFWZMXbN1kxKydlWb4RMt57Qz8fbuCPqPGplceQ1446xYej+XSsUMyLs3I2K+bT2Vl+VLpCW/+6TDmXrBKukV71z9SLfaY+MNaXipuL529+YOTDMAwpkGvx5bx+OF/8LnncIgVz6NoXipDNs+kI/ae6dfSykWKENvY19PwR/RG3r7SlBMiGozOZSxgOQU/z4pkJ7rlxZL7GAU0Iv/TSNhkI4SnyPXKi2jaRtREySKFDbtxxZcBhEqCCSVwrKQQkcQzVzR56aqGChtlXk0nrtGobF7iKvfr9NZfk6l5HN1dRAoalqOmeDO+i3MKbP3AnzqG6WY5fX8liOUzWGPQ4nfFQxlOualDV0atVnbz99+TTdXESKRK+sWsXucdcfkJy1wbpb4vRmtGYLC4vYNQkkGdFlv8Q03VjgkAT2Yvk2pBwg8k3vSQcxbhRnFBvQ2JsRKyU/rwh19s6cTbZuZ4S7TrfM5IUoDUabYiNfIxg4ZVuMDmNHp5k/e7uLlPxbeZoMzlSw+TDxbvzv67OT06zPGu4a2Pk3gXulB0J/1D8JwE+5Jfxnie+VSYusGhgf2yMx++N1F7+7/crFfAfaodBjr/0SFLfZQpbRUatJOk3yyH9Vicp/WfcSZhao5ee26q2P9T1u4+MNMVDf74/v4Zh+A9NuVUN
+sidebar_class_name: "get api-method"
+info_path: api/service/v1/zerotierone-service-api
+custom_edit_url: null
+hide_send_button: true
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get all peers."}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/peer"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Get all peers.
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Array of Peer objects","content":{"application/json":{"schema":{"type":"array","items":{"type":"object","properties":{"address":{"type":"string","example":"992fcf1db7"},"isBonded":{"type":"boolean","example":false},"latency":{"type":"integer","example":40},"paths":{"type":"array","items":{"type":"object","properties":{"active":{"type":"boolean"},"address":{"type":"string","example":"195.181.173.159/9993"},"expired":{"type":"boolean","example":false},"lastReceive":{"type":"integer","format":"int64","example":1618955164580},"lastSend":{"type":"integer","format":"int64","example":1618955164596},"preferred":{"type":"boolean","example":true},"trustedPathId":{"type":"integer","example":0}}}},"role":{"type":"string","example":"LEAF"},"version":{"type":"string","example":"1.6.4"},"versionMajor":{"type":"integer","example":1},"versionMinor":{"type":"integer","example":6},"versionRev":{"type":"integer","example":4}},"title":"Peer"}}}}},"401":{"description":"Authorization required."}}}
+>
+  
+</StatusCodes>
+
+
+      

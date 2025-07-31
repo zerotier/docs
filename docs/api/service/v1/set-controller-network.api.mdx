@@ -1,0 +1,72 @@
+---
+id: set-controller-network
+title: "Create or Update a Network."
+description: "Create or Update a Network."
+sidebar_label: "Create or Update a Network."
+hide_title: true
+hide_table_of_contents: true
+api: eJztWEtz4jgQ/iuuPu1WOYBNXvjGZHLIbjZJBaZqaygOwu6AElnySDIMofjvWy0bMNghk9o9bYULIKk/9/NrtVdg2dRANIJYSauVEKhh7IPKUDPLlbxJIAKD9mq7fYd2ofQL+JAxzVK0qAlgBZKlCBHIYv/mK/iQoIk1zwgIIrj56qknz87QK8+0wAdOOxmzM/BB44+ca0wgsjpHH0w8w5RBtAK7zAjbWM3lFHzAnyzNBC11MTw9w27Ani7YRXjOYL0eF0ho7BeVLEl8X4/SAk9NnjG23h+D+7tWw9PJIygtybMsEzx2Dmk/GwJZ1ZUr4MgvmtxnORra5UmTARpZci/FcvOwJoM69Alg7YNc/BcoavJcABzzp9yGdx+ctHABPiacLk9ipcTJBmTtQ6zR+W3I94Rlnk5QV4WD87AbdIKzXtjw6EzzObNVgIlSApmkR6BkE4FftGJJzIxtPjQ/7RvDp/IvleD7QXttRFkTzvlHcM4zweQbauun+DTodZs331YgtXlli0uL031HhpedDp3LheXkj1uecntcpBuSPjjnhhfJ/fbRoCE6WuW2sLeUY1qzJRW3xdS87yXL9BTt8dQKemErOL9s0XenHZ66mPJ3yKEqFIAPMheCcqXU3PmTZ0VAU5T2QSnxL+zg2SOTUxxYpj9gjavNUvRaNtZ5s2B4dgqFDToXH/E/icQsYxMu+DYGvyxZdIyPSGhMlcWhZjEOfyHUF09nSa+Dk8sL2Be+xTmKhvR0WnHrhOuNqnQRmkxJUxgbdjr1tgCflP9J+Z+U/0n5n5T//6D8005QZ/l+bmdK81fHUN7mzt9ygPsnr4jG0FPa+5Yl9It5d7u5JUU7UzQcZcq4tKARJoL2bo5ql5TYXm1HojX4YFDPNyNTrgVEMLM2i9ptoWImZsrYqNfrdWvT04NWSR47rQcOAmjQMRjnmtulg+tn/E9ckoUQjcbV7QF1riLq1UO7iLrFzTg2Q5Y4CihHur9Pvg+DEydCbqJ2+LgbsK43UdyOgIc9oULmZdM6pO9i+ZCwX+2Wbw45eMOyheCWV4u/FTlHnUSPdXbshjsaG+0YqU47JescVvC4kUhGh5xQY6Rq3deLe7wt7dGK/uwXbbFWzuyrYtKtFVq1mpqKiVoFl0/Kxb+soe+o1ZCjvpfo0ovH6PUfbsh21EWLgE4raHVqeTmccUNHvTLzjZvwN3ieKcHsjFlP59J4XLoTExa/TLXKZeIp6S1Vrr1YpVluUVN9CR6jNNWs6mcsnqEXOh32KmexWLSY220pPW2XoqZ9e3N1fTe4PglbndbMpsJlL9VrymQF+Hih71m7LRiLP207E4y71u20WZUcsPcuxa/crqLdq5GxD1TpdHi1mjCD37RYr2n5R46aqnnsw5xpXrSu0QoSbuh3AtETEwZrem2vrvDbY0lqv3uNb1waLdjwgCQSmDORY3EjfsHl3jud9Xjtb/iB1Cr2r4qHnwwJZSdfu0Ov/Y1EP44xs0fPjisk+3A/GIIPk/J9TupYADRbUIKzRaGrcs5wJOfWViCYnOZsSmcLTPr8A0HTVUU=
+sidebar_class_name: "post api-method"
+info_path: api/service/v1/zerotierone-service-api
+custom_edit_url: null
+hide_send_button: true
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create or Update a Network."}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/controller/network/{networkID}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Create or Update a Network.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"networkID","description":"ID of the network.","in":"path","required":true,"schema":{"type":"string","example":"3e245e31af7a726a"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"description":"Network object JSON.","required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"id":{"type":"string","readOnly":true,"example":"3e245e31af000001"},"nwid":{"type":"string","readOnly":true,"example":"3e245e31af000001"},"objtype":{"type":"string","example":"network","readOnly":true},"name":{"type":"string","example":"my-cool-network"},"creationTime":{"type":"number","example":1623101592,"readOnly":true},"private":{"type":"boolean"},"enableBroadcast":{"type":"boolean"},"v4AssignMode":{"type":"object","properties":{"zt":{"type":"boolean"}}},"v6AssignMode":{"type":"object","properties":{"6plane":{"type":"boolean"},"rfc4193":{"type":"boolean"},"zt":{"type":"boolean"}}},"mtu":{"type":"integer","example":2800},"multicastLimit":{"type":"integer","example":32},"revision":{"type":"integer","example":1,"readOnly":true},"routes":{"type":"array","items":{"type":"object","properties":{"target":{"type":"string","example":"192.168.192.0/24"},"via":{"type":"string","example":"192.168.192.1","nullable":true}}}},"ipAssignmentPools":{"type":"array","items":{"type":"object","properties":{"ipRangeStart":{"type":"string","example":"192.168.192.1"},"ipRangeEnd":{"type":"string","example":"192.168.192.254"}}}},"rules":{"type":"array","items":{"type":"object"}},"capabilities":{"type":"array","items":{"type":"object"}},"tags":{"type":"array","items":{"type":"object"}},"remoteTraceTarget":{"type":"string","example":"7f5d90eb87"},"remoteTraceLevel":{"type":"integer"}},"title":"ControllerNetwork"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"","content":{"application/json":{"schema":{"type":"object","properties":{"id":{"type":"string","readOnly":true,"example":"3e245e31af000001"},"nwid":{"type":"string","readOnly":true,"example":"3e245e31af000001"},"objtype":{"type":"string","example":"network","readOnly":true},"name":{"type":"string","example":"my-cool-network"},"creationTime":{"type":"number","example":1623101592,"readOnly":true},"private":{"type":"boolean"},"enableBroadcast":{"type":"boolean"},"v4AssignMode":{"type":"object","properties":{"zt":{"type":"boolean"}}},"v6AssignMode":{"type":"object","properties":{"6plane":{"type":"boolean"},"rfc4193":{"type":"boolean"},"zt":{"type":"boolean"}}},"mtu":{"type":"integer","example":2800},"multicastLimit":{"type":"integer","example":32},"revision":{"type":"integer","example":1,"readOnly":true},"routes":{"type":"array","items":{"type":"object","properties":{"target":{"type":"string","example":"192.168.192.0/24"},"via":{"type":"string","example":"192.168.192.1","nullable":true}}}},"ipAssignmentPools":{"type":"array","items":{"type":"object","properties":{"ipRangeStart":{"type":"string","example":"192.168.192.1"},"ipRangeEnd":{"type":"string","example":"192.168.192.254"}}}},"rules":{"type":"array","items":{"type":"object"}},"capabilities":{"type":"array","items":{"type":"object"}},"tags":{"type":"array","items":{"type":"object"}},"remoteTraceTarget":{"type":"string","example":"7f5d90eb87"},"remoteTraceLevel":{"type":"integer"}},"title":"ControllerNetwork"}}}},"401":{"description":"Authorization required."}}}
+>
+  
+</StatusCodes>
+
+
+      

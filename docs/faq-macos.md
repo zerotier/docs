@@ -68,7 +68,6 @@ Restarting the system will also accomplish this.
 NOTE that authorization of kernel extensions will NOT work in remote desktop sessions. Apple requires it to be done directly on the system console. Via a remote session you can click the button but it will have no effect. We are not aware of any known work-around for this.
 
 [//]: # "cspell:disable-next-line "
-
 ALSO if the mouse/track-pad is emulated by a 3rd party application (MagicPrefs, BetterTouchTool, Synergy, etc.), it won't work.
 If it's still not working
 

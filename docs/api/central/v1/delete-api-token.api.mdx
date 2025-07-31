@@ -1,0 +1,72 @@
+---
+id: delete-api-token
+title: "Delete API Token"
+description: "Delete API Token"
+sidebar_label: "Delete API Token"
+hide_title: true
+hide_table_of_contents: true
+api: eJydVdtu4zYQ/ZXBPLWAIjnJPgmuAWPjbQ2kW2OTBdomfmCoscVGIrnkKFmv4X8vhlZ8SVwUiF9MkXM5PGeGs0ZWy4jlHXaRAs4zdJ6CYuPstMISK2qIaTyb3rpHspihV0G1xBTEaY1WtYRlcp5eYYYVRR2MF38s8WukAGnfyKdXXGOGgb51JlCFJYeOMoy6plZhuUZeeYkWORi7xM0m2yVgSf9Z1q9zJGDQH70vzVyMo3c2UpTzi8FA/o7zjGdTSChgy0mFmww/DM5PWHZcu2B+JBZhByOZX54w15pihIqsebH68NZqytSCdQwL19lKuHllcJVQgcB80aolrt1exaQe11hiIXoV661qmyJdq1jvON5ghpHC04vIXWiwxJrZx7IolDf5DwqODYVcu1Y2iqfzN8LMgqs6nTi4ScFQiI6ku2B4lQKnjEIXlnfzw9Mb0WorxoHNTjmBgr2iu+pInBi7cG/J+5uCuzUU4CNZDqqBz8TPLjzC78qqJbVkGWYusGqEv3zoR+MmLZN6FDlC20WGWj0RKAv7WqhJVRQgetJmYagCY4FrgqF2FY2OKqHsXb7Lb1gkA1i40CrOAf5yHWhlYUlW+o9g5bqQEj3SCh5W0Ljl0tglGMsOhgrqQItf7neqtKsjUe5x9PrSw0KNQNkKdCDFEkr1iNwW81hr11kGr5aUDws/GvoRLfP+LroLDZz9Cb9ObuHsN7jH/77cPcL/FEthtwL0NPTJhvXl6Ivc/dq0RhAOi/ry5fC2Jnijo/BjWt8kCSMk4preOQeYKVOBVHkEFfoTqoAdnA8Ge229KEja2SoH+BSITvtcnHYRfDD0owMJOfH5hycrAKU4oKZAoCI8U9OUPaUvJFVOx2OWnCcrTOntPZ/O83+iswdsYYbSntvyTs3Hhhs6Vevj2RQz1M6y0iy90T+pO8ObznsXGK5M1F2UmPDJha7F7FXnV1uDI6jyYDVGk410EHvsla4JLvLBUZCyKJ6fn3OVTnMXlkXvGovr6cfJ55vJ2UU+yGtum9TN3kVulT0IfOKVO2r13RPB9J0L3yhjBWGCsO6fv37WZVjuxhb3scr9nJlnWLvIYr5eP6hIX0Oz2cj2t46CvF/zDJ9UMOpBeL9bY2WirCssF6qJ9AaZSECWscSfvvRD4WfYj8iTwPtNZVeiuGo6+cIMH2m1H7syJ9+V/Gh2viP/nq3NfHMwb64m15PbCW42/wKmUtxZ
+sidebar_class_name: "delete api-method"
+info_path: api/central/v1/zerotier-central-api
+custom_edit_url: null
+hide_send_button: true
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete API Token"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/user/{userID}/token/{tokenName}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Delete API Token
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"userID","description":"User ID","in":"path","required":true,"schema":{"type":"string"}},{"name":"tokenName","description":"Token Name","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"API token deleted"},"401":{"description":"Authorization required"},"403":{"description":"Access denied"},"404":{"description":"Item not found"}}}
+>
+  
+</StatusCodes>
+
+
+      

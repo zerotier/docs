@@ -1,0 +1,72 @@
+---
+id: generate-controller-network
+title: "Generate Random Network ID."
+description: "Create a new network with a random ID."
+sidebar_label: "Generate Random Network ID."
+hide_title: true
+hide_table_of_contents: true
+api: eJztWN9P4zgQ/lciP91JoW1aYGneuoBOveMAQU86LeqDm0wbg2NnbafdEvV/P42dtGkTuqC7pxN9gdgzn+eH57PHBTF0oUn4RCIpjJKcgyJTn8gMFDVMinFMQrIAgZ9wuZW5BbOS6oX4JAYdKZahLAnJpQJqwKOegJUnnJC3YibxqKeoiGXqja86xCcZVTQFAwoXL4igKZCwZsT4qoF9K2PwxleenHsmAW8ni3gMJTJqEuITBd9zpiAmoVE5+ERHCaSUhAUx6wyX0UYxsSCbzdQJgzZfZbxGiYMlSw/k7Bki4/3+eHfbaVkATQFhUJ9mGWeRDV33WSNI0VzfwWEUFAbaMNA4y+KmjbgYje8EX1eLwQ+aZhxFBtA/PYNBQOc9/AVk4xOx+i9Q5OzZATSBdopiuwf2wdEKm85jyun6JJKSn1QgG59EuHeYFBO2pyzydAaqrhyc9wdBLzgb9luWzhRbUlMHmEnJgQpcAgSdcfiqJI0jqk270PJ0pDVbiD9lDD9P2msrygZxzj+Cc55xKt4wW82j02A4aJ9824DU5LUpJgws9gPZv+j1UC7nhmE8bljKzHGVQR/tgSXTzG3ut0WDluwomRvnb6lHlaJrrF8Dqf55lAxVCzDHt1Yw7HeC84sO/u11+6c2p6yl/t9SCohPRM457pXSchtPlrmEpiDMvZT8X/jBsgcqFvBoqPqAN7Y2S9Vr0Vrn7Yr9s1PifFA5/0j8USWiGZ0xzrY5eLemO1s+oqEglQYmikYweUeqv8zP4mEPZhdfyL7yDSyBt2xPaxUzVrl5mpUhAp1JoZ2z/V6veSyQT8r/pPxPyv+k/E/K/39Q/mkvaLL8KDeJVOzVMpRX3fk7FjAFk0hsjTKpbaqx8whJd9eUdEua6xb1pmZDfKJBLau+J1echCQxJgu7XS4jyhOpTTgcDgeN/udeyTiPrDGPFoJg/6IhyhUzaws3ytgfsEbDSfg0rU8/4oHkklkX2iXKDlaNVAI0tpVd9mV/n3ybBCdWBb3HU+5h1zddV8nZ9nGHVF/j6PIsOmRlN3zIw69mSyOH1FqRp1Pc0qX7rOlZRkTWa5LeoL9jp6cd0TTZpCSTw8KctvLD02GpN4imXs7Nmp1uK/apwI/9WnRjZdNeuAa2UT/1ImmrETwBmJhLm/+yNL6BkhMG6k6A3V4sAm90P0bfQTnmJ71O0Ok19uUkYRpFq45c2/a8wvN0CWYSajyVC+0xYSVmNHpZKJmL2JPCW8tceZFMs9y4jp6zCISu76pRRqMEvL61Ya9yVqtVh9rZjlSLbqmquzfjy+vbx+uTfqfXSUzK7e7Fkk2pqAH/Vr5veA/uiaJq+91TxZ63xe7m9/7HjrLGDPww3YxTZg9x60BRMsfe+4tfu2eFe08iU58gP6B8Ucyohr8U32xw+HsOCjlg6pMlVcydY08FiZnG/2MSzinXcMSbXx5KhvvVO/rS0upMxSICKWRJeQ7umvwC68Nnnc1041cEgxY6kUtnx8kEgXYQjbv1xq80RlEEmTkqO60R9f3d44T4ZFa+86SWRoiiK6wQunLmShsXy5J2rCCcikVOFyjrMPH3D5dbbpM=
+sidebar_class_name: "post api-method"
+info_path: api/service/v1/zerotierone-service-api
+custom_edit_url: null
+hide_send_button: true
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Generate Random Network ID."}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/controller/network/{controllerID}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Create a new network with a random ID.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"controllerID","description":"Node ID of the controller.","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"description":"Network object JSON.","required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"id":{"type":"string","readOnly":true,"example":"3e245e31af000001"},"nwid":{"type":"string","readOnly":true,"example":"3e245e31af000001"},"objtype":{"type":"string","example":"network","readOnly":true},"name":{"type":"string","example":"my-cool-network"},"creationTime":{"type":"number","example":1623101592,"readOnly":true},"private":{"type":"boolean"},"enableBroadcast":{"type":"boolean"},"v4AssignMode":{"type":"object","properties":{"zt":{"type":"boolean"}}},"v6AssignMode":{"type":"object","properties":{"6plane":{"type":"boolean"},"rfc4193":{"type":"boolean"},"zt":{"type":"boolean"}}},"mtu":{"type":"integer","example":2800},"multicastLimit":{"type":"integer","example":32},"revision":{"type":"integer","example":1,"readOnly":true},"routes":{"type":"array","items":{"type":"object","properties":{"target":{"type":"string","example":"192.168.192.0/24"},"via":{"type":"string","example":"192.168.192.1","nullable":true}}}},"ipAssignmentPools":{"type":"array","items":{"type":"object","properties":{"ipRangeStart":{"type":"string","example":"192.168.192.1"},"ipRangeEnd":{"type":"string","example":"192.168.192.254"}}}},"rules":{"type":"array","items":{"type":"object"}},"capabilities":{"type":"array","items":{"type":"object"}},"tags":{"type":"array","items":{"type":"object"}},"remoteTraceTarget":{"type":"string","example":"7f5d90eb87"},"remoteTraceLevel":{"type":"integer"}},"title":"ControllerNetwork"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"","content":{"application/json":{"schema":{"type":"object","properties":{"id":{"type":"string","readOnly":true,"example":"3e245e31af000001"},"nwid":{"type":"string","readOnly":true,"example":"3e245e31af000001"},"objtype":{"type":"string","example":"network","readOnly":true},"name":{"type":"string","example":"my-cool-network"},"creationTime":{"type":"number","example":1623101592,"readOnly":true},"private":{"type":"boolean"},"enableBroadcast":{"type":"boolean"},"v4AssignMode":{"type":"object","properties":{"zt":{"type":"boolean"}}},"v6AssignMode":{"type":"object","properties":{"6plane":{"type":"boolean"},"rfc4193":{"type":"boolean"},"zt":{"type":"boolean"}}},"mtu":{"type":"integer","example":2800},"multicastLimit":{"type":"integer","example":32},"revision":{"type":"integer","example":1,"readOnly":true},"routes":{"type":"array","items":{"type":"object","properties":{"target":{"type":"string","example":"192.168.192.0/24"},"via":{"type":"string","example":"192.168.192.1","nullable":true}}}},"ipAssignmentPools":{"type":"array","items":{"type":"object","properties":{"ipRangeStart":{"type":"string","example":"192.168.192.1"},"ipRangeEnd":{"type":"string","example":"192.168.192.254"}}}},"rules":{"type":"array","items":{"type":"object"}},"capabilities":{"type":"array","items":{"type":"object"}},"tags":{"type":"array","items":{"type":"object"}},"remoteTraceTarget":{"type":"string","example":"7f5d90eb87"},"remoteTraceLevel":{"type":"integer"}},"title":"ControllerNetwork"}}}},"401":{"description":"Authorization required."}}}
+>
+  
+</StatusCodes>
+
+
+      

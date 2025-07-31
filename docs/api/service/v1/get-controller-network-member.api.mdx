@@ -1,0 +1,72 @@
+---
+id: get-controller-network-member
+title: "Get Network Member Details by ID."
+description: "Get Network Member Details by ID."
+sidebar_label: "Get Network Member Details by ID."
+hide_title: true
+hide_table_of_contents: true
+api: eJylVltv2zYU/ivCedoA1SYpKbq8ZU1RBFvboM2AoUEeKPLIYiuJKkk79Qz994G0nDhzOiypHixD58Lv3D6eHTi+slDdgNCDM7rr0MBtDHpEw53Sw6WEClboXt+L36O70+brO+xrNBDDyA3v0aHxbnYw8B6hgmGvdXkBMUi0wqjRu4MKLi8i3USuxWjWWUAMyktG7lqIweC3tTIooXJmjTFY0WLPodqB247et3VGDSuYpvjhOC3xP8/qA9zI6738vFuvbEc9WLRezgjxr8dnQhxyiYPzMj6OnRIhlcsv1ivsTg/Q9RcUzufS+MQ7tXev5CkIj4DLD0O3PcDF77wfO6+CdSHTTGSihCkGLqVBa3/GxXD3XAgJsjTDhPKG+IcGIGvXaqP+xmNftdYd8iHIhVMb/M0oucKnNZTEwSm3fWksFakIy8ssKxrK84SKmjVnrKgTLkXZFCXNZC5Yk+QZQ5LLPGuY/5FICpandSkSniayqElKadbIhDRJTtKkOaN5VnBR5GldpKkQtEgb2WQUKWEMy6IQVJIy4RmRVUl5kZJayKSpuSgp4Y3IzmpMGWNlnjRnecZIyong5RnLGC2SjCEVBZNYc55nRe1hlmkhsgbTWiYiKURDWZaVJC1IyrO6TPImQ8mxoQWreSGzJpEFZ2mSsFBPNZ5bq1ZDj4M7bgxuDN/6qXDYP9kwD0mlZEHTfMHIgpbEjyAY3Cir9p0926nB4SqQww+rQ6cYNu/4F21eYqeG59qdebuPuHmeVeatrox2+rl2UwxOuZCyH1HnNHmtlNBTDjmfRybwRnQgqEXI92PNt+ii2W209xtdoOOqs1G9jS4vPNn16Fo983ggbNdCBcsHxl/OTLzc3dP2tNwz5nK3p9YJYrBoNgeaX5sOKmidG6vlstOCd622rirLMjlh4Suj5VqEUD4FF+CZ1KJYmzDUNzs4H9XvuPVhQ3Vzeyz+5Mlyz4fHSg+9Gz4eKL1FLkNp5nvhr1efr+mrYOJzp4ZmX8m5NJ/R6GuF5sOAAZoSGJ1fXUIMPtA9erKgC3IS03WrrFeN5izacMsc/EV2duZa7iKzHmykhqBRc/F1ZfR6kJEeoq1em0joflw7NL5UnRI42ECDcwTnIxctRixgeJT1u7u7BQ/ShTar5Wxql39cvn7z/tObV2xBFq3ruxD5qK3r+XDk+P90zqOY71Pu8Ltbjh1XgZwDpt3cVY/2iPiwBUAM1fFC0B92h2q+t29j8O3j7Xe7mlv803TT5D9/W6PxLXIbw4YbxWtft5sdSGX9fwlVwzuLJ1Dvr2D45eM8Pr9GT64eTwZ1aK7Bd9aGd2vc3+xfcftoufEryE9C+ddm8hI4+yROt1N8GACfor3wXAgc3ZHZyUbip+2eIt6+uYZp+ge0+Fb8
+sidebar_class_name: "get api-method"
+info_path: api/service/v1/zerotierone-service-api
+custom_edit_url: null
+hide_send_button: true
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get Network Member Details by ID."}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/controller/network/{networkID}/member/{nodeID}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Get Network Member Details by ID.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"networkID","description":"ID of the network.","in":"path","required":true,"schema":{"type":"string"}},{"name":"nodeID","description":"ID of the member node.","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"","content":{"application/json":{"schema":{"type":"object","properties":{"id":{"type":"string","readOnly":true,"example":"eb8d45c5c9"},"address":{"type":"string","readOnly":true,"example":"eb8d45c5c9"},"nwid":{"type":"string","readOnly":true,"example":"3e245e31af000001"},"authorized":{"type":"boolean"},"activeBridge":{"type":"boolean"},"identity":{"type":"string","readOnly":true,"example":"eb8d45c5c9:0:0279558f1a731cb2f628b3adc9f8915d7c2f3752e07d75f2d75fde08274b9c3a43d8b04115fd30f37043f61758ac874b844cc184fdf51e1022e988c1d093a50d:91a840bcd3fbac910afc56be4222973f675204a0ca9625218352e1c82debaa758b915d948c5fe4bd3c38cf1255904804a5b937f5edaef182ba8d5f3d8a243329"},"ipAssignments":{"type":"array","items":{"type":"string","example":"10.147.20.190"}},"revision":{"type":"integer","readOnly":true,"example":1},"vMajor":{"type":"integer","readOnly":true,"example":1},"vMinor":{"type":"integer","readOnly":true,"example":6},"vRev":{"type":"integer","readOnly":true,"example":5},"vProto":{"type":"integer","readOnly":true,"example":5}},"title":"ControllerNetworkMember"}}}},"401":{"description":"Authorization required."}}}
+>
+  
+</StatusCodes>
+
+
+      

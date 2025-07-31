@@ -1,0 +1,72 @@
+---
+id: get-invitation-by-id
+title: "Get organization invitation"
+description: "Get organization invitation"
+sidebar_label: "Get organization invitation"
+hide_title: true
+hide_table_of_contents: true
+api: eJylVm1v2zYQ/iuH+7QBiuS8rMMEz2jWZl2ArgmaDNjWBANDnSU2EsmSVFLX0H8fjpId+WVtt+lDYpH3+tzdo1tiEKXH/B0aVwqtPomgjPZ4m6Cx5OLbeYE5lhTO9YMK8eSnxflLTNAKJxoK5NjAErVoCHNULEZRoCAvnbKsgjk+6UO8VXxoRagwQUcfWuWowDy4lhL0sqJGYL7EsLBs1QendIldd8vC3hrtyfP90WTC/zZdvaIA44RArX1jgtLoQDqwmrC2VjJeZO896y53fZu79yQDJ+wYlKB6z8aVDM12iNtpX4zjiInTR9HYmlUmw3Ow58/qieiI4kLXix6dLkFqhKq/7PqMxUAUhSPvwcx7GIg2Ynhv6HnryaXSNNglqL4ip+1S/v+MpKNo76+guIvWASgdqCSHCc6Na0Toj56d7IT0YjAAbIBzDRUN+Y4DPHx2eDx59v0PR5OT7072xOGDCG0s7+bVZxAYVMYoWNJFj5uo64t5HI9tREm3DQ/eSFZKsoEKblGhJdVU8CAGFaLR6JKuem/dbZdgawsR6D9D9lr4AL2NYhe21bR8NXTmUZM7+7rO3BiKqAg0btYNNLk7nw+vsUt3nHdPKI0tPxUJu46FTiaHu2Rx2obKuFUwayaK4sd7xKXkaSpIq5XUya7UeaAGtAkwN60ukJ3/G4pqKFRm4N3ItKHCHDPjyoMnuWy54toOE/TkHlZU3Loac6xCsD7PMmFV+omcCaqfcj7IHg53inLpTNHKGMxVNIbMtp5k61RY9E1s7kkzYJi/ux3fXjFp9rw4klm3AYeCA63ze5SJqCg9N7vw/UnOXCty8IJ0cKKGNxQejbuHX4UWJTWkA1waF0QNp5fn6dTOTuv4M9aPfPDQtD5AJR4IhI430SdUJApy4C1JNVdUgNKx56fSFDTb6IV8UPnIzzSLAtDPVArwh2lBCg0laf5QEixM66Kje1rA3QJqU5ZKl6B0MDAVUDma/3izrkqz2CjKDc62k55mYgZCF9CToy5BDBGZPuZTKU2rA1hRUjrN7GxqZ1SmQy6ydTUc/A6vzq7h4Be4wX9O7gbhC82S6b4AAwyDs2l1PHvLub9WjeIIp1l1vLq8rgh26sj4KB5kLqGHCFw9KKcAl0IVwPPuQbjhhsnJwOFk8lRbyxUkaXSRAvzsiPbrHO1X4fhgamejEoaI54UlzQFyc0BFjkB4eKS6zgdIVyAVRvpNlIwlzUjJPs+Hw5TXiRFamCCPZ9/ecfhWjLUPo2FLETJuKcNmtRa8aq01LsBL5WXr2Sb8bFzLxLg5+UUvsBEqU1atJGlPI9unVsiK4CidbBjJs+zx8TEV8TY1rswGVZ+9Pn9x9ubq7OAonaRVaOo4zdb40Ag9Mvx5ntuY+jVbBPoYMlsLpTnYGM1y4MC4qB5s2MjXG+dtgpXxgaWWyzvh6TdXdx0ff2jJMYPdJvggnBJ3jPy7JRbK8+8C87mo/fZXfvm0KuI3b4cPw7ewvf3sjXo4FHrBlRd1y2+Y4D0txkty/I73nBQD6q9P4yYwUtzZU5l71x+JV2fX2HV/A3WdB7o=
+sidebar_class_name: "get api-method"
+info_path: api/central/v1/zerotier-central-api
+custom_edit_url: null
+hide_send_button: true
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get organization invitation"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/org-invitation/{inviteID}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Get organization invitation
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"inviteID","description":"Invitation ID","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Get organization invitation","content":{"application/json":{"schema":{"type":"object","properties":{"orgId":{"type":"string","description":"Organization ID","example":"00000000-0000-0000-0000-000000000000","readOnly":true},"email":{"type":"string","description":"Email address of invitee","example":"joe@user.com"},"id":{"type":"string","description":"Invitation ID","example":"00000000-0000-0000-0000-000000000000","readOnly":true},"creation_time":{"type":"integer","format":"int64","description":"Creation time of the invite","example":1613067920454,"readOnly":true},"status":{"readOnly":true,"description":"Invitation status","example":"pending","allOf":[{"type":"string","enum":["pending","accepted","canceled"],"title":"InviteStatus"}]},"update_time":{"type":"integer","format":"int64","description":"Last updated time of the invitation","example":1613067920454,"readOnly":true},"ownerEmail":{"type":"string","description":"Organization owner email address","example":"user@example.com","readOnly":true}},"title":"OrganizationInvitation"}}}},"401":{"description":"Authorization required"},"403":{"description":"Access denied"},"404":{"description":"Item not found"}}}
+>
+  
+</StatusCodes>
+
+
+      

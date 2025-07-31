@@ -1,0 +1,72 @@
+---
+id: get-controller-network
+title: "Get Network by ID."
+description: "Get details of a network by its ID."
+sidebar_label: "Get Network by ID."
+hide_title: true
+hide_table_of_contents: true
+api: eJytVttu4zYQ/RVhnlpAsSXZuVhv7iZYGE2zwcYFig38QFNjiwlFasmRs15D/74gJTt2rdzQ+kWWOOfwzIWc2QCxpYX0HrhWZLSUaGAWQoaWG1GS0ApS+IwUZEhMSBvoRcAChfSkzWMwXweCbDC57EEIukTDHGKSQQpLpE87ypvGHkIomWEFEhq36QYUKxBSaPkml/DvrSeXbkfKcbun20m4lZJRDiEY/F4JgxmkZCoMwfIcCwbpBmhdOm5LRqglhIA/WFFK92mAyfAUBzFbnLPz5IxBXc8cky21smgdOIki9zgU07oRXDaxcFJc2FCRs2VlKQX3Eeg/WAfYHKvR8wfk5AJhXLxINNuJrEuxQZZ9UXK99a3Lg8j9YqhDUE//B4uePzQErwVQ7fJ5SO5U+Iy+Bi7WJ1xrebIlqUPgBn3cpuIArKpijmYfHJ8lgziKT0dJx9alEStG+wRzrSUy5bZAxeYS/zCaZZxZ6jZaDcfWiqX6S2f4dtJ+drLUjufsIzxnpWTqBdlmwYfxaNC9+LKAgqq9JaEIl4eBTC6iyNlVkoSLx7UoBL0OGSROD66EFU1xv2wad2TH6Ioaf1scM4at3WkmLOzbUSJmlkivl1Y8Snrx2UXPPaN+MvQ5FW/cBvugGEJQlZSuVlrlPp6ibBJaoKJbreV/8EOUX5la4h0x8wFv/NlsoVeq85x3A5PTITQ+mEp+JP4OwlnJ5kKKXQ7ejWzaykcQBgtNODWM4/QdqT5fnGajCOcX53AIvsYVyo7y9KoEefBxZ2pCNIzi41t/XFGujfjpb6hg2296nrBAynXb7nx3oxxS6D830357y/U3ux5XQwgWzWrbAysjIYWcqEz7fak5k7m2lI5Go8FRO7w1Oqu4F3LnKcB1Lou8MoLWnm5cij9x7URDej/bX75zzahJ5L7Rc5L8x21/zZFl/lS3Pfqfk2/T+MRD/IlQC+2xbUi/odFTgeaLQi9NcAzGtxMIwTnaqI96cS868mmaC+tMgzZq1rf7LV9gWzLKGQWmUjYQylvMGX9cGl2pLNAqWOvKBFwXZUVoXGeWgqOy/lptPRiXjOcYJF7DQdSfnp56zK/2tFn2W6jtX08+Xd3cXZ0kvaiXUyG956W2VDC1R+zmo5vnkagZhw6c3DwPCu+cptqcEP6gfimZ8Be+F71py+xgZgv3enL6PE7NQnDF5Iw3mzmz+LeRde0+f6/QuIKZhbBiRjQX3v0GMmHd/wzSBZMWX/Hjt6/tUfg96JzSOj3YlppydbZisnJvEMIjrg/mwHpWh9sSdLKa9THnWNIe8mjmcvW+O5Sfr6ZQ178AxwaoWw==
+sidebar_class_name: "get api-method"
+info_path: api/service/v1/zerotierone-service-api
+custom_edit_url: null
+hide_send_button: true
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get Network by ID."}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/controller/network/{networkID}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Get details of a network by its ID.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"networkID","description":"ID of the network.","in":"path","required":true,"schema":{"type":"string","example":"3e245e31af7a726a"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Network Details.","content":{"application/json":{"schema":{"type":"object","properties":{"id":{"type":"string","readOnly":true,"example":"3e245e31af000001"},"nwid":{"type":"string","readOnly":true,"example":"3e245e31af000001"},"objtype":{"type":"string","example":"network","readOnly":true},"name":{"type":"string","example":"my-cool-network"},"creationTime":{"type":"number","example":1623101592,"readOnly":true},"private":{"type":"boolean"},"enableBroadcast":{"type":"boolean"},"v4AssignMode":{"type":"object","properties":{"zt":{"type":"boolean"}}},"v6AssignMode":{"type":"object","properties":{"6plane":{"type":"boolean"},"rfc4193":{"type":"boolean"},"zt":{"type":"boolean"}}},"mtu":{"type":"integer","example":2800},"multicastLimit":{"type":"integer","example":32},"revision":{"type":"integer","example":1,"readOnly":true},"routes":{"type":"array","items":{"type":"object","properties":{"target":{"type":"string","example":"192.168.192.0/24"},"via":{"type":"string","example":"192.168.192.1","nullable":true}}}},"ipAssignmentPools":{"type":"array","items":{"type":"object","properties":{"ipRangeStart":{"type":"string","example":"192.168.192.1"},"ipRangeEnd":{"type":"string","example":"192.168.192.254"}}}},"rules":{"type":"array","items":{"type":"object"}},"capabilities":{"type":"array","items":{"type":"object"}},"tags":{"type":"array","items":{"type":"object"}},"remoteTraceTarget":{"type":"string","example":"7f5d90eb87"},"remoteTraceLevel":{"type":"integer"}},"title":"ControllerNetwork"}}}},"401":{"description":"Authorization required."}}}
+>
+  
+</StatusCodes>
+
+
+      

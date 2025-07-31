@@ -1,0 +1,72 @@
+---
+id: get-peer
+title: "Get information about a specific peer by Node ID."
+description: "Get information about a specific peer by Node ID."
+sidebar_label: "Get information about a specific peer by Node ID."
+hide_title: true
+hide_table_of_contents: true
+api: eJydVcFu4zYQ/RViTi3AyFbW8ca6uW26MLrdBkkKFBv4QFNji1mZ1JIjJ66hfy+Gkh25DpJgT5bJN+SbmTePOyC1CpDdQ4XoYS7BVegVGWdnOWSwQrrmDQmV8mqNhJ7RO7BqjZCBynOPIYCEHIP2puJIyOArendn0IsOINxSUIGCbxHkxAoJJBiGVooKkODxe2085pCRr1FC0AWuFWQ7oG3FVwXyxq6gaeYMDpWzAQPvnw+H/HNMgFkLt3hAzRdpZwktMUxVVWl0zHDwEBi7O73rEFh5rgeZ9qZ9tiekJOCTWlclL00m50u9TPPFR2gkmPCLszmndYhZOFeisv2gpSoDNhJKRWj1tgc2lnAVG3AAj4aNjFXrE1Heqy2XlHAd3pGJJrPBF0g18n1ZppOLJL1Mk/TjhyS9mAwmk8kHDsanqu3i+9INdIMaj6k8p7x0fq2oXRqP+iek4/RycnGRjkcXl8PupFu0+Y8fMxlzVT0u0b/JnxXaSCBfB8L8WlExe/nmQ8SwaZpGgnclvl7Xz1fT37mOG/TBtOp8pQnJOBn10H+qB+dfJ5L20Ma+hR4/o29w84YsOUEyFJlF02hzHg3T0/Gc1lQ4b/6Ncyj2s58ABxwjPyEJY9sWMlYtXE1CiVChNkujW0tZbMUXl6OY/ZaAhDVS4Tr7gnZWIIMBIwe7Tt4NSAjoN3tDq30JGRREVTYYlE6rsnCBsqjr/3O69i6vdaRzG48ANqWAuvaGtvG4aWX+wC2nCdn9vL99y2bTTmEf9DzJcXHvjgWqPNa5M9x/zr7epWcxhGvFlYmxXd33vvuXxUjNaBTT6xn0BAXDJE2GJzndFSYwVLBXeleG6NcHHw/dYVQoEr62QRgbEQulv628q20unBVbV3uh3bqqCT23ojQabYii7zKYVkoXKM4jh6OqPz4+JiruJs6vBl1oGHye/Xr15fbq7DwZJgWty5h55QKtle0d/CNKOarBoQWETzSoSmWiH0aOu05F3UMpIdvb5FwCK4W3druFCvi3L5uGl7/X6FkNcwkb5Y1acIvud5CbwN95Z4QnLA6vFfx0003Gz+J9L+qLCeyFZVlVG1XW/A8kfMNt7wlv5o3cy41ZtrtTrbGiXtzJ+8naPgzcp6s7aJr/ANwQzbU=
+sidebar_class_name: "get api-method"
+info_path: api/service/v1/zerotierone-service-api
+custom_edit_url: null
+hide_send_button: true
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get information about a specific peer by Node ID."}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/peer/{address}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Get information about a specific peer by Node ID.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"address","description":"ZeroTier address of the peer to get","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Peer object","content":{"application/json":{"schema":{"type":"object","properties":{"address":{"type":"string","example":"992fcf1db7"},"isBonded":{"type":"boolean","example":false},"latency":{"type":"integer","example":40},"paths":{"type":"array","items":{"type":"object","properties":{"active":{"type":"boolean"},"address":{"type":"string","example":"195.181.173.159/9993"},"expired":{"type":"boolean","example":false},"lastReceive":{"type":"integer","format":"int64","example":1618955164580},"lastSend":{"type":"integer","format":"int64","example":1618955164596},"preferred":{"type":"boolean","example":true},"trustedPathId":{"type":"integer","example":0}}}},"role":{"type":"string","example":"LEAF"},"version":{"type":"string","example":"1.6.4"},"versionMajor":{"type":"integer","example":1},"versionMinor":{"type":"integer","example":6},"versionRev":{"type":"integer","example":4}},"title":"Peer"}}}},"401":{"description":"Authorization required."}}}
+>
+  
+</StatusCodes>
+
+
+      

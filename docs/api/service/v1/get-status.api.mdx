@@ -1,0 +1,64 @@
+---
+id: get-status
+title: "Node status and addressing info."
+description: "Node status and addressing info."
+sidebar_label: "Node status and addressing info."
+hide_title: true
+hide_table_of_contents: true
+api: eJydVVFv2zYQ/ivCPSu2ZNGSqLdsyIZgaxc0HjY0yANFni0mFKmSVFLP8H8fSDuO0jZpN71IIL/7eN/dx9MOPNs4aG7AeeZHB7cpmAEt89LoSwENbNBfH7ZSsOgGox06aHawyLLwEui4lUPAQwOQAjfao/Zhjw2Dkjxyze9cAOzA8Q57Fr78dkBowLR3yD2kMNhwspcHeiaERecmQOet1BtIAT+zflBhKRPIRIu4zmGfAleG308CpPa4QQsprI3tmT8slWRKkZd5TUlNizyj1T5mv5ab76fn0HupN+4HhChlHld8+IUp1TJ+/wEV207CWmMUMh0EDMb6d2wYpN5caNYqFK/grOyZ3V4Z678p96SOUlrsw5OC0UpqfIVPMY3+L2OVuBT/tYCElhkp8/olz0r26Dzrh//Rj6Kg5WKZl0WgHFsl+aVA7aXfvu2GouAVpbxd1k3WlDRrCclojnyZMUKwrdZVVdJiSVpCWduSivG6IpWgVCxJxXLkNSeCVOWi4EtWYkEX1XpB21rUhBQMW2w5bRkRhNX5ohU1zRaiyou8Fm1B2pqKLMvrEus1QYKhrv656+fcy4dXyv+A1snD7XhdXD4rZ2SC/mmU6tu9OsVkz+h37M7Yt9H5BC3199DlM/oDPryNJcF/Xvqo4zhMDqYkWf71DDkffWes/CfOjcTip1FaFDMIAS+R743A5DC4EqZFcpwZUm8SqddmBin06DtznGPhajLfQQNz9zTSHNogA5qbHYxWQQOd90MznyvDmeqM8/ESwZdHX1kjRh4zvI4UsL8NbHy00ac3Ozgf5G+4DWqgubmdbl+HGXiYDlPQqYYsLkIKMhzVIROxoJr1Yffvs4+r/CyGhJIEpTH2WOCPaM1Kov1DY0xNckzOry5h4jPIZvks+0rTqpMuQJMwwq1RLvEdJk98iTuS+Y75xI7aJVJHRPD3xppRi8ToZGtGm3DTD6NHG1qgJEftovePCs4HxjtMFjGHF1V/fHycsbg7M3YzP4a6+e+XP1+8v744W8yyWed7FZUPxvme6QnxDxjiheRTxT1+9vNBMRkvZExpdzTL9NcY/BBWdruWOfzTqv0+LH8a0Yae36bwwKwMkzu2PH3qXbDDPW6DdM5xCE58YGo89PqLf2Qwysm1v16sYL//F0SBjnw=
+sidebar_class_name: "get api-method"
+info_path: api/service/v1/zerotierone-service-api
+custom_edit_url: null
+hide_send_button: true
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Node status and addressing info."}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/status"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Node status and addressing info.
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"","content":{"application/json":{"schema":{"type":"object","properties":{"address":{"type":"string","example":"0deadbeef1"},"clock":{"type":"integer","format":"int64","example":1618948931097},"config":{"type":"object","properties":{"settings":{"type":"object","properties":{"allowTcpFallbackRelay":{"type":"boolean"},"portMappingEnabled":{"type":"boolean"},"primaryPort":{"type":"integer","example":9993}}}}},"online":{"type":"boolean"},"planetWorldId":{"type":"integer","format":"int64","example":149604618},"planetWorldTimestamp":{"type":"integer","format":"int64","example":1618339625163},"publicIdentity":{"type":"string","example":"33c799cb58:0:690b44091ec50a44eb7f7769354b49abb47ac8747d99d547a1ec8c4d47623c5a6e3927f29b8d8443aebebc9ba4d4a812bd8902d71318db34b89d00186e8f4e4e"},"tcpFallbackActive":{"type":"boolean"},"version":{"type":"string","example":"1.6.4"},"versionBuild":{"type":"integer","example":0},"versionMajor":{"type":"integer","example":1},"versionMinor":{"type":"integer","example":6},"versionRev":{"type":"integer","example":4}},"title":"Status"}}}},"401":{"description":"Authorization required."}}}
+>
+  
+</StatusCodes>
+
+
+      
