@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "NODE_OPTIONS=--openssl-legacy-provider docusaurus start --host 0.0.0.0",
-    "build": "NODE_OPTIONS=--openssl-legacy-provider docusaurus build",
+    "preview": "cross-env tinacms dev -c 'docusaurus start --host 0.0.0.0'",
+    "start": "cross-env NODE_OPTIONS=--openssl-legacy-provider docusaurus start --host 0.0.0.0",
+    "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider docusaurus build",
+    "copy-tina": "cp -r tina/__generated__ build/",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
@@ -36,7 +38,7 @@
     "@mdx-js/react": "^3.1.0",
     "@playwright/test": "^1.49.0",
     "@prantlf/jsonlint": "^16.0.0",
-    "@types/node": "^22.10.1",
+    "@tinacms/cli": "^1.10.1",
     "@types/react": "^18.3.11",
     "async-folder-walker": "^3.0.5",
     "clsx": "^2.1.1",
@@ -49,7 +51,8 @@
     "posthog-docusaurus": "^2.0.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "redocusaurus": "^2.5.0"
+    "redocusaurus": "^2.5.0",
+    "tinacms": "^2.8.1"
   },
   "browserslist": {
     "production": [
@@ -63,5 +66,9 @@
       "last 1 safari version"
     ]
   },
-  "packageManager": "yarn@4.1.1+sha256.f3cc0eda8e5560e529c7147565b30faa43b4e472d90e8634d7134a37c7f59781"
+  "packageManager": "yarn@4.1.1+sha256.f3cc0eda8e5560e529c7147565b30faa43b4e472d90e8634d7134a37c7f59781",
+  "devDependencies": {
+    "@types/node": "^24.1.0",
+    "cross-env": "^7.0.3"
+  }
 }
