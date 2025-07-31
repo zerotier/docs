@@ -7,6 +7,7 @@
     "preview": "env-cmd tinacms dev -c 'docusaurus start --host 0.0.0.0'",
     "start": "env-cmd docusaurus start --host 0.0.0.0",
     "build": "env-cmd docusaurus build",
+    "copy-tina": "cp -r tina/__generated__ build/",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
