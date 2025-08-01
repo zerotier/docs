@@ -13,7 +13,7 @@ ZeroTier creates a secure virtual network between devices, allowing seamless fil
 
 - A working ZeroTier network with 2 or more devices, per the [ZeroTier Quickstart Guide](/quickstart)
 
-## Step 2: Enable File Sharing
+## Step 1: Enable File Sharing
 
 Choose your platform and follow the OS-specific file sharing setup instructions:
 
@@ -85,7 +85,7 @@ sudo systemctl restart smbd
 </TabItem>
 </Tabs>
 
-## Step 3: Transfer Files
+## Step 2: Transfer Files
 
 Once sharing is enabled:
 

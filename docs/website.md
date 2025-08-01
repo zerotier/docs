@@ -9,11 +9,11 @@ import TabItem from '@theme/TabItem';
 
 ZeroTier enables private networking between devices, allowing you to host a website locally and serve it securely to peers on the same ZeroTier network.
 
-## Step 1: Host and Connect to a ZeroTier Network
+## Prerequisites
 
-Follow the [ZeroTier Quickstart Guide](/quickstart) to get up and running quickly.
+- A working ZeroTier network with 2 or more devices, per the [ZeroTier Quickstart Guide](/quickstart)
 
-## Step 2: Run a Local Web Server
+## Step 1: Run a Local Web Server
 
 Choose your platform and follow the steps to start a simple web server:
 
@@ -77,7 +77,7 @@ sudo ufw allow 8080
 </TabItem>
 </Tabs>
 
-## Step 3: Access the Website
+## Step 2: Access the Website
 
 On another device in your ZeroTier network:
 
