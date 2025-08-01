@@ -1,7 +1,7 @@
 ---
-title: Network File Sharing with ZeroTier
+title: Network File Sharing
 description: Share files between any user on your ZeroTier network.
-tags: [beginner, tutorial]
+tags: [beginner, tutorial, beginner]
 ---
 
 import Tabs from '@theme/Tabs';

@@ -10,8 +10,6 @@ A List of Awesome ZeroTier Things
 This repository contains a list of all things ZeroTier that can be
 found on The Internet. Feel free to add yours!
 
-[Pull Requests](https://github.com/zerotier/awesome-zerotier/edit/main/README.md) accepted!
-
 ## Contents
 
 - [ZeroTier Self-Hosting](#zerotier-self-hosting)

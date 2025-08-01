@@ -1,7 +1,7 @@
 ---
-title: Host a Website with ZeroTier
+title: Host a Website
 description: Serve a local website to anyone on your ZeroTier network.
-tags: [beginner, tutorial]
+tags: [beginner, tutorial, beginner]
 ---
 
 import Tabs from '@theme/Tabs';
@@ -29,7 +29,7 @@ Choose your platform and follow the steps to start a simple web server:
 <TabItem value="win">
 
 :::note Python
-[This step requires Python](https://www.python.org/downloads/).
+[This step requires Python](https://www.python.org/downloads/). Some organizations rightfully restrict Python usage for security reasons. ZeroTier supports sharing any locally hosted server over a ZeroTier network, regardless of how it is being hosted (Python or not).
 :::
 
 Open PowerShell in your website folder and start the built-in server (Python required):

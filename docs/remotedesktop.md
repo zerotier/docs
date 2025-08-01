@@ -1,5 +1,5 @@
 ---
-title: Remote Desktop with ZeroTier
+title: Remote Desktop
 description: Access a network-attached device remotely through SSH or Remote Desktop software.
 tags: [beginner, tutorial]
 ---
