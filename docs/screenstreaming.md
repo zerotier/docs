@@ -4,7 +4,7 @@ description: Use OBS to broadcast your screen over SMTP using a ZeroTier virtual
 tags: [how-to, streaming, beginner]
 ---
 
-OBS (Open Broadcaster Software) isn’t just for live streaming or recording — it can also be used to broadcast your screen locally. When paired with ZeroTier, this becomes a powerful screen-sharing tool across secure networks at any distance. This is ideal to relay live footage, such as security cameras, across multiple networks.
+OBS (Open Broadcaster Software) isn’t just for live streaming or recording — it can also be used to broadcast your screen locally. When paired with ZeroTier, this becomes a powerful screen-sharing tool across secure networks at any distance. This is ideal to relay live footage, such as security cameras, across multiple networks, or for businesses to control live feeds or billboards securely from any distance.
 
 ## Prerequisites
 

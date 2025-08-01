@@ -37,10 +37,8 @@ module.exports = {
       type: 'category',
       label: 'Guides',
       link: {
-        type: 'generated-index',
-        title: 'Guides',
-        description: 'How-to guides for common ZeroTier use cases.',
-        slug: '/guides',
+          type: 'doc',
+          id: 'guides',
       },
       items: [
         'remotedesktop',
