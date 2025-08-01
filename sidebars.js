@@ -9,7 +9,7 @@ module.exports = {
         description: 'ZeroTier securely connects all of your devices and services with each other, anywhere.',
         slug: '/',
       },
-      items: ['what', 'compatibility', 'releases', 'start', 'cli', 'awesome', 'faq', 'troubleshooting'],
+      items: ['quickstart', 'what', 'releases', 'cli', 'awesome',  'compatibility', 'faq', 'troubleshooting'],
     },
     {
       type: 'category',
@@ -31,46 +31,59 @@ module.exports = {
         description: 'Our hosted offering for managing your networks.',
         slug: '/central',
       },
-      items: ['start', 'faq-central', 'sso', 'authentication', 'organizations', 'central-admins', 'audit-logs', 'pricing', 'central-billing', 'central-hide-nodes', 'sso-add-seats', 'dns-management'],
+      items: ['start', 'faq-central', 'sso', 'authentication', 'organizations', 'central-admins', 'audit-logs', 'pricing', 'central-billing', 'central-hide-nodes', 'dns-management'],
     },
     {
       type: 'category',
       label: 'Guides',
       link: {
-        type: 'generated-index',
-        title: 'Guides',
-        description: 'How-to guides for common ZeroTier use cases.',
-        slug: '/guides',
+        type: 'doc',
+        id: 'guides',
       },
       items: [
-        'docker',
-        'dns',
-        'exitnode',
         {
           type: 'category',
-          label: 'Cloud Deployments',
+          label: 'Home & Office',
           items: [
-            'terraform',
+            'remotedesktop',
+            'filesharing',
+            'website',
+            'screenstreaming',
+            'usbsharing',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Networking',
+          items: [
+            'dns',
+            'exitnode',
+            'nat',
+            'integrating-physical-networks',
+            'route-between-phys-and-virt',
+            'controller',
+            'bridging',
+            'proxy',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'Enterprise',
+          items: [
+            'multipath',
+            'microsegmentation',
+            'roots',
             'cloud-init',
           ],
         },
         {
           type: 'category',
-          label: 'Advanced Networking',
+          label: 'Developer Tools',
           items: [
-            'multipath', 'bridging', 'proxy', 'code-server', 'route-between-phys-and-virt', 'microsegmentation', 'nat', 'integrating-physical-networks',
+            'docker',
+            'code-server',
+            'terraform',
           ],
-        },
-        {
-          type: 'category',
-          label: 'Self-Hosting',
-          link: {
-            type: 'generated-index',
-            title: 'Self-Hosting',
-            description: 'Take control by self-hosting your own ZeroTier infrastructure.',
-            slug: '/selfhost',
-          },
-          items: ['controller', 'roots'],
         },
       ],
     },
@@ -170,7 +183,7 @@ module.exports = {
             description: 'ZeroTier on Windows',
             slug: '/windows',
           },
-          items: ['releases', 'faq-windows', 'chocolatey', 'winget', 'windows-lan-game', 'windows-unknown-node-id', 'windows-service-unreachable']
+          items: ['releases', 'faq-windows', 'chocolatey', 'winget', 'windows-unknown-node-id', 'windows-service-unreachable']
         },
         /* ANDROID */
         {

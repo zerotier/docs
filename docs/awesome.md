@@ -1,5 +1,5 @@
 ---
-title: What can I do with ZeroTier?
+title: Awesome ZeroTier Things
 description: List of things you can do with ZeroTier
 tags: [hub, examples, beginner, flag]
 toc_max_heading_level: 2
@@ -9,8 +9,6 @@ A List of Awesome ZeroTier Things
 
 This repository contains a list of all things ZeroTier that can be
 found on The Internet. Feel free to add yours!
-
-[Pull Requests](https://github.com/zerotier/awesome-zerotier/edit/main/README.md) accepted!
 
 ## Contents
 

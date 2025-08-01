@@ -13,16 +13,9 @@ recommend that you reach out to our [support team](mailto:support@zerotier.com)
 help planning your deployment.
 :::
 
-Devices connected to a ZeroTier One network need to be able to locate and
-authenticate each other by using a shared set of root servers. By default,
-clients use a default pool of global root servers deployed and maintained
-by ZeroTier, Inc.
+Devices connected to a ZeroTier One network need to be able to locate and authenticate each other by using a shared set of root servers. By default, clients use a default pool of global root servers deployed and maintained by ZeroTier, Inc.
 
-However, because roots are occasionally overloaded, and may not be located
-close (in terms of network hops) to your workload, you may be able to gain
-more reliable performance, especially when traffic is being relayed, by
-deploying your own servers to augment our roots. We call these supplementary
-root servers "moons".
+However, because roots are occasionally overloaded, and may not be located close (in terms of network hops) to your workload, you may be able to gain more reliable performance, especially when traffic is being relayed, by deploying your own servers to augment our roots. We call these supplementary root servers "moons".
 
 :::info
 The roots and moons a collection of nodes connect to effectively defines the
