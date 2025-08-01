@@ -27,7 +27,7 @@ tags: [meta, examples, how-to, tutorials, hub]
 
 - [Multipath Networking](/multipath): Bandwidth aggregation for better throughput, redundancy, and fault tolerance
 - [Microsegmentation](/microsegmentation): Access control within your ZeroTier network  
-- [Private Root Servers](/roots): To create your own ZeroTier "moons" 
+- [Private Root Servers](/roots): To create your own ZeroTier "moons"  
 - [cloud-init Bootstrapping](/cloud-init): Initialize Cloud servers with a pre-configured ZeroTier client  
 
 ## Developer Tools
