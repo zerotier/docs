@@ -6,9 +6,6 @@
  */
 
 /* You can override the default Infima variables here. */
-
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600&display=swap');
-
 :root {
   --ifm-background-color: white;
   /*--ifm-background-surface-color: #121212;*/
@@ -21,7 +18,6 @@
   --ifm-color-primary-lighter: #ffca87;
   --ifm-color-primary-lightest: #ffe0ba;
   --ifm-code-font-size: 95%;
-  --ifm-heading-font-family: 'Barlow', sans-serif;
 }
 
 html[data-theme='dark'] {
@@ -97,4 +93,11 @@ div[class^='announcementBarContent'] a:hover {
 
 :root {
   /*--ifm-font-family-base: 'Open Sans';*/
+}
+
+/* Hide items from sidebar group so you don't have 5 million FAQ pages listed */
+.menu__list-item--collapsed .hidden-sidebar,
+.menu__link[href*="/faq/"],
+.menu__link[href*="/troubleshooting/"] {
+  display: none !important;
 }

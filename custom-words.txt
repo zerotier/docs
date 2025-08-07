@@ -114,3 +114,5 @@ Telcos
 FIPS
 telco
 Inhand
+prefs
+msiexec
