@@ -8,13 +8,13 @@
 :root {
   --ifm-background-color: white;
   --ifm-z-index-fixed: 9999;
-  --ifm-color-primary: #cc5f00;
-  --ifm-color-primary-dark: #ffa432;
-  --ifm-color-primary-darker: #ff9c21;
-  --ifm-color-primary-darkest: #ed8400;
-  --ifm-color-primary-light: #ffc276;
-  --ifm-color-primary-lighter: #ffca87;
-  --ifm-color-primary-lightest: #ffe0ba;
+  --ifm-color-primary: #FFB441;
+  --ifm-color-primary-dark: #ffab2a;
+  --ifm-color-primary-darker: #ffa21a;
+  --ifm-color-primary-darkest: #e08900;
+  --ifm-color-primary-light: #ffbd58;
+  --ifm-color-primary-lighter: #ffc668;
+  --ifm-color-primary-lightest: #ffd888;
   --ifm-code-font-size: 95%;
   --ifm-heading-font-family: 'Barlow', sans-serif;
 }
@@ -22,16 +22,16 @@
 html[data-theme='dark'] {
   --ifm-background-color: #1e2125;
   --ifm-background-surface-color: #121212;
-  --ifm-color-primary: #ffa432;
-  --ifm-color-primary-dark: #ffa432;
-  --ifm-color-primary-darker: #ff9c21;
-  --ifm-color-primary-darkest: #ed8400;
-  --ifm-color-primary-light: #ffc276;
-  --ifm-color-primary-lighter: #ffca87;
-  --ifm-color-primary-lightest: #ffe0ba;
+  --ifm-color-primary: #FFB441;
+  --ifm-color-primary-dark: #ffab2a;
+  --ifm-color-primary-darker: #ffa21a;
+  --ifm-color-primary-darkest: #e08900;
+  --ifm-color-primary-light: #ffbd58;
+  --ifm-color-primary-lighter: #ffc668;
+  --ifm-color-primary-lightest: #ffd888;
 }
 
-/* Typography */
+/* Typography - Consistent font weights */
 .markdown h1 {
   font-size: 2.0rem;
   font-weight: 600;
@@ -43,6 +43,15 @@ html[data-theme='dark'] {
 .markdown h3 {
   font-size: 1.2rem;
   font-weight: 600;
+}
+
+/* Narrow central content for better readability */
+.container {
+  max-width: 1200px; /* Reduce from default ~1320px */
+}
+
+.col {
+  max-width: 800px; /* Limit main content column width */
 }
 
 /* Code highlight lines */
@@ -98,5 +107,55 @@ div[class^='announcementBarContent'] a:hover {
 }
 
 .menu__link {
-  font-weight: 400 !important;
+  font-weight: 400; /* Consistent weight for regular sidebar links */
+}
+
+/* Sidebar styling improvements */
+.theme-doc-sidebar-container {
+  margin-left: 1rem; /* Bring sidebar in from left edge */
+}
+
+.menu {
+  font-size: 0.9rem; /* Slightly smaller font size */
+}
+
+.menu__link {
+  padding: 0.4rem 0.75rem; /* Adjust padding for better spacing */
+  font-size: 0.9rem;
+}
+
+.menu__list-item-collapsible > .menu__link {
+  font-size: 1.0rem; /* Make sidebar category headers larger */
+  font-weight: 600; /* Medium weight for sidebar categories */
+}
+
+/* Adjust sidebar width and positioning for larger screens */
+@media (min-width: 997px) {
+  .theme-doc-sidebar-container {
+    margin-left: 1.5rem;
+  }
+  
+  .menu {
+    padding: 1rem 0.5rem;
+  }
+}
+
+/* Add more spacing from top navbar */
+.main-wrapper {
+  margin-top: 2rem; /* Add space between navbar and main content */
+}
+
+.theme-doc-sidebar-container {
+  margin-top: 2rem; /* Add space for left sidebar */
+}
+
+.theme-doc-toc-desktop {
+  margin-top: 2rem; /* Add space for right sidebar (TOC) */
+}
+
+/* Ensure consistent spacing on all screen sizes */
+@media (max-width: 996px) {
+  .main-wrapper {
+    margin-top: 1.5rem;
+  }
 }
