@@ -128,16 +128,16 @@ module.exports = {
               to: "/quickstart",
             },
             {
+              label: "This is ZeroTier",
+              to: "/zerotier",
+            },
+            {
               label: "Guides",
               to: "/guides",
             },
             {
               label: "FAQ",
               to: "/faq",
-            },
-            {
-              label: "API Reference",
-              to: "/api/central/",
             },
           ],
         },
