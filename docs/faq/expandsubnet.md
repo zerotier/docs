@@ -1,7 +1,8 @@
 ---
-title: FAQ
-description: Answers to commonly asked questions
-tags: [faq, troubleshooting, hub]
+title: Expand or Change Network Subnet
+description: How to make your ZeroTier network subnet bigger or change to a different IP range
+tags: [faq, central, tutorial]
+displayed_sidebar: docsSidebar
 ---
 
 ## Can I make my subnet bigger?

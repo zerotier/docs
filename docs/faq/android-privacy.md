@@ -1,7 +1,8 @@
 ---
-title: FAQ
-description: Answers to commonly asked questions
-tags: [faq, troubleshooting, hub]
+title: ZeroTier Android App Privacy Policy
+description: Data collection and privacy practices of the ZeroTier One Android app
+tags: [faq, android, mobile-app, security]
+displayed_sidebar: docsSidebar
 ---
 
 ### Does the ZeroTier One Android app share user data with third parties?

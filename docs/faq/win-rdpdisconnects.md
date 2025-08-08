@@ -1,7 +1,8 @@
 ---
-title: FAQ
-description: Answers to commonly asked questions
-tags: [faq, troubleshooting, hub]
+title: Windows Remote Desktop Disconnects
+description: How to fix Remote Desktop disconnection issues over ZeroTier networks
+tags: [troubleshooting, windows, how-to]
+displayed_sidebar: docsSidebar
 ---
 
 ### Windows Remote Desktop Disconnects

@@ -1,7 +1,8 @@
 ---
-title: FAQ
-description: Answers to commonly asked questions
-tags: [faq, troubleshooting, hub, flag]
+title: Remote Desktop Only Rules
+description: Network rules that restrict traffic to only Remote Desktop Protocol connections
+tags: [faq, rules, examples, flag]
+displayed_sidebar: docsSidebar
 ---
 
 ### Remote Desktop Only {#rdp-only}

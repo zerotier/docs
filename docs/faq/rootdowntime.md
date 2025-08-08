@@ -1,7 +1,8 @@
 ---
-title: FAQ - What happens if a ZeroTier, Inc root goes down?
-description: Answers to commonly asked questions
-tags: [faq, troubleshooting, hub]
+title: ZeroTier Root Server Downtime
+description: What happens if a ZeroTier root server goes down or fails
+tags: [faq, explanation]
+displayed_sidebar: docsSidebar
 ---
 
 ### What happens if a ZeroTier, Inc root goes down?

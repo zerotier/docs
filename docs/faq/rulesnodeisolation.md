@@ -1,7 +1,8 @@
 ---
-title: FAQ
-description: Answers to commonly asked questions
-tags: [faq, troubleshooting, hub]
+title: Client Isolation Rules
+description: Network rules to prevent clients from talking to each other while allowing server access
+tags: [faq, rules, examples]
+displayed_sidebar: docsSidebar
 ---
 
 ### Client Isolation

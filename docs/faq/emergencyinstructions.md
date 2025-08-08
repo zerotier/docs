@@ -1,7 +1,8 @@
 ---
-title: Troubleshooting
-description: Troubleshooting common issues
-tags: [faq, troubleshooting, hub]
+title: Emergency Troubleshooting Instructions
+description: Quick fixes when ZeroTier stops working unexpectedly
+tags: [troubleshooting, reference]
+displayed_sidebar: docsSidebar
 ---
 
 import Tabs from '@theme/Tabs';

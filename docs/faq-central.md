@@ -1,8 +1,10 @@
 ---
 title: Central FAQ
-description: Commonly asked questions about Central
-tags: [central, faq, troubleshooting, admin, platform-specific]
+description: ZeroTier Central account and network management
+tags: [central, faq]
 ---
+
+*Questions about managing your ZeroTier account, networks, and billing.*
 
 [Can I transfer my network(s) on Central to another user?](/faq/transfernetwork)
 

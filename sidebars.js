@@ -244,8 +244,15 @@ module.exports = {
         },
       ],
     },
-    'faq',
-    'troubleshooting',
+    {
+      type: 'category',
+      label: 'FAQ & Troubleshooting',
+      link: {
+        type: 'doc',
+        id: 'faq',
+      },
+      items: []
+    },
     'glossary',
   ]
 }

@@ -10,6 +10,10 @@ Device SSO is a paid feature available to Essential and Commercial subscribers. 
 For an overview of current pricing and terms including suggested use cases, please see the [Pricing](https://www.zerotier.com/pricing) page on our website.
 :::
 
+:::note Organization Owners vs Administrators
+Only Organization Owners in Central V1 can enable SSO on a network. Organization Administrators do not have the necessary permissions to enable SSO.
+:::
+
 ## ZeroTier Central configuration
 
 :::info

@@ -9,20 +9,20 @@ import TabItem from '@theme/TabItem';
 
 ## General
 
-[Ping is not working](/troubleshooting/ping)
+[Ping is not working](/faq/ping)
 
-[Error: Cannot connect to ZeroTier service (or Node ID "Unknown" in the GUI apps)](/troubleshooting/noservice)
+[Error: Cannot connect to ZeroTier service (or Node ID "Unknown" in the GUI apps)](/faq/noservice)
 
-[Emergency Instructions](/troubleshooting/emergencyinstructions)
+[Emergency Instructions](/faq/emergencyinstructions)
 
-[Connection Issues](/troubleshooting/connectionissues)
+[Connection Issues](/faq/connectionissues)
 
 ## Platform-Specific Issues
 
 ### Windows
 
-[Windows Service Unreachable Error](/troubleshooting/win-serviceunreachable)
+[Windows Service Unreachable Error](/faq/win-serviceunreachable)
 
 ### macOS
 
-[macOS PORT_ERROR Resolution](/troubleshooting/macos-porterror)
+[macOS PORT_ERROR Resolution](/faq/macos-porterror)

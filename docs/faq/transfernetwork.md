@@ -1,12 +1,13 @@
 ---
-title: FAQ
-description: Answers to commonly asked questions
-tags: [faq, troubleshooting, hub]
+title: Transfer Network Ownership
+description: How to move or transfer ZeroTier networks between users and organizations
+tags: [faq, billing, admin, explanation]
+displayed_sidebar: docsSidebar
 ---
 
 ### Can I move or transfer my network(s) to another user? {#transfer-network}
 
-When you join an [organization](./organizations.md), all of your networks are transferred to the organization. The owner of the organization will become the owner of the networks.
+When you join an [organization](/organizations), all of your networks are transferred to the organization. The owner of the organization will become the owner of the networks.
 
 If an account is already in an organization, it cannot join a different one.
 

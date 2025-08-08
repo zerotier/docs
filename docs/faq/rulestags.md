@@ -1,7 +1,8 @@
 ---
-title: FAQ
-description: Answers to commonly asked questions
-tags: [faq, troubleshooting, hub]
+title: Setting Rules Tags and Capabilities
+description: How to configure tags and capabilities for network members in ZeroTier rules
+tags: [faq, rules, how-to]
+displayed_sidebar: docsSidebar
 ---
 
 ### Setting tags and capabilities on network members

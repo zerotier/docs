@@ -1,7 +1,8 @@
 ---
 title: Bandwidth Considerations
-description: Answers to commonly asked questions
-tags: [faq, troubleshooting, hub]
+description: Understanding ZeroTier bandwidth performance and considerations
+tags: [faq, explanation]
+displayed_sidebar: docsSidebar
 ---
 
 ### Bandwidth considerations
@@ -20,7 +21,7 @@ Considerations:
 - Geographic distance. If your remote peer is on a different continent, there will be latency. We can't improve the speed of light.
 
 :::tip
-If you are experiencing slow network speeds or difficulty making direct connections see See [Router Configuration Tips](./routertips.md) or [Corporate Firewalls](./corporate-firewalls.md)
+If you are experiencing slow network speeds or difficulty making direct connections see [Router Configuration Tips](/routertips) or [Corporate Firewalls](/corporate-firewalls)
 :::
 
 #### Will transfers go faster on paid accounts? {#paymore}

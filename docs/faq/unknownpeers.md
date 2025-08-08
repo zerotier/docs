@@ -1,7 +1,8 @@
 ---
-title: Unknown Peers
-description: Answers to commonly asked questions
-tags: [faq, troubleshooting, hub]
+title: Unknown Peers in Peers List
+description: Why your ZeroTier peers list shows nodes you don't recognize
+tags: [faq, explanation]
+displayed_sidebar: docsSidebar
 ---
 
 ### Why does my peers list have nodes I don't recognize? {#unknown-peers}

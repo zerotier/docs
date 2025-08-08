@@ -1,7 +1,8 @@
 ---
-title: FAQ
-description: Answers to commonly asked questions
-tags: [faq, troubleshooting, hub]
+title: Install ZeroTier over Windows Remote Desktop
+description: How to install ZeroTier on Windows when using Remote Desktop Protocol
+tags: [faq, windows, installation, how-to]
+displayed_sidebar: docsSidebar
 ---
 
 ### Installing ZeroTier over Windows Remote Desktop

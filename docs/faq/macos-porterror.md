@@ -1,7 +1,8 @@
 ---
-title: FAQ
-description: Answers to commonly asked questions
-tags: [faq, troubleshooting, hub]
+title: Resolve PORT_ERROR on macOS
+description: How to fix ZeroTier PORT_ERROR issues on Mac by authorizing kernel extensions
+tags: [troubleshooting, macos, installation]
+displayed_sidebar: docsSidebar
 ---
 
 ### Resolving PORT_ERROR on macOS {#port-error}

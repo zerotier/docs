@@ -1,7 +1,8 @@
 ---
-title: Troubleshooting
-description: Troubleshooting common issues
-tags: [faq, troubleshooting, hub]
+title: Ping Not Working
+description: How to fix ping issues on ZeroTier networks across different operating systems
+tags: [troubleshooting, windows, macos, linux, how-to]
+displayed_sidebar: docsSidebar
 ---
 
 import Tabs from '@theme/Tabs';

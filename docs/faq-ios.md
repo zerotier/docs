@@ -1,8 +1,12 @@
 ---
-title: iOS or iPadOS FAQ
-description: Guidance for running ZeroTier on iOS or iPadOS
-tags: [ios, mobile-app, faq, installation, client, platform-specific]
+title: iOS FAQ
+description: ZeroTier support for iOS devices
+tags: [ios, faq, mobile-app]
 ---
+
+*Mobile app information and privacy details.*
+
+## iOS FAQ
 
 [Where can I get the ZeroTier iOS app?](/faq/ios-install)
 

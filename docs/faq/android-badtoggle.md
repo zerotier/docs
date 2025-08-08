@@ -1,7 +1,8 @@
 ---
-title: FAQ
-description: Answers to commonly asked questions
-tags: [faq, troubleshooting, hub]
+title: Android Toggle Switch Immediately Flips Back Off
+description: Fix Android app connection issues when toggle switch immediately returns to off position
+tags: [troubleshooting, android, mobile-app]
+displayed_sidebar: docsSidebar
 ---
 
 ### After tapping the toggle switch to connect, the switch immediately flips back to off
@@ -12,7 +13,7 @@ https://discuss.zerotier.com/t/android-app-will-not-toggle-network-on-shows-offl
 https://discuss.zerotier.com/t/cant-enable-the-network-cant-set-the-slider-to-the-right/17009
 -->
 
-The behavior of not connecting and immediately flipping the toggle switch back to off is most likely another VPN may be interfering.
+The behavior of not connecting and immediately flipping the toggle switch back to off is most likely caused by another VPN interfering.
 
 Another VPN may be configured to be Always-on.
 

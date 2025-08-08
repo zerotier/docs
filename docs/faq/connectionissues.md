@@ -1,7 +1,8 @@
 ---
-title: Troubleshooting
-description: Troubleshooting common issues
-tags: [faq, troubleshooting, hub]
+title: Connection Issues Troubleshooting
+description: Diagnose and fix ZeroTier peer-to-peer connection problems
+tags: [troubleshooting]
+displayed_sidebar: docsSidebar
 ---
 
 import Tabs from '@theme/Tabs';

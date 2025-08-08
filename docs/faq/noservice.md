@@ -1,7 +1,8 @@
 ---
-title: Troubleshooting
-description: Troubleshooting common issues
-tags: [faq, troubleshooting, hub]
+title: ZeroTier Service Not Running
+description: How to restart the ZeroTier background service when it's not running
+tags: [troubleshooting, windows, macos, linux, how-to]
+displayed_sidebar: docsSidebar
 ---
 
 import Tabs from '@theme/Tabs';

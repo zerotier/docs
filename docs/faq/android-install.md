@@ -1,7 +1,8 @@
 ---
-title: FAQ
-description: Answers to commonly asked questions
-tags: [faq, troubleshooting, hub]
+title: Download ZeroTier Android App
+description: Download locations for the ZeroTier One Android app
+tags: [faq, android, mobile-app, installation]
+displayed_sidebar: docsSidebar
 ---
 
 ### Where do I get the ZeroTier Android app?

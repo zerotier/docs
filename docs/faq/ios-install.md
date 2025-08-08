@@ -1,7 +1,8 @@
 ---
-title: FAQ
-description: Answers to commonly asked questions
-tags: [faq, troubleshooting, hub]
+title: Install ZeroTier on iOS
+description: Where to download and install the ZeroTier iOS app
+tags: [faq, ios, mobile-app, installation]
+displayed_sidebar: docsSidebar
 ---
 
 ### Where do I get the ZeroTier iOS app?

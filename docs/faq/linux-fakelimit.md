@@ -1,7 +1,8 @@
 ---
-title: FAQ
-description: Answers to commonly asked questions
-tags: [faq, troubleshooting, hub]
+title: Linux Virtual Interface Speed Limitation
+description: Why Linux shows incorrect speed limits for ZeroTier virtual network interfaces
+tags: [faq, linux, explanation]
+displayed_sidebar: docsSidebar
 ---
 
 ### Why is the virtual interface limited to 10Mb/s?

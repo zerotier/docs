@@ -1,14 +1,20 @@
 ---
-title: Windows FAQ
-description: Guidance for running ZeroTier on Windows
-tags: [windows, faq, troubleshooting, platform-specific]
+title: Windows FAQ & Troubleshooting
+description: ZeroTier support for Windows systems
+tags: [windows, faq, troubleshooting]
 ---
 
-### General Troubleshooting
+*Installation guides, Remote Desktop solutions, and network adapter issues.*
+
+## Windows FAQ
+
+[How can I install ZeroTier on a machine accessed through Windows Remote Desktop?](/faq/win-installrdp)
+
+## Windows Troubleshooting
 
 If you're having trouble using ZeroTier on Windows, the following steps may be of assistance.
 
-#### Instructions
+### Instructions
 
 - Make sure you have Administrative Rights on your user.
 - Uninstall any other VPN software that could be conflicting with the ZeroTier setup.
@@ -21,7 +27,7 @@ Side note: there were reported VPN issues in certain versions of Windows 10; tho
 
 [Why does Windows Remote Desktop keep disconnecting?](/faq/win-rdpdisconnects.md)
 
-[System Service Not Reachable by UI](/troubleshooting/win-serviceunreachable)
+[System Service Not Reachable by UI](/faq/win-serviceunreachable)
 
 [Resolving 'Port Error'](/faq/win-porterror)
 

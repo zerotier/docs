@@ -1,7 +1,8 @@
 ---
-title: FAQ
-description: Answers to commonly asked questions
-tags: [faq, troubleshooting, hub]
+title: Block All Traffic Rules
+description: How to block all network traffic on a ZeroTier network using rules
+tags: [faq, rules, examples]
+displayed_sidebar: docsSidebar
 ---
 
 

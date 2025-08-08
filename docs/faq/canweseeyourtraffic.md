@@ -1,7 +1,8 @@
 ---
 title: Can we see your traffic?
-description: Answers to commonly asked questions
-tags: [faq, troubleshooting, hub]
+description: ZeroTier's privacy and encryption practices
+tags: [faq, security]
+displayed_sidebar: docsSidebar
 ---
 
 ### Can ZeroTier, Inc. See my traffic? {#can-we-see-your-traffic}

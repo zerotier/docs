@@ -1,7 +1,8 @@
 ---
-title: FAQ
-description: Answers to commonly asked questions
-tags: [faq, troubleshooting, hub]
+title: Uninstall ZeroTier from macOS
+description: How to cleanly remove ZeroTier from your Mac computer
+tags: [faq, macos, how-to, installation]
+displayed_sidebar: docsSidebar
 ---
 
 ### Uninstall ZeroTier from your Mac {#uninstall}

@@ -1,7 +1,8 @@
 ---
-title: FAQ
-description: Answers to commonly asked questions
-tags: [faq, troubleshooting, hub]
+title: Windows Virtual Interface Speed Limitation
+description: Why Windows shows incorrect speed limits for ZeroTier virtual network interfaces
+tags: [faq, windows, explanation]
+displayed_sidebar: docsSidebar
 ---
 
 ### Why is the ZeroTier Virtual Network Port Running at 100Mbps? {#slowport}

@@ -1,8 +1,10 @@
 ---
 title: Rules FAQ
-description: Rules for common use cases
-tags: [rules, faq, examples, platform-specific]
+description: Network access control and traffic filtering examples
+tags: [rules, faq, examples]
 ---
+
+*Learn how to configure network access control and traffic filtering.*
 
 :::info
 Check [the manual](./rules.md) for theory about how rules work.

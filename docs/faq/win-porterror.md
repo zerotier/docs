@@ -1,7 +1,8 @@
 ---
-title: FAQ
-description: Answers to commonly asked questions
-tags: [faq, troubleshooting, hub]
+title: Resolve PORT_ERROR on Windows
+description: How to fix ZeroTier PORT_ERROR issues on Windows by installing drivers
+tags: [troubleshooting, windows, installation]
+displayed_sidebar: docsSidebar
 ---
 
 ### Resolving `Port Error` {#port-error}

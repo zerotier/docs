@@ -1,7 +1,8 @@
 ---
-title: FAQ
-description: Answers to commonly asked questions
-tags: [faq, troubleshooting, hub]
+title: Cannot Connect to ZeroTier Service
+description: Fix connection errors between ZeroTier UI/CLI and background service
+tags: [troubleshooting, client]
+displayed_sidebar: docsSidebar
 ---
 
 ### Error: Cannot connect to Zerotier service {#cannot-connect-to-service}

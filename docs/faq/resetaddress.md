@@ -1,7 +1,8 @@
 ---
-title: FAQ
-description: Answers to commonly asked questions
-tags: [faq, troubleshooting, hub]
+title: Reset ZeroTier Node Address
+description: How to clear or reset your ZeroTier device's 10-digit node ID address
+tags: [faq, windows, macos, linux, how-to]
+displayed_sidebar: docsSidebar
 ---
 
 

@@ -1,7 +1,8 @@
 ---
-title: What is error 'NOT_FOUND'?
-description: Answers to commonly asked questions
-tags: [faq, troubleshooting, hub]
+title: NOT_FOUND Error
+description: What the NOT_FOUND error means and how to fix it
+tags: [troubleshooting, explanation]
+displayed_sidebar: docsSidebar
 ---
 
 ### What is error `NOT_FOUND`? {#notfound}

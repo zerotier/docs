@@ -1,7 +1,8 @@
 ---
-title: FAQ
-description: Answers to commonly asked questions
-tags: [faq, troubleshooting, hub]
+title: Update ZeroTier
+description: How to update ZeroTier on different platforms and operating systems
+tags: [faq, windows, macos, linux, ios, android, mobile-app, how-to]
+displayed_sidebar: docsSidebar
 ---
 
 ### How do I Update Zerotier? {#update}

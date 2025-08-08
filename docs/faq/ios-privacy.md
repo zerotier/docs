@@ -1,7 +1,8 @@
 ---
-title: FAQ
-description: Answers to commonly asked questions
-tags: [faq, troubleshooting, hub]
+title: ZeroTier iOS App Privacy Policy
+description: Information about data collection and sharing in the ZeroTier iOS app
+tags: [faq, ios, mobile-app, security]
+displayed_sidebar: docsSidebar
 ---
 
 ### Does the ZeroTier One iOS app share user data with third parties?

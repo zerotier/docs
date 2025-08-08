@@ -1,7 +1,8 @@
 ---
-title: FAQ
-description: Answers to commonly asked questions
-tags: [faq, troubleshooting, hub]
+title: Start and Stop ZeroTier on macOS
+description: How to control the ZeroTier system service on Mac computers
+tags: [faq, macos, how-to]
+displayed_sidebar: docsSidebar
 ---
 
 ### Start and Stop ZeroTier on your Mac

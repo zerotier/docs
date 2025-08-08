@@ -1,7 +1,8 @@
 ---
-title: High Latency & Relaying
-description: Answers to commonly asked questions
-tags: [faq, troubleshooting, hub]
+title: High Latency and Relaying Issues
+description: How to identify and resolve when ZeroTier connections are being relayed
+tags: [troubleshooting, explanation, router]
+displayed_sidebar: docsSidebar
 ---
 
 ### High Latency & Relaying {#relaying}

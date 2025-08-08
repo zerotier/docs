@@ -1,7 +1,8 @@
 ---
-title: FAQ
-description: Answers to commonly asked questions
-tags: [faq, troubleshooting, hub]
+title: Gradual Access Rules
+description: Network rules that provide limited access with gradual permission expansion
+tags: [faq, rules, examples, admin]
+displayed_sidebar: docsSidebar
 ---
 
 ### Gradual Permissions

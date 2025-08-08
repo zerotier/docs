@@ -1,7 +1,8 @@
 ---
-title: FAQ
-description: Answers to commonly asked questions
-tags: [faq, troubleshooting, hub]
+title: Change Organization Owner
+description: How to change the owner of your ZeroTier Central organization
+tags: [faq, central, billing]
+displayed_sidebar: docsSidebar
 ---
 
 #### To change your Organization Owner {#change-org-owner}

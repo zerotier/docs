@@ -1,7 +1,8 @@
 ---
-title: FAQ
-description: Answers to commonly asked questions
-tags: [faq, troubleshooting, hub]
+title: ZeroTier App Crashes or Fails to Launch
+description: Fix ZeroTier tray or menubar app crashes and launch failures
+tags: [troubleshooting, client, flag]
+displayed_sidebar: docsSidebar
 ---
 
 ### Tray / Menubar App crashes

@@ -1,12 +1,13 @@
 ---
-title: FAQ
-description: Answers to commonly asked questions
-tags: [faq, troubleshooting, hub]
+title: File Sharing on macOS
+description: How to set up file sharing from Mac to other ZeroTier network members
+tags: [faq, macos, tutorial, how-to]
+displayed_sidebar: docsSidebar
 ---
 
 ### File Sharing on a Mac
 
-If you're [already up and running](./start.md), here's how to share files from your Mac to other members on your ZeroTier network.
+If you're [already up and running](/start), here's how to share files from your Mac to other members on your ZeroTier network.
 
 #### Setup File Sharing
 
@@ -26,5 +27,5 @@ That's pretty much it. Screen Sharing and Media Sharing should work over ZeroTie
 You can share files from your [Mac to Windows](https://support.apple.com/guide/mac-help/share-mac-files-with-windows-users-mchlp1657/mac) computers too.
 
 :::tip
-If you're still having trouble, see: [Router Configuration Tips](./routertips.md)
+If you're still having trouble, see: [Router Configuration Tips](/routertips)
 :::
