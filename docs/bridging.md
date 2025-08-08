@@ -248,7 +248,7 @@ Say you have a laptop that is on the ZeroTier network and you bring it home. Now
 
 ### Why is an app on my phone not working over ZeroTier?
 
-Unfortunately the iOS and Android VPN APIs won't let ZeroTier use multicast/broadcast. These are typically how apps auto-discover services on the LAN. 😭 Stay tuned for an article on bridging a ZeroTier network and a WiFi access point.
+Unfortunately the iOS and Android VPN APIs won't let ZeroTier use multicast/broadcast. These are typically how apps auto-discover services on the LAN.
 
 ### References
 

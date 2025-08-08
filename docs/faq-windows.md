@@ -21,7 +21,7 @@ Side note: there were reported VPN issues in certain versions of Windows 10; tho
 
 [Why does Windows Remote Desktop keep disconnecting?](/faq/win-rdpdisconnects.md)
 
-[System Service Not Reachable by UI](/faq/win-serviceunreachable)
+[System Service Not Reachable by UI](/troubleshooting/win-serviceunreachable)
 
 [Resolving 'Port Error'](/faq/win-porterror)
 

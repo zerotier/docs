@@ -9,11 +9,11 @@ module.exports = {
         description: 'ZeroTier securely connects all of your devices and services with each other, anywhere.',
         slug: '/',
       },
-      items: ['quickstart', 'what', 'releases', 'cli', 'awesome',  'compatibility', 'faq', 'troubleshooting'],
+      items: ['quickstart', 'what',  'compatibility', 'releases', 'awesome'],
     },
     {
       type: 'category',
-      label: 'Architecture',
+      label: 'This is ZeroTier',
       link: {
         type: 'generated-index',
         title: 'How ZeroTier Works',
@@ -184,7 +184,7 @@ module.exports = {
             description: 'ZeroTier on Windows',
             slug: '/windows',
           },
-          items: ['releases', 'faq-windows', 'chocolatey', 'winget', 'windows-unknown-node-id', 'windows-service-unreachable']
+          items: ['releases', 'faq-windows', 'chocolatey', 'winget', 'windows-unknown-node-id']
         },
         /* ANDROID */
         {

@@ -17,3 +17,12 @@ import TabItem from '@theme/TabItem';
 
 [Connection Issues](/troubleshooting/connectionissues)
 
+## Platform-Specific Issues
+
+### Windows
+
+[Windows Service Unreachable Error](/troubleshooting/win-serviceunreachable)
+
+### macOS
+
+[macOS PORT_ERROR Resolution](/troubleshooting/macos-porterror)

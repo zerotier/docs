@@ -8,6 +8,6 @@ tags: [macos, faq, troubleshooting, client, platform-specific]
 
 [How can I share network attached storage?](/faq/macos-nas)
 
-[What is 'PORT_ERROR' and how do I fix it?](/faq/macos-porterror)
+[What is 'PORT_ERROR' and how do I fix it?](/troubleshooting/macos-porterror)
 
 [How do I uninstall ZeroTier?](/faq/macos-uninstall)
