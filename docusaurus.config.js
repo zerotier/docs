@@ -39,7 +39,11 @@ module.exports = {
   },
   themes: ['@docusaurus/theme-mermaid'],
   themeConfig: {
-
+    docs: {
+      sidebar: {
+        autoCollapseCategories: true,
+      },
+    },
     mermaid: {
       theme: { light: 'neutral', dark: 'dark' },
     },
@@ -89,10 +93,6 @@ module.exports = {
         {
           to: "https://my.zerotier.com/",
           label: "Manage Networks",
-        },
-        {
-          to: "https://discuss.zerotier.com/",
-          label: "Community",
         }
       ],
     },
@@ -100,74 +100,96 @@ module.exports = {
       style: "dark",
       links: [
         {
-          title: "ZeroTier",
+          title: "Product",
           items: [
             {
-              label: "Home",
-              href: "https://www.zerotier.com",
+              label: "Download",
+              href: "https://www.zerotier.com/download/",
             },
             {
-              label: "Downloads",
-              href: "https://www.zerotier.com/download/",
+              label: "ZeroTier Central",
+              href: "https://my.zerotier.com",
+            },
+            {
+              label: "Pricing",
+              to: "pricing",
+            },
+            {
+              label: "Security",
+              to: "security",
+            },
+          ],
+        },
+        {
+          title: "Documentation",
+          items: [
+            {
+              label: "Getting Started",
+              to: "/quickstart",
+            },
+            {
+              label: "This is ZeroTier",
+              to: "/zerotier",
+            },
+            {
+              label: "Guides",
+              to: "/guides",
+            },
+            {
+              label: "FAQ",
+              to: "/faq",
+            },
+          ],
+        },
+        {
+          title: "Community & Support",
+          items: [
+            {
+              label: "Discussion Forum",
+              href: "https://discuss.zerotier.com",
+            },
+            {
+              label: "GitHub",
+              href: "https://github.com/zerotier",
+            },
+            {
+              label: "Contact Support",
+              href: "https://www.zerotier.com/contact/",
+            },
+          ],
+        },
+        {
+          title: "Company",
+          items: [
+            {
+              label: "About",
+              href: "https://www.zerotier.com/company/",
             },
             {
               label: "Blog",
               href: "https://www.zerotier.com/blog/",
             },
             {
-              label: "ZeroTier Central",
-              href: "https://my.zerotier.com",
-            },
-          ],
-        },
-        {
-          title: "Docs",
-          items: [
-            {
-              label: "ZeroTier",
-              to: "https://docs.zerotier.com",
+              label: "Careers",
+              href: "https://www.zerotier.com/careers/",
             },
             {
-              label: "SDK",
-              to: "sockets",
-            },
-            {
-              label: "Central REST API",
-              to: "/api/central/",
-            },
-            {
-              label: "Service REST API",
-              to: "/api/service/",
-            },
-            {
-              label: "DNS",
-              to: "dns",
-            },
-          ],
-        },
-        {
-          title: "Community",
-          items: [
-            {
-              label: "Forum",
-              href: "https://discuss.zerotier.com",
-            },
-            {
-              label: "Mastodon",
-              href: "https://social.zerotier.com/@zerotier",
-            },
-            {
-              label: "Twitter",
-              href: "https://twitter.com/zerotier",
-            },
-            {
-              label: "GitHub",
-              href: "https://github.com/zerotier",
+              label: "Privacy Policy",
+              href: "https://www.zerotier.com/privacy/",
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} ZeroTier, Inc.`,
+      copyright: `
+        <div style="text-align: center; padding-top: 2rem;">
+          <div style="margin-bottom: 1rem;">
+            <strong>ZeroTier Documentation</strong>
+          </div>
+          <div>
+            Copyright © ${new Date().getFullYear()} ZeroTier, Inc. All rights reserved.
+          </div>
+        </div>
+      `,
     },
   },
   presets: [
@@ -202,7 +224,7 @@ module.exports = {
           },
         ],
         theme: {
-          primaryColor: "#FFB354",
+          primaryColor: "#FFB441",
           redocOptions: {
             hideDownloadButton: false,
           },

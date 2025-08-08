@@ -9,29 +9,18 @@ module.exports = {
         description: 'ZeroTier securely connects all of your devices and services with each other, anywhere.',
         slug: '/',
       },
-      items: ['quickstart', 'what', 'releases', 'cli', 'awesome',  'compatibility', 'faq', 'troubleshooting'],
+      items: ['quickstart', 'what', 'compatibility', 'awesome'],
     },
     {
       type: 'category',
-      label: 'Architecture',
+      label: 'This is ZeroTier',
       link: {
         type: 'generated-index',
         title: 'How ZeroTier Works',
         description: 'Our installable client service.',
         slug: '/zerotier',
       },
-      items: ['protocol', 'security', 'rules', 'config', 'what-is-a-controller'],
-    },
-    {
-      type: 'category',
-      label: 'Central',
-      link: {
-        type: 'generated-index',
-        title: 'Central',
-        description: 'Our hosted offering for managing your networks.',
-        slug: '/central',
-      },
-      items: ['start', 'faq-central', 'sso', 'authentication', 'organizations', 'central-admins', 'audit-logs', 'pricing', 'central-billing', 'central-hide-nodes', 'dns-management'],
+      items: ['protocol', 'security', 'rules', 'config', 'what-is-a-controller', 'whitelist'],
     },
     {
       type: 'category',
@@ -41,6 +30,21 @@ module.exports = {
         id: 'guides',
       },
       items: [
+        'start',
+        'cli',
+        'central-hide-nodes',
+        {
+          type: 'category',
+          label: 'Account',
+          items: [
+            'faq-central',
+            'organizations',
+            'central-admins',
+            'audit-logs',
+            'pricing',
+            'central-billing',
+          ],
+        },
         {
           type: 'category',
           label: 'Home & Office',
@@ -50,6 +54,7 @@ module.exports = {
             'website',
             'screenstreaming',
             'usbsharing',
+            'pihole',
           ],
         },
         {
@@ -65,6 +70,7 @@ module.exports = {
             'route-between-phys-and-virt',
             'bridging',
             'proxy',
+            'relay',
           ],
         },
         {
@@ -75,70 +81,50 @@ module.exports = {
             'microsegmentation',
             'roots',
             'cloud-init',
+            'sso',
+            'dns-management',
+            'faq-rules',
           ],
         },
         {
           type: 'category',
           label: 'Developer Tools',
+          link: { type: 'doc', id: 'api' },
           items: [
+            {
+              type: 'category',
+              label: 'Central API',
+              link: { type: 'doc', id: 'api-central' },
+              items: [
+                {
+                  type: 'html',
+                  value: '<a href="/api/central/v1/" target="_new">API Reference (V1)</a>',
+                  defaultStyle: true,
+                },
+                'api-central-examples',
+              ],
+            },
+            {
+              type: 'category',
+              label: 'Service API',
+              link: { type: 'doc', id: 'api-service' },
+              items: [
+                {
+                  type: 'html',
+                  value: '<a href="/api/service/v1/" target="_new">API Reference (V1)</a>',
+                  defaultStyle: true,
+                },
+              ],
+            },
             'docker',
             'code-server',
             'terraform',
+            'tokens',
+            'sockets',
+            'webhooks',
           ],
         },
       ],
-    },
-    {
-      type: 'category',
-      label: 'Development',
-      link: { type: 'doc', id: 'api/index', },
-      items: [
-        {
-          type: 'category',
-          label: 'Central API',
-          link: { type: 'doc', id: 'api/central/index' },
-          items: [
-            {
-              type: 'html',
-              value: '<a href="/api/central/v1/" target="_new">API Reference (V1)</a>',
-              defaultStyle: true,
-            },
-            'api/central/examples',
-          ],
-        },
-        {
-          type: 'category',
-          label: 'Service API',
-          link: { type: 'doc', id: 'api/service/index' },
-          items: [
-            {
-              type: 'html',
-              value: '<a href="/api/service/v1/" target="_new">API Reference (V1)</a>',
-              defaultStyle: true,
-            },
-          ],
-        },
-        {
-          type: 'doc',
-          id: 'api/tokens',
-          label: 'Using API Tokens',
-        },
-        {
-          type: 'doc',
-          id: 'sockets',
-          label: 'Sockets (libzt)'
-        },
-        {
-          type: 'doc',
-          id: 'webhooks',
-          label: 'Web Hooks',
-        }
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Security',
-      items: ['security']
     },
     {
       type: 'category',
@@ -160,7 +146,7 @@ module.exports = {
             description: 'ZeroTier on Linux',
             slug: '/linux',
           },
-          items: ['releases', 'faq-linux', 'snap', 'docker', 'bridging', 'aws-vpc-gateway', 'nat', 'docker-6plane', 'code-server', 'cloud-init', 'route-between-phys-and-virt']
+          items: ['faq-linux', 'snap', 'docker', 'bridging', 'aws-vpc-gateway', 'nat', 'docker-6plane', 'code-server', 'cloud-init', 'route-between-phys-and-virt']
         },
         /* MAC */
         {
@@ -172,7 +158,7 @@ module.exports = {
             description: 'ZeroTier on macOS',
             slug: '/macos',
           },
-          items: ['releases', 'faq-macos']
+          items: ['faq-macos']
         },
         /* WINDOWS */
         {
@@ -184,7 +170,7 @@ module.exports = {
             description: 'ZeroTier on Windows',
             slug: '/windows',
           },
-          items: ['releases', 'faq-windows', 'chocolatey', 'winget', 'windows-unknown-node-id', 'windows-service-unreachable']
+          items: ['faq-windows', 'chocolatey', 'winget', 'windows-unknown-node-id']
         },
         /* ANDROID */
         {
@@ -196,7 +182,7 @@ module.exports = {
             description: 'ZeroTier on Android',
             slug: '/android',
           },
-          items: ['releases', 'faq-android']
+          items: ['faq-android']
         },
         /* iOS */
         {
@@ -208,7 +194,7 @@ module.exports = {
             description: 'ZeroTier on iOS or iPadOS',
             slug: '/ios',
           },
-          items: ['releases', 'faq-ios']
+          items: ['faq-ios']
         },
         {
           type: 'category',
@@ -219,7 +205,7 @@ module.exports = {
             description: 'If it has a chip, you can probably install ZeroTier on it.',
             slug: '/routers',
           },
-          items: ['releases', 'routertips', 'corporate-firewalls', 'teltonika-networks', 'mikrotik', 'openwrt', 'opnsense', 'ubiquiti', 'route-between-phys-and-virt'],
+          items: ['routertips', 'corporate-firewalls', 'teltonika-networks', 'mikrotik', 'openwrt', 'opnsense', 'ubiquiti', 'route-between-phys-and-virt'],
         },
         {
           type: 'category',
@@ -230,7 +216,7 @@ module.exports = {
             description: 'If it has a chip, you can probably install ZeroTier on it.',
             slug: '/nas',
           },
-          items: ['releases', 'freenas', 'asustor', 'qnap', 'synology', 'wd'],
+          items: ['freenas', 'asustor', 'qnap', 'synology', 'wd'],
         },
         {
           type: 'category',
@@ -259,14 +245,12 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Service Providers',
+      label: 'FAQ & Troubleshooting',
       link: {
-        type: 'generated-index',
-        title: 'Service Providers',
-        description: 'Guides for Managed Service Providers',
-        slug: '/service-providers',
+        type: 'doc',
+        id: 'faq',
       },
-      items: ['faq-rules', 'sso', 'central-admins', 'audit-logs'],
+      items: []
     },
     'glossary',
   ]

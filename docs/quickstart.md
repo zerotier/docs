@@ -68,6 +68,20 @@ PING 10.147.17.101 (10.147.17.101): 56 data bytes
 
 **You did it!** Your devices are now securely connected.
 
+## Leaving a Network
+
+When you no longer need to be connected to a network, you can leave it:
+
+- Click the ZeroTier icon in your menu bar/system tray
+- Click the network name to uncheck it (or use **Network Details** to uncheck the Connected checkbox)
+- To permanently remove a network, use **Network Details** -> **Delete Network**
+
+Alternatively, use the CLI command:
+
+```bash
+sudo zerotier-cli leave NETWORK_ID
+```
+
 ## Next Steps
 
 - [SSH and Remote Desktop](/remotedesktop)

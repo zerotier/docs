@@ -4,7 +4,7 @@ description: How to use the Command Line Interface
 tags: [client, administration, tutorial, examples]
 ---
 
-This guide provides examples of how to use the ZeroTier client-side CLI. The client CLI is currently only responsible for managing a specific node and its network membership. To control and configure networks you'll need to use the [Central UI](/start) or the [Central API](/api/central).
+This guide provides examples of how to use the ZeroTier client-side CLI. The client CLI is currently only responsible for managing a specific node and its network membership. To control and configure networks you'll need to use the [Central UI](/start) or the [Central API](/api-central).
 
 :::info Permissions
 On Unix-like systems you may need to use `sudo zerotier-cli`, while on Windows you will need to use an `administrator` command prompt. If you see `missing authentication token and authtoken.secret not found (or readable)` you're likely trying to run `zerotier-cli` from an account with insufficient privileges.
@@ -83,7 +83,7 @@ $ sudo zerotier-cli join 8056c2e21c000001
 | REQUESTING_CONFIGURATION | Negotiating with the network Controller. This could take about a minute. If it takes much longer, see [Router Configuration Tips.](/routertips.md) |
 | NOT_FOUND                | Typo in the Network ID?                                                                                                                        |
 | ACCESS_DENIED            | You node needs to be Authorized on this network (via [my.zerotier.com](https://my.zerotier.com)).                                              |
-| PORT_ERROR               | See [Port Error](/troubleshooting#port-error)                                                                                                  |
+| PORT_ERROR               | See [Port Error](/faq/emergencyinstructions#port-error)                                                                                        |
 
 ## Leave a Network
 

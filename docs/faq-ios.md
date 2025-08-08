@@ -1,17 +1,13 @@
 ---
-title: iOS or iPadOS FAQ
-description: Guidance for running ZeroTier on iOS or iPadOS
-tags: [ios, mobile-app, faq, installation, client, platform-specific]
+title: iOS FAQ
+description: ZeroTier support for iOS devices
+tags: [ios, faq, mobile-app]
 ---
 
-### Where do I get the ZeroTier iOS app?
+*Mobile app information and privacy details.*
 
-Install from [Apple App store](https://apps.apple.com/us/app/zerotier-one/id1084101492).
+## iOS FAQ
 
-### Does the ZeroTier One iOS app share user data with third parties?
+[Where can I get the ZeroTier iOS app?](/faq/ios-install)
 
-No, the ZeroTier One iOS app does not share user data with other companies or organizations.
-
-### Does the ZeroTier One iOS app collect any user data?
-
-No, the ZeroTier One iOS app does not collect any user data.
+[Does the ZeroTier One iOS app collect any user data?](/faq/ios-privacy)

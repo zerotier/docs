@@ -5,7 +5,7 @@ tags: [admin, tutorial, dns]
 ---
 
 :::info BETA
-The configuration described below uses a beta release of our dedicated DNS service, [ZeroNSD](https://github.com/zerotier/zeronsd). You are not required to use ZeroNSD to provide DNS resolution for devices on your ZeroTier networks; any DNS server can be provided with the assigned IPs and names of your networks' members using the [Central API](/api/central).
+The configuration described below uses a beta release of our dedicated DNS service, [ZeroNSD](https://github.com/zerotier/zeronsd). You are not required to use ZeroNSD to provide DNS resolution for devices on your ZeroTier networks; any DNS server can be provided with the assigned IPs and names of your networks' members using the [Central API](/api-central).
 :::
 
 ## Conceptual Prerequisites
@@ -56,7 +56,7 @@ Authorize the node to the network by clicking the "Auth" button in the
 
 ![Authorize the Member](https://i.imgur.com/fQTai9l.png)
 
-First, [create a Central API token](/api/tokens).
+First, [create a Central API token](/tokens).
 
 Next, you will need to stash this in a file for ZeroNSD to read.
 
