@@ -82,4 +82,4 @@ The new node ID will have be re-authorized on any networks, and the node's manag
 
 ### What is PORT_ERROR {#port-error}
 
-A `PORT_ERROR` can happen when the [Virtual Network Port](glossary.md#virtual-network-port) cannot be brought online for some reason. See specific instructions for resolving this on [macOS](faq-macos.md#port-error).
+A `PORT_ERROR` can happen when the [Virtual Network Port](/glossary#virtual-network-port) cannot be brought online for some reason. See specific instructions for resolving this on [macOS](/faq/macos-porterror).

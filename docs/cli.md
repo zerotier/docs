@@ -83,7 +83,7 @@ $ sudo zerotier-cli join 8056c2e21c000001
 | REQUESTING_CONFIGURATION | Negotiating with the network Controller. This could take about a minute. If it takes much longer, see [Router Configuration Tips.](/routertips.md) |
 | NOT_FOUND                | Typo in the Network ID?                                                                                                                        |
 | ACCESS_DENIED            | You node needs to be Authorized on this network (via [my.zerotier.com](https://my.zerotier.com)).                                              |
-| PORT_ERROR               | See [Port Error](/troubleshooting#port-error)                                                                                                  |
+| PORT_ERROR               | See [Port Error](/faq/emergencyinstructions#port-error)                                                                                        |
 
 ## Leave a Network
 

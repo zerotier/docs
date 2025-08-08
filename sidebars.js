@@ -89,25 +89,25 @@ module.exports = {
         {
           type: 'category',
           label: 'Developer Tools',
-          link: { type: 'doc', id: 'api/index' },
+          link: { type: 'doc', id: 'api' },
           items: [
-              {
+            {
               type: 'category',
               label: 'Central API',
-              link: { type: 'doc', id: 'api/central/index' },
+              link: { type: 'doc', id: 'api-central' },
               items: [
                 {
                   type: 'html',
                   value: '<a href="/api/central/v1/" target="_new">API Reference (V1)</a>',
                   defaultStyle: true,
                 },
-                'api/central/examples',
+                'api-central-examples',
               ],
             },
             {
               type: 'category',
               label: 'Service API',
-              link: { type: 'doc', id: 'api/service/index' },
+              link: { type: 'doc', id: 'api-service' },
               items: [
                 {
                   type: 'html',
@@ -119,8 +119,7 @@ module.exports = {
             'docker',
             'code-server',
             'terraform',
-
-            'api/tokens',
+            'tokens',
             'sockets',
             'webhooks',
           ],

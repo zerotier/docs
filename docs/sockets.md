@@ -1609,7 +1609,7 @@ This section will show you how to use the built-in Central API to make calls to 
 
 The Central API built into libzt is still `beta` and is not included in most builds by default. It is currently only available in `C` and can be enabled by commenting out `#define ZTS_DISABLE_CENTRAL_API 1` in `ZeroTierSockets.h`. You will need your system's edition of the `libcurl` development headers and libraries.
 
-You can read more about the [Central API spec](/api/central) to learn more about the capabilities is exposes.
+You can read more about the [Central API spec](/api-central) to learn more about the capabilities is exposes.
 :::
 
 ## Common issues

@@ -24,5 +24,5 @@ See this superuser post for more options and info
 If the purpose of your ZeroTier network is solely remoting into office workstations, don't miss our example rule sets
 
 :::tip See Also
-[Client Isolation Rules](/faq-rules.md#client-isolation) and [RDP Only Rules](/faq-rules#rdp-only)
+[Client Isolation Rules](/faq/rulesnodeisolation) and [RDP Only Rules](/faq/rulesrdponly)
 :::
