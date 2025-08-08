@@ -4,7 +4,7 @@ description: How to use the Command Line Interface
 tags: [client, administration, tutorial, examples]
 ---
 
-This guide provides examples of how to use the ZeroTier client-side CLI. The client CLI is currently only responsible for managing a specific node and its network membership. To control and configure networks you'll need to use the [Central UI](/start) or the [Central API](/api/central).
+This guide provides examples of how to use the ZeroTier client-side CLI. The client CLI is currently only responsible for managing a specific node and its network membership. To control and configure networks you'll need to use the [Central UI](/start) or the [Central API](/api-central).
 
 :::info Permissions
 On Unix-like systems you may need to use `sudo zerotier-cli`, while on Windows you will need to use an `administrator` command prompt. If you see `missing authentication token and authtoken.secret not found (or readable)` you're likely trying to run `zerotier-cli` from an account with insufficient privileges.
