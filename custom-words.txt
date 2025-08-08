@@ -127,3 +127,6 @@ smbd
 smbpasswd
 browsable
 findstr
+Prefs
+msiexec
+hostnames

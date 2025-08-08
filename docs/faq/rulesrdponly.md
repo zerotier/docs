@@ -1,7 +1,7 @@
 ---
 title: FAQ
 description: Answers to commonly asked questions
-tags: [faq, troubleshooting, hub]
+tags: [faq, troubleshooting, hub, flag]
 ---
 
 ### Remote Desktop Only {#rdp-only}

@@ -112,4 +112,3 @@ If you continue to have issues, please check [github](https://github.com/zerotie
 [Does the ZeroTier One app collect or share any user data?](/faq/android-privacy)
 
 [After tapping to connect, it immediately flips back off](/faq/android-badtoggle)
-

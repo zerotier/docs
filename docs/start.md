@@ -449,11 +449,13 @@ Visit the [discussion forum](https://discuss.zerotier.com/) to talk about your u
 When you no longer need to be connected to a network, you can leave it:
 
 ### macOS and Windows
+
 - Click the ZeroTier icon in your menu bar/system tray
-- Click the network name to uncheck it (or use **Network Details** to uncheck the Connected checkbox)  
-- To permanently remove a network, use **Network Details** → **Delete Network**
+- Click the network name to uncheck it (or use __Network Details__ to uncheck the Connected checkbox)  
+- To permanently remove a network, use __Network Details__ -> __Delete Network__
 
 ### Command Line
+
 ```bash
 sudo zerotier-cli leave NETWORK_ID
 ```

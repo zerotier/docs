@@ -9,10 +9,10 @@ tags: [faq, troubleshooting, hub]
 Yes. Your network's existing members will keep their existing IPs.
 
 1. Create a new, larger Managed Route.
-1. Delete the old, smaller Managed Route.
-1. Change IPv4 Auto-Assign from Easy to Advanced
-1. Delete the existing range
-1. Add the new, bigger range
+2. Delete the old, smaller Managed Route.
+3. Change IPv4 Auto-Assign from Easy to Advanced
+4. Delete the existing range
+5. Add the new, bigger range
 
 For example, if your network was on the Easy Mode `192.168.195.*` (/24)
 
