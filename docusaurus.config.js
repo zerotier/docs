@@ -164,7 +164,7 @@ module.exports = {
               to: "/quickstart",
             },
             {
-              label: "This is ZeroTier",
+              label: "What is ZeroTier?",
               to: "/zerotier",
             },
             {

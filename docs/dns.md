@@ -56,7 +56,7 @@ Authorize the node to the network by clicking the "Auth" button in the
 
 ![Authorize the Member](https://i.imgur.com/fQTai9l.png)
 
-First, [create a Central API token](/tokens).
+First, [create a Central API token](/api/tokens).
 
 Next, you will need to stash this in a file for ZeroNSD to read.
 
