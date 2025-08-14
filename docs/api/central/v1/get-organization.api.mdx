@@ -1,0 +1,64 @@
+---
+id: get-organization
+title: "Get the current user's organization"
+description: "Get the current user's organization"
+sidebar_label: "Get the current user's organization"
+hide_title: true
+hide_table_of_contents: true
+api: eJylV21v2zYQ/isHftkGKJKT9pPgGQuStPOQNkGdAtuSYGCos8SGIlmSsusG/u/DUXIq2W7ddfpgS+a9PPfci09PLPDSs/yWGVdyLT/zII327D5hxqKLT9OC5azEcNWTYAlz6K3RHj3Ln9jJaERfBXrhpI0SOXuNAeoVmKGeMDqgDiTOrVVSxIPsgyedJ+ZFhTWnu7CyyHJmHj6gCCxh1hGkIFuPsujJ+OCkLlnC8BOvraKfRt11tOdjc7FkC3E/RJies3XCzFKjm+51NtR979HB9BzMHEKFg6ghGvkReA55caXViuXBNbiBc1FzqQ4jutqB8JMHJF3gReHQ+wGkxqP7rXtMhan3ua+xfkDne765c3zFEiYD1v5w2owr95M5dHUoMf+ZynUS4zvke86V33HeZfaHnGpe4/eEqxul+AOZPhh+mwMopLeKryB66EP7wyAQZHKPX6uU/+9/WEjrdcKCDBFAX/pNFCYoQ4uX0gdqFbNr2ZO09+bM6Lks95XUN8AtZYEwm12BiNqN24ydYRmipmD7xfBgjEKu+0zuY+KiVYS54iXMjSNfhFd63xxojKEh1RGwwYkFXE3Pz2BjKDnQSNaZhSzQfXsKPuJKKMMfd0kjX9edDfjZaAQzz6HAOW9USIA3oUIleXs3SoB/bhwmsDGYgHkMPAGjUZlS6l+IBKEk6rC/x75gMrIQR63okSz2IzuLx90Ibin5ttEqBOvzLOvNr4wcZQR/v49pNAvv312SE5Izriujf1AX1sj2X+oHnWbPNra9D1xBT2xr3PZaauZNC5ettzpt9twoX2tBUlkn7OXoeLcKTwdQHH5spMOCRfEXe8SFQO+hQC03Ui93paYBa9AmwNw0uoi4dhcD+o8UjXOUZprMP/ntRaHGUJlu96Dy56FiOcuMoyR4dIvYb7dPrHGqlwxuZfoZnQkSXcwItzJbHO9k4dqZohEx7lk0xtb3ZFc0ToZVNBzMI2qiiOW39/3TGS0pbR/2ZJ5LhaAQxijF8lYm8iD13OwS9jc6cyPRwRnq4LiCtxiWxj3CG655iTVxdG1c4ApOr6fp2E5OVbyNGUMfPNSND1DxBQLX8ST6hAo59be3KORcYgFSR+bHwhQ4GWQ/71Q+0TXOogBNuJqHFOAv04DgGkrUtBYirEzjoqNHXMHDCpQpS6lLkDoYGHOoHM5/vXvOSr0aJOWOTbaDHmd8AlwXIBzyQKZ4h8i0mE+FMI0OYHmJ6Tizk7GdYJl2sYjGKTj6E15f3MDR73DHvh7cHYMDxZLpNgEdDZ2zcfVi8o5iv5S1JITjrHqxObypEHbySPxIGg2UQg+RONUppwDXXBax+D1w151gAcHA8Wj0JbeWMojC6CIFeOUQ9+uc7FchfDC2k14K2+67sqgJIBUHVOgQuIclKpV3lG5IKozwQ5aMRU1MiTbOxXFK63uPLZYwas+2vGPzbSbTPo66twIu4rxtV6YvgrPGWuMCnEsvGk824ZVxDe2nw84vWoEBVBpSSgrUHnu2Ty0XFcJJOhoYybNsuVymPJ6mxpVZp+qzy+nZxdvZxdFJOkqrUKvYzdb4UHPdM/x9k23Q/c9TI+CnkFnFpY7bqot7Wzv14usZvZRVxgd6fHp64B7fO7Ve088fG3Q0su4TtuBOtovc7f06Ye0AiNPsEVfdCLc0TxdcNXFP2X4Jo0H3PHtfX9yw9fpfGgDTVg==
+sidebar_class_name: "get api-method"
+info_path: api/central/v1/zerotier-central-api
+custom_edit_url: null
+hide_send_button: true
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get the current user's organization"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/org"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Get the current user's organization
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Get my organization","content":{"application/json":{"schema":{"type":"object","properties":{"id":{"type":"string","example":"00000000-0000-0000-0000-000000000000","description":"Organization ID"},"ownerId":{"type":"string","description":"User ID of the organization owner","example":"00000000-0000-0000-0000-000000000000","readOnly":true},"ownerEmail":{"type":"string","description":"Organization owner's email address","example":"user@example.com","readOnly":true},"members":{"type":"array","items":{"type":"object","properties":{"orgId":{"type":"string","readOnly":true,"description":"Organization ID","example":"00000000-0000-0000-0000-000000000000"},"userId":{"type":"string","readOnly":false,"description":"User ID","example":"00000000-0000-0000-0000-000000000000"},"name":{"type":"string","readOnly":true,"nullable":true,"description":"Organization member display name","example":"Joe User"},"email":{"type":"string","readOnly":true,"nullable":true,"description":"Organization member email address"}},"title":"OrganizationMember"},"description":"List of organization members"},"ssoConfig":{"type":"object","description":"Organization wide SSO configuration","properties":{"enabled":{"type":"boolean","example":true,"description":"Enabled flag for SSO"},"issuers":{"type":"array","items":{"description":"list of configured OIDC issuers","type":"object","properties":{"provider":{"type":"string","example":"keycloak","description":"OIDC Provider (one of: default, authelia, auth0, azure, keycloak, okta, onelogin)"},"clientId":{"type":"string","example":"oidc-client-id","description":"OIDC Client ID"},"issuer":{"type":"string","example":"https://example.com/oidc/auth","description":"OIDC Issuer URL"},"authorization_endpoint":{"type":"string","example":"https://example.com/oidc/auth/endpoint","description":"authorization endpoint","readOnly":true}},"title":"SsoIssuer"}}},"title":"OrgSsoConfig"}},"title":"Organization"}}}},"401":{"description":"Authorization required"},"403":{"description":"Access denied"},"404":{"description":"Item not found"}}}
+>
+  
+</StatusCodes>
+
+
+      

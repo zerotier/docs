@@ -10,7 +10,7 @@ Audit Logs are a paid feature available to Essential and Commercial subscribers.
 For an overview of current pricing and terms including suggested use cases, please see the [Pricing](https://www.zerotier.com/pricing) page on our website.
 :::
 
-You can view the full history of API requests made through Central to manage your ZeroTier networks using audit logs. We capture logs for the last 30 days of API traffic for every paid Central account, including requests made through both the Central dashboard and our [public API](/api-central).
+You can view the full history of API requests made through Central to manage your ZeroTier networks using audit logs. We capture logs for the last 30 days of API traffic for every paid Central account, including requests made through both the Central dashboard and our [public API](/api/central).
 
 To access your logs, scroll down to the Organization section of the [Account](https://my.zerotier.com) page and find the link labeled "Organization Audit Log".
 

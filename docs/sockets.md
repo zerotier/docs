@@ -1,13 +1,11 @@
 ---
-title: Sockets
-description: Link ZeroTier into your app or service
+title: Sockets (libzt)
+description: Encrypted P2P connections via userspace API for your app or service.
 tags: [api, developer, tutorial]
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
-Encrypted P2P connections for your app or service.
 
 This guide explains how to use the ZeroTier SDK Socket API. It is meant to be read linearly and progresses from beginner topics to advanced topics. We will start by creating a simple [pingable node](#pingable-node-part-1) while skipping over most of the gritty details. Then we'll move on to a full [client-server socket application](#client-and-server-part-2) where we will take the occasional tangent to learn more about how all of this works. Source code for the examples can be found here: <a href="https://github.com/zerotier/libzt/tree/main/examples">libzt/examples</a>. For API reference documentation see the sidebar to the left. To read more more about how ZeroTier works in general, see our [Design Whitepaper](/protocol). If you find an error on this page or you just need help getting something to work please open a [GitHub issue](https://github.com/zerotier/libzt/issues).
 
@@ -1609,7 +1607,7 @@ This section will show you how to use the built-in Central API to make calls to 
 
 The Central API built into libzt is still `beta` and is not included in most builds by default. It is currently only available in `C` and can be enabled by commenting out `#define ZTS_DISABLE_CENTRAL_API 1` in `ZeroTierSockets.h`. You will need your system's edition of the `libcurl` development headers and libraries.
 
-You can read more about the [Central API spec](/api-central) to learn more about the capabilities is exposes.
+You can read more about the [Central API spec](/api/central) to learn more about the capabilities is exposes.
 :::
 
 ## Common issues

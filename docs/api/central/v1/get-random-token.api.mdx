@@ -1,0 +1,64 @@
+---
+id: get-random-token
+title: "Get a random 32 character token"
+description: "Get a random 32 character.  Used by the web UI to generate API keys"
+sidebar_label: "Get a random 32 character token"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVVtP8zgQ/SsjP4dc2lLaqFsJscCy+i6Ii7S70AfXmTaGxDa201Kq/vfVJCm0wLe8bF7q2uOZM2dmjtfM87lj6R2rvCzYJGDaoOVeanWRsZTN0V9xlenyRj+iYgHL0AkrDRmwlJ2jBw62toBuB0TOLRcebQhw6zCD6Qp8jrDEKdxegNcwR0X+EY4vL+ARV44FzKIzWjl0LF2zThzTz36cBgP4FoTQyqPyZMeNKaSoAUcPjozXzIkcS04rvzLIUqanDyg8C5ixlJ6XTShRaPG4YyaVxzlaFrCZtiX3zVa/xwKGz7w0BbI06SfduH807MS9wx5B59lPVaxY6m2F7+k5qaxF5cHLEkErcGgXaNkmYDk+7wR23ko13w3Dkv6w05t1Z7Pe0eCw0xez2TSZDobTJO7F025XDLJp1hXxEOOjWXfYHyazfnJ41B8mnUTE2VGffYUtx2dAJXSG2baA05VHB3pWl6zhehOwZvGfYJdLO+33q9s8GZw9ie7AZoOH79nh1dmfL1fuRPW+BHP1sYO2AAiB9HWY3U7c0BewEn2u20al+nKfs5RFdq9nG9qpy9essgUl771xaRRxI8MXtNpLtKHQJW1Ei+RDn19anVWC/sB1W8MJ+RWVlX5VO67hHlcU/26ye3pN3dg03I7NK50EhTDWVixlb2lLNdMfR+EftPpGooUTVN7yAn6gX2r7CN+54nMsqd8utfW8oBELR2Z8XNRLsPhUofMOysp5yPkCgav6pI4JOfIMLTiDQs4kZiBV3QkjapIxwdZWvtSjlrZXnukbRbUBNEMTAvytKxBcvc36Sld2O/AkCYWez6Wag1Rew4hDbnH22/1rVcrVXlHu2fh90qOIj4GrDIRF7skVbxHpBvOxELpSHgyfYziKzHhkxjgP21xEZQs4+AvOT2/g4A+4Z79O7p7BF80SqaYALQ1tsFHeHV9R7t9kKQnhKMq728ObHOFDHYkfSQNFJXRQE1e0l0OASy4zqBxaB9y2J5iRpCZx/FZbQxVEoVUWApxZxM/vdD6/QvhgZMY7JfQ1nz8NKgJIzQE5WgTuYIlFkbaUbknKtHD7LGmDipgSTZ6LJCSd3mGLBYzGs2nvevi2A/8ZR638c1HLv+LlnuF1ZYy2Hn6XTlSOfMKZtlXJgneTnzUGe1BJ7QopUDnc8X1suMgROmG85ySNouVyGfL6NNR2HrVXXfTt4uT0x/XpQSeMw9yXRT3NRjtfcrXj+JeP5+s7tzf567dn7396d1sF8vjsI1NwWct9neG6VdI7tqukk4Dl2nnaXq+n3OGtLTYb2n6q0JIMTgK24FbyKZXvblI/dCQqtUI+4oroFAINafWCFxWF//CCk3i+6vr56Q3bbP4Fj33yhg==
+sidebar_class_name: "get api-method"
+info_path: api/central/v1/zerotier-central-api
+custom_edit_url: null
+hide_send_button: true
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get a random 32 character token"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/randomToken"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Get a random 32 character.  Used by the web UI to generate API keys
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Random token","content":{"application/json":{"schema":{"type":"object","properties":{"clock":{"type":"integer","format":"int64","example":1613067920454,"readOnly":true,"description":"Current time on server"},"hex":{"type":"string","example":"16924f3ff478526cffb1b89b1040b33c8dbd3c09e07f39691f615769121c0d76","readOnly":true,"description":"hex encoded random bytes of the token"},"token":{"type":"string","example":"wwrb66uUh18Fqc38rd8jMd5RFJzRsCn4","readOnly":true,"description":"Random 32 character token"}},"title":"RandomToken"}}}}}}
+>
+  
+</StatusCodes>
+
+
+      

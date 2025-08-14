@@ -1,0 +1,72 @@
+---
+id: decline-invitation
+title: "Decline organization invitation"
+description: "Decline organization invitation"
+sidebar_label: "Decline organization invitation"
+hide_title: true
+hide_table_of_contents: true
+api: eJyFVU1v2zgQ/SuDOe0CsuQkPQmuAaNxdw1ku0aTBdpNfGCoscSNRLLkyK5r6L8vSMuOHbuoLxY5H3zzHme4RRalx/wRjSuFVj8EK6M9LhI0llxczQrMsSBZK00zvVIcdzFBK5xoiMmFBFvUoiHMUQUXmt1iggV56ZSN7jm+xkK0qrBpBVeYoKNvrXJUYM6upQS9rKgRmG+RNzZk9eyULrHrFsHZW6M9+WC/Hg7D3+lRx8WAej23r6LALsF3w6vzwEnLlXH7yAOq6H5zwV1K8h4K0mrv9e7ca8bUgDYMS9PqArvuLTO3O1jwE9iYYENcmZ0ONTFF8rnCHDPjysGra7bd099hgp7caq9O62rMsWK2Ps8yYVX6g5xhRS6Vpgkb2erqTLO5M0UrI577mAyDAJ5k6xRvYmI2L6QDb5g/Lo6t90HDnUhHPgdFAxTslQ7r6BPJUXppzln8l5x5UOTgA2l2ooZPxGvjXuAvoUVJDWmGuXEsapjMZ+nIjid1/IwykmcPTesZKrEiEDpa4plQkSjIgbck1VJRAUoDVwQjaQoan1yJvA/5Hn6jLDrA0rhGcArw1bQghYaSdOgdgo1pXTzohTbwvIHalKXSJSjNBkYCKkfL908HVZrNiShPOH5b9CgTYxC6AOlIcEglekRmh3kipWk1gxUlpaPMjkd2TGXa1yJbV8PgC/wxfYDBn/CEPy/uCeEXlyXTOwF6GvrDRtXN+HOo/U41KiAcZdXN3vhQEZzpGPhRja2jhB4icXUfnALMhSqg9eQ8CNdbqAA2cDUcvmprg4IkjS5SgI+O6HLM9eWQgA9GdnwkIUc+/7akA8BwOaAiRyA8rKmu857SPUmFkf6UJWNJB6bkrs7VVfqfN/qILUwwtOfuesfmY8U1Xbrrk/kME5RGs5AceqMftgfH+9Za4xhulZetDznho3Ftg8mbzi92DidQw+SqlSTt6Sj3xApZEVynw5MkeZat1+tURGtqXJn1oT67m32YfrqfDq7TYVpxU8dutsZzI/RR4l+Pu5POP0wMpu+c2VooHQBHRNt+Dsb3a3CSIz88RIsEK+M5eG23z8LTP67uurD9rSUXptgiwZVwSjwH9h+3WCgfvgvMl6L2dAYoCEGaMcffPvdvxO/w9n27iLrfFHoT1Bd1G1aY4Attjt/ObtEdDf3b6d30YYpd9z9Q3qoB
+sidebar_class_name: "delete api-method"
+info_path: api/central/v1/zerotier-central-api
+custom_edit_url: null
+hide_send_button: true
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Decline organization invitation"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/org-invitation/{inviteID}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Decline organization invitation
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"inviteID","description":"Invitation ID","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"organization invitation declined"},"401":{"description":"Authorization required"},"403":{"description":"Access denied"},"404":{"description":"Item not found"}}}
+>
+  
+</StatusCodes>
+
+
+      

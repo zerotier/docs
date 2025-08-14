@@ -12,10 +12,10 @@ In the examples below use the following placeholder variables to match commonly-
 - `$ZT_TOKEN`: an API token associated with an active account on [Central](https://my.zerotier.com)
 - `$NWID`: an active network ID
 
-Please note, if you encounter an error, System.String and System.Collections.IDictionary when using curl within Powershell, be advised this is because of an _alias_ which can leads to a less than obvious error message. `curl` in PowerShell is a wrapper for `Invoke-WebRequest` which has different parameter syntax than `curl` on non-windows operating systems.   As an alternative solution to using `Invoke-WebRequest`, `curl.exe` could be used.  This however may not be available on your system without first installing.   The _native_ approach is to use `Invoke-WebRequest`.  Caveat emptor.
+Please note, if you encounter an error, `System.String` and `System.Collections.IDictionary` when using curl within Powershell, be advised this is because of an _alias_ which can leads to a less than obvious error message. `curl` in PowerShell is a wrapper for `Invoke-WebRequest` which has different parameter syntax than `curl` on non-windows operating systems. As an alternative solution to using `Invoke-WebRequest`, `curl.exe` could be used.  This however may not be available on your system without first installing. The _native_ approach is to use `Invoke-WebRequest`.
 
 :::info
-See the [Central API Tokens](/tokens) guide for an explanation of how to create and manage API tokens.
+See the [Central API Tokens](/api/tokens) guide for an explanation of how to create and manage API tokens.
 :::
 
 ## Exporting Data from the Central API

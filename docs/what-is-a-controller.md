@@ -46,9 +46,7 @@ The controller microservice itself does not implement any fine-grained access co
 
 While networks with any valid ID can be added to the controller's database, it will only actually work to control networks whose first 10 hex digits correspond with the network controller's ZeroTier ID. See [Network Identifiers and Controllers](protocol.md#nwid).
 
-The controller JSON API is *very* sensitive about types. Integers must be integers and strings strings, etc. Incorrect types may be ignored, set to default values, or set to undefined values.
-
-Full documentation of the Controller API can be found on our [documentation site](/api/service/v1/#tag/controller)
+Full documentation of the Controller API can be found in our [service API docs](/api/service/v1/)
 
 ### Prometheus Metrics
 

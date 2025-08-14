@@ -1,0 +1,64 @@
+---
+id: get-organization-invitation-list
+title: "Get list of organization invitations"
+description: "Get list of organization invitations"
+sidebar_label: "Get list of organization invitations"
+hide_title: true
+hide_table_of_contents: true
+api: eJytVm1v2zYQ/iuH+6xIzss6TPCMBm3aBciaoMmAbUkwMNRZYiORLEnZcQP/9+EoxZFid+2G6YMtiXfH5567e8RHDKL0mF+jcaXQ6osIymiPtwkaSy4+nRaYY0nhfGBxqhcqxLsz5QMm6Mhboz15zB/xYDLhv4K8dMqyFeb4ngLUygcwc1Abd48JSqMD6cAuwtpaybiSffLs94heVtQIvgsrS5ijcE6sMEEVqPGD9+buE0kGYx2DD6pDY1zJKWzMfHBKl5i8wDdMD07fYoL0IBpbs8ukv/Z2/DxdkQRRnOt6hXlwLa0TpEao+ttbn7AZiKJw5P2GH6IRhk+GXreeXCpNg+sE1Xfk9Fym/ysj6SjG+yuohgYAlA5UksME58Y1InSvXh1tQXrTBwAOwLmGivp8hwD3X+0fTl79+NPB5OiHox04fBChjeUdL/0DA73LkAVLuuh4E3V9Psf8eptR0m3DAzKwlZJsoIJbV2hJNRU8MEGFGDRuSZfdbuvbdYKtLUSg/0zZmfABuhjFNm0xuX9DnVlqciff15mjoYiOQMNmHbHJ3fm6f4xdurX5+pml3WqCa74SPJrsbyvIcRsq457QOPrcKkcFRvPDHeZS8jgVpNWT1dG21WmgBrQJMDetLpA3/7puDUXyhYg1FCrTKyVLkAgV5pgZV+6NyuTJLcj52GqtqzHHKgTr8ywTVqVfyJmguiHnF9lif6smF84UrYwQLmMwXN9yXNk6FVZdD5t70kwX5te3w9VL1tJOFgc2my5gKIwxWmHe2UROlJ6bbfL+JGeuFDl4Qzo4UcMHCkvj7uFXoUVJDekAF8YFUcPxxWk6tbPjOt7G6pEPHprWB6jEgkDouBL3hIpEQQ68JanmigpQOrb8VJqCZqNOyHuXB76mWTSAbqRSgD9MC1JoKEnz94xgZVoXN7qnFdytoDZlqXQJSgcDUwGVo/nPN5uqNKtRUW5w9jLpaSZmIHQBnTbqEkSPyHSYj6U0rQ5gRUnpNLOzqZ1Rmfa5yNbVsPc7vD+5gr1f4Aa/ntwNwjeaJdNdAXoa+s2m1eHsI+d+phrFCKdZdfi0eFURbNWR+VE8x1xCD5G4undOAS6EKoDH3YNw/Qprk4H9yeS5tpYrSNLoIgV454h2+xzsdmF8MLWzQQlD5PPckmaA3BxQkSMQHpZU13lP6RNJhZF+zJKxpJkp2eW52E/5lDFgCxPk8ezaOw7fk2Dt4qg/vAgZDy9aNCPDy9Za4wK8VV62nmPCO+Na1sXx5BedwQgqC1atJGlPg9jHVsiK4CCdjILkWbZcLlMRV1Pjyqx39dnZ6ZuTD5cnewfpJK1CU8dptsaHRuhB4O9UudH4b2Qj0EPIbC2UZtQR1mOvgPFgOVTA2wQr4wOvPD7eCU+/uXq95tefW3IsX7cJLoRT4o5pv+bvZycGUdnuadVLu2WZXYi6jUfCl+dGFr2NJL8/ucL1+m/ZLby/
+sidebar_class_name: "get api-method"
+info_path: api/central/v1/zerotier-central-api
+custom_edit_url: null
+hide_send_button: true
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get list of organization invitations"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/org-invitation"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Get list of organization invitations
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Get list of invitations","content":{"application/json":{"schema":{"type":"array","items":{"type":"object","properties":{"orgId":{"type":"string","description":"Organization ID","example":"00000000-0000-0000-0000-000000000000","readOnly":true},"email":{"type":"string","description":"Email address of invitee","example":"joe@user.com"},"id":{"type":"string","description":"Invitation ID","example":"00000000-0000-0000-0000-000000000000","readOnly":true},"creation_time":{"type":"integer","format":"int64","description":"Creation time of the invite","example":1613067920454,"readOnly":true},"status":{"readOnly":true,"description":"Invitation status","example":"pending","allOf":[{"type":"string","enum":["pending","accepted","canceled"],"title":"InviteStatus"}]},"update_time":{"type":"integer","format":"int64","description":"Last updated time of the invitation","example":1613067920454,"readOnly":true},"ownerEmail":{"type":"string","description":"Organization owner email address","example":"user@example.com","readOnly":true}},"title":"OrganizationInvitation"}}}}},"401":{"description":"Authorization required"},"403":{"description":"Access denied"},"404":{"description":"Item not found"}}}
+>
+  
+</StatusCodes>
+
+
+      

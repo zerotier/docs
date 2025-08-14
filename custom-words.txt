@@ -59,6 +59,7 @@ multicasts
 multicloud
 multipath
 netbios
+netsh
 nslookup
 oidc
 openwrt
@@ -75,6 +76,7 @@ rarp
 remoting
 routable
 sctp
+SETLOCAL
 smathers
 snapcraft
 sport
@@ -97,6 +99,7 @@ vxlan
 webserver
 whois
 winget
+wmcnc
 zeronsd
 zerotier
 zerotier-cli
@@ -129,4 +132,6 @@ browsable
 findstr
 Prefs
 msiexec
+hostnamesdpkg
+userspace
 hostnames

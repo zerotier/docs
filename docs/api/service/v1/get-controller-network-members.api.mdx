@@ -1,0 +1,72 @@
+---
+id: get-controller-network-members
+title: "List Network Members."
+description: "JSON object containing all member IDs as keys and their memberRevisionCounter values as values."
+sidebar_label: "List Network Members."
+hide_title: true
+hide_table_of_contents: true
+api: eJy9VE1P20AQ/SurObXSYidQqsa3CFCVlgIiqVSBctjYQ7xg75rdcUJq+b9Xs3YgaVCP9cWW5+vNmzfTAKmlh+QeUmvI2aJAB3MJtkKnSFszySCBJdLZq/kKaW3d0w8sF+g8SMjQp05X7A0JfJteXwm7eMSUBOdU2mizFKooRBlCxOTcC+XFE268UCYTlKN2vfEWV9pra85sbQidWKmixuDefUUgoVJOlUhcPLlvwKgSIQHTwZqcHyCanAv7wFVE78NJNFsqRTlIcPhca4cZJORqlODTHEsFSQO0qTi3J6fNEtp2zs6+ssajZ/vxYMCv/XogA5loiG2qqgqdBi7jR88OzWGBji+QoLJMs6sqbhzPgHRXqPfThnCJDloJ+KLKqkA2Dk6y0+FnNcoeIDmVsBhlpyr7gsMTSIYtPxI+DYaHQMc15dbp3wGc2LIQAQeUSLntZx84pxwSiN9UEvdkxs0r823cDREkeHSr7YBqV0ACOVGVxHFhU1Xk1lMyGo1ODmZ142xWpwHPNKQA5txjWjtNm5BuXOnvuGHskNzPd81TprXja9fplT0Vfm6Hn6PKAtZeQL+O7mbDoxDCBGjzYEOsJmYZ7tDZmUZ3bTBA0ymK8c0EJHCjHfpBNIwGBz3Ncu3ZVfTk+aDFbT7h+2SUKxKuNl5oEzwWKn1aOlubTFgjNrZ2IrVlVRM6VnChUzQ+CKDvYFypNEdxHDDssb5eryMVrJF1y7gP9fHl5OzianpxdBwNopzKInReWU+lMjuJL7Un0e+96Bc/+rvP5k31/+EI9CMlfKG4KpQ2vBOh56YX695Jk9v7ABKS3VPRK3YugUXJUU2zUB5/uqJt+fdzjY6FN5ewUk6rBavhvoFMe/7OIHlQhcd/kPHhtt+sj+LdU/RuK1vJGtZraLu7LE+42Tt27byVWykzrM4+TlOsaCfy4Arx3rzu+NeLGbTtHxm0E5c=
+sidebar_class_name: "get api-method"
+info_path: api/service/v1/zerotierone-service-api
+custom_edit_url: null
+hide_send_button: true
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List Network Members."}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/controller/network/{networkID}/member"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+JSON object containing all member IDs as keys and their memberRevisionCounter values as values.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"networkID","description":"ID of the network.","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"","content":{"application/json":{"schema":{"type":"object","additionalProperties":{"type":"integer"},"example":{"03d516a9df":5,"b9d5ad8e13":1}}}}},"401":{"description":"Authorization required."}}}
+>
+  
+</StatusCodes>
+
+
+      
