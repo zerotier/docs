@@ -35,3 +35,4 @@ build/
 .docusaurus/
 .yarn/
 .env
+/bin/*

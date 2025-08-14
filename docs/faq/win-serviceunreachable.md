@@ -1,10 +1,13 @@
 ---
-title: (Win) System Service Not Reachable by UI
-description: On windows, system service becomes unreachable by UI or via API. This is a known issue and how to work around it.
-tags: [windows, troubleshooting, flag]
+title: Windows System Service Not Reachable by UI
+description: How to fix when ZeroTier UI cannot connect to the system service on Windows
+tags: [troubleshooting, windows, flag]
+displayed_sidebar: docsSidebar
 ---
 
 Occasionally, the system service will become unreachable from the ZeroTier UI client. Most often this happens when the ZeroTier service has been restarted, and also if there is a custom local.conf file in the ZeroTier/One folder. The problem is a windows service claiming the 9993 port before the ZeroTier system service can.
+
+ZeroTier on your device is split into the UI/CLI which connect to a separate system service. Occasionally, the frontend UI and/or CLI will lose connection to the ZeroTier system service.
 
 ## Confirm you have this specific issue
 
@@ -44,4 +47,4 @@ Try to delete the entry
 netsh interface portproxy delete help
 ```
 
-Or try killing Docker or WSL and see if the problem goes away. [Let us know](https://discuss.zerotier.com/c/community-support/8) what you find out.
+Or try killing Docker or WSL and see if the problem goes away.

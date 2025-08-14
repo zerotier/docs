@@ -88,9 +88,9 @@ All pages on this site should be appropriately tagged.
 
 ### Content Type Tags
 
-- `tutorial`, `examples`, `installation`
+- `tutorial`, `how-to`, `explanation`, `reference`, `examples`, `installation`
 - `security`, `gaming`
-- `faq`, `hub`, `subpage`, `troubleshooting`
+- `faq`, `hub`, `troubleshooting`
 
 ### Account Tags
 
@@ -100,4 +100,3 @@ All pages on this site should be appropriately tagged.
 ### Meta Tags
 
 - `flag`, `meta`, `deprecated`
-
